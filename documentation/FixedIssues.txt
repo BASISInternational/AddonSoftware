@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2024-07-05
+ Report Date:   2024-07-15
  Report Branch: AddonSoftware 24.10
  Last Release:  AddonSoftware 24.02
 =======================================================================================================================================
@@ -117,6 +117,16 @@ Message:
 Bug 10905: Modified the Install and Upgrade Wizards to copy addhelp.jar
 from the download installation when the installation is using the Addon
 help file.
+----
+Modified: ad/src/adx_installwiz.aon
+Modified: ad/src/adx_upgradewiz.aon
+=======================================================================================================================================
+Revision: 992d75f4e683fee4356ec50c4dce1385caa5d873
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 7/15/2024 11:28:50 AM
+Message:
+Bug 10905: setPosixFilePermissions(...) does NOT work on Windows OS.
+Replaced with setExecutable(1,0), setReadable(1,0) and setWritable(1,0).
 ----
 Modified: ad/src/adx_installwiz.aon
 Modified: ad/src/adx_upgradewiz.aon
