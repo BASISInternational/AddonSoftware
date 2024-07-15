@@ -193,8 +193,8 @@ rem --- Clone and pull branch(s) from Git repository to newAonLoc
     aonJar!=new File(newAonLoc$+"/aon/addonprop.jar")
     propJar!=new File(newAonLoc$+"/aon/prop/addonprop.jar")
     aonJar!.renameTo(propJar!)
-    filePerms!=PosixFilePermissions.fromString("rw-rw-rw-")
-    Files.setPosixFilePermissions(aonJar!,filePerms!)
+    aonJar!.setReadable(1,0)
+    aonJar!.setWritable(1,0)
 
     rem --- Add addonhelp.jar from the download installation, BBjHome
     if help% then
@@ -202,14 +202,15 @@ rem --- Clone and pull branch(s) from Git repository to newAonLoc
     
         call pgmdir$+"adc_copydir.aon",bbjHome$+"/apps/aon/help",newAonLoc$+"/aon/help",rdForm!,0,status
         helpDir!=new File(newAonLoc$+"/aon/help")
-        if helpDir!.isDirectory then    
-            dirPerms!=PosixFilePermissions.fromString("rwxrwxrwx")
-            Files.setPosixFilePermissions(helpDir!,dirPerms!)
+        if helpDir!.isDirectory() then    
+            helpDir!.setExecutable(1,0)
+            helpDir!.setReadable(1,0)
+            helpDir!.setWritable(1,0)
         endif
         helpJar!=new File(newAonLoc$+"/aon/help/addonhelp.jar")
         if helpJar!.isFile() then    
-            filePerms!=PosixFilePermissions.fromString("rw-rw-rw-")
-            Files.setPosixFilePermissions(helpJar!,filePerms!)
+            helpJar!.setReadable(1,0)
+            helpJar!.setWritable(1,0)
         endif
     
         rem --- Remove busy/working image from progress meter

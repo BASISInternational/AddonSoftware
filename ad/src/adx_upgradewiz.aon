@@ -370,14 +370,15 @@ rem --- If using addonhelp.jar, update it from the download installation, BBjHom
         
         call pgmdir$+"adc_copydir.aon",bbjHome$+"/apps/aon/help",newAonLoc$+"/help",rdForm!,0,status
         helpDir!=new File(newAonLoc$+"/help")
-        if helpDir!.isDirectory then    
-            dirPerms!=PosixFilePermissions.fromString("rwxrwxrwx")
-            Files.setPosixFilePermissions(helpDir!,dirPerms!)
+        if helpDir!.isDirectory() then    
+            helpDir!.setExecutable(1,0)
+            helpDir!.setReadable(1,0)
+            helpDir!.setWritable(1,0)
         endif
         helpJar!=new File(newAonLoc$+"/help/addonhelp.jar")
         if helpJar!.isFile() then    
-            filePerms!=PosixFilePermissions.fromString("rw-rw-rw-")
-            Files.setPosixFilePermissions(helpJar!,filePerms!)
+            helpJar!.setReadable(1,0)
+            helpJar!.setWritable(1,0)
         endif
     endif
 
