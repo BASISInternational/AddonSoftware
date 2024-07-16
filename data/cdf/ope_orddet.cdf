@@ -289,6 +289,7 @@ rem --- Initialize/update OPT_INVKITDET Kit Components grid for this detail line
 				endif
 				optInvKitDet.qty_backord=optInvKitDet.qty_ordered-optInvKitDet.qty_shipped
 
+rem wgh ... 10754
 				rem --- Update unit_price and disc_percent if qty_ordered changed
 				prior_unit_price=optInvKitDet.unit_price
 				if prior_qty_ordered<>optInvKitDet.qty_ordered then
@@ -322,6 +323,7 @@ rem --- Initialize/update OPT_INVKITDET Kit Components grid for this detail line
 					optInvKitDet.disc_percent=disc
 				endif
 
+rem wgh ... 10754
 				rem --- Update ext_price and taxable_amt if unit_price or qty_shipped changed
 				if prior_unit_price<>optInvKitDet.unit_price or prior_qty_shipped<>optInvKitDet.qty_shipped then
 					optInvKitDet.ext_price=round(optInvKitDet.qty_shipped * optInvKitDet.unit_price, 2)
@@ -353,6 +355,7 @@ rem --- Initialize/update OPT_INVKITDET Kit Components grid for this detail line
 				callpoint!.setDevObject("shortageVect",shortage_vect!)
 			wend
 
+rem wgh ... 10754 ... OK
 			rem --- For non-priced Kits, make updates for changes made to the Kit in case it has custom components
 			if callpoint!.getDevObject("priced_kit")="N" then
 				rem --- Update kit's detail row and Totals tab
@@ -408,6 +411,7 @@ rem --- Initialize/update OPT_INVKITDET Kit Components grid for this detail line
 :				"",
 :				dflt_data$[all]
 
+rem wgh ... 10754 ... OK
 			rem --- For non-priced Kits, make updates for changes made in the Kit Components grid
 			if callpoint!.getDevObject("kit_details_changed")="Y" and callpoint!.getDevObject("priced_kit")="N" then
 				rem --- Update kit's detail row and Totals tab
@@ -1244,7 +1248,7 @@ rem --- Items or warehouses are different: uncommit previous
 						ivm_itemmast_dev=fnget_dev("IVM_ITEMMAST")
 						dim prior_itemmast$:fnget_tpl$("IVM_ITEMMAST")
 						read record (ivm_itemmast_dev, key=firm_id$+prior_item$, dom=*next) prior_itemmast$
-						if pos(prior_itemmast.kit$="YP) then
+						if pos(prior_itemmast.kit$="YP") then
 							optInvKitDet_dev=fnget_dev("OPT_INVKITDET")
 							dim optInvKitDet$:fnget_tpl$("OPT_INVKITDET")
 							optInvKitDet_key$=firm_id$+ar_type$+cust$+order$+invoice_no$+seq$
@@ -4004,6 +4008,8 @@ rem =========================================================
 updateKitTotals: rem --- Update kit detail row with totals for the sum of its components
 	rem    IN:	key_pfx$
 rem =========================================================
+	if callpoint!.getDevObject("priced_kit")="N" then return
+
 	optInvKitDet_dev=fnget_dev("OPT_INVKITDET")
 	dim optInvKitDet$:fnget_tpl$("OPT_INVKITDET")
 
