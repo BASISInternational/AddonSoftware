@@ -9,7 +9,7 @@ rem --- Kitted items must be phantom bills
 	dim ivm01a$:fnget_tpl$("IVM_ITEMMAST")
 	findrecord(ivm01_dev,key=firm_id$+item_id$,dom=*next)ivm01a$
 	callpoint!.setDevObject("kit",ivm01a.kit$) 
-	if ivm01a.kit$<>"N" then
+	if pos(ivm01a.kit$="YP") then
 		callpoint!.setColumnData("BMM_BILLMAST.PHANTOM_BILL","Y",1)
 		callpoint!.setColumnEnabled("BMM_BILLMAST.PHANTOM_BILL",0)
 	endif
@@ -201,7 +201,7 @@ rem "Inventory Inactive Feature"
 
 rem --- Kitted items must be phantom bills
 	callpoint!.setDevObject("kit",ivm01a.kit$) 
-	if ivm01a.kit$<>"N" then
+	if pos(ivm01a.kit$="YP") then
 		callpoint!.setColumnData("BMM_BILLMAST.PHANTOM_BILL","Y",1)
 		callpoint!.setColumnEnabled("BMM_BILLMAST.PHANTOM_BILL",0)
 	endif

@@ -488,7 +488,7 @@ if ivm01a.item_inactive$="Y" then
 endif
 
 rem --- Can't make transactions for kits
-	if ivm01a.kit$<>"N" then
+	if pos(ivm01a.kit$="YP") then
 		msg_id$="IV_KIT_TRANS"
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(ivm01a.item_id$,2)

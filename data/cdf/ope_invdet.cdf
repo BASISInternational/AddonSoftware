@@ -141,7 +141,7 @@ rem --- Warehouse and Item must be correct, don't let user leave corrupt row
 	endif
 
 rem --- Initialize/update OPT_INVKITDET Kit Components grid for this detail line's kit
-	if callpoint!.getDevObject("kit")="Y" and num(callpoint!.getColumnData("OPE_INVDET.QTY_ORDERED"))<>0 then
+	if callpoint!.getDevObject("kit")<>"N" and num(callpoint!.getColumnData("OPE_INVDET.QTY_ORDERED"))<>0 then
 		rem --- Get current and prior values
 		dim kitDetailLine$:fnget_tpl$("OPE_INVDET")
 		kitDetailLine$=rec_data$
@@ -554,14 +554,29 @@ rem --- Initialize "kit" DevObject
 	item$=callpoint!.getColumnData("OPE_INVDET.ITEM_ID")
 	ivm01a_key$=firm_id$+item$
 	find record (ivm01_dev,key=ivm01a_key$,err=*next)ivm01a$
-	if ivm01a.kit$="Y" then
-		callpoint!.setDevObject("kit","Y")
-		callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", 0)
-		callpoint!.setOptionEnabled("RCPR",0)
-	else
+	if pos(ivm01a.kit$="YP")=0 then
+		rem --- Regular non-kit item
 		callpoint!.setDevObject("kit","N")
+		callpoint!.setDevObject("priced_kit","N")
+		callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", 1)
+		callpoint!.setOptionEnabled("RCPR",1)
+
+	else
+		if ivm01a.kit$="Y" then
+			rem --- Non-priced kit
+			callpoint!.setDevObject("kit","Y")
+			callpoint!.setDevObject("priced_kit","N")
+			callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", 0)
+			callpoint!.setOptionEnabled("RCPR",0)
+		endif
+		if ivm01a.kit$="P" then
+			rem --- Priced kit
+			callpoint!.setDevObject("kit","Y")
+			callpoint!.setDevObject("priced_kit","Y")
+			callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", 1)
+			callpoint!.setOptionEnabled("RCPR",1)
+		endif
 	endif
-	callpoint!.setDevObject("priced_kit","N")
 	callpoint!.setDevObject("kit_component","N")
 
 rem --- Disable by line type (Needed because Barista is skipping Line Code)
@@ -1229,7 +1244,7 @@ rem --- Items or warehouses are different: uncommit previous
 					ivm_itemmast_dev=fnget_dev("IVM_ITEMMAST")
 					dim prior_itemmast$:fnget_tpl$("IVM_ITEMMAST")
 					read record (ivm_itemmast_dev, key=firm_id$+prior_item$, dom=*next) prior_itemmast$
-					if prior_itemmast.kit$="Y" then
+					if pos(prior_itemmast.kit$="YP") then
 						optInvKitDet_dev=fnget_dev("OPT_INVKITDET")
 						dim optInvKitDet$:fnget_tpl$("OPT_INVKITDET")
 						optInvKitDet_key$=firm_id$+ar_type$+cust$+order$+invoice_no$+seq$
@@ -1856,7 +1871,7 @@ rem --- Initialize UM_SOLD ListButton for a new or changed item
 	endif
 
 rem --- Initialize "kit" DevObject
-	if ivm01a.kit$<>"N" then
+	if pos(ivm01a.kit$="YP") then
 		rem --- Can NOT dropship a kit
 		file$ = "OPC_LINECODE"
 		opcLineCode_dev=fnget_dev("OPC_LINECODE")
@@ -3522,7 +3537,7 @@ rem =========================================================
 		if cvs(bmmBillMat.obsolt_date$,2)<>"" and sysinfo.system_date$>=bmmBillMat.obsolt_date$ then continue
 		redim ivm01a$
 		readrecord(ivm01_dev,key=firm_id$+bmmBillMat.item_id$,dom=*next)ivm01a$
-		if ivm01a.kit$="Y" then
+		if pos(ivm01a.kit$="YP") then
 			explodeKey$=kitKey$
 			explodeItem$=kit_item$
 			explodeOrdered=kit_ordered

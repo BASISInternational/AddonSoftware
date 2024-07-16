@@ -393,7 +393,7 @@ rem --- Item ID is disabled except for a new row, so can init entire new row her
 	dim ivm_itemwhse$:fnget_tpl$("IVM_ITEMWHSE")
 	findrecord(ivm_itemmast_dev,key=firm_id$+item_id$,dom=*next)ivm_itemmast$
 	rem --- A kit is a non-stock phantom BOM, and cannot be used here
-	if ivm01a.kit$<>"N" then
+	if pos(ivm01a.kit$="YP") then
 		msg_id$="SF_KIT_PHANTOM"
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(ivm01a.item_id$,2)

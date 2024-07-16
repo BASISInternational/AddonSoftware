@@ -168,7 +168,7 @@ rem --- Main
             else
                 redim ivm01a$
                 findrecord(ivm01_dev,key=firm_id$+ope11a.item_id$,dom=*next)ivm01a$
-                if ivm01a.kit$="N" then
+                if pos(ivm01a.kit$="YP")=0 then
                     gosub doDetailLine
                 else
                     rem --- Explode kit into its components

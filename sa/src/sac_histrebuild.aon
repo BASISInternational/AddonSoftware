@@ -197,7 +197,7 @@ rem --- Update Sales Analysis
             gosub updateSalesAnalysis
 
             rem --- Do sales analysis for both the kit AND it's components
-            if kit$<>"N" then
+            if pos(kit$="YP") then
                 rem --- Explode this kit into its components
                 optInvKitDet_key$=firm_id$+opt11a.ar_type$+opt11a.customer_id$+opt11a.order_no$+opt11a.ar_inv_no$+opt11a.internal_seq_no$
                 opt11a_tpl$=fattr(opt11a$)

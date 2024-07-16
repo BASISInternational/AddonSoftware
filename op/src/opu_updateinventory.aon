@@ -467,7 +467,7 @@ rem --- Read next invoice header --- Main Loop Starts
 
             rem --- Update kit components
             findrecord(ivm01_dev,key=firm_id$+ope11a.item_id$,dom=*next)ivm01a$
-            if ivm01a.kit$<>"N" then
+            if pos(ivm01a.kit$="YP") then
                 optInvKitDet_key$=firm_id$+ope11a.ar_type$+ope11a.customer_id$+ope11a.order_no$+ope11a.ar_inv_no$+ope11a.internal_seq_no$
                 read(optInvKitDet_dev,key=optInvKitDet_key$,dom=*next)
                 while 1

@@ -175,7 +175,7 @@ rem --- Read item and warehouse records
     find record (itemwhse_dev, key=firm_id$+whse$+item$, dom=*continue) itemwhse_rec$
 
     rem --- Skip kits when doing costing
-    if action$="C" and itemmast_rec.kit$<>"N" then continue
+    if action$="C" and pos(itemmast_rec.kit$="YP") then continue
 
     rem --- Skip non-priced kits when doing pricing
     if pos(action$="PR") and itemmast_rec.kit$="Y" then continue

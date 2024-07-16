@@ -200,7 +200,7 @@ rem --- Rebuild From ope-11 Committed
             if pos(ope11a.trans_status$="ER")=0 then continue
             redim ivm01a$
             readrecord(ivm01_dev,key=ope11a.firm_id$+ope11a.item_id$,dom=*next)ivm01a$
-            if ivm01a.kit$<>"N" then continue
+            if pos(ivm01a.kit$="YP") then continue
 			total_recs=total_recs+1
 			if mod(total_recs,milestone)=0 call stbl("+DIR_PGM")+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
             find record (ope01_dev,key=ope11a.firm_id$+ope11a.ar_type$+ope11a.customer_id$+ope11a.order_no$+ope11a.ar_inv_no$,dom=*continue) ope01a$; rem "Check header records for quotes
@@ -275,7 +275,7 @@ rem --- Rebuild From Shop Floor Committed
             if sfe25a.firm_id$<>firm_id$ then break
             redim ivm01a$
             readrecord(ivm01_dev,key=sfe25a.firm_id$+sfe25a.item_id$,dom=*next)ivm01a$
-            if ivm01a.kit$<>"N" then continue
+            if pos(ivm01a.kit$="YP") then continue
 			total_recs=total_recs+1
             if mod(total_recs,milestone)=0 call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
             found=0
@@ -319,7 +319,7 @@ rem --- Rebuild From Shop Floor Committed
             if sfe23a.firm_id$<>firm_id$ then break
             redim ivm01a$
             readrecord(ivm01_dev,key=sfe23a.firm_id$+sfe23a.item_id$,dom=*next)ivm01a$
-            if ivm01a.kit$<>"N" then continue
+            if pos(ivm01a.kit$="YP") then continue
 			total_recs=total_recs+1
             if mod(total_recs,milestone)=0 call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
             found=0
