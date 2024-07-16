@@ -326,7 +326,7 @@ rem --- Set defaults for new record
 	endif
 
 rem --- Disable fields for kitted items
-	if ivm01a.kit$<>"N" then
+	if pos(ivm01a.kit$="YP") then
 		callpoint!.setColumnData("BMM_BILLMAT.WO_REF_NUM","",1)
 		thisRow=callpoint!.getValidationRow()
 		callpoint!.setColumnEnabled(thisRow,"BMM_BILLMAT.WO_REF_NUM",0)
@@ -596,7 +596,7 @@ rem ========================================================
 		dim ivm01a$:fnget_tpl$("IVM_ITEMMAST")
 		ivm01a_key$=firm_id$+callpoint!.getColumnData("BMM_BILLMAT.ITEM_ID")
 		find record (ivm01_dev,key=ivm01a_key$,err=*next)ivm01a$
-		if ivm01a.kit$<>"N" then
+		if pos(ivm01a.kit$="YP") then
 			rem --- Disable fields for kitted items
 			enable=0
 		else

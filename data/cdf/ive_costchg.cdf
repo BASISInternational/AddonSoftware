@@ -149,7 +149,7 @@ if ivm01a.item_inactive$="Y" then
 endif
 
 rem --- Can't change cost for kits, which is the sum of the cost of its components
-	if ivm01a.kit$<>"N" then
+	if pos(ivm01a.kit$="YP") then
 		msg_id$="IV_KIT_COST_CHNG"
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(ivm01a.item_id$,2)

@@ -42,10 +42,12 @@ rem --- Disable fields, set globals
 				callpoint!.setColumnEnabled("OPE_ADDL_OPTS.COMMIT_FLAG",  -1)
 				callpoint!.setColumnEnabled("OPE_ADDL_OPTS.PRINTED", -1)
 			else
-				rem --- The kit itself, not a component
-				callpoint!.setColumnEnabled("OPE_ADDL_OPTS.STD_LIST_PRC", -1)
-				callpoint!.setColumnEnabled("OPE_ADDL_OPTS.DISC_PERCENT",  -1)
-				callpoint!.setColumnEnabled("OPE_ADDL_OPTS.MAN_PRICE", -1)
+				if callpoint!.getDevObject("priced_kit")="N" then
+					rem --- The non-priced kit itself, not a component
+					callpoint!.setColumnEnabled("OPE_ADDL_OPTS.STD_LIST_PRC", -1)
+					callpoint!.setColumnEnabled("OPE_ADDL_OPTS.DISC_PERCENT",  -1)
+					callpoint!.setColumnEnabled("OPE_ADDL_OPTS.MAN_PRICE", -1)
+				endif
 			endif
 		endif
 	else

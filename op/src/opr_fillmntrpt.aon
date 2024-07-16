@@ -230,7 +230,7 @@ rem --- Main Loop Starts
             rem --- Explode kits into their components
             redim ivmItemMast$
             findrecord(ivmItemMast_dev,key=firm_id$+optInvDet.item_id$,dom=*next)ivmItemMast$
-            if ivmItemMast.kit$="N" then
+            if pos(ivmItemMast.kit$="YP")=0 then
                 gosub doDetailLine
             else
                 rem --- Explode this kit into its components

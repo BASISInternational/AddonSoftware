@@ -326,7 +326,7 @@ rem --- Main read
             gosub updateSalesAnalysis
 
         rem --- Do sales analysis for both the kit AND it's components
-            if kit$<>"N" then
+            if pos(kit$="YP") then
                 rem --- Explode this kit into its components
                 optInvKitDet_key$=firm_id$+ope11a.ar_type$+ope11a.customer_id$+ope11a.order_no$+ope11a.ar_inv_no$+ope11a.internal_seq_no$
                 ope11a_tpl$=fattr(ope11a$)
@@ -411,7 +411,7 @@ no_to_update: rem --- NO to Update: Clear On-Sales-Register Flags
 
                 rem --- Update trans_status of kit components
                 findrecord(ivm01_dev,key=firm_id$+ope11a.item_id$,dom=*next)ivm01a$
-                if kit$<>"N" then
+                if pos(kit$="YP") then
                     optInvKitDet_key$=firm_id$+ope11a.ar_type$+ope11a.customer_id$+ope11a.order_no$+ope11a.ar_inv_no$+ope11a.internal_seq_no$
                     read(optInvKitDet_dev,key=optInvKitDet_key$,dom=*next)
                     while 1

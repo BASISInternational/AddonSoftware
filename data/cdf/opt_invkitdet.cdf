@@ -943,7 +943,7 @@ rem "Inventory Inactive Feature"
 	endif
 
 rem --- Kits not allowed in the Kit Components grid
-	if ivm01a.kit$<>"N" then
+	if pos(ivm01a.kit$="YP") then
 		msg_id$="OP_KIT_NOT_ALLOW"
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(ivm01a.item_id$,2)

@@ -178,7 +178,7 @@ rem --- Header loop
             readrecord(ivmItemWhse_dev,key=firm_id$+ope11a.warehouse_id$+ope11a.item_id$,dom=*next)ivmItemWhse$
 
             if pos(opm02a.line_type$="NOM")=0
-                if opm02a.dropship$<>"Y" and ivm01a.kit$="N" then
+                if opm02a.dropship$<>"Y" and pos(ivm01a.kit$="YP")=0 then
                     iv_items$[1]=ope11a.warehouse_id$
                     iv_items$[2]=ope11a.item_id$
                     iv_items$[3]=""
@@ -235,7 +235,7 @@ rem --- Header loop
                 ope01a.total_sales=ope01a.total_sales+ope11a.ext_price-x6
             endif
             rem --- For all kits use components
-            if ivm01a.kit$<>"N" then
+            if pos(ivm01a.kit$="YP") then
                 ope01a.total_cost=ope01a.total_cost+ope11a.unit_cost*(ope11a.qty_shipped-x5)
             endif
             precision num(ivs01a.precision$)

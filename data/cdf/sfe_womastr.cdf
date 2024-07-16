@@ -1316,7 +1316,7 @@ rem --- Can't manufacture kits
 	ivm01_dev=fnget_dev("IVM_ITEMMAST")
 	dim ivm01a$:fnget_tpl$("IVM_ITEMMAST")
 	findrecord(ivm01_dev,key=firm_id$+pad(item_id$,len(ivm01a.item_id$),"L"," "),dom=*next)ivm01a$
-	if ivm01a.kit$<>"N" then
+	if pos(ivm01a.kit$="YP") then
 		msg_id$="SF_KIT_WO"
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(ivm01a.item_id$,2)
@@ -1427,7 +1427,7 @@ if ivm01a.item_inactive$="Y" then
 endif
 
 rem --- Can't manufacture kits
-	if ivm01a.kit$<>"N" then
+	if pos(ivm01a.kit$="YP") then
 		msg_id$="SF_KIT_WO"
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(ivm01a.item_id$,2)

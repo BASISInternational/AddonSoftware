@@ -232,7 +232,7 @@ rem --- ivm-01 Item Master
     endif
 
 rem --- Kits are not stocked, so do not commit/uncommit them
-    if ivm01a.kit$<>"N" then goto done
+    if pos(ivm01a.kit$="YP") then goto done
 
 rem --- ivm-02 Warehouse
 

@@ -155,6 +155,7 @@ rem --- Main
                 item_description$ = func.displayDesc(ivm01a.item_desc$)
 				lotser_flag$ = ivm01a.lotser_flag$
                 kit$ = ivm01a.kit$
+                if kit$=" " then kit$="N"
                 if kit$="Y" then priced_kit$="N"
                 if kit$="P" then
                     kit$="Y"
