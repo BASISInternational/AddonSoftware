@@ -3720,6 +3720,8 @@ rem =========================================================
 updateKitTotals: rem --- Update kit detail row with totals for the sum of its components
 	rem    IN:	key_pfx$
 rem =========================================================
+	if callpoint!.getDevObject("priced_kit")="N" then return
+
 	optInvKitDet_dev=fnget_dev("OPT_INVKITDET")
 	dim optInvKitDet$:fnget_tpl$("OPT_INVKITDET")
 
