@@ -73,9 +73,13 @@ rem --- remove column sorting
 	grid!.unsort()
 
 [[GLT_BANKOTHER.AREA]]
-rem --- Skip transactions after current statement date
+rem --- Skip transactions after current statement date or if not same gl acct as entered on main form
 	stmtdate$=callpoint!.getDevObject("stmtdate")
+	glacct$=callpoint!.getDevObject("glacct")
 	if callpoint!.getColumnData("GLT_BANKOTHER.TRNS_DATE")>stmtdate$ then
+		callpoint!.setStatus("SKIP")
+	endif
+	if callpoint!.getColumnData("GLT_BANKOTHER.GL_ACCOUNT")<>glacct$ then
 		callpoint!.setStatus("SKIP")
 	endif
 
@@ -145,7 +149,9 @@ rem --- Make Number, Type, Trans Date, Amount, Cash Rec Cd and Code columns sort
 rem --- Get stmtdate in case launched via All Transactions button on GLM_BANKMASTER form
 	rdFuncSpace!=BBjAPI().getGroupNamespace()
 	stmtdate$=rdFuncSpace!.getValue(stbl("+USER_ID")+": BANKMASTER stmtdate",err=*next)
-	if cvs(stmtdate$,2)<>"" then callpoint!.setDevObject("stmtdate",stmtdate$)
+	glacct$=rdFuncSpace!.getValue(stbl("+USER_ID")+": BANKMASTER glacct",err=*next)
+	callpoint!.setDevObject("stmtdate",stmtdate$)
+	callpoint!.setDevObject("glacct",glacct$)
 
 	rem --- Let GLM_BANKMASTER form know this grid is in use in case it was launched via All Transactions button
 	rdFuncSpace!.setValue(stbl("+USER_ID")+": GLT_BANKOTHER","In Use")

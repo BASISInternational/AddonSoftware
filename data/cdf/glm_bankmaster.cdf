@@ -1,3 +1,11 @@
+[[GLM_BANKMASTER.ADIS]]
+rem --- enable All Transactions button only if there is a statement date
+	if cvs(callpoint!.getColumnData("GLM_BANKMASTER.CURSTM_DATE"),2)<>""
+		callpoint!.setOptionEnabled("TRAN",1)
+	else
+		callpoint!.setOptionEnabled("TRAN",0)
+	endif
+
 [[GLM_BANKMASTER.ADTW]]
 rem " --- Recalc Summary Info
 
@@ -197,10 +205,12 @@ rem " --- Recalc Summary Info
 	gosub calc_totals
 
 [[GLM_BANKMASTER.AOPT-TRAN]]
-rem --- Pass current statement date to check detail and deposits/other transaction grids
+rem --- Pass current statement date and gl account to check detail and deposits/other transaction grids
 	stmtdate$=callpoint!.getColumnData("GLM_BANKMASTER.CURSTM_DATE")
+	glacct$=callpoint!.getColumnData("GLM_BANKMASTER.GL_ACCOUNT")
 	rdFuncSpace!=BBjAPI().getGroupNamespace()
 	rdFuncSpace!.setValue(stbl("+USER_ID")+": BANKMASTER stmtdate",stmtdate$)
+	rdFuncSpace!.setValue(stbl("+USER_ID")+": BANKMASTER glacct",glacct$)
 
 rem --- Set arguments to SCALL bax_launch_task.bbj
 	bar_dir$=(new java.io.File(dir(""))).getCanonicalPath()
@@ -240,8 +250,9 @@ rem --- Wait for both grids to exit so amounts on Statement Information tab can 
 	wend
 	gosub calc_totals
 
-rem --- Remove stmtdate from GroupNamespace after the grids have launched
+rem --- Remove stmtdate and glacct from GroupNamespace after the grids have launched
 	rdFuncSpace!.removeValue(stbl("+USER_ID")+": BANKMASTER stmtdate")
+	rdFuncSpace!.removeValue(stbl("+USER_ID")+": BANKMASTER glacct")
 
 [[GLM_BANKMASTER.ARAR]]
 rem --- Display Bank Account Information
@@ -292,6 +303,8 @@ rem --- Warn if same Bank Account Code used for multiple GL Accounts
 			gosub disp_message
 		endif
 	wend
+
+	callpoint!.setOptionEnabled("TRAN",0)
 
 [[GLM_BANKMASTER.BDTW]]
 rem --- Pass current statement date to check detail and other transaction listings
@@ -439,6 +452,8 @@ rem --- Current statement date must be in prior, current or next fiscal year
 		callpoint!.setStatus("ABORT")
 		break
 	endif
+
+	callpoint!.setOptionEnabled("TRAN",1)
 
 rem --- Recalc Summary Info
 	gosub calc_totals
