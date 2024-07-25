@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.glm_bankmaster">77F5B7263DE0B2D37BE2B56FB18269BC</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glm_bankmaster">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glm_bankmaster">20060609</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.glm_bankmaster">20240320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.glm_bankmaster">20240320</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.glm_bankmaster">172352</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.glm_bankmaster">20240725</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.glm_bankmaster">20240725</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.glm_bankmaster">181854</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.glm_bankmaster"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.glm_bankmaster">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.glm_bankmaster">C:/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.glm_bankmaster"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.glm_bankmaster"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.glm_bankmaster">T</DD_ATTR_FTYP>
@@ -91,6 +91,10 @@
 	</ALIAS>
 	<ALIAS id="ddm_table_cpro">
 		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.glm_bankmasteradis">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.glm_bankmasteradis">GLM_BANKMASTER  </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.glm_bankmasteradis">ADIS</DD_ATTR_CPRO>
+		</RECORD>
 		<RECORD id="ddm_table_cpro.glm_bankmasteradtw">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.glm_bankmasteradtw">GLM_BANKMASTER  </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.glm_bankmasteradtw">ADTW</DD_ATTR_CPRO>
@@ -160,6 +164,10 @@
 		<RECORD id="ddm_table_opts.glm_bankmasterv">
 			<DD_TABLE_ALIAS id="ddm_table_opts.glm_bankmasterv">GLM_BANKMASTER  </DD_TABLE_ALIAS>
 			<DD_ATTR_OPTS id="ddm_table_opts.glm_bankmasterv">V</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.glm_bankmasterw">
+			<DD_TABLE_ALIAS id="ddm_table_opts.glm_bankmasterw">GLM_BANKMASTER  </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.glm_bankmasterw">W</DD_ATTR_OPTS>
 		</RECORD>
 		<RECORD id="ddm_table_opts.glm_bankmasterr">
 			<DD_TABLE_ALIAS id="ddm_table_opts.glm_bankmasterr">GLM_BANKMASTER  </DD_TABLE_ALIAS>
@@ -351,7 +359,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_bankmaster002">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_bankmaster002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_bankmaster002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_bankmaster002">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_bankmaster002">C:/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_bankmaster002"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_bankmaster002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_bankmaster002"></DD_ATTR_CTLY>
@@ -453,7 +461,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_bankmaster004">20190220</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_bankmaster004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_bankmaster004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_bankmaster004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_bankmaster004">C:/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_bankmaster004">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_bankmaster004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_bankmaster004"></DD_ATTR_CTLY>
@@ -606,7 +614,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_bankmaster007">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_bankmaster007"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_bankmaster007"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_bankmaster007">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_bankmaster007">C:/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_bankmaster007"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_bankmaster007"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_bankmaster007"></DD_ATTR_CTLY>
@@ -708,7 +716,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_bankmaster009">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_bankmaster009"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_bankmaster009"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_bankmaster009">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_bankmaster009">C:/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_bankmaster009"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_bankmaster009"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_bankmaster009"></DD_ATTR_CTLY>
@@ -1122,7 +1130,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.glm_bankmaster012">ine_temp_tab_stop</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.glm_bankmaster012">1</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.glm_bankmaster012"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.glm_bankmaster012">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.glm_bankmaster012">C:/dev_addon/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.glm_bankmaster013">
 			<DD_TABLE_ALIAS id="ddm_table_disp.glm_bankmaster013">GLM_BANKMASTER  </DD_TABLE_ALIAS>
