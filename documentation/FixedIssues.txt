@@ -1,11 +1,31 @@
 =======================================================================================================================================
- Report Date:   2024-07-23
+ Report Date:   2024-07-25
  Report Branch: AddonSoftware 24.11
  Last Release:  AddonSoftware 24.10
 =======================================================================================================================================
 
 24.10 released 7/22/2024
 BBjBaristaAddonDemos2410_07-20-2024_2243.jar
+=======================================================================================================================================
+
+Revision: 39faf410ccca5f1efa2f77e4125652c00451352f
+Author: Christine <chawkins@basis.cloud>
+Date: 7/25/2024 6:35:53 PM
+Message:
+Bug 10912 - GL - Bank Rec All Transactions button throws error if no statement date has been entered
+Bug 10913 - GL - The All Transactions button in Bank Rec shows transactions for all bank/gl accounts, not just the current one
+ - make sure to setDevObject to avoid the error
+ - enable All Transactions button only if there is a statement date to avoid launching empty grids
+ - set current GL Acct in the group namespace to pass to the All Transactions grid launches so grids will display only pertinent transactions
+
+(cherry picked from commit 8f8ff476d558d5a657f41729ec73a27e8f49015e)
+----
+Modified: data/bar/glm_bankmaster.xml
+Modified: data/bar/glt_bankchecks.xml
+Modified: data/bar/glt_bankother.xml
+Modified: data/cdf/glm_bankmaster.cdf
+Modified: data/cdf/glt_bankchecks.cdf
+Modified: data/cdf/glt_bankother.cdf
 =======================================================================================================================================
 
 
