@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2024-07-25
+ Report Date:   2024-07-26
  Report Branch: AddonSoftware 24.11
  Last Release:  AddonSoftware 24.10
 =======================================================================================================================================
@@ -28,4 +28,20 @@ Modified: data/cdf/glt_bankchecks.cdf
 Modified: data/cdf/glt_bankother.cdf
 =======================================================================================================================================
 
+Revision: 1db9cd781d7c957f510a272bc1b2feb6ad004543
+Author: Christine <chawkins@basis.cloud>
+Date: 7/26/2024 3:45:22 PM
+Message:
+Bug 10912 - GL - Bank Rec All Transactions button throws error if no statement date has been entered
+Bug 10913 - GL - The All Transactions button in Bank Rec shows transactions for all bank/gl accounts, not just the current one
+ - previous fix corrected problems with All Transactions button, but caused a new problem when calling up the individual grids such that they didn't display any records.
 
+(cherry picked from commit b5fd208d877674a3008a552de218a2f30e8d62ee)
+----
+Modified: data/bar/glm_bankmaster.xml
+Modified: data/bar/glt_bankchecks.xml
+Modified: data/bar/glt_bankother.xml
+Modified: data/cdf/glm_bankmaster.cdf
+Modified: data/cdf/glt_bankchecks.cdf
+Modified: data/cdf/glt_bankother.cdf
+=======================================================================================================================================
