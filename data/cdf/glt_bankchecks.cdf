@@ -141,8 +141,8 @@ rem --- Get stmtdate in case launched via All Transactions button on GLM_BANKMAS
 	rdFuncSpace!=BBjAPI().getGroupNamespace()
 	stmtdate$=rdFuncSpace!.getValue(stbl("+USER_ID")+": BANKMASTER stmtdate",err=*next)
 	glacct$=rdFuncSpace!.getValue(stbl("+USER_ID")+": BANKMASTER glacct",err=*next)
-	callpoint!.setDevObject("stmtdate",stmtdate$)
-	callpoint!.setDevObject("glacct",glacct$)
+	if cvs(stmtdate$,2)<>"" then callpoint!.setDevObject("stmtdate",stmtdate$)
+	if cvs(glacct$,2)<>"" then callpoint!.setDevObject("glacct",glacct$)
 
 	rem --- Let GLM_BANKMASTER form know this grid is in use in case it was launched via All Transactions button
 	rdFuncSpace!.setValue(stbl("+USER_ID")+": GLT_BANKCHECKS","In Use")

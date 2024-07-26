@@ -307,9 +307,11 @@ rem --- Warn if same Bank Account Code used for multiple GL Accounts
 	callpoint!.setOptionEnabled("TRAN",0)
 
 [[GLM_BANKMASTER.BDTW]]
-rem --- Pass current statement date to check detail and other transaction listings
+rem --- Pass current statement date and gl account to check detail and other transaction listings
 	stmtdate$=callpoint!.getColumnData("GLM_BANKMASTER.CURSTM_DATE")
+	glacct$=callpoint!.getColumnData("GLM_BANKMASTER.GL_ACCOUNT")
 	callpoint!.setDevObject("stmtdate",stmtdate$)
+	callpoint!.setDevObject("glacct",glacct$)
 
 [[GLM_BANKMASTER.BNK_ACCT_CD.AVAL]]
 rem --- Do NOT allow the same Bank Account Code for multiple GL Accounts
