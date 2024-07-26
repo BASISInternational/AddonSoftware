@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.glt_bankchecks">020F20F8607CE84F8EA73BA5148B9299</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glt_bankchecks">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glt_bankchecks">20060609</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.glt_bankchecks">20240725</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.glt_bankchecks">20240401</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.glt_bankchecks">175030</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.glt_bankchecks">20240726</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.glt_bankchecks">20240726</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.glt_bankchecks">153530</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.glt_bankchecks"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.glt_bankchecks">C:/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.glt_bankchecks"></DD_ATTR_DKNM>
