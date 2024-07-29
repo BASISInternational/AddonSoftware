@@ -334,10 +334,12 @@ rem --- Assign form input values to local variables
             restart_customer$ = ""
             batch_adhoc_message$ = option!.getOptionData("pick_text")
             send_via_rpt_ctl$ = option!.getOptionData("pick_check")
+            explode_priced_kit$ = option!.getOptionData("explode_priced_k")
         case batch_inv
             restart$ = option!.getOptionData("pick_check")
             restart_customer$ = option!.getOptionData("customer_id")  
             batch_adhoc_message$ = option!.getOptionData("pick_text")
+            explode_priced_kit$ = option!.getOptionData("explode_priced_k")
             break
         case historical
             restart$ = ""
@@ -521,6 +523,7 @@ rem --- Main Read
 		params!.put("BARISTA_WD",dir(""))
         params!.put("LOGO_FILE",logo_filename$)
 		params!.put("BATCH_MESSAGE",batch_adhoc_message$)
+        params!.put("EXPLODE_PRICED_KIT",explode_priced_kit$)
 		
 		params!.put("AR_ADDRESS1",comp$((comp_addrLine_len*0)+1,comp_addrLine_len))
 		params!.put("AR_ADDRESS2",comp$((comp_addrLine_len*1)+1,comp_addrLine_len))

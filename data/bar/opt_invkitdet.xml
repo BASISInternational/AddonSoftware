@@ -4,7 +4,7 @@
 		<ID id="ddm_tables">DDM_TABLES</ID>
 		<RECORD id="ddm_tables.opt_invkitdet">
 			<DD_TABLE_ALIAS id="ddm_tables.opt_invkitdet">OPT_INVKITDET   </DD_TABLE_ALIAS>
-			<DD_ALIAS_DESC id="ddm_tables.opt_invkitdet">Invoice Kit Components</DD_ALIAS_DESC>
+			<DD_ALIAS_DESC id="ddm_tables.opt_invkitdet">Kit Components Grid</DD_ALIAS_DESC>
 			<DD_FILE_NAME id="ddm_tables.opt_invkitdet"></DD_FILE_NAME>
 			<DD_TABLE_PATH id="ddm_tables.opt_invkitdet">[+OPDATA]</DD_TABLE_PATH>
 			<DD_ALIAS_TYPE id="ddm_tables.opt_invkitdet">V</DD_ALIAS_TYPE>
@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.opt_invkitdet"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opt_invkitdet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opt_invkitdet">2460278</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.opt_invkitdet">20240710</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.opt_invkitdet">20240710</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opt_invkitdet">182548</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.opt_invkitdet">20240729</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.opt_invkitdet">20240729</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.opt_invkitdet">133948</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opt_invkitdet"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.opt_invkitdet">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opt_invkitdet">AO_STAT_CUST_ORD</DD_ATTR_DKNM>
@@ -38,7 +38,7 @@
 			<DD_ATTR_PRUN id="ddm_tables.opt_invkitdet"></DD_ATTR_PRUN>
 			<DD_ATTR_PTAB id="ddm_tables.opt_invkitdet">OPT_INVDET      </DD_ATTR_PTAB>
 			<DD_ATTR_SLEV id="ddm_tables.opt_invkitdet"></DD_ATTR_SLEV>
-			<DD_ATTR_WINT id="ddm_tables.opt_invkitdet">Invoice Kit Components</DD_ATTR_WINT>
+			<DD_ATTR_WINT id="ddm_tables.opt_invkitdet">Kit Components Grid</DD_ATTR_WINT>
 			<SQL_DB_ALIAS id="ddm_tables.opt_invkitdet"></SQL_DB_ALIAS>
 			<SQL_CATALOG id="ddm_tables.opt_invkitdet"></SQL_CATALOG>
 			<SQL_SCHEMA id="ddm_tables.opt_invkitdet"></SQL_SCHEMA>
