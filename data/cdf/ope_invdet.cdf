@@ -145,6 +145,8 @@ rem --- Initialize/update OPT_INVKITDET Kit Components grid for this detail line
 		rem --- Get current and prior values
 		dim kitDetailLine$:fnget_tpl$("OPE_INVDET")
 		kitDetailLine$=rec_data$
+		kitDetailLine.qty_shipped=num(callpoint!.getColumnData("<<DISPLAY>>.QTY_SHIPPED_DSP"))
+
 		curr_whse$ = callpoint!.getColumnData("OPE_INVDET.WAREHOUSE_ID")
 		curr_item$ = callpoint!.getColumnData("OPE_INVDET.ITEM_ID")
 		prior_whse$ = callpoint!.getDevObject("prior_whse")
@@ -297,56 +299,63 @@ rem --- Initialize/update OPT_INVKITDET Kit Components grid for this detail line
 				if comp_per_kit<>0 then
 					rem --- Kit standard component
 					optInvKitDet.qty_ordered=round(kit_ordered*comp_per_kit,round_precision)
-					optInvKitDet.qty_shipped=round(kit_shipped*comp_per_kit,round_precision)
+					if kit_commit$="Y" then
+						optInvKitDet.qty_shipped=round(kit_shipped*comp_per_kit,round_precision)
+					else
+						optInvKitDet.qty_shipped=0
+					endif
 				else
 					rem --- Kit custom component
 					rem --- Do NOT change quantities for custom components
 				endif
 				optInvKitDet.qty_backord=optInvKitDet.qty_ordered-optInvKitDet.qty_shipped
 
-				rem --- Update unit_price and disc_percent if qty_ordered changed
-				prior_unit_price=optInvKitDet.unit_price
-				if prior_qty_ordered<>optInvKitDet.qty_ordered then
-					dim pc_files[6]
-					pc_files[1] = fnget_dev("IVM_ITEMMAST")
-					pc_files[2] = fnget_dev("IVM_ITEMWHSE")
-					pc_files[3] = fnget_dev("IVM_ITEMPRIC")
-					pc_files[4] = fnget_dev("IVC_PRICCODE")
-					pc_files[5] = fnget_dev("ARS_PARAMS")
-					pc_files[6] = fnget_dev("IVS_PARAMS")
-					call stbl("+DIR_PGM")+"opc_pricing.aon",
-:						pc_files[all],
-:						firm_id$,
-:						optInvKitDet.warehouse_id$,
-:						optInvKitDet.item_id$,
-:						str(callpoint!.getDevObject("priceCode")),
-:						optInvKitDet.customer_id$,
-:						str(callpoint!.getDevObject("orderDate")),
-:						str(callpoint!.getDevObject("pricingCode")),
-:						optInvKitDet.qty_ordered,
-:						typeflag$,
-:						price,
-:						disc,
-:						status
-					if status=999 then
-						typeflag$="N"
-						price=0
-						disc=0
+				if callpoint!.getDevObject("priced_kit")="N" then
+					rem --- Update unit_price and disc_percent if qty_ordered changed for non-priced kit
+					prior_unit_price=optInvKitDet.unit_price
+					if prior_qty_ordered<>optInvKitDet.qty_ordered then
+						dim pc_files[6]
+						pc_files[1] = fnget_dev("IVM_ITEMMAST")
+						pc_files[2] = fnget_dev("IVM_ITEMWHSE")
+						pc_files[3] = fnget_dev("IVM_ITEMPRIC")
+						pc_files[4] = fnget_dev("IVC_PRICCODE")
+						pc_files[5] = fnget_dev("ARS_PARAMS")
+						pc_files[6] = fnget_dev("IVS_PARAMS")
+						call stbl("+DIR_PGM")+"opc_pricing.aon",
+:							pc_files[all],
+:							firm_id$,
+:							optInvKitDet.warehouse_id$,
+:							optInvKitDet.item_id$,
+:							str(callpoint!.getDevObject("priceCode")),
+:							optInvKitDet.customer_id$,
+:							str(callpoint!.getDevObject("orderDate")),
+:							str(callpoint!.getDevObject("pricingCode")),
+:							optInvKitDet.qty_ordered,
+:							typeflag$,
+:							price,
+:							disc,
+:							status
+						if status=999 then
+							typeflag$="N"
+							price=0
+							disc=0
+						endif
+						optInvKitDet.unit_price=price
+						optInvKitDet.disc_percent=disc
 					endif
-					optInvKitDet.unit_price=price
-					optInvKitDet.disc_percent=disc
-				endif
 
-				rem --- Update ext_price and taxable_amt if unit_price or qty_shipped changed
-				if prior_unit_price<>optInvKitDet.unit_price or prior_qty_shipped<>optInvKitDet.qty_shipped then
-					optInvKitDet.ext_price=round(optInvKitDet.qty_shipped * optInvKitDet.unit_price, 2)
+					rem --- Update ext_price and taxable_amt if unit_price or qty_shipped changed for non-priced kit
+					if prior_unit_price<>optInvKitDet.unit_price or prior_qty_shipped<>optInvKitDet.qty_shipped or
+:					optInvKitDet.commit_flag$<>kit_commit$ then
+						optInvKitDet.ext_price=round(optInvKitDet.qty_shipped * optInvKitDet.unit_price, 2)
 
-					redim ivmItemMast$
-					readrecord(ivmItemMast_dev,key=firm_id$+optInvKitDet.item_id$,dom=*next)ivmItemMast$
-					if (user_tpl.line_taxable$="Y" and ivmItemMast.taxable_flag$="Y") or callpoint!.getDevObject("use_tax_service")="Y" then 
-						optInvKitDet.taxable_amt=optInvKitDet.ext_price
-					else
-						optInvKitDet.taxable_amt=0
+						redim ivmItemMast$
+						readrecord(ivmItemMast_dev,key=firm_id$+optInvKitDet.item_id$,dom=*next)ivmItemMast$
+						if (user_tpl.line_taxable$="Y" and ivmItemMast.taxable_flag$="Y") or callpoint!.getDevObject("use_tax_service")="Y" then 
+							optInvKitDet.taxable_amt=optInvKitDet.ext_price
+						else
+							optInvKitDet.taxable_amt=0
+						endif
 					endif
 				endif
 
@@ -612,7 +621,6 @@ rem --- Set item price if item and whse exist
 		if start_block then
 			find record (fnget_dev(file$), key=firm_id$+wh$+item$, dom=*endif) itemwhse$
 			user_tpl.item_price = itemwhse.cur_price
-			if ivm01a.kit$="P" then callpoint!.setDevObject("priced_kit","Y")
 		endif
 	endif
 
@@ -760,6 +768,7 @@ rem --- Need to commit?
 				callpoint!.setColumnData("OPE_INVDET.TAXABLE_AMT", "0")
 			else
 				callpoint!.setColumnData("<<DISPLAY>>.UNIT_PRICE_DSP", str(callpoint!.getColumnData("OPE_INVDET.EXT_PRICE")))
+				callpoint!.setColumnData("<<DISPLAY>>.QTY_SHIPPED_DSP", "0")
 				callpoint!.setColumnData("OPE_INVDET.EXT_PRICE", "0")
 				callpoint!.setColumnData("OPE_INVDET.TAXABLE_AMT", "0")
 			endif
@@ -1893,9 +1902,9 @@ rem --- Initialize "kit" DevObject
 		else
 			callpoint!.setDevObject("priced_kit","N")
 			callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", 0)
+			callpoint!.setOptionEnabled("RCPR",0)
 		endif
 		callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_COST_DSP",0)
-		callpoint!.setOptionEnabled("RCPR",0)
 
 		rem --- Initialize UNIT_PRICE for newly entered non-priced kits
 		if callpoint!.getGridRowNewStatus(callpoint!.getValidationRow())="Y" and callpoint!.getDevObject("priced_kit")="N" then
@@ -2141,8 +2150,8 @@ rem --- Recalc quantities and extended price
 rem --- Warn if ship quantity is more than currently available.
 	gosub check_ship_qty
 
-rem --- Skip UNIT_PRICE for kits
-	if callpoint!.getDevObject("kit")="Y" then callpoint!.setFocus(num(callpoint!.getValidationRow()),"<<DISPLAY>>.QTY_BACKORD_DSP",1)
+rem --- Skip UNIT_PRICE for non-priced kits
+	if callpoint!.getDevObject("priced_kit")="N" then callpoint!.setFocus(num(callpoint!.getValidationRow()),"<<DISPLAY>>.QTY_BACKORD_DSP",1)
 
 rem --- Enable/disable KITS button
 	gosub able_kits_button
@@ -2924,7 +2933,7 @@ rem ==========================================================================
 	user_tpl.line_prod_type_pr$ = opc_linecode.prod_type_pr$
 
 	if pos(opc_linecode.line_type$="SP")>0 and num(callpoint!.getColumnData("<<DISPLAY>>.QTY_ORDERED_DSP"))<>0 and
-:	callpoint!.isEditMode() and callpoint!.getDevObject("kit")<>"Y" then
+:	callpoint!.isEditMode() and (callpoint!.getDevObject("kit")<>"Y" or callpoint!.getDevObject("priced_kit")="Y") then
 		callpoint!.setOptionEnabled("RCPR",1)
 	else
 		callpoint!.setOptionEnabled("RCPR",0)
@@ -2949,23 +2958,15 @@ rem --- Disable/enable UM Sold
 
 rem --- Disable/enable displayed unit price and quantity ordered
 	if pos(user_tpl.line_type$="NSP") then
-		callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", callpoint!.isEditMode())
+		if callpoint!.getDevObject("kit")<>"Y" or callpoint!.getDevObject("priced_kit")="Y" then
+			callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", callpoint!.isEditMode())
+		else
+			callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", 0)
+		endif
 		callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.QTY_ORDERED_DSP", callpoint!.isEditMode())
 	else
 		callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", 0)
 		callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.QTY_ORDERED_DSP", 0)
-	endif
-
-rem --- Initialize "kit" DevObject
-	ivm01_dev=fnget_dev("IVM_ITEMMAST")
-	ivm01_tpl$=fnget_tpl$("IVM_ITEMMAST")
-	dim ivm01a$:ivm01_tpl$
-	item$=callpoint!.getColumnData("OPE_INVDET.ITEM_ID")
-	ivm01a_key$=firm_id$+item$
-	find record (ivm01_dev,key=ivm01a_key$,err=*next)ivm01a$
-	if ivm01a.kit$="Y" then
-		callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", 0)
-		callpoint!.setOptionEnabled("RCPR",0)
 	endif
 
 rem --- Disable/enable unit cost (can't just enable/disable this field by line type)
@@ -3054,17 +3055,17 @@ clear_all_numerics: rem --- Clear all order detail numeric fields
 rem ==========================================================================
 
 		callpoint!.setColumnData("OPE_INVDET.UNIT_COST", "0")
-		callpoint!.setColumnData("<<DISPLAY>>.UNIT_COST_DSP","0")
+		callpoint!.setColumnData("<<DISPLAY>>.UNIT_COST_DSP","0",1)
 		callpoint!.setColumnData("OPE_INVDET.UNIT_PRICE", "0")
-		callpoint!.setColumnData("<<DISPLAY>>.UNIT_PRICE_DSP","0")
+		callpoint!.setColumnData("<<DISPLAY>>.UNIT_PRICE_DSP","0",1)
 		callpoint!.setColumnData("OPE_INVDET.QTY_ORDERED", "0")
-		callpoint!.setColumnData("<<DISPLAY>>.QTY_ORDERED_DSP","0")
+		callpoint!.setColumnData("<<DISPLAY>>.QTY_ORDERED_DSP","0",1)
 		callpoint!.setColumnData("OPE_INVDET.QTY_BACKORD", "0")
-		callpoint!.setColumnData("<<DISPLAY>>.QTY_BACKORD_DSP","0")
+		callpoint!.setColumnData("<<DISPLAY>>.QTY_BACKORD_DSP","0",1)
 		callpoint!.setColumnData("OPE_INVDET.QTY_SHIPPED", "0")
-		callpoint!.setColumnData("<<DISPLAY>>.QTY_SHIPPED_DSP","0")
+		callpoint!.setColumnData("<<DISPLAY>>.QTY_SHIPPED_DSP","0",1)
 		callpoint!.setColumnData("OPE_INVDET.STD_LIST_PRC", "0")
-		callpoint!.setColumnData("OPE_INVDET.EXT_PRICE", "0")
+		callpoint!.setColumnData("OPE_INVDET.EXT_PRICE", "0",1)
 		callpoint!.setColumnData("OPE_INVDET.TAXABLE_AMT", "0")
 		callpoint!.setColumnData("OPE_INVDET.DISC_PERCENT", "0")
 		callpoint!.setColumnData("OPE_INVDET.COMM_PERCENT", "0")
@@ -3103,8 +3104,8 @@ rem ==========================================================================
 		warn  = 0
 		gosub check_item_whse
 
-		if !user_tpl.item_wh_failed and num(callpoint!.getColumnData("<<DISPLAY>>.QTY_ORDERED_DSP")) and
-:		callpoint!.isEditMode() and callpoint!.getDevObject("kit")<>"Y" then
+		if !user_tpl.item_wh_failed and num(callpoint!.getColumnData("<<DISPLAY>>.QTY_ORDERED_DSP")) and 
+:		callpoint!.isEditMode() and  (callpoint!.getDevObject("kit")<>"Y" or callpoint!.getDevObject("priced_kit")="Y") then
 			callpoint!.setOptionEnabled("RCPR",1)
 		else
 			callpoint!.setOptionEnabled("RCPR",0)
@@ -3433,7 +3434,7 @@ rem =========================================================
 	return
 
 rem =========================================================
-getKitExtendedPrice: rem --- Get a kit's extended price based on the sum of its standard components' extended price.
+getKitExtendedPrice: rem --- Get a non-priced kit's extended price based on the sum of its standard components' extended price.
 	rem    IN:	round_precision
 	rem 		bmmBillMat_dev
 	rem  	bmmBillMat$
@@ -3445,7 +3446,9 @@ getKitExtendedPrice: rem --- Get a kit's extended price based on the sum of its 
 	rem		kitExtendedPrice
 	rem OUT:	kitExtendedPrice
 rem =========================================================
-	rem --- Explode this kit to get it's standard extended price
+	if callpoint!.getDevObject("priced_kit")="Y" then return
+
+	rem --- Explode this non-priced kit to get it's standard extended price
 	read(bmmBillMat_dev,key=firm_id$+kit_item$,dom=*next)
 	while 1
 		kitKey$=key(bmmBillMat_dev,end=*break)
@@ -3456,6 +3459,7 @@ rem =========================================================
 		redim ivm01a$
 		readrecord(ivm01_dev,key=firm_id$+bmmBillMat.item_id$,dom=*next)ivm01a$
 		if ivm01a.kit$="Y" then
+			rem --- Non-priced kit
 			explodeKey$=kitKey$
 			explodeItem$=kit_item$
 			explodeOrdered=kit_ordered
@@ -3635,6 +3639,10 @@ rem =========================================================
 			price=0
 			disc=0
 		endif
+		if callpoint!.getDevObject("priced_kit")="Y" then
+			price=0
+			disc=0
+		endif
 		optInvKitDet.unit_price=price
 
 		optInvKitDet.qty_shipped=round(kit_shipped*bmmBillMat.qty_required,round_precision)
@@ -3717,10 +3725,10 @@ rem =========================================================
 	return
 
 rem =========================================================
-updateKitTotals: rem --- Update kit detail row with totals for the sum of its components
+updateKitTotals: rem --- Update non-priced kit detail row with totals for the sum of its components
 	rem    IN:	key_pfx$
 rem =========================================================
-	if callpoint!.getDevObject("priced_kit")="N" then return
+	if callpoint!.getDevObject("priced_kit")="Y" then return
 
 	optInvKitDet_dev=fnget_dev("OPT_INVKITDET")
 	dim optInvKitDet$:fnget_tpl$("OPT_INVKITDET")
@@ -3790,8 +3798,8 @@ rem =========================================================
 	dim dtl_rec$:dtlg_param$[1,3]
 	dtl_rec$=cast(BBjString, dtlVect!.getItem(callpoint!.getValidationRow()))
 	dtl_rec.conv_factor=num(callpoint!.getColumnData("OPE_INVDET.CONV_FACTOR"))
-	dtl_rec.unit_cost=num(callpoint!.getColumnData("OPE_INVDET.UNIT_COST"))
-	dtl_rec.unit_price=num(callpoint!.getColumnData("OPE_INVDET.UNIT_PRICE"))
+	dtl_rec.unit_cost=num(callpoint!.getColumnData("<<DISPLAY>>.UNIT_COST_DSP"))
+	dtl_rec.unit_price=num(callpoint!.getColumnData("<<DISPLAY>>.UNIT_PRICE_DSP"))
 	dtl_rec.std_list_prc=num(callpoint!.getColumnData("OPE_INVDET.STD_LIST_PRC"))
 	dtl_rec.ext_price=num(callpoint!.getColumnData("OPE_INVDET.EXT_PRICE"))
 	dtl_rec.taxable_amt=num(callpoint!.getColumnData("OPE_INVDET.TAXABLE_AMT"))
@@ -3803,7 +3811,7 @@ rem =========================================================
 	dtlVect!.setItem(callpoint!.getValidationRow(),dtl_rec$)
 	GridVect!.setItem(0,dtlVect!)
 
-	qty_shipped=round(num(callpoint!.getColumnData("OPE_INVDET.QTY_SHIPPED"))*conv_factor,2)
+	qty_shipped=round(num(callpoint!.getColumnData("<<DISPLAY>>.QTY_SHIPPED_DSP"))*conv_factor,2)
 	unit_price=round(kit_unit_price*conv_factor,4)
 	gosub disp_ext_amt
 	gosub manual_price_flag

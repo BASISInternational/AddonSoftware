@@ -130,11 +130,11 @@ rem --- What is extended price?
 		ext_price = round( num(callpoint!.getColumnData("OPT_INVKITDET.EXT_PRICE")), 2 )
 	endif
 
-rem --- Check for minimum line extension
+rem --- Check for minimum line extension for non-priced kit components
 	commit_flag$    = callpoint!.getColumnData("OPT_INVKITDET.COMMIT_FLAG")
 	qty_backordered = num(callpoint!.getColumnData("<<DISPLAY>>.QTY_BACKORD_DSP"))
 	min_ord_amt=callpoint!.getDevObject("min_line_amt")
-	if callpoint!.getDevObject("component_line_type") <> "M" and 
+	if callpoint!.getDevObject("component_line_type") <> "M" and callpoint!.getDevObject("priced_kit") <> "Y" and
 :		qty_backorderd = 0         and 
 :		commit_flag$ = "Y"         and
 :		abs(ext_price) < min_ord_amt 
@@ -151,15 +151,17 @@ rem --- Set taxable amount
 		callpoint!.setColumnData("OPT_INVKITDET.TAXABLE_AMT", str(ext_price))
 	endif
 
-rem --- Set price and discount
-	std_price  = num(callpoint!.getColumnData("OPT_INVKITDET.STD_LIST_PRC"))
-	disc_per   = num(callpoint!.getColumnData("OPT_INVKITDET.DISC_PERCENT"))
-	if std_price then
-		callpoint!.setColumnData("OPT_INVKITDET.DISC_PERCENT", str(round(100 - unit_price * 100 / std_price, 2)))
-	else
-		if disc_per <> 100 then
-			round_precision = num(callpoint!.getDevObject("precision"))
-			callpoint!.setColumnData("OPT_INVKITDET.STD_LIST_PRC", str(round(unit_price * 100 / (100 - disc_per), round_precision)))
+rem --- Set price and discount for non-priced kits
+	if callpoint!.getDevObject("priced_kit") <> "Y" then
+		std_price  = num(callpoint!.getColumnData("OPT_INVKITDET.STD_LIST_PRC"))
+		disc_per   = num(callpoint!.getColumnData("OPT_INVKITDET.DISC_PERCENT"))
+		if std_price then
+			callpoint!.setColumnData("OPT_INVKITDET.DISC_PERCENT", str(round(100 - unit_price * 100 / std_price, 2)))
+		else
+			if disc_per <> 100 then
+				round_precision = num(callpoint!.getDevObject("precision"))
+				callpoint!.setColumnData("OPT_INVKITDET.STD_LIST_PRC", str(round(unit_price * 100 / (100 - disc_per), round_precision)))
+			endif
 		endif
 	endif
 
@@ -171,7 +173,7 @@ rem --- Initialize kit_whse_item_warned flag
 	callpoint!.setDevObject("kit_whse_item_warned","")
 
 rem --- Coming back from Recalc button?
-	if callpoint!.getDevObject("rcpr_row") <> ""
+	if callpoint!.getDevObject("rcpr_row")<>"" and callpoint!.getDevObject("priced_kit")<>"Y" then
 		callpoint!.setFocus(num(callpoint!.getDevObject("rcpr_row")),"<<DISPLAY>>.UNIT_PRICE_DSP")
 		callpoint!.setDevObject("rcpr_row","")
 		callpoint!.setDevObject("kit_details_changed","Y")
@@ -350,8 +352,8 @@ rem --- Invoke the Comments dialog
 	gosub comment_entry
 
 [[OPT_INVKITDET.AOPT-RCPR]]
-rem --- Are things set for a reprice?
-	if pos(callpoint!.getDevObject("component_line_type")="SP") then
+rem --- Are things set to reprice component of non-priced kit?
+	if pos(callpoint!.getDevObject("component_line_type")="SP") and callpoint!.getDevObject("priced_kit")<>"Y" then
 		qty_ord = num(callpoint!.getColumnData("<<DISPLAY>>.QTY_ORDERED_DSP"))
 		if qty_ord then 
 			rem --- Do repricing
@@ -805,8 +807,8 @@ rem --- Set values based on line type
 	line_code$ = callpoint!.getColumnData("OPT_INVKITDET.LINE_CODE")
 	find record(fnget_dev(file$), key=firm_id$+line_code$) linecode_rec$
 
-rem --- If line type is Memo, clear the extended price
-	if linecode_rec.line_type$ = "M" then 
+rem --- If line type is Memo, or a priced kit, clear the extended price
+	if linecode_rec.line_type$ = "M" or callpoint!.getDevObject("priced_kit")="Y" then 
 		callpoint!.setColumnData("OPT_INVKITDET.EXT_PRICE", "0")
 	endif
 
@@ -1258,8 +1260,8 @@ rem --- Enable buttons
 	gosub enable_repricing
 	gosub enable_addl_opts
 
-rem --- When needed, set focus on Unit Price
-	if callpoint!.getDevObject("focusPrice")="Y"
+rem --- When needed, set focus on Unit Price for non-priced kitts
+	if callpoint!.getDevObject("focusPrice")="Y" and callpoint!.getDevObject("priced_kit")="N" then
  		callpoint!.setFocus(callpoint!.getValidationRow(),"<<DISPLAY>>.UNIT_PRICE_DSP",1)
 	endif
 
@@ -1562,7 +1564,8 @@ rem --- Disable/enable Extended Price
 		callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"OPT_INVKITDET.EXT_PRICE",0)
 	endif
 
-	if pos(opc_linecode.line_type$="SP")>0 and num(callpoint!.getColumnData("<<DISPLAY>>.QTY_ORDERED_DSP"))<>0 then
+	if pos(opc_linecode.line_type$="SP")>0 and num(callpoint!.getColumnData("<<DISPLAY>>.QTY_ORDERED_DSP"))<>0 and
+:	callpoint!.getDevObject("priced_kit")="N" then
 		callpoint!.setOptionEnabled("RCPR",1)
 	else
 		callpoint!.setOptionEnabled("RCPR",0)
@@ -1587,7 +1590,11 @@ rem --- Disable/enable UM Sold
 
 rem --- Disable/enable displayed unit price and quantity ordered
 	if pos(opc_linecode.line_type$="NSP") then
-		callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", 1)
+		if callpoint!.getDevObject("priced_kit")="N" then
+			callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", 1)
+		else
+			callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", 0)
+		endif
 		callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.QTY_ORDERED_DSP", 1)
 	else
 		callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"<<DISPLAY>>.UNIT_PRICE_DSP", 0)
@@ -1694,7 +1701,8 @@ rem ==========================================================================
 		warn  = 0
 		gosub check_item_whse
 
-		if !callpoint!.getDevObject("item_wh_failed") and num(callpoint!.getColumnData("<<DISPLAY>>.QTY_ORDERED_DSP")) then
+		if !callpoint!.getDevObject("item_wh_failed") and num(callpoint!.getColumnData("<<DISPLAY>>.QTY_ORDERED_DSP")) and
+:		callpoint!.getDevObject("priced_kit")="N" then
 			callpoint!.setOptionEnabled("RCPR",1)
 		else
 			callpoint!.setOptionEnabled("RCPR",0)
@@ -1712,8 +1720,8 @@ rem ==========================================================================
 		warn  = 0
 		gosub check_item_whse
 
-		if (!callpoint!.getDevObject("item_wh_failed")and num(callpoint!.getColumnData("<<DISPLAY>>.QTY_ORDERED_DSP"))) or
-:		callpoint!.getDevObject("component_line_type") = "O" then
+		if ((!callpoint!.getDevObject("item_wh_failed")and num(callpoint!.getColumnData("<<DISPLAY>>.QTY_ORDERED_DSP"))) or
+:		callpoint!.getDevObject("component_line_type") = "O") then
 			callpoint!.setOptionEnabled("ADDL",1)
 		else
 			callpoint!.setOptionEnabled("ADDL",0)
@@ -1732,6 +1740,9 @@ rem ==========================================================================
 		find record (ivmItemMast_dev, key=firm_id$+item_id$, dom=*next)ivmItemMast$
 		callpoint!.setDevObject("component_taxable",ivmItemMast.taxable_flag$)
 	endif
+
+	rem --- Priced kits are not taxable
+	if callpoint!.getDevObject("priced_kit")="Y" then callpoint!.setDevObject("component_taxable","N")
 
 	return
 
@@ -1815,8 +1826,13 @@ rem ==========================================================================
 	else
 		price=price*conv_factor
 	endif
+	if callpoint!.getDevObject("priced_kit")="Y" then
+		price=0
+		disc=0
+	endif
 
-	if price=0 and callpoint!.getVariableName()<>"<<DISPLAY>>.QTY_ORDERED_DSP" then
+	if price=0 and callpoint!.getVariableName()<>"<<DISPLAY>>.QTY_ORDERED_DSP" and
+:	callpoint!.getDevObject("priced_kit")<>"Y" then
 		msg_id$="ENTER_PRICE"
 		gosub disp_message
 		enter_price_message = 1
@@ -1858,7 +1874,6 @@ rem =========================================================
 		shipqty=num(callpoint!.getColumnData("<<DISPLAY>>.QTY_SHIPPED_DSP"))*conv_factor
 		prev_available=callpoint!.getDevObject("component_avail")
 		curr_available=prev_available+callpoint!.getDevObject("component_prior_qty")
-				available=ivm02a.qty_on_hand-(ivm02a.qty_commit-shipqty); rem --- Note: ivm_itemwhse record read AFTER this component was committed
 		if shipqty>curr_available then
 			rem --- Add this shortage to the shortage_vect!
 			shortage_vect!=callpoint!.getDevObject("shortageVect")

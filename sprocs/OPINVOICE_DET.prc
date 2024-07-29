@@ -211,14 +211,18 @@ line_detail: rem --- Item Detail
             data!.setFieldValue("ORDER_QTY_MASKED", order_qty_masked$)
             data!.setFieldValue("SHIP_QTY_MASKED", ship_qty_masked$)
             data!.setFieldValue("BACKORD_QTY_MASKED", backord_qty_masked$)
-            if kit$="Y" and priced_kit$<>"Y"
+            if kit$="Y" and priced_kit$<>"Y" then
             	data!.setFieldValue("UM", "KIT")
                 data!.setFieldValue("PRICE_RAW","")
                 data!.setFieldValue("PRICE_MASKED","")
                 data!.setFieldValue("EXTENDED_RAW","")
                 data!.setFieldValue("EXTENDED_MASKED","")
 			else
-            	data!.setFieldValue("UM", um$)
+			    if kit$="Y" and priced_kit$="Y" then
+			        data!.setFieldValue("UM", "KIT")
+			    else
+			        data!.setFieldValue("UM", um$)
+            	endif
                 data!.setFieldValue("PRICE_RAW", price_raw$)
                 data!.setFieldValue("PRICE_MASKED", price_masked$)
                 data!.setFieldValue("EXTENDED_RAW", ext_raw$)

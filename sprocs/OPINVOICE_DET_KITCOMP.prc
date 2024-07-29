@@ -48,6 +48,8 @@ rem --- Get 'IN' SPROC parameters
 	barista_wd$ =     sp!.getParameter("BARISTA_WD")
     report_type$ =    sp!.getParameter("REPORT_TYPE")
     orddet_seq_ref$ = sp!.getParameter("INTERNAL_SEQ_NO")
+    priced_kit$ =     sp!.getParameter("PRICED_KIT")
+    explode_priced_kit$ = sp!.getParameter("EXPLODE_PRICED_KIT")
 
 	chdir barista_wd$
 
@@ -142,11 +144,13 @@ rem --- Main
 			item_desc$=cvs(fnmask$(opt_invkitdet.item_id$,ivIMask$),3)
             item_id$=cvs(fnmask$(opt_invkitdet.item_id$,ivIMask$),3)
 			
-			price_raw$=   str(opt_invkitdet.unit_price*opt_invkitdet.conv_factor)
-			price_masked$=str(opt_invkitdet.unit_price*opt_invkitdet.conv_factor:price_mask$)
-
-			ext_raw$=   str(opt_invkitdet.ext_price)
-			ext_masked$=str(opt_invkitdet.ext_price:ext_mask$)
+            if priced_kit$<>"Y" or (priced_kit$="Y" and explode_priced_kit$<>"Y") then
+    			price_raw$=   str(opt_invkitdet.unit_price*opt_invkitdet.conv_factor)
+    			price_masked$=str(opt_invkitdet.unit_price*opt_invkitdet.conv_factor:price_mask$)
+    
+    			ext_raw$=   str(opt_invkitdet.ext_price)
+    			ext_masked$=str(opt_invkitdet.ext_price:ext_mask$)
+			endif
 			
 			um$=opt_invkitdet.um_sold$
 			

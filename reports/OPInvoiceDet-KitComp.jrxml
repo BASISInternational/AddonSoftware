@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OPInvoiceDet" language="groovy" pageWidth="554" pageHeight="320" columnWidth="554" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a46c6452-81bd-4023-bafb-8f0488b8a578">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="221"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="779"/>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="AR_TYPE" class="java.lang.String"/>
 	<parameter name="CUSTOMER_ID" class="java.lang.String"/>
@@ -18,8 +20,10 @@
 	<parameter name="BARISTA_WD" class="java.lang.String"/>
 	<parameter name="ITEM_MASK" class="java.lang.String"/>
 	<parameter name="REPORT_TYPE" class="java.lang.String"/>
+	<parameter name="PRICED_KIT" class="java.lang.String"/>
+	<parameter name="EXPLODE_PRICED_KIT" class="java.lang.String"/>
 	<queryString language="SQL">
-		<![CDATA[call OPInvoice_Det_KitComp($P{FIRM_ID},$P{AR_TYPE},$P{CUSTOMER_ID},$P{ORDER_NO},$P{AR_INV_NO},$P{QTY_MASK},$P{AMT_MASK},$P{PRICE_MASK},$P{EXT_MASK},$P{ITEM_MASK},$P{BARISTA_WD},$P{REPORT_TYPE},$P{INTERNAL_SEQ_NO})]]>
+		<![CDATA[call OPInvoice_Det_KitComp($P{FIRM_ID},$P{AR_TYPE},$P{CUSTOMER_ID},$P{ORDER_NO},$P{AR_INV_NO},$P{QTY_MASK},$P{AMT_MASK},$P{PRICE_MASK},$P{EXT_MASK},$P{ITEM_MASK},$P{BARISTA_WD},$P{REPORT_TYPE},$P{INTERNAL_SEQ_NO},$P{PRICED_KIT},$P{EXPLODE_PRICED_KIT})]]>
 	</queryString>
 	<field name="ORDER_QTY_MASKED" class="java.lang.String"/>
 	<field name="SHIP_QTY_MASKED" class="java.lang.String"/>
@@ -42,7 +46,7 @@
 		<band height="13" splitType="Prevent">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<rectangle>
-				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="555" height="13" isRemoveLineWhenBlank="true" backcolor="#EBF0FA" uuid="626ec31b-09bc-48f4-9589-72823189b525">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="555" height="13" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#EBF0FA" uuid="626ec31b-09bc-48f4-9589-72823189b525">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
 				</reportElement>
@@ -51,7 +55,7 @@
 				</graphicElement>
 			</rectangle>
 			<rectangle>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="13" isRemoveLineWhenBlank="true" uuid="b1116a26-2602-425e-9572-ce7122f89812">
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="13" isRemoveLineWhenBlank="true" forecolor="#000000" uuid="b1116a26-2602-425e-9572-ce7122f89812">
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<graphicElement>
@@ -59,7 +63,7 @@
 				</graphicElement>
 			</rectangle>
 			<textField>
-				<reportElement x="1" y="0" width="54" height="12" uuid="98d29c70-c7e5-4189-bb3e-36402a88c3f1">
+				<reportElement x="1" y="0" width="54" height="12" forecolor="#808080" uuid="98d29c70-c7e5-4189-bb3e-36402a88c3f1">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</reportElement>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
@@ -69,7 +73,7 @@
 				<textFieldExpression><![CDATA[$F{ORDER_QTY_MASKED}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
-				<reportElement x="57" y="0" width="54" height="12" uuid="38e5a190-7bac-4798-a763-d4c94818d674">
+				<reportElement x="57" y="0" width="54" height="12" forecolor="#808080" uuid="38e5a190-7bac-4798-a763-d4c94818d674">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
@@ -80,7 +84,7 @@
 				<textFieldExpression><![CDATA[$F{SHIP_QTY_MASKED}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="113" y="0" width="54" height="12" uuid="33322784-2b92-46b5-b60c-5ab20b8e761b">
+				<reportElement x="113" y="0" width="54" height="12" forecolor="#808080" uuid="33322784-2b92-46b5-b60c-5ab20b8e761b">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
@@ -91,7 +95,7 @@
 				<textFieldExpression><![CDATA[$F{BACKORD_QTY_MASKED}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="376" y="0" width="45" height="12" uuid="c0cbc277-7b10-4c8c-a02f-2d5b393581f6">
+				<reportElement x="376" y="0" width="45" height="12" forecolor="#808080" uuid="c0cbc277-7b10-4c8c-a02f-2d5b393581f6">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
@@ -102,7 +106,7 @@
 				<textFieldExpression><![CDATA[$F{UM}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
-				<reportElement x="423" y="0" width="55" height="12" uuid="fd47875b-62b2-4740-a635-a0d0127fe1fb">
+				<reportElement x="423" y="0" width="55" height="12" forecolor="#808080" uuid="fd47875b-62b2-4740-a635-a0d0127fe1fb">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
@@ -113,7 +117,7 @@
 				<textFieldExpression><![CDATA[$F{PRICE_MASKED}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
-				<reportElement x="478" y="0" width="75" height="12" uuid="b25b194d-d0cd-4cb1-aae9-5ee3dafcc976">
+				<reportElement x="478" y="0" width="75" height="12" forecolor="#808080" uuid="b25b194d-d0cd-4cb1-aae9-5ee3dafcc976">
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
@@ -124,7 +128,7 @@
 				<textFieldExpression><![CDATA[$F{EXTENDED_MASKED}]]></textFieldExpression>
 			</textField>
 			<textField textAdjust="StretchHeight">
-				<reportElement x="169" y="0" width="205" height="12" isRemoveLineWhenBlank="true" uuid="b9da765f-f80c-497f-91ff-a1c840042b80">
+				<reportElement x="169" y="0" width="205" height="12" isRemoveLineWhenBlank="true" forecolor="#808080" uuid="b9da765f-f80c-497f-91ff-a1c840042b80">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<printWhenExpression><![CDATA[new Boolean (!$F{ITEM_DESC}.isEmpty())]]></printWhenExpression>

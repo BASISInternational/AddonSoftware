@@ -236,7 +236,7 @@ build_arrays:
 		readrecord(ivm01_dev,key=firm_id$+item$)ivm01a$
 		readrecord (ivcprice_dev,key=firm_id$+"E"+ivm01a.item_class$+arm02a.pricing_code$,dom=*next)ivcprice$
 		readrecord(ivm02_dev,key=firm_id$+wh$+item$,dom=*next)ivm02a$
-		rem --- Get current unit price for kits
+		rem --- Get current unit price for non-priced kits
 		if ivm01a.kit$="Y" then
 			bmmBillMat_dev=fnget_dev("BMM_BILLMAT")
 			dim bmmBillMat$:fnget_tpl$("BMM_BILLMAT")
@@ -341,7 +341,7 @@ determine_price:
 	endif
 return
 
-rem --- Get current unit price for kit based on its component's unit price
+rem --- Get current unit price for non-priced kit based on its component's unit price
 getKitUnitPrice:
 	read(bmmBillMat_dev,key=firm_id$+kit_item$,dom=*next)
 	while 1

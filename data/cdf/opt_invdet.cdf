@@ -14,7 +14,7 @@ rem --- Initialize "kit" DevObject
 	item$=callpoint!.getColumnData("OPT_INVDET.ITEM_ID")
 	ivm01a_key$=firm_id$+item$
 	find record (ivm01_dev,key=ivm01a_key$,err=*next)ivm01a$
-	if ivm01a.kit$="Y" then
+	if pos(ivm01a.kit$="YP") then
 		callpoint!.setDevObject("kit","Y")
 	else
 		callpoint!.setDevObject("kit","")
