@@ -514,7 +514,7 @@ rem --- if this is a newly added record, launch warehouse/stocking, vendors, and
 :			"",
 :			dflt_data$[all]
 
-		if callpoint!.getColumnData("IVM_ITEMMAST.KIT")<>"Y" then
+		if pos(callpoint!.getColumnData("IVM_ITEMMAST.KIT")="YP")=0 then
 			call stbl("+DIR_SYP")+"bam_run_prog.bbj",
 :				"IVM_ITEMVEND",
 :				user_id$,
@@ -575,7 +575,7 @@ rem --- Allow this item to be deleted?
 
 [[IVM_ITEMMAST.BDTW]]
 rem --- Don't allow launching Vendor Detail form for kits
-	if callpoint!.getColumnData("IVM_ITEMMAST.KIT")="Y" and pos(callpoint!.getEventOptionStr()="DTLW-IVM_ITEMVEND") then
+	if pos(callpoint!.getColumnData("IVM_ITEMMAST.KIT")="YP") and pos(callpoint!.getEventOptionStr()="DTLW-IVM_ITEMVEND") then
 		msg_id$="OP_KIT_NO_VENDOR"
 		dim msg_tokens$[1]
 		msg_tokens$[1]=cvs(callpoint!.getColumnData("IVM_ITEMMAST.ITEM_ID"),2)
@@ -1266,13 +1266,13 @@ rem ==========================================================================
 return
 
 rem ==========================================================================
-disableKitFields: rem --- Enable/disable fields for kitted items
+disableKitFields: rem --- Enable/disable fields for non-priced kitted items
 rem ==========================================================================
 	if callpoint!.getDevObject("kit")="Y" then
-		rem --- Disable Availability button
+		rem --- Disable Availability button for non-priced kitted item
 		callpoint!.setOptionEnabled("ITAV",0)
 
-		rem --- Disable Item tab fields, except PRODUCT_TYPE, ITEM_CLASS, ITEM_TYPE and ITEM_INACTIVE
+		rem --- Disable Item tab fields, except PRODUCT_TYPE, ITEM_CLASS, ITEM_TYPE and ITEM_INACTIVE for non-priced kitted item
 		callpoint!.setColumnData("IVM_ITEMMAST.MSRP","",1)
 		callpoint!.setColumnEnabled("IVM_ITEMMAST.MSRP",0)
 		callpoint!.setColumnData("IVM_ITEMMAST.UPC_CODE","",1)
@@ -1298,8 +1298,12 @@ rem ==========================================================================
 		callpoint!.setColumnData("IVM_ITEMMAST.ALT_SUP_ITEM","",1)
 		callpoint!.setColumnEnabled("IVM_ITEMMAST.ALT_SUP_ITEM",0)
 	else
-		rem --- Enable Availability button
-		callpoint!.setOptionEnabled("ITAV",1)
+		rem --- Enable Availability button, except for priced kitted items
+		if callpoint!.getDevObject("kit")="P" then
+			callpoint!.setOptionEnabled("ITAV",0)
+		else
+			callpoint!.setOptionEnabled("ITAV",1)
+		endif
 
 		rem --- Enable Item tab fields
 		callpoint!.setColumnEnabled("IVM_ITEMMAST.MSRP",1)

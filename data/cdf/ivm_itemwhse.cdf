@@ -32,7 +32,7 @@ rem --- Disable cost fields when there are transactions for this item, or it is 
 	read(ivt04_dev,key=firm_id$+warehouse_id$+item_id$,dom=*next)
 	ivt04_key$=""
 	ivt04_key$=key(ivt04_dev,end=*next)
-	if pos(firm_id$+warehouse_id$+item_id$=ivt04_key$)=1 or callpoint!.getDevObject("kit")="Y" then
+	if pos(firm_id$+warehouse_id$+item_id$=ivt04_key$)=1 or pos(callpoint!.getDevObject("kit")="YP") then
 		rem --- Disable cost fields
 		enable=0
 	else
@@ -173,7 +173,7 @@ rem --- Include non-drop ship items added in PO Receipt Entry that aren't in the
 
 rem --- Get total on Open SO lines
 
-	if callpoint!.getDevObject("kit")<>"Y" then
+	if pos(callpoint!.getDevObject("kit")="YP")=0 then
 		opdet_dev=fnget_dev("OPE_ORDDET")
 		dim opdet_tpl$:fnget_tpl$("OPE_ORDDET")
 		ophdr_dev=fnget_dev("OPE_ORDHDR")
@@ -226,7 +226,7 @@ rem --- Get total on WO Finished Goods (On Order)
 
 rem --- Get WO commits
 
-		if callpoint!.getDevObject("kit")<>"Y" then
+		if pos(callpoint!.getDevObject("kit")="YP")=0 then
 			womatdtl_dev=fnget_dev("SFE_WOMATDTL")
 			dim womatdtl_tpl$:fnget_tpl$("SFE_WOMATDTL")
 			womatisd_dev=fnget_dev("SFE_WOMATISD")
@@ -279,7 +279,7 @@ rem --- Enable/disable fields for kitted items
 	gosub disableKitFields
 
 rem --- Enable cost fields for new item if not a kit
-	if callpoint!.getDevObject("kit")="Y" then
+	if pos(callpoint!.getDevObject("kit")="YP") then
 		rem --- Disable cost fields
 		enable=0
 	else
@@ -511,7 +511,7 @@ endif
 rem ==========================================================================
 disableKitFields: rem --- Enable/disable fields for kitted items
 rem ==========================================================================
-	if callpoint!.getDevObject("kit")="Y" then
+	if pos(callpoint!.getDevObject("kit")="YP") then
 		rem --- Disable Warehouse tab fields
 		callpoint!.setColumnData("IVM_ITEMWHSE.LOCATION","",1)
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.LOCATION",0)
@@ -521,10 +521,17 @@ rem ==========================================================================
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.SELECT_PHYS",0)
 		callpoint!.setColumnData("IVM_ITEMWHSE.LSTPHY_DATE","",1)
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.LSTPHY_DATE",0)
-		callpoint!.setColumnData("IVM_ITEMWHSE.CUR_PRICE","0",1)
-		callpoint!.setColumnEnabled("IVM_ITEMWHSE.CUR_PRICE",0)
-		callpoint!.setColumnData("IVM_ITEMWHSE.CUR_PRICE_CD","",1)
-		callpoint!.setColumnEnabled("IVM_ITEMWHSE.CUR_PRICE_CD",0)
+		if callpoint!.getDevObject("kit")="Y" then
+			rem --- Disable price for non-priced kit items
+			callpoint!.setColumnData("IVM_ITEMWHSE.CUR_PRICE","0",1)
+			callpoint!.setColumnEnabled("IVM_ITEMWHSE.CUR_PRICE",0)
+			callpoint!.setColumnData("IVM_ITEMWHSE.CUR_PRICE_CD","",1)
+			callpoint!.setColumnEnabled("IVM_ITEMWHSE.CUR_PRICE_CD",0)
+		else
+			rem --- Enable price for priced kit items
+			callpoint!.setColumnEnabled("IVM_ITEMWHSE.CUR_PRICE",1)
+			callpoint!.setColumnEnabled("IVM_ITEMWHSE.CUR_PRICE_CD",1)
+		endif
 		callpoint!.setColumnData("IVM_ITEMWHSE.PRI_PRICE","0",1)
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.PRI_PRICE",0)
 		callpoint!.setColumnData("IVM_ITEMWHSE.PRI_PRICE_CD","",1)
