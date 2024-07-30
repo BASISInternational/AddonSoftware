@@ -37,6 +37,11 @@ rem --- Retrieve sysinfo data
     milestone=50
     milestone=num(stbl("+MILESTONE",err=*next),err=*next)
 
+rem --- Do NOT build new APT_VENDPAYMENTS if it already exists
+    aptVendPayments$=stbl("+APDATA")+"apt_vendpayments"
+    aptVendPayments!=new File(aptVendPayments$,err=*next)
+    aptVendPaymentsExists=aptVendPayments!.exists()
+
 rem --- Open/Lock files
     num_files=8
     dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
@@ -235,41 +240,43 @@ rem --- Increment progress meter
     print(log_dev)
     print(log_dev)meter_text$
 
-rem --- Build new APT_VENDPAYMENTS from APT_CHECKHISTORY
-    currentFirm$=""
-    read(aptCheckHistory_dev,key=theFirm$,dom=*next)
-    while 1
-        readrecord(aptCheckHistory_dev,end=*break)aptCheckHistory$
-        if cvs(theFirm$,2)<>"" and theFirm$<>aptCheckHistory.firm_id$ then break
-        if aptCheckHistory.trans_type$="V" then continue; rem --- Skip Voids
-        if currentFirm$<>aptCheckHistory.firm_id$ then
-            rem --- Log next firm processed
-            print(log_dev)"    APT_CHECKHISTORY.FIRM_ID = "+aptCheckHistory.firm_id$
-            currentFirm$=aptCheckHistory.firm_id$
-        endif
-    
-        foundRec=0      
-        aptVendPayments_key$=aptCheckHistory.firm_id$+aptCheckHistory.vendor_id$+aptCheckHistory.check_no$+aptCheckHistory.bnk_acct_cd$+aptCheckHistory.check_date$
-        readrecord(aptVendPayments_dev,key=aptVendPayments_key$,dom=*next)aptVendPayments$; foundRec=1
-        if !foundRec then
-            redim aptVendPayments$
-            aptVendPayments.firm_id$=aptCheckHistory.firm_id$
-            aptVendPayments.vendor_id$=aptCheckHistory.vendor_id$
-            aptVendPayments.check_no$=aptCheckHistory.check_no$
-            aptVendPayments.bnk_acct_cd$=aptCheckHistory.bnk_acct_cd$
-            aptVendPayments.check_date$=aptCheckHistory.check_date$
-            aptVendPayments.trans_type$=aptCheckHistory.trans_type$
-            aptVendPayments.payment_amt=aptCheckHistory.invoice_amt - aptCheckHistory.discount_amt - aptCheckHistory.retention
-    
-            redim adcBankAcctCode$
-            readrecord(adcBankAcctCode_dev,key=aptCheckHistory.firm_id$+aptCheckHistory.bnk_acct_cd$,dom=*next)adcBankAcctCode$
-            aptVendPayments.acct_desc$=adcBankAcctCode.acct_desc$
-        else
-            aptVendPayments.payment_amt=aptVendPayments.payment_amt + aptCheckHistory.invoice_amt - aptCheckHistory.discount_amt - aptCheckHistory.retention
-        endif
-    
-        writerecord(aptVendPayments_dev)aptVendPayments$
-    wend
+rem --- Build new APT_VENDPAYMENTS from APT_CHECKHISTORY if it doesn't already exist
+    if !aptVendPaymentsExists then
+        currentFirm$=""
+        read(aptCheckHistory_dev,key=theFirm$,dom=*next)
+        while 1
+            readrecord(aptCheckHistory_dev,end=*break)aptCheckHistory$
+            if cvs(theFirm$,2)<>"" and theFirm$<>aptCheckHistory.firm_id$ then break
+            if aptCheckHistory.trans_type$="V" then continue; rem --- Skip Voids
+            if currentFirm$<>aptCheckHistory.firm_id$ then
+                rem --- Log next firm processed
+                print(log_dev)"    APT_CHECKHISTORY.FIRM_ID = "+aptCheckHistory.firm_id$
+                currentFirm$=aptCheckHistory.firm_id$
+            endif
+        
+            foundRec=0      
+            aptVendPayments_key$=aptCheckHistory.firm_id$+aptCheckHistory.vendor_id$+aptCheckHistory.check_no$+aptCheckHistory.bnk_acct_cd$+aptCheckHistory.check_date$
+            readrecord(aptVendPayments_dev,key=aptVendPayments_key$,dom=*next)aptVendPayments$; foundRec=1
+            if !foundRec then
+                redim aptVendPayments$
+                aptVendPayments.firm_id$=aptCheckHistory.firm_id$
+                aptVendPayments.vendor_id$=aptCheckHistory.vendor_id$
+                aptVendPayments.check_no$=aptCheckHistory.check_no$
+                aptVendPayments.bnk_acct_cd$=aptCheckHistory.bnk_acct_cd$
+                aptVendPayments.check_date$=aptCheckHistory.check_date$
+                aptVendPayments.trans_type$=aptCheckHistory.trans_type$
+                aptVendPayments.payment_amt=aptCheckHistory.invoice_amt - aptCheckHistory.discount_amt - aptCheckHistory.retention
+        
+                redim adcBankAcctCode$
+                readrecord(adcBankAcctCode_dev,key=aptCheckHistory.firm_id$+aptCheckHistory.bnk_acct_cd$,dom=*next)adcBankAcctCode$
+                aptVendPayments.acct_desc$=adcBankAcctCode.acct_desc$
+            else
+                aptVendPayments.payment_amt=aptVendPayments.payment_amt + aptCheckHistory.invoice_amt - aptCheckHistory.discount_amt - aptCheckHistory.retention
+            endif
+        
+            writerecord(aptVendPayments_dev)aptVendPayments$
+        wend
+    endif
 
 done: rem --- All done
     
