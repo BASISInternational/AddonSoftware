@@ -242,7 +242,7 @@ rem --- Update conversion control file data/adx_conversionCtrl, and create conve
             next i
         endif
 
-        rem --- Create conversion marker files for each version needing conversion
+        rem --- For v18 and earlier, create conversion marker files for each version needing conversion
         fileDependencies!=new HashMap()
         dependentVersions$=""
         if indexFirstConversion>=0 then
@@ -250,6 +250,7 @@ rem --- Update conversion control file data/adx_conversionCtrl, and create conve
             convCtrlKeys!=convCtrl!.stringPropertyNames()
             for i=indexFirstConversion to versionsVect!.size()-1
                 version$=versionsVect!.getItem(i)
+                if version$>="1900" then break
                 iter!=convCtrlKeys!.iterator()
                 while iter!.hasNext()
                     key$=iter!.next()
@@ -268,16 +269,17 @@ rem --- Update conversion control file data/adx_conversionCtrl, and create conve
         requiredFiles!=BBjAPI().makeVector()
         keyIter!=fileDependencies!.keySet().iterator()
         while keyIter!.hasNext()
-            rem --- Create marker file for each dependency where all the files exist
+            rem --- For v18 and earlier, create marker file for each dependency where all the files exist
             create_marker=1
             requiredFiles!.clear()
             key!=keyIter!.next()
             requiredFiles!.addAll(java.util.Arrays.asList(key!.split(";")))
+            version$=fileDependencies!.get(key!)
             for i=0 to requiredFiles!.size()-1
                 filename$=requiredFiles!.get(i)
                 rem --- Because of v15.00 key and field changes to opt-11, it should always fail in OCJ.
                 rem --- So don't require opt-11 for v15.00 conversion using OCJ.
-                if version$="1500" and filename$="opt-11" then continue 
+                if pos(version$="1500") and filename$="opt-11" then continue 
                 file!=new File(dataDir$+"/"+filename$)
                 if !file!.exists() then
                     create_marker=0
@@ -294,13 +296,15 @@ rem --- Update conversion control file data/adx_conversionCtrl, and create conve
                     else
                         version$=dependentVersions$
                     endif
-                    markerFile!=new File(dataDir$+"/v"+version$+"_"+requiredFiles!.get(0))
-                    markerFile!.createNewFile()
-                    rem --- Set read-write permissions for everyone
-                    markerFile!.setReadable(1,0)
-                    markerFile!.setWritable(1,0)
-            
-                    print(log_dev)"Created conversion marker file: ",markerFile!.getAbsoluteFile()
+                    if version$<"1900" then
+                        markerFile!=new File(dataDir$+"/v"+version$+"_"+requiredFiles!.get(0))
+                        markerFile!.createNewFile()
+                        rem --- Set read-write permissions for everyone
+                        markerFile!.setReadable(1,0)
+                        markerFile!.setWritable(1,0)
+                
+                        print(log_dev)"Created conversion marker file: ",markerFile!.getAbsoluteFile()
+                    endif
                 wend
             endif
         wend
