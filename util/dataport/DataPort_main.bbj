@@ -1793,6 +1793,7 @@ rem --- On successful completion, create conversion marker files in target direc
     versionsVect!.addAll(java.util.Arrays.asList(convCtrl!.getProperty("conversion_versions").split(";")))
     for i=0 to versionsVect!.size()-1
         version$=versionsVect!.getItem(i)
+        if version$>="1900" then break
         iter!=convCtrlKeys!.iterator()
         while iter!.hasNext()
             key$=iter!.next()
@@ -1810,7 +1811,7 @@ rem --- On successful completion, create conversion marker files in target direc
     requiredFiles!=BBjAPI().makeVector()
     keyIter!=fileDependencies!.keySet().iterator()
     while keyIter!.hasNext()
-        rem --- Create marker file for each dependency where all the files exist
+        rem --- For v18 and earlier, create marker file for each dependency where all the files exist
         create_marker=1
         requiredFiles!.clear()
         key!=keyIter!.next()
@@ -1832,13 +1833,15 @@ rem --- On successful completion, create conversion marker files in target direc
                 else
                     version$=dependentVersions$
                 endif
-                markerFile!=new File(destin_folder$+"/v"+version$+"_"+requiredFiles!.get(0))
-                markerFile!.createNewFile()
-                rem --- Set read-write permissions for everyone
-                markerFile!.setReadable(1,0)
-                markerFile!.setWritable(1,0)
-        
-                print(log_dev)"Created conversion marker file: ",markerFile!.getAbsoluteFile()
+                if version$<"1900" then
+                    markerFile!=new File(destin_folder$+"/v"+version$+"_"+requiredFiles!.get(0))
+                    markerFile!.createNewFile()
+                    rem --- Set read-write permissions for everyone
+                    markerFile!.setReadable(1,0)
+                    markerFile!.setWritable(1,0)
+            
+                    print(log_dev)"Created conversion marker file: ",markerFile!.getAbsoluteFile()
+                endif
             wend
         endif
     wend
