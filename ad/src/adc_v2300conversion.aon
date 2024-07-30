@@ -202,6 +202,7 @@ rem --- For version 23.00, initialize new MICR_PRINT and MICR_ACCT fieldS in ADC
     endif
 
 rem --- For version 23.00, move fields from old APS_PAYAUTH to new APS_PARAMS (ER 9731)
+rem --- Initialize AP data file changes implemented during minor releases of v22
     this_module$="AP"
     if installMap!.get(this_module$)="Y" then
         rem --- Increment progress meter
@@ -377,6 +378,54 @@ rem --- For version 23.00, move fields from old APS_PAYAUTH to new APS_PARAMS (E
             gosub disp_meter
             print(log_dev)meter_text$
         endif
+        
+        task$="2200_AP_apt_vendpayments"
+        if convCtrl!.getProperty(task$)<>"Completed" then
+
+            rem --- Increment progress meter
+            meter_text$=this_module$+" "+Translate!.getTranslation("AON_INSTALLED","Installed")+", "+
+:                   Translate!.getTranslation("AON_DO_DATA_CONV","Doing data conversion for")+" "+this_module$
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+        
+            rem --- Increment progress meter
+            meter_text$=Translate!.getTranslation("AON_INITIALIZING","Initializing")+": APT_VENDPAYMENTS"
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+    
+            rem --- Execute AP upgrade conversion utility for minor releases of v22
+            theFirm$=""
+            call pgmdir$+"apc_v22initMinorRev.aon",theFirm$,rdForm!,status
+            if status=0 then
+                rem --- Conversion completed successfully
+                rem --- Increment progress meter
+                meter_text$=Translate!.getTranslation("AON_DATA_CONV","Data conversion")+" "+
+:                       Translate!.getTranslation("AON_COMPLETED_FOR","completed for")+": APT_VENDPAYMENTS"
+                meter_proc_recs=meter_proc_recs+1
+                meter_action$="MTR-LST"
+                gosub disp_meter
+                print(log_dev)meter_text$
+                write(convCtrlFileChan)task$+"=Completed"
+            else
+                rem --- Conversion did NOT complete successfully, exit with error message
+                err_msg$="***** "+Translate!.getTranslation("AON_ERROR","Error")+": "+
+:                       Translate!.getTranslation("AON_DATA_CONV","Data conversion")+" "+Translate!.getTranslation("AON_NOT","Not")+" "+
+:                       Translate!.getTranslation("AON_COMPLETED_FOR","completed for")+": ARC_SHIPVIACODE"+" *****"
+                goto done
+            endif
+        else
+            rem --- Increment progress meter
+            meter_text$=Translate!.getTranslation("AON_CONV_PREVIOUSLY","Conversion previously completed for")+" "+task$
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+        endif
+
     else
         rem --- Increment progress meter
         meter_text$=this_module$+" "+Translate!.getTranslation("AON_NOT","Not")+" "+Translate!.getTranslation("AON_INSTALLED","Installed")+", "+
