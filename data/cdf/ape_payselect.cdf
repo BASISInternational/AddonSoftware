@@ -545,11 +545,14 @@ rem --- Update apt-01 (remove/write) based on what's checked in the grid
 					retention=retention+apt11a.trans_ret
 				wend
 
-				rem --- '1' is selected when no pay auth, 4 is final approval when using pay auth
+				rem --- with no pay auth, '0' is not selected, '1' is selected
+				rem --- with pay auth, '2' is reviewed, '3' is prelim approval, '4' is final approval
+				rem --- increment selectedRows counter for all but '0'
 
 				if pos(vectInvoicesMaster!.getItem(row+1)="14")=0
 					apt01a.selected_for_pay$="N"
 					remove (ape04_dev, key=firm_id$+apt01a.ap_type$+apt01a.vendor_id$+apt01a.ap_inv_no$, dom=*next)
+					if pos(vectInvoicesMaster!.getItem(row+1)="23")<>0 then let selectedRows=selectedRows+1;rem CAH
 				else
 					rem --- Skip invoice if currently used in Manual Check Entry
 					ape22_dev = fnget_dev("APE_MANCHECKDET")
@@ -605,14 +608,17 @@ rem --- Update apt-01 (remove/write) based on what's checked in the grid
 				write record (apt01_dev) apt01a$
 			next row
 
+			rem --- if no rows are selected for pay, or in pay auth review/approval status, alert user
 			if selectedRows=0 then
 				rem --- No invoice selected
 				msg_id$="AP_NO_PAY_SELECT"
 				gosub disp_message
 				if msg_opt$="N" then callpoint!.setStatus("ABORT")
 			else
-				msg_id$="AP_REVIEW_SELECT"
-				gosub disp_message
+				if !callpoint!.getDevObject("use_pay_auth") then
+					msg_id$="AP_REVIEW_SELECT"
+					gosub disp_message
+				endif
 			endif
 		endif
 	endif
