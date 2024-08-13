@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2024-07-26
+ Report Date:   2024-08-13
  Report Branch: AddonSoftware 24.11
  Last Release:  AddonSoftware 24.10
 =======================================================================================================================================
@@ -45,3 +45,17 @@ Modified: data/cdf/glm_bankmaster.cdf
 Modified: data/cdf/glt_bankchecks.cdf
 Modified: data/cdf/glt_bankother.cdf
 =======================================================================================================================================
+
+Revision: f03b457fea2daafaa82473a1ffd9c9ee2aed2980
+Author: Christine <chawkins@basis.cloud>
+Date: 8/13/2024 2:44:20 PM
+Message:
+Bug 7325 - AP - Payment Selection: Modify form to be more intuitive
+ - Fine tuned the ASVA logic that looks for 'selected' invoices to include status 2 and 3 when running using Pay Auth
+ - Don't bother showing "Use Payment Selection...." message when using Pay Auth, since user gets a message with summary of what's been reviewed, approved, etc. (i.e., the former message is extra/redundant).
+
+(cherry picked from commit 8f42c26f507d550c5cb6e3bebf8c7a270b6cc49b)
+----
+Modified: data/bar/ape_payselect.xml
+Modified: data/cdf/ape_payselect.cdf
+
