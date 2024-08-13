@@ -58,4 +58,35 @@ Bug 7325 - AP - Payment Selection: Modify form to be more intuitive
 ----
 Modified: data/bar/ape_payselect.xml
 Modified: data/cdf/ape_payselect.cdf
+=======================================================================================================================================
+
+Revision: 27d660fecc665e4cbe4732d772f900a7ee813a7a
+Author: Christine <chawkins@basis.cloud>
+Date: 8/13/2024 4:21:47 PM
+Message:
+Bug 10918 - AP - Issues when using Google Docs to upload/view scanned AP Invoice images
+ - upload uses new gapps.bbj method getWebPreviewLink() instead of getHref()
+ - viewer sets user data dir in chromium switches when creating BBjHtmlView control
+ - viewer uses Synch BBjSession for GUI viewing of GDocs when >1 image to view
+ - viewer pre-passes image file and loads image records in treeMap, then iterates over map to view image(s); prepass allows for window title to contain invoice number and "x of y images"
+ - BUI and GUI use BBjHtmlView control now - only exception is SDI/BUI, which still uses TC > browse
+ - code to use namespace to keep track of image count no longer needed (was only used in Pay Select); removed from callpoints
+
+(cherry picked from commit 338d57e4df98aa4c31bc71de60114b27c04a7085)
+----
+Modified: ap/src/apc_imageupload.aon
+Modified: ap/src/apc_imageviewer.aon
+Modified: ap/src/apr_imageviewer.aon
+Modified: data/bar/ape_invoicehdr.xml
+Modified: data/bar/ape_mancheckdet.xml
+Modified: data/bar/ape_payselect.xml
+Modified: data/bar/apt_invhdr_arc.xml
+Modified: data/bar/apt_invoicehdr.xml
+Modified: data/cdf/ape_invoicehdr.cdf
+Modified: data/cdf/ape_mancheckdet.cdf
+Modified: data/cdf/ape_payselect.cdf
+Modified: data/cdf/apt_invhdr_arc.cdf
+Modified: data/cdf/apt_invoicehdr.cdf
+
+
 
