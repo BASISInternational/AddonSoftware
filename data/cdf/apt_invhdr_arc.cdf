@@ -68,15 +68,7 @@ rem --- Display invoice images
 	vendor_id$ = callpoint!.getColumnData("APT_INVHDR_ARC.VENDOR_ID")
 	ap_inv_no$ = callpoint!.getColumnData("APT_INVHDR_ARC.AP_INV_NO")
 
-	imageCount!=callpoint!.getDevObject("imageCount")
-	if imageCount!=null() then
-		imageCount! = new java.util.TreeMap()
-		imageCount!.put(0,"")
-	endif
-
-	call stbl("+DIR_PGM")+"apc_imageviewer.aon", ap_type$, vendor_id$, ap_inv_no$, table_chans$[all], imageCount!, urls!
-
-	callpoint!.setDevObject("imageCount",imageCount!)
+	call stbl("+DIR_PGM")+"apc_imageviewer.aon", ap_type$, vendor_id$, ap_inv_no$, table_chans$[all], urls!
 
 	if urls!.size()>0 then
 		urlVect!=callpoint!.getDevObject("urlVect")

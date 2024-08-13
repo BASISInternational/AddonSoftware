@@ -8,13 +8,12 @@ rem --- ap_type$       : AP type of vendor the invoice is from (input)
 rem --- vendor_id$     : ID of vendor the invoice is from (input)
 rem --- ap_inv_no$     : Invoice number the images are for (input)
 rem --- table_chans$[] : Barista table channel info, do not modify (input)
-rem --- imageCount!    : TreeMap of count (number) of previous invoice image files (input/returned)
 rem --- urls!          : Vector of URLs used for each invoice image file (returned)
 
     seterr std_error
     setesc std_error
 
-    enter ap_type$, vendor_id$, ap_inv_no$, table_chans$[all], imageCount!, urls!
+    enter ap_type$, vendor_id$, ap_inv_no$, table_chans$[all], urls!
 
 rem --- Declarations and initializations
     use ::BBUtils.bbj::BBUtils
@@ -25,11 +24,6 @@ rem --- Retrieve sysinfo data
     dim sysinfo$:stbl("+SYSINFO_TPL")
     sysinfo$=stbl("+SYSINFO")
     firm_id$=sysinfo.firm_id$
-
-rem --- Put imageCount! TreeMap in Global Namespace
-    processID$=hta(info(3,0))
-    global_ns!=BBjAPI().getGlobalNamespace()
-    global_ns!.setValue("apcImageViewer_imageCount"+processID$,imageCount!)
 
 rem --- Is this a historical invoice whose images shouldn't be removed?
     aptInvoiceHdr_dev=fnget_dev("APT_INVOICEHDR")
@@ -46,20 +40,47 @@ rem --- Is this a historical invoice whose images shouldn't be removed?
 rem --- Get image files for the invoice
     invimage_dev=fnget_dev("APT_INVIMAGE")
     dim invimage$:fnget_tpl$("APT_INVIMAGE")
+    imageMap!=new java.util.TreeMap()
 
-    read record(invimage_dev, key=firm_id$+vendor_id$+ap_inv_no$, dom=*next)
+    read (invimage_dev, key=firm_id$+vendor_id$+ap_inv_no$, dom=*next)
     while 1
         invimage_key$=key(invimage_dev,end=*break)
         if pos(firm_id$+vendor_id$+ap_inv_no$=invimage_key$)<>1 then break
-        redim invimage$
-        read record(invimage_dev)invimage$
-        thisFile$=cvs(invimage.doc_url$,2)
 
-        rem --- Show the invoice images
+        read record(invimage_dev)invimage$
+        imageMap!.put(invimage_key$,invimage$)
+    wend
+
+rem --- Now iterate over imageMap! to run viewer program for each url
+
+    map_size=imageMap!.size()
+    image_count=0
+    mapIter!=imageMap!.keySet().iterator()
+    while mapIter!.hasNext()
+        redim invimage$
+        invimage_key$=mapIter!.next()
+        invimage$=imageMap!.get(invimage_key$)
+        thisFile$=cvs(invimage.doc_url$,2)
+        ap_inv_no$=cvs(invimage.ap_inv_no$,2)
+        scan_docs_to$=cvs(invimage.scan_docs_to$,2)
+        image_count=image_count+1
+        viewerTitle$=ap_inv_no$
+        if map_size>1
+            viewerTitle$=ap_inv_no$+"--"+str(image_count)+"_of_"+str(map_size)+"_images"
+        endif
+
+        rem --- If not an historical invoice, set the key to allow removing the image
+
+        if ok2remove then
+            removeKey$=invimage.firm_id$+invimage.vendor_id$+invimage.ap_inv_no$+invimage.sequence_num$
+        else
+            removeKey$=""
+        endif
+
+        rem --- If launching a single form via BUI, use TC > browse
         frameMode!=BBjAPI().getConfig().getCurrentCommandLineObject().getChildFrameMode()
-        if frameMode! = null() or info(3,6) = "5" then
-            rem --- Using BUI
-            if cvs(invimage.scan_docs_to$,2)<>"GD" then
+        if frameMode!=null()
+            if scan_docs_to$<>"GD" then
                 sslReq = BBUtils.isWebServerSSLEnabled()
                 thisFile$ = BBUtils.copyFileToWebServer(thisFile$,"appreviewtemp", sslReq)
                 urls!.addItem(thisFile$)
@@ -67,29 +88,21 @@ rem --- Get image files for the invoice
             
             BBjAPI().getThinClient().browse(thisFile$)
 
-            rem --- Get imageCount! TreeMap from Global Namespace, and set count for this image
-            global_ns!=BBjAPI().getGlobalNamespace()
-            imageCount!=global_ns!.getValue("apcImageViewer_imageCount"+processID$)
-            count=imageCount!.lastKey()+1
-            imageCount!.put(count,ap_inv_no$)
-
         else
-
-            rem --- Using MDI or SDI or Google Docs
-            if ok2remove then
-                removeKey$=invimage.firm_id$+invimage.vendor_id$+invimage.ap_inv_no$+invimage.sequence_num$
-            else
-                removeKey$=""
-            endif
+        rem --- Show the invoice image(s) in BBjHtmlView control(s)
             
-            cmd$=$22$+"apr_imageviewer.aon"+$22$+" - -f"+thisFile$+" -i"+ap_inv_no$+" -p"+processID$+" -r"+$22$+removeKey$+$22$+" -u"+stbl("+USER_ID")+" &"
+            cmd$=$22$+"apr_imageviewer.aon"+$22$+" - -c"+str(image_count)+" -f"+thisFile$+" -i"+viewerTitle$+" -r"+$22$+removeKey$+$22$+" -s"+scan_docs_to$+" -u"+stbl("+USER_ID")
             cmdObj!=BBjAPI().getConfig().getCommandLineObject(cmd$)
-            cmdObj!.setChildFrameMode(frameMode!)
-            returnCode=BBjAPI().newBBjSession(cmdObj!)
-        endif
-    wend
+            if scan_docs_to$="GD" and info(3,6)<>"5" and map_size>1
+                returnCode=BBjAPI().newSynchBBjSession(cmdObj!);rem --- use Synch session for multiple GDocs in GUI to avoid prompt for credentials
+            else
+                returnCode=BBjAPI().newBBjSession(cmdObj!)
+            endif
+        endif        
+    wend        
 
 rem --- Done
+
     goto std_exit
 
 rem --- Functions

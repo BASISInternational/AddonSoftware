@@ -14,10 +14,11 @@ rem --- Get progarm arguments
     if argc>1
         for i=1 to argc-1
             arg$=argv(i)
+            if pos("-c"=arg$)=1 then count=num(arg$(3)); rem --- Count of which image we're displaying (always 1 unless >1 image for this invoice)
             if pos("-f"=arg$)=1 then imageFile$=arg$(3); rem --- Full path to the image file
-            if pos("-i"=arg$)=1 then ap_inv_no$=arg$(3); rem --- Invoice number the image are for
-            if pos("-p"=arg$)=1 then processID$=arg$(3); rem --- Process ID of process that created Global Namespace apcImageViewer_imageCount
+            if pos("-i"=arg$)=1 then viewerTitle$=arg$(3); rem --- Viewer window title (<invoice#> -- x of y images or just <invoice#> if only 1 image)
             if pos("-r"=arg$)=1 then removeKey$=arg$(3); rem --- The apt_invimage key if removing image is allowed for the invoice
+            if pos("-s"=arg$)=1 then scan_docs_to$=arg$(3);rem --- Scanning to GD (Google Docs) or BDA (Barista Doc Archive)
             if pos("-u"=arg$)=1 then user_id$=arg$(3); rem --- User ID
         next i
     endif
@@ -27,6 +28,9 @@ rem --- Get progarm arguments
         user_id$=Security.getURLUser()
         if cvs(user_id$,2)="" then user_id$="ADMIN"
     endif
+
+    ap_inv_no$=viewerTitle$
+    if pos("--"=viewerTitle$) then ap_inv_no$=viewerTitle$(1,pos("--"=viewerTitle$)-1)
 
 rem --- Make sure needed STBLs are set, and get Translator
     call stbl("+DIR_SYP")+"bas_process_beg.bbj",user_id$,rd_table_chans$[all]
@@ -38,17 +42,21 @@ rem --- Make sure needed STBLs are set, and get Translator
         BBjAPI().getGroupNamespace().setValue(rdTransSpaceKey$,Translate!)
     endif
 
-rem --- Get imageCount! TreeMap from Global Namespace, and set count for this image
-    global_ns!=BBjAPI().getGlobalNamespace()
-    imageCount!=global_ns!.getValue("apcImageViewer_imageCount"+processID$)
-    count=imageCount!.lastKey()+1
-    imageCount!.put(count,ap_inv_no$)
-
 rem --- Initializations
     removeLable$=Translate!.getTranslation("AON_REMOVE")
     margin=50
     xpos=margin*count-25
     ypos=margin*count-25
+
+rem --- If running GUI and accessing GDocs, set user data dir so user doesn't have to provide credentials every time
+
+    if info(3,6)<>"5" and scan_docs_to$="GD"
+        userhome! = System@.getProperty("user.home")
+        if userhome!<>null() then
+            chromium_user_dir$ = userhome! + "/chromium-user-data-dir-" + info(3,2)
+            chromium_switches$ = " --user-data-dir=" + chromium_user_dir$
+        endif
+    endif
 
 rem --- Use BBjHtmlView control for invoice images
     rem --- Add window for BBjHtmlView control
@@ -65,19 +73,20 @@ rem --- Use BBjHtmlView control for invoice images
     endif
 
     htmlWinContext=thisGui!.getAvailableContext()
-    htmlWin!=thisGui!.addWindow(htmlWinContext,xpos,ypos,width,height,ap_inv_no$,$00080083$)
+    htmlWin!=thisGui!.addWindow(htmlWinContext,xpos,ypos,width,height,viewerTitle$,$00080083$)
     htmlWin!.setCallback(htmlWin!.ON_CLOSE,"win_close")
     htmlWin!.setCallback(htmlWin!.ON_RESIZE,"win_resize")
 
     htmlViewCtrlID=htmlWin!.getAvailableControlID()
-    htmlView!=htmlWin!.addHtmlView(htmlViewCtrlID,1,1,htmlWin!.getWidth()-2,htmlWin!.getHeight()-2,"",$0800$)
+    htmlView!=htmlWin!.addHtmlView(htmlViewCtrlID,1,1,htmlWin!.getWidth()-2,htmlWin!.getHeight()-2,"",$0800$,chromium_switches$)
 
-	rem --- Copy to web server used so file can be viewed if local or connected via Destop App
-	rem --- Skip copy to web server if it's a GDOC (i.e., http://.... or https://....)
-	if pos("http"=imageFile$)<>1
-		sslReq = BBUtils.isWebServerSSLEnabled()
-		imageFile$ = BBUtils.copyFileToWebServer(imageFile$,"appreviewtemp", sslReq)
-	endif
+    rem --- Copy to web server used so file can be viewed if local or connected via Destop App
+    rem --- Skip copy to web server if it's a GDOC (i.e., http://.... or https://....)
+    if pos("http"=imageFile$)<>1
+        sslReq = BBUtils.isWebServerSSLEnabled()
+        imageFile$ = BBUtils.copyFileToWebServer(imageFile$,"appreviewtemp", sslReq)
+    endif
+
     htmlView!.setUrl(imageFile$)
 
     rem --- "Remove" button
@@ -97,14 +106,12 @@ rem --- Done
 
 win_close:
     htmlWin!.destroy()
-    imageCount!.remove(count)
-    if imageCount!.size()=1 then global_ns!.removeValue("apcImageViewer_imageCount"+processID$,err=*next)
     goto std_exit
-	
+    
 win_resize:
-	htmlView!.setSize(htmlWin!.getWidth()-2,htmlWin!.getHeight()-2)
-	return
-	
+    htmlView!.setSize(htmlWin!.getWidth()-2,htmlWin!.getHeight()-2)
+    return
+    
 remove_image:
     msg_id$="AP_REMOVE_IMAGE"
     dim msg_tokens$[1]

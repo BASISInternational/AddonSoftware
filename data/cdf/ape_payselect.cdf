@@ -552,7 +552,7 @@ rem --- Update apt-01 (remove/write) based on what's checked in the grid
 				if pos(vectInvoicesMaster!.getItem(row+1)="14")=0
 					apt01a.selected_for_pay$="N"
 					remove (ape04_dev, key=firm_id$+apt01a.ap_type$+apt01a.vendor_id$+apt01a.ap_inv_no$, dom=*next)
-					if pos(vectInvoicesMaster!.getItem(row+1)="23")<>0 then let selectedRows=selectedRows+1;rem CAH
+					if pos(vectInvoicesMaster!.getItem(row+1)="23")<>0 then let selectedRows=selectedRows+1
 				else
 					rem --- Skip invoice if currently used in Manual Check Entry
 					ape22_dev = fnget_dev("APE_MANCHECKDET")
@@ -2737,13 +2737,6 @@ rem ==========================================================================
 
 	urlVect!=BBjAPI().makeVector()
 
-	imageCount!=callpoint!.getDevObject("imageCount")
-	if imageCount!=null() then
-		imageCount! = new java.util.TreeMap()
-		imageCount!.put(0,"")
-	endif
-
-	startingCount=imageCount!.size()-1
 	for rowCount = 0 to rowsSelected!.size()-1
 		rem --- get the row data needed
 		curr_row = num(rowsSelected!.getItem(rowCount))
@@ -2753,9 +2746,7 @@ rem ==========================================================================
 		gosub get_master_offset
 		ap_inv_no$ = vectInvoicesMaster!.getItem(mast_offset+16)
 
-		call stbl("+DIR_PGM")+"apc_imageviewer.aon", ap_type$, vend_id$, ap_inv_no$, table_chans$[all], imageCount!, urls!
-
-		callpoint!.setDevObject("imageCount",imageCount!)
+		call stbl("+DIR_PGM")+"apc_imageviewer.aon", ap_type$, vend_id$, ap_inv_no$, table_chans$[all], urls!
 
 		if urls!.size()>0 then
 			for i=0 to urls!.size()-1
@@ -2764,16 +2755,6 @@ rem ==========================================================================
 			next i
 		endif
 	next rowCount
-
-	msg_id$="GENERIC_OK"
-	dim msg_tokens$[1]
-	wait 2; rem --- Wait for all images to get added to imageCount!
-	if (imageCount!.size()-1)-startingCount>0 then
-		msg_tokens$[1] = str((imageCount!.size()-1)-startingCount) + " "+Translate!.getTranslation("AON_IMAGES_FOUND")
-	else
-		msg_tokens$[1]=Translate!.getTranslation("AON_NO_IMAGES_FOUND")
-	endif
-	gosub disp_message
     
 	if urlVect!.size()
 		for wk=0 to urlVect!.size()-1

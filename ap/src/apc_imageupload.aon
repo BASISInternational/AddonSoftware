@@ -246,7 +246,7 @@ rem --- Do Google Docs
             msg_tokens$[2]=errmes(-1)
     		gosub disp_message
     	else
-            doc_ref$=doc!.getHref()
+            doc_ref$=doc!.getWebPreviewLink()
             gosub update_image_table			
     	endif
     	
