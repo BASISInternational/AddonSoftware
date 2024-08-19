@@ -11,6 +11,8 @@ rem --- status       : Status/0=No error (returned)
     seterr std_error
     setesc std_error
 
+    use java.util.GregorianCalendar
+
     use ::bbtranslator.bbj::BBTranslator
     declare BBTranslator Translate!
     
@@ -19,6 +21,7 @@ rem --- status       : Status/0=No error (returned)
 rem --- Initializations
 
     status=0
+    Calendar! = new GregorianCalendar()
 
 rem --- Get program path
 
@@ -55,7 +58,7 @@ rem --- Check for fiscal calendars for current firm
         rem --- Check for fiscal calendars for prior/current/next year
         for yr=-1 to 1
             calendar_missing=1
-            read(gls_calendar_dev,key=gls_params.firm_id$+str(fiscal_year+yr),dom=*next); calendar_missing=0
+            readrecord(gls_calendar_dev,key=gls_params.firm_id$+str(fiscal_year+yr),dom=*next)gls_calendar$; calendar_missing=0
             if calendar_missing then
                 msg_id$="GL_FIRM_MISSING_CAL"
                 dim msg_tokens$[2]
@@ -88,6 +91,29 @@ rem --- Check for fiscal calendars for current firm
                 endif
                 msg_tokens$[2]=year$
                 gosub disp_message
+            else
+                rem --- Check for bad February end dates
+                if gls_params.adjust_february then
+                    total_pers=num(gls_calendar.total_pers$)
+                    for i=1 to total_pers
+                        period$=str(i:"00")
+                        per_ending$="PERIOD_END_"+period$
+                        endDate$=field(gls_calendar$,per_ending$)
+                        year$=endDate$(1,4)
+                        month$=endDate$(5,2)
+                        day$=endDate$(7,2)
+                        
+                        if month$="02" then
+                            if (!Calendar!.isLeapYear(num(year$)) and day$<>"28") or (Calendar!.isLeapYear(num(year$)) and day$<>"29") then
+                                msg_id$="GENERIC_WARN"
+                                dim msg_tokens$[1]
+                                msg_tokens$[1]="Bad February end date in firm "+theFirm$+" fiscal calendar: "+endDate$
+                                gosub disp_message
+                                break
+                            endif
+                        endif
+                    next i
+                endif
             endif
         next yr
     wend

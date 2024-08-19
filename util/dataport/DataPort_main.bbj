@@ -1487,6 +1487,12 @@ rem --- Initialize BMM_BILLMSUB.WO_REF_NUM and SFE_WOSUBCNT.WO_REF_NUM
         new_rec.wo_ref_num$=pad(new_rec.subcont_seq$, dec(wk$(10,2)), "R")
     endif
 
+rem --- Initialize adjust_february in gls_params
+    if cvs(new_datafile$,2)="gls_params" and adjustFebParam!<>null() then
+        autoAdjustFeb=adjustFebParam!.put(firm_id$,autoAdjustFeb)
+        if autoAdjustFeb then new_rec.adjust_february=autoAdjustFeb
+    endif
+
 rem ---  "PRM-01 - Employee Inactive - License Count"
     if cvs(new_datafile$,2)="prm-01" and cvs(new_rec.term_date$,3)>"" then
          new_rec.empl_inactive$="Y"
@@ -1501,6 +1507,11 @@ rem --- Set the Lotted/Serialized flag at the item level for v24.00
         endif
     endif
 
+rem ---  "PRM-01 - Employee Inactive - License Count"
+    if cvs(new_datafile$,2)="prm-01" and cvs(new_rec.term_date$,3)>"" then
+         new_rec.empl_inactive$="Y"
+    endif
+
 rem --- "prt-02 and prt-03 have new sequence number in new file only"
     if pos(";"+cvs(new_datafile$,11)+";"=";prt-02;prt-03;pre-02;pre-11;pre-21;pre-31;pre-41;pre-51;")>0 then
         dflt_seq_key$="INTERNAL_SEQ_NO"
@@ -1509,11 +1520,11 @@ rem --- "prt-02 and prt-03 have new sequence number in new file only"
     endif
 
 rem --- If new_field_defaults not set for Payroll year, use Current Year from source Payroll parameters.
-        if pos(";"+cvs(new_datafile$,11)+";"=";prc_taxcode;prc_contcode;prc_taxtable;prc_w2box;prt-01;prt-05;prt-11;prt-21;prt-31;")>0 and cvs(default_pr_year$,2)="" then
-            if prYearMap!.containsKey(thisFirm$) then
-                new_rec.year$=prYearMap!.get(thisFirm$)
-            endif
+    if pos(";"+cvs(new_datafile$,11)+";"=";prc_taxcode;prc_contcode;prc_taxtable;prc_w2box;prt-01;prt-05;prt-11;prt-21;prt-31;")>0 and cvs(default_pr_year$,2)="" then
+        if prYearMap!.containsKey(thisFirm$) then
+            new_rec.year$=prYearMap!.get(thisFirm$)
         endif
+    endif
 
     new_rec$=field(new_rec$)
 
@@ -2037,6 +2048,57 @@ write_gls_calendar_recs: rem --- Write GLS_CALENDAR for GLS-01A records
         endif
         field gls_calendar_rec$,locked_date$=value$
     next i
+
+    rem --- Set the "Auto-adjust Feb for Leap Year" parameter if the fiscal year has 12 periods and each period ends on the last day of the month
+    if adjustFebParam! = null() then adjustFebParam! = new java.util.HashMap()
+    if total_pers<>12 then
+        autoAdjustFeb=0    
+    else
+        autoAdjustFeb=1    
+
+        rem --- Hash map of month end days
+        if monthEndDays! = null() then
+            monthEndDays! = new java.util.HashMap()
+            monthEndDays!.put("01","31")
+            monthEndDays!.put("02","28"); rem --- Non-leap year
+            monthEndDays!.put("03","31")
+            monthEndDays!.put("04","30")
+            monthEndDays!.put("05","31")
+            monthEndDays!.put("06","30")
+            monthEndDays!.put("07","31")
+            monthEndDays!.put("08","31")
+            monthEndDays!.put("09","30")
+            monthEndDays!.put("10","31")
+            monthEndDays!.put("11","30")
+            monthEndDays!.put("12","31")
+        endif
+
+        rem --- Do all 12 periods end on the last day of the month
+        for i=1 to total_pers
+            period$=str(i:"00")
+            per_ending$="PERIOD_END_"+period$
+            endDate$=field(gls_calendar_rec$,per_ending$)
+            year$=endDate$(1,4)
+            month$=endDate$(5,2)
+            day$=endDate$(7,2)
+            
+            if month$="02" then
+                feb_per_ending$=per_ending$
+                if (!Calendar!.isLeapYear(num(year$)) and day$<>"28") or (Calendar!.isLeapYear(num(year$)) and day$<>"29") then
+                    autoAdjustFeb=0
+                    break
+                endif
+            else
+                if day$<>monthEndDays!.get(month$) then
+                    autoAdjustFeb=0
+                    break
+                endif
+            endif
+        next i
+    endif
+
+    rem --- Keep track of the "Auto-adjust Feb for Leap Year" parameter for this firm
+    adjustFebParam!.put(firm_id$,autoAdjustFeb)
 
     rem --- Write GLS_CALENDAR record
     gls_calendar_rec$=field(gls_calendar_rec$)
