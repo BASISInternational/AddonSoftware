@@ -557,20 +557,6 @@ next_file:
        use java.util.GregorianCalendar
        Calendar! = new GregorianCalendar()
     endif; rem ' sys-01
-    
-    rem --- Get new CUSTOMER_ID and VENDOR_ID field alignment and padding
-    if cvs(datafile$,8)="arm-01" then
-        redim ddm_elements$
-        readrecord(ddm_elements,key=pad("CUSTOMER_ID",16),dom=*next)ddm_elements$
-        customerAlignment$=ddm_elements.dd_attr_padj$
-        customerPadChar$=ddm_elements.dd_attr_padc$
-    endif
-    if cvs(datafile$,8)="apm-01" then
-        redim ddm_elements$
-        readrecord(ddm_elements,key=pad("VENDOR_ID",16),dom=*next)ddm_elements$
-        vendorAlignment$=ddm_elements.dd_attr_padj$
-        vendorPadChar$=ddm_elements.dd_attr_padc$
-    endif
 
     rem --- Does this file contain sequence numbers that need to be processed separately later?
     if seq_no_files!.containsKey(cvs(datafile$,8)) then
@@ -1250,6 +1236,13 @@ rem --- Set blank Credit Hold (Y;N;E) field values to N
 rem --- CUSTOMER_ID and VENDOR_ID data needs adjusting when masks are less than full size
 
 		if cvs(new_fieldlist.name$[field],3) = "CUSTOMER_ID"
+            rem --- Get new CUSTOMER_ID field alignment and padding
+            if customerAlignment$="" then
+                redim ddm_elements$
+                readrecord(ddm_elements,key=pad("CUSTOMER_ID",16),dom=*next)ddm_elements$
+                customerAlignment$=ddm_elements.dd_attr_padj$
+                customerPadChar$=ddm_elements.dd_attr_padc$
+            endif
 			if custSizeMap!.containsKey(thisFirm$) then
 				cust_size = cast(BBjNumber, custSizeMap!.get(thisFirm$))
 				if cust_size > 0 and cust_size < 6 then
@@ -1259,6 +1252,13 @@ rem --- CUSTOMER_ID and VENDOR_ID data needs adjusting when masks are less than 
 		endif
 		
 		if cvs(new_fieldlist.name$[field],3) = "VENDOR_ID"
+            rem --- Get new VENDOR_ID field alignment and padding
+            if vendorAlignment$="" then
+                redim ddm_elements$
+                readrecord(ddm_elements,key=pad("VENDOR_ID",16),dom=*next)ddm_elements$
+                vendorAlignment$=ddm_elements.dd_attr_padj$
+                vendorPadChar$=ddm_elements.dd_attr_padc$
+            endif
 			if vendSizeMap!.containsKey(thisFirm$) then
 				vend_size = cast(BBjNumber, vendSizeMap!.get(thisFirm$))
 				if vend_size > 0 and vend_size < 6 then
