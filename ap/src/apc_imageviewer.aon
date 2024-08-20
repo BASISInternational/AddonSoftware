@@ -93,8 +93,8 @@ rem --- Now iterate over imageMap! to run viewer program for each url
             
             cmd$=$22$+"apr_imageviewer.aon"+$22$+" - -c"+str(image_count)+" -f"+thisFile$+" -i"+viewerTitle$+" -r"+$22$+removeKey$+$22$+" -s"+scan_docs_to$+" -u"+stbl("+USER_ID")
             cmdObj!=BBjAPI().getConfig().getCommandLineObject(cmd$)
-            if scan_docs_to$="GD" and info(3,6)<>"5" and map_size>1
-                returnCode=BBjAPI().newSynchBBjSession(cmdObj!);rem --- use Synch session for multiple GDocs in GUI to avoid prompt for credentials
+            if scan_docs_to$="GD" and info(3,6)<>"5"
+                returnCode=BBjAPI().newSynchBBjSession(cmdObj!);rem --- use Synch session for GDocs in GUI to avoid prompt for credentials
             else
                 returnCode=BBjAPI().newBBjSession(cmdObj!)
             endif
