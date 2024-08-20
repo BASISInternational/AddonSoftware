@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2024-08-13
+ Report Date:   2024-08-20
  Report Branch: AddonSoftware 24.11
  Last Release:  AddonSoftware 24.10
 =======================================================================================================================================
@@ -87,6 +87,14 @@ Modified: data/cdf/ape_mancheckdet.cdf
 Modified: data/cdf/ape_payselect.cdf
 Modified: data/cdf/apt_invhdr_arc.cdf
 Modified: data/cdf/apt_invoicehdr.cdf
+=======================================================================================================================================
 
-
+Revision: 95f83b46209a905e88eaefd7301e3639bb41fb76
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/20/2024 1:30:48 PM
+Message:
+Bug 10920: Made sure DataPort always has the data element padding and
+alignment information for CUSTOMER_ID and VENDOR_ID.
+----
+Modified: util/dataport/DataPort_main.bbj
 
