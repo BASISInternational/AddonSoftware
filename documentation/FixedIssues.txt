@@ -1,100 +1,12 @@
 =======================================================================================================================================
- Report Date:   2024-08-20
- Report Branch: AddonSoftware 24.11
- Last Release:  AddonSoftware 24.10
+ Report Date:   2024-08-28
+ Report Branch: AddonSoftware 24.12
+ Last Release:  AddonSoftware 24.11
 =======================================================================================================================================
 
-24.10 released 7/22/2024
-BBjBaristaAddonDemos2410_07-20-2024_2243.jar
+24.11 released 8/26/2024
+BBjBaristaAddonDemos2411_08-22-2024_1046.jar
 =======================================================================================================================================
 
-Revision: 39faf410ccca5f1efa2f77e4125652c00451352f
-Author: Christine <chawkins@basis.cloud>
-Date: 7/25/2024 6:35:53 PM
-Message:
-Bug 10912 - GL - Bank Rec All Transactions button throws error if no statement date has been entered
-Bug 10913 - GL - The All Transactions button in Bank Rec shows transactions for all bank/gl accounts, not just the current one
- - make sure to setDevObject to avoid the error
- - enable All Transactions button only if there is a statement date to avoid launching empty grids
- - set current GL Acct in the group namespace to pass to the All Transactions grid launches so grids will display only pertinent transactions
 
-(cherry picked from commit 8f8ff476d558d5a657f41729ec73a27e8f49015e)
-----
-Modified: data/bar/glm_bankmaster.xml
-Modified: data/bar/glt_bankchecks.xml
-Modified: data/bar/glt_bankother.xml
-Modified: data/cdf/glm_bankmaster.cdf
-Modified: data/cdf/glt_bankchecks.cdf
-Modified: data/cdf/glt_bankother.cdf
-=======================================================================================================================================
-
-Revision: 1db9cd781d7c957f510a272bc1b2feb6ad004543
-Author: Christine <chawkins@basis.cloud>
-Date: 7/26/2024 3:45:22 PM
-Message:
-Bug 10912 - GL - Bank Rec All Transactions button throws error if no statement date has been entered
-Bug 10913 - GL - The All Transactions button in Bank Rec shows transactions for all bank/gl accounts, not just the current one
- - previous fix corrected problems with All Transactions button, but caused a new problem when calling up the individual grids such that they didn't display any records.
-
-(cherry picked from commit b5fd208d877674a3008a552de218a2f30e8d62ee)
-----
-Modified: data/bar/glm_bankmaster.xml
-Modified: data/bar/glt_bankchecks.xml
-Modified: data/bar/glt_bankother.xml
-Modified: data/cdf/glm_bankmaster.cdf
-Modified: data/cdf/glt_bankchecks.cdf
-Modified: data/cdf/glt_bankother.cdf
-=======================================================================================================================================
-
-Revision: f03b457fea2daafaa82473a1ffd9c9ee2aed2980
-Author: Christine <chawkins@basis.cloud>
-Date: 8/13/2024 2:44:20 PM
-Message:
-Bug 7325 - AP - Payment Selection: Modify form to be more intuitive
- - Fine tuned the ASVA logic that looks for 'selected' invoices to include status 2 and 3 when running using Pay Auth
- - Don't bother showing "Use Payment Selection...." message when using Pay Auth, since user gets a message with summary of what's been reviewed, approved, etc. (i.e., the former message is extra/redundant).
-
-(cherry picked from commit 8f42c26f507d550c5cb6e3bebf8c7a270b6cc49b)
-----
-Modified: data/bar/ape_payselect.xml
-Modified: data/cdf/ape_payselect.cdf
-=======================================================================================================================================
-
-Revision: 27d660fecc665e4cbe4732d772f900a7ee813a7a
-Author: Christine <chawkins@basis.cloud>
-Date: 8/13/2024 4:21:47 PM
-Message:
-Bug 10918 - AP - Issues when using Google Docs to upload/view scanned AP Invoice images
- - upload uses new gapps.bbj method getWebPreviewLink() instead of getHref()
- - viewer sets user data dir in chromium switches when creating BBjHtmlView control
- - viewer uses Synch BBjSession for GUI viewing of GDocs when >1 image to view
- - viewer pre-passes image file and loads image records in treeMap, then iterates over map to view image(s); prepass allows for window title to contain invoice number and "x of y images"
- - BUI and GUI use BBjHtmlView control now - only exception is SDI/BUI, which still uses TC > browse
- - code to use namespace to keep track of image count no longer needed (was only used in Pay Select); removed from callpoints
-
-(cherry picked from commit 338d57e4df98aa4c31bc71de60114b27c04a7085)
-----
-Modified: ap/src/apc_imageupload.aon
-Modified: ap/src/apc_imageviewer.aon
-Modified: ap/src/apr_imageviewer.aon
-Modified: data/bar/ape_invoicehdr.xml
-Modified: data/bar/ape_mancheckdet.xml
-Modified: data/bar/ape_payselect.xml
-Modified: data/bar/apt_invhdr_arc.xml
-Modified: data/bar/apt_invoicehdr.xml
-Modified: data/cdf/ape_invoicehdr.cdf
-Modified: data/cdf/ape_mancheckdet.cdf
-Modified: data/cdf/ape_payselect.cdf
-Modified: data/cdf/apt_invhdr_arc.cdf
-Modified: data/cdf/apt_invoicehdr.cdf
-=======================================================================================================================================
-
-Revision: 95f83b46209a905e88eaefd7301e3639bb41fb76
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 8/20/2024 1:30:48 PM
-Message:
-Bug 10920: Made sure DataPort always has the data element padding and
-alignment information for CUSTOMER_ID and VENDOR_ID.
-----
-Modified: util/dataport/DataPort_main.bbj
 
