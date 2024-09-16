@@ -14,7 +14,6 @@ rem  +-----------------------------------------+
     seterr std_error
 
 rem --- Retrieve the program path
-rem wgh ... testing commit to master
     pgmdir$=stbl("+DIR_PGM",err=*next)
 
 rem --- Document initializations
