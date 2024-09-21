@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2024-08-28
+ Report Date:   2024-09/21
  Report Branch: AddonSoftware 24.12
  Last Release:  AddonSoftware 24.11
 =======================================================================================================================================
@@ -8,5 +8,13 @@
 BBjBaristaAddonDemos2411_08-22-2024_1046.jar
 =======================================================================================================================================
 
-
-
+Revision: da49c5e7a1e73dc2296102d3900a8628e92ee117
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 9/21/2024 1:43:17 PM
+Message:
+Bug 10934: Catch error in Owner Setter::setOwner() method when not able
+to change the owner of a file owned by root, and use SCALL to 'sudo
+bash' to change the owner via 'chown'.
+----
+Modified: ad/src/ado_AO_GitRepoInterface.aon
+=======================================================================================================================================
