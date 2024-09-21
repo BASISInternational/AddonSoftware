@@ -165,6 +165,7 @@ rem  */
             rem --- Before cloning, set the autocrlf property. in user's home/.gitconfig to FALSE
             userCfg!=SystemReader.getInstance().getUserConfig()
             userCfg!.setBoolean("core", null(), "autocrlf", Boolean.FALSE)
+            userCfg!.setBoolean("core", null(), "fileMode", Boolean.FALSE)
             userCfg!.save()
 
             rem --- Get Git repository
@@ -1716,6 +1717,13 @@ class public OwnerSetter extends SimpleFileVisitor
     methodend
 
     method public void setUser(Object path!)
+        seterr setOwner_error
         Files.setOwner(cast(Path,path!),#userPrincipal!)
+        methodret
+
+setOwner_error:
+        rem --- BBj Services may not be able to change root owner
+        path$=cast(Path,path!).toString()
+        scall_result=scall("sudo bash; chown "+#userPrincipal!+":"+#userPrincipal!+" "+path$,err=*next)
     methodend
 classend
