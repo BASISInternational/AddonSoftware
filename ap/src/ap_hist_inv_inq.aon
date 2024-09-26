@@ -3,7 +3,7 @@ rem --- ap_hist_inv_inq.aon
 
 rem --- AddonSoftware Version 23.0
 rem --- Copyright BASIS International Ltd.  All Rights Reserved.
-
+rem test
     if stbl("+USE_SETERR") = "YES" seterr error_proc
 
     enter
