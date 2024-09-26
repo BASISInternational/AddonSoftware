@@ -12,7 +12,7 @@ rem  +-----------------------------------------+
 
     setesc std_error
     seterr std_error
-rem CAH
+
 rem --- Retrieve the program path
     pgmdir$=stbl("+DIR_PGM",err=*next)
 
