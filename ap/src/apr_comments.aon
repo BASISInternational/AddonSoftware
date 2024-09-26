@@ -13,6 +13,8 @@ rem ricardo here
 
     setesc std_error
     seterr std_error
+
+rem SCULLY DID THIS
 Rem JD
 
 rem --- Retrieve the program path
