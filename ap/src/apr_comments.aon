@@ -8,6 +8,7 @@ rem  |  Copyright BASIS International Ltd.  All Rights Reserved.
 rem  |          All Rights Reserved            |
 rem  +-----------------------------------------+
 
+rem ricardo here
     use ::ado_func.src::func
 
     setesc std_error
