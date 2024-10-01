@@ -28,7 +28,7 @@ SYSSTBL=SET +FORM_LOGO=addon_logo.png
 SYSSTBL=SET +AON_APPCOMPANY=01007514
 SYSSTBL=SET +MDI_TITLE=AddonSoftware
 SYSSTBL=SET +MULTI_COMPANY=YES
-SYSSTBL=SET +FILE_HLA=https://documentation.basis.cloud/AddonHelp/WebHelp/addonhelp.htm
+SYSSTBL=SET +FILE_HLA=https://documentation.basis.cloud/AddonHelp/WebHelp/Content/Index.htm
 SYSSTBL=SET +DIR_PGM=
 SYSSTBL=SET +BATCH_NO=0000000
 SYSSTBL=SET +PROCESS_ID=
