@@ -1,10 +1,19 @@
 =======================================================================================================================================
-Report Branch: AddonSoftware Development Build
+ Report Date:   2024-10-14
+ Report Branch: AddonSoftware 24.20
+ Last Release:  AddonSoftware 24.12
 =======================================================================================================================================
-Development builds are generated daily.
 
-AddonSoftware Co-op Developers can access code changes and bug fixes for the Development Builds via Git.
+24.12 released 10/10/2024
+BBjBaristaAddonDemos2412_10-08-2024_1446.jar
+=======================================================================================================================================
 
-Information about code changes and bug fixes for RELEASE builds can be found at:
-
-https://bugs.basis.cloud
+Revision: c74f72bfca874866eeb03ee55f496f874c4b8061
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 10/14/2024 9:48:38 AM
+Message:
+Bug 10941: Fixed DataPort's handling of short v6 customer and vendor IDs
+when adding MEMO_1024$ to ARM_CUSTMAST and APM_VENDMAST, and in the
+conver_po_files subroutine.
+----
+Modified: util/dataport/DataPort_main.bbj
