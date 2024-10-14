@@ -1237,12 +1237,8 @@ rem --- CUSTOMER_ID and VENDOR_ID data needs adjusting when masks are less than 
 
 		if cvs(new_fieldlist.name$[field],3) = "CUSTOMER_ID"
             rem --- Get new CUSTOMER_ID field alignment and padding
-            if customerAlignment$="" then
-                redim ddm_elements$
-                readrecord(ddm_elements,key=pad("CUSTOMER_ID",16),dom=*next)ddm_elements$
-                customerAlignment$=ddm_elements.dd_attr_padj$
-                customerPadChar$=ddm_elements.dd_attr_padc$
-            endif
+            gosub getCustomer_ddAttr
+            
 			if custSizeMap!.containsKey(thisFirm$) then
 				cust_size = cast(BBjNumber, custSizeMap!.get(thisFirm$))
 				if cust_size > 0 and cust_size < 6 then
@@ -1253,12 +1249,8 @@ rem --- CUSTOMER_ID and VENDOR_ID data needs adjusting when masks are less than 
 		
 		if cvs(new_fieldlist.name$[field],3) = "VENDOR_ID"
             rem --- Get new VENDOR_ID field alignment and padding
-            if vendorAlignment$="" then
-                redim ddm_elements$
-                readrecord(ddm_elements,key=pad("VENDOR_ID",16),dom=*next)ddm_elements$
-                vendorAlignment$=ddm_elements.dd_attr_padj$
-                vendorPadChar$=ddm_elements.dd_attr_padc$
-            endif
+            gosub getVendor_ddAttr
+
 			if vendSizeMap!.containsKey(thisFirm$) then
 				vend_size = cast(BBjNumber, vendSizeMap!.get(thisFirm$))
 				if vend_size > 0 and vend_size < 6 then
@@ -2586,9 +2578,19 @@ convert_po_files:
         error_logged=1
     endif
     po_hdr_rec.dropship$="Y"
-    po_hdr_rec.customer_id$=old_rec.customer_nbr$
     po_hdr_rec.order_no$=old_rec.order_number$
     po_hdr_rec.shipto_no$=old_rec.shipto_nbr$
+    po_hdr_rec.customer_id$=old_rec.customer_nbr$
+
+    rem --- Get new VENDOR_ID field alignment and padding
+    gosub getCustomer_ddAttr
+    if custSizeMap!.containsKey(thisFirm$) then
+        cust_size = cast(BBjNumber, custSizeMap!.get(thisFirm$))
+        if cust_size > 0 and cust_size < 6 then
+            po_hdr_rec.customer_id$=pad(old_rec.customer_nbr$(1,cust_size),6,customerAlignment$,ath(customerPadChar$))
+        endif
+    endif
+
     po_hdr_rec$=field(po_hdr_rec$)
     
     rem --- now read cust ship-to or cust mast and fill in po hdr's dropship address fields
@@ -3650,33 +3652,44 @@ init_apm01_memo1024: rem --- Build APM_VENDMAST.MEMO_1024 (apm-01) from apm-09 (
         apm09_dev=unt
         open (apm09_dev)source_folder$+"/"+cvs("apm-09",version_cvs)
         lock (apm09_dev)
+        
+        rem --- Get new VENDOR_ID field alignment and padding
+        gosub getVendor_ddAttr
 
         rem --- Build new APM_VENDMAST.MEMO_1024 field from apm-09 (APM_VEMDCMTS) table
         currentFirm$=""
-        currentVendor$=""
+        v6Vendor$=""
+        thisVendor$=""
         memo$=""
         read(apm09_dev,key="",dom=*next)
         while 1
             apm09_key$=key(apm09_dev,end=*break)
             readrecord(apm09_dev)apm09_rec$
-            if apm09_rec$(1,8)<>currentFirm$+currentVendor$ then
+            if apm09_rec$(1,8)<>currentFirm$+v6Vendor$ then
                 record_found=0
-                readrecord(apmVendMast_dev,key=currentFirm$+currentVendor$,dom=*next)apmVendMast$; record_found=1
+                readrecord(apmVendMast_dev,key=currentFirm$+thisVendor$,dom=*next)apmVendMast$; record_found=1
                 if record_found then
                     apmVendMast.memo_1024$=memo$
                     apmVendMast$=field(apmVendMast$)
                     writerecord(apmVendMast_dev)apmVendMast$
                 endif
                 memo$=""
-                currentVendor$=apm09_rec$(3,6)
-                if apm09_rec$(1,2)<>currentFirm$ then
-                    currentFirm$=apm09_rec$(1,2)
+                if apm09_rec$(1,2)<>currentFirm$ then currentFirm$=apm09_rec$(1,2)
+                if apm09_rec$(3,6)<>v6Vendor$ then
+                    v6Vendor$=apm09_rec$(3,6)
+                    thisVendor$=v6Vendor$
+                    if vendSizeMap!.containsKey(thisFirm$) then
+                        vend_size = cast(BBjNumber, vendSizeMap!.get(thisFirm$))
+                        if vend_size > 0 and vend_size < 6 then
+                            thisVendor$=pad(apm09_rec$(3,vend_size),6,vendorAlignment$,ath(vendorPadChar$))
+                        endif
+                    endif
                 endif
             endif
             memo$=memo$+cvs(apm09_rec$(12,48),2)+$0A$; rem --- must trim all trailing $00$ from record
         wend
         record_found=0
-        readrecord(apmVendMast_dev,key=currentFirm$+currentVendor$,dom=*next)apvmVendMast$; record_found=1
+        readrecord(apmVendMast_dev,key=currentFirm$+thisVendor$,dom=*next)apvmVendMast$; record_found=1
         if record_found then
             apmVendMast.memo_1024$=memo$
             apmVendMast$=field(apmVendMast$)
@@ -3721,32 +3734,44 @@ init_arm01_memo1024: rem --- Build ARM_CUSTMAST.MEMO_1024 (arm-01) from arm-05 (
         open (arm05_dev)source_folder$+"/"+cvs("arm-05",version_cvs)
         lock (arm05_dev)
 
+        rem --- Get new CUSTOMER_ID field alignment and padding
+        gosub getCustomer_ddAttr
+
         rem --- Build new ARM_CUSTMAST.MEMO_1024 field from arm-05 (ARM_CUSTCMTS) table
         currentFirm$=""
-        currentCustomer$=""
+        v6Customer$=""
+        thisCustomer$=""
         memo$=""
         read(arm05_dev,key="",dom=*next)
         while 1
             arm05_key$=key(arm05_dev,end=*break)
             readrecord(arm05_dev)arm05_rec$
-            if arm05_rec$(1,8)<>currentFirm$+currentCustomer$ then
+
+            if arm05_rec$(1,8)<>currentFirm$+v6Customer$ then
                 record_found=0
-                readrecord(armCustMast_dev,key=currentFirm$+currentCustomer$,dom=*next)armCustMast$; record_found=1
+                readrecord(armCustMast_dev,key=currentFirm$+thisCustomer$,dom=*next)armCustMast$; record_found=1
                 if record_found then
                     armCustMast.memo_1024$=memo$
                     armCustMast$=field(armCustMast$)
                     writerecord(armCustMast_dev)armCustMast$
                 endif
                 memo$=""
-                currentCustomer$=arm05_rec$(3,6)
-                if arm05_rec$(1,2)<>currentFirm$ then
-                    currentFirm$=arm05_rec$(1,2)
+                if arm05_rec$(1,2)<>currentFirm$ then currentFirm$=arm05_rec$(1,2)
+                if arm05_rec$(3,6)<>v6Customer$ then
+                    v6Customer$=arm05_rec$(3,6)
+                    thisCustomer$=v6Customer$
+                    if custSizeMap!.containsKey(thisFirm$) then
+                        cust_size = cast(BBjNumber, custSizeMap!.get(thisFirm$))
+                        if cust_size > 0 and cust_size < 6 then
+                            thisCustomer$=pad(arm05_rec$(3,cust_size),6,customerAlignment$,ath(customerPadChar$))
+                        endif
+                    endif
                 endif
             endif
             memo$=memo$+cvs(arm05_rec$(12,48),2)+$0A$; rem --- must trim all trailing $00$ from record
         wend
         record_found=0
-        readrecord(armCustMast_dev,key=currentFirm$+currentCustomer$,dom=*next)armCustMast$; record_found=1
+        readrecord(armCustMast_dev,key=currentFirm$+thisCustomer$,dom=*next)armCustMast$; record_found=1
         if record_found then
             armCustMast.memo_1024$=memo$
             armCustMast$=field(armCustMast$)
@@ -4409,7 +4434,25 @@ header_pre02_recs: rem --- Create Header for pre02_recs"
        writerecord(pre_02hdr_trgt)pre_02hdr$
     wend
     return
-    
+
+getCustomer_ddAttr: rem --- Get new CUSTOMER_ID field alignment and padding
+    if customerAlignment$="" then
+        redim ddm_elements$
+        readrecord(ddm_elements,key=pad("CUSTOMER_ID",16),dom=*next)ddm_elements$
+        customerAlignment$=ddm_elements.dd_attr_padj$
+        customerPadChar$=ddm_elements.dd_attr_padc$
+    endif
+    return
+
+gosub getVendor_ddAttr; rem --- Get new VENDOR_ID field alignment and padding
+    if vendorAlignment$="" then
+        redim ddm_elements$
+        readrecord(ddm_elements,key=pad("VENDOR_ID",16),dom=*next)ddm_elements$
+        vendorAlignment$=ddm_elements.dd_attr_padj$
+        vendorPadChar$=ddm_elements.dd_attr_padc$
+    endif
+    return
+            
 fix_yymmdd_date: rem --- Convert yy dates to yyyy, and yymmdd dates to yyyymmdd
     rem ---     Input/Out: value$
     if len(cvs(value$,3)) then
