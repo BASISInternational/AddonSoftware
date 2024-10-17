@@ -4444,7 +4444,7 @@ getCustomer_ddAttr: rem --- Get new CUSTOMER_ID field alignment and padding
     endif
     return
 
-gosub getVendor_ddAttr; rem --- Get new VENDOR_ID field alignment and padding
+getVendor_ddAttr: rem --- Get new VENDOR_ID field alignment and padding
     if vendorAlignment$="" then
         redim ddm_elements$
         readrecord(ddm_elements,key=pad("VENDOR_ID",16),dom=*next)ddm_elements$
