@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2024-10-14
+ Report Date:   2024-10-16
  Report Branch: AddonSoftware 24.20
  Last Release:  AddonSoftware 24.12
 =======================================================================================================================================
@@ -15,5 +15,15 @@ Message:
 Bug 10941: Fixed DataPort's handling of short v6 customer and vendor IDs
 when adding MEMO_1024$ to ARM_CUSTMAST and APM_VENDMAST, and in the
 conver_po_files subroutine.
+----
+Modified: util/dataport/DataPort_main.bbj
+=======================================================================================================================================
+
+Revision: b6b197702b928085a1c21d213724557d16723d12
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 10/16/2024 5:07:08 PM
+Message:
+Bug 10941: Fixed error when DataPorting APE-01.
+
 ----
 Modified: util/dataport/DataPort_main.bbj
