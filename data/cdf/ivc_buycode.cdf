@@ -1,74 +1,151 @@
 [[IVC_BUYCODE.BDEL]]
-rem --- make sure the buyer code that's being deleted isn't the default, or isn't used in ivm-02
+rem --- When deleting the Buyer Code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	gosub check_active_code
+	if found then
+		callpoint!.setStatus("ABORT")
+		break
+	endif
 
-ivm02_dev=fnget_dev("IVM_ITEMWHSE")
-ivs_defaults=fnget_dev("IVS_DEFAULTS")
-
-dim ivs_defaults$:fnget_tpl$("IVS_DEFAULTS")
-
-can_delete$=""
-ivm02_key$=""
-
-read (ivm02_dev,key=firm_id$+callpoint!.getColumnData("IVC_BUYCODE.BUYER_CODE"),knum="AO_BUYER_VEND_WH",dom=*next)
-ivm02_key$=key(ivm02_dev,end=*next)
-if pos(firm_id$+callpoint!.getColumnData("IVC_BUYCODE.BUYER_CODE")=ivm02_key$)=1
-	can_delete$="N"
-endif
-readrecord (ivs_defaults,key=firm_id$+"D",dom=*next)ivs_defaults$
-if ivs_defaults.buyer_code$=callpoint!.getColumnData("IVC_BUYCODE.BUYER_CODE")
-	can_delete$="N"
-endif
-
-if can_delete$="N"
-	msg_id$="IV_NO_DELETE"
-	dim msg_tokens$[1]
-	msg_tokens$[1]=Translate!.getTranslation("AON_THIS_BUYER_CODE_IS_EITHER_THE_DEFAULT,_OR_IS_USED_ON_ONE_OR_MORE_INVENTORY_ITEMS.")
+rem --- Do they want to deactivate code instead of deleting it?
+	msg_id$="AD_DEACTIVATE_CODE"
 	gosub disp_message
-	callpoint!.setStatus("ABORT")
-endif
-[[IVC_BUYCODE.<CUSTOM>]]
-#include [+ADDON_LIB]std_missing_params.aon
+	if msg_opt$="Y" then
+		rem --- Check the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("IVC_BUYCODE.CODE_INACTIVE","Y",1)
+		callpoint!.setStatus("SAVE;ABORT")
+		break
+	endif
+
 [[IVC_BUYCODE.BSHO]]
+rem --- This firm using Inventory?
+	call stbl("+DIR_PGM")+"adc_application.aon","IV",info$[all]
+	callpoint!.setDevObject("usingIV",info$[20])
+
+rem --- This firm using Anaylsis?
+	call stbl("+DIR_PGM")+"adc_application.aon","AD",info$[all]
+	callpoint!.setDevObject("usingAD",info$[20])
+
+rem --- This firm using Purchase Order?
+	call stbl("+DIR_PGM")+"adc_application.aon","PO",info$[all]
+	callpoint!.setDevObject("usingPO",info$[20])
+
 rem --- Open/Lock files
+	num_files=9
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="APM_VENDREPL",open_opts$[1]="OTA"
 
-files=3,begfile=1,endfile=files
-dim files$[files],options$[files],chans$[files],templates$[files]
-files$[1]="IVS_PARAMS",options$[1]="OTA"
-files$[2]="IVM_ITEMWHSE",options$[2]="OTA"
-files$[3]="IVS_DEFAULTS",options$[3]="OTA"
-call dir_pgm$+"bac_open_tables.bbj",begfile,endfile,files$[all],options$[all],
-:                                 chans$[all],templates$[all],table_chans$[all],batch,status$
-if status$<>"" then
-	remove_process_bar:
-	bbjAPI!=bbjAPI()
-	rdFuncSpace!=bbjAPI!.getGroupNamespace()
-	rdFuncSpace!.setValue("+build_task","OFF")
-	release
-endif
+rem --- Check if Inventory is used
+	if callpoint!.getDevObject("usingIV")="Y" then
+		open_tables$[2]="IVC_PRODCODE",open_opts$[2]="OTA"
+		open_tables$[3]="IVM_ITEMMAST",open_opts$[3]="OTA"
+		open_tables$[4]="IVM_ITEMWHSE",open_opts$[4]="OTA"
+	endif
+	if callpoint!.getDevObject("usingAD")="Y" then
+		open_tables$[5]="IVS_DEFAULTS",open_opts$[5]="OTA"
+	endif
+	if callpoint!.getDevObject("usingPO")="Y" then
+		open_tables$[6]="POE_ORDDET",open_opts$[6]="OTA"
+		open_tables$[7]="POE_ORDHDR",open_opts$[7]="OTA"
+		open_tables$[8]="POE_ORDTOT",open_opts$[8]="OTA"
+		open_tables$[9]="POE_REPXREF",open_opts$[9]="OTA"
+	endif
 
-ivs01_dev=num(chans$[1])
+	gosub open_tables
 
-rem --- Dimension miscellaneous string templates
+[[IVC_BUYCODE.CODE_INACTIVE.AVAL]]
+rem --- When deactivating the Buyer Code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	current_inactive$=callpoint!.getUserInput()
+	prior_inactive$=callpoint!.getColumnData("IVC_BUYCODE.CODE_INACTIVE")
+	if current_inactive$="Y" and prior_inactive$<>"Y" then
+		gosub check_active_code
+		if found then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
 
-dim ivs01a$:templates$[1]
+[[IVC_BUYCODE.<CUSTOM>]]
+rem ==========================================================================
+check_active_code: rem --- Warn if there are any current/active transactions for the code
+rem ==========================================================================
+	found=0
+	buyer_code$=callpoint!.getColumnData("IVC_BUYCODE.BUYER_CODE")
 
-rem --- init/parameters
+	checkTables!=BBjAPI().makeVector()
+	checkTables!.addItem("APM_VENDREPL")
+	if callpoint!.getDevObject("usingIV")="Y" then
+		checkTables!.addItem("IVC_PRODCODE")
+		checkTables!.addItem("IVM_ITEMMAST")
+		checkTables!.addItem("IVM_ITEMWHSE")
+	endif
+	if callpoint!.getDevObject("usingAD")="Y" then
+		checkTables!.addItem("IVS_DEFAULTS")
+	endif
+	if callpoint!.getDevObject("usingPO")="Y" then
+		checkTables!.addItem("POE_ORDDET")
+		checkTables!.addItem("POE_ORDHDR")
+		checkTables!.addItem("POE_ORDTOT")
+		checkTables!.addItem("POE_REPXREF")
+	endif
+	for i=0 to checkTables!.size()-1
+		thisTable$=checkTables!.getItem(i)
+		table_dev = fnget_dev(thisTable$)
+		dim table_tpl$:fnget_tpl$(thisTable$)
+		read(table_dev,key=firm_id$,dom=*next)
+		while 1
+			readrecord(table_dev,end=*break)table_tpl$
+			if table_tpl.firm_id$<>firm_id$ then break
+			if table_tpl.buyer_code$=buyer_code$ then
+				msg_id$="AD_CODE_IN_USE"
+				dim msg_tokens$[2]
+				msg_tokens$[1]=Translate!.getTranslation("AON_OPERATIONS")+" "+Translate!.getTranslation("AON_CODE")
+				switch (BBjAPI().TRUE)
+                				case thisTable$="APM_VENDREPL"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-APM_VENDREPL-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="IVC_PRODCODE"
+                   				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVC_PRODCODE-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="IVM_ITEMMAST"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVM_ITEMMAST-DD_ATTR_WINT")
+						break
+                				case thisTable$="IVM_ITEMWHSE"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVM_ITEMWHSE-DD_ATTR_WINT")
+						break
+                				case thisTable$="IVS_DEFAULTS"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVS_DEFAULTS-DD_ATTR_WINT")
+						break
+                				case thisTable$="POE_ORDDET"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-POE_ORDDET-DD_ATTR_WINT")
+						break
+                				case thisTable$="POE_ORDHDR"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-POE_ORDHDR-DD_ATTR_WINT")
+						break
+                				case thisTable$="POE_ORDTOT"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-POE_ORDTOT-DD_ATTR_WINT")
+						break
+                				case thisTable$="POE_REPXREF"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-POE_REPXREF-DD_ATTR_WINT")
+						break
+                				case default
+                    				msg_tokens$[2]="???"
+                    				break
+            				swend
+				gosub disp_message
 
-disable_str$=""
-enable_str$=""
-dim info$[20]
+				found=1
+				break
+			endif
+		wend
+		if found then break
+	next i
 
-ivs01a_key$=firm_id$+"IV00"
-find record (ivs01_dev,key=ivs01a_key$,err=std_missing_params) ivs01a$
+	if found then
+		rem --- Uncheck the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("IVC_BUYCODE.CODE_INACTIVE","N",1)
+	endif
 
-call stbl("+DIR_PGM")+"adc_application.aon","PO",info$[all]
-po$=info$[20]
+return
 
-if po$<>"Y"
-	MSG_ID$="PO_NOT_INST"
-	gosub disp_message
-	bbjAPI!=bbjAPI()
-	rdFuncSpace!=bbjAPI!.getGroupNamespace()
-	rdFuncSpace!.setValue("+build_task","OFF")
-	release
-endif
+
+

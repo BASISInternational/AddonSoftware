@@ -5,7 +5,7 @@
 		<RECORD id="ddm_tables.ivc_buycode">
 			<DD_TABLE_ALIAS id="ddm_tables.ivc_buycode">IVC_BUYCODE     </DD_TABLE_ALIAS>
 			<DD_ALIAS_DESC id="ddm_tables.ivc_buycode">Buyer Code</DD_ALIAS_DESC>
-			<DD_FILE_NAME id="ddm_tables.ivc_buycode"></DD_FILE_NAME>
+			<DD_FILE_NAME id="ddm_tables.ivc_buycode">ivc_buycode</DD_FILE_NAME>
 			<DD_TABLE_PATH id="ddm_tables.ivc_buycode">[+IVDATA]</DD_TABLE_PATH>
 			<DD_ALIAS_TYPE id="ddm_tables.ivc_buycode">V</DD_ALIAS_TYPE>
 			<DD_KEY_LENGTH id="ddm_tables.ivc_buycode">0</DD_KEY_LENGTH>
@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ivc_buycode"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ivc_buycode">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ivc_buycode">AP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ivc_buycode">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ivc_buycode">24.0</ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ivc_buycode">DC6C34BCACAEAE66657EA2594946C638</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivc_buycode">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivc_buycode">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivc_buycode">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivc_buycode">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivc_buycode">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivc_buycode">20241016</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivc_buycode">20241016</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivc_buycode">141726</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivc_buycode"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ivc_buycode">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ivc_buycode">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivc_buycode"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ivc_buycode"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ivc_buycode">T</DD_ATTR_FTYP>
@@ -49,13 +49,13 @@
 			<DD_ATTR_RSET id="ddm_tables.ivc_buycode"></DD_ATTR_RSET>
 			<DD_ATTR_IGNR id="ddm_tables.ivc_buycode"></DD_ATTR_IGNR>
 			<DD_ATTR_RPOS id="ddm_tables.ivc_buycode"></DD_ATTR_RPOS>
-			<DD_ATTR_XPOS id="ddm_tables.ivc_buycode"></DD_ATTR_XPOS>
-			<DD_ATTR_YPOS id="ddm_tables.ivc_buycode"></DD_ATTR_YPOS>
-			<DD_ATTR_FWID id="ddm_tables.ivc_buycode"></DD_ATTR_FWID>
-			<DD_ATTR_FHGT id="ddm_tables.ivc_buycode"></DD_ATTR_FHGT>
-			<DD_ATTR_PADW id="ddm_tables.ivc_buycode"></DD_ATTR_PADW>
-			<DD_ATTR_PADH id="ddm_tables.ivc_buycode"></DD_ATTR_PADH>
-			<DD_ATTR_PADG id="ddm_tables.ivc_buycode"></DD_ATTR_PADG>
+			<DD_ATTR_XPOS id="ddm_tables.ivc_buycode">0</DD_ATTR_XPOS>
+			<DD_ATTR_YPOS id="ddm_tables.ivc_buycode">0</DD_ATTR_YPOS>
+			<DD_ATTR_FWID id="ddm_tables.ivc_buycode">0</DD_ATTR_FWID>
+			<DD_ATTR_FHGT id="ddm_tables.ivc_buycode">0</DD_ATTR_FHGT>
+			<DD_ATTR_PADW id="ddm_tables.ivc_buycode">0</DD_ATTR_PADW>
+			<DD_ATTR_PADH id="ddm_tables.ivc_buycode">0</DD_ATTR_PADH>
+			<DD_ATTR_PADG id="ddm_tables.ivc_buycode">0</DD_ATTR_PADG>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_cpro">
@@ -480,13 +480,13 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivc_buycode007">20170320</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivc_buycode007"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivc_buycode007"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivc_buycode007"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivc_buycode007">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivc_buycode007">0</DD_ATTR_COLW>
-			<DD_ATTR_CTLX id="ddm_table_cols.ivc_buycode007"></DD_ATTR_CTLX>
+			<DD_ATTR_CTLX id="ddm_table_cols.ivc_buycode007">-8</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivc_buycode007"></DD_ATTR_CTLY>
 			<DD_ATTR_CTLW id="ddm_table_cols.ivc_buycode007"></DD_ATTR_CTLW>
 			<DD_ATTR_CTLH id="ddm_table_cols.ivc_buycode007"></DD_ATTR_CTLH>
-			<DD_ATTR_DFLT id="ddm_table_cols.ivc_buycode007"></DD_ATTR_DFLT>
+			<DD_ATTR_DFLT id="ddm_table_cols.ivc_buycode007">N</DD_ATTR_DFLT>
 			<DD_ATTR_DRLE id="ddm_table_cols.ivc_buycode007"></DD_ATTR_DRLE>
 			<DD_ATTR_GHDR id="ddm_table_cols.ivc_buycode007"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.ivc_buycode007"></DD_ATTR_IDEF>
@@ -508,12 +508,20 @@
 			<DD_ATTR_STYL id="ddm_table_cols.ivc_buycode007"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.ivc_buycode007">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ivc_buycode007"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.ivc_buycode007"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.ivc_buycode007"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ivc_buycode007"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.ivc_buycode007">3004</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.ivc_buycode007">cbx_code_inactive</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.ivc_buycode007">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ivc_buycode007"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ivc_buycode007">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ivc_buycode007"></DD_ATTR_BTNS>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_column_cpro">
+		<ID id="ddm_column_cpro">DDM_COLUMN_CPRO</ID>
+		<RECORD id="ddm_column_cpro.ivc_buycodecode_inactiveaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.ivc_buycodecode_inactiveaval">IVC_BUYCODE     </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.ivc_buycodecode_inactiveaval">CODE_INACTIVE   </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.ivc_buycodecode_inactiveaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_opts">
@@ -547,11 +555,6 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.ivc_buycodeseasons_groupw">IVC_BUYCODE     </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.ivc_buycodeseasons_groupw">SEASONS_GROUP   </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.ivc_buycodeseasons_groupw">W</DD_ATTR_OPTS>
-		</RECORD>
-		<RECORD id="ddm_column_opts.ivc_buycodecode_inactiveo">
-			<DD_TABLE_ALIAS id="ddm_column_opts.ivc_buycodecode_inactiveo">IVC_BUYCODE     </DD_TABLE_ALIAS>
-			<DD_DVAR_NAME id="ddm_column_opts.ivc_buycodecode_inactiveo">CODE_INACTIVE   </DD_DVAR_NAME>
-			<DD_ATTR_OPTS id="ddm_column_opts.ivc_buycodecode_inactiveo">O</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">
