@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivs_defaults">C6A89C234C7AE0319F4860CB61D21D7E</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivs_defaults">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivs_defaults">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivs_defaults">20240603</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivs_defaults">20240603</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivs_defaults">165744</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivs_defaults">20241015</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivs_defaults">20241015</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivs_defaults">154556</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivs_defaults"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ivs_defaults">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ivs_defaults">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivs_defaults"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ivs_defaults"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ivs_defaults">T</DD_ATTR_FTYP>
@@ -709,7 +709,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivs_defaults007">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivs_defaults007"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivs_defaults007"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults007"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults007">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivs_defaults007"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivs_defaults007"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivs_defaults007"></DD_ATTR_CTLY>
@@ -1117,7 +1117,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivs_defaults015">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivs_defaults015"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivs_defaults015"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults015">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults015">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivs_defaults015"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivs_defaults015"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivs_defaults015"></DD_ATTR_CTLY>
@@ -1219,7 +1219,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivs_defaults017">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivs_defaults017"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivs_defaults017"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults017">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults017">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivs_defaults017"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivs_defaults017">-35</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivs_defaults017">+4</DD_ATTR_CTLY>
@@ -1270,7 +1270,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivs_defaults018">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivs_defaults018"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivs_defaults018"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults018">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults018">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivs_defaults018"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivs_defaults018"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivs_defaults018"></DD_ATTR_CTLY>
@@ -1321,7 +1321,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivs_defaults019">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivs_defaults019"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivs_defaults019"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults019">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults019">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivs_defaults019"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivs_defaults019"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivs_defaults019"></DD_ATTR_CTLY>
@@ -1372,7 +1372,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivs_defaults020">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivs_defaults020"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivs_defaults020"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults020">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults020">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivs_defaults020"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivs_defaults020"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivs_defaults020"></DD_ATTR_CTLY>
@@ -1423,7 +1423,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivs_defaults021">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivs_defaults021"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivs_defaults021"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults021">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults021">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivs_defaults021"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivs_defaults021"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivs_defaults021"></DD_ATTR_CTLY>
@@ -1474,7 +1474,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivs_defaults022">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivs_defaults022"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivs_defaults022"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults022">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivs_defaults022">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivs_defaults022"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivs_defaults022"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivs_defaults022"></DD_ATTR_CTLY>
@@ -1563,6 +1563,11 @@
 	</ALIAS>
 	<ALIAS id="ddm_column_cpro">
 		<ID id="ddm_column_cpro">DDM_COLUMN_CPRO</ID>
+		<RECORD id="ddm_column_cpro.ivs_defaultsbuyer_codeaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.ivs_defaultsbuyer_codeaval">IVS_DEFAULTS    </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.ivs_defaultsbuyer_codeaval">BUYER_CODE      </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.ivs_defaultsbuyer_codeaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
 		<RECORD id="ddm_column_cpro.ivs_defaultsar_dist_codeaval">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ivs_defaultsar_dist_codeaval">IVS_DEFAULTS    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.ivs_defaultsar_dist_codeaval">AR_DIST_CODE    </DD_DVAR_NAME>

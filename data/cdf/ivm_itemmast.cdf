@@ -883,6 +883,22 @@ call stbl("+DIR_SYP")+"bac_create_color.bbj","+TAB_CHILD_COLOR","250,250,250",rd
 tax_svc_cd_desc!.setBackColor(rdTabChildColor!)
 callpoint!.setDevObject("tax_svc_cd_desc",tax_svc_cd_desc!)
 
+[[IVM_ITEMMAST.BUYER_CODE.AVAL]]
+rem --- Don't allow inactive code
+	ivc_buycode=fnget_dev("IVC_BUYCODE")
+	dim ivc_buycode$:fnget_tpl$("IVC_BUYCODE")
+	buyer_code$=callpoint!.getUserInput()
+	read record (ivc_buycode,key=firm_id$+"F"+buyer_code$,dom=*next)ivc_buycode$
+	if ivc_buycode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivc_buycode.buyer_code$,3)
+		msg_tokens$[2]=cvs(ivc_buycode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 [[IVM_ITEMMAST.BWRI]]
 rem --- Is item code blank?
 

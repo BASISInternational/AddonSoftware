@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.poe_ordtot">8109868A34B0EFD7FEBA2627492DD94F</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poe_ordtot">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poe_ordtot">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.poe_ordtot">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.poe_ordtot">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.poe_ordtot">142910</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.poe_ordtot">20241015</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.poe_ordtot">20241015</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.poe_ordtot">155808</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.poe_ordtot"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.poe_ordtot"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.poe_ordtot"></DD_ATTR_DKNM>
@@ -294,7 +294,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.poe_ordtot002">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.poe_ordtot002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.poe_ordtot002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.poe_ordtot002"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.poe_ordtot002">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.poe_ordtot002"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.poe_ordtot002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.poe_ordtot002"></DD_ATTR_CTLY>
@@ -447,7 +447,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.poe_ordtot005">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.poe_ordtot005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.poe_ordtot005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.poe_ordtot005">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.poe_ordtot005">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.poe_ordtot005"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.poe_ordtot005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.poe_ordtot005"></DD_ATTR_CTLY>
@@ -1616,6 +1616,11 @@
 	</ALIAS>
 	<ALIAS id="ddm_column_cpro">
 		<ID id="ddm_column_cpro">DDM_COLUMN_CPRO</ID>
+		<RECORD id="ddm_column_cpro.poe_ordtotbuyer_codeaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.poe_ordtotbuyer_codeaval">POE_ORDTOT      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.poe_ordtotbuyer_codeaval">BUYER_CODE      </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.poe_ordtotbuyer_codeaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
 		<RECORD id="ddm_column_cpro.poe_ordtotitem_idaval">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.poe_ordtotitem_idaval">POE_ORDTOT      </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.poe_ordtotitem_idaval">ITEM_ID         </DD_DVAR_NAME>

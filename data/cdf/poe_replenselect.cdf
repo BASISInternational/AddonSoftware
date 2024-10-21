@@ -3,6 +3,7 @@ rem --- Set default Ending Review Date equal to today
 	today$=stbl("+SYSTEM_DATE")
 	callpoint!.setColumnData("POE_REPLENSELECT.REVIEW_DATE_2",today$)
 	callpoint!.setStatus("REFRESH")
+
 [[POE_REPLENSELECT.ASVA]]
 rem --- write poe-07
 rem --- run program is old poe.fb that builds poe-06/16/26/36 and 17(?)
@@ -42,6 +43,7 @@ else
 	callpoint!.setMessage("PO_REP_SEL")
 	callpoint!.setStatus("ABORT")
 endif
+
 [[POE_REPLENSELECT.AWIN]]
 rem --- open tables, poe06/16/26/36/07/17
 
@@ -82,3 +84,22 @@ rem --- See if we need to clear out poe-07
 		endif
 		break
 	wend
+
+[[POE_REPLENSELECT.BUYER_CODE.AVAL]]
+rem --- Don't allow inactive code
+	ivc_buycode=fnget_dev("IVC_BUYCODE")
+	dim ivc_buycode$:fnget_tpl$("IVC_BUYCODE")
+	buyer_code$=callpoint!.getUserInput()
+	read record (ivc_buycode,key=firm_id$+"F"+buyer_code$,dom=*next)ivc_buycode$
+	if ivc_buycode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivc_buycode.buyer_code$,3)
+		msg_tokens$[2]=cvs(ivc_buycode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+
+
