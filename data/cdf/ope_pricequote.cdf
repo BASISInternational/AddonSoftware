@@ -122,6 +122,20 @@ item$=callpoint!.getColumnData("OPE_PRICEQUOTE.ITEM_ID")
 gosub build_arrays
 callpoint!.setStatus("REFRESH")
 
+[[OPE_PRICEQUOTE.ITEM_CLASS.AVAL]]
+	ivc_clascode=fnget_dev("IVC_CLASCODE")
+	dim ivc_clascode$:fnget_tpl$("IVC_CLASCODE")
+	item_class$=callpoint!.getUserInput()
+	read record (ivc_clascode,key=firm_id$+item_class$,dom=*next)ivc_clascode$
+	if ivc_clascode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivc_clascode.item_class$,3)
+		msg_tokens$[2]=cvs(ivc_clascode.code_desc$,3)
+		gosub disp_message
+		return
+	endif
+
 [[OPE_PRICEQUOTE.ITEM_ID.AINV]]
 rem --- Item synonym processing
 
