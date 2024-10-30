@@ -101,7 +101,25 @@ if ivs_defaults.item_class$=item_class$ then
 	msg_id$="IV_CLASS_DEFAULT"
 	gosub disp_message
 	callpoint!.setStatus("ABORT")
+	return
 endif
+
+rem --- When deleting the CLASS Code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	gosub check_active_code
+	if found then
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+rem --- Do they want to deactivate code instead of deleting it?
+	msg_id$="AD_DEACTIVATE_CODE"
+	gosub disp_message
+	if msg_opt$="Y" then
+		rem --- Check the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("IVC_CLASCODE.CODE_INACTIVE","Y",1)
+		callpoint!.setStatus("SAVE;ABORT")
+		break
+	endif
 
 [[IVC_CLASCODE.BEND]]
 rem --- Close connection to Sales Tax Service
@@ -111,56 +129,61 @@ rem --- Close connection to Sales Tax Service
 	endif
 
 [[IVC_CLASCODE.BSHO]]
-rem --- Inits
-
+rem --- Initial Imports
 use ::ado_util.src::util
 use ::opo_AvaTaxInterface.aon::AvaTaxInterface
 
-rem --- Is Sales Order Processing installed?
-
+rem --- Check Installations
 call dir_pgm1$+"adc_application.aon","OP",info$[all]
 op$=info$[20]
 callpoint!.setDevObject("op",op$)
 
-rem --- Open/Lock files
+call stbl("+DIR_PGM")+"adc_application.aon","IV",info$[all]
+callpoint!.setDevObject("usingIV",info$[20])
 
-files=3
-if op$="Y" then files=4
-begfile=1,endfile=files
-dim files$[files],options$[files],chans$[files],templates$[files]
-files$[1]="IVS_PARAMS",options$[1]="OTA"
-files$[2]="IVM_ITEMMAST",options$[2]="OTA"
-files$[3]="IVS_DEFAULTS",options$[3]="OTA"
-if op$="Y" then files$[4]="OPS_PARAMS",options$[4]="OTA"
-call dir_pgm$+"bac_open_tables.bbj",begfile,endfile,files$[all],options$[all],
-:                                 chans$[all],templates$[all],table_chans$[all],batch,status$
-if status$<>"" then
-	remove_process_bar:
-	bbjAPI!=bbjAPI()
-	rdFuncSpace!=bbjAPI!.getGroupNamespace()
-	rdFuncSpace!.setValue("+build_task","OFF")
-	release
+call stbl("+DIR_PGM")+"adc_application.aon","AD",info$[all]
+callpoint!.setDevObject("usingAD",info$[20])
+
+rem --- Define Files Based on Installations
+num_files=6
+dim open_tables$[1:num_files], open_opts$[1:num_files], open_chans$[1:num_files], open_tpls$[1:num_files]
+
+open_tables$[1]="IVS_PARAMS", open_opts$[1]="OTA"
+open_tables$[2]="IVM_ITEMMAST", open_opts$[2]="OTA"
+open_tables$[3]="IVS_DEFAULTS", open_opts$[3]="OTA"
+
+if op$="Y" then
+    open_tables$[4]="OPS_PARAMS", open_opts$[4]="OTA"
 endif
-ivs01_dev=num(chans$[1])
 
-rem --- Dimension miscellaneous string templates
+if callpoint!.getDevObject("usingIV")="Y" then
+    open_tables$[5]="IVC_PRICCODE", open_opts$[5]="OTA"
+    open_tables$[6]="IVC_PRODCODE", open_opts$[6]="OTA"
+endif
 
-	dim ivs01a$:templates$[1]
+gosub open_tables
 
-	ivs01a_key$=firm_id$+"IV00"
-	find record (ivs01_dev,key=ivs01a_key$,err=std_missing_params) ivs01a$
 
-rem --- Add static label for displaying TAX_SVC_CD description
-tax_svc_cd!=fnget_control!("IVC_CLASCODE.TAX_SVC_CD")
-tax_svc_cd_x=tax_svc_cd!.getX()
-tax_svc_cd_y=tax_svc_cd!.getY()
-tax_svc_cd_height=tax_svc_cd!.getHeight()
-tax_svc_cd_width=tax_svc_cd!.getWidth()
-code_desc!=fnget_control!("IVC_CLASCODE.CODE_DESC")
-code_desc_width=code_desc!.getWidth()
-nxt_ctlID=util.getNextControlID()
-tax_svc_cd_desc!=Form!.addStaticText(nxt_ctlID,tax_svc_cd_x+tax_svc_cd_width+5,tax_svc_cd_y+3,int(code_desc_width*1.5),tax_svc_cd_height,"")
-callpoint!.setDevObject("tax_svc_cd_desc",tax_svc_cd_desc!)
+rem --- Error Check
+if status$<>"" then
+    remove_process_bar:
+    bbjAPI!=bbjAPI()
+    rdFuncSpace!=bbjAPI!.getGroupNamespace()
+    rdFuncSpace!.setValue("+build_task","OFF")
+    release
+endif
+
+[[IVC_CLASCODE.CODE_INACTIVE.AVAL]]
+rem --- When deactivating the Buyer Code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	current_inactive$=callpoint!.getUserInput()
+	prior_inactive$=callpoint!.getColumnData("IVC_CLASCODE.CODE_INACTIVE")
+	if current_inactive$="Y" and prior_inactive$<>"Y" then
+		gosub check_active_code
+		if found then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
 
 [[IVC_CLASCODE.TAX_SVC_CD.AVAL]]
 rem --- Validate TAX_SVC_CD
@@ -210,6 +233,65 @@ rem #include fnget_control.src
 rem #endinclude fnget_control.src
 
 #include [+ADDON_LIB]std_missing_params.aon
+
+rem ==========================================================================
+check_active_code: rem --- Warn if there are any current/active transactions for the code
+rem ==========================================================================
+	found=0
+	item_class$=callpoint!.getColumnData("IVC_CLASCODE.item_class")
+
+	checkTables!=BBjAPI().makeVector()
+	checkTables!.addItem("IVC_PRICCODE")
+	checkTables!.addItem("IVC_PRODCODE")
+	checkTables!.addItem("IVM_ITEMMAST")
+	if callpoint!.getDevObject("usingAD")="Y" then
+		checkTables!.addItem("IVS_DEFAULTS")
+	endif
+	for i=0 to checkTables!.size()-1
+		thisTable$=checkTables!.getItem(i)
+		table_dev = fnget_dev(thisTable$)
+		dim table_tpl$:fnget_tpl$(thisTable$)
+		read(table_dev,key=firm_id$,dom=*next)
+		while 1
+			readrecord(table_dev,end=*break)table_tpl$
+			if table_tpl.firm_id$<>firm_id$ then break
+			if table_tpl.item_class$=item_class$ then
+				msg_id$="AD_CODE_IN_USE"
+				dim msg_tokens$[2] 
+				msg_tokens$[1]="IV"+Translate!.getTranslation("AON_item_class")+" "+Translate!.getTranslation("AON_CODE")
+				switch (BBjAPI().TRUE)
+                				case thisTable$="IVC_PRICCODE"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVC_PRICCODE-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="IVC_PRODCODE"
+                   				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVC_PRODCODE-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="IVM_ITEMMAST"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVM_ITEMMAST-DD_ATTR_WINT")
+						break
+                				case thisTable$="IVS_DEFAULTS"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVS_DEFAULTS-DD_ATTR_WINT")
+                        break
+                				case default
+                    				msg_tokens$[2]="???"
+                    				break
+            				swend
+				gosub disp_message
+
+
+				found=1
+				break
+			endif
+		wend
+		if found then break
+	next i
+
+	if found then
+		rem --- Uncheck the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("IVC_CLASCODE.CODE_INACTIVE","N",1)
+
+	endif
+	return
 
 
 

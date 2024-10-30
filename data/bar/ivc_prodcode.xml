@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivc_prodcode">F5221ABFA816BC18C4BAC9866D198CF3</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivc_prodcode">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivc_prodcode">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivc_prodcode">20241016</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivc_prodcode">20241016</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivc_prodcode">145436</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivc_prodcode">20241023</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivc_prodcode">20241023</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivc_prodcode">160612</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivc_prodcode"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ivc_prodcode">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivc_prodcode"></DD_ATTR_DKNM>
@@ -649,7 +649,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivc_prodcode008">20231010</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivc_prodcode008"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivc_prodcode008"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivc_prodcode008"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivc_prodcode008">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivc_prodcode008">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivc_prodcode008"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivc_prodcode008"></DD_ATTR_CTLY>
@@ -1312,6 +1312,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ivc_prodcodetax_svc_cdaval">IVC_PRODCODE    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.ivc_prodcodetax_svc_cdaval">TAX_SVC_CD      </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.ivc_prodcodetax_svc_cdaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.ivc_prodcodeitem_classaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.ivc_prodcodeitem_classaval">IVC_PRODCODE    </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.ivc_prodcodeitem_classaval">ITEM_CLASS      </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.ivc_prodcodeitem_classaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_column_cpro.ivc_prodcodebuyer_codeaval">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ivc_prodcodebuyer_codeaval">IVC_PRODCODE    </DD_TABLE_ALIAS>
