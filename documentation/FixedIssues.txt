@@ -37,3 +37,12 @@ ER 10956: Added field name and old key value to DataPort log messages
 reporting issues with v6 data.
 ----
 Modified: util/dataport/DataPort_main.bbj
+=======================================================================================================================================
+Revision: 97b834eb2a1d02ae8211d95a10cbd438f95e4a92
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 11/13/2024 9:58:16 AM
+Message:
+Bug 10926: Corrected typo for launching the program for menu task "AD
+v24 Minor Rev Upgrade".
+----
+Modified: data/sync/adm_mnu_item~[01007514AD].xml
