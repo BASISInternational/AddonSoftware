@@ -1297,7 +1297,7 @@ rem --- For version 17.00, initialize changes for Fiscal Calendars
                             readrecord(glmAcctSummary_dev,end=*break)glmAcctSummary$
                             if glmAcctSummary.firm_id$<>firm_id$ then
                                 firm_id$=glmAcctSummary.firm_id$
-                                displayColumns!=new DisplayColumns(firm_id$)
+                                displayColumns!=new DisplayColumns(firm_id$,err=*continue)
                             endif
                             record_id$=cvs(glmAcctSummary.year$,2)
                             if len(record_id$)<>1 then continue
