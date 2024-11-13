@@ -1292,7 +1292,7 @@ rem --- Check value of new field for blanks if part of primary key
                             if cvs(new_datafile$,2)="pre-51" and cvs(new_fieldlist.name$[field],2)="CHECK_NO" goto no_msg
                             if pos("sam-"=cvs(new_datafile$,2))=1 and cvs(new_fieldlist.name$[field],2)="ITEM_ID" goto no_msg
                         blank_fields$=blank_fields$+new_fieldlist.name$[field]+$0a$
-                        print (err_dev) "field "+new_fieldlist.name$[field]+" in file "+new_datafile$+" has a blank value and no translation specified." 
+                        print (err_dev) "field "+new_fieldlist.name$[field]+" in file "+new_datafile$+" (old key: "+keyp(old_file,err=*next)+") has a blank value and no translation specified." 
                         error_logged=1
 no_msg:
                     endif
@@ -1328,7 +1328,7 @@ rem --- if this field.value is listed in flat file "field_translations" then tra
             endif
             if pos($0a$+new_fieldlist.name$[field]+$0a$=$0a$+key_temp$+$0a$)>0 or cvs(ddm_elements.dd_attr_dtab$,2)<>"" then
                 if pos($22$=value$) then
-                    print (err_dev) "field "+new_fieldlist.name$[field]+" in file "+new_datafile$+" contains a quote that can cause problems." 
+                    print (err_dev) "field "+new_fieldlist.name$[field]+" in file "+new_datafile$+" (old key: "+keyp(old_file,err=*next)+") contains a quote that can cause problems." 
                     error_logged=1
                 endif
             endif
@@ -1355,7 +1355,7 @@ rem --- date formatting
                  value$=pad("",8)
               endif
               if date(jul(num(value$(1,4)),num(value$(5,2)),num(value$(7,2)),err=*next),err=*next)>"" break
-              print (err_dev)"There is an invalid date of "+value$+" in table "+new_datafile$+", old key = "+keyp(old_file,err=*next)
+              print (err_dev)"There is an invalid date of "+value$+" in table "+new_datafile$+" (old key = "+keyp(old_file,err=*next)+")"
               error_logged=1
               invalid_date$="Y"
               break
@@ -1366,7 +1366,7 @@ rem --- date formatting
            case 8
               value$=str(num(value$(1,4))+add_year)+value$(5)
               if date(jul(num(value$(1,4)),num(value$(5,2)),num(value$(7,2)),err=*next),err=*next)>"" break
-              print (err_dev)"There is an invalid date of "+value$+" in table "+new_datafile$+", old key = "+keyp(old_file,err=*next)
+              print (err_dev)"There is an invalid date of "+value$+" in field "+new_fieldlist.name$[field]+" in table "+new_datafile$+" (old key = "+keyp(old_file,err=*next)+")"
               error_logged=1
               invalid_date$="Y"
               break
@@ -3083,7 +3083,7 @@ reformat_address: rem --- This subroutine is also used in v6 Hybrid triggers
     endif
 
     if city$="" or state$="" then
-       print(err_dev)"Error copying address fields in "+datafile$
+       print(err_dev)"Error copying address field "+new_fieldlist.name$[field]+" in "+datafile$+" (old key: "+keyp(old_file,err=*next)+")"
        error_logged=1
     endif
 
