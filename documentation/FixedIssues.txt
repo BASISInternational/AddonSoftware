@@ -27,3 +27,13 @@ Bug 10941: Fixed error when DataPorting APE-01.
 
 ----
 Modified: util/dataport/DataPort_main.bbj
+=======================================================================================================================================
+
+Revision: 46a4a7ba4278ebbb9f2b3ad11a9826f9e9454a60
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 11/12/2024 4:59:58 PM
+Message:
+ER 10956: Added field name and old key value to DataPort log messages
+reporting issues with v6 data.
+----
+Modified: util/dataport/DataPort_main.bbj
