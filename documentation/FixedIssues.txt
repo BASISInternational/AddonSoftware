@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2024-10-16
+ Report Date:   2024-11-13
  Report Branch: AddonSoftware 24.20
  Last Release:  AddonSoftware 24.12
 =======================================================================================================================================
@@ -38,6 +38,7 @@ reporting issues with v6 data.
 ----
 Modified: util/dataport/DataPort_main.bbj
 =======================================================================================================================================
+
 Revision: 97b834eb2a1d02ae8211d95a10cbd438f95e4a92
 Author: Bill Halsted <bhalsted@basis.cloud>
 Date: 11/13/2024 9:58:16 AM
@@ -46,3 +47,13 @@ Bug 10926: Corrected typo for launching the program for menu task "AD
 v24 Minor Rev Upgrade".
 ----
 Modified: data/sync/adm_mnu_item~[01007514AD].xml
+=======================================================================================================================================
+
+Revision: 85fed8e5d4fb5fbe4effc9062b96d4037654c16a
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 11/13/2024 11:08:51 AM
+Message:
+Bug 10957: Modified v17 auto-launch conversion program to skip invalid
+firms in glm_acctsummary (glm-02).
+----
+Modified: ad/src/adc_v1700conversion.aon
