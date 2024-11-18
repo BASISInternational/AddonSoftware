@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2024-11-14
+ Report Date:   2024-11-18
  Report Branch: AddonSoftware 24.20
  Last Release:  AddonSoftware 24.12
 =======================================================================================================================================
@@ -67,3 +67,13 @@ Bug 10926: Fixed typo in menu folder label "v24 Minor Rev Upgrade
 Utilities"
 ----
 Modified: data/sync/adm_mnu_item~[01007514AD].xml
+=======================================================================================================================================
+
+Revision: cfa17e1b2321e5d3d8bb9021ea06f02582cd2065
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 11/18/2024 10:14:28 AM
+Message:
+Bug 10926: Fixed typo in menu folder label "v24 Minor Rev Upgrade
+Utilities"
+----
+Modified: data/sync/adm_mnu_trans~[01007514AD].xml
