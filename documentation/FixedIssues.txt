@@ -8,3 +8,12 @@
 BBjBaristaAddonDemos2420_11-25-2024_1557.jar
 =======================================================================================================================================
 
+Revision: 6541fc8a47825da2c8f70b39dacf43dea5c65295
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 12/2/2024 1:16:14 PM
+Message:
+Bug 10959: Added column masks to Barista's columns$[n,3] parameter
+rather than masking the values added with OutVect!.addItem(<value>).
+----
+Modified: gl/src/glr_financials.aon
+=======================================================================================================================================
