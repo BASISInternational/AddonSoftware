@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2024-12-02
+ Report Date:   2024-12-04
  Report Branch: AddonSoftware 24.21
  Last Release:  AddonSoftware 24.20
 =======================================================================================================================================
@@ -16,4 +16,14 @@ Bug 10959: Added column masks to Barista's columns$[n,3] parameter
 rather than masking the values added with OutVect!.addItem(<value>).
 ----
 Modified: gl/src/glr_financials.aon
+=======================================================================================================================================
+
+Revision: 0a410602e346363bc69391ef130f7ea6fdaa7485
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 12/4/2024 12:01:34 PM
+Message:
+Bug 10956: Added field name and old key value to another DataPort log
+message reporting issues with v6 data.
+----
+Modified: util/dataport/DataPort_main.bbj
 =======================================================================================================================================
