@@ -3083,7 +3083,7 @@ reformat_address: rem --- This subroutine is also used in v6 Hybrid triggers
     endif
 
     if city$="" or state$="" then
-       print(err_dev)"Error copying address field "+new_fieldlist.name$[field]+" in "+datafile$+" (old key: "+keyp(old_file,err=*next)+")"
+       print(err_dev)"Error copying address field (blank city or state) in "+datafile$+" (old key: "+keyp(old_file,err=*next)+")"
        error_logged=1
     endif
 
