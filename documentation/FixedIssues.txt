@@ -27,3 +27,13 @@ message reporting issues with v6 data.
 ----
 Modified: util/dataport/DataPort_main.bbj
 =======================================================================================================================================
+
+Revision: 425ee1975cafc4b622704a030732782e46edaf99
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 12/4/2024 4:16:24 PM
+Message:
+Bug 10956: Fixed possible Error 47 in "Error copying address field"
+message.
+----
+Modified: util/dataport/DataPort_main.bbj
+=======================================================================================================================================
