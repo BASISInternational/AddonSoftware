@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2024-12-04
+ Report Date:   2025-01-07
  Report Branch: AddonSoftware 24.21
  Last Release:  AddonSoftware 24.20
 =======================================================================================================================================
@@ -36,4 +36,15 @@ Bug 10956: Fixed possible Error 47 in "Error copying address field"
 message.
 ----
 Modified: util/dataport/DataPort_main.bbj
+=======================================================================================================================================
+
+Revision: b323cc344e6364c99db77367d5853e7a32354d83
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/7/2025 2:03:17 PM
+Message:
+Bug 10923: Modified change_invoice_status subroutine to get total
+selected invoices for each vendor BEFORE processing each selected row.
+----
+Modified: data/bar/ape_payselect.xml
+Modified: data/cdf/ape_payselect.cdf
 =======================================================================================================================================
