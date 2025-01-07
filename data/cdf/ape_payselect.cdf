@@ -974,7 +974,6 @@ rem --- Don't warn if using pay auth and nothing changed (nothing in approvalsEn
 [[APE_PAYSELECT.BSHO]]
 rem --- Disable Payment Methods if ACH Payments aren' allowed
 	if !callpoint!.getDevObject("ach_allowed") then callpoint!.setColumnEnabled("APE_PAYSELECT.PAYMENT_METHOD",-1)
-   
 
 [[APE_PAYSELECT.DISC_DATE_DT.AVAL]]
 rem --- Set filters on grid if value was changed
@@ -1384,8 +1383,16 @@ rem --- in: rowsSelected!
 		approvalsEntered! = callpoint!.getDevObject("approvalsEntered")
 		approvalsUndone!=callpoint!.getDevObject("approvalsUndone")
 
-		rem --- Process each selected row
+		rem --- Get total selected invoices for each vendor
 		vendorTotalsMap!=callpoint!.getDevObject("vendorTotalsMap")
+		for item = 0 to rowsSelected!.size() - 1
+			curr_row = num(rowsSelected!.getItem(item))
+			vend_id$=gridInvoices!.getCellText(curr_row,4)
+			inv_amt  = num(gridInvoices!.getCellText(curr_row,10))
+			vendorTotalsMap!.put(vend_id$,num(vendorTotalsMap!.get(vend_id$))+inv_amt)
+		next item
+
+		rem --- Process each selected row
 		hold_warn=0
 		for item = 0 to rowsSelected!.size() - 1
 			rem --- Get needed data for this row
@@ -1500,8 +1507,6 @@ rem --- in: rowsSelected!
                 endif
 
 				approved = approved + 1
-				vendorTotalsMap!.put(vend_id$,num(vendorTotalsMap!.get(vend_id$))+inv_amt)
-				thisVendor_total = cast(BBjNumber, vendorTotalsMap!.get(vend_id$))
 				gosub set_invoice_row_approval_status
 				continue
 			endif	
