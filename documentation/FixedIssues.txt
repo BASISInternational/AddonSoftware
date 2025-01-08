@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-01-07
+ Report Date:   2025-01-08
  Report Branch: AddonSoftware 24.21
  Last Release:  AddonSoftware 24.20
 =======================================================================================================================================
@@ -47,4 +47,15 @@ selected invoices for each vendor BEFORE processing each selected row.
 ----
 Modified: data/bar/ape_payselect.xml
 Modified: data/cdf/ape_payselect.cdf
+=======================================================================================================================================
+
+Revision: 34dccfeb21b2c31a8736468771b163c881fa0e84
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/8/2025 10:13:55 AM
+Message:
+Bug 10953: Modified apr_chkregister.aon as suggested to use APS_REPORT
+info instead of ARS_REPORT info for individual ACH non-negotiable
+checks.
+----
+Modified: ap/src/apr_chkregister.aon
 =======================================================================================================================================
