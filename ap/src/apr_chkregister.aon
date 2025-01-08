@@ -50,7 +50,7 @@ rem --- Retrieve sysinfo data
 
 rem --- Open/Lock files
 
-    files=20,begfile=1,endfile=files
+    files=19,begfile=1,endfile=files
     dim files$[files],options$[files],ids$[files],templates$[files],channels[files]
     files$[1]="aps_params",ids$[1]="APS_PARAMS"; rem aps-01
     files$[2]="ape-04",ids$[2]="APE_CHECKS",options$[2]="L"
@@ -67,8 +67,7 @@ rem --- Open/Lock files
     files$[16]="aps_ach",ids$[16]="APS_ACH"
     files$[17]="adc_bankacctcode",ids$[17]="ADC_BANKACCTCODE"
     files$[18]="aps_report",ids$[18]="APS_REPORT"
-    files$[19]="ars_report",ids$[19]="ARS_REPORT"
-    files$[20]="apw_chkjasperprn",ids$[20]="APW_CHKJASPERPRN"
+    files$[19]="apw_chkjasperprn",ids$[19]="APW_CHKJASPERPRN"
 
 call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
 :                                   ids$[all],templates$[all],channels[all],batch,status
@@ -88,8 +87,7 @@ call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all]
     apsACH_dev=channels[16]
     adcBankAcctCode_dev=channels[17]
     apsReport_dev=channels[18]
-    arsReport_dev=channels[19]
-    apwChkJasperPrn_dev=channels[20]
+    apwChkJasperPrn_dev=channels[19]
 
 rem --- Dimension string templates
 
@@ -98,8 +96,7 @@ rem --- Dimension string templates
 :       apt01a$:templates$[9],apt02a$:templates$[10],
 :       apt05a$:templates$[11],apt11a$:templates$[12],apw01a$:templates$[13],       
 :       apm10a$:templates$[14],apm10b$:templates$[15],apsACH$:templates$[16],
-:       adcBankAcctCode$:templates$[17],apsReport$:templates$[18],arsReport$:templates$[19],
-:       apwChkJasperPrn$:templates$[20]
+:       adcBankAcctCode$:templates$[17],apsReport$:templates$[18],apwChkJasperPrn$:templates$[19]
 
 rem  glt14a$:templates$[11],glw11a$:templates$[12],
 
@@ -232,13 +229,13 @@ rem --- Initializations
 
         rem --- Format firm's address
         firm_address$=""
-        find record (arsReport_dev,key=firm_id$+"AR02",err=*next) arsReport$
-        firm_address$=arsReport.addr_line_1$+arsReport.addr_line_2$+arsReport.city$+arsReport.state_code$+arsReport.zip_code$
+        find record (apsReport_dev,key=firm_id$+"AP02",err=*next) apsReport$
+        firm_address$=apsReport.addr_line_1$+apsReport.addr_line_2$+apsReport.city$+apsReport.state_code$+apsReport.zip_code$
         call pgmdir$+"adc_address.aon",firm_address$,30,3,9,30
     
-        call stbl("+DIR_SYP")+"bac_getmask.bbj","T",cvs(arsReport.phone_no$,2),"",phone_mask$
-        firm_phone_no$=str(cvs(arsReport.phone_no$,2):phone_mask$)
-        firm_fax_no$=cvs(arsReport.fax_no$,2)
+        call stbl("+DIR_SYP")+"bac_getmask.bbj","T",cvs(apsReport.phone_no$,2),"",phone_mask$
+        firm_phone_no$=str(cvs(apsReport.phone_no$,2):phone_mask$)
+        firm_fax_no$=cvs(apsReport.fax_no$,2)
         if firm_fax_no$<>"" then firm_fax_no$=str(firm_fax_no$:phone_mask$)
 
         rem --- Initialize document parameters used for each individaul ACH non-negotiable check (payment) file
@@ -246,7 +243,7 @@ rem --- Initializations
         params!.put("LOGO_FILE",logo_filename$)
         params!.put("BARISTA_WD",dir(""))
         params!.put("FIRM_ID",firm_id$)
-        params!.put("FIRM_NAME", arsReport.name$)
+        params!.put("FIRM_NAME", apsReport.name$)
         params!.put("FIRM_ADDRESS1", firm_address$(1,30))
         params!.put("FIRM_ADDRESS2", firm_address$(31,30))
         params!.put("FIRM_ADDRESS3", firm_address$(61,30))
