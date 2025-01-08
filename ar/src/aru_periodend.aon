@@ -47,7 +47,6 @@ rem --- Open/Lock files
     files$[4]="arm-06",ids$[4]="ARM_CUSTPMTS"
     files$[5]="ars_mtdcash",ids$[5]="ARS_MTDCASH"
     files$[6]="art-01",ids$[6]="ART_INVHDR"
-    options$[6]="L"
     if op$="Y"
        files$[8]="opm-09",ids$[8]="OPM_CUSTJOBS"
        files$[9]="ops_mtdsales",ids$[9]="OPS_MTDSALES"
