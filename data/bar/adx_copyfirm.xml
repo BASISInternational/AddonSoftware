@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.adx_copyfirm"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.adx_copyfirm">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.adx_copyfirm">20101005</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.adx_copyfirm">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.adx_copyfirm">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.adx_copyfirm">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.adx_copyfirm">20250108</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.adx_copyfirm">20250108</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.adx_copyfirm">150642</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.adx_copyfirm"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.adx_copyfirm">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.adx_copyfirm">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.adx_copyfirm"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.adx_copyfirm"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.adx_copyfirm">S</DD_ATTR_FTYP>
@@ -138,7 +138,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adx_copyfirm001">20100428</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adx_copyfirm001"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adx_copyfirm001"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adx_copyfirm001">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adx_copyfirm001">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adx_copyfirm001">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adx_copyfirm001"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adx_copyfirm001"></DD_ATTR_CTLY>
@@ -189,7 +189,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adx_copyfirm002">20100423</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adx_copyfirm002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adx_copyfirm002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adx_copyfirm002">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adx_copyfirm002">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adx_copyfirm002">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adx_copyfirm002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adx_copyfirm002"></DD_ATTR_CTLY>
@@ -240,7 +240,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adx_copyfirm003">20150916</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adx_copyfirm003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adx_copyfirm003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adx_copyfirm003">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adx_copyfirm003">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adx_copyfirm003">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adx_copyfirm003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adx_copyfirm003"></DD_ATTR_CTLY>
@@ -291,7 +291,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adx_copyfirm004">20150916</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adx_copyfirm004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adx_copyfirm004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adx_copyfirm004">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adx_copyfirm004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adx_copyfirm004">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adx_copyfirm004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adx_copyfirm004"></DD_ATTR_CTLY>
@@ -342,7 +342,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adx_copyfirm005">20151124</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adx_copyfirm005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adx_copyfirm005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adx_copyfirm005">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adx_copyfirm005">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adx_copyfirm005">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adx_copyfirm005">-5</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adx_copyfirm005"></DD_ATTR_CTLY>
@@ -393,7 +393,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adx_copyfirm006">20181016</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adx_copyfirm006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adx_copyfirm006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adx_copyfirm006">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adx_copyfirm006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adx_copyfirm006">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adx_copyfirm006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adx_copyfirm006"></DD_ATTR_CTLY>

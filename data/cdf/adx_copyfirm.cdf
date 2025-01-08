@@ -193,6 +193,7 @@ rem --- Copy selected data
 				num_files=2
 				dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 				open_tables$[1]=vectFiles!.getItem(curr_row * numcols + 3)
+				fromTable$=cvs(open_tables$[1],2)
 				open_tables$[2]=vectFiles!.getItem(curr_row * numcols + 3)
 				open_opts$[1]="OTASN"
 				open_opts$[2]="OTASN"
@@ -223,8 +224,13 @@ rem --- Copy selected data
 						rem --- Read from record
 						dim rec_tpl$:table_tpl$
 						readrecord (from_table_dev,end=*break)rec_tpl$
-						if rec_tpl.firm_id$ <> from_firm$ break
-						rec_tpl.firm_id$ = to_firm$
+						if fromTable$<>"ADM_FIRMS" then
+							if rec_tpl.firm_id$ <> from_firm$ break
+							rec_tpl.firm_id$ = to_firm$
+						else
+							if rec_tpl.company_id$ <> from_firm$ break
+							rec_tpl.company_id$ = to_firm$
+						endif
 
 						rem --- Create admin_backup records for admin data (adm_firms, ads_masks and ads_sequences) changes
 						if table_alias$="ADM_FIRMS" or table_alias$="ADS_MASKS" or table_alias$="ADS_SEQUENCES" then
