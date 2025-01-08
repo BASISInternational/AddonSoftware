@@ -70,3 +70,13 @@ FIRM_ID when copying from the ADM_FIRMS table.
 Modified: data/bar/adx_copyfirm.xml
 Modified: data/cdf/adx_copyfirm.cdf
 =======================================================================================================================================
+
+Revision: 30153e6283dc9d8c3c0ec56bfa9f8fd41329084d
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/8/2025 3:47:39 PM
+Message:
+ER 10947: Eliminated the LOCK on ART_INVHDR (art-01) in AR Period End
+Update as it no longer appears necessary.
+----
+Modified: ar/src/aru_periodend.aon
+=======================================================================================================================================
