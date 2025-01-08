@@ -59,3 +59,14 @@ checks.
 ----
 Modified: ap/src/apr_chkregister.aon
 =======================================================================================================================================
+
+Revision: 8637f4ce12070cbe08f3e6764751dc3f8fc5ef37
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/8/2025 3:11:23 PM
+Message:
+Bug 10966: Changed the from record template to use COMPANY_ID instead of
+FIRM_ID when copying from the ADM_FIRMS table.
+----
+Modified: data/bar/adx_copyfirm.xml
+Modified: data/cdf/adx_copyfirm.cdf
+=======================================================================================================================================
