@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-01-08
+ Report Date:   2025-01-09
  Report Branch: AddonSoftware 24.21
  Last Release:  AddonSoftware 24.20
 =======================================================================================================================================
@@ -79,4 +79,14 @@ ER 10947: Eliminated the LOCK on ART_INVHDR (art-01) in AR Period End
 Update as it no longer appears necessary.
 ----
 Modified: ar/src/aru_periodend.aon
+=======================================================================================================================================
+
+Revision: 30001644e392c50efb567f1462ab1885f61bcd56
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/9/2025 11:34:15 AM
+Message:
+ER 10930: Separated Vendor ID and Vendor Name into separate columns on
+the AP Check Register.
+----
+Modified: ap/src/apr_chkregister.aon
 =======================================================================================================================================
