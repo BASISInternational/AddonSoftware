@@ -268,22 +268,23 @@ rem --- Headings and print positions
 
  
     if retention
+        dim columns$[8,10]
+        columns = 8
+    else
         dim columns$[7,10]
         columns = 7
-    else
-        dim columns$[6,10]
-        columns = 6
     endif
 
     columns$[0,0]=Translate!.getTranslation("AON_CHK_ACCT_BNK_CD"), columns$[0,1]="C",columns$[0,2]="10"
     columns$[1,0]=Translate!.getTranslation("AON_CHECK_NO"),        columns$[1,1]="C",columns$[1,2]="8"
-    columns$[2,0]=Translate!.getTranslation("AON_CHECK_DATE"),      columns$[2,1]="C",columns$[2,2]="8"
-    columns$[3,0]=Translate!.getTranslation("AON_VENDOR"),          columns$[3,1]="C",columns$[3,2]="25"
-    columns$[4,0]=Translate!.getTranslation("AON_INVOICE_AMT"),     columns$[4,1]="N",columns$[4,2]="10",columns$[4,3]=m1$,columns$[4,10]="T"
-    columns$[5,0]=Translate!.getTranslation("AON_DISCOUNT_AMT"),    columns$[5,1]="N",columns$[5,2]="10",columns$[5,3]=m1$,columns$[5,10]="T"
-    columns$[6,0]=Translate!.getTranslation("AON_PAYMENT_AMT"),     columns$[6,1]="N",columns$[6,2]="10",columns$[6,3]=m1$,columns$[6,10]="T"
+    columns$[2,0]=Translate!.getTranslation("AON_CHECK_DATE"),      columns$[2,1]="C",columns$[2,2]="10"
+    columns$[3,0]=Translate!.getTranslation("AON_VENDOR"),          columns$[3,1]="C",columns$[3,2]="7"
+    columns$[4,0]=Translate!.getTranslation("AON_NAME"),            columns$[4,1]="C",columns$[4,2]="20"
+    columns$[5,0]=Translate!.getTranslation("AON_INVOICE_AMT"),     columns$[5,1]="N",columns$[5,2]="10",columns$[5,3]=m1$,columns$[5,10]="T"
+    columns$[6,0]=Translate!.getTranslation("AON_DISCOUNT_AMT"),    columns$[6,1]="N",columns$[6,2]="10",columns$[6,3]=m1$,columns$[6,10]="T"
+    columns$[7,0]=Translate!.getTranslation("AON_PAYMENT_AMT"),     columns$[7,1]="N",columns$[7,2]="10",columns$[7,3]=m1$,columns$[7,10]="T"
     if retention
-        columns$[7,0]=Translate!.getTranslation("AON_RETENTION_AMOUNT"),   columns$[7,1]="N",columns$[7,2]="10",columns$[7,3]=m1$,columns$[7,10]="T"
+        columns$[8,0]=Translate!.getTranslation("AON_RETENTION_AMOUNT"),   columns$[8,1]="N",columns$[8,2]="10",columns$[8,3]=m1$,columns$[8,10]="T"
     endif
 
     call stbl("+DIR_PGM",err=*next)+"adc_docout_adj.aon",columns$[all]
@@ -567,7 +568,8 @@ rem --- Process apw_checkinvoice (apw01_dev) twice. First for normal printed che
               OutVect!.addItem(apw01a.bnk_acct_cd$)
               OutVect!.addItem(apw01a.check_no$)
               OutVect!.addItem(fndate$(apw01a.check_date$))
-              OutVect!.addItem(vendor$ + " " + name$)
+              OutVect!.addItem(vendor$)
+              OutVect!.addItem(name$)
               OutVect!.addItem(str(vt[0]))
               OutVect!.addItem(str(vt[1]))
               OutVect!.addItem(str(vt[2]))
@@ -690,6 +692,7 @@ print_total: rem --- Print totals
     xwk = fnblank(3)
 
     OutVect!.addItem(total$)
+    OutVect!.addItem("")
     OutVect!.addItem(str(pt[0]))
     OutVect!.addItem(str(pt[1]))
     OutVect!.addItem(str(pt[2]))
@@ -698,7 +701,6 @@ print_total: rem --- Print totals
         retention$=fnretention$(retention,pt[3],m1$)
         OutVect!.addItem(retention$)
     endif
-
 
     lines=lines+2
     return
@@ -711,6 +713,7 @@ print_voided: rem --- Print a voided check
     OutVect!.addItem(apw01a.check_no$)
     OutVect!.addItem(fndate$(apw01a.check_date$))
     OutVect!.addItem(Translate!.getTranslation("AON_(VOID)"))
+    OutVect!.addItem("*** "+Translate!.getTranslation("AON_VOID")+" ***")
 
     if retention
         xwk = fnblank(4)
