@@ -9233,177 +9233,8 @@
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>PRODUCT_TYPE    </DD_TABLE_COL>
-		<COLUMN_HDR>Prod Type</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
-		<SEQUENCE_NO>005</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>ITEM_CLASS      </DD_TABLE_COL>
-		<COLUMN_HDR>Item Class</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
-		<SEQUENCE_NO>006</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>ITEM_TYPE       </DD_TABLE_COL>
-		<COLUMN_HDR>Item Type</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
-		<SEQUENCE_NO>007</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>BAR_CODE        </DD_TABLE_COL>
-		<COLUMN_HDR>IV Item Bar Cd</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
-		<SEQUENCE_NO>008</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>UPC_CODE        </DD_TABLE_COL>
-		<COLUMN_HDR>IV Item UPC Cd</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
-		<SEQUENCE_NO>009</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>UNIT_OF_SALE    </DD_TABLE_COL>
-		<COLUMN_HDR>Unit Of Sale</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
-		<SEQUENCE_NO>010</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>WEIGHT          </DD_TABLE_COL>
-		<COLUMN_HDR>Weight</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
-		<SEQUENCE_NO>011</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>LOTSER_FLAG     </DD_TABLE_COL>
-		<COLUMN_HDR>Lot/Ser Item?</COLUMN_HDR>
-		<COLUMN_CASE>N</COLUMN_CASE>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
-		<SEQUENCE_NO>012</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>ALT_SUP_FLAG    </DD_TABLE_COL>
-		<COLUMN_HDR>Alt/Super Flag</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
-		<SEQUENCE_NO>013</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>ALT_SUP_ITEM    </DD_TABLE_COL>
-		<COLUMN_HDR>Alt/Super Item</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
-		<SEQUENCE_NO>014</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>LSTREC_DATE     </DD_TABLE_COL>
-		<COLUMN_HDR>Last Rec Date</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
-		<SEQUENCE_NO>015</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>LSTISS_DATE     </DD_TABLE_COL>
-		<COLUMN_HDR>Last Issue Date</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
-		<SEQUENCE_NO>016</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>ITEM_INACTIVE   </DD_TABLE_COL>
-		<COLUMN_HDR>Item Inactive?</COLUMN_HDR>
+		<DD_TABLE_COL>KIT             </DD_TABLE_COL>
+		<COLUMN_HDR>Kit</COLUMN_HDR>
 		<COLUMN_CASE>N</COLUMN_CASE>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
 		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
@@ -9413,65 +9244,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
-		<SEQUENCE_NO>001</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>H</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>FIRM_ID         </DD_TABLE_COL>
-		<COLUMN_HDR>Firm ID</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
-		<SEQUENCE_NO>002</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>ITEM_ID         </DD_TABLE_COL>
-		<COLUMN_HDR>Item ID</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
-		<SEQUENCE_NO>003</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>ITEM_DESC       </DD_TABLE_COL>
-		<COLUMN_HDR>IV Item Desc</COLUMN_HDR>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
-		<SEQUENCE_NO>004</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_LSMASTER    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>LOTSER_NO       </DD_TABLE_COL>
-		<COLUMN_HDR>Lot/Serial No</COLUMN_HDR>
-		<COLUMN_CASE>N</COLUMN_CASE>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>005</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9485,7 +9258,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>006</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9499,7 +9272,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>007</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9513,7 +9286,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>008</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9527,7 +9300,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>009</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9541,7 +9314,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>010</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9555,7 +9328,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>011</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9569,7 +9342,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>012</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9584,7 +9357,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>013</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9598,7 +9371,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>014</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9612,7 +9385,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>015</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9626,7 +9399,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>016</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9640,7 +9413,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<QUERY_ID>IV_ITEM_LK      </QUERY_ID>
 		<SEQUENCE_NO>017</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
@@ -9719,6 +9492,22 @@
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>KIT             </DD_TABLE_COL>
+		<COLUMN_HDR>Kit</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
+		<SEQUENCE_NO>006</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
 		<DD_TABLE_COL>PRODUCT_TYPE    </DD_TABLE_COL>
 		<COLUMN_HDR>Prod Type</COLUMN_HDR>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
@@ -9729,7 +9518,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
-		<SEQUENCE_NO>006</SEQUENCE_NO>
+		<SEQUENCE_NO>007</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -9743,7 +9532,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
-		<SEQUENCE_NO>007</SEQUENCE_NO>
+		<SEQUENCE_NO>008</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -9757,7 +9546,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
-		<SEQUENCE_NO>008</SEQUENCE_NO>
+		<SEQUENCE_NO>009</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -9771,7 +9560,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
-		<SEQUENCE_NO>009</SEQUENCE_NO>
+		<SEQUENCE_NO>010</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -9785,7 +9574,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
-		<SEQUENCE_NO>010</SEQUENCE_NO>
+		<SEQUENCE_NO>011</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -9799,7 +9588,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
-		<SEQUENCE_NO>011</SEQUENCE_NO>
+		<SEQUENCE_NO>012</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -9813,7 +9602,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
-		<SEQUENCE_NO>012</SEQUENCE_NO>
+		<SEQUENCE_NO>013</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -9828,7 +9617,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
-		<SEQUENCE_NO>013</SEQUENCE_NO>
+		<SEQUENCE_NO>014</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -9842,7 +9631,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
-		<SEQUENCE_NO>014</SEQUENCE_NO>
+		<SEQUENCE_NO>015</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -9856,7 +9645,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
-		<SEQUENCE_NO>015</SEQUENCE_NO>
+		<SEQUENCE_NO>016</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -9870,7 +9659,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
-		<SEQUENCE_NO>016</SEQUENCE_NO>
+		<SEQUENCE_NO>017</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -9884,7 +9673,266 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_SYN_LK  </QUERY_ID>
+		<SEQUENCE_NO>018</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>ITEM_INACTIVE   </DD_TABLE_COL>
+		<COLUMN_HDR>Item Inactive?</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>001</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>H</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>FIRM_ID         </DD_TABLE_COL>
+		<COLUMN_HDR>Firm ID</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>002</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>ITEM_ID         </DD_TABLE_COL>
+		<COLUMN_HDR>Item ID</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>003</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>ITEM_DESC       </DD_TABLE_COL>
+		<COLUMN_HDR>IV Item Desc</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>004</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_LSMASTER    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>LOTSER_NO       </DD_TABLE_COL>
+		<COLUMN_HDR>Lot/Serial No</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>005</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>KIT             </DD_TABLE_COL>
+		<COLUMN_HDR>Kit</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>006</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>PRODUCT_TYPE    </DD_TABLE_COL>
+		<COLUMN_HDR>Prod Type</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>007</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>ITEM_CLASS      </DD_TABLE_COL>
+		<COLUMN_HDR>Item Class</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>008</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>ITEM_TYPE       </DD_TABLE_COL>
+		<COLUMN_HDR>Item Type</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>009</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>BAR_CODE        </DD_TABLE_COL>
+		<COLUMN_HDR>IV Item Bar Cd</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>010</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>UPC_CODE        </DD_TABLE_COL>
+		<COLUMN_HDR>IV Item UPC Cd</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>011</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>UNIT_OF_SALE    </DD_TABLE_COL>
+		<COLUMN_HDR>Unit Of Sale</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>012</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>WEIGHT          </DD_TABLE_COL>
+		<COLUMN_HDR>Weight</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>013</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>LOTSER_FLAG     </DD_TABLE_COL>
+		<COLUMN_HDR>Lot/Ser Item?</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>014</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>ALT_SUP_FLAG    </DD_TABLE_COL>
+		<COLUMN_HDR>Alt/Super Flag</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>015</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>ALT_SUP_ITEM    </DD_TABLE_COL>
+		<COLUMN_HDR>Alt/Super Item</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>016</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>LSTREC_DATE     </DD_TABLE_COL>
+		<COLUMN_HDR>Last Rec Date</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
 		<SEQUENCE_NO>017</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>LSTISS_DATE     </DD_TABLE_COL>
+		<COLUMN_HDR>Last Issue Date</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_LOT_LK  </QUERY_ID>
+		<SEQUENCE_NO>018</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -9978,6 +10026,22 @@
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>KIT             </DD_TABLE_COL>
+		<COLUMN_HDR>Kit</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
+		<SEQUENCE_NO>007</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
 		<DD_TABLE_COL>PRODUCT_TYPE    </DD_TABLE_COL>
 		<COLUMN_HDR>Prod Type</COLUMN_HDR>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
@@ -9988,7 +10052,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
-		<SEQUENCE_NO>007</SEQUENCE_NO>
+		<SEQUENCE_NO>008</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10002,7 +10066,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
-		<SEQUENCE_NO>008</SEQUENCE_NO>
+		<SEQUENCE_NO>009</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10016,7 +10080,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
-		<SEQUENCE_NO>009</SEQUENCE_NO>
+		<SEQUENCE_NO>010</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10030,7 +10094,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
-		<SEQUENCE_NO>010</SEQUENCE_NO>
+		<SEQUENCE_NO>011</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10044,7 +10108,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
-		<SEQUENCE_NO>011</SEQUENCE_NO>
+		<SEQUENCE_NO>012</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10058,7 +10122,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
-		<SEQUENCE_NO>012</SEQUENCE_NO>
+		<SEQUENCE_NO>013</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10072,7 +10136,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
-		<SEQUENCE_NO>013</SEQUENCE_NO>
+		<SEQUENCE_NO>014</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10087,7 +10151,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
-		<SEQUENCE_NO>014</SEQUENCE_NO>
+		<SEQUENCE_NO>015</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10101,7 +10165,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
-		<SEQUENCE_NO>015</SEQUENCE_NO>
+		<SEQUENCE_NO>016</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10115,7 +10179,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
-		<SEQUENCE_NO>016</SEQUENCE_NO>
+		<SEQUENCE_NO>017</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10129,7 +10193,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
-		<SEQUENCE_NO>017</SEQUENCE_NO>
+		<SEQUENCE_NO>018</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10143,7 +10207,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_VEND_LK </QUERY_ID>
-		<SEQUENCE_NO>018</SEQUENCE_NO>
+		<SEQUENCE_NO>019</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10227,6 +10291,22 @@
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>KIT             </DD_TABLE_COL>
+		<COLUMN_HDR>Kit</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
+		<SEQUENCE_NO>006</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
 		<DD_TABLE_COL>PRODUCT_TYPE    </DD_TABLE_COL>
 		<COLUMN_HDR>Prod Type</COLUMN_HDR>
 		<COLUMN_CASE>N</COLUMN_CASE>
@@ -10239,7 +10319,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
-		<SEQUENCE_NO>006</SEQUENCE_NO>
+		<SEQUENCE_NO>007</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10255,7 +10335,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
-		<SEQUENCE_NO>007</SEQUENCE_NO>
+		<SEQUENCE_NO>008</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10271,7 +10351,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
-		<SEQUENCE_NO>008</SEQUENCE_NO>
+		<SEQUENCE_NO>009</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10287,7 +10367,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
-		<SEQUENCE_NO>009</SEQUENCE_NO>
+		<SEQUENCE_NO>010</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10303,7 +10383,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
-		<SEQUENCE_NO>010</SEQUENCE_NO>
+		<SEQUENCE_NO>011</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10319,7 +10399,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
-		<SEQUENCE_NO>011</SEQUENCE_NO>
+		<SEQUENCE_NO>012</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10335,7 +10415,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
-		<SEQUENCE_NO>012</SEQUENCE_NO>
+		<SEQUENCE_NO>013</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10351,7 +10431,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
-		<SEQUENCE_NO>013</SEQUENCE_NO>
+		<SEQUENCE_NO>014</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10367,7 +10447,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
-		<SEQUENCE_NO>014</SEQUENCE_NO>
+		<SEQUENCE_NO>015</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10383,7 +10463,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
-		<SEQUENCE_NO>015</SEQUENCE_NO>
+		<SEQUENCE_NO>016</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10399,7 +10479,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
-		<SEQUENCE_NO>016</SEQUENCE_NO>
+		<SEQUENCE_NO>017</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
@@ -10415,7 +10495,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>IV_ITEM_WHSE_LK </QUERY_ID>
-		<SEQUENCE_NO>017</SEQUENCE_NO>
+		<SEQUENCE_NO>018</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
