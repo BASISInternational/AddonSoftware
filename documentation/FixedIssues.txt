@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-01-09
+ Report Date:   2025-01-10
  Report Branch: AddonSoftware 24.21
  Last Release:  AddonSoftware 24.20
 =======================================================================================================================================
@@ -89,4 +89,17 @@ ER 10930: Separated Vendor ID and Vendor Name into separate columns on
 the AP Check Register.
 ----
 Modified: ap/src/apr_chkregister.aon
+=======================================================================================================================================
+
+Revision: d5103fad0309af37a5d0872bcd39dfb7e3c0b673
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/10/2025 6:57:57 PM
+Message:
+ER 10925: Added Kit column and ACTIVE_KITS filter to the IV_ITEM_LK
+query.
+----
+Modified: data/sync/adm_query_cols~[01007514AD].xml
+Modified: data/sync/adm_query~[01007514AD].xml
+Modified: data/sync/ads_filter_text~[all].xml
+Modified: data/sync/ads_filters~[all].xml
 =======================================================================================================================================
