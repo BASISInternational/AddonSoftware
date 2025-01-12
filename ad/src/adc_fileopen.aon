@@ -47,6 +47,7 @@ rem --- STATUS       : Status code/0=No error (Returned)
 
 rem --- Initializations
 
+    BBjFileSystem!=BBjAPI().getFileSystem()
     datadir$=fnglobal$("+DIR_DAT","")
     pgmdir$=fnglobal$("+DIR_PGM","")
     sysdatadir$=fnglobal$("+DIR_BRD","")
@@ -145,9 +146,16 @@ actual_open:
 
         id$=ids$[x]
         if cvs(id$,2)="" then continue
-        ddm21a.dd_table_alias$=cvs(pad(id$,ddm21_key_len),4)
-        find record (ddm21_dev,key=ddm21a.dd_table_alias$,err=template_error) ddm21a$
-        templates$[x]=cvs(ddm21a.dd_table_tpl$,2)
+        tpl$=""
+        BBjFileInfo!=BBjFileSystem!.getFileInfo(channel)
+        tpl$=BBjFileInfo!.getText(err=*next)
+        if cvs(tpl$,2)<>"" then
+            templates$[x]=cvs(tpl$,2)
+        else
+            ddm21a.dd_table_alias$=cvs(pad(id$,ddm21_key_len),4)
+            find record (ddm21_dev,key=ddm21a.dd_table_alias$,err=template_error) ddm21a$
+            templates$[x]=cvs(ddm21a.dd_table_tpl$,2)
+        endif
         continue
     
     open_error: rem --- Error encountered attempting to open the file
