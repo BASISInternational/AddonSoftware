@@ -113,3 +113,16 @@ search.
 ----
 Modified: data/sync/adm_searches~[01007514AD].xml
 =======================================================================================================================================
+
+Revision: 6cb24861cd55c7634ecf6f0ce08feec26c755af4
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/11/2025 6:16:07 PM
+Message:
+ER 10908: Modified adc_fileopen.aon to get record templates directly
+from Vkey files using the BBjFileOpen:getText() method. If the file
+isn't Vkey or the template isn't found in the file, then
+ddm_table_tpls.dat is used to get the template as was previously being
+done.
+----
+Modified: ad/src/adc_fileopen.aon
+=======================================================================================================================================
