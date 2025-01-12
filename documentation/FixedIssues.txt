@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-01-10
+ Report Date:   2025-01-11
  Report Branch: AddonSoftware 24.21
  Last Release:  AddonSoftware 24.20
 =======================================================================================================================================
@@ -102,4 +102,14 @@ Modified: data/sync/adm_query_cols~[01007514AD].xml
 Modified: data/sync/adm_query~[01007514AD].xml
 Modified: data/sync/ads_filter_text~[all].xml
 Modified: data/sync/ads_filters~[all].xml
+=======================================================================================================================================
+
+Revision: c6015a7bcedaf42de984ce8e49c8b35ac4cda60b
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/11/2025 5:15:20 PM
+Message:
+ER 10915: Added new "Job Numbers" Expresso search under the "Customers"
+search.
+----
+Modified: data/sync/adm_searches~[01007514AD].xml
 =======================================================================================================================================
