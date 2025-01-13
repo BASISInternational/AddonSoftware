@@ -554,6 +554,11 @@ date_heading: rem --- Date heading
     if stbl("+DTWARN_MSG",err=*endif)<>"" then
         outVect!.addItem(stbl("+DTWARN_MSG")+$00$+"B")
         xwk=fnblank(columns)
+        
+        rem --- Don't force warning password override if the Journal ID allows posting to locked period or closed fiscal year.
+        if (glstatus=102 and glm03a.post_locked$="Y") or (glstatus=103 and glm03a.post_yr_end$="Y") then 
+            errors=errors-1
+        endif
     endif
 	gosub journal_heading
 	return
@@ -584,6 +589,11 @@ audit_heading:
     if stbl("+DTWARN_MSG",err=*endif)<>"" then
         outVect!.addItem(stbl("+DTWARN_MSG")+$00$+"B")
         xwk=fnblank(columns)
+
+        rem --- Don't force warning password override if the Journal ID allows posting to locked period or closed fiscal year.
+        if (glstatus=102 and glm03a.post_locked$="Y") or (glstatus=103 and glm03a.post_yr_end$="Y") then
+            errors=errors-1
+        endif
     endif
 	return
 
@@ -623,6 +633,7 @@ new_journal: rem --- New Journal ID
 
     if done return
     dim jt[2],b[2]
+    redim glm03a$
     glm03a.firm_id$=glt04a.firm_id$
     glm03a.journal_id$=glt04a.journal_id$
     glm03a.code_desc$=Translate!.getTranslation("AON_(NOT_ON_FILE)")
