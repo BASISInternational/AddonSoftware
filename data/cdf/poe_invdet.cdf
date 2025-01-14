@@ -1,11 +1,3 @@
-[[POE_INVDET.MEMO_1024.BINQ]]
-rem --- Launch Comments dialog
-	gosub comment_entry
-	callpoint!.setStatus("ABORT")
-[[POE_INVDET.AOPT-COMM]]
-rem --- invoke the comments dialog
-
-	gosub comment_entry
 [[POE_INVDET.AGDS]]
 use ::ado_util.src::util
 
@@ -15,6 +7,71 @@ rem --- Set column size for memo_1024 field very small so it doesn't take up roo
 	col_hdr$=callpoint!.getTableColumnAttribute("POE_INVDET.MEMO_1024","LABS")
 	memo_1024_col=util.getGridColumnNumber(grid!, col_hdr$)
 	grid!.setColumnWidth(memo_1024_col,15)
+
+rem wgh ... 10852
+rem --- Show Item ID and NS Item ID for the grid row
+	potRecDet_dev=fnget_dev("POT_RECDET")
+	dim potRecDet$:fnget_tpl$("POT_RECDET")
+	po_no$=callpoint!.getColumnData("POE_INVDET.PO_NO")
+	receiver_no$=callpoint!.getColumnData("POE_INVDET.RECEIVER_NO")
+	po_int_seq_ref$=callpoint!.getColumnData("POE_INVDET.PO_INT_SEQ_REF")
+	readrecord(potRecDet_dev,key=firm_id$+po_no$+receiver_no$+po_int_seq_ref$,dom=*next)potRecDet$
+	callpoint!.setColumnData("<<DISPLAY>>.ITEM_ID",potRecDet.item_id$,1)
+	callpoint!.setColumnData("<<DISPLAY>>.NS_ITEM_ID",potRecDet.ns_item_id$,1)
+
+[[POE_INVDET.AOPT-COMM]]
+rem --- invoke the comments dialog
+
+	gosub comment_entry
+
+[[POE_INVDET.BEND]]
+rem --- Reset Header Balance
+
+	recVect!=GridVect!.getItem(0)
+	gridrec=fnget_dev("POE_INVDET")
+	dim gridrec$:fnget_tpl$("POE_INVDET")
+	tdist=0
+	ap_type$=callpoint!.getColumnData("POE_INVDET.AP_TYPE")
+	vendor_id$=callpoint!.getColumnData("POE_INVDET.VENDOR_ID")
+	ap_inv_no$=callpoint!.getColumnData("POE_INVDET.AP_INV_NO")
+
+	read (gridrec,key=firm_id$+ap_type$+vendor_id$+ap_inv_no$,dom=*next)
+	while 1
+		read record (gridrec,end=*break) gridrec$
+		if pos(firm_id$+ap_type$+vendor_id$+ap_inv_no$=gridrec$)<>1 break
+		tdist=tdist+round((gridrec.qty_received)*(gridrec.unit_cost),2)
+	wend
+
+	dist_bal=num(callpoint!.getDevObject("invdet_bal"))-tdist
+	dist_bal!=callpoint!.getDevObject("dist_bal_control")
+	dist_bal!.setValue(dist_bal)
+
+[[POE_INVDET.MEMO_1024.BINQ]]
+rem --- Launch Comments dialog
+	gosub comment_entry
+	callpoint!.setStatus("ABORT")
+
+[[POE_INVDET.ORDER_MEMO.BINP]]
+rem --- invoke the comments dialog
+
+	gosub comment_entry
+
+[[POE_INVDET.PO_LINE_CODE.AVAL]]
+rem --- line code must be of type 'O'
+
+poc_linecode_dev=fnget_dev("POC_LINECODE")
+dim poc_linecode$:fnget_tpl$("POC_LINECODE")
+
+read record (poc_linecode_dev,key=firm_id$+callpoint!.getUserInput(),dom=*next)poc_linecode$
+
+if poc_linecode.line_type$<>"O"
+	msg_id$="PO_LINE_CD"
+	gosub disp_message
+	callpoint!.setStatus("ABORT")
+else
+	callpoint!.setColumnData("POE_INVDET.QTY_RECEIVED","1",1)
+endif
+
 [[POE_INVDET.<CUSTOM>]]
 rem ==========================================================================
 comment_entry:
@@ -72,43 +129,6 @@ rem ==========================================================================
 	callpoint!.setStatus("ACTIVATE")
 
 	return
-[[POE_INVDET.ORDER_MEMO.BINP]]
-rem --- invoke the comments dialog
 
-	gosub comment_entry
-[[POE_INVDET.BEND]]
-rem --- Reset Header Balance
 
-	recVect!=GridVect!.getItem(0)
-	gridrec=fnget_dev("POE_INVDET")
-	dim gridrec$:fnget_tpl$("POE_INVDET")
-	tdist=0
-	ap_type$=callpoint!.getColumnData("POE_INVDET.AP_TYPE")
-	vendor_id$=callpoint!.getColumnData("POE_INVDET.VENDOR_ID")
-	ap_inv_no$=callpoint!.getColumnData("POE_INVDET.AP_INV_NO")
 
-	read (gridrec,key=firm_id$+ap_type$+vendor_id$+ap_inv_no$,dom=*next)
-	while 1
-		read record (gridrec,end=*break) gridrec$
-		if pos(firm_id$+ap_type$+vendor_id$+ap_inv_no$=gridrec$)<>1 break
-		tdist=tdist+round((gridrec.qty_received)*(gridrec.unit_cost),2)
-	wend
-
-	dist_bal=num(callpoint!.getDevObject("invdet_bal"))-tdist
-	dist_bal!=callpoint!.getDevObject("dist_bal_control")
-	dist_bal!.setValue(dist_bal)
-[[POE_INVDET.PO_LINE_CODE.AVAL]]
-rem --- line code must be of type 'O'
-
-poc_linecode_dev=fnget_dev("POC_LINECODE")
-dim poc_linecode$:fnget_tpl$("POC_LINECODE")
-
-read record (poc_linecode_dev,key=firm_id$+callpoint!.getUserInput(),dom=*next)poc_linecode$
-
-if poc_linecode.line_type$<>"O"
-	msg_id$="PO_LINE_CD"
-	gosub disp_message
-	callpoint!.setStatus("ABORT")
-else
-	callpoint!.setColumnData("POE_INVDET.QTY_RECEIVED","1",1)
-endif
