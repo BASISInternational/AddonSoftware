@@ -1,14 +1,4 @@
-[[POE_INVDET.AGDS]]
-use ::ado_util.src::util
-
-rem --- Set column size for memo_1024 field very small so it doesn't take up room, but still available for hover-over of memo contents
-
-	grid! = form!.getControl(5000);rem - fixed control ID for stand-alone grid
-	col_hdr$=callpoint!.getTableColumnAttribute("POE_INVDET.MEMO_1024","LABS")
-	memo_1024_col=util.getGridColumnNumber(grid!, col_hdr$)
-	grid!.setColumnWidth(memo_1024_col,15)
-
-rem wgh ... 10852
+[[POE_INVDET.AGDR]]
 rem --- Show Item ID and NS Item ID for the grid row
 	potRecDet_dev=fnget_dev("POT_RECDET")
 	dim potRecDet$:fnget_tpl$("POT_RECDET")
@@ -18,6 +8,16 @@ rem --- Show Item ID and NS Item ID for the grid row
 	readrecord(potRecDet_dev,key=firm_id$+po_no$+receiver_no$+po_int_seq_ref$,dom=*next)potRecDet$
 	callpoint!.setColumnData("<<DISPLAY>>.ITEM_ID",potRecDet.item_id$,1)
 	callpoint!.setColumnData("<<DISPLAY>>.NS_ITEM_ID",potRecDet.ns_item_id$,1)
+
+[[POE_INVDET.AGDS]]
+use ::ado_util.src::util
+
+rem --- Set column size for memo_1024 field very small so it doesn't take up room, but still available for hover-over of memo contents
+
+	grid! = form!.getControl(5000);rem - fixed control ID for stand-alone grid
+	col_hdr$=callpoint!.getTableColumnAttribute("POE_INVDET.MEMO_1024","LABS")
+	memo_1024_col=util.getGridColumnNumber(grid!, col_hdr$)
+	grid!.setColumnWidth(memo_1024_col,15)
 
 [[POE_INVDET.AOPT-COMM]]
 rem --- invoke the comments dialog

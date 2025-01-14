@@ -23,7 +23,7 @@
 			<DD_CREATE_DATE id="ddm_tables.poe_invdet">20060119</DD_CREATE_DATE>
 			<DD_LSTREV_DATE id="ddm_tables.poe_invdet">20250114</DD_LSTREV_DATE>
 			<DD_LSTSYNC_DATE id="ddm_tables.poe_invdet">20250114</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.poe_invdet">132308</DD_LSTSYNC_TIME>
+			<DD_LSTSYNC_TIME id="ddm_tables.poe_invdet">150228</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.poe_invdet"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.poe_invdet">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.poe_invdet"></DD_ATTR_DKNM>
@@ -70,6 +70,10 @@
 	</ALIAS>
 	<ALIAS id="ddm_table_cpro">
 		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.poe_invdetagdr">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.poe_invdetagdr">POE_INVDET      </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.poe_invdetagdr">AGDR</DD_ATTR_CPRO>
+		</RECORD>
 		<RECORD id="ddm_table_cpro.poe_invdetagds">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.poe_invdetagds">POE_INVDET      </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.poe_invdetagds">AGDS</DD_ATTR_CPRO>
