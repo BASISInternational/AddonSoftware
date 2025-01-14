@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-01-11
+ Report Date:   2025-01-13
  Report Branch: AddonSoftware 24.21
  Last Release:  AddonSoftware 24.20
 =======================================================================================================================================
@@ -125,4 +125,17 @@ ddm_table_tpls.dat is used to get the template as was previously being
 done.
 ----
 Modified: ad/src/adc_fileopen.aon
+=======================================================================================================================================
+
+Revision: e9f1c389b977cc4cc1935f1a6a3498e060b3db26
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/13/2025 3:39:06 PM
+Message:
+ER 10855: Modified the Daily Detail Register to NOT require a password
+override to run the updated when a posting is to a locked period and the
+Journal ID allows posting to locked periods, nor when a posting is to a
+closed fiscal year and the Journal ID allows posting to closed fiscal
+years.
+----
+Modified: gl/src/glr_dailydetail.aon
 =======================================================================================================================================
