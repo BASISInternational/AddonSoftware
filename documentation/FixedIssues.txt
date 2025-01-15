@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-01-13
+ Report Date:   2025-01-14
  Report Branch: AddonSoftware 24.21
  Last Release:  AddonSoftware 24.20
 =======================================================================================================================================
@@ -138,4 +138,15 @@ closed fiscal year and the Journal ID allows posting to closed fiscal
 years.
 ----
 Modified: gl/src/glr_dailydetail.aon
+=======================================================================================================================================
+
+Revision: 87d6fe348b5e18ea71e64d449073ee4951b11bcc
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/14/2025 3:09:18 PM
+Message:
+ER 10852: Added "NS Item ID" and "Item ID" columns to the Purchase Order
+Invoice Entry detail grid using the values from POT_RECDET.
+----
+Modified: data/bar/poe_invdet.xml
+Modified: data/cdf/poe_invdet.cdf
 =======================================================================================================================================
