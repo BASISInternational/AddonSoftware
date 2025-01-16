@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.glm_acct">7BF72C176100CB915982E0D83A98F97E</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glm_acct">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glm_acct">20060703</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.glm_acct">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.glm_acct">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.glm_acct">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.glm_acct">20250115</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.glm_acct">20250115</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.glm_acct">160208</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.glm_acct"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.glm_acct">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.glm_acct">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.glm_acct"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.glm_acct"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.glm_acct">T</DD_ATTR_FTYP>
@@ -493,7 +493,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_acct004">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_acct004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_acct004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_acct004"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_acct004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_acct004"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_acct004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_acct004"></DD_ATTR_CTLY>
@@ -825,7 +825,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.glm_acct004">ine_current_year</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.glm_acct004">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.glm_acct004"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.glm_acct004">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.glm_acct004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.glm_acct005">
 			<DD_TABLE_ALIAS id="ddm_table_disp.glm_acct005">GLM_ACCT        </DD_TABLE_ALIAS>
@@ -848,7 +848,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.glm_acct005">ine_current_per</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.glm_acct005">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.glm_acct005"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.glm_acct005">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.glm_acct005">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.glm_acct006">
 			<DD_TABLE_ALIAS id="ddm_table_disp.glm_acct006">GLM_ACCT        </DD_TABLE_ALIAS>
@@ -931,6 +931,11 @@
 	</ALIAS>
 	<ALIAS id="ddm_column_cpro">
 		<ID id="ddm_column_cpro">DDM_COLUMN_CPRO</ID>
+		<RECORD id="ddm_column_cpro.glm_acctgl_acct_typeaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.glm_acctgl_acct_typeaval">GLM_ACCT        </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.glm_acctgl_acct_typeaval">GL_ACCT_TYPE    </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.glm_acctgl_acct_typeaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
 		<RECORD id="ddm_column_cpro.glm_acctcurrent_yearaval">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.glm_acctcurrent_yearaval">GLM_ACCT        </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.glm_acctcurrent_yearaval">CURRENT_YEAR    </DD_DVAR_NAME>

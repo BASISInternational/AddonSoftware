@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.gls_earnings">3CAC93B0626AD48D0205781E6349083D</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.gls_earnings">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.gls_earnings">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.gls_earnings">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.gls_earnings">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.gls_earnings">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.gls_earnings">20250115</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.gls_earnings">20250115</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.gls_earnings">153344</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.gls_earnings"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.gls_earnings"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.gls_earnings">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.gls_earnings"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.gls_earnings"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.gls_earnings">T</DD_ATTR_FTYP>
@@ -56,6 +56,13 @@
 			<DD_ATTR_PADW id="ddm_tables.gls_earnings"></DD_ATTR_PADW>
 			<DD_ATTR_PADH id="ddm_tables.gls_earnings"></DD_ATTR_PADH>
 			<DD_ATTR_PADG id="ddm_tables.gls_earnings"></DD_ATTR_PADG>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_cpro">
+		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.gls_earningsbsho">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.gls_earningsbsho">GLS_EARNINGS    </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.gls_earningsbsho">BSHO</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_opts">
@@ -346,7 +353,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.gls_earnings004">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.gls_earnings004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.gls_earnings004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.gls_earnings004">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.gls_earnings004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.gls_earnings004"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.gls_earnings004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.gls_earnings004"></DD_ATTR_CTLY>
@@ -359,7 +366,7 @@
 			<DD_ATTR_LABL id="ddm_table_cols.gls_earnings004"></DD_ATTR_LABL>
 			<DD_ATTR_LABS id="ddm_table_cols.gls_earnings004">GL Account</DD_ATTR_LABS>
 			<DD_ATTR_MLAN id="ddm_table_cols.gls_earnings004"></DD_ATTR_MLAN>
-			<DD_ATTR_MINL id="ddm_table_cols.gls_earnings004"></DD_ATTR_MINL>
+			<DD_ATTR_MINL id="ddm_table_cols.gls_earnings004">1</DD_ATTR_MINL>
 			<DD_ATTR_MAXL id="ddm_table_cols.gls_earnings004"></DD_ATTR_MAXL>
 			<DD_ATTR_MINV id="ddm_table_cols.gls_earnings004"></DD_ATTR_MINV>
 			<DD_ATTR_MAXV id="ddm_table_cols.gls_earnings004"></DD_ATTR_MAXV>
@@ -380,6 +387,32 @@
 			<DD_ATTR_RADG id="ddm_table_cols.gls_earnings004"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.gls_earnings004">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.gls_earnings004">F</DD_ATTR_BTNS>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_disp">
+		<ID id="ddm_table_disp">DDM_TABLE_DISP</ID>
+		<RECORD id="ddm_table_disp.gls_earnings001">
+			<DD_TABLE_ALIAS id="ddm_table_disp.gls_earnings001">GLS_EARNINGS    </DD_TABLE_ALIAS>
+			<DD_SEQUENCE id="ddm_table_disp.gls_earnings001">001</DD_SEQUENCE>
+			<DD_DATA_NAME id="ddm_table_disp.gls_earnings001">BAR_TEXT_20     </DD_DATA_NAME>
+			<DD_CTRL_NAME id="ddm_table_disp.gls_earnings001">HIDDEN          </DD_CTRL_NAME>
+			<DD_ATTR_LABL id="ddm_table_disp.gls_earnings001"></DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_table_disp.gls_earnings001"></DD_ATTR_LABS>
+			<DD_ATTR_CALC id="ddm_table_disp.gls_earnings001"></DD_ATTR_CALC>
+			<DD_ATTR_CTLX id="ddm_table_disp.gls_earnings001"></DD_ATTR_CTLX>
+			<DD_ATTR_CTLY id="ddm_table_disp.gls_earnings001"></DD_ATTR_CTLY>
+			<DD_ATTR_CTLW id="ddm_table_disp.gls_earnings001">1</DD_ATTR_CTLW>
+			<DD_ATTR_CTLH id="ddm_table_disp.gls_earnings001">1</DD_ATTR_CTLH>
+			<DD_ATTR_DRLE id="ddm_table_disp.gls_earnings001"></DD_ATTR_DRLE>
+			<DD_ATTR_GHDR id="ddm_table_disp.gls_earnings001"></DD_ATTR_GHDR>
+			<DD_ATTR_SLEV id="ddm_table_disp.gls_earnings001"></DD_ATTR_SLEV>
+			<DD_ATTR_TABG id="ddm_table_disp.gls_earnings001"></DD_ATTR_TABG>
+			<DD_ATTR_TIND id="ddm_table_disp.gls_earnings001">5</DD_ATTR_TIND>
+			<DD_ATTR_CTLI id="ddm_table_disp.gls_earnings001">3002</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_disp.gls_earnings001">ine_hidden</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_disp.gls_earnings001">0</DD_ATTR_CTLC>
+			<DD_ATTR_RADG id="ddm_table_disp.gls_earnings001"></DD_ATTR_RADG>
+			<DD_ATTR_CPGM id="ddm_table_disp.gls_earnings001"></DD_ATTR_CPGM>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_cmts">
@@ -420,6 +453,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.gls_earningsgl_accountu">GLS_EARNINGS    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.gls_earningsgl_accountu">GL_ACCOUNT      </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.gls_earningsgl_accountu">u</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.gls_earningshiddenl">
+			<DD_TABLE_ALIAS id="ddm_column_opts.gls_earningshiddenl">GLS_EARNINGS    </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.gls_earningshiddenl">HIDDEN          </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.gls_earningshiddenl">L</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">
@@ -631,6 +669,58 @@
 			<DD_ATTR_OEMD id="ddm_elements.gl_account"></DD_ATTR_OEMD>
 			<DD_ATTR_Y2KW id="ddm_elements.gl_account"></DD_ATTR_Y2KW>
 			<DD_ATTR_CASB id="ddm_elements.gl_account"></DD_ATTR_CASB>
+		</RECORD>
+		<RECORD id="ddm_elements.bar_text_20">
+			<DD_DATA_NAME id="ddm_elements.bar_text_20">BAR_TEXT_20     </DD_DATA_NAME>
+			<DD_DESCRIPTION id="ddm_elements.bar_text_20">Text 20</DD_DESCRIPTION>
+			<DD_DATA_TYPE id="ddm_elements.bar_text_20">C</DD_DATA_TYPE>
+			<DD_DATA_LENGTH id="ddm_elements.bar_text_20">20</DD_DATA_LENGTH>
+			<DD_MASK_TYPE id="ddm_elements.bar_text_20"></DD_MASK_TYPE>
+			<DD_SYSTEM_REC id="ddm_elements.bar_text_20"></DD_SYSTEM_REC>
+			<ASC_COMP_ID id="ddm_elements.bar_text_20">01007514</ASC_COMP_ID>
+			<ASC_PROD_ID id="ddm_elements.bar_text_20">ADB</ASC_PROD_ID>
+			<LOCALIZATION_EX id="ddm_elements.bar_text_20">N</LOCALIZATION_EX>
+			<DD_CREATE_DATE id="ddm_elements.bar_text_20">20080829</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_elements.bar_text_20">20080829</DD_LSTREV_DATE>
+			<DD_AUTO_COMP id="ddm_elements.bar_text_20"></DD_AUTO_COMP>
+			<DD_ATTR_BLNK id="ddm_elements.bar_text_20">N</DD_ATTR_BLNK>
+			<DD_ATTR_CDAT id="ddm_elements.bar_text_20"></DD_ATTR_CDAT>
+			<DD_ATTR_CTLW id="ddm_elements.bar_text_20"></DD_ATTR_CTLW>
+			<DD_ATTR_CTLH id="ddm_elements.bar_text_20"></DD_ATTR_CTLH>
+			<DD_ATTR_CTYP id="ddm_elements.bar_text_20">E</DD_ATTR_CTYP>
+			<DD_ATTR_DCOL id="ddm_elements.bar_text_20"></DD_ATTR_DCOL>
+			<DD_ATTR_DCOM id="ddm_elements.bar_text_20"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.bar_text_20"></DD_ATTR_DEXP>
+			<DD_ATTR_DFLT id="ddm_elements.bar_text_20"></DD_ATTR_DFLT>
+			<DD_ATTR_DKNM id="ddm_elements.bar_text_20"></DD_ATTR_DKNM>
+			<DD_ATTR_DKEY id="ddm_elements.bar_text_20"></DD_ATTR_DKEY>
+			<DD_ATTR_DTAB id="ddm_elements.bar_text_20"></DD_ATTR_DTAB>
+			<DD_ATTR_DINQ id="ddm_elements.bar_text_20"></DD_ATTR_DINQ>
+			<DD_ATTR_ENCR id="ddm_elements.bar_text_20"></DD_ATTR_ENCR>
+			<DD_ATTR_IDEF id="ddm_elements.bar_text_20"></DD_ATTR_IDEF>
+			<DD_ATTR_LABL id="ddm_elements.bar_text_20">Text 20</DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_elements.bar_text_20">Text 20</DD_ATTR_LABS>
+			<DD_ATTR_LDIS id="ddm_elements.bar_text_20"></DD_ATTR_LDIS>
+			<DD_ATTR_MAXL id="ddm_elements.bar_text_20"></DD_ATTR_MAXL>
+			<DD_ATTR_MAXR id="ddm_elements.bar_text_20"></DD_ATTR_MAXR>
+			<DD_ATTR_MAXV id="ddm_elements.bar_text_20"></DD_ATTR_MAXV>
+			<DD_ATTR_MINL id="ddm_elements.bar_text_20"></DD_ATTR_MINL>
+			<DD_ATTR_MINV id="ddm_elements.bar_text_20"></DD_ATTR_MINV>
+			<DD_ATTR_MSKI id="ddm_elements.bar_text_20"></DD_ATTR_MSKI>
+			<DD_ATTR_MSKO id="ddm_elements.bar_text_20"></DD_ATTR_MSKO>
+			<DD_ATTR_PADC id="ddm_elements.bar_text_20"></DD_ATTR_PADC>
+			<DD_ATTR_PADJ id="ddm_elements.bar_text_20"></DD_ATTR_PADJ>
+			<DD_ATTR_PREC id="ddm_elements.bar_text_20">0</DD_ATTR_PREC>
+			<DD_ATTR_PROM id="ddm_elements.bar_text_20"></DD_ATTR_PROM>
+			<DD_ATTR_PVAL id="ddm_elements.bar_text_20"></DD_ATTR_PVAL>
+			<DD_ATTR_SDLG id="ddm_elements.bar_text_20"></DD_ATTR_SDLG>
+			<DD_ATTR_SLEV id="ddm_elements.bar_text_20"></DD_ATTR_SLEV>
+			<DD_ATTR_STYP id="ddm_elements.bar_text_20"></DD_ATTR_STYP>
+			<DD_ATTR_STEP id="ddm_elements.bar_text_20"></DD_ATTR_STEP>
+			<DD_ATTR_FLPT id="ddm_elements.bar_text_20"></DD_ATTR_FLPT>
+			<DD_ATTR_OEMD id="ddm_elements.bar_text_20"></DD_ATTR_OEMD>
+			<DD_ATTR_Y2KW id="ddm_elements.bar_text_20"></DD_ATTR_Y2KW>
+			<DD_ATTR_CASB id="ddm_elements.bar_text_20"></DD_ATTR_CASB>
 		</RECORD>
 	</ALIAS>
 </GLS_EARNINGS>
