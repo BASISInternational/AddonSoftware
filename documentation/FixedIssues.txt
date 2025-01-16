@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-01-14
+ Report Date:   2025-01-15
  Report Branch: AddonSoftware 24.21
  Last Release:  AddonSoftware 24.20
 =======================================================================================================================================
@@ -149,4 +149,20 @@ Invoice Entry detail grid using the values from POT_RECDET.
 ----
 Modified: data/bar/poe_invdet.xml
 Modified: data/cdf/poe_invdet.cdf
+=======================================================================================================================================
+
+Revision: 4fc4e1e211279d1a3feffb03deaa93fc1e2a0b10
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/15/2025 4:12:27 PM
+Message:
+ER 10968: Modified the Retained Earnings parameter form to require the
+Retained Earnings account be an existing Capital type account. Modified
+the Account Maintenance form to NOT let the Account Type for the
+Retained Earnings account be changed to a different type of account.
+----
+Modified: data/bar/glm_acct.xml
+Modified: data/bar/gls_earnings.xml
+Modified: data/cdf/glm_acct.cdf
+Modified: data/cdf/gls_earnings.cdf
+Modified: data/sync/ads_messages~[01007514GL].xml
 =======================================================================================================================================
