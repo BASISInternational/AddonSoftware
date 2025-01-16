@@ -1,3 +1,11 @@
+[[GLS_EARNINGS.BSHO]]
+rem --- Open/Lock files
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="GLM_ACCT",open_opts$[1]="OTA"
+
+	gosub open_tables
+
 [[GLS_EARNINGS.GL_ACCOUNT.AVAL]]
 rem "GL INACTIVE FEATURE"
    glm01_dev=fnget_dev("GLM_ACCT")
@@ -15,5 +23,17 @@ rem "GL INACTIVE FEATURE"
       gosub disp_message
       callpoint!.setStatus("ACTIVATE-ABORT")
    endif
+
+rem --- The Retained Earnings account must be a Capital type account
+	if glm01a.gl_acct_type$<>"C" then
+		msg_id$="GL_BAD_RETAINED_ACCT"
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 [[GLS_EARNINGS.<CUSTOM>]]
 #include [+ADDON_LIB]std_functions.aon
+
+
+
