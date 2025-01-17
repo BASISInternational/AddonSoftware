@@ -12,6 +12,11 @@ rem ---    the generic reference herein) that is written to in this pgm.
 
 rem --------------------------------------------------------------------------------
 
+    use java.io.File
+    use java.lang.reflect.Array
+    use java.nio.file.Files
+    use java.nio.file.StandardCopyOption
+
     seterr std_error
     setesc std_error
 
@@ -28,6 +33,21 @@ rem --- Open/Lock files
 :       ids$[all],templates$[all],channels[all],batch,status
     if status goto std_exit
     sas01_dev=channels[1]
+
+rem --- Copy saw00_dev file to new file unique to this BBj process, and use it
+    sourceFile$=fid(saw00_dev)(9)
+    targetFile$=stbl("+SADATA")+"saw00-"+str(dec(info(3,0)))
+    targetFile!=new File(targetFile$)
+    copyOptions!=BBjAPI().makeVector() 
+    copyOptions!.add(StandardCopyOption.REPLACE_EXISTING)
+    copyOptionsArray!=Array.newInstance(StandardCopyOption.class,1)
+    copyOptions!.toArray(CopyOptionsArray!)
+
+    close(saw00_dev)
+    Files.copy(new File(sourceFile$).toPath(),targetFile!.toPath(),copyOptionsArray!)
+    open(saw00_dev)targetFile$
+    call stbl("+DIR_PGM")+"adc_clearfile.aon",saw00_dev
+    lock(saw00_dev)
 
 rem --- IOLists
 
@@ -572,6 +592,10 @@ done: rem --- All done
     s[all]=sales_tot[all]
 
     rem gosub print_detail
+
+    rem --- Remove copy of saw00_dev file made for this BBj process
+    close(saw00_dev,err=*next)
+    targetFile!.delete()
 
     call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
     goto std_exit
