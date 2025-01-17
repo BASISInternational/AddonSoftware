@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-01-15
+ Report Date:   2025-01-16
  Report Branch: AddonSoftware 24.21
  Last Release:  AddonSoftware 24.20
 =======================================================================================================================================
@@ -165,4 +165,30 @@ Modified: data/bar/gls_earnings.xml
 Modified: data/cdf/glm_acct.cdf
 Modified: data/cdf/gls_earnings.cdf
 Modified: data/sync/ads_messages~[01007514GL].xml
+=======================================================================================================================================
+
+Revision: c4447e63d03d59194254a7c2644c4539e0019a35
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/16/2025 5:16:24 PM
+Message:
+ER 7649: Modified Sales Analysis Reports to copy the work file to new
+file unique to the BBj process, and use it instead of the source work
+file.
+----
+Modified: sa/src/sar_ac.aon
+Modified: sa/src/sar_ac_export.aon
+Modified: sa/src/sar_ad.aon
+Modified: sa/src/sar_customer.aon
+Modified: sa/src/sar_custship.aon
+Modified: sa/src/sar_custsic.aon
+Modified: sa/src/sar_custterr.aon
+Modified: sa/src/sar_custtype.aon
+Modified: sa/src/sar_distcode.aon
+Modified: sa/src/sar_item.aon
+Modified: sa/src/sar_nonstock.aon
+Modified: sa/src/sar_proditmcst.aon
+Modified: sa/src/sar_salespsn.aon
+Modified: sa/src/sar_territory.aon
+Modified: sa/src/sar_vendor.aon
+Modified: sa/src/sar_warehse.aon
 =======================================================================================================================================
