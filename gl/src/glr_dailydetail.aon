@@ -275,6 +275,11 @@ rem --- Read next daily detail record
 
 rem --- Range tests
 
+        if pos(" "=glt04a.posting_per$) then 
+            rem --- Non-Addon applications posting to GL may not use zero padded posting periods.
+            glt04a.posting_per$=str(num(glt04a.posting_per$):"00")
+        endif
+
           if begacct$<>"" if glt04a.gl_account$<begacct$ continue
           if endacct$<>"" if glt04a.gl_account$>endacct$ continue
           if journal$<>"" if glt04a.journal_id$<>journal$ continue
@@ -595,6 +600,7 @@ audit_heading:
             errors=errors-1
         endif
     endif
+
 	return
 
 date_break: rem --- Date break
