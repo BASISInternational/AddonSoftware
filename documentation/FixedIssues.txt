@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-01-17
+ Report Date:   2025-01-21
  Report Branch: AddonSoftware 24.21
  Last Release:  AddonSoftware 24.20
 =======================================================================================================================================
@@ -202,4 +202,14 @@ the Additional Information tab to the Item tab right under the Category
 field.
 ----
 Modified: data/bar/sfe_womastr.xml
+=======================================================================================================================================
+
+Revision: af90cd16a3ddf9405acc04524875364a231ce08b
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/21/2025 10:54:22 AM
+Message:
+ER 10970: Modified the Daily Detail Register to correct GL Posting
+Periods from other applications that may not be zero padded.
+----
+Modified: gl/src/glr_dailydetail.aon
 =======================================================================================================================================
