@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-01-21
+ Report Date:   2025-01-22
  Report Branch: AddonSoftware 24.21
  Last Release:  AddonSoftware 24.20
 =======================================================================================================================================
@@ -212,4 +212,22 @@ ER 10970: Modified the Daily Detail Register to correct GL Posting
 Periods from other applications that may not be zero padded.
 ----
 Modified: gl/src/glr_dailydetail.aon
+=======================================================================================================================================
+
+Revision: a1b40c39833e5a2712a38711a140d6db3fab861c
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/22/2025 3:43:54 PM
+Message:
+ER 3186: Modified Purchase Requisition Entry and Purchase Order Entry to
+populate the detail grid for dropships that are coming from a Sales
+Order.
+----
+Modified: data/bar/poe_podet.xml
+Modified: data/bar/poe_pohdr.xml
+Modified: data/bar/poe_reqdet.xml
+Modified: data/bar/poe_reqhdr.xml
+Modified: data/cdf/poe_podet.cdf
+Modified: data/cdf/poe_pohdr.cdf
+Modified: data/cdf/poe_reqdet.cdf
+Modified: data/cdf/poe_reqhdr.cdf
 =======================================================================================================================================
