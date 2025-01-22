@@ -866,7 +866,7 @@ if cvs(callpoint!.getColumnData("POE_POHDR.CUSTOMER_ID"),3)<>""
 	gosub dropship_shipto
 	gosub get_dropship_order_lines
 
-	if callpoint!.getDevObject("ds_orders")<>"Y" and cvs(callpoint!.getUserInput(),3)<>""
+	if callpoint!.getDevObject("ds_orders")<>"Y" and cvs(tmp_order_no$,3)<>""
 		msg_id$="PO_NO_SO_LINES"
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
@@ -1221,7 +1221,8 @@ dropship_shipto: rem --- get and display shipto from Sales Order if dropship ind
 		ope_ordhdr_key$=key(ope_ordhdr_dev,end=*break)
 		if pos(firm_id$+ope_ordhdr.ar_type$+tmp_customer_id$+tmp_order_no$=ope_ordhdr_key$)<>1 then break
 		read record (ope_ordhdr_dev)ope_ordhdr$
-		if pos(ope_ordhdr.trans_status$="ER") then break; rem --- new order can have at most just one new invoice, if any
+		if pos(ope_ordhdr.trans_status$="ER")=0 then continue
+		break; rem --- new order can have at most just one new invoice, if any
 	wend
 	shipto_type$=ope_ordhdr.shipto_type$
 	shipto_no$=ope_ordhdr.shipto_no$
@@ -1276,14 +1277,18 @@ rem --- read thru selected sales order and build list of lines for which line co
 	ope_ordhdr_dev=fnget_dev("OPE_ORDHDR")
 	ope_orddet_dev=fnget_dev("OPE_ORDDET")
 	ivm_itemmast_dev=fnget_dev("IVM_ITEMMAST")
+	ivm_itemwhse_dev=fnget_dev("IVM_ITEMWHSE")
 	opc_linecode_dev=fnget_dev("OPC_LINECODE")
 	poe_linked_dev=fnget_dev("POE_LINKED")
+	poe_podet_dev = fnget_dev("POE_PODET")
 
 	dim ope_ordhdr$:fnget_tpl$("OPE_ORDHDR")
 	dim ope_orddet$:fnget_tpl$("OPE_ORDDET")
 	dim ivm_itemmast$:fnget_tpl$("IVM_ITEMMAST")
+	dim ivm_itemwhse$:fnget_tpl$("IVM_ITEMWHSE")
 	dim opc_linecode$:fnget_tpl$("OPC_LINECODE")
 	dim poe_linked$:fnget_tpl$("POE_LINKED")
+	dim poe_podet$:fnget_tpl$("POE_PODET")
 
 	order_lines!=SysGUI!.makeVector()
 	order_items!=SysGUI!.makeVector()
@@ -1303,6 +1308,8 @@ rem --- read thru selected sales order and build list of lines for which line co
 	wend
 	if !found_ope_ordhdr then return
 
+	rowVect!=gridvect!.getItem(0)		
+	row=0
 	so_on_another_po=0
 	po_no$=callpoint!.getColumnData("POE_POHDR.PO_NO")
 	read (ope_orddet_dev,key=ope_ordhdr_key$,dom=*next)
@@ -1313,7 +1320,7 @@ rem --- read thru selected sales order and build list of lines for which line co
 		if pos(ope_orddet.trans_status$="ER")=0 then continue
 		if pos(ope_orddet.line_code$=callpoint!.getDevObject("oe_ds_line_codes"))<>0
 			rem --- Check poe_linked to see if this SO detail line is on another PO
-			dim poe_linked$:fattr(poe_linked$)
+			redim poe_linked$
 			readrecord(poe_linked_dev,key=firm_id$+tmp_customer_id$+tmp_order_no$+ope_orddet.internal_seq_no$,knum="AO_CUST_ORD",dom=*next)poe_linked$
 			if cvs(poe_linked.po_no$,2)<>"" and poe_linked.po_no$<>po_no$ then
 				rem --- Skip this SO detail line since it's already on another PO
@@ -1349,12 +1356,86 @@ rem --- read thru selected sales order and build list of lines for which line co
 			endif
 
 			rem --- Get Line Type for this drop ship OP detail line
-			dim opc_linecode$:fattr(opc_linecode$)
+			redim opc_linecode$
 			read record (opc_linecode_dev,key=firm_id$+ope_orddet.line_code$,dom=*next)opc_linecode$
 			soLineType!.setProperty(ope_orddet.internal_seq_no$,opc_linecode.line_type$)
+
+			rem --- Add this SO dropship detail line to the PO detail grid
+			if callpoint!.getEvent()<>"ARAR" and rowVect!.size()=0 then
+				row=row+1
+				call stbl("+DIR_SYP")+"bas_sequences.bbj","INTERNAL_SEQ_NO",int_seq_no$,table_chans$[all]
+
+				readrecord(ivm_itemmast_dev,key=firm_id$+ope_orddet.item_id$,dom=*endif)ivm_itemmast$
+				warehouse_id$=callpoint!.getColumnData("POE_POHDR.WAREHOUSE_ID")
+				readrecord(ivm_itemwhse_dev,key=firm_id$+warehouse_id$+ope_orddet.item_id$,dom=*endif)ivm_itemwhse$
+
+				vendor_id$=callpoint!.getColumnData("POE_POHDR.VENDOR_ID")
+				ord_date$=callpoint!.getColumnData("POE_POHDR.ORD_DATE")
+				item_id$=ope_orddet.item_id$
+				conv_factor=ivm_itemmast.conv_factor
+				if conv_factor=0 then conv_factor=1
+				unit_cost=ivm_itemwhse.unit_cost*conv_factor
+				req_qty=ope_orddet.qty_ordered/conv_factor
+				qty_ordered=req_qty
+				if fpt(qty_ordered)>0 then qty_ordered=int(qty_ordered)+1
+				call stbl("+DIR_PGM")+"poc_itemvend.aon","R","P",vendor_id$,ord_date$,item_id$,1,unit_cost,qty_ordered,callpoint!.getDevObject("iv_prec"),status
+
+				redim poe_podet$
+				poe_podet.firm_id$=firm_id$
+				poe_podet.po_no$=po_no$
+				poe_podet.internal_seq_no$=int_seq_no$
+				poe_podet.po_line_no$=str(row:"000")
+				poe_podet.po_line_code$=ope_orddet.line_code$
+				poe_podet.unit_measure$=ivm_itemmast.purchase_um$
+				poe_podet.reqd_date$=callpoint!.getColumnData("POE_POHDR.REQD_DATE")
+				poe_podet.promise_date$=callpoint!.getColumnData("POE_POHDR.PROMISE_DATE")
+				poe_podet.not_b4_date$=callpoint!.getColumnData("POE_POHDR.NOT_B4_DATE")
+				poe_podet.so_int_seq_ref$=ope_orddet.internal_seq_no$
+				poe_podet.warehouse_id$=warehouse_id$
+				poe_podet.item_id$=item_id$
+				poe_podet.order_memo$=ope_orddet.order_memo$
+				poe_podet.conv_factor=conv_factor
+				poe_podet.unit_cost=unit_cost
+				poe_podet.req_qty=req_qty
+				poe_podet.qty_ordered=qty_ordered
+				poe_podet.qa_wip_qty=0
+				poe_podet.qa_rec_qty=0
+				poe_podet.qa_rej_qty=0
+				poe_podet.qty_received=0
+				poe_podet.qty_invoiced=0
+				poe_podet.reserved_num_01=0
+				poe_podet.reserved_num_02=0
+				poe_podet.dealer_num_01=0
+				poe_podet.dealer_num_02=0
+				if opc_linecode.line_type$="N" then poe_podet.ns_item_id$=ope_orddet.order_memo$
+				poe_podet.memo_1024$=ope_orddet.memo_1024$
+
+				poe_podet$=field(poe_podet$)
+				writerecord(poe_podet_dev)poe_podet$
+
+				rem --- Update ivm_itemvend (ivm-05) for this new detail grid row
+				call stbl("+DIR_PGM")+"poc_itemvend.aon","W","P",vendor_id$,ord_date$,item_id$,1,unit_cost,qty_ordered,callpoint!.getDevObject("iv_prec"),status
+
+				rem --- Update poe_linked (poe-08) for this new detail grid row
+				redim poe_linked$
+				poe_linked.firm_id$=firm_id$
+				poe_linked.po_no$=poe_podet.po_no$
+				poe_linked.poedet_seq_ref$=poe_podet.internal_seq_no$
+				poe_linked.customer_id$=ope_orddet.customer_id$
+				poe_linked.order_no$=ope_orddet.order_no$
+				poe_linked.opedet_seq_ref$=ope_orddet.internal_seq_no$
+
+				poe_linked$=field(poe_linked$)
+				write record (poe_linked_dev)poe_linked$
+			endif
 		endif
 	wend
 	read(poe_linked_dev,key=firm_id$,knum="PRIMARY",dom=*next); rem --- Reset poe_linked key to PRIMARY
+
+	if row>0 then
+		rem --- Display SO dropship detail lines added to the PO detail grid
+		callpoint!.setStatus("REFGRID")
+	endif
 
 	callpoint!.setDevObject("so_line_type",soLineType!)
 	if order_lines!.size()=0 
