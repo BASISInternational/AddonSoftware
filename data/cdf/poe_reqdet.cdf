@@ -783,7 +783,7 @@ rem ==========================================================================
 	line_type$=poc_linecode.line_type$
 
 	rem --- Dropship PO line codes are no longer supported. Now the entire PO must be dropshipped.
-	if poc_linecode.dropship$="Y" then
+	if poc_linecode.dropship$="Y" and callpoint!.getHeaderColumnData("POE_REQHDR.DROPSHIP")<>"Y" then
 		msg_id$="PO_DROPSHIP_LINE_CD "
 		gosub disp_message
 	endif
