@@ -71,6 +71,8 @@ rem --- initialization
     source_folder$ = callpoint!.getDevObject("source_folder")
     destin_folder$ = callpoint!.getDevObject("destin_folder")
     vectPort! = callpoint!.getDevObject("vectPort")
+
+    BBjFileSystem!=BBjAPI().getFileSystem()
 	
     dictfile$=stbl("+DIR_BRD")
     dictpgm$=stbl("+DIR_SYP")
@@ -4199,13 +4201,34 @@ verify_translation_master: rem --- Verify master file records exist for used tra
             continue
         endif
 
+        
         rem --- Get value used for translation
         transIter!=field_translations!.keySet().iterator()
         while transIter!.hasNext()
             transKey$=transIter!.next()
             if fieldname$+"."=transKey$<>1 then continue
             transValue$=field_translations!.get(transKey$)
-       
+
+            master_tpl$=""
+            BBjFileInfo!=BBjFileSystem!.getFileInfo(master_chan)
+            master_tpl$=BBjFileInfo!.getText(err=*next)
+            if master_tpl$="" then
+                table_alias! = file_alias!.get(cvs(filename$,7))
+                if table_alias! = null() then table_alias! = file_alias!.get(cvs(filename$,7)+"A")
+                if table_alias! <> null() then
+                    table_alias$ = cvs(str(table_alias!),3)
+                    findrecord(ddm_table_tpls,key=pad(table_alias$,16),dom=*endif)ddm_table_tpls$
+                    dim master_tpl$:ddm_table_tpls.template$
+                    field master_tpl$,fieldname$=transValue$
+                    transValue$=field(master_tpl$,fieldname$)
+                endif
+            else
+                cvs(master_tpl$,2)<>"" then
+                master_tpl$=cvs(master_tpl$,2)
+                field master_tpl$,fieldname$=transValue$
+                transValue$=field(master_tpl$,fieldname$)
+            endif
+            
             rem --- Check each firm for translation master record
             firmSet!=cast(java.util.TreeSet,used_translations!.get(fieldname$))
             firmIter!=firmSet!.iterator()
