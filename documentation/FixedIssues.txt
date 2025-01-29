@@ -1,9 +1,22 @@
 =======================================================================================================================================
- Report Date:   2025-01-28
+ Report Date:   2025-01-29
  Report Branch: AddonSoftware 24.22
  Last Release:  AddonSoftware 24.21
 =======================================================================================================================================
 
 24.21 released 01/27/2025
 BBjBaristaAddonDemos2421_01-24-2025_0949.jar
+=======================================================================================================================================
+
+Revision: 76a436ab391314bc5a37a531dde80fc4bf482be6
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/29/2025 9:36:52 AM
+Message:
+ER 10971: Modified the Sales Register update so that all memo lines
+immediately following a backordered item should now appear on the
+backorder following that backordered item.
+----
+Modified: op/src/opr_fillmntrpt.aon
+Modified: op/src/opu_updateinventory.aon
+Modified: sprocs/OPPICKLIST_DET.prc
 =======================================================================================================================================
