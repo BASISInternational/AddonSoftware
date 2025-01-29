@@ -20,3 +20,14 @@ Modified: op/src/opr_fillmntrpt.aon
 Modified: op/src/opu_updateinventory.aon
 Modified: sprocs/OPPICKLIST_DET.prc
 =======================================================================================================================================
+
+Revision: 99e7f1ee9d621c1c216e1d92bdaba3df52dd672b
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/29/2025 1:49:26 PM
+Message:
+Bug 10973: Padded DataPort's translation field names to the full size of
+their Data Element so they can be found in their code table.
+----
+Modified: util/dataport/DataPort_main.bbj
+Modified: util/dataport/files/field_translations
+=======================================================================================================================================
