@@ -221,7 +221,7 @@ rem --- Main Loop Starts
         xwk = fnblank(2)
 
         lineNo=0
-        read(optInvDet_dev,key=optInvHdr_key$,knum="AO_STATUS",dom=*next)
+        read(optInvDet_dev,key=optInvHdr_key$,knum="AO_STAT_CUST_ORD",dom=*next)
         while 1
             optInvDet_key$=key(optInvDet_dev,end=*break)
             if pos(optInvHdr_key$=optInvDet_key$)<>1 then break

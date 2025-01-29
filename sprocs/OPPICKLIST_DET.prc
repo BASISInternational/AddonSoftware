@@ -55,6 +55,7 @@ rem --- create the in memory recordset for return
 	rs! = BBJAPI().createMemoryRecordSet(dataTemplate$)
 	
 rem --- Initializations
+    lineCount=0
     sf$="N"
     if cvs(woInfo_1abels$,3)<>"" then sf$="Y"
 
@@ -68,7 +69,7 @@ rem --- Initializations
         xpos=pos(";"=woInfo_1abels$)
     wend
     
-    if mult_wh$="Y" and selected_whse$="" then detailLineTree!=new java.util.TreeMap()
+    detailLineTree!=new java.util.TreeMap()
 	
 rem --- Open Files    
 rem --- Note 'files' and 'channels[]' are used in close loop, so don't re-use
@@ -121,73 +122,70 @@ rem --- Get IV parameters
     
 rem --- Main
 
-    read (ope11_dev, key=firm_id$+"E"+ar_type$+customer_id$+order_no$+ar_inv_no$, knum="AO_STAT_CUST_ORD", dom=*next)
+    trip_key$=firm_id$+"E"+ar_type$+customer_id$+order_no$+ar_inv_no$
+    read (ope11_dev, key=trip_key$, knum="AO_STAT_CUST_ORD", dom=*next)
 	othwhse$=""
     whse_len=0
 
     rem --- Detail lines
 
-        while 1
+    while 1
 
-            order_qty_raw$ =      ""
-			order_qty_masked$ =   ""
-            ship_qty$ =           ""
-            bo_qty$ =             ""
-			item_id$ =            ""
-			item_desc$ =          ""
-			item_barCd$ =         ""
-			whse$ =               ""
-			price_raw$ =          ""
-			price_masked$ =       ""
-            carton$ =             ""
-			location$ =           ""
-			internal_seq_no$ =    ""
-			linetype_allows_ls$ = "N"
-			lotser_flag$ =        "N"
-            whse_message$ =       ""
-            whse_msg_sfx$ =       ""
-            ship_qty_raw$ =       ""
-            wo_info1$ =           ""
-            wo_info2$ =           ""
-            um_sold$ =            ""
-            pick_flag$ =          ""
-            qtyOrdered_purchaseUM = 0
-            qtyOrdered_salesUM    = 0
-            			
-            read record (ope11_dev, end=*break) ope11a$
+        order_qty_raw$ =      ""
+        order_qty_masked$ =   ""
+        ship_qty$ =           ""
+        bo_qty$ =             ""
+        item_id$ =            ""
+        item_desc$ =          ""
+        item_barCd$ =         ""
+        whse$ =               ""
+        price_raw$ =          ""
+        price_masked$ =       ""
+        carton$ =             ""
+        location$ =           ""
+        internal_seq_no$ =    ""
+        linetype_allows_ls$ = "N"
+        lotser_flag$ =        "N"
+        whse_message$ =       ""
+        whse_msg_sfx$ =       ""
+        ship_qty_raw$ =       ""
+        wo_info1$ =           ""
+        wo_info2$ =           ""
+        um_sold$ =            ""
+        pick_flag$ =          ""
+        qtyOrdered_purchaseUM = 0
+        qtyOrdered_salesUM    = 0
+                    
+        this_key$=key(ope11_dev,end=*break)
+        if pos(trip_key$=this_key$)<>1 then break
+        read record (ope11_dev, end=*break) ope11a$
 
-            if firm_id$     <> ope11a.firm_id$     then break
-			if ar_type$     <> ope11a.ar_type$     then break
-            if customer_id$ <> ope11a.customer_id$ then break
-            if order_no$    <> ope11a.order_no$    then break
-            if ar_inv_no$   <> ope11a.ar_inv_no$   then break
-
-            rem --- If NOT a quote, use opt_invketdet for kits
-            if pick_or_quote$="P" then
+        rem --- If NOT a quote, use opt_invketdet for kits
+        if pick_or_quote$="P" then
+            gosub doDetailLine
+        else
+            redim ivm01a$
+            findrecord(ivm01_dev,key=firm_id$+ope11a.item_id$,dom=*next)ivm01a$
+            if pos(ivm01a.kit$="YP")=0 then
                 gosub doDetailLine
             else
-                redim ivm01a$
-                findrecord(ivm01_dev,key=firm_id$+ope11a.item_id$,dom=*next)ivm01a$
-                if pos(ivm01a.kit$="YP")=0 then
+                rem --- Explode kit into its components
+                optInvKitDet_key$=firm_id$+ope11a.ar_type$+ope11a.customer_id$+ope11a.order_no$+ope11a.ar_inv_no$+ope11a.internal_seq_no$
+                dim ope11a$:optInvKitDet_tpl$; rem --- Temporarily set the ope11a$ string to the opt_invkitdet template
+                read(optInvKitDet_dev,key=optInvKitDet_key$,dom=*next)
+                while 1
+                    thisKey$=key(optInvKitDet_dev,end=*break)
+                    if pos(optInvKitDet_key$=thisKey$)<>1 then break
+                    readrecord(optInvKitDet_dev,key=thisKey$)ope11a$
+        
                     gosub doDetailLine
-                else
-                    rem --- Explode kit into its components
-                    optInvKitDet_key$=firm_id$+ope11a.ar_type$+ope11a.customer_id$+ope11a.order_no$+ope11a.ar_inv_no$+ope11a.internal_seq_no$
-                    dim ope11a$:optInvKitDet_tpl$; rem --- Temporarily set the ope11a$ string to the opt_invkitdet template
-                    read(optInvKitDet_dev,key=optInvKitDet_key$,dom=*next)
-                    while 1
-                        thisKey$=key(optInvKitDet_dev,end=*break)
-                        if pos(optInvKitDet_key$=thisKey$)<>1 then break
-                        readrecord(optInvKitDet_dev,key=thisKey$)ope11a$
-            
-                        gosub doDetailLine
-                    wend
-                    dim ope11a$:ope11a_tpl$; rem --- Reset the ope11a$ string back to the opt_invdet template
-                endif
+                wend
+                dim ope11a$:ope11a_tpl$; rem --- Reset the ope11a$ string back to the opt_invdet template
             endif
+        endif
 
-        rem --- End of detail lines
-        wend
+    rem --- End of detail lines
+    wend
 
 rem --- Determine the warehouse message to send back to header report
 
@@ -220,17 +218,14 @@ rem --- Determine the warehouse message to send back to header report
 
 rem --- return a final row that's empty except for the whse_message$, which will get passed back to the main report
 
-    if mult_wh$="Y" and selected_whse$="" then
-        rs! = BBJAPI().createMemoryRecordSet(dataTemplate$)
-        detailLineIter!=detailLineTree!.keySet().iterator()
-        while detailLineIter!.hasNext()
-            data! = rs!.getEmptyRecordData()
-            thisLine$=detailLineIter!.next()
-            data!=cast(BBjRecordData,detailLineTree!.get(thisLine$))
-    
-            rs!.insert(data!)    
-        wend
-    endif
+    detailLineIter!=detailLineTree!.keySet().iterator()
+    while detailLineIter!.hasNext()
+        data! = rs!.getEmptyRecordData()
+        thisLine$=detailLineIter!.next()
+        data!=cast(BBjRecordData,detailLineTree!.get(thisLine$))
+
+        rs!.insert(data!)
+    wend    
 
     data! = rs!.getEmptyRecordData()
     data!.setFieldValue("ORDER_QTY_MASKED", "")
@@ -382,6 +377,7 @@ doDetailLine: rem --- Prepare this detail line for printing
     linesNeeded=1
     if qtyOrdered_purchaseUM and qtyOrdered_salesUM then linesNeeded=2
 
+    lineCount=lineCount+1
     for line=1 to linesNeeded
         rem --- Unit of Purchase can only be used on the first line, but the first line can use either Unit of Purchase or Unit of Sale.
         if line=1 and qtyOrdered_purchaseUM then
@@ -430,11 +426,9 @@ doDetailLine: rem --- Prepare this detail line for printing
         data!.setFieldValue("PICK_FLAG", pick_flag$)
         data!.setFieldValue("LINE_TYPE", opm02a.line_type$)
 
-        rs!.insert(data!)
-        if mult_wh$="Y" and selected_whse$="" then
-            sortKey$=ope11a.warehouse_id$+ope11a.internal_seq_no$+ope11a.line_no$+str(line)
-            detailLineTree!.put(sortKey$,data!)
-        endif
+        rem --- Always sort by warehouse
+        sortKey$=ope11a.warehouse_id$+str(lineCount:"000")+str(line)
+        detailLineTree!.put(sortKey$,data!)
     next line
 
     return  
