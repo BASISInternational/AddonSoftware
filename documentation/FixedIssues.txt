@@ -31,3 +31,13 @@ their Data Element so they can be found in their code table.
 Modified: util/dataport/DataPort_main.bbj
 Modified: util/dataport/files/field_translations
 =======================================================================================================================================
+
+Revision: 361dde59073714b9e08fe353fce15cf49f205efc
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/29/2025 5:29:04 PM
+Message:
+ER 10938: Modified the Upgrade Wizard to copy addonhelp.jar from the
+download (basis.BBjHome) installation.
+----
+Modified: ad/src/adx_upgradewiz.aon
+=======================================================================================================================================
