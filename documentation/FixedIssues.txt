@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-01-29
+ Report Date:   2025-01-31
  Report Branch: AddonSoftware 24.22
  Last Release:  AddonSoftware 24.21
 =======================================================================================================================================
@@ -40,4 +40,13 @@ ER 10938: Modified the Upgrade Wizard to copy addonhelp.jar from the
 download (basis.BBjHome) installation.
 ----
 Modified: ad/src/adx_upgradewiz.aon
+=======================================================================================================================================
+
+Revision: 28bf926685ce5aa2af01d4ee4f34c983e7f87330
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/31/2025 12:44:49 PM
+Message:
+Bug 10956: Corrected typo in invalid date warning message.
+----
+Modified: util/dataport/DataPort_main.bbj
 =======================================================================================================================================
