@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-01-31
+ Report Date:   2025-02-03
  Report Branch: AddonSoftware 24.22
  Last Release:  AddonSoftware 24.21
 =======================================================================================================================================
@@ -49,4 +49,18 @@ Message:
 Bug 10956: Corrected typo in invalid date warning message.
 ----
 Modified: util/dataport/DataPort_main.bbj
+=======================================================================================================================================
+
+Revision: da205d4dbbe78958305d3e956836a088162c0e9a
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 2/3/2025 2:41:35 PM
+Message:
+ER 9026: Added "Export Description" field on the "Discription" tab of
+the Inventory Items form. Added "Country Of Origin" field on the
+Stocking tab of the Warehouse Master form. Add "Country Of Origin" the
+Lot/Serial Number Master form.
+----
+Modified: data/bar/ivm_itemmast.xml
+Modified: data/bar/ivm_itemwhse.xml
+Modified: data/bar/ivm_lsmaster.xml
 =======================================================================================================================================
