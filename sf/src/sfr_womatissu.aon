@@ -118,7 +118,6 @@ rem --- Parameters
     find record (ivs01_dev,key=firm_id$+"IV00",dom=std_missing_params) ivs01a$
     dim p[2]
     p[0]=ivs01a.item_id_len
-    p[1]=ivs01a.vendor_prd_len
     p[2]=ivs01a.ls_no_len
     ivs01_precision=num(ivs01a.precision$)
     lf$=iff(pos(ivs01a.lifofifo$="LF"),"Y","N")

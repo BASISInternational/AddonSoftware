@@ -88,7 +88,7 @@ rem --- Parameters
             gosub disp_message
             goto std_exit
         endif
-        dim p[4],g[4],desc[3]
+        dim p[1],g[4],desc[3]
         g[0]=num(gls_calendar.total_pers$)
         g[1]=num(gls01a.current_per$)
         g[2]=num(gls01a.current_year$)
@@ -100,8 +100,6 @@ rem --- Parameters
         desc[2]=num(ivs01a.desc_len_02$)
         desc[3]=num(ivs01a.desc_len_03$) 
         p[0]=ivs01a.item_id_len
-        p[1]=ivs01a.vendor_prd_len
-        p[3]=ivs01a.ls_no_len
         call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","I","",ivIMask$,0,0
 
 rem --- Init Data

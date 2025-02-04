@@ -84,12 +84,7 @@ rem --- Parameters
     n9$=firm_id$
     find record (ars01a_dev,key=firm_id$+n2$+"00",dom=std_missing_params) ars01a$
     find record (ivs01a_dev,key=n9$+"IV00",dom=std_missing_params) ivs01a$
-    dim p[2],i[4]
-
-    i[0]=ivs01a.item_id_len
-    i[1]=ivs01a.vendor_prd_len
-    i[2]=num(ivs01a.precision$)
-    i[3]=ivs01a.ls_no_len
+    dim p[2]
 
     call stbl("+DIR_PGM")+"adc_getmask.aon","","AR","I","",m0$,0,m0
     p[0]=m0

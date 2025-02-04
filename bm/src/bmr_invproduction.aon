@@ -188,15 +188,12 @@ rem --- Is AR installed? then open files ars-01 and arm-10c
     endif  
 
 initial:
-	dim p[4],g[4],desc[3],info$[20]
+	dim p[1],g[4],desc[3],info$[20]
 	desc[1]=num(ivs01a.desc_len_01$)
 	desc[2]=num(ivs01a.desc_len_02$)
 	desc[3]=num(ivs01a.desc_len_03$)
 	
 	p[0]=ivs01a.item_id_len
-	p[1]=ivs01a.vendor_prd_len
-	p[2]=num(ivs01a.precision$)
-	p[3]=ivs01a.ls_no_len
 	lf$="N"
 	if pos(ivs01a.lifofifo$="LF")>0 then lf$="Y"
 

@@ -163,7 +163,7 @@ rem --- masks
 
 rem --- Parameters
 
-    dim i[7],g[4],info$[20]
+    dim i[5],g[4],info$[20]
     n2$="PO"
     ap$="N"
     ar$="N"
@@ -177,8 +177,6 @@ rem --- Parameters
     i[3]=num(ivs01a.desc_len_01$)
     i[4]=num(ivs01a.desc_len_02$)
     i[5]=num(ivs01a.desc_len_03$)
-    i[6]=ivs01a.vendor_prd_len
-    i[7]=num(ivs01a.current_year$)
     g[0]=num(gls_calendar.total_pers$)
     g[1]=num(gls01a.current_per$)
     g[2]=num(gls01a.current_year$)

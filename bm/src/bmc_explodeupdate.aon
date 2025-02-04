@@ -120,19 +120,14 @@ rem --- Parameters
 	dim gls01a$:fnget_tpl$("GLS_PARAMS")
 	find record (gls01_dev,key=firm_id$+"GL00",dom=std_missing_params) gls01a$
     find record (gls_calendar_dev,key=firm_id$+gls01a.current_year$,dom=std_missing_params) gls_calendar$
-	dim p[6],g[4]
+	dim p[2],g[4]
 
     call stbl("+DIR_PGM")+"adc_getmask.aon","GL_ACCOUNT","","","",g0$,0,account_length
 	g[0]=num(gls_calendar.total_pers$)
 	g[1]=num(gls01a.current_per$)
 	g[2]=num(gls01a.current_year$)
 	g[4]=max(10,account_length)
-	p[0]=num(ivs01a.item_id_len$)
-	p[1]=num(ivs01a.vendor_prd_len$)
 	p[2]=num(ivs01a.precision$)
-	p[3]=num(ivs01a.ls_no_len$)
-	p[5]=num(ivs01a.current_per$)
-	p[6]=num(ivs01a.current_year$)
     call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","I","",ivIMask$,0,0
 
 rem --- Init Data
