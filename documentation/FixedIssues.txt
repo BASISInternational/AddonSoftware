@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-02-03
+ Report Date:   2025-02-04
  Report Branch: AddonSoftware 24.22
  Last Release:  AddonSoftware 24.21
 =======================================================================================================================================
@@ -63,4 +63,14 @@ Lot/Serial Number Master form.
 Modified: data/bar/ivm_itemmast.xml
 Modified: data/bar/ivm_itemwhse.xml
 Modified: data/bar/ivm_lsmaster.xml
+=======================================================================================================================================
+
+Revision: 7e797f7eb50b314036ddfaba5981df439b97036a
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 2/4/2025 1:00:35 PM
+Message:
+Bug 10956: Corrected another typo in invalid date warning message.
+
+----
+Modified: util/dataport/DataPort_main.bbj
 =======================================================================================================================================
