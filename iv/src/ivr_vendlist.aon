@@ -100,7 +100,6 @@ rem --- Parameters
     endif
 	call stbl("+DIR_PGM")+"adc_getmask.aon","VENDOR_ID","","","",m9$,0,vendlen
     g[0]=num(gls_calendar.total_pers$)
-    p[0]=ivs01a.item_id_len;rem ivs01a, 3rd element
     p[1]=num(ivs01a.precision$)
     p[3]=num(ivs01a.desc_len_01$)
     p[4]=num(ivs01a.desc_len_02$)

@@ -54,7 +54,6 @@ rem --- Retrieve parameter records
 rem --- Parameters
 
     dim p[1]
-    p[0]=num(ivs01a.item_id_len$)
     p[1]=num(ivs01a.precision$)
 
 rem --- Init Data
@@ -64,7 +63,7 @@ rem --- Init Data
 
 copy_loop: rem --- Copy Loop
 
-    call pgmdir$+"adc_progress.aon","N","","","","",p[0],0,1,meter_num,status
+    call pgmdir$+"adc_progress.aon","N","","","","",0,0,1,meter_num,status
     read (ivm02_dev1,key=firm_id$+whsefrom$,dom=*next)
 
 rem --- Main Read

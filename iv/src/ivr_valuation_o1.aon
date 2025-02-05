@@ -527,8 +527,8 @@ item_break: rem --- Item break
 
     if done then return
     dim item[2]
-    t2$=item$(1,p[0]),l2=0,l3=0
-    h10$=cvs(fnmask$(t2$,ivIMask$),2)+" "
+    t2$=cvs(item$,2),l2=0,l3=0
+    h10$=t2$
     return
 
 total_value: rem --- Calculate total value

@@ -99,7 +99,6 @@ rem --- Initializations
 
     dim i[5]
     findrecord(ivsParams_dev,key=firm_id$+"IV00",dom=std_missing_params)ivsParams$
-    i[0]=ivsParams.item_id_len
     i[1]=num(ivsParams.precision$)
     i[2]=ivsParams.ls_no_len
     i[3]=num(ivsParams.desc_len_01$)

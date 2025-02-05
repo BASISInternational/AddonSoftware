@@ -126,7 +126,7 @@ rem --- Main Read
         product$=read_tpl.product_type$
         item$=read_tpl.item_id$
         whse$=read_tpl.warehouse_id$
-        x$=whse$+" "+product$+" "+item$(1,p[0])
+        x$=whse$+" "+product$+" "+cvs(item$,2)
 
     rem --- Accumulate totals
 

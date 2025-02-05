@@ -73,11 +73,6 @@ rem --- Retrieve parameter records
     ivs01a_key$=firm_id$+"IV00"
     find record (ivs01_dev,key=ivs01a_key$,err=std_missing_params) ivs01a$
 
-    dim p[5]
-    P[0]=ivs01a.item_id_len
-    p[3]=num(ivs01a.desc_len_01$)
-    p[4]=num(ivs01a.desc_len_02$)
-    p[5]=num(ivs01a.desc_len_03$)
     call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","A","",m1$,0,m1
     call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","U","",m2$,0,m2
     call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","C","",m3$,0,m3

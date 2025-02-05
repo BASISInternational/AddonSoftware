@@ -92,7 +92,7 @@ rem ---  column heading
    
 rem --- Background
 
-        call pgmdir$+"adc_progress.aon","NC","","","","",p[0],bmm01_dev,1,meter_num,status
+        call pgmdir$+"adc_progress.aon","NC","","","","",0,bmm01_dev,1,meter_num,status
 
 rem --- Init Read
 

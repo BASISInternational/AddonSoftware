@@ -105,7 +105,6 @@ rem --- Initializations
     dim p[5],files[3]
     files[3]=ivm02a_dev
     files[2]=ivm12_dev
-    p[0]=ivs01a.item_id_len
     p[1]=num(ivs01a.precision$)
     p[3]=num(ivs01a.desc_len_01$)
     p[4]=num(ivs01a.desc_len_02$)
@@ -135,7 +134,7 @@ rem --- Initializations
 
 rem --- Background
 
-    call pgmdir$+"adc_progress.aon","N","IVM_ITEMMAST","",Translate!.getTranslation("AON_PRINTING"),"",7+p[0],ivm01a_dev,1,0,status
+    call pgmdir$+"adc_progress.aon","N","IVM_ITEMMAST","",Translate!.getTranslation("AON_PRINTING"),"",0,ivm01a_dev,1,0,status
     if status = 999 then goto std_exit
 
 rem --- Report headings

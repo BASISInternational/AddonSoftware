@@ -121,7 +121,6 @@ rem --- Parameters
             c0=custmask_len
         endif    
         dim desc[3]
-        item_len=ivs01a.item_id_len
         for i=1 to 3
             desc[i]=num(FIELD(ivs01a$,"desc_len_"+str(i:"00")))
             desclen=desclen+desc[i]

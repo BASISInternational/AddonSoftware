@@ -149,7 +149,6 @@ rem --- Parameters
         call stbl("+DIR_PGM")+"adc_getmask.aon","GL_ACCOUNT","","","",g0$,0,acct_length
         g0=acct_length
         g1=max(10,g0)
-        i9=ivs01a.item_id_len
 		
 rem --- Init Data
 

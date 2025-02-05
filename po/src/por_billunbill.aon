@@ -93,7 +93,6 @@ rem --- Parameters
     when$=sysinfo.system_date$
     call stbl("+DIR_PGM")+"adc_getmask.aon","VENDOR_ID","","","",vendomask$,0,vendlen
     ivprecision=num(ivs01a.precision$)
-    itemlen=ivs01a.item_id_len
 
     desclen[1]=num(ivs01a.desc_len_01$)
     desclen[2]=num(ivs01a.desc_len_02$)

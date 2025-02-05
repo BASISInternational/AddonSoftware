@@ -73,18 +73,12 @@ rem --- Retrieve parameter records
 
 rem --- Parameters
 
-    dim p[5],info$[20],i[1]
+    dim info$[20],i[1]
     firm_id$=sysinfo.firm_Id$
     n1$=sysinfo.firm_name$
     n3$=sysinfo.task_desc$
     when$=sysinfo.system_date$
     more=1
-    p[0]=ivs01a.item_id_len
-    p[1]=num(ivs01a.current_per$)
-    p[2]=num(ivs01a.current_year$)
-    p[3]=num(ivs01a.desc_len_01$)
-    p[4]=num(ivs01a.desc_len_02$)
-    p[5]=num(ivs01a.desc_len_03$)
 
     call pgmdir$+"adc_application.aon","AP",info$[all]
     ap$=info$[20]

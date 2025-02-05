@@ -91,7 +91,6 @@ rem --- Parameters
 	call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","U","",m2$,0,m2
 	call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","C","",m3$,0,m3
 
-    p[0]=ivs01a.item_id_len
     p[1]=num(ivs01a.precision$)
     p[3]=num(ivs01a.desc_len_01$)
     p[4]=num(ivs01a.desc_len_02$)
@@ -117,13 +116,8 @@ initializations:
 rem --- Initializations
 
     precision p[1]
-    dim ivchannels[15],iparams[3],params$[3],options$[7]
+    dim ivchannels[15],params$[3],options$[7]
     params$[0]=firm_id$
-    iparams[0]=p[0]
-    iparams[1]=p[3]
-    iparams[2]=p[4]
-    iparams[3]=p[5]
-
     
 rem --- Set the iv call channels
 

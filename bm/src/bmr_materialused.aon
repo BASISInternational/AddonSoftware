@@ -66,24 +66,20 @@ rem --- Parameters
 
         find record (bms01a_dev,key=firm_id$+"BM"+"00",dom=std_missing_params) bms01a$
         find record (ivs01a_dev,key=firm_id$+"IV"+"00",dom=std_missing_params) ivs01a$
-        dim p[2],desc[3],params[3]
+        dim desc[3],params[3]
         desc[1]=num(ivs01a.desc_len_01$)
         desc[2]=num(ivs01a.desc_len_02$)
         desc[3]=num(ivs01a.desc_len_03$) 
         for i=1 to 3
             params[i]=desc[i]
         next i
-        p[0]=ivs01a.item_id_len
-        params[0]=p[0]
         precision num(ivs01a.precision$)
 
 rem --- Init Data
 
         l9=59
         l=l9+1
-        m0=p[0]
 		call pgmdir$+"adc_getmask.aon","","IV","U",imask$,m2$,0,0
-        if m0<6 then let m0=6
         dim dashes$(80,"-")
 
 rem --- Run overlay

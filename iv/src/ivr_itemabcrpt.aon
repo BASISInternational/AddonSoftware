@@ -97,7 +97,6 @@ rem --- Retrieve parameter records
 rem --- Parameters
 
     dim p[5],g[1],percents[25],factors[25],ivchannels[20]
-    p[0]=ivs01a.item_id_len
     p[1]=num(ivs01a.precision$)
     g[0]=num(gls_calendar.total_pers$)
     p[3]=num(ivs01a.desc_len_01$)

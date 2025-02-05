@@ -111,7 +111,6 @@ rem --- Additional/optional opens
 rem --- Parameters
 
     dim p[5]
-    p[0]=ivs_params_rec.item_id_len
     p[1]=num(ivs_params_rec.precision$)
     p[2]=ivs_params_rec.ls_no_len
     p[3]=num(ivs_params_rec.desc_len_01$)

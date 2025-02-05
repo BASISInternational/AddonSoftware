@@ -75,14 +75,6 @@ rem --- Retrieve parameter records
     
 rem --- Parameters
 
-    dim p[5]
-    p[0]=ivs01a.item_id_len
-    p[1]=num(ivs01a.precision$)
-    p[2]=ivs01a.ls_no_len
-    p[3]=num(ivs01a.desc_len_01$)
-    p[4]=num(ivs01a.desc_len_02$)
-    p[5]=num(ivs01a.desc_len_03$)
-
 rem --- Initializations
 
     precision num(ivs01a.precision$)
@@ -97,7 +89,7 @@ rem --- Update initializations
     year=num(year$)
     call pgmdir$+"adc_perioddates.aon",period,year,when$,x$,table_chans$[all],status
     if status goto std_exit_no_update
-    call pgmdir$+"adc_progress.aon","N","IVM_ITEMWHSE","","","",7+p[0],0,1,meter_num,status
+    call pgmdir$+"adc_progress.aon","N","IVM_ITEMWHSE","","","",0,0,1,meter_num,status
     
 rem --- Setup SQL to search by item/prod/warehouse within report parameters (i.e. old ivm-03C)    
 

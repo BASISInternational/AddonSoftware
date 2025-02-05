@@ -97,7 +97,6 @@ rem --- LIFO/FIFO not set in parameter record
     endif
 	
     dim p[5]
-    p[0]=ivs01a.item_id_len
     p[1]=num(ivs01a.precision$)
     p[3]=num(ivs01a.desc_len_01$)
     p[4]=num(ivs01a.desc_len_02$)
@@ -151,7 +150,7 @@ rem --- column headings
 
 rem --- Position files
 
-    call pgmdir$+"adc_progress.aon","N","IVM_ITEMMAST","",Translate!.getTranslation("AON_PRINTING"),"",7+p[0],ivm01_dev,1,0,ignore_status
+    call pgmdir$+"adc_progress.aon","N","IVM_ITEMMAST","",Translate!.getTranslation("AON_PRINTING"),"",0,ivm01_dev,1,0,ignore_status
 
 rem --- Setup SQL
 

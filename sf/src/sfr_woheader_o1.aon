@@ -97,8 +97,6 @@ rem --- Init Data
 
         dim u[1],t[1],w[11]
         more=1
-        r0=121-c1-item_len-(46+m2+m1)-2
-        if r0>30 then let r0=30
         headings$[2]=h3$
         headings$[3]=h4$
         headings$[4]=h6$

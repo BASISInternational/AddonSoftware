@@ -94,14 +94,11 @@ rem --- Parameters
     n1$=sysinfo.firm_name$,n2$="IV",n3$=sysinfo.task_desc$
     find record (ivs01a_dev,key=firm_id$+n2$+"00",dom=std_missing_params) ivs01a$
     find record (bms01a_dev,key=firm_id$+"BM00",dom=std_missing_params) bms01a$
-    dim p[1],desc[3],params[3]
+    dim desc[3]
     desc[1]=num(ivs01a.desc_len_01$)
     desc[2]=num(ivs01a.desc_len_02$)
     desc[3]=num(ivs01a.desc_len_03$)
     desc[0]=desc[1]+desc[2]+desc[3]
-    p[0]=ivs01a.item_id_len
-    p[1]=num(ivs01a.current_per$)
-    params[0]=p[0]
 
 rem --- Init Data
    

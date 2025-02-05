@@ -17,7 +17,6 @@ rem --- [2] = arm-01 (if installed)
 rem --- [3] = apm-01 (if installed)
 rem --- [4] = glm-01 (if installed)
 rem --- PARAMS[n]      : Masking parameters (input)
-rem --- [0] = Item number length
 rem --- [1] = Customer number length (if installed)
 rem --- [2] = Vendor number length (if installed)
 rem --- [3] = GL account number length (if installed)

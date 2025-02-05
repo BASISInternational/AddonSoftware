@@ -64,21 +64,18 @@ rem --- Retrieve parameter records
 
 rem --- Parameters
  
-        dim p[2],desc[3]
+        dim desc[3]
         desc[1]=num(ivs01a.desc_len_01$)
         desc[2]=num(ivs01a.desc_len_02$)
         desc[3]=num(ivs01a.desc_len_03$) 
-        p[0]=ivs01a.item_id_len
         precision num(ivs01a.precision$)
 
 rem --- Init Data
 
         l9=59
         l=l9+1
-        m0=p[0]
 		call stbl("+DIR_PGM")+"adc_getmask.aon","","BM","H","",p1$,0,p1
 		call stbl("+DIR_PGM")+"adc_getmask.aon","","BM","U","",p2$,0,p2
-        if m0<6 then let m0=6
 
 rem --- Run Overlay
 

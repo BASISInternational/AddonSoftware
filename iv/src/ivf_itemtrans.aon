@@ -85,7 +85,6 @@ rem --- Initialize params[] array
     call pgmdir$+"adc_getmask.aon","VENDOR_ID","","",imask$,x7$,0,x6
     call pgmdir$+"adc_getmask.aon","GLACCT","","",imask$,g5$,0,g2
     dim params[6]
-    params[0]=ivs01a.item_id_len
     params[1]=x8
     params[2]=x6
     params[3]=g2

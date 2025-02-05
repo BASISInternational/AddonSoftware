@@ -166,7 +166,6 @@ rem --- Parameters
 
 	n1$=sysinfo.firm_name$,n2$="IV",n3$=sysinfo.task_desc$,source$=pgm(-2)
 	dim r0$(36),info$[20]
-	il=ivs01a.item_id_len
         
 rem --- Is AR installed? then open files ars-01 and arm-10c
 
@@ -188,12 +187,11 @@ rem --- Is AR installed? then open files ars-01 and arm-10c
     endif  
 
 initial:
-	dim p[1],g[4],desc[3],info$[20]
+	dim g[4],desc[3],info$[20]
 	desc[1]=num(ivs01a.desc_len_01$)
 	desc[2]=num(ivs01a.desc_len_02$)
 	desc[3]=num(ivs01a.desc_len_03$)
 	
-	p[0]=ivs01a.item_id_len
 	lf$="N"
 	if pos(ivs01a.lifofifo$="LF")>0 then lf$="Y"
 
@@ -225,9 +223,7 @@ rem --- Init Data
     call pgmdir$+"adc_getmask.aon","","IV","I","",ivIMask$,0,0
 	dashes$=fill(m1,"-")
 	wip_acct$=bms01a.gl_wip_acct$
-	m0=p[0]
 	units=0
-	if m0<6 then m0=6
 	places=num(ivs01a.precision$)
 	more=1
 

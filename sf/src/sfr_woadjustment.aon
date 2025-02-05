@@ -101,7 +101,6 @@ rem --- Parameters
         bm$=sfs01a.bm_interface$
         op$=sfs01a.ar_interface$,ap$=sfs01a.po_interface$,pr$=sfs01a.pr_interface$
         gl$=sfs01a.post_to_gl$
-        i9=ivs01a.item_id_len
         i1=num(ivs01a.precision$)
         i2=ivs01a.ls_no_len
         if op$<>"N"

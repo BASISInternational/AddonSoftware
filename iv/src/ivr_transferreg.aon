@@ -245,7 +245,7 @@ rem --- Lifo/fifo setup
 
 rem --- Progress meter
 
-    call pgmdir$+"adc_progress.aon","N",sysinfo.task_desc$,"",Translate!.getTranslation("AON_PRINTING"),"",p[0]+3,iveTransferHdr_dev,1,meter_num,ignore_status
+    call pgmdir$+"adc_progress.aon","N",sysinfo.task_desc$,"",Translate!.getTranslation("AON_PRINTING"),"",0,iveTransferHdr_dev,1,meter_num,ignore_status
 
 rem --- Initial Read
 

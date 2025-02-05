@@ -151,7 +151,6 @@ rem --- Parameters
 
     if pos(ivs01a.lifofifo$="LF") then let lf$="Y"
 
-    i[0]=ivs01a.item_id_len
     i[2]=num(ivs01a.precision$)
     i[3]=num(ivs01a.current_per$)
     i[4]=num(ivs01a.current_year$)

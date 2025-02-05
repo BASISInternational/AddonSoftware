@@ -88,7 +88,7 @@ rem --- Parameters
             gosub disp_message
             goto std_exit
         endif
-        dim p[1],g[4],desc[3]
+        dim g[4],desc[3]
         g[0]=num(gls_calendar.total_pers$)
         g[1]=num(gls01a.current_per$)
         g[2]=num(gls01a.current_year$)
@@ -99,7 +99,6 @@ rem --- Parameters
         desc[1]=num(ivs01a.desc_len_01$)
         desc[2]=num(ivs01a.desc_len_02$)
         desc[3]=num(ivs01a.desc_len_03$) 
-        p[0]=ivs01a.item_id_len
         call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","I","",ivIMask$,0,0
 
 rem --- Init Data
@@ -116,9 +115,7 @@ rem --- Init Data
         clock$=""
         dim dashes$(132,"-")
         errors=0
-        m0=p[0]
         units=0
-        if m0<6 then let m0=6
 		more=1
 		dim spaces$(7)
 rem --- Options

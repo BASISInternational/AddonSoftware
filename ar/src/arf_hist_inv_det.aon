@@ -42,7 +42,6 @@ rem --- Get the Item Description
             dim p[5]
             findrecord(ivs_params_dev,key=rec_tpl.firm_id$+"IV00",dom=*next)ivs_params$
             if cvs(ivs_params.firm_id$,2)<>"" then
-                p[0]=ivs_params.item_id_len
                 p[1]=num(ivs_params.precision$)
                 p[3]=num(ivs_params.desc_len_01$)
                 p[4]=num(ivs_params.desc_len_02$)

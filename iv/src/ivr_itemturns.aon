@@ -94,8 +94,7 @@ rem --- Retrieve parameter records
 
 rem --- Parameters
 
-    dim ivchannels[15],iparams[3],params$[3],options$[7],g[1],p[7]
-    p[0]=ivs01a.item_id_len
+    dim ivchannels[15],params$[3],options$[7],g[1],p[7]
     p[1]=num(ivs01a.precision$)
     g[0]=num(gls_calendar.total_pers$)
     p[3]=num(ivs01a.desc_len_01$)
@@ -104,10 +103,6 @@ rem --- Parameters
     p[6]=num(ivs01a.current_per$)
     p[7]=num(ivs01a.current_year$)
     params$[0]=firm_id$
-    iparams[0]=p[0]
-    iparams[1]=p[3]
-    iparams[2]=p[4]
-    iparams[3]=p[5]
     
 rem --- Set the iv call channels
     ivchannels[1]=ivm01_dev
