@@ -133,7 +133,7 @@ rem --- Assign form input values to local variables
 rem --- Parameters
 
     skippedInvoices!=bbjAPI().makeVector()
-    dim i[6],p[3],v[15]
+    dim i[4],p[3],v[15]
     n1$=sysinfo.firm_name$
     n2$="AR"
     n3$=sysinfo.task_desc$
@@ -154,7 +154,6 @@ rem --- Parameters
     i[2]=num(ivs01a.precision$)
     i[3]=num(ivs01a.current_per$)
     i[4]=num(ivs01a.current_year$)
-    i[5]=ivs01a.ls_no_len
 
     call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","I","",ivIMask$,0,0
     call stbl("+DIR_PGM")+"adc_getmask.aon","CUSTOMER_ID","","","",m0$,0,m0

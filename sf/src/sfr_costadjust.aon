@@ -115,7 +115,6 @@ rem --- Parameters
     ap$=sfs01a.po_interface$
     gl$=sfs01a.post_to_gl$
     pr$=sfs01a.pr_interface$
-    i2=ivs01a.ls_no_len
     if ar$="Y"
 		call stbl("+DIR_PGM")+"adc_getmask.aon","","AR","I","",cust_mask$,0,c0
 	endif

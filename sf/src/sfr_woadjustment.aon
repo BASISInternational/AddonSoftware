@@ -102,7 +102,6 @@ rem --- Parameters
         op$=sfs01a.ar_interface$,ap$=sfs01a.po_interface$,pr$=sfs01a.pr_interface$
         gl$=sfs01a.post_to_gl$
         i1=num(ivs01a.precision$)
-        i2=ivs01a.ls_no_len
         if op$<>"N"
             find record (ars01a_dev,key=firm_id$+"AR00",dom=std_missing_params) ars01a$
             call stbl("+DIR_PGM")+"adc_getmask.aon","CUSTOMER_ID","","","",customask$,0,custlen

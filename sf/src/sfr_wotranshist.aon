@@ -102,7 +102,6 @@ rem --- Retrieve parameter records
 		ivs01a_key$=firm_id$+"IV00"
         find record (ivs01a_dev,key=ivs01a_key$,err=std_missing_params) ivs01a$
         ivs01_precision=num(ivs01a.precision$)
-        i2=ivs01a.ls_no_len
 		
 		sfs01a_key$=firm_id$+"SF00"
         find record (sfs01a_dev,key=sfs01a_key$,err=std_missing_params) sfs01a$

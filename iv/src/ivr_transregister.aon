@@ -103,7 +103,6 @@ rem --- Parameters
     
     find record (ivs01a_dev,key=firm_id$+n2$+"00",dom=std_missing_params) ivs01a$
     
-    p[1]=ivs01a.ls_no_len
     p[2]=num(ivs01a.precision$)
     p[3]=num(ivs01a.desc_len_01$)
     p[4]=num(ivs01a.desc_len_02$)
