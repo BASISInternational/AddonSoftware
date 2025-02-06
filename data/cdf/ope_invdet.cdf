@@ -687,7 +687,6 @@ rem --- Setup a templated string to pass information back and forth from form
 	declare BBjTemplatedString a!
 
 	tmpl$ =  "LINE_TYPE:C(1)," +
-:				"LINE_DROPSHIP:C(1)," +
 :				"INVOICE_TYPE:C(1)," +
 :				"COMMIT_FLAG:C(1)," +
 :				"MAN_PRICE:C(1)," +
@@ -717,7 +716,6 @@ rem --- Setup a templated string to pass information back and forth from form
 	dflt_data$[7,1] = callpoint!.getColumnData("OPE_INVDET.PICK_FLAG")
 	
 	a!.setFieldValue("LINE_TYPE",    user_tpl.line_type$)
-	a!.setFieldValue("LINE_DROPSHIP",user_tpl.line_dropship$)
 	a!.setFieldValue("INVOICE_TYPE", callpoint!.getHeaderColumnData("OPE_INVHDR.INVOICE_TYPE"))
 	a!.setFieldValue("STD_LIST_PRC", callpoint!.getColumnData("OPE_INVDET.STD_LIST_PRC"))
 	a!.setFieldValue("DISC_PERCENT", callpoint!.getColumnData("OPE_INVDET.DISC_PERCENT"))
@@ -758,7 +756,7 @@ rem --- Write back here
 rem --- Need to commit?
 
 	committed_changed=0
-	if callpoint!.getHeaderColumnData("OPE_INVHDR.INVOICE_TYPE") <> "P" and user_tpl.line_dropship$ = "N" then
+	if callpoint!.getHeaderColumnData("OPE_INVHDR.INVOICE_TYPE") <> "P" then
 		if orig_commit$ = "Y" and callpoint!.getColumnData("OPE_INVDET.COMMIT_FLAG") = "N" then
 			committed_changed=1
 			if user_tpl.line_type$ <> "O" then
