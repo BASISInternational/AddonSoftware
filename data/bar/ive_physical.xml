@@ -4,7 +4,7 @@
 		<ID id="ddm_tables">DDM_TABLES</ID>
 		<RECORD id="ddm_tables.ive_physical">
 			<DD_TABLE_ALIAS id="ddm_tables.ive_physical">IVE_PHYSICAL    </DD_TABLE_ALIAS>
-			<DD_ALIAS_DESC id="ddm_tables.ive_physical">Physical Inventory Entry</DD_ALIAS_DESC>
+			<DD_ALIAS_DESC id="ddm_tables.ive_physical">Physical Count Entry</DD_ALIAS_DESC>
 			<DD_FILE_NAME id="ddm_tables.ive_physical">ive-03</DD_FILE_NAME>
 			<DD_TABLE_PATH id="ddm_tables.ive_physical">[+IVDATA]</DD_TABLE_PATH>
 			<DD_ALIAS_TYPE id="ddm_tables.ive_physical">V</DD_ALIAS_TYPE>
@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ive_physical">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ive_physical">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ive_physical">IV </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ive_physical">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ive_physical">24.0</ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ive_physical"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ive_physical">Y</DD_EXPORT_DATA>
-			<DD_CREATE_DATE id="ddm_tables.ive_physical">20120904</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ive_physical">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ive_physical">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ive_physical">142908</DD_LSTSYNC_TIME>
+			<DD_CREATE_DATE id="ddm_tables.ive_physical">2456175</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_tables.ive_physical">20250208</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ive_physical">20250208</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ive_physical">134116</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ive_physical"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ive_physical">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ive_physical">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ive_physical"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ive_physical"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ive_physical">T</DD_ATTR_FTYP>
@@ -38,7 +38,7 @@
 			<DD_ATTR_PRUN id="ddm_tables.ive_physical"></DD_ATTR_PRUN>
 			<DD_ATTR_PTAB id="ddm_tables.ive_physical"></DD_ATTR_PTAB>
 			<DD_ATTR_SLEV id="ddm_tables.ive_physical"></DD_ATTR_SLEV>
-			<DD_ATTR_WINT id="ddm_tables.ive_physical">Physical Inventory Entry</DD_ATTR_WINT>
+			<DD_ATTR_WINT id="ddm_tables.ive_physical">Physical Count Entry</DD_ATTR_WINT>
 			<SQL_DB_ALIAS id="ddm_tables.ive_physical"></SQL_DB_ALIAS>
 			<SQL_CATALOG id="ddm_tables.ive_physical"></SQL_CATALOG>
 			<SQL_SCHEMA id="ddm_tables.ive_physical"></SQL_SCHEMA>
@@ -398,7 +398,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_physical003">20120904</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_physical003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_physical003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_physical003">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_physical003">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_physical003">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_physical003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_physical003"></DD_ATTR_CTLY>
@@ -449,7 +449,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_physical004">20120904</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_physical004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_physical004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_physical004">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_physical004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_physical004">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_physical004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_physical004"></DD_ATTR_CTLY>
@@ -500,7 +500,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_physical005">20120904</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_physical005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_physical005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_physical005">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_physical005">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_physical005">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_physical005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_physical005"></DD_ATTR_CTLY>
@@ -551,7 +551,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_physical006">20120904</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_physical006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_physical006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_physical006">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_physical006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_physical006">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_physical006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_physical006"></DD_ATTR_CTLY>
@@ -653,7 +653,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_physical008">20120904</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_physical008"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_physical008"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_physical008">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_physical008">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_physical008">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_physical008"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_physical008"></DD_ATTR_CTLY>
