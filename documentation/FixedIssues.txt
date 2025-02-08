@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-02-06
+ Report Date:   2025-02-07
  Report Branch: AddonSoftware 24.22
  Last Release:  AddonSoftware 24.21
 =======================================================================================================================================
@@ -81,6 +81,19 @@ Date: 2/6/2025 3:11:57 PM
 Message:
 ER 6057: Updated detail line's Ext Price for dropship items when they
 are manually committed or uncommitted.
+----
+Modified: data/bar/ope_invdet.xml
+Modified: data/bar/ope_orddet.xml
+Modified: data/cdf/ope_invdet.cdf
+Modified: data/cdf/ope_orddet.cdf
+=======================================================================================================================================
+
+Revision: a579a842b0c07d8b26b40d8bc560ed774382aad8
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 2/7/2025 6:09:27 PM
+Message:
+ER 6057: For new non-stock detail lines the Unit Price cell was being
+skipped over.
 ----
 Modified: data/bar/ope_invdet.xml
 Modified: data/bar/ope_orddet.xml
