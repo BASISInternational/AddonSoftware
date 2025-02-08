@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-02-07
+ Report Date:   2025-02-08
  Report Branch: AddonSoftware 24.22
  Last Release:  AddonSoftware 24.21
 =======================================================================================================================================
@@ -99,4 +99,24 @@ Modified: data/bar/ope_invdet.xml
 Modified: data/bar/ope_orddet.xml
 Modified: data/cdf/ope_invdet.cdf
 Modified: data/cdf/ope_orddet.cdf
+=======================================================================================================================================
+
+Revision: 15b6038fabbba69bb289948567eed985c4baae95
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 2/8/2025 2:23:47 PM
+Message:
+Bug 10965: Changed the title of the IVE_PHYSICAL table to "Physical
+Count Entry" so that it matches the description of the menu task that
+launches the table's form. Also, deleted the now obsolete
+IVE_COUNT_ENTRY form that IVE_PHYSICAL replaced.
+----
+Deleted: data/bar/ive_count_entry.xml
+Modified: data/bar/ive_physical.xml
+Deleted: data/cdf/ive_count_entry.cdf
+Modified: prop/addon.properties
+Modified: prop/addon_de.properties
+Modified: prop/addon_en.properties
+Modified: prop/addon_es.properties
+Modified: prop/addon_fr.properties
+Modified: prop/addon_it.properties
 =======================================================================================================================================
