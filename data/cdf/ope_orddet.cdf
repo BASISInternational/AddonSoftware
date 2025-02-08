@@ -2352,7 +2352,7 @@ rem --- Warn if ship quantity is more than currently available.
 	gosub check_ship_qty
 
 rem --- Skip UNIT_PRICE for non-priced kits
-	if callpoint!.getDevObject("priced_kit")="N" then callpoint!.setFocus(num(callpoint!.getValidationRow()),"<<DISPLAY>>.QTY_BACKORD_DSP",1)
+	if callpoint!.getDevObject("kit")="Y" and callpoint!.getDevObject("priced_kit")="N" then callpoint!.setFocus(num(callpoint!.getValidationRow()),"<<DISPLAY>>.QTY_BACKORD_DSP",1)
 
 rem --- Enable/disable KITS button
 	gosub able_kits_button
