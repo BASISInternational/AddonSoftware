@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-02-08
+ Report Date:   2025-02-10
  Report Branch: AddonSoftware 24.22
  Last Release:  AddonSoftware 24.21
 =======================================================================================================================================
@@ -119,4 +119,14 @@ Modified: prop/addon_en.properties
 Modified: prop/addon_es.properties
 Modified: prop/addon_fr.properties
 Modified: prop/addon_it.properties
+=======================================================================================================================================
+
+Revision: 2cd566871950c289b7e608f0b2408b0234904658
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 2/10/2025 2:36:24 PM
+Message:
+ER 10599: Removed unlinked (and not needed/wanted) menu item for
+"Rebuild AP Audit Numbers".
+----
+Modified: data/sync/adm_mnu_item~[01007514AP].xml
 =======================================================================================================================================
