@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-02-10
+ Report Date:   2025-02-14
  Report Branch: AddonSoftware 24.22
  Last Release:  AddonSoftware 24.21
 =======================================================================================================================================
@@ -129,4 +129,27 @@ ER 10599: Removed unlinked (and not needed/wanted) menu item for
 "Rebuild AP Audit Numbers".
 ----
 Modified: data/sync/adm_mnu_item~[01007514AP].xml
+=======================================================================================================================================
+
+Revision: 8ac1e174472e9b5c31bf81bab2264d08447e8b34
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 2/14/2025 2:50:11 PM
+Message:
+ER 7503: Modified format of Bill Of Materials Hard Copy to align with
+the format of Work Order Detail Report.
+----
+Modified: prop/addon.properties
+Modified: prop/addon_en.properties
+Modified: reports/BOMComments.jasper
+Modified: reports/BOMComments.jrxml
+Modified: reports/BOMDetail.jasper
+Modified: reports/BOMDetail.jrxml
+Modified: reports/BOMMatlDet.jasper
+Modified: reports/BOMMatlDet.jrxml
+Modified: reports/BOMOpDet.jasper
+Modified: reports/BOMOpDet.jrxml
+Modified: reports/BOMSubDet.jasper
+Modified: reports/BOMSubDet.jrxml
+Modified: reports/BOMTotal.jasper
+Modified: sprocs/BOMMATLDET.prc
 =======================================================================================================================================
