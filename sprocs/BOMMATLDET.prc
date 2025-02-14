@@ -6,15 +6,6 @@ rem AddonSoftware
 rem Copyright BASIS International Ltd.  All Rights Reserved.
 rem ----------------------------------------------------------------------------
 
-GOTO SKIP_DEBUG
-Debug$= "C:\temp\BOMMATLDET_DebugPRC.txt" 
-erase debug$,err=*next
-string Debug$
-DebugChan=unt
-open(DebugChan)Debug$   
-write(DebugChan)"Top of BOMMATLDET"
-SKIP_DEBUG:
-
  seterr sproc_error
 
 rem --- Set of utility methods
@@ -61,12 +52,14 @@ rem --- masks$ will contain pairs of fields in a single string mask_name^mask|
     sv_wd$=dir("")
     chdir barista_wd$
 
+rem --- Initialize constants
+	max_itemPlusDesc_len=50; rem Max real estate available for lines printing Item and Desc
 
 rem --- Create a memory record set to hold results.
 rem --- Columns for the record set are defined using a string template
 
     temp$=""
-    temp$=temp$+"FIRM_ID:C(1*), BILL_NO:C(1*), MATERIAL_SEQ:C(1*), ITEM_ID:C(1*), LINE_TYPE:C(1*), UNIT_MEASURE:C(1*), EXT_COMMENTS:C(1*), "
+    temp$=temp$+"FIRM_ID:C(1*), BILL_NO:C(1*), MATERIAL_SEQ:C(1*), ITEM:C(1*), LINE_TYPE:C(1*), UNIT_MEASURE:C(1*), EXT_COMMENTS:C(1*), "
     temp$=temp$+"EFFECT_DATE:C(1*), OBSOLT_DATE:C(1*), WO_REF_NUM:C(1*), QTY_REQUIRED:C(1*), ALT_FACTOR:C(1*), DIVISOR:C(1*), SCRAP_FACTOR:C(1*), "
     temp$=temp$+"OP_INT_SEQ_REF:C(1*), ITEMDESC:C(1*), UNITCOST:C(1*), B_COUNT:N(1*), MAT_COST:C(1*), NET_REQUIRED:C(1*), TOT_MAT_COST:N(1*)"
 
@@ -143,11 +136,8 @@ rem --- Build result set
             endif
 
             data!.setFieldValue("WO_REF_NUM",read_tpl.wo_ref_num$)
-            if num(read_tpl.b_count$)=1 then
-                data!.setFieldValue("ITEM_ID",read_tpl.item_id$)
-            else
-                data!.setFieldValue("ITEM_ID",fnmask$(read_tpl.item_id$,ivIMask$))
-            endif
+            gosub build_itemfield
+            data!.setFieldValue("ITEM",item_n_desc1$); rem From build_itemfield routine
             data!.setFieldValue("UNIT_MEASURE",read_tpl.unit_measure$)
             data!.setFieldValue("QTY_REQUIRED",str(read_tpl.qty_required:iv_units_mask$))
             data!.setFieldValue("ALT_FACTOR",str(read_tpl.alt_factor:bm_mFactor_mask$))
@@ -162,6 +152,15 @@ rem --- Build result set
             data!.setFieldValue("TOT_MAT_COST",str(read_tpl.unitcost*net_qty))
         endif
         rs!.insert(data!)           
+
+        rem --- Print 2nd line w/rest of the item desc if not all would fit
+        if read_tpl.line_type$<>"M"
+            if cvs(item_n_desc2$,2)<>""	
+                data! = rs!.getEmptyRecordData()
+                data!.setFieldValue("ITEM","  "+item_n_desc2$)
+                rs!.insert(data!)
+            endif
+        endif
     wend
 
     precision old_prec
@@ -170,6 +169,27 @@ rem --- Tell the stored procedure to return the result set.
 
 	sp!.setRecordSet(rs!)
 	goto std_exit
+	
+build_itemfield: rem --- Build ITEM field with Item ID plus Desc
+rem --- The ITEM field is a combo of the item ID plus as much desc as possible.
+rem --- As much desc as possible is appended to the ITEM field after the item id.
+rem --- Change the constant, max_itemPlusDesc_len, to allow more/less desc to print.
+
+    temp_itemPlusDesc$=cvs(fnmask$(read_tpl.item_id$,ivIMask$),3)+"  "+cvs(read_tpl.itemdesc$,3)
+		
+	rem --- To fit the form, if temp_itemPlusDesc$ is too long make it two lines
+    if len(temp_itemPlusDesc$)>max_itemPlusDesc_len
+        item_n_desc1$=temp_itemPlusDesc$(1,max_itemPlusDesc_len)
+        item_n_desc2$="     "+temp_itemPlusDesc$(max_itemPlusDesc_len+1)
+        if len(item_n_desc2$)>max_itemPlusDesc_len
+            item_n_desc2$=item_n_desc2$(1,max_itemPlusDesc_len)
+        endif
+    else
+        item_n_desc1$=temp_itemPlusDesc$
+        item_n_desc2$=""
+        endif
+    endif	
+return
     
 rem --- Functions
 
