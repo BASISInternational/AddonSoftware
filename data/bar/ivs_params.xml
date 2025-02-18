@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivs_params">1DDE0BDD04809B06C80AB939BA04213B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivs_params">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivs_params">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivs_params">20250204</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivs_params">20250204</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivs_params">110726</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivs_params">20250218</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivs_params">20250218</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivs_params">110632</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivs_params"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ivs_params">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivs_params"></DD_ATTR_DKNM>
@@ -109,7 +109,7 @@
 		<RECORD id="ddm_table_tpls.ivs_params">
 			<DD_TABLE_ALIAS id="ddm_table_tpls.ivs_params">IVS_PARAMS      </DD_TABLE_ALIAS>
 			<DD_FILE_NAME id="ddm_table_tpls.ivs_params"></DD_FILE_NAME>
-			<DD_TABLE_TPL id="ddm_table_tpls.ivs_params">firm_id:c(2),iv:c(2),sequence_00:c(2),item_id_len:n(2),precision:c(1),reserved_str:c(1),ls_no_len:n(2),desc_len_01:c(2),desc_len_02:c(2),desc_len_03:c(2),user_desc_lb_01:c(12),user_desc_lb_02:c(12),user_desc_lb_03:c(12),master_flag_01:c(1),master_flag_02:c(1),master_flag_03:c(1),multi_whse:c(1),lifofifo:c(1),warehouse_id:c(2),cost_method:c(1),auto_no_iv:c(1),post_to_gl:c(1),label_across:c(2),label_length:c(2),label_width:c(2),current_per:c(2),current_year:c(4),seasonal_replen:c(1),sell_purch_um:c(1)</DD_TABLE_TPL>
+			<DD_TABLE_TPL id="ddm_table_tpls.ivs_params">firm_id:c(2),iv:c(2),sequence_00:c(2),item_id_len:n(2),precision:c(1),reserved_str:c(1),ls_no_len:n(2),desc_len_01:c(2),desc_len_02:c(2),desc_len_03:c(2),user_desc_lb_01:c(12),user_desc_lb_02:c(12),user_desc_lb_03:c(12),master_flag_01:c(1),master_flag_02:c(1),master_flag_03:c(1),multi_whse:c(1),lifofifo:c(1),warehouse_id:c(2),cost_method:c(1),auto_no_iv:c(1),post_to_gl:c(1),label_across:c(2),label_length:c(2),label_width:c(2),current_per:c(2),current_year:c(4),seasonal_replen:c(1),sell_purch_um:c(1),dropship_whse:c(2)</DD_TABLE_TPL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_keys">
@@ -407,7 +407,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params005"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params005"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params005"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params005">7</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params005">6</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params005"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params005">PRECISION</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params005"></DD_ATTR_FONT>
@@ -458,7 +458,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params006"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params006"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params006"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params006">24</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params006">23</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params006"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params006">RESERVED_STR</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params006"></DD_ATTR_FONT>
@@ -509,7 +509,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params007"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params007"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params007"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params007">9</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params007">7</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params007"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params007">LS_NO_LEN</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params007"></DD_ATTR_FONT>
@@ -560,7 +560,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params008"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params008"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params008"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params008">21</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params008">20</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params008"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params008">DESC_LEN</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params008"></DD_ATTR_FONT>
@@ -611,7 +611,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params009"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params009"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params009"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params009">22</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params009">21</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params009"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params009">USER_DESC_LB</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params009"></DD_ATTR_FONT>
@@ -662,7 +662,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params010"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params010"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params010"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params010">23</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params010">22</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params010"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params010">MASTER_FLAG</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params010"></DD_ATTR_FONT>
@@ -713,7 +713,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params011"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params011"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params011"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params011">19</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params011">17</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params011"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params011">MULTI_WHSE</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params011"></DD_ATTR_FONT>
@@ -764,7 +764,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params012"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params012"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params012"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params012">10</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params012">8</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params012"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params012">LIFOFIFO</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params012"></DD_ATTR_FONT>
@@ -815,7 +815,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params013"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params013"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params013"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params013">20</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params013">18</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params013"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params013">WAREHOUSE_ID</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params013"></DD_ATTR_FONT>
@@ -866,7 +866,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params014"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params014"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params014"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params014">11</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params014">9</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params014"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params014">COST_METHOD</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params014"></DD_ATTR_FONT>
@@ -917,7 +917,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params015"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params015"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params015"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params015">6</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params015">5</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params015"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params015">AUTO_NO_IV</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params015"></DD_ATTR_FONT>
@@ -968,7 +968,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params016"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params016"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params016"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params016">14</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params016">12</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params016"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params016">POST_TO_GL</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params016"></DD_ATTR_FONT>
@@ -1019,7 +1019,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params017"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params017"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params017"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params017">15</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params017">13</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params017"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params017">LABEL_ACROSS</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params017"></DD_ATTR_FONT>
@@ -1070,7 +1070,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params018"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params018"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params018"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params018">16</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params018">14</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params018"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params018">LABEL_LENGTH</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params018"></DD_ATTR_FONT>
@@ -1121,7 +1121,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params019"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params019"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params019"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params019">17</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params019">15</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params019"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params019">LABEL_WIDTH</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params019"></DD_ATTR_FONT>
@@ -1172,7 +1172,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params020"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params020"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params020"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params020">12</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params020">10</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params020"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params020">CURRENT_PER</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params020"></DD_ATTR_FONT>
@@ -1223,7 +1223,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params021"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params021"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params021"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params021">13</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params021">11</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params021"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params021">CURRENT_YEAR</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params021"></DD_ATTR_FONT>
@@ -1274,7 +1274,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params022"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params022"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params022"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params022">25</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params022">24</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params022"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params022">SEASONAL_REPLEN</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params022"></DD_ATTR_FONT>
@@ -1325,7 +1325,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params023"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params023"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ivs_params023"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ivs_params023">18</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params023">16</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ivs_params023"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params023">SELL_PURCH_UM</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ivs_params023"></DD_ATTR_FONT>
@@ -1338,6 +1338,57 @@
 			<DD_ATTR_RADG id="ddm_table_cols.ivs_params023"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ivs_params023">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ivs_params023"></DD_ATTR_BTNS>
+		</RECORD>
+		<RECORD id="ddm_table_cols.ivs_params024">
+			<DD_TABLE_ALIAS id="ddm_table_cols.ivs_params024">IVS_PARAMS      </DD_TABLE_ALIAS>
+			<DD_SEQUENCE id="ddm_table_cols.ivs_params024">024</DD_SEQUENCE>
+			<DD_DATA_NAME id="ddm_table_cols.ivs_params024">WAREHOUSE_ID    </DD_DATA_NAME>
+			<DD_DVAR_NAME id="ddm_table_cols.ivs_params024">DROPSHIP_WHSE   </DD_DVAR_NAME>
+			<DD_COL_REPEATS id="ddm_table_cols.ivs_params024">0</DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ivs_params024">0</DD_COL_OCCURS>
+			<DD_FIELD_DELIM id="ddm_table_cols.ivs_params024">N</DD_FIELD_DELIM>
+			<DD_DELIM_CHAR id="ddm_table_cols.ivs_params024"></DD_DELIM_CHAR>
+			<DD_SYSTEM_REC id="ddm_table_cols.ivs_params024"></DD_SYSTEM_REC>
+			<DD_SYSTEM_ID id="ddm_table_cols.ivs_params024"></DD_SYSTEM_ID>
+			<DD_MASK_TYPE id="ddm_table_cols.ivs_params024"></DD_MASK_TYPE>
+			<DD_CREATE_DATE id="ddm_table_cols.ivs_params024">20250218</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_table_cols.ivs_params024">20250218</DD_LSTREV_DATE>
+			<DD_ATTR_ABLC id="ddm_table_cols.ivs_params024"></DD_ATTR_ABLC>
+			<DD_ATTR_ABLV id="ddm_table_cols.ivs_params024"></DD_ATTR_ABLV>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivs_params024"></DD_ATTR_CPGM>
+			<DD_ATTR_COLW id="ddm_table_cols.ivs_params024">0</DD_ATTR_COLW>
+			<DD_ATTR_CTLX id="ddm_table_cols.ivs_params024"></DD_ATTR_CTLX>
+			<DD_ATTR_CTLY id="ddm_table_cols.ivs_params024"></DD_ATTR_CTLY>
+			<DD_ATTR_CTLW id="ddm_table_cols.ivs_params024"></DD_ATTR_CTLW>
+			<DD_ATTR_CTLH id="ddm_table_cols.ivs_params024"></DD_ATTR_CTLH>
+			<DD_ATTR_DFLT id="ddm_table_cols.ivs_params024"></DD_ATTR_DFLT>
+			<DD_ATTR_DRLE id="ddm_table_cols.ivs_params024"></DD_ATTR_DRLE>
+			<DD_ATTR_GHDR id="ddm_table_cols.ivs_params024"></DD_ATTR_GHDR>
+			<DD_ATTR_IDEF id="ddm_table_cols.ivs_params024"></DD_ATTR_IDEF>
+			<DD_ATTR_LABL id="ddm_table_cols.ivs_params024">Dropship Whse ID</DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_table_cols.ivs_params024">Dropship Whse</DD_ATTR_LABS>
+			<DD_ATTR_MLAN id="ddm_table_cols.ivs_params024">N</DD_ATTR_MLAN>
+			<DD_ATTR_MINL id="ddm_table_cols.ivs_params024"></DD_ATTR_MINL>
+			<DD_ATTR_MAXL id="ddm_table_cols.ivs_params024"></DD_ATTR_MAXL>
+			<DD_ATTR_MINV id="ddm_table_cols.ivs_params024"></DD_ATTR_MINV>
+			<DD_ATTR_MAXV id="ddm_table_cols.ivs_params024"></DD_ATTR_MAXV>
+			<DD_ATTR_PROM id="ddm_table_cols.ivs_params024"></DD_ATTR_PROM>
+			<DD_ATTR_PVAL id="ddm_table_cols.ivs_params024"></DD_ATTR_PVAL>
+			<DD_ATTR_SLEV id="ddm_table_cols.ivs_params024"></DD_ATTR_SLEV>
+			<DD_ATTR_TABG id="ddm_table_cols.ivs_params024"></DD_ATTR_TABG>
+			<DD_ATTR_TIND id="ddm_table_cols.ivs_params024">19</DD_ATTR_TIND>
+			<DD_ATTR_HELP id="ddm_table_cols.ivs_params024"></DD_ATTR_HELP>
+			<SQL_COLUMN_NAME id="ddm_table_cols.ivs_params024">DROPSHIP_WHSE</SQL_COLUMN_NAME>
+			<DD_ATTR_FONT id="ddm_table_cols.ivs_params024"></DD_ATTR_FONT>
+			<DD_ATTR_STYL id="ddm_table_cols.ivs_params024"></DD_ATTR_STYL>
+			<DD_ATTR_FTSR id="ddm_table_cols.ivs_params024">N</DD_ATTR_FTSR>
+			<DD_ATTR_CWID id="ddm_table_cols.ivs_params024">0</DD_ATTR_CWID>
+			<DD_ATTR_CTLI id="ddm_table_cols.ivs_params024"></DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.ivs_params024"></DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.ivs_params024"></DD_ATTR_CTLC>
+			<DD_ATTR_RADG id="ddm_table_cols.ivs_params024"></DD_ATTR_RADG>
+			<DD_ATTR_RKEY id="ddm_table_cols.ivs_params024">N</DD_ATTR_RKEY>
+			<DD_ATTR_BTNS id="ddm_table_cols.ivs_params024">F</DD_ATTR_BTNS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_cpro">
@@ -1470,6 +1521,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.ivs_paramsseasonal_replenw">IVS_PARAMS      </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.ivs_paramsseasonal_replenw">SEASONAL_REPLEN </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.ivs_paramsseasonal_replenw">W</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.ivs_paramsdropship_whseo">
+			<DD_TABLE_ALIAS id="ddm_column_opts.ivs_paramsdropship_whseo">IVS_PARAMS      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.ivs_paramsdropship_whseo">DROPSHIP_WHSE   </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.ivs_paramsdropship_whseo">O</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">
