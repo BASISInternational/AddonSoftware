@@ -78,6 +78,10 @@ rem --- Initialize form for on-demand print check
 		callpoint!.setColumnEnabled("APR_CHECKS.CHECK_ACCTS",0)
 	endif
 
+[[APR_CHECKS.ASHO]]
+rem --- Disable ACH Effective Date when ACH isn't being used
+	if !callpoint!.getDevObject("ach_allowed") then callpoint!.setColumnEnabled("APR_CHECKS.EFFECT_DATE",-1)
+
 [[APR_CHECKS.ASVA]]
 rem --- Validate Check Number unless only ACH payments selected, i.e. there are no printed checks
 if num(callpoint!.getColumnData("APR_CHECKS.CHECK_NO")) = 0 then
@@ -185,6 +189,8 @@ rem --- Make sure printMode devObject exists
 rem --- Inits
 	use ::ado_func.src::func
 	use java.io.File
+	use java.time.DayOfWeek
+	use java.time.LocalDate
 	use java.util.HashMap
 
 rem --- See if we need to disable AP Type
@@ -277,6 +283,10 @@ rem --- Hold on to selected Bank Account Code, i.e. Checking Account
 	bnkAcctCdList!=callpoint!.getDevObject("bnkAcctCdList")
 	callpoint!.setDevObject("bnkAcctCd",bnkAcctCdList!.getItem(index))
 
+[[APR_CHECKS.CHECK_DATE.AVAL]]
+rem --- Initialize the ACH Effective Date to the Check Date
+	callpoint!.setColumnData("APR_CHECKS.EFFECT_DATE",callpoint!.getUserInput(),1)
+
 [[APR_CHECKS.CHECK_NO.AVAL]]
 rem --- Warn if this check number has been previously used
 	check_no$=callpoint!.getUserInput()
@@ -320,6 +330,26 @@ rem --- Warn if this check number has been previously used
 			endif
 		endif
 	wend
+
+[[APR_CHECKS.EFFECT_DATE.AVAL]]
+rem --- The ACH Effective Date cannot be less than the Check Date
+	effective_date$=callpoint!.getUserInput()
+	if effective_date$<callpoint!.getColumnData("APR_CHECKS.CHECK_DATE") then
+		msg_id$="AP_EARLY_ACH_DATE"
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+rem --- The ACH Effective Date cannot be a Saturday or Sunday
+	localDate! = LocalDate.of(int(num(effective_date$(1,4))), int(num(effective_date$(5,2))), int(num(effective_date$(7,2))))
+	dayOfWeek = localDate!.getDayOfWeek().getValue()
+	if dayOfWeek=6 or dayOfWeek=7 then
+		msg_id$="AP_ACH_DATE_SATSUN"
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
 
 [[APR_CHECKS.PRNT_SIGNATURE.AVAL]]
 rem --- Enable/disable signature_file

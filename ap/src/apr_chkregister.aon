@@ -149,7 +149,7 @@ rem --- Initializations
 
     headings=3
     dim headings$[headings],underline$(m1*(3+retention),"-")
-    dim o[11],h[11],pt[3],vt[3],at[3],rt[3]
+    dim pt[3],vt[3],at[3],rt[3]
     units=0
     errors=0
     glstatus=0
@@ -265,49 +265,47 @@ rem --- set rd_alias_id$, if needed, for DocOut Settings
 	rd_alias_id$=cvs(rd_alias_id$,4)
 
 rem --- Headings and print positions
-
- 
-    if retention
-        dim columns$[8,10]
-        columns = 8
+rem wgh ... 10982
+    if !ach_allowed then
+        if retention
+            columns = 8
+        else
+            columns = 7
+        endif
     else
-        dim columns$[7,10]
-        columns = 7
+        if retention
+            columns = 9
+        else
+            columns = 8
+        endif
     endif
+    dim columns$[columns,10]
 
     columns$[0,0]=Translate!.getTranslation("AON_CHK_ACCT_BNK_CD"), columns$[0,1]="C",columns$[0,2]="10"
     columns$[1,0]=Translate!.getTranslation("AON_CHECK_NO"),        columns$[1,1]="C",columns$[1,2]="8"
     columns$[2,0]=Translate!.getTranslation("AON_CHECK_DATE"),      columns$[2,1]="C",columns$[2,2]="10"
-    columns$[3,0]=Translate!.getTranslation("AON_VENDOR"),          columns$[3,1]="C",columns$[3,2]="7"
-    columns$[4,0]=Translate!.getTranslation("AON_NAME"),            columns$[4,1]="C",columns$[4,2]="20"
-    columns$[5,0]=Translate!.getTranslation("AON_INVOICE_AMT"),     columns$[5,1]="N",columns$[5,2]="10",columns$[5,3]=m1$,columns$[5,10]="T"
-    columns$[6,0]=Translate!.getTranslation("AON_DISCOUNT_AMT"),    columns$[6,1]="N",columns$[6,2]="10",columns$[6,3]=m1$,columns$[6,10]="T"
-    columns$[7,0]=Translate!.getTranslation("AON_PAYMENT_AMT"),     columns$[7,1]="N",columns$[7,2]="10",columns$[7,3]=m1$,columns$[7,10]="T"
-    if retention
-        columns$[8,0]=Translate!.getTranslation("AON_RETENTION_AMOUNT"),   columns$[8,1]="N",columns$[8,2]="10",columns$[8,3]=m1$,columns$[8,10]="T"
+    if !ach_allowed then
+        columns$[3,0]=Translate!.getTranslation("AON_VENDOR"),          columns$[3,1]="C",columns$[3,2]="7"
+        columns$[4,0]=Translate!.getTranslation("AON_NAME"),            columns$[4,1]="C",columns$[4,2]="20"
+        columns$[5,0]=Translate!.getTranslation("AON_INVOICE_AMT"),     columns$[5,1]="N",columns$[5,2]="10",columns$[5,3]=m1$,columns$[5,10]="T"
+        columns$[6,0]=Translate!.getTranslation("AON_DISCOUNT_AMT"),    columns$[6,1]="N",columns$[6,2]="10",columns$[6,3]=m1$,columns$[6,10]="T"
+        columns$[7,0]=Translate!.getTranslation("AON_PAYMENT_AMT"),     columns$[7,1]="N",columns$[7,2]="10",columns$[7,3]=m1$,columns$[7,10]="T"
+        if retention
+            columns$[8,0]=Translate!.getTranslation("AON_RETENTION_AMOUNT"),   columns$[8,1]="N",columns$[8,2]="10",columns$[8,3]=m1$,columns$[8,10]="T"
+        endif
+    else
+        columns$[3,0]=Translate!.getTranslation("AON_EFFECTIVE")+"^"+Translate!.getTranslation("AON_ACH")+" "+Translate!.getTranslation("AON_DATE"),  columns$[3,1]="C",columns$[3,2]="10"
+        columns$[4,0]=Translate!.getTranslation("AON_VENDOR"),          columns$[4,1]="C",columns$[4,2]="7"
+        columns$[5,0]=Translate!.getTranslation("AON_NAME"),            columns$[5,1]="C",columns$[5,2]="20"
+        columns$[6,0]=Translate!.getTranslation("AON_INVOICE_AMT"),     columns$[6,1]="N",columns$[6,2]="10",columns$[6,3]=m1$,columns$[6,10]="T"
+        columns$[7,0]=Translate!.getTranslation("AON_DISCOUNT_AMT"),    columns$[7,1]="N",columns$[7,2]="10",columns$[7,3]=m1$,columns$[7,10]="T"
+        columns$[8,0]=Translate!.getTranslation("AON_PAYMENT_AMT"),     columns$[8,1]="N",columns$[8,2]="10",columns$[8,3]=m1$,columns$[8,10]="T"
+        if retention
+            columns$[9,0]=Translate!.getTranslation("AON_RETENTION_AMOUNT"),   columns$[9,1]="N",columns$[9,2]="10",columns$[9,3]=m1$,columns$[9,10]="T"
+        endif
     endif
 
     call stbl("+DIR_PGM",err=*next)+"adc_docout_adj.aon",columns$[all]
-    
-rem --- Determine print positions
-
-    o[0]=0
-    o[1]=o[0]+9
-    o[2]=o[1]+10
-    o[6]=width-1
-    if retention 
-       o[6]=width-m1
-       h[6]=o[6]+m1-10
-    endif
-    o[5]=o[6]-m1
-    o[4]=o[5]-m1
-    o[3]=o[4]-m1
-    h[0]=o[0]
-    h[1]=o[1]
-    h[2]=o[2]
-    h[3]=o[3]+m1-8
-    h[4]=o[4]+m1-9
-    h[5]=o[5]+m1-8
 
 rem --- Additional file opens
 
@@ -568,6 +566,8 @@ rem --- Process apw_checkinvoice (apw01_dev) twice. First for normal printed che
               OutVect!.addItem(apw01a.bnk_acct_cd$)
               OutVect!.addItem(apw01a.check_no$)
               OutVect!.addItem(fndate$(apw01a.check_date$))
+rem wgh ... 10982
+if ach_allowed then OutVect!.addItem(fndate$(apw01a.effect_date$))
               OutVect!.addItem(vendor$)
               OutVect!.addItem(name$)
               OutVect!.addItem(str(vt[0]))
@@ -690,6 +690,8 @@ print_total: rem --- Print totals
     TotVect!.addItem(str(OutVect!.size()/(columns+1)))
 
     xwk = fnblank(3)
+rem wgh ... 10982
+if ach_allowed then OutVect!.addItem("")
 
     OutVect!.addItem(total$)
     OutVect!.addItem("")
@@ -712,6 +714,8 @@ print_voided: rem --- Print a voided check
     OutVect!.addItem(apw01a.bnk_acct_cd$)
     OutVect!.addItem(apw01a.check_no$)
     OutVect!.addItem(fndate$(apw01a.check_date$))
+rem wgh ... 10982
+if ach_allowed then OutVect!.addItem(fndate$(apw01a.effect_date$))
     OutVect!.addItem(Translate!.getTranslation("AON_(VOID)"))
     OutVect!.addItem("*** "+Translate!.getTranslation("AON_VOID")+" ***")
 
