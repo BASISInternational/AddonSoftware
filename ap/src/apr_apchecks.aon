@@ -237,6 +237,7 @@ rem --- Dimension string templates
 rem --- Assign form input values to local variables
 
     check_date$=option!.getOptionData("CHECK_DATE")
+    effective_date$=option!.getOptionData("EFFECT_DATE")
     printed_check_no$=str(num(option!.getOptionData("CHECK_NO"))-1)
     check_no$=printed_check_no$
     restart$=option!.getOptionData("PICK_CHECK")
@@ -1275,6 +1276,7 @@ check_face: rem --- Print Check
             apw01a.comp_or_void$="C"
         else
             apw01a.comp_or_void$="A"
+            apw01a.effect_date$=effective_date$
         endif
         apw01a.check_date$=check_date$
         apw01a.vendor_id$=prev_aptype_vend_t1$(3,6)
@@ -1416,6 +1418,7 @@ rem --- Write Void
             apw01a.comp_or_void$="V"
         else
             apw01a.comp_or_void$="X"
+            apw01a.effect_date$= effective_date$
         endif
         apw01a.vendor_id$=   ape04a.vendor_id$
         apw01a.check_date$=  check_date$

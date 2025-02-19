@@ -486,7 +486,8 @@ build_NACHA_file: rem --- Build NACHA text file for financial institution to pro
         nachaBatchHeader$=nachaBatchHeader$+"PPD";                                  rem --- Standard Entry Class Code
         nachaBatchHeader$=nachaBatchHeader$+pad("PAYABLE",10);                      rem --- Company Entry Description
         nachaBatchHeader$=nachaBatchHeader$+checkDate$(3,6);                        rem --- Company Descriptive Date
-        nachaBatchHeader$=nachaBatchHeader$+checkDate$(3,6);                        rem --- Effective Entry Date
+        effectiveDate$=pad(apw01a.effect_date$,8)
+        nachaBatchHeader$=nachaBatchHeader$+effectiveDate$(3,6);                    rem --- Effective Entry Date
         nachaBatchHeader$=nachaBatchHeader$+fill(3);                                rem --- Settlement Date
         nachaBatchHeader$=nachaBatchHeader$+"1";                                    rem --- Originator Status Code
         nachaBatchHeader$=nachaBatchHeader$+pad(aba_no$,8);                         rem --- Originating Financial Institution
