@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-02-14
+ Report Date:   2025-02-19
  Report Branch: AddonSoftware 24.22
  Last Release:  AddonSoftware 24.21
 =======================================================================================================================================
@@ -152,4 +152,23 @@ Modified: reports/BOMSubDet.jasper
 Modified: reports/BOMSubDet.jrxml
 Modified: reports/BOMTotal.jasper
 Modified: sprocs/BOMMATLDET.prc
+=======================================================================================================================================
+
+Revision: e7c965546893c61078fa252805e5c14a9cc8e0d0
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 2/19/2025 1:04:37 PM
+Message:
+Bug 10982: Modified AP Check Printing, register and update to allow an
+ACH Effective Date that is different from the check date.
+----
+Modified: ap/src/apr_apchecks.aon
+Modified: ap/src/apr_chkregister.aon
+Modified: ap/src/apu_chkregister.aon
+Modified: data/bar/apr_checks.xml
+Modified: data/bar/apw_checkinvoice.xml
+Modified: data/cdf/apr_checks.cdf
+Modified: data/sync/ads_messages~[01007514AP].xml
+Modified: documentation/readme.htm
+Modified: prop/addon.properties
+Modified: prop/addon_en.properties
 =======================================================================================================================================
