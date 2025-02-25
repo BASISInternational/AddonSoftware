@@ -501,6 +501,10 @@ rem --- Call standard inventory update program
 
 l4900: rem --- All done
 
+    rem --- Create historical PO-to-SO link for links that are now closed
+    thisFirm=firm_id$
+    gosub update_PO_SO_links
+
     goto std_exit
 
 l6000: rem --- Generate apt-02 record
@@ -550,6 +554,68 @@ l6900: rem --- Call GL Posting Routine
     let distaccnt$=glaccounts$[1],distamnt=-glamounts[0],distqty=-glqtys[0]; rem "Distribution account = PO account, Distribution amount and quantity = -(AP amount and quantity)
     if pom02a.line_type$="S" distaccnt$=glaccounts$[4]; rem "For S-line types, Distribution account = IV account, Distribution amount and quantity = -(AP amount and quantity)
     if action$="D" distaccnt$=glaccounts$[0],distamnt=-distamnt,distqty=-distqty; rem "For GL distribution, Distribution account = AP account, Distribution amount and quantity = AP amount and quantity
+    return
+
+update_PO_SO_links: rem --- Create historical PO-to-SO link for links that are now closed
+    linkedSOs!=new HashMap()
+
+    rem --- Check ope_reqdet for open links to SO detail lines
+    read(poeReqDet_dev,key=thisFirm$,dom=*next)
+    while 1
+        poeReqDet_key$=key(poeReqDet_dev,end=*break)
+        if pos(thisFirm$=poeReqDet_key$)<>1 then break
+        readrecord(poeReqDet_dev)poeReqDet$
+        if cvs(poeReqDet.so_int_seq_ref$,2)<>"" then linkedSOs!.put(poeReqDet.so_int_seq_ref$, poeReqDet_key$)
+    wend
+
+    rem --- Check ope_podet for open links to SO detail lines
+    read(poe12_dev,key=thisFirm$,dom=*next)
+    while 1
+        poe12_key$=key(poe12_dev,end=*break)
+        if pos(thisFirm$=poe12_key$)<>1 then break
+        readrecord(poe12_dev)poe12a$
+        if cvs(poe12a.so_int_seq_ref$,2)<>"" then linkedSOs!.put(poe12a.so_int_seq_ref$, poe12_key$)
+    wend
+
+    rem --- Check ope_recdet for open links to SO detail lines
+    read(poeRecDet_dev,key=thisFirm$,dom=*next)
+    while 1
+        poeRecDet_key$=key(poeRecDet_dev,end=*break)
+        if pos(thisFirm$=poeRecDet_key$)<>1 then break
+        readrecord(poeRecDet_dev)poeRecDet$
+        if cvs(poeRecDet.so_int_seq_ref$,2)<>"" then linkedSOs!.put(poeRecDet.so_int_seq_ref$, poeRecDet_key$)
+    wend
+
+    rem --- Check ope_invdet for open links to SO detail lines
+    read(poe25_dev,key=thisFirm$,dom=*next)
+    while 1
+        poe25_key$=key(poe25_dev,end=*break)
+        if pos(thisFirm$=poe25_key$)<>1 then break
+        readrecord(poe25_dev)poe25a$
+        po_no$=poe25a.po_no$
+        receiver_no$=poe25a.po_no$
+        
+        read(pot14_dev,key=thisFirm$+po_no$+receiver_no$,dom=*next)
+        while 1
+            pot14_key$=key(pot14_dev,end=*break)
+            if pos(thisFirm$=pot14_key$)<>1 then break
+            readrecord(pot14_dev)pot14a$
+            if cvs(pot14a.so_int_seq_ref$,2)<>"" then linkedSOs!.put(pot14a.so_int_seq_ref$, pot14_key$)
+        wend
+    wend
+
+    rem --- Move poe_linked record to pot_linked if link NOT found in PO req/po/rec/inv entry files
+    read(poeLinked_dev,key=thisFirm$,dom=*next)
+    while 1
+        poeLinked_key$=key(poeLinked_dev,end=*break)
+        if pos(thisFirm$=poeLinked_key$)<>1 then break
+        readrecord(poeLinked_dev)poeLinked$
+        if linkedSOs!.get(poeLinked.opedet_seq_ref$)=null() then
+            writerecord(potLinked_dev)poeLinked$
+            remove(poeLinked_dev,key=poeLinked_key$)
+        endif
+    wend
+    
     return
 
 disp_message:rem --- Display Message Dialog

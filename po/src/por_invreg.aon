@@ -47,7 +47,7 @@ rem --- Assign form input values to local variables
 
 rem --- Open/Lock Files
 
-    files=40,begfile=1,endfile=files
+    files=44,begfile=1,endfile=files
     dim files$[files],options$[files],ids$[files],templates$[files],channels[files]
 
     files$[1]="aps_params",ids$[1]="APS_PARAMS"
@@ -83,6 +83,10 @@ rem --- Open/Lock Files
     files$[38]="apm_ccvend",ids$[38]="APM_CCVEND"
     files$[39]="apt_vendpayments",ids$[39]="APT_VENDPAYMENTS"
     files$[40]="apt-05",ids$[40]="APT_CHECKHISTORY"
+    files$[41]="poe-08",ids$[41]="POE_LINKED"
+    files$[42]="pot_linked",ids$[42]="POT_LINKED"
+    files$[43]="poe-11",ids$[43]="POE_REQDET"
+    files$[44]="poe-14",ids$[44]="POE_RECDET"
 
     call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
 :                                   ids$[all],templates$[all],channels[all],batch,status
@@ -121,6 +125,10 @@ rem --- Open/Lock Files
     apmCcVend_dev=channels[38]
     aptVendPayments_dev=channels[39]
     aptCheckHistory_dev=channels[40]
+    poeLinked_dev=channels[41]
+    potLinked_dev=channels[42]
+    poeReqDet_dev=channels[43]
+    poeRecDet_dev=channels[44]
 
 rem --- Dimension string templates
 
@@ -137,7 +145,9 @@ rem --- Dimension string templates
 :       apt11a$:templates$[27],      
 :       ivm01a$:templates$[28],ivm02a$:templates$[29],gls_calendar$:templates$[36],
 :       potRecLsDet$:templates$[37],apmCcVend$:templates$[38],aptVendPayments$:templates$[39],
-:       aptCheckHistory$:templates$[40]
+:       aptCheckHistory$:templates$[40],
+:       poeLinked$:templates$[41],poeLinked$:templates$[42],
+:       poeReqDet$:templates$[43],poeRecDet$:templates$[44]
 
 rem --- Retrieve parameter records
 

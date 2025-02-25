@@ -1528,6 +1528,72 @@ rem --- Require existing modified rows be saved before deleting so can't uncommi
 		break
 	endif
 
+rem --- Prevent deleting Sales Order detail lines currently "linked" to Purchase Orders
+	if callpoint!.getDevObject("po_installed")="Y" then
+		linked=0
+		customer_id$=callpoint!.getColumnData("OPE_ORDDET.CUSTOMER_ID")
+		order_no$=callpoint!.getColumnData("OPE_ORDDET.ORDER_NO")
+		internal_seq_no$=callpoint!.getColumnData("OPE_ORDDET.INTERNAL_SEQ_NO")
+		poeLinked_dev = fnget_dev("POE_LINKED")
+		dim poeLinked$:fnget_tpl$("POE_LINKED")
+		read(poeLinked_dev,key=firm_id$+customer_id$+order_no$,knum="AO_CUST_ORD",dom=*next)
+		while 1
+			poeLinked_key$=key(poeLinked_dev,end=*break)
+			if pos(firm_id$+customer_id$+order_no$=poeLinked_key$)<>1 then break
+			readrecord(poeLinked_dev)poeLinked$
+			if poeLinked.opedet_seq_ref$=internal_seq_no$ then
+				linked=1
+				break
+			endif
+		wend
+
+		if linked then
+			msg_id$ = "OP_ITEM_PO_LINKED"
+			dim msg_tokens$[1]
+			msg_tokens$[1] = Translate!.getTranslation("AON_PURCHASE_ORDER")+" "+poeLinked.po_no$
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+
+		rem --- Check for Requisitions "linked" to this Sales Order detail line
+		linked=0
+		poeReqhdr_dev = fnget_dev("POE_REQHDR")
+		dim poeReqhdr$:fnget_tpl$("POE_REQHDR")
+		read(poeReqhdr_dev,key=firm_id$,dom=*next)
+		while 1
+			poeReqhdr_key$=key(poeReqhdr_dev,end=*break)
+			if pos(firm_id$=poeReqhdr_key$)<>1 then break
+			readrecord(poeReqhdr_dev)poeReqhdr$
+			if poeReqhdr.order_no$=order_no$ then
+				poeReqdet_dev = fnget_dev("POE_REQDET")
+				dim poeReqdet$:fnget_tpl$("POE_REQDET")
+				read(poeReqdet_dev,key=firm_id$+poeReqhdr.req_no$,dom=*next)
+				while 1
+					poeReqdet_key$=key(poeReqdet_dev,end=*break)
+					if pos(firm_id$+poeReqhdr.req_no$=poeReqdet_key$)<>1 then break
+					readrecord(poeReqdet_dev)poeReqdet$
+					if poeReqdet.so_int_seq_ref$=internal_seq_no$ then
+						linked=1
+						break
+					endif
+
+				wend
+
+				break
+			endif
+		wend
+
+		if linked then
+			msg_id$ = "OP_ITEM_PO_LINKED"
+			dim msg_tokens$[1]
+			msg_tokens$[1] = Translate!.getTranslation("AON_PURCHASE_REQUISITION")+" "+poeReqhdr.req_no$
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
 rem --- Set qty_ordered to zero rather than deleting the detail line if it's already been printed on a picking list, and isn't a quote.
 	if pos(user_tpl.line_type$="NSP") then
 		pick_flag$=callpoint!.getColumnData("OPE_ORDDET.PICK_FLAG")

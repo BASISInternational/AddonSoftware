@@ -112,6 +112,96 @@ rem --- For version 24.01, Copy ADC_STATECODE ZZ records for all firms (ER 8362)
         print(log_dev)meter_text$
     endif
 
+rem --- Create historical PO-to-SO link for links that are now closed
+    this_module$="PO"
+    if installMap!.get(this_module$)="Y" then
+        rem --- Increment progress meter
+        meter_text$=this_module$+" "+Translate!.getTranslation("AON_INSTALLED","Installed")+", "+
+:           Translate!.getTranslation("AON_DO_DATA_CONV","Doing data conversion for")+" "+this_module$
+        meter_proc_recs=meter_proc_recs+1
+        meter_action$="MTR-LST"
+        gosub disp_meter
+        print(log_dev)meter_text$
+
+        task$="2500_PO_pot_linked"
+        if convCtrl!.getProperty(task$)<>"Completed" then
+            rem --- Open File(s)
+            num_files=9
+            dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+            open_tables$[1]="ADM_FIRMS",  open_opts$[1]="OTA"
+            open_tables$[2]="POE_REQDET", open_opts$[2]="OTA"
+            open_tables$[3]="POE_PODET",  open_opts$[3]="OTA"
+            open_tables$[4]="POE_RECDET", open_opts$[4]="OTA"
+            open_tables$[5]="POE_INVDET", open_opts$[5]="OTA"
+            open_tables$[6]="POT_RECDET", open_opts$[6]="OTA"
+            open_tables$[7]="POT_RECHDR", open_opts$[7]="OTA"
+            open_tables$[8]="POE_LINKED", open_opts$[8]="OTA"
+            open_tables$[9]="POT_LINKED", open_opts$[9]="OTA"
+    
+            gosub open_tables
+    
+            admFirms_dev=num(open_chans$[1]);  dim admFirms$:open_tpls$[1]
+            poeReqDet_dev=num(open_chans$[2]); dim poeReqDet$:open_tpls$[2]
+            poe12_dev=num(open_chans$[3]);     dim poe12a$:open_tpls$[3]
+            poeRecDet_dev=num(open_chans$[4]); dim poeRecDet$:open_tpls$[4]
+            poe25_dev=num(open_chans$[5]);     dim poe25a$:open_tpls$[5]
+            pot14_dev=num(open_chans$[6]);     dim pot14a$:open_tpls$[6]
+            pot04_dev=num(open_chans$[7]);     dim pot04a$:open_tpls$[7]
+            poeLinked_dev=num(open_chans$[8]); dim poeLinked$:open_tpls$[8]
+            potLinked_dev=num(open_chans$[9]); dim potLinked$:open_tpls$[9]
+ 
+            rem --- Get firm IDs used in this installation
+            firms!=BBjAPI().makeVector()
+            read(admFirms_dev,key="",dom=*next)
+            while 1
+                readrecord(admFirms_dev,end=*break)admFirms$
+                firms!.addItem(admFirms.company_id$)
+            wend
+
+            rem --- For each firm update their PO-to-SO links
+            for i=0 to firms!.size()-1
+                thisFirm$=firms!.getItem(i)
+                if thisFirm$="99" then continue
+                gosub update_PO_SO_links
+            next i
+            
+            rem --- Add PO-to-SO historical links for links in PO Receipt History
+            read(pot14_dev,key="",dom=*next)
+            while 1
+                readrecord(pot14_dev,end=*break)pot14a$
+                if cvs(pot14a.so_int_seq_ref$,2)<>"" then
+                    redim pot04a$
+                    readrecord(pot04_dev,key=pot14a.firm_id$+pot14a.po_no$+pot14a.receiver_no$,dom=*next)pot04a$
+                    if cvs(pot04a.customer_id$,2)<>"" and cvs(pot04a.order_no$,2)<>"" then
+                        redim potLinked$
+                        potLinked.firm_id$=pot14a.firm_id$
+                        potLinked.po_no$=pot14a.po_no$
+                        potLinked.poedet_seq_ref$=pot14a.po_int_seq_ref$
+                        potLinked.customer_id$=pot04a.customer_id$
+                        potLinked.order_no$=pot04a.order_no$
+                        potLinked.opedet_seq_ref$=pot14a.so_int_seq_ref$
+                        writerecord(potLinked_dev)potLinked$
+                    endif
+                endif
+            wend
+        else
+            rem --- Increment progress meter
+            meter_text$=Translate!.getTranslation("AON_CONV_PREVIOUSLY","Conversion previously completed for")+" "+task$
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+        endif
+    else
+        rem --- Increment progress meter
+        meter_text$=this_module$+" "+Translate!.getTranslation("AON_NOT","Not")+" "+Translate!.getTranslation("AON_INSTALLED","Installed")+", "+
+:           Translate!.getTranslation("AON_SKIP","SKIP")+" "+Translate!.getTranslation("AON_DO_DATA_CONV","Doing data conversion for")+" "+this_module$
+        meter_proc_recs=meter_proc_recs+1
+        meter_action$="MTR-LST"
+        gosub disp_meter
+        print(log_dev)meter_text$
+    endif
+
 done: rem --- Done, close things up
 
     rem --- Complete progress meter
@@ -186,6 +276,68 @@ open_log: rem --- Open log file
     print(log_dev)"v2500conversion log started: " + date(0:"%Yd-%Mz-%Dz@%Hz:%mz:%sz")
     print(log_dev)
 
+    return
+
+update_PO_SO_links: rem --- Create historical PO-to-SO link for links that are now closed
+    linkedSOs!=new HashMap()
+
+    rem --- Check ope_reqdet for open links to SO detail lines
+    read(poeReqDet_dev,key=thisFirm$,dom=*next)
+    while 1
+        poeReqDet_key$=key(poeReqDet_dev,end=*break)
+        if pos(thisFirm$=poeReqDet_key$)<>1 then break
+        readrecord(poeReqDet_dev)poeReqDet$
+        if cvs(poeReqDet.so_int_seq_ref$,2)<>"" then linkedSOs!.put(poeReqDet.so_int_seq_ref$, poeReqDet_key$)
+    wend
+
+    rem --- Check ope_podet for open links to SO detail lines
+    read(poe12_dev,key=thisFirm$,dom=*next)
+    while 1
+        poe12_key$=key(poe12_dev,end=*break)
+        if pos(thisFirm$=poe12_key$)<>1 then break
+        readrecord(poe12_dev)poe12a$
+        if cvs(poe12a.so_int_seq_ref$,2)<>"" then linkedSOs!.put(poe12a.so_int_seq_ref$, poe12_key$)
+    wend
+
+    rem --- Check ope_recdet for open links to SO detail lines
+    read(poeRecDet_dev,key=thisFirm$,dom=*next)
+    while 1
+        poeRecDet_key$=key(poeRecDet_dev,end=*break)
+        if pos(thisFirm$=poeRecDet_key$)<>1 then break
+        readrecord(poeRecDet_dev)poeRecDet$
+        if cvs(poeRecDet.so_int_seq_ref$,2)<>"" then linkedSOs!.put(poeRecDet.so_int_seq_ref$, poeRecDet_key$)
+    wend
+
+    rem --- Check ope_invdet for open links to SO detail lines
+    read(poe25_dev,key=thisFirm$,dom=*next)
+    while 1
+        poe25_key$=key(poe25_dev,end=*break)
+        if pos(thisFirm$=poe25_key$)<>1 then break
+        readrecord(poe25_dev)poe25a$
+        po_no$=poe25a.po_no$
+        receiver_no$=poe25a.po_no$
+        
+        read(pot14_dev,key=thisFirm$+po_no$+receiver_no$,dom=*next)
+        while 1
+            pot14_key$=key(pot14_dev,end=*break)
+            if pos(thisFirm$=pot14_key$)<>1 then break
+            readrecord(pot14_dev)pot14a$
+            if cvs(pot14a.so_int_seq_ref$,2)<>"" then linkedSOs!.put(pot14a.so_int_seq_ref$, pot14_key$)
+        wend
+    wend
+
+    rem --- Move poe_linked record to pot_linked if link NOT found in PO req/po/rec/inv entry files
+    read(poeLinked_dev,key=thisFirm$,dom=*next)
+    while 1
+        poeLinked_key$=key(poeLinked_dev,end=*break)
+        if pos(thisFirm$=poeLinked_key$)<>1 then break
+        readrecord(poeLinked_dev)poeLinked$
+        if linkedSOs!.get(poeLinked.opedet_seq_ref$)=null() then
+            writerecord(potLinked_dev)poeLinked$
+            remove(poeLinked_dev,key=poeLinked_key$)
+        endif
+    wend
+    
     return
     
 disp_meter: rem --- Display Progress Meter

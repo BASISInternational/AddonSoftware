@@ -1762,6 +1762,47 @@ rem --- Get user approval to delete if there are any WOs linked to this Sales Or
 		callpoint!.setStatus("ACTIVATE")
 	endif
 
+rem --- Prevent deleting Sales Order or detail lines currently "linked" to Purchase Orders
+	if callpoint!.getDevObject("po_installed")="Y" then
+		poeLinked_dev = fnget_dev("POE_LINKED")
+		dim poeLinked$:fnget_tpl$("POE_LINKED")
+		read(poeLinked_dev,key=firm_id$+customer_id$+order_no$,knum="AO_CUST_ORD",dom=*next)
+		poeLinked_key$=key(poeLinked_dev,end=*next)
+		if pos(firm_id$+customer_id$+order_no$=poeLinked_key$)=1 then
+			readrecord(poeLinked_dev)poeLinked$
+			msg_id$ = "OP_ORDER_PO_LINKED"
+			dim msg_tokens$[1]
+			msg_tokens$[1] = Translate!.getTranslation("AON_PURCHASE_ORDER")+" "+poeLinked.po_no$
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+
+		rem --- Check for Requisitions "linked" to this Sales Order
+		linked=0
+		poeReqhdr_dev = fnget_dev("POE_REQHDR")
+		dim poeReqhdr$:fnget_tpl$("POE_REQHDR")
+		read(poeReqhdr_dev,key=firm_id$,dom=*next)
+		while 1
+			poeReqhdr_key$=key(poeReqhdr_dev,end=*break)
+			if pos(firm_id$=poeReqhdr_key$)<>1 then break
+			readrecord(poeReqhdr_dev)poeReqhdr$
+			if poeReqhdr.order_no$=order_no$ then
+				linked=1
+				break
+			endif
+		wend
+
+		if linked then
+			msg_id$ = "OP_ORDER_PO_LINKED"
+			dim msg_tokens$[1]
+			msg_tokens$[1] = Translate!.getTranslation("AON_PURCHASE_REQUISITION")+" "+poeReqhdr.req_no$
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
 rem --- Remove committments for detail records by calling ATAMO
 
 	ope11_dev = fnget_dev("OPE_ORDDET")
@@ -2414,9 +2455,8 @@ rem --- see if blank warehouse exists
 		blank_whse$="Y"
 	endif
 
-
 rem --- If BM is installed, open BMM_BILLMAT
-	bm_sf$="N"
+	bm$="N"
 	dim info$[20]
 	call stbl("+DIR_PGM")+"adc_application.aon","BM",info$[all]
 	bm$=info$[20]
@@ -2426,6 +2466,21 @@ rem --- If BM is installed, open BMM_BILLMAT
 		open_tables$[1]="BMM_BILLMAT", open_opts$[1]="OTA"
 		gosub open_tables
 	endif
+
+rem --- If PO is installed, open PO files that may be needed
+	po$="N"
+	dim info$[20]
+	call stbl("+DIR_PGM")+"adc_application.aon","PO",info$[all]
+	po$=info$[20]
+	if po$="Y" then
+		num_files = 3
+		dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+		open_tables$[1]="POE_LINKED", open_opts$[1]="OTA"
+		open_tables$[2]="POE_REQHDR", open_opts$[2]="OTA"
+		open_tables$[3]="POE_REQDET", open_opts$[3]="OTA"
+		gosub open_tables
+	endif
+	callpoint!.setDevObject("po_installed",po$)
 
 rem --- Disable display fields
 
