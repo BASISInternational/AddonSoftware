@@ -81,6 +81,7 @@ rem --- Display selected colors
 		callpoint!.setColumnData("<<DISPLAY>>.ABA_NO",adcBankAcctCode.aba_no$,1)
 		callpoint!.setColumnData("<<DISPLAY>>.BNK_ACCT_NO",encryptor!.decryptData(cvs(adcBankAcctCode.bnk_acct_no$,3)),1)
 		callpoint!.setColumnData("<<DISPLAY>>.BNK_ACCT_TYPE",adcBankAcctCode.bnk_acct_type$,1)
+		callpoint!.setColumnData("<<DISPLAY>>.DAYS_LEAD",str(adcBankAcctCode.days_lead),1)
 
 		rem --- Initialize Federal ID field
 		apsReport_dev=fnget_dev("APS_REPORT")
@@ -324,6 +325,7 @@ rem --- Initialize ACH Payment fields
 		callpoint!.setColumnData("<<DISPLAY>>.FEDERAL_ID","",1)
 		callpoint!.setColumnData("APS_ACH.ACH_EXPORT_DIR","",1)
 		callpoint!.setColumnData("APS_ACH.ACH_CHECK_DIR","",1)
+		callpoint!.setColumnData("<<DISPLAY>>.DAYS_LEAD","",1)
 
 		rem --- Disable non-bank account code fields
 		callpoint!.setColumnEnabled("APS_ACH.TOTAL_REQUIRED",0)
@@ -357,7 +359,8 @@ rem --- Initialize ACH Payment fields
 			callpoint!.setColumnData("<<DISPLAY>>.ABA_NO",adcBankAcctCode.aba_no$,1)
 			callpoint!.setColumnData("<<DISPLAY>>.BNK_ACCT_NO",encryptor!.decryptData(cvs(adcBankAcctCode.bnk_acct_no$,3)),1)
 			callpoint!.setColumnData("<<DISPLAY>>.BNK_ACCT_TYPE",adcBankAcctCode.bnk_acct_type$,1)
-			callpoint!.setColumnData("APS_ACH.TOTAL_REQUIRED","Y",1)
+			callpoint!.setColumnData("<<DISPLAY>>.DAYS_LEAD",adcBankAcctCode.days_lead$,1)
+			callpoint!.setColumnData("<<DISPLAY>>.DAYS_LEAD",str(adcBankAcctCode.days_lead),1)
 
 			rem --- Initialize Firm Name field
 			admFirms_dev=fnget_dev("ADM_FIRMS")

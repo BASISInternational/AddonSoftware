@@ -157,6 +157,15 @@ rem --- Add static text to display MICR for bank acct number
 	micr_ctl!=Form!.getControl(nxt_ctlID)
 	micr_ctl!.setFont(SysGUI!.makeFont("MICR Encoding",14,SysGUI!.PLAIN))
 
+[[ADC_BANKACCTCODE.DAYS_LEAD.AVAL]]
+rem --- The Days Lead must be a whole number between 0 and 9.
+	days_lead$=callpoint!.getUserInput()
+	if len(days_lead$)>1 or pos(days_lead$="0123456789",1)=0 then
+		msg_id$="AD_DAYS_LEAD_0_9"
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+	endif
+
 [[ADC_BANKACCTCODE.MICR_ACCT.AVAL]]
 rem --- sanity test input
 rem --- micr_acct length needs to be at least as long as the decrypted bank account number

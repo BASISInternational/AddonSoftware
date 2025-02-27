@@ -189,8 +189,6 @@ rem --- Make sure printMode devObject exists
 rem --- Inits
 	use ::ado_func.src::func
 	use java.io.File
-	use java.time.DayOfWeek
-	use java.time.LocalDate
 	use java.util.HashMap
 
 rem --- See if we need to disable AP Type
@@ -242,7 +240,16 @@ rem --- Get parameters
 	endif
 
 	readrecord(apsACH_dev,key=firm_id$+"AP00",dom=*next)apsACH$
-	callpoint!.setDevObject("ach_allowed",iff(cvs(apsACH.bnk_acct_cd$,2)="",0,1))
+	if cvs(apsACH.bnk_acct_cd$,2)<>"" then
+		callpoint!.setDevObject("ach_allowed",1)
+
+		adcBnkAcct_dev=fnget_dev("ADC_BANKACCTCODE")
+		dim adcBnkAcct$:fnget_tpl$("ADC_BANKACCTCODE")
+		readrecord(adcBnkAcct_dev,key=firm_id$+apsACH.bnk_acct_cd$,dom=*next)adcBnkAcct$
+		callpoint!.setDevObject("days_lead",adcBnkAcct.days_lead)
+	else
+		callpoint!.setDevObject("ach_allowed",0)
+	endif
 
 	readrecord(apsPayAuth_dev,key=firm_id$+"AP00",dom=*next)apsPayAuth$
 	callpoint!.setDevObject("use_pay_auth",apsPayAuth.use_pay_auth)
@@ -284,8 +291,23 @@ rem --- Hold on to selected Bank Account Code, i.e. Checking Account
 	callpoint!.setDevObject("bnkAcctCd",bnkAcctCdList!.getItem(index))
 
 [[APR_CHECKS.CHECK_DATE.AVAL]]
-rem --- Initialize the ACH Effective Date to the Check Date
-	callpoint!.setColumnData("APR_CHECKS.EFFECT_DATE",callpoint!.getUserInput(),1)
+rem --- Initialize the ACH Effective Date to the Check Date plus Days Lead (cannot be Saturday or Sunday)
+	check_date$=callpoint!.getUserInput()
+	checkDate=jul(num(check_date$(1,4)),num(check_date$(5,2)),num(check_date$(7,2)))
+
+	days_lead=callpoint!.getDevObject("days_lead")
+	effectDate=checkDate+days_lead
+	effect_date$=date(effectDate:"%Y%Mz%Dz")
+
+	call "adc_dayweek.aon",effect_date$,dow$,dow
+	if pos(dow$="SatSun",3) then
+		if dow$="Sat" then days_lead=days_lead+2
+		if dow$="Sun" then days_lead=days_lead+1
+		effectDate=checkDate+days_lead
+		effect_date$=date(effectDate:"%Y%Mz%Dz")
+	endif
+
+	callpoint!.setColumnData("APR_CHECKS.EFFECT_DATE",effect_date$,1)
 
 [[APR_CHECKS.CHECK_NO.AVAL]]
 rem --- Warn if this check number has been previously used
@@ -333,8 +355,8 @@ rem --- Warn if this check number has been previously used
 
 [[APR_CHECKS.EFFECT_DATE.AVAL]]
 rem --- The ACH Effective Date cannot be less than the Check Date
-	effective_date$=callpoint!.getUserInput()
-	if effective_date$<callpoint!.getColumnData("APR_CHECKS.CHECK_DATE") then
+	effect_date$=callpoint!.getUserInput()
+	if effect_date$<callpoint!.getColumnData("APR_CHECKS.CHECK_DATE") then
 		msg_id$="AP_EARLY_ACH_DATE"
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
@@ -342,9 +364,8 @@ rem --- The ACH Effective Date cannot be less than the Check Date
 	endif
 
 rem --- The ACH Effective Date cannot be a Saturday or Sunday
-	localDate! = LocalDate.of(int(num(effective_date$(1,4))), int(num(effective_date$(5,2))), int(num(effective_date$(7,2))))
-	dayOfWeek = localDate!.getDayOfWeek().getValue()
-	if dayOfWeek=6 or dayOfWeek=7 then
+	call "adc_dayweek.aon",effect_date$,dow$,dow
+	if pos(dow$="SatSun",3) then
 		msg_id$="AP_ACH_DATE_SATSUN"
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
