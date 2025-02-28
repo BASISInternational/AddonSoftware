@@ -63,7 +63,7 @@
 		<a name="TOP" id="TOP"></a>
 		<center>
 			<br />
-            <span class="title">RELNOTES for AddonSoftware 23.00</span>
+            <span class="title">RELNOTES for AddonSoftware 25.00</span>
 		</center>
 		<br />
 
@@ -123,58 +123,31 @@
 		<br />
 		<div class="indent1">
 			<br />
-			Version 23.00 takes advantage of the technological advancements provided by Barista&reg; and BBj&reg; to deliver an innovative software package known for its structural quality. Together with Barista, AddonSoftware offers a leap forward in the efficiency of software customization and the creation of vertical applications. AddonSoftware continues its history of constant improvement - additional features, increased functionality, and updated technology - in this release.
+			Version 25.00 takes advantage of the technological advancements provided by Barista&reg; and BBj&reg; to deliver an innovative software package known for its structural quality. Together with Barista, AddonSoftware offers a leap forward in the efficiency of software customization and the creation of vertical applications. AddonSoftware continues its history of constant improvement - additional features, increased functionality, and updated technology - in this release.
 			<ul>
-                <li>New for version 23.00</li>
+                <li>New for version 25.00</li>
                 <ul>
+                    <li>General</li>
+                    <ul>
+                        <li>File verify the existing STATE_CODE Element Type with the new ADC_STATECODE Postal State Codes table.</li>
+                        <li>A new "Job Numbers" Expresso search was added under the "Customer" search.</li>
+                    </ul>
                     <li>Accounting</li>
                     <ul>
-                        <li>New "Print Check" button in Manual Check Entry allows printing manual checks on-demand.</li>
-                        <li>Scanned AP Invoice images can now be attached to any invoice, regardless of whether or not Payment Authorization is used, and new parameters can be set to warn on registers and/or disallow updates if an image has not been linked to an invoice.</li>
-                        <li>Loading/viewing scanned AP Invoice images now display inside a BBjHtmlView control rather than an external browser.</li>
-                        <li>Added a Vendor Pay-To Address additional option to the Vendor master form for when checks to the vendor are sent to an address different than the vendor's main address.</li>
-                        <li>The Vendor Master has a new Payment History Inquiry option for viewing all checks and related invoices for the vendor.</li>
-                        <li>The Bank Account Code table contains two new fields: one to control whether or not to include a MICR band at the bottom of AP Checks and On-demand Manual Checks, and the other to specify how to format the bank account number. The bank account number format has a drilldown to view valid MICR characters.</li>
-                        <li>New filters and drill downs in the Vendor form's Historical Invoices query provide a link to the new Payment History Inquiry, so users can drill from invoices to payments/adjustments, then to check detail.</li>
-                        <li>A new Payment History option on the Customer form shows payments, with a drill down from any given payment to the payment details/invoices paid. Drill on a given invoice to launch the AR Invoice History Inquiry form. The Payment History has also been added to the Customers node in Expresso Search.</li>
-                        <li>A new right-click context menu option on the Historical Invoices query shows all the GL transactions associated with the selected Invoice.</li>
-                        <li>A new AR Invoices query shows all, open, or paid invoices for a customer, and a right-click context menu option shows all the GL transactions associated with the selected Invoice.</li>
-                        <li>The AR Simple Invoice update writes the entry header/detail records to a new set of archival files before removing them from the entry files. A new Archived AR Invoices form allows users to view and print the archival invoices.</li>
-                        <li>The AP Invoice Number has been expanded from 10 to 20 characters.</li>
-                        <li>The GL Transaction History report can now be ordered by the Reference 1 and 2 fields when an Audit Number and Journal ID are entered.</li>
-                        <li>The AP Invoice Entry update writes the entry header/detail records to a new set of archival files before removing them from the entry files. A new Archived AP Invoices Inquiry menu task allows users to view the archived invoices.</li>
-                        <li>AP Check stubs now contain the payer's phone number and vendor account number.</li>
+                        <li>Users can now designate the name and save location for both ACH (NACHA) and Positive Pay files. Also created a Positive Pay example program for Washington Trust Bank.</li>
+                        <li>The Daily Detail Register was modified to NOT require a password override to run the updated when a posting is to a locked period and the Journal ID allows posting to locked periods, nor when a posting is to a closed fiscal year and the Journal ID allows posting to closed fiscal years.</li>
                     </ul>
                     <li>Distribution</li>
                     <ul>
-                        <li>Picking Lists, Order Acknowledgements and Invoices now show Cash customer manual ship-to addresses in both the Bill-To and Ship-To address boxes.</li>
-                        <li>Order Entry can be filtered to present only Quotes, or only Orders, or both.</li>
-                        <li>A new lookup in Order and Invoice Entry shows historical manual ship-to addresses, and a new option allows creating a Customer ship-to address from the manual ship-to address.</li>
-                        <li>The Customer Ship-To Addresses form has a new "Use Manual Ship-To" option that lets the user create a new ship-to address from a manual ship-to address previously used for the customer.</li>
-                        <li>Barcodes for the customer, order, and detail line items can now be included on the Sales Order Picking List.</li>
-                        <li>When printing for all warehouses, Picking List items are sorted by warehouse.</li>
-                        <li>The new Order Fulfillment task lets users enter picking, packing and shipping information for an order, and print a legitimate Packing List rather than using the Pick List. After an order fulfillment is completed, the information can either be pulled into Invoice Entry, or pushed into Invoice Entry using the Fulfillment Report.</li>
-                        <li>Increased the maximum allowed size of an AP Invoice number from 10 to 20 characters.</li>
-                        <li>A new option allows printing an invoice payments page when generating an OP Historical Invoice.</li>
-                        <li>The Purchase Order Print task copies the PO to a new set of archival files when the print flag is updated. A new Archived Purcase Order Inquiry menu task allows users to view and print the archived POs.</li>
-                        <li>A new "Hide Unit Cost in Order Entry?" OP Parameter controls whether or not the Unit Cost is hidden in the Order/Invoice Entry detail grid.</li>
-                        <li>Added a Lot/Serial Detail button to the PO Receipt History Inquiry form to show lot/serial numbers received with the receipt.</li>
-                        <li>Added a "Copy This PO" additional option to the Purchase Order Entry form, and a "Copy This Requisition" additional option to the Purchase Requisition Entry form.</li>
-                        <li>The Purchase Requisition Entry form has a new "Duplicate Old Requisition" button.</li>
-                        <li>The Open Order Detail Report has a new option to show orders that are past the scheduled ship date.</li>
-                        <li>Added a Work Order filter to the Open PO Requisitions report and the Open Purchase Orders report.</li>
-                        <li>Added a Sales Order filter to the Open PO Requisitions report and the Open Purchase Orders report.</li>
+                        <li>New Order Entry Backordered Items query shows orders containing backordered items, along with available quantities at specified vs. all warehouses. Drill into a given order to see other items on the order. This information is also available in report form from the Inventory Reports menu, Backordered Items Report.</li>
+                        <li>Provide a warning during Purchase Requisition Entry if a referenced Work Order is being closed complete.</li>
+                        <li>The kitting feature added in version 24.00 has been enhanced so kits can be either priced or non-priced.</li>
+                        <li>A "Total Whse Availability" Addition option was added to Order/Invoice Entry to launch the Item Price/Availability query for the selected item.</li>
+                        <li>Order Fulfillment was modified to allow declaring an Order "All Packed" even when an Item's picked quantity is less than the order quantity.</li>
+                        <li>"NS Item ID" and "Item ID" columns have been added to the Purchase Order Invoice Entry detail grid using the values from POT_RECDET.</li>
+                        <li>Purchase Requisition Entry and Purchase Order Entry have been modified to populate the detail grid for dropships that are coming from a Sales Order.</li>
                     </ul>
                     <li>Manufacturing</li>
-                    <ul>
-                        <li>Work Order comments can now be included on the Shop Floor Picking List.</li>
-                        <li>The Work Order Close task now provides warnings when non-updated material/operation/subcontract transactions exist for work orders being closed complete, and prevents updating the Closed Work Order Summary Register.</li>
-                        <li>Added a Non-Stock Item option to the Shop Floor Cost Variance Analysis Report.</li>
-                    </ul>
-                    <li>Testing</li>
-                    <ul>
-                        <li>This version passes all QF-Test suites.</li>
-                    </ul>
                 </ul>
             </ul>
             <br />
@@ -187,7 +160,7 @@
 		<span class="style1"><a name="KNOWNISSUES" id="KNOWNISSUES">3. KNOWN ISSUES</a></span><span class="style6"><a href="#TOP">(top of page)</a></span>
 		<div class="indent1">
 			<ul>
-				<li>BBj version 23.00 and the Barista Application Framework version 23.00 are both required to run AddonSoftware version 23.00.</li>
+				<li>BBj version 25.00 and the Barista Application Framework version 25.00 are both required to run AddonSoftware version 25.00.</li>
 				<li>When running under Linux, the KDE desktop environment must be used.</li>
 			</ul>
 
