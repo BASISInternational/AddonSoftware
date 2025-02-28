@@ -7,15 +7,15 @@
 	<MULTI_FIRM>N</MULTI_FIRM>
 	<COMPANY_ID>01</COMPANY_ID>
 	<SYS_INSTALL>N</SYS_INSTALL>
-	<VERSION_ID>24.0</VERSION_ID>
+	<VERSION_ID>25.0</VERSION_ID>
 	<POST_GL>N</POST_GL>
 	<BATCH_ENTRY>N</BATCH_ENTRY>
 	<INTERFACE> </INTERFACE>
 	<DD_ATTR_ICON>[+AON_IMAGES]addon_logo32.png</DD_ATTR_ICON>
 	<DD_ATTR_HELP>addonhelp.hs                                                    </DD_ATTR_HELP>
 	<LOCALE_RESOURCE>addon</LOCALE_RESOURCE>
-	<LOCALE_PATH>../apps/aon/prop/</LOCALE_PATH>
+	<LOCALE_PATH>C:/dev_projects/aon_dev1/aon/prop/</LOCALE_PATH>
 	<MODULE_LOCALES>ENU</MODULE_LOCALES>
-	<DD_MOUNT_DIR>../apps/aon/</DD_MOUNT_DIR>
+	<DD_MOUNT_DIR>C:/dev_projects/aon_dev1/aon/</DD_MOUNT_DIR>
 	<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
 </barista_admin_record>
