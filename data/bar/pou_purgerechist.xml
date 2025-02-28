@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.pou_purgerechist"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.pou_purgerechist">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.pou_purgerechist">PO </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.pou_purgerechist">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.pou_purgerechist">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.pou_purgerechist">6A6276AC14368788AAEA67052BE15C51</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.pou_purgerechist">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.pou_purgerechist">20071109</DD_CREATE_DATE>

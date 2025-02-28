@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.art_invdet"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.art_invdet">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.art_invdet">AR </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.art_invdet">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.art_invdet">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.art_invdet">4370D8777C92FE3FF18907362540DF96</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.art_invdet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.art_invdet">20060119</DD_CREATE_DATE>

@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.poe_invhdr"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.poe_invhdr">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.poe_invhdr">PO </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.poe_invhdr">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.poe_invhdr">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.poe_invhdr">BB6FBA75B62EE6C302E4F329B4A6671F</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poe_invhdr">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poe_invhdr">20060119</DD_CREATE_DATE>

@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.poe_qadet"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.poe_qadet">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.poe_qadet">PO </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.poe_qadet">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.poe_qadet">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.poe_qadet">4C2E5EBBBCA2A8E001EB168853E5C54E</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poe_qadet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poe_qadet">20060119</DD_CREATE_DATE>

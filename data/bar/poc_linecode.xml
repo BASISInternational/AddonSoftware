@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.poc_linecode"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.poc_linecode">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.poc_linecode">PO </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.poc_linecode">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.poc_linecode">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.poc_linecode">CFF8A46A48FEF0EC707032A5D939201C</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poc_linecode">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poc_linecode">20060119</DD_CREATE_DATE>

@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.glw_accttotals"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.glw_accttotals">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.glw_accttotals">GL </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.glw_accttotals">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.glw_accttotals">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.glw_accttotals">CF7DE3A9B30F025AFDA3125553C597D9</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glw_accttotals">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glw_accttotals">20060119</DD_CREATE_DATE>

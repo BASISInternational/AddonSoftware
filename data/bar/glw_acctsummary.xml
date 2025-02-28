@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.glw_acctsummary">N</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.glw_acctsummary">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.glw_acctsummary">GL </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.glw_acctsummary">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.glw_acctsummary">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.glw_acctsummary"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glw_acctsummary">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glw_acctsummary">20161003</DD_CREATE_DATE>

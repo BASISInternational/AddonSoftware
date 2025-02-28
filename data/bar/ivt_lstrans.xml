@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ivt_lstrans"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ivt_lstrans">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ivt_lstrans">IV </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ivt_lstrans">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ivt_lstrans">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ivt_lstrans">B1AA327C799CA9D44A1B05FDFBCEEB70</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivt_lstrans">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivt_lstrans">20060119</DD_CREATE_DATE>

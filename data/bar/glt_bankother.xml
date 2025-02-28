@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.glt_bankother"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.glt_bankother">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.glt_bankother">GL </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.glt_bankother">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.glt_bankother">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.glt_bankother">ACBEB6A2DF5A6E9CF528BFE42EE65A9B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glt_bankother">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glt_bankother">20060609</DD_CREATE_DATE>

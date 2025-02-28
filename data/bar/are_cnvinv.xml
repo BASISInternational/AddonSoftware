@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.are_cnvinv"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.are_cnvinv">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.are_cnvinv">AR </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.are_cnvinv">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.are_cnvinv">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.are_cnvinv">0C20F95B9E8E160FB0AA04AB103C7C74</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.are_cnvinv">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.are_cnvinv">20060119</DD_CREATE_DATE>

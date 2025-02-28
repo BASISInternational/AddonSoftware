@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.mpw_datetot"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.mpw_datetot">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.mpw_datetot">MP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.mpw_datetot">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.mpw_datetot">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.mpw_datetot">62CDC9DC218CD648B0857E3B11354F96</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.mpw_datetot">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.mpw_datetot">20060119</DD_CREATE_DATE>

@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.adm_procmaster"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.adm_procmaster">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.adm_procmaster">AD </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.adm_procmaster">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.adm_procmaster">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.adm_procmaster">3049CDE190EDA31F2875AC1BD90D36EC</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.adm_procmaster">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.adm_procmaster">20070305</DD_CREATE_DATE>

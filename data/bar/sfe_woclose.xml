@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.sfe_woclose"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.sfe_woclose">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.sfe_woclose">SF </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.sfe_woclose">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.sfe_woclose">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.sfe_woclose">FF7A0932600DAAA0B007689A4A08435B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfe_woclose">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfe_woclose">20120924</DD_CREATE_DATE>

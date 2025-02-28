@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.sfe_releasewo">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.sfe_releasewo">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.sfe_releasewo">SF </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.sfe_releasewo">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.sfe_releasewo">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.sfe_releasewo"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfe_releasewo">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfe_releasewo">20111219</DD_CREATE_DATE>

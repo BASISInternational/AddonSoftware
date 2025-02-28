@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.por_histbyitem">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.por_histbyitem">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.por_histbyitem">PO </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.por_histbyitem">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.por_histbyitem">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.por_histbyitem">EFD2FF19C89FE07753C59422674A52B3</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.por_histbyitem">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.por_histbyitem">20071103</DD_CREATE_DATE>

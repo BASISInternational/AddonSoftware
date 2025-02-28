@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.glm_budgetmaster"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.glm_budgetmaster">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.glm_budgetmaster">GL </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.glm_budgetmaster">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.glm_budgetmaster">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.glm_budgetmaster">4C95D78CC6C85129F1F40097AA869C7A</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glm_budgetmaster">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glm_budgetmaster">20060523</DD_CREATE_DATE>

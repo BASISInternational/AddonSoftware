@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.apm_vendhist"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.apm_vendhist">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.apm_vendhist">AP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.apm_vendhist">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.apm_vendhist">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.apm_vendhist">D879CB11C862689876536F5DAEAA40A8</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.apm_vendhist">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.apm_vendhist">20060119</DD_CREATE_DATE>

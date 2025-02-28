@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ape_recurringdet"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ape_recurringdet">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ape_recurringdet">AP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ape_recurringdet">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ape_recurringdet">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ape_recurringdet">180DDD9B9633EFFD3943F210BC16BE7D</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ape_recurringdet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ape_recurringdet">20060119</DD_CREATE_DATE>

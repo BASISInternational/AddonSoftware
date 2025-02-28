@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.adm_procbatchmnt"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.adm_procbatchmnt">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.adm_procbatchmnt">AD </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.adm_procbatchmnt">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.adm_procbatchmnt">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.adm_procbatchmnt">B64A0AE0F81D18410C282CF159A434C1</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.adm_procbatchmnt">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.adm_procbatchmnt">20090724</DD_CREATE_DATE>

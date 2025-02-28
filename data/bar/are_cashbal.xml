@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.are_cashbal"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.are_cashbal">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.are_cashbal">AR </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.are_cashbal">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.are_cashbal">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.are_cashbal">7F503479AE314844173F5365CBB93B2F</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.are_cashbal">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.are_cashbal">20060119</DD_CREATE_DATE>

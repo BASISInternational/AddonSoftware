@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ape_payselect">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ape_payselect">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ape_payselect">AP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ape_payselect">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ape_payselect">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ape_payselect">0A768FB460EAEA4E9E25B3C94EFA7E4C</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ape_payselect">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ape_payselect">20071023</DD_CREATE_DATE>

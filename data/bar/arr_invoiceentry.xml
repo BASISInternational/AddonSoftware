@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.arr_invoiceentry">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.arr_invoiceentry">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.arr_invoiceentry">AR </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.arr_invoiceentry">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.arr_invoiceentry">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.arr_invoiceentry"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.arr_invoiceentry">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.arr_invoiceentry">20170911</DD_CREATE_DATE>

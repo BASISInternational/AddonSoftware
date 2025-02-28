@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.sfe_wolotser"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.sfe_wolotser">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.sfe_wolotser">SF </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.sfe_wolotser">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.sfe_wolotser">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.sfe_wolotser">485BF1A39930491F3D7AA02BFB8E38CB</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfe_wolotser">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfe_wolotser">20060119</DD_CREATE_DATE>

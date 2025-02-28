@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.glr_transhistory">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.glr_transhistory">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.glr_transhistory">GL </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.glr_transhistory">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.glr_transhistory">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.glr_transhistory">020905D5B1A167DB3A310D24B4B843C3</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glr_transhistory">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glr_transhistory">20060602</DD_CREATE_DATE>

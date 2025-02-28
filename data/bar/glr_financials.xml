@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.glr_financials">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.glr_financials">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.glr_financials">GL </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.glr_financials">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.glr_financials">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.glr_financials">C6D84268715CBB9970FFC4E7718CB7D1</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glr_financials">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glr_financials">20060608</DD_CREATE_DATE>

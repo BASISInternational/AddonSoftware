@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.adm_userdefaults">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.adm_userdefaults">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.adm_userdefaults">AD </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.adm_userdefaults">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.adm_userdefaults">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.adm_userdefaults"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.adm_userdefaults">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.adm_userdefaults">20090421</DD_CREATE_DATE>

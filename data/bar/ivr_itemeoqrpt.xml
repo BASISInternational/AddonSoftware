@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ivr_itemeoqrpt">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ivr_itemeoqrpt">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ivr_itemeoqrpt">IV </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ivr_itemeoqrpt">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ivr_itemeoqrpt">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ivr_itemeoqrpt">A2FAF9477148EA63BB3ECC1AB1B61D6D</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivr_itemeoqrpt">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivr_itemeoqrpt">20080112</DD_CREATE_DATE>

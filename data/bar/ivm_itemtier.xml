@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ivm_itemtier"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ivm_itemtier">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ivm_itemtier">IV </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ivm_itemtier">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ivm_itemtier">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ivm_itemtier">206CAE7785082CFC9305FC5D50996DE4</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivm_itemtier">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivm_itemtier">20060119</DD_CREATE_DATE>

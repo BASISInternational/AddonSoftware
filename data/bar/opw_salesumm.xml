@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.opw_salesumm"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.opw_salesumm">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.opw_salesumm">OP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.opw_salesumm">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.opw_salesumm">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.opw_salesumm">9C8D9B130C75690C3853A1788DCCF807</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opw_salesumm">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opw_salesumm">20060119</DD_CREATE_DATE>

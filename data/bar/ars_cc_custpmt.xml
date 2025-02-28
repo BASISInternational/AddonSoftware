@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ars_cc_custpmt">N</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ars_cc_custpmt">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ars_cc_custpmt">AD </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ars_cc_custpmt">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ars_cc_custpmt">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ars_cc_custpmt"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ars_cc_custpmt">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ars_cc_custpmt">20190508</DD_CREATE_DATE>

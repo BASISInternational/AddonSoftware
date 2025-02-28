@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ivr_zerobal">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ivr_zerobal">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ivr_zerobal">IV </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ivr_zerobal">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ivr_zerobal">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ivr_zerobal">3BFE44D5D606974141C92A9343C523DB</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivr_zerobal">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivr_zerobal">20071023</DD_CREATE_DATE>

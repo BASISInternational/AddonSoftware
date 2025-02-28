@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.glm_bankmaster"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.glm_bankmaster">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.glm_bankmaster">GL </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.glm_bankmaster">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.glm_bankmaster">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.glm_bankmaster">77F5B7263DE0B2D37BE2B56FB18269BC</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glm_bankmaster">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glm_bankmaster">20060609</DD_CREATE_DATE>

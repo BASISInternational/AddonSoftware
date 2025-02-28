@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.gls_earnings"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.gls_earnings">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.gls_earnings">AD </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.gls_earnings">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.gls_earnings">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.gls_earnings">3CAC93B0626AD48D0205781E6349083D</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.gls_earnings">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.gls_earnings">20060119</DD_CREATE_DATE>

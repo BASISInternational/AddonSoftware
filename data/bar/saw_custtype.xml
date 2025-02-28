@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.saw_custtype"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.saw_custtype">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.saw_custtype">SA </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.saw_custtype">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.saw_custtype">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.saw_custtype">BE4E7E5F17657ECA3E86E6020D2A056B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.saw_custtype">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.saw_custtype">20060119</DD_CREATE_DATE>

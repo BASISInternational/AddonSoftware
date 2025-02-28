@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.sfe_womatish"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.sfe_womatish">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.sfe_womatish">SF </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.sfe_womatish">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.sfe_womatish">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.sfe_womatish">E0A09D272E974C7C4E80A365D2ACD7D4</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfe_womatish">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfe_womatish">20060119</DD_CREATE_DATE>

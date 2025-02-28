@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ope_credrev">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ope_credrev">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ope_credrev">OP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ope_credrev">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ope_credrev">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ope_credrev"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_credrev">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_credrev">20081222</DD_CREATE_DATE>

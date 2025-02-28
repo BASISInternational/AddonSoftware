@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.sar_nonstock">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.sar_nonstock">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.sar_nonstock">SA </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.sar_nonstock">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.sar_nonstock">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.sar_nonstock">3D8F3BCBAC2F3CF57E94A76AB4D56A9A</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sar_nonstock">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sar_nonstock">20070803</DD_CREATE_DATE>

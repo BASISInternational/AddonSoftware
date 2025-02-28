@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.sfe_timedate"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.sfe_timedate">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.sfe_timedate">SF </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.sfe_timedate">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.sfe_timedate">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.sfe_timedate">37BB1EF237E7A1BFA11D739212C65E9E</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfe_timedate">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfe_timedate">20060119</DD_CREATE_DATE>

@@ -17,7 +17,7 @@
 			<RESTRICT_AUTOADD id="ddm_tables.mpw_itemtots"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.mpw_itemtots">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.mpw_itemtots">MP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.mpw_itemtots">24.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.mpw_itemtots">25.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.mpw_itemtots">51FAED9703B8E90DF4B57722FBC5DB20</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.mpw_itemtots">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.mpw_itemtots">20060119</DD_CREATE_DATE>
