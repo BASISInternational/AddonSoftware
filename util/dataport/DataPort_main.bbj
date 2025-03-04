@@ -4212,7 +4212,7 @@ verify_translation_master: rem --- Verify master file records exist for used tra
             master_tpl$=""
             BBjFileInfo!=BBjFileSystem!.getFileInfo(master_chan)
             master_tpl$=BBjFileInfo!.getText(err=*next)
-            if master_tpl$="" then
+            if cvs(master_tpl$,2)="" then
                 table_alias! = file_alias!.get(cvs(filename$,7))
                 if table_alias! = null() then table_alias! = file_alias!.get(cvs(filename$,7)+"A")
                 if table_alias! <> null() then
@@ -4223,7 +4223,6 @@ verify_translation_master: rem --- Verify master file records exist for used tra
                     transValue$=field(master_tpl$,fieldname$)
                 endif
             else
-                cvs(master_tpl$,2)<>"" then
                 master_tpl$=cvs(master_tpl$,2)
                 field master_tpl$,fieldname$=transValue$
                 transValue$=field(master_tpl$,fieldname$)
