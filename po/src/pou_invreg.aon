@@ -502,7 +502,7 @@ rem --- Call standard inventory update program
 l4900: rem --- All done
 
     rem --- Create historical PO-to-SO link for links that are now closed
-    thisFirm=firm_id$
+    thisFirm$=firm_id$
     gosub update_PO_SO_links
 
     goto std_exit
