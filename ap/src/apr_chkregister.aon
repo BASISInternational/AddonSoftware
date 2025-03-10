@@ -265,7 +265,6 @@ rem --- set rd_alias_id$, if needed, for DocOut Settings
 	rd_alias_id$=cvs(rd_alias_id$,4)
 
 rem --- Headings and print positions
-rem wgh ... 10982
     if !ach_allowed then
         if retention
             columns = 8
@@ -566,8 +565,7 @@ rem --- Process apw_checkinvoice (apw01_dev) twice. First for normal printed che
               OutVect!.addItem(apw01a.bnk_acct_cd$)
               OutVect!.addItem(apw01a.check_no$)
               OutVect!.addItem(fndate$(apw01a.check_date$))
-rem wgh ... 10982
-if ach_allowed then OutVect!.addItem(fndate$(apw01a.effect_date$))
+              if ach_allowed then OutVect!.addItem(fndate$(apw01a.effect_date$))
               OutVect!.addItem(vendor$)
               OutVect!.addItem(name$)
               OutVect!.addItem(str(vt[0]))
@@ -690,8 +688,7 @@ print_total: rem --- Print totals
     TotVect!.addItem(str(OutVect!.size()/(columns+1)))
 
     xwk = fnblank(3)
-rem wgh ... 10982
-if ach_allowed then OutVect!.addItem("")
+    if ach_allowed then OutVect!.addItem("")
 
     OutVect!.addItem(total$)
     OutVect!.addItem("")
@@ -714,8 +711,7 @@ print_voided: rem --- Print a voided check
     OutVect!.addItem(apw01a.bnk_acct_cd$)
     OutVect!.addItem(apw01a.check_no$)
     OutVect!.addItem(fndate$(apw01a.check_date$))
-rem wgh ... 10982
-if ach_allowed then OutVect!.addItem(fndate$(apw01a.effect_date$))
+    if ach_allowed then OutVect!.addItem(fndate$(apw01a.effect_date$))
     OutVect!.addItem(Translate!.getTranslation("AON_(VOID)"))
     OutVect!.addItem("*** "+Translate!.getTranslation("AON_VOID")+" ***")
 
