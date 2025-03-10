@@ -58,7 +58,6 @@ rem --- Start progress meter
     meter_text$=""
     meter_action$="WIN-LST"
     gosub disp_meter
-goto wgh1; rem wgh ... 10990 ... testing
 
 rem --- For version 24.01, Copy ADC_STATECODE ZZ records for all firms (ER 8362)
     this_module$="AD"
@@ -113,7 +112,6 @@ rem --- For version 24.01, Copy ADC_STATECODE ZZ records for all firms (ER 8362)
         print(log_dev)meter_text$
     endif
 
-wgh1: rem wgh ... 10990 ... testing
 rem --- Create historical PO-to-SO link for links that are now closed, and update PO_NO in POT_REQHDR_ARC
     this_module$="PO"
     if installMap!.get(this_module$)="Y" then
@@ -124,7 +122,6 @@ rem --- Create historical PO-to-SO link for links that are now closed, and updat
         meter_action$="MTR-LST"
         gosub disp_meter
         print(log_dev)meter_text$
-goto wgh2; rem wgh ... 10990 ... testing
 
         task$="2500_PO_pot_linked"
         if convCtrl!.getProperty(task$)<>"Completed" then
@@ -198,7 +195,6 @@ goto wgh2; rem wgh ... 10990 ... testing
             print(log_dev)meter_text$
         endif
 
-wgh2: rem wgh ... 10990 ... testing
         task$="2500_PO_pot_reqhdr_arc"
         if convCtrl!.getProperty(task$)<>"Completed" then
             rem --- Update PO_NO in POT_REQHDR_ARC
