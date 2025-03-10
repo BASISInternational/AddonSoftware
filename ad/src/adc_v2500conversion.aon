@@ -58,6 +58,7 @@ rem --- Start progress meter
     meter_text$=""
     meter_action$="WIN-LST"
     gosub disp_meter
+goto wgh1; rem wgh ... 10990 ... testing
 
 rem --- For version 24.01, Copy ADC_STATECODE ZZ records for all firms (ER 8362)
     this_module$="AD"
@@ -112,7 +113,8 @@ rem --- For version 24.01, Copy ADC_STATECODE ZZ records for all firms (ER 8362)
         print(log_dev)meter_text$
     endif
 
-rem --- Create historical PO-to-SO link for links that are now closed
+wgh1: rem wgh ... 10990 ... testing
+rem --- Create historical PO-to-SO link for links that are now closed, and update PO_NO in POT_REQHDR_ARC
     this_module$="PO"
     if installMap!.get(this_module$)="Y" then
         rem --- Increment progress meter
@@ -122,9 +124,12 @@ rem --- Create historical PO-to-SO link for links that are now closed
         meter_action$="MTR-LST"
         gosub disp_meter
         print(log_dev)meter_text$
+goto wgh2; rem wgh ... 10990 ... testing
 
         task$="2500_PO_pot_linked"
         if convCtrl!.getProperty(task$)<>"Completed" then
+            rem --- Create historical PO-to-SO link for links that are now closed
+            
             rem --- Open File(s)
             num_files=9
             dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
@@ -182,6 +187,47 @@ rem --- Create historical PO-to-SO link for links that are now closed
                         potLinked.opedet_seq_ref$=pot14a.so_int_seq_ref$
                         writerecord(potLinked_dev)potLinked$
                     endif
+                endif
+            wend
+        else
+            rem --- Increment progress meter
+            meter_text$=Translate!.getTranslation("AON_CONV_PREVIOUSLY","Conversion previously completed for")+" "+task$
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+        endif
+
+wgh2: rem wgh ... 10990 ... testing
+        task$="2500_PO_pot_reqhdr_arc"
+        if convCtrl!.getProperty(task$)<>"Completed" then
+            rem --- Update PO_NO in POT_REQHDR_ARC
+ 
+            rem --- Open File(s)
+            num_files=2
+            dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+            open_tables$[1]="POT_POHDR_ARC",  open_opts$[1]="OTA"
+            open_tables$[2]="POT_REQHDR_ARC", open_opts$[2]="OTA"
+    
+            gosub open_tables
+    
+            potPoHdrArc_dev=num(open_chans$[1])
+            potReqHdrArc_dev=num(open_chans$[2])
+            dim potPoHdrArc$:open_tpls$[1]
+            dim potReqHdrArc$:open_tpls$[2]
+                
+            rem --- Use PO_NO from POT_POHDR_ARC to update POT_REQHDR_ARC
+            read(potPoHdrArc_dev,key="",dom=*next)
+            while 1
+                potPoHdrArc_key$=key(potPoHdrArc_dev,end=*break)
+                readrecord(potPoHdrArc_dev)potPoHdrArc$
+                if cvs(potPoHdrArc.req_no$,2)="" then continue; rem --- not a requisition
+                
+                call pgmdir$+"adc_copyfile.aon",potPoHdrArc$,potReqHdrArc$,status
+                if status=0 then
+                    potReqHdrArc.po_no$=potPoHdrArc.po_no$
+                    potReqHdrArc$=field(potReqHdrArc$)
+                    writerecord(potReqHdrArc_dev)potReqHdrArc$
                 endif
             wend
         else
