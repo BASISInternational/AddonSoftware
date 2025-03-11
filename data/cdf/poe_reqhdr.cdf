@@ -421,11 +421,14 @@ rem --- Archive Requisition before deletion?
 		poe_reqdet_dev = fnget_dev("POE_REQDET")
 		dim poe_reqdet$:fnget_tpl$("POE_REQDET")
 		pot_reqhdr_dev = fnget_dev("POT_REQHDR_ARC")
+		dim pot_reqhdr$:fnget_tpl$("POT_REQHDR_ARC")
 		pot_reqdet_dev = fnget_dev("POT_REQDET_ARC")
 
 		poe_reqhdr_key$=callpoint!.getRecordKey()
 		find record (poe_reqhdr_dev,key=poe_reqhdr_key$,dom=*endif) poe_reqhdr$
-		writerecord(pot_reqhdr_dev)poe_reqhdr$
+
+		call stbl("+DIR_PGM")+"adc_copyfile.aon",poe_reqhdr$,pot_reqhdr$,status	
+		write record (pot_reqhdr_dev) pot_reqhdr$
 
 		read (poe_reqdet_dev,key=poe_reqhdr.firm_id$+poe_reqhdr.req_no$,dom=*next)
 		while 1

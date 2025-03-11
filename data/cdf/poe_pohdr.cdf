@@ -966,6 +966,7 @@ if req_no$<>""
 		poe_podet_dev=fnget_dev("POE_PODET")
 		poe_reqprint_dev=fnget_dev("POE_REQPRINT")
 		pot_reqhdr_dev=fnget_dev("POT_REQHDR_ARC")
+		dim pot_reqhdr$:fnget_tpl$("POT_REQHDR_ARC")
 		pot_reqdet_dev=fnget_dev("POT_REQDET_ARC")
 
 		poe_linked_dev=fnget_dev("POE_LINKED")
@@ -982,7 +983,9 @@ if req_no$<>""
 		call stbl("+DIR_PGM")+"adc_copyfile.aon",poe_reqhdr$,poe_pohdr$,status	
 		poe_pohdr.po_no$=po_no$
 		write record (poe_pohdr_dev) poe_pohdr$
-		write record (pot_reqhdr_dev) poe_reqhdr$
+		call stbl("+DIR_PGM")+"adc_copyfile.aon",poe_reqhdr$,pot_reqhdr$,status	
+		pot_reqhdr.po_no$=po_no$
+		write record (pot_reqhdr_dev) pot_reqhdr$
 
 		poe_poprint.firm_id$=firm_id$
 		poe_poprint.vendor_id$=poe_pohdr.vendor_id$
