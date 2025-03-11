@@ -149,10 +149,6 @@ rem --- Read requisition header
         call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,ignore_status
         find record (poe_reqhdr_dev,key=poe_reqhdr.firm_id$+poe_reqhdr.vendor_id$+poe_reqhdr.req_no$,knum="AO_VEND_REQ",dom=*continue) poe_reqhdr$
 
-        rem --- Add record to historical Purchase Requisition archive before it gets deleted
-        writerecord(potReqHdrArc_dev)poe_reqhdr$
-
-
 rem --- Create purchase order from requisition
 
         dim source_rec$:fattr(poe_reqhdr$)
@@ -265,6 +261,11 @@ rem --- Read line code
             rem --- Loop back for next detail
 
         wend
+
+        rem --- Add record to historical Purchase Requisition archive before it gets deleted
+		call stbl("+DIR_PGM")+"adc_copyfile.aon",poe_reqhdr$,potReqHdrArc$,status	
+        potReqHdrArc.po_no$=poe_pohdr.po_no$
+        writerecord(potReqHdrArc_dev)potReqHdrArc$
 
         rem --- Delete requisition source
         sf_installed$="N"
