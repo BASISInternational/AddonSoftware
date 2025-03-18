@@ -968,16 +968,28 @@ rem --- read thru selected sales order and build list of lines for which line co
 				row=row+1
 				call stbl("+DIR_SYP")+"bas_sequences.bbj","INTERNAL_SEQ_NO",int_seq_no$,table_chans$[all]
 
-				readrecord(ivm_itemmast_dev,key=firm_id$+ope_orddet.item_id$,dom=*endif)ivm_itemmast$
+				redim ivm_itemmast$
+				readrecord(ivm_itemmast_dev,key=firm_id$+ope_orddet.item_id$,dom=*next)ivm_itemmast$
 				warehouse_id$=callpoint!.getColumnData("POE_REQHDR.WAREHOUSE_ID")
-				readrecord(ivm_itemwhse_dev,key=firm_id$+warehouse_id$+ope_orddet.item_id$,dom=*endif)ivm_itemwhse$
+				redim ivm_itemwhse$
+				readrecord(ivm_itemwhse_dev,key=firm_id$+warehouse_id$+ope_orddet.item_id$,dom=*next)ivm_itemwhse$
 
 				vendor_id$=callpoint!.getColumnData("POE_REQHDR.VENDOR_ID")
 				ord_date$=callpoint!.getColumnData("POE_REQHDR.ORD_DATE")
 				item_id$=ope_orddet.item_id$
-				conv_factor=ivm_itemmast.conv_factor
+				if cvs(ivm_itemmast.item_id$,2)<>"" then
+					conv_factor=ivm_itemmast.conv_factor
+				else
+					rem --- Non-stock dropship
+					conv_factor=ope_orddet.conv_factor
+				endif
 				if conv_factor=0 then conv_factor=1
-				unit_cost=ivm_itemwhse.unit_cost*conv_factor
+				if cvs(ivm_itemmast.item_id$,2)<>"" then
+					unit_cost=ivm_itemwhse.unit_cost*conv_factor
+				else
+					rem --- Non-stock dropship
+					unit_cost=ope_orddet.unit_cost*conv_factor
+				endif
 				req_qty=ope_orddet.qty_ordered/conv_factor
 				qty_ordered=req_qty
 				if fpt(qty_ordered)>0 then qty_ordered=int(qty_ordered)+1
@@ -989,7 +1001,12 @@ rem --- read thru selected sales order and build list of lines for which line co
 				poe_reqdet.internal_seq_no$=int_seq_no$
 				poe_reqdet.po_line_no$=str(row:"000")
 				poe_reqdet.po_line_code$=ope_orddet.line_code$
-				poe_reqdet.unit_measure$=ivm_itemmast.purchase_um$
+				if cvs(ivm_itemmast.item_id$,2)<>"" then
+					poe_reqdet.unit_measure$=ivm_itemmast.purchase_um$
+				else
+					rem --- Non-stock dropship
+					poe_reqdet.unit_measure$=ope_orddet.um_sold$
+				endif
 				poe_reqdet.reqd_date$=callpoint!.getColumnData("POE_REQHDR.REQD_DATE")
 				poe_reqdet.promise_date$=callpoint!.getColumnData("POE_REQHDR.PROMISE_DATE")
 				poe_reqdet.not_b4_date$=callpoint!.getColumnData("POE_REQHDR.NOT_B4_DATE")
