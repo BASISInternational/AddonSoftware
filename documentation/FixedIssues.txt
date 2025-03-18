@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-03-04
+ Report Date:   2025-03-18
  Report Branch: AddonSoftware 25.00
  Last Release:  AddonSoftware 24.22
 =======================================================================================================================================
@@ -8,3 +8,15 @@
 BBjBaristaAddonDemos2422_02-19-2025_1516.jar
 =======================================================================================================================================
 
+Revision: 89764b5de558e2e6c66155b37c301541fdaed2c1
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 3/18/2025 4:46:54 PM
+Message:
+Bug 11001: Modified PO Requisition and PO Entry to pre-populate dropship
+non-stock items in the detail grid.
+----
+Modified: data/bar/poe_pohdr.xml
+Modified: data/bar/poe_reqhdr.xml
+Modified: data/cdf/poe_pohdr.cdf
+Modified: data/cdf/poe_reqhdr.cdf
+=======================================================================================================================================
