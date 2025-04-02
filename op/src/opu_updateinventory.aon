@@ -360,7 +360,7 @@ rem --- Read next invoice header --- Main Loop Starts
                             qnty=ope11a.qty_shipped
 
                             if pos(ivm01a.lotser_flag$="LS") then
-                                ls_start$ = ope11_key$
+                                ls_start$ = ope11a.firm_id$+ope11a.ar_type$+ope11a.customer_id$+ope11a.order_no$+ope11a.ar_inv_no$+ope11a.internal_seq_no$
                                 read (ope21_dev, key=ls_start$, dom=*next)
                                 while more
                                     ope21a_key$=key(ope21_dev,end=*break)
