@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-03-18
+ Report Date:   2025-04-02
  Report Branch: AddonSoftware 25.00
  Last Release:  AddonSoftware 24.22
 =======================================================================================================================================
@@ -19,4 +19,14 @@ Modified: data/bar/poe_pohdr.xml
 Modified: data/bar/poe_reqhdr.xml
 Modified: data/cdf/poe_pohdr.cdf
 Modified: data/cdf/poe_reqhdr.cdf
+=======================================================================================================================================
+
+Revision: b01d36bbce1942b883bfb3c0e12378babc47c5f0
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 4/2/2025 2:11:45 PM
+Message:
+Bug 11008: Corrected trip read on IVM_LSMASTER (ivm-07) so lot/serial
+numbers aren't skipped for the item.
+----
+Modified: op/src/opu_updateinventory.aon
 =======================================================================================================================================
