@@ -40,3 +40,14 @@ ER 11006: Improved performance of loading AP Payment Selection grid.
 Modified: data/bar/ape_payselect.xml
 Modified: data/cdf/ape_payselect.cdf
 =======================================================================================================================================
+
+Revision: 9fa0287bd2ab9404d86ecb8f0add671aba3b3df4
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 4/14/2025 1:44:07 PM
+Message:
+ER 11004: A Check Date that falls in a locked GL period cannot be used
+and must be changed by the user.
+----
+Modified: data/bar/ape_mancheckhdr.xml
+Modified: data/cdf/ape_mancheckhdr.cdf
+=======================================================================================================================================
