@@ -1829,6 +1829,7 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ART_INVHDR_ARC  </TABLE_ID>
+		<HELP_TAG>ar_operations_ar_archived_ar_invoice_inquiry                    </HELP_TAG>
 		<MULT_PROC> </MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>

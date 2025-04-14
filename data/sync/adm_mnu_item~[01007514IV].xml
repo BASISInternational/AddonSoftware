@@ -2149,7 +2149,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>IVR_BACKORDERS  </TABLE_ID>
-		<MULT_PROC> </MULT_PROC>
+		<HELP_TAG>iv_operations_backordered_items_report                          </HELP_TAG>
+		<MULT_PROC>N</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>

@@ -591,7 +591,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPT_FILLMNTHDR  </TABLE_ID>
-		<MULT_PROC> </MULT_PROC>
+		<HELP_TAG>op_operations_order_fulfillment                                 </HELP_TAG>
+		<MULT_PROC>N</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
