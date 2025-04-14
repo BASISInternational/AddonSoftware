@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-04-02
+ Report Date:   2025-04-14
  Report Branch: AddonSoftware 25.00
  Last Release:  AddonSoftware 24.22
 =======================================================================================================================================
@@ -29,4 +29,14 @@ Bug 11008: Corrected trip read on IVM_LSMASTER (ivm-07) so lot/serial
 numbers aren't skipped for the item.
 ----
 Modified: op/src/opu_updateinventory.aon
+=======================================================================================================================================
+
+Revision: 768add1db003a3a3f372fcb208694f13bc176322
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 4/14/2025 1:33:25 PM
+Message:
+ER 11006: Improved performance of loading AP Payment Selection grid.
+----
+Modified: data/bar/ape_payselect.xml
+Modified: data/cdf/ape_payselect.cdf
 =======================================================================================================================================
