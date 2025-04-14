@@ -2227,14 +2227,18 @@ rem --- called from AWIN and filter_recs
 		gridInvoices!.setNumRows(numrow)
 		gridInvoices!.setCellText(0,0,vectInvoices!)
 
+		grid_cols=gridInvoices!.getNumColumns()
+		boldfont!=callpoint!.getDevObject("bold_font")
+		plainfont!=callpoint!.getDevObject("plain_font")
+
 		for wk=0 to vectInvoices!.size()-1 step gridInvoices!.getNumColumns()
-			gridRow=wk/gridInvoices!.getNumColumns()
+			gridRow=wk/grid_cols
 			gridInvoices!.setCellText(gridRow,0,statusVect!.getItem(num(vectInvoices!.getItem(wk))))
 			if vectInvoices!.getItem(wk) = "1"
-				gridInvoices!.setRowFont(gridRow,callpoint!.getDevObject("bold_font"))
+				gridInvoices!.setRowFont(gridRow,boldfont!)
 				gosub showCCPaidCells
 			else
-				gridInvoices!.setRowFont(gridRow,callpoint!.getDevObject("plain_font"))
+				gridInvoices!.setRowFont(gridRow,plainfont!)
 				gosub showCCPaidCells
 			endif
 			if vectInvoices!.getItem(wk+2) = "Y"
