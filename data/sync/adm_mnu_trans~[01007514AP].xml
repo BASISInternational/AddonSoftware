@@ -1673,7 +1673,7 @@
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>Archived AP Invoice Inquiry</MENU_DESC>
-		<HELP_TAG>Archived_AP_Invoice_Entry                                       </HELP_TAG>
+		<HELP_TAG>ap_operations_ap_archived_invoice_inquiry                       </HELP_TAG>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>
