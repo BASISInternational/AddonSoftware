@@ -1061,7 +1061,7 @@
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>Remove Unlinked Detail Lines</MENU_DESC>
-		<HELP_TAG>Remove_Unlinked_Detail_Lines</HELP_TAG>
+		<HELP_TAG>po_operations_remove_unlinked_detail_lines                      </HELP_TAG>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>PO </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>
@@ -1735,7 +1735,7 @@
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>Archived Purchase Order Inquiry</MENU_DESC>
-		<HELP_TAG>Archived_PO_Inquiry                                             </HELP_TAG>
+		<HELP_TAG>po_operations_archived_po_inquiry                               </HELP_TAG>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>PO </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>
@@ -2002,7 +2002,7 @@
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>Archived Purchase Requisition Inquiry</MENU_DESC>
-		<HELP_TAG>Archived_Requisition_Inquiry                                    </HELP_TAG>
+		<HELP_TAG>po_operations_archived_purchase_requisition_inquiry             </HELP_TAG>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>PO </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>
@@ -2739,7 +2739,7 @@
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>Purchase Order Processing</MENU_DESC>
-		<HELP_TAG>Purchase_Order_Processing</HELP_TAG>
+		<HELP_TAG>po_operations_parameter_maintenance_menu                        </HELP_TAG>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>PO </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>

@@ -1992,12 +1992,12 @@
 		<MENU_DESC>New Customer Defaults</MENU_DESC>
 		<IMAGE>im_menui_parameter.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ARS_CUSTDFLT    </TABLE_ID>
-		<HELP_TAG>New_Customer_Defaults</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<HELP_TAG>ar_operations_new_customer_defaults                             </HELP_TAG>
+		<MULT_PROC>N</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>

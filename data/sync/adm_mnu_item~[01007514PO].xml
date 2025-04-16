@@ -350,8 +350,8 @@
 		<OPT_TYPE>A</OPT_TYPE>
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>[+DIR_PGM]pox_unlinked.aon</MENU_PROG>
-		<HELP_TAG>Remove_Unlinked_Detail_Lines</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<HELP_TAG>po_operations_remove_unlinked_detail_lines                      </HELP_TAG>
+		<MULT_PROC>N</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -578,7 +578,7 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POT_POHDR_ARC   </TABLE_ID>
-		<HELP_TAG>Archived_PO_Inquiry                                             </HELP_TAG>
+		<HELP_TAG>po_operations_archived_po_inquiry                               </HELP_TAG>
 		<MULT_PROC>N</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
@@ -691,7 +691,7 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POT_REQHDR_ARC  </TABLE_ID>
-		<HELP_TAG>Archived_Requisition_Inquiry                                    </HELP_TAG>
+		<HELP_TAG>po_operations_archived_purchase_requisition_inquiry             </HELP_TAG>
 		<MULT_PROC> </MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
@@ -949,8 +949,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>M</OPT_TYPE>
 		<TABLE_ID>                </TABLE_ID>
-		<HELP_TAG>Purchase_Order_Processing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<HELP_TAG>po_operations_parameter_maintenance_menu                        </HELP_TAG>
+		<MULT_PROC>N</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>

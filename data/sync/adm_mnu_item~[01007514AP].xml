@@ -319,7 +319,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APM_CCVEND      </TABLE_ID>
-		<MULT_PROC> </MULT_PROC>
+		<HELP_TAG>ap_operations_ap_credit_card_master                             </HELP_TAG>
+		<MULT_PROC>N</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>

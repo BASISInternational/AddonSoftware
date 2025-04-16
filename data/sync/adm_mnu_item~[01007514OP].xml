@@ -318,7 +318,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_FILLMNTRPT  </TABLE_ID>
-		<MULT_PROC> </MULT_PROC>
+		<HELP_TAG>op_operations_fulfillment_report                                </HELP_TAG>
+		<MULT_PROC>N</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1011,7 +1012,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>G</OPT_TYPE>
 		<TABLE_ID>                </TABLE_ID>
-		<HELP_TAG>Order_Invoice_Maintenance_Menu</HELP_TAG>
+		<TOOLTIP>op_operations_inquiry_and_maintenance_menu</TOOLTIP>
+		<HELP_TAG>Order_Invoice_Maintenance_Menu                                  </HELP_TAG>
 		<MULT_PROC> </MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
@@ -2063,8 +2065,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>G</OPT_TYPE>
 		<TABLE_ID>                </TABLE_ID>
-		<HELP_TAG>Parameter_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<HELP_TAG>op_operations_parameter_maintenance                             </HELP_TAG>
+		<MULT_PROC>N</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>

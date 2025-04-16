@@ -210,7 +210,8 @@
 		<OPT_TYPE>A</OPT_TYPE>
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>[+DIR_PGM]glr_clsdyradj.aon</MENU_PROG>
-		<MULT_PROC> </MULT_PROC>
+		<HELP_TAG>gl_operations_closed_fiscal_year_adjustments_register           </HELP_TAG>
+		<MULT_PROC>N</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -377,7 +378,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLX_CLSDYRADJHDR</TABLE_ID>
-		<MULT_PROC> </MULT_PROC>
+		<HELP_TAG>gl_operations_closed_fiscal_adjustments_utility                 </HELP_TAG>
+		<MULT_PROC>N</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
