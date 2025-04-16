@@ -733,6 +733,7 @@
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>Fulfillment Report</MENU_DESC>
+		<HELP_TAG>op_operations_fulfillment_report                                </HELP_TAG>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>OP </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>
@@ -2574,7 +2575,8 @@
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>Inquiry and Maintenance</MENU_DESC>
-		<HELP_TAG>Order_Invoice_Maintenance_Menu</HELP_TAG>
+		<TOOLTIP>op_operations_inquiry_and_maintenance_menu</TOOLTIP>
+		<HELP_TAG>Order_Invoice_Maintenance_Menu                                  </HELP_TAG>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>OP </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>
@@ -5432,7 +5434,7 @@
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>Parameters</MENU_DESC>
-		<HELP_TAG>Parameter_Maintenance</HELP_TAG>
+		<HELP_TAG>op_operations_parameter_maintenance                             </HELP_TAG>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>OP </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>

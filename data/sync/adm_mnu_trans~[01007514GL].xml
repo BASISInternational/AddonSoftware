@@ -615,6 +615,7 @@
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>Closed Fiscal Year Adjustments Register</MENU_DESC>
+		<HELP_TAG>gl_operations_closed_fiscal_year_adjustments_register           </HELP_TAG>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>GL </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>
@@ -1065,6 +1066,7 @@
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>Closed Fiscal Year Adjustments Utility</MENU_DESC>
+		<HELP_TAG>gl_operations_closed_fiscal_adjustments_utility                 </HELP_TAG>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>GL </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>
