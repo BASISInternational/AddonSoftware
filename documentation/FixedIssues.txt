@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-04-14
+ Report Date:   2025-04-16
  Report Branch: AddonSoftware 25.00
  Last Release:  AddonSoftware 24.22
 =======================================================================================================================================
@@ -50,4 +50,13 @@ and must be changed by the user.
 ----
 Modified: data/bar/ape_mancheckhdr.xml
 Modified: data/cdf/ape_mancheckhdr.cdf
+=======================================================================================================================================
+
+Revision: 56415e12b85f116c7f2e3a6d02e98f8f02ce6945
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 4/16/2025 1:17:38 PM
+Message:
+Bug 11016: Corrected ACTIVE_KITS filter to exclude inactive items.
+----
+Modified: data/sync/ads_filter_text~[all].xml
 =======================================================================================================================================
