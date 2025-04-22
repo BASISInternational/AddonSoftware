@@ -56,6 +56,15 @@ endif
 callpoint!.setOptionEnabled("DPRT",0)
 callpoint!.setOptionEnabled("QPRT",0)
 
+rem ---Disable/enable the warehouse_id column
+if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" then
+	if callpoint!.getHeaderColumnData("POE_POHDR.DROPSHIP")="Y" then
+		callpoint!.setColumnEnabled(-1,"POE_PODET.WAREHOUSE_ID",0)
+	else
+		callpoint!.setColumnEnabled(-1,"POE_PODET.WAREHOUSE_ID",1)
+	endif
+endif
+
 [[POE_PODET.ADTW]]
 rem --- Initializations
 	use ::sfo_SfUtils.aon::SfUtils
@@ -341,13 +350,20 @@ callpoint!.setOptionEnabled("COMM",0)
 rem --- REFRESH is needed in order to get the default PO_LINE_CODE set in AGCL
 callpoint!.setStatus("REFRESH")
 
+rem --- Initialize warehouse_id for dropships
+if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and callpoint!.getHeaderColumnData("POE_POHDR.DROPSHIP")="Y" then
+	callpoint!.setColumnData("POE_PODET.WAREHOUSE_ID",str(callpoint!.getDevObject("dropship_whse")),1)
+	callpoint!.setColumnEnabled(callpoint!.getValidationRow(),"POE_PODET.WAREHOUSE_ID",0)
+endif
+
 [[POE_PODET.AUDE]]
 gosub update_header_tots
 po_line_code$=callpoint!.getColumnData("POE_PODET.PO_LINE_CODE")
 if cvs(po_line_code$,2)<>"" then  gosub update_line_type_info
 
 curr_qty = num(callpoint!.getColumnData("POE_PODET.QTY_ORDERED")) * num(callpoint!.getColumnData("POE_PODET.CONV_FACTOR"))
-if curr_qty<>0 and callpoint!.getHeaderColumnData("POE_POHDR.DROPSHIP")<>"Y" then gosub update_iv_oo
+dropship$=callpoint!.getHeaderColumnData("POE_POHDR.DROPSHIP")
+if curr_qty<>0 and (dropship$<>"Y" or (cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and dropship$="Y")) then gosub update_iv_oo
 
 rem --- Update links to Work Orders
 	wo_no$=callpoint!.getColumnUndoData("POE_PODET.WO_NO")
@@ -425,9 +441,10 @@ if num(so_line_no$)<>0
 
 endif
 
-rem --- Update inventory OO if not a dropship PO
+rem --- Update inventory OO if not a dropship PO when dropship warehouse isn't being used
 
-if callpoint!.getHeaderColumnData("POE_POHDR.DROPSHIP")<>"Y"
+dropship$=callpoint!.getHeaderColumnData("POE_POHDR.DROPSHIP")
+if dropship$<>"Y" or (cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and dropship$="Y") then
 
 	rem --- Get current and prior values
 
@@ -503,7 +520,8 @@ rem --- otherwise, reverse the OO quantity in ivm-02
 		callpoint!.setStatus("ABORT")
 	else
 		curr_qty = -num(callpoint!.getColumnUndoData("POE_PODET.QTY_ORDERED")) * num(callpoint!.getColumnUndoData("POE_PODET.CONV_FACTOR"))
-		if curr_qty<>0 and callpoint!.getHeaderColumnData("POE_POHDR.DROPSHIP")<>"Y"then gosub update_iv_oo
+		dropship$=callpoint!.getHeaderColumnData("POE_POHDR.DROPSHIP")
+		if curr_qty<>0 and (dropship$<>"Y" or (cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and dropship$="Y")) then gosub update_iv_oo
 	endif
 
 [[POE_PODET.BDGX]]
@@ -840,6 +858,18 @@ gosub update_header_tots
 callpoint!.setDevObject("cost_this_row",num(callpoint!.getUserInput()))
 
 [[POE_PODET.WAREHOUSE_ID.AVAL]]
+rem --- Don't allow use of dropship warehouse for non-dropship items
+	if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and callpoint!.getHeaderColumnData("POE_POHDR.DROPSHIP")<>"Y" then
+		if pad(callpoint!.getUserInput(),2)=callpoint!.getDevObject("dropship_whse") then
+			msg_id$="PO_NOT_DROPSHIP_ENTR"
+			dim msg_tokens$[1]
+			msg_tokens$[1]=callpoint!.getDevObject("dropship_whse")
+			gosub disp_message
+			callpoint!.setStatus("ACTIVATE-ABORT")
+			break
+		endif
+	endif
+
 rem --- Warehouse ID - After Validataion
 
 gosub validate_whse_item

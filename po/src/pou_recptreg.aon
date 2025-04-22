@@ -494,7 +494,12 @@ l6200: rem --- Call standard inventory update program
     let ref3$=poe14a.internal_seq_no$,refs$[0]=poe04a.recpt_date$,refs$[1]=poe04a.vendor_id$,refs$[2]=poe14a.po_no$
     let refs$[3]=poe14a.receiver_no$,refs$[4]="",refs$[5]=ref3$,refs$[6]=poe14a.po_line_code$
     let refs$[8]=ivacct$,refs$[9]="",refs$[10]="",refs$[11]=""
-    let refs$[12]=poe04a.dropship$,refs[0]=qty,refs[1]=cost,refs[2]=ivm02a.cur_price
+    if cvs(ivs01a.dropship_whse$,2)<>"" then
+        refs$[12]=""
+    else
+        refs$[12]=poe04a.dropship$
+    endif
+    let refs[0]=qty,refs[1]=cost,refs[2]=ivm02a.cur_price
     let refs[3]=leadtime,refs[4]=cost,refs[5]=0
 
     call pgmdir$+"ivc_itemupdt.aon",action$,files[all],ivs01a$,item$[all],refs$[all],refs[all],rd_table_chans$[all],ignore_status

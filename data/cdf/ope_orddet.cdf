@@ -1205,8 +1205,11 @@ rem --- Get current and prior values
 	invoice_no$= callpoint!.getColumnData("OPE_ORDDET.AR_INV_NO")
 	seq$     = callpoint!.getColumnData("OPE_ORDDET.INTERNAL_SEQ_NO")
 
-rem --- Don't commit/uncommit Quotes or DropShips
-	if user_tpl.line_dropship$ = "Y" or callpoint!.getHeaderColumnData("OPE_ORDHDR.INVOICE_TYPE") = "P" goto awri_update_hdr
+rem --- Don't commit/uncommit Quotes or Dropships
+	if callpoint!.getHeaderColumnData("OPE_ORDHDR.INVOICE_TYPE") = "P" or
+:	(cvs(callpoint!.getDevObject("dropship_whse"),2)="" and user_tpl.line_dropship$ = "Y")
+		goto awri_update_hdr
+	endif
 
 rem --- Has there been any change?
 
@@ -2664,6 +2667,16 @@ rem --- Check item/warehouse combination, Set Available
 	wh$   = callpoint!.getUserInput()
 
 	if wh$<>callpoint!.getColumnData("OPE_ORDDET.WAREHOUSE_ID") then
+		rem --- Do not allow entry of IVS_PARAMS.DROPSHIP_WHSE if it is NOT blank.
+		if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and wh$=callpoint!.getDevObject("dropship_whse") then
+			msg_id$ = "OP_NOT_DROPSHIP_ITEM"
+			dim msg_tokens$[1]
+			msg_tokens$[1] = callpoint!.getDevObject("dropship_whse")
+			gosub disp_message
+			callpoint!.setStatus("ACTIVATE-ABORT")
+			break
+		endif
+
 		rem --- Do not allow changing warehouse when OP parameter set for asking about creating Work Order and item is committed.
 		op_create_wo$=callpoint!.getDevObject("op_create_wo")
 		if op_create_wo$="A" and callpoint!.getColumnData("OPE_ORDDET.COMMIT_FLAG")="Y" then
@@ -3162,7 +3175,8 @@ rem ==========================================================================
 	conv_factor=num(callpoint!.getColumnData("OPE_ORDDET.CONV_FACTOR"))
 	if conv_factor=0 then conv_factor=1
 
-	if cvs(item$, 2)<>"" and cvs(wh$, 2)<>"" and ord_qty and ord_type$<>"P" and user_tpl.line_dropship$ = "N" then
+	if cvs(item$, 2)<>"" and cvs(wh$, 2)<>"" and ord_qty and ord_type$<>"P" and 
+:	(user_tpl.line_dropship$ = "N" or (cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and user_tpl.line_dropship$ = "Y")) then
 		call stbl("+DIR_PGM")+"ivc_itemupdt.aon::init",channels[all],ivs01a$,items$[all],refs$[all],refs[all],table_chans$[all],status
 		read record (ivm_itemmast_dev, key=firm_id$+item$, dom=*next) ivm_itemmast$
 
@@ -3248,6 +3262,15 @@ rem ============================================================================
 		callpoint!.setOptionEnabled("RCPR",1)
 	else
 		callpoint!.setOptionEnabled("RCPR",0)
+	endif
+
+rem --- Disable/enable WAREHOUSE_ID
+	if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" then
+		if user_tpl.line_dropship$="Y" then
+			callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"OPE_ORDDET.WAREHOUSE_ID",0)
+		else
+			callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"OPE_ORDDET.WAREHOUSE_ID",1)
+		endif
 	endif
 
 rem --- Disable/enable UM Sold
@@ -3639,6 +3662,15 @@ rem ==========================================================================
 		user_tpl.prev_line_code$=line_code$
 		callpoint!.setColumnData("OPE_ORDDET.MAN_PRICE", "N")
 		callpoint!.setColumnData("OPE_ORDDET.PRODUCT_TYPE", "")
+		if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" then
+			if user_tpl.line_dropship$="Y" then
+				user_tpl.warehouse_id$=callpoint!.getDevObject("dropship_whse")
+			else
+				if user_tpl.warehouse_id$=callpoint!.getDevObject("dropship_whse") then
+					user_tpl.warehouse_id$ = callpoint!.getDevObject("defaultWhse")
+				endif
+			endif
+		endif
 		callpoint!.setColumnData("OPE_ORDDET.WAREHOUSE_ID", user_tpl.warehouse_id$)
 		callpoint!.setColumnData("OPE_ORDDET.ITEM_ID", "")
 		callpoint!.setColumnData("OPE_ORDDET.EST_SHP_DATE", callpoint!.getHeaderColumnData("OPE_ORDHDR.SHIPMNT_DATE"))

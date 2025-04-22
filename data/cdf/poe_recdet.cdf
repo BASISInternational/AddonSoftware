@@ -84,6 +84,15 @@ endif
 rem --- Disable SO Seq No column
 	callpoint!.setColumnEnabled(-1,"POE_RECDET.SO_INT_SEQ_REF",0)
 
+rem ---Disable/enable the warehouse_id column
+if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" then
+	if callpoint!.getHeaderColumnData("POE_RECHDR.DROPSHIP")="Y" then
+		callpoint!.setColumnEnabled(-1,"POE_RECDET.WAREHOUSE_ID",0)
+	else
+		callpoint!.setColumnEnabled(-1,"POE_RECDET.WAREHOUSE_ID",1)
+	endif
+endif
+
 [[POE_RECDET.AGCL]]
 rem print 'show';rem debug
 
@@ -463,6 +472,12 @@ if ldat$<>"" then
 	callpoint!.setColumnEnabled(callpoint!.getValidationRow(),"POE_RECDET.SO_INT_SEQ_REF",1)
 endif
 
+rem --- Initialize warehouse_id for dropships
+if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and callpoint!.getHeaderColumnData("POE_RECHDR.DROPSHIP")="Y" then
+	callpoint!.setColumnData("POE_RECDET.WAREHOUSE_ID",str(callpoint!.getDevObject("dropship_whse")),1)
+	callpoint!.setColumnEnabled(callpoint!.getValidationRow(),"POE_RECDET.WAREHOUSE_ID",0)
+endif
+
 [[POE_RECDET.AUDE]]
 gosub update_header_tots
 
@@ -476,7 +491,8 @@ findrecord(poe_podet_dev,key=firm_id$+callpoint!.getColumnData("POE_RECDET.PO_NO
 if !podet_exists then
 
 	curr_qty = (num(callpoint!.getColumnData("POE_RECDET.QTY_ORDERED"))-num(callpoint!.getColumnData("POE_RECDET.QTY_PREV_REC"))) * num(callpoint!.getColumnData("POE_RECDET.CONV_FACTOR"))
-	if curr_qty<>0 and callpoint!.getHeaderColumnData("POE_RECHDR.DROPSHIP")<>"Y" then gosub update_iv_oo
+	dropship$=callpoint!.getHeaderColumnData("POE_RECHDR.DROPSHIP")
+	if curr_qty<>0 and (dropship$<>"Y" or (cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and dropship$="Y")) then gosub update_iv_oo
 
 endif
 
@@ -554,7 +570,8 @@ rem --- Update inventory OO if not a dropship PO, and this is a new line (i.e., 
 poe_podet_dev=fnget_dev("POE_PODET")
 podet_exists=0
 findrecord(poe_podet_dev,key=firm_id$+callpoint!.getColumnData("POE_RECDET.PO_NO")+callpoint!.getColumnData("POE_RECDET.INTERNAL_SEQ_NO"),dom=*next); podet_exists=1
-if callpoint!.getHeaderColumnData("POE_RECHDR.DROPSHIP")<>"Y" and !podet_exists then
+dropship$=callpoint!.getHeaderColumnData("POE_RECHDR.DROPSHIP")
+if (dropship$<>"Y" or (cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and dropship$="Y")) and !podet_exists then
 
 	rem --- Get current and prior values
 
@@ -954,11 +971,25 @@ gosub update_header_tots
 callpoint!.setDevObject("cost_this_row",num(callpoint!.getUserInput()))
 
 [[POE_RECDET.WAREHOUSE_ID.AVAL]]
+rem --- Don't allow use of dropship warehouse for non-dropship items
+	if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and callpoint!.getHeaderColumnData("POE_RECHDR.DROPSHIP")<>"Y" then
+		if pad(callpoint!.getUserInput(),2)=callpoint!.getDevObject("dropship_whse") then
+			msg_id$="PO_NOT_DROPSHIP_ENTR"
+			dim msg_tokens$[1]
+			msg_tokens$[1]=callpoint!.getDevObject("dropship_whse")
+			gosub disp_message
+			callpoint!.setStatus("ACTIVATE-ABORT")
+			break
+		endif
+	endif
+
 rem --- Warehouse ID - After Validataion
 
 if callpoint!.getHeaderColumnData("POE_RECHDR.WAREHOUSE_ID")<>pad(callpoint!.getUserInput(),2)
 	msg_id$="PO_WHSE_NOT_MATCH"
 	gosub disp_message
+	callpoint!.setStatus("ACTIVATE-ABORT")
+	break
 endif
 
 gosub validate_whse_item
@@ -1115,7 +1146,7 @@ update_line_type_info:
 	gosub enable_by_line_type
 
 	rem --- Dropship PO line codes are no longer supported. Now the entire PO must be dropshipped.
-	if poc_linecode.dropship$="Y" then
+	if poc_linecode.dropship$="Y" and callpoint!.getHeaderColumnData("POE_RECHDR.DROPSHIP")<>"Y" then
 		msg_id$="PO_DROPSHIP_LINE_CD "
 		gosub disp_message
 	endif
@@ -1283,7 +1314,10 @@ rem ==========================================================================
 		callpoint!.setColumnEnabled(this_row,"POE_RECDET.QTY_ORDERED",0)
 	else
 		rem --- Enable fields not on an existing PO
-		if pos(line_type$="SNOV") then
+
+		rem --- Disable warehouse for drop ship lines, or when warehouse entered in header
+		if (callpoint!.getHeaderColumnData("POE_RECHDR.DROPSHIP")="Y" or poc_linecode.dropship$="Y") or
+:		cvs(callpoint!.getHeaderColumnData("POE_RECHDR.WAREHOUSE_ID"),2)<>"" then
 			callpoint!.setColumnEnabled(this_row,"POE_RECDET.WAREHOUSE_ID",1)
 		else
 			callpoint!.setColumnEnabled(this_row,"POE_RECDET.WAREHOUSE_ID",0)
@@ -1345,6 +1379,9 @@ rem ==========================================================================
 		callpoint!.setColumnEnabled(this_row,"POE_RECDET.WO_NO",0)
 		callpoint!.setColumnEnabled(this_row,"POE_RECDET.WK_ORD_SEQ_REF",0)
 	endif
+
+	callpoint!.setStatus("REFRESH")
+	callpoint!.setDevObject("line_type",poc_linecode.line_type$)
 
 	rem --- Enable Comment button
 	callpoint!.setOptionEnabled("COMM",1)

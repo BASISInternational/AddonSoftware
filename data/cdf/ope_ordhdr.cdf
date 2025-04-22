@@ -2443,6 +2443,7 @@ rem --- get IV Params
 
 	callpoint!.setDevObject("precision",ivs01a.precision$)
 	callpoint!.setDevObject("sell_purch_um",ivs01a.sell_purch_um$)
+	callpoint!.setDevObject("dropship_whse",ivs01a.dropship_whse$)
 
 rem --- see if blank warehouse exists
 
