@@ -7,3 +7,50 @@
 25.00 released 04/21/2025
 BBjBaristaAddonDemos2500_04-17-2025_1223.jar
 =======================================================================================================================================
+
+Revision: d58151e1004f3c6e74c98966918e7e3cbaef2519
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 4/22/2025 2:57:30 PM
+Message:
+ER 6057: Created an optional Dropship virtual warehouse for tracking
+dropship orders for stock items.
+----
+Modified: data/bar/ivm_itemwhse.xml
+Modified: data/bar/ivs_params.xml
+Modified: data/bar/ope_invdet.xml
+Modified: data/bar/ope_invhdr.xml
+Modified: data/bar/ope_orddet.xml
+Modified: data/bar/ope_ordhdr.xml
+Modified: data/bar/ope_ordlsdet.xml
+Modified: data/bar/poe_podet.xml
+Modified: data/bar/poe_pohdr.xml
+Modified: data/bar/poe_recdet.xml
+Modified: data/bar/poe_rechdr.xml
+Modified: data/bar/poe_reqdet.xml
+Modified: data/bar/poe_reqhdr.xml
+Modified: data/cdf/ivm_itemwhse.cdf
+Modified: data/cdf/ivs_params.cdf
+Modified: data/cdf/ope_invdet.cdf
+Modified: data/cdf/ope_invhdr.cdf
+Modified: data/cdf/ope_orddet.cdf
+Modified: data/cdf/ope_ordhdr.cdf
+Modified: data/cdf/ope_ordlsdet.cdf
+Modified: data/cdf/poe_podet.cdf
+Modified: data/cdf/poe_pohdr.cdf
+Modified: data/cdf/poe_recdet.cdf
+Modified: data/cdf/poe_rechdr.cdf
+Modified: data/cdf/poe_reqdet.cdf
+Modified: data/cdf/poe_reqhdr.cdf
+Modified: data/ivc_physcode
+Modified: data/ivc_whsecode
+Modified: data/ivm-02
+Modified: data/ivs_params
+Modified: data/sync/ads_messages~[01007514IV].xml
+Modified: data/sync/ads_messages~[01007514OP].xml
+Modified: data/sync/ads_messages~[01007514PO].xml
+Modified: iv/src/ivc_itemupdt.aon
+Modified: op/src/opu_updateinventory.aon
+Modified: po/src/pou_recptreg.aon
+Modified: prop/addon.properties
+Modified: prop/addon_en.properties
+=======================================================================================================================================
