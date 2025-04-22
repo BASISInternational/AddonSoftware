@@ -1,62 +1,9 @@
 =======================================================================================================================================
- Report Date:   2025-04-16
- Report Branch: AddonSoftware 25.00
- Last Release:  AddonSoftware 24.22
+ Report Date:   2025-04-22
+ Report Branch: AddonSoftware 25.01
+ Last Release:  AddonSoftware 25.00
 =======================================================================================================================================
 
-24.22 released 02/24/2025
-BBjBaristaAddonDemos2422_02-19-2025_1516.jar
-=======================================================================================================================================
-
-Revision: 89764b5de558e2e6c66155b37c301541fdaed2c1
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 3/18/2025 4:46:54 PM
-Message:
-Bug 11001: Modified PO Requisition and PO Entry to pre-populate dropship
-non-stock items in the detail grid.
-----
-Modified: data/bar/poe_pohdr.xml
-Modified: data/bar/poe_reqhdr.xml
-Modified: data/cdf/poe_pohdr.cdf
-Modified: data/cdf/poe_reqhdr.cdf
-=======================================================================================================================================
-
-Revision: b01d36bbce1942b883bfb3c0e12378babc47c5f0
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 4/2/2025 2:11:45 PM
-Message:
-Bug 11008: Corrected trip read on IVM_LSMASTER (ivm-07) so lot/serial
-numbers aren't skipped for the item.
-----
-Modified: op/src/opu_updateinventory.aon
-=======================================================================================================================================
-
-Revision: 768add1db003a3a3f372fcb208694f13bc176322
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 4/14/2025 1:33:25 PM
-Message:
-ER 11006: Improved performance of loading AP Payment Selection grid.
-----
-Modified: data/bar/ape_payselect.xml
-Modified: data/cdf/ape_payselect.cdf
-=======================================================================================================================================
-
-Revision: 9fa0287bd2ab9404d86ecb8f0add671aba3b3df4
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 4/14/2025 1:44:07 PM
-Message:
-ER 11004: A Check Date that falls in a locked GL period cannot be used
-and must be changed by the user.
-----
-Modified: data/bar/ape_mancheckhdr.xml
-Modified: data/cdf/ape_mancheckhdr.cdf
-=======================================================================================================================================
-
-Revision: 56415e12b85f116c7f2e3a6d02e98f8f02ce6945
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 4/16/2025 1:17:38 PM
-Message:
-Bug 11016: Corrected ACTIVE_KITS filter to exclude inactive items.
-----
-Modified: data/sync/ads_filter_text~[all].xml
+25.00 released 04/21/2025
+BBjBaristaAddonDemos2500_04-17-2025_1223.jar
 =======================================================================================================================================
