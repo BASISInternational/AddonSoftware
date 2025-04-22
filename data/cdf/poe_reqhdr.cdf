@@ -579,7 +579,8 @@ rem --- get IV precision
 
 	dim ivs_params$:fnget_tpl$("IVS_PARAMS")
 	read record (ivs_params_dev,key=firm_id$+"IV00")ivs_params$
-	callpoint!.setDevObject("iv_prec",ivs_params.precision$)	
+	callpoint!.setDevObject("iv_prec",ivs_params.precision$)
+	callpoint!.setDevObject("dropship_whse",ivs_params.dropship_whse$)	
 
 rem --- store dtlGrid! and column for sales order line# reference listbutton (within grid) in devObject
 
@@ -607,6 +608,23 @@ endif
 	
 
 [[POE_REQHDR.DROPSHIP.AVAL]]
+rem --- Update the Ship To Warehouse if the DROPSHIP setting changes
+dropship$=callpoint!.getUserInput()
+if dropship$<>callpoint!.getColumnData("POE_REQHDR.DROPSHIP") and cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" then
+	if dropship$="Y" then
+		callpoint!.setColumnEnabled("POE_REQHDR.WAREHOUSE_ID",0)
+		callpoint!.setColumnData("POE_REQHDR.WAREHOUSE_ID",str(callpoint!.getDevObject("dropship_whse")),1)
+		gosub whse_addr_info
+	endif
+
+	if dropship$="N" then
+		callpoint!.setColumnEnabled("POE_REQHDR.WAREHOUSE_ID",1)
+		callpoint!.setColumnData("POE_REQHDR.WAREHOUSE_ID","",1)
+		gosub whse_addr_info
+		callpoint!.setFocus("POE_REQHDR.WAREHOUSE_ID",1)
+	endif
+endif
+
 rem --- if turning off dropship flag, clear devObject items
 
 if callpoint!.getUserInput()="N"
@@ -765,6 +783,16 @@ endif
 	endif
 
 [[POE_REQHDR.WAREHOUSE_ID.AVAL]]
+rem --- Don't allow IVS_PARAMS.DROPSHIP_WHSE for non-dropship requisition
+if callpoint!.getUserInput()=callpoint!.getDevObject("dropship_whse") and callpoint!.getColumnData("POE_REQHDR.DROPSHIP")<>"Y" then
+	msg_id$="PO_NOT_DROPSHIP_ENTRY"
+	dim msg_tokens$[1]
+	msg_tokens$[1]=callpoint!.getDevObject("dropship_whse")
+	gosub disp_message
+	callpoint!.setStatus("ABORT")
+	break
+endif
+
 gosub whse_addr_info
 
 [[POE_REQHDR.<CUSTOM>]]
@@ -806,13 +834,15 @@ purch_addr_info: rem --- get and display Purchase Address Info
 	callpoint!.setColumnData("<<DISPLAY>>.PA_CNTRY_ID",apm05a.cntry_id$,1)
 return
 
-whse_addr_info: rem --- get and display Warehouse Address Info
+whse_addr_info: rem --- get and display Warehouse Address Info when not a dropship
 	ivc_whsecode_dev=fnget_dev("IVC_WHSECODE")
 	dim ivc_whsecode$:fnget_tpl$("IVC_WHSECODE")
-	if pos("WAREHOUSE_ID.AVAL"=callpoint!.getCallpointEvent())<>0
-		warehouse_id$=callpoint!.getUserInput()
-	else
-		warehouse_id$=callpoint!.getColumnData("POE_REQHDR.WAREHOUSE_ID")
+	if callpoint!.getColumnData("POE_REQHDR.DROPSHIP")<>"Y" then
+		if pos("WAREHOUSE_ID.AVAL"=callpoint!.getCallpointEvent())<>0
+			warehouse_id$=callpoint!.getUserInput()
+		else
+			warehouse_id$=callpoint!.getColumnData("POE_REQHDR.WAREHOUSE_ID")
+		endif
 	endif
 	read record(ivc_whsecode_dev,key=firm_id$+"C"+warehouse_id$,dom=*next)ivc_whsecode$
 	callpoint!.setColumnData("<<DISPLAY>>.W_ADDR1",ivc_whsecode.addr_line_1$,1)

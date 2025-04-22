@@ -493,7 +493,11 @@ rem --- Read next invoice header --- Main Loop Starts
                                 iv_refs$[5]=line_nbr$
                                 iv_refs$[6]=optInvKitDet.line_code$
                                 iv_refs$[7]=arm10d.gl_inv_acct$
+                                if cvs(ivs01a.dropship_whse$,2)<>"" then
+                                    iv_refs$[12]=""
+                                else
                                 iv_refs$[12]=opm02a.dropship$
+                                endif
                                 iv_refs[0]=-optInvKitDet.qty_shipped
                                 iv_refs[1]=optInvKitDet.unit_cost
                                 iv_refs[2]=optInvKitDet.unit_price
@@ -1226,7 +1230,11 @@ inventory_item_update: rem --- Inventory Item Update
     iv_refs$[5]=line_nbr$
     iv_refs$[6]=ope11a.line_code$
     iv_refs$[7]=account$
+    if cvs(ivs01a.dropship_whse$,2)<>"" then
+        iv_refs$[12]=""
+    else
     iv_refs$[12]=opm02a.dropship$
+    endif
     iv_refs[0]=-qnty
     iv_refs[1]=cost
     iv_refs[2]=ope11a.unit_price

@@ -45,6 +45,15 @@ else
 	callpoint!.setColumnEnabled(-1,"POE_REQDET.SO_INT_SEQ_REF",0)
 endif 
 
+rem ---Disable/enable the warehouse_id column
+if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" then
+	if callpoint!.getHeaderColumnData("POE_REQHDR.DROPSHIP")="Y" then
+		callpoint!.setColumnEnabled(-1,"POE_REQDET.WAREHOUSE_ID",0)
+	else
+		callpoint!.setColumnEnabled(-1,"POE_REQDET.WAREHOUSE_ID",1)
+	endif
+endif
+
 [[POE_REQDET.ADTW]]
 rem --- Initializations
 	use ::sfo_SfUtils.aon::SfUtils
@@ -325,6 +334,11 @@ callpoint!.setOptionEnabled("COMM",0)
 rem --- REFRESH is needed in order to get the default PO_LINE_CODE set in AGCL
 callpoint!.setStatus("REFRESH")
 
+rem --- Initialize warehouse_id for dropships
+if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and callpoint!.getHeaderColumnData("POE_REQHDR.DROPSHIP")="Y" then
+	callpoint!.setColumnData("POE_REQDET.WAREHOUSE_ID",str(callpoint!.getDevObject("dropship_whse")),1)
+endif
+
 [[POE_REQDET.AUDE]]
 gosub update_header_tots
 
@@ -592,6 +606,18 @@ gosub update_header_tots
 callpoint!.setDevObject("cost_this_row",num(callpoint!.getUserInput()))
 
 [[POE_REQDET.WAREHOUSE_ID.AVAL]]
+rem --- Don't allow use of dropship warehouse for non-dropship items
+	if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and callpoint!.getHeaderColumnData("POE_REQHDR.DROPSHIP")<>"Y" then
+		if pad(callpoint!.getUserInput(),2)=callpoint!.getDevObject("dropship_whse") then
+			msg_id$="PO_NOT_DROPSHIP_ENTR"
+			dim msg_tokens$[1]
+			msg_tokens$[1]=callpoint!.getDevObject("dropship_whse")
+			gosub disp_message
+			callpoint!.setStatus("ACTIVATE-ABORT")
+			break
+		endif
+	endif
+
 rem --- Warehouse ID - After Validataion
 
 	if callpoint!.getHeaderColumnData("POE_REQHDR.WAREHOUSE_ID")<>pad(callpoint!.getUserInput(),2)

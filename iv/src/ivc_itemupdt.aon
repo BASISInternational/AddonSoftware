@@ -234,7 +234,7 @@ rem --- Kits are not stocked, so do not commit/uncommit them
 
 rem --- ivm-02 Warehouse
 
-    if dropship and action$<>"RC" then goto lot_serial_trans
+    if dropship and action$<>"RC" and cvs(ivs01a.dropship_whse$,2)="" then goto lot_serial_trans
     if action$="TA" then goto update_lifo_fifo
     ivm02k0$=firm_id$+whse$+item$
     ivm02_extracted=0
@@ -258,9 +258,9 @@ rem --- ivm-02 Warehouse
 rem --- Adjust remaining fields
 
     location$=ivm02a.location$
-    if action$="PI" then ivm02a.landed_cost=refs[4]
-    
-    if action$="PH" and cvs(lotser$,2)="" then 
+    if action$="PI" and (refs$[12]<>"Y" or cvs(ivs01a.dropship_whse$,2)<>"") then ivm02a.landed_cost=refs[4]
+        
+    if action$="PH" and cvs(lotser$,2)="" and refs$[12]<>"Y" then 
         ivm02a.lstphy_date$=ymd$
         ivm02a.select_phys$="N"
         ivm02a.physical_cnt=refs[5]
@@ -271,7 +271,13 @@ rem --- Adjust remaining fields
 
 update_lifo_fifo: rem --- ivm-04 LIFO/FIFO
 
-    if dropship then goto lot_serial_trans
+    if dropship then 
+        if cvs(ivs01a.dropship_whse$,2)="" then
+            goto lot_serial_trans
+        else
+            goto update_item_vendor
+        endif
+    endif
     if lf=0 or pos(action$="BB,IC,PO,OE,CO,UC,OO,PI",3) then goto update_item_vendor
     if action$="TA" then onhandqty=qty else onhandqty=ivm02a.qty_on_hand
     ivm04a.firm_id$=firm_id$
@@ -511,7 +517,6 @@ write_trans_rec: rem --- Write new ivt-04 record
     endif
 
 update_lot_serial: rem --- ivm-07 Lot/Serial Number
-
     if ls=0 or cvs(lotser$,2)="" then goto done
     if ivm01a.inventoried$<>"Y" then goto lot_serial_trans
     if pos(action$="BBOOPOTA",2) then goto update_lot_act
@@ -559,8 +564,8 @@ update_lot_master: rem --- Update lot/serial master
     curfile=ivm07_dev
     gosub update_comtd_on_order
     if action then gosub update_whse_lots
-    if action$="PH" then ivm07a.lstphy_date$=ymd$,ivm07a.physical_cnt=refs[5]
-    if action$="PI" then ivm07a.landed_cost=refs[4]
+    if action$="PH" and refs$[12]<>"Y" then ivm07a.lstphy_date$=ymd$,ivm07a.physical_cnt=refs[5]
+    if action$="PI" and (refs$[12]<>"Y" or cvs(ivs01a.dropship_whse$,2)<>"") then ivm07a.landed_cost=refs[4]
     vendor$=ivm07a.vendor_id$
     if ivm07a.qty_on_hand=0 then ivm07a.closed_flag$="C" else ivm07a.closed_flag$=""
     ivm07a$=field(ivm07a$)
@@ -777,7 +782,7 @@ update_comtd_on_order: rem --- Update IVM-02/IVM-07 committed and on order
         endif
     endif
 
-    if !(dropship) then 
+    if !(dropship) and cvs(ivs01a.dropship_whse$,2)<>"" then 
         if pos(action$="CO,IC,II,OE,OP,TO,WI",3) or (action$="IA" and qty<0) then 
             ivmwk.qty_commit=ivmwk.qty_commit+qty
         else 
@@ -791,7 +796,7 @@ update_comtd_on_order: rem --- Update IVM-02/IVM-07 committed and on order
         if pos(action$="OOPO",2) then 
             ivmwk.qty_on_order=ivmwk.qty_on_order+qty
         else 
-            if action$="RC" and !(dropship) then 
+            if action$="RC" and !(dropship) and cvs(ivs01a.dropship_whse$,2)<>"" then 
                 ivmwk.qty_on_order=ivmwk.qty_on_order-qty
             endif
         endif
@@ -819,7 +824,7 @@ update_whse_lots: rem --- ivm-02 Warehouse/IVM-07 Lot/Serial Number Updates
         endif
     endif
 
-    if dropship then return; rem goto update_qoh was causing it to update qoh for dropships
+    if dropship and cvs(ivs01a.dropship_whse$,2)="" then return; rem goto update_qoh was causing it to update qoh for dropships
 
     if last then 
         field ivmwk$, last$[last] = fnl$( field(ivmwk$,last$[last]), ymd$ )
@@ -863,6 +868,8 @@ rem --- Set unit cost
     swend
 
 update_qoh: rem --- Update quantity on hand
+    if dropship then return
+    
     ivmwk.qty_on_hand = ivmwk.qty_on_hand + qty
 
     if curfile=ivm02_dev then 

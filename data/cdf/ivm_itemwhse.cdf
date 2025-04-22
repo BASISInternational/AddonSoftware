@@ -140,7 +140,7 @@ rem --- Get total on Open PO lines
 
 		rem --- Skip if this is a drop ship item
 		findrecord(pohdr_dev,key=firm_id$+podet_tpl.po_no$,dom=*continue)pohdr_tpl$
-		if pohdr_tpl.dropship$="Y" then continue
+		if cvs(callpoint!.getDevObject("dropship_whse"),2)="" and pohdr_tpl.dropship$="Y" then continue
 
 		po_qty = po_qty + (podet_tpl.qty_ordered - podet_tpl.qty_received)*podet_tpl.conv_factor
 	wend
@@ -158,7 +158,7 @@ rem --- Include non-drop ship items added in PO Receipt Entry that aren't in the
 
 		rem --- Skip if this is a drop ship item
 		findrecord(rechdr_dev,key=firm_id$+recdet_tpl.receiver_no$,dom=*continue)rechdr_tpl$
-		if rechdr_tpl.dropship$="Y" then continue
+		if cvs(callpoint!.getDevObject("dropship_whse"),2)="" and rechdr_tpl.dropship$="Y" then continue
 
 		rem --- Skip if this item was in the original PO
 		podet_exists=0
@@ -195,7 +195,7 @@ rem --- Get total on Open SO lines
 
 			rem --- "Check line code for drop ships
 			find record (opm02_dev,key=opdet_tpl.firm_id$+opdet_tpl.line_code$,dom=*continue) opm02_tpl$
-			if pos(opm02_tpl.line_type$="MNO")<>0 or opm02_tpl.dropship$="Y" then continue
+			if pos(opm02_tpl.line_type$="MNO")<>0 or (cvs(callpoint!.getDevObject("dropship_whse"),2)="" and opm02_tpl.dropship$="Y") then continue
 
 			op_qty = op_qty + opdet_tpl.qty_ordered
 			endif
@@ -356,6 +356,7 @@ dim ivs01a$:fnget_tpl$("IVS_PARAMS")
 
 ivs01a_key$=firm_id$+"IV00"
 find record (ivs01_dev,key=ivs01a_key$,err=std_missing_params) ivs01a$
+callpoint!.setDevObject("dropship_whse",ivs01a.dropship_whse$)
 
 rem --- Disable Option menu options
 
@@ -522,6 +523,17 @@ if cvs(ivm05a.firm_id$,2)=""  then
 	gosub disp_message
 	callpoint!.setStatus("ACTIVATE")
 endif
+
+[[IVM_ITEMWHSE.WAREHOUSE_ID.AVAL]]
+rem --- Do not allow dropshipping kitted items
+	if pos(callpoint!.getDevObject("kit")="YP") and callpoint!.getUserInput()=callpoint!.getDevObject("dropship_whse") then
+		msg_id$="OP_DROPSHIP_KIT"
+		dim msg_tokens$[1]
+		msg_tokens$[1]=cvs(callpoint!.getColumnData("IVM_ITEMWHSE.ITEM_ID"),2)
+		gosub disp_message
+		callpoint!.setStatus("ACTIVATE-ABORT")
+		break
+	endif
 
 [[IVM_ITEMWHSE.<CUSTOM>]]
 rem ==========================================================================

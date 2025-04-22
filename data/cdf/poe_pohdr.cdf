@@ -806,6 +806,7 @@ rem --- get IV precision
 	read record (ivs_params_dev,key=firm_id$+"IV00")ivs_params$
 	callpoint!.setDevObject("iv_prec",ivs_params.precision$)
 	callpoint!.setDevObject("ivs_params_rec",ivs_params$)	
+	callpoint!.setDevObject("dropship_whse",ivs_params.dropship_whse$)	
 
 rem --- store dtlGrid! and column for sales order line# reference listbutton (within grid) in devObject
 
@@ -833,6 +834,23 @@ if callpoint!.getUserInput()<>callpoint!.getColumnData("POE_POHDR.CUSTOMER_ID") 
 endif
 
 [[POE_POHDR.DROPSHIP.AVAL]]
+rem --- Update the Ship To Warehouse if the DROPSHIP setting changes
+dropship$=callpoint!.getUserInput()
+if dropship$<>callpoint!.getColumnData("POE_POHDR.DROPSHIP") and cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" then
+	if dropship$="Y" then
+		callpoint!.setColumnEnabled("POE_POHDR.WAREHOUSE_ID",0)
+		callpoint!.setColumnData("POE_POHDR.WAREHOUSE_ID",str(callpoint!.getDevObject("dropship_whse")),1)
+		gosub whse_addr_info
+	endif
+
+	if dropship$="N" then
+		callpoint!.setColumnEnabled("POE_POHDR.WAREHOUSE_ID",1)
+		callpoint!.setColumnData("POE_POHDR.WAREHOUSE_ID","",1)
+		gosub whse_addr_info
+		callpoint!.setFocus("POE_POHDR.WAREHOUSE_ID",1)
+	endif
+endif
+
 rem --- if turning off dropship flag, clear devObject items
 
 dropship$=callpoint!.getUserInput()
@@ -1149,6 +1167,16 @@ endif
 	endif
 
 [[POE_POHDR.WAREHOUSE_ID.AVAL]]
+rem --- Don't allow IVS_PARAMS.DROPSHIP_WHSE for non-dropship requisition
+if callpoint!.getUserInput()=callpoint!.getDevObject("dropship_whse") and callpoint!.getColumnData("POE_POHDR.DROPSHIP")<>"Y" then
+	msg_id$="PO_NOT_DROPSHIP_ENTRY"
+	dim msg_tokens$[1]
+	msg_tokens$[1]=callpoint!.getDevObject("dropship_whse")
+	gosub disp_message
+	callpoint!.setStatus("ABORT")
+	break
+endif
+
 gosub whse_addr_info
 
 [[POE_POHDR.<CUSTOM>]]
@@ -1433,6 +1461,9 @@ rem --- read thru selected sales order and build list of lines for which line co
 				poe_podet$=field(poe_podet$)
 				writerecord(poe_podet_dev)poe_podet$
 
+				rem --- Update inventory On Order
+				if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" then gosub update_iv_oo
+
 				rem --- Update ivm_itemvend (ivm-05) for this new detail grid row
 				call stbl("+DIR_PGM")+"poc_itemvend.aon","W","P",vendor_id$,ord_date$,item_id$,1,unit_cost,qty_ordered,callpoint!.getDevObject("iv_prec"),status
 
@@ -1635,6 +1666,22 @@ rem ==========================================================================
 	endif
 
 	return
+
+rem ==========================================================================
+update_iv_oo:
+rem ==========================================================================
+	rem --- Initialize inventory item update
+	status=999
+	call stbl("+DIR_PGM")+"ivc_itemupdt.aon::init",err=*next,chan[all],ivs01a$,items$[all],refs$[all],refs[all],table_chans$[all],status
+	if status then exitto std_exit
+
+	items$[1] = poe_podet.warehouse_id$
+	items$[2] = poe_podet.item_id$
+	refs[0]   = poe_podet.qty_ordered * poe_podet.conv_factor
+				
+	call stbl("+DIR_PGM")+"ivc_itemupdt.aon","OO",chan[all],ivs01a$,items$[all],refs$[all],refs[all],table_chans$[all],status
+	if status then exitto std_exit
+return
 
 
 

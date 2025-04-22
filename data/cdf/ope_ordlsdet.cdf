@@ -32,11 +32,12 @@ rem --- Check quantities, do commits if this row isn't deleted
 			if aborted then break; rem --- exit callpoint
 		endif
 
-	rem --- Commit lots if inventoried and not a dropship or quote
+	rem --- Commit lots if inventoried and not quote or a dropship to dropship warehouse
 	rem --- Set 'increasing' to 0 if uncommitting prev lot/committing new one, or 1 if just doing new one
 
+		dropship_line$=callpoint!.getDevObject("dropship_line")
 		if callpoint!.getDevObject("invoice_type")  <> "P" and 
-:			callpoint!.getDevObject("dropship_line") <> "Y" and 
+:			(dropship_line$ <> "Y" or (dropship_line$="Y" and cvs(callpoint!.getDevObject("dropship_whse"),2)<>"") )and 
 :			callpoint!.getDevObject("inventoried")   =  "Y"
 :		then
 
@@ -347,7 +348,8 @@ rem --- Set a flag for non-inventoried items
 	file_name$="IVM_ITEMMAST"
 	dim itemmast_rec$:fnget_tpl$(file_name$)
 	find record (fnget_dev(file_name$), key=firm_id$+item$, dom=*endif) itemmast_rec$
-	if itemmast_rec.inventoried$ = "N" or callpoint!.getDevObject("dropship_line")="Y" then user_tpl.non_inventory = 1
+	if itemmast_rec.inventoried$ = "N" or 
+:	(callpoint!.getDevObject("dropship_line")="Y" and cvs(callpoint!.getDevObject("dropship_whse"),2)="") then user_tpl.non_inventory = 1
 
 rem --- No Serial/lot lookup for non-invent items
 	
