@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-04-22
+ Report Date:   2025-04-23
  Report Branch: AddonSoftware 25.01
  Last Release:  AddonSoftware 25.00
 =======================================================================================================================================
@@ -53,4 +53,34 @@ Modified: op/src/opu_updateinventory.aon
 Modified: po/src/pou_recptreg.aon
 Modified: prop/addon.properties
 Modified: prop/addon_en.properties
+=======================================================================================================================================
+
+Revision: b0d10da5159ab30b9e9c628b2aa34e91b6cf9578
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 4/23/2025 11:12:50 AM
+Message:
+ER 11020: Masked BILL_NO Element Type to match mask for ITEM_ID.
+----
+Modified: data/bar/bmm_billmast.xml
+Modified: data/bar/bmm_billmat.xml
+Modified: data/bar/bmm_billoper.xml
+Modified: data/bar/bmm_billsub.xml
+Modified: data/bar/bmr_billmatavail.xml
+Modified: data/bar/bmr_costing.xml
+Modified: data/bar/bmr_detaillist.xml
+Modified: data/bar/bmr_dtlexcept.xml
+Modified: data/bar/bmr_indentedbill.xml
+Modified: data/bar/bmr_packinglist.xml
+Modified: data/bar/bmu_compreplace.xml
+Modified: data/bar/bmu_ivcosting.xml
+Modified: data/bar/bmu_prgobsdet.xml
+Modified: data/bar/bmx_packlist.xml
+Modified: data/bar/sfe_wo_cost_adj.xml
+Modified: data/bar/sfr_clsdwovar.xml
+Modified: data/bar/sfr_wodetrpt.xml
+Modified: data/bar/sfr_woheader.xml
+Modified: data/bar/sfr_wordjobstat.xml
+Modified: data/bar/sfr_wotranshist.xml
+Modified: data/bar/sfr_wovarrep.xml
+Added: data/sync/ads_masks~[01007514BM].xml
 =======================================================================================================================================
