@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-04-23
+ Report Date:   2025-04-24
  Report Branch: AddonSoftware 25.01
  Last Release:  AddonSoftware 25.00
 =======================================================================================================================================
@@ -83,4 +83,15 @@ Modified: data/bar/sfr_wordjobstat.xml
 Modified: data/bar/sfr_wotranshist.xml
 Modified: data/bar/sfr_wovarrep.xml
 Added: data/sync/ads_masks~[01007514BM].xml
+=======================================================================================================================================
+
+Revision: f42f25310cbe804ff6fa17878f7ec3f437a6c5d0
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 4/24/2025 2:35:41 PM
+Message:
+Bug 11022: Eliminated reference to IVM_ITEMMAST.AR_DIST_CODE since that
+column does NOT exist in IVM_ITEMMAST.
+----
+Modified: data/bar/ivm_itemmast.xml
+Modified: data/cdf/ivm_itemmast.cdf
 =======================================================================================================================================
