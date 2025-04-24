@@ -1167,7 +1167,6 @@ rem --- Set SA Level and item defaults if new record
 
 		if cvs(ivm10a.item_class$,2)<>"" then callpoint!.setColumnData("IVM_ITEMMAST.ITEM_CLASS", ivm10a.item_class$,1)
 		if cvs(ivm10a.buyer_code$,2)<>"" then callpoint!.setColumnData("IVM_ITEMMAST.BUYER_CODE", ivm10a.buyer_code$,1)
-		if cvs(ivm10a.ar_dist_code$,2)<>"" then callpoint!.setColumnData("IVM_ITEMMAST.AR_DIST_CODE", ivm10a.ar_dist_code$,1)
 		if cvs(ivm10a.unit_of_sale$,2)<>"" then callpoint!.setColumnData("IVM_ITEMMAST.UNIT_OF_SALE", ivm10a.unit_of_sale$,1)
 		if cvs(ivm10a.purchase_um$,2)<>"" then callpoint!.setColumnData("IVM_ITEMMAST.PURCHASE_UM", ivm10a.purchase_um$,1)
 		if cvs(ivm10a.lotser_flag$,2)<>"" then callpoint!.setColumnData("IVM_ITEMMAST.LOTSER_FLAG", ivm10a.lotser_flag$,1)
