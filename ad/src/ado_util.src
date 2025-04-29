@@ -15,7 +15,7 @@ rem ==========================================================================
     use java.io.File
     use java.lang.Boolean
 
-    use javax.mail.internet.InternetAddress
+    use jakarta.mail.internet.InternetAddress
 
     class public util
 
