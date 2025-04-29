@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-04-24
+ Report Date:   2025-04-29
  Report Branch: AddonSoftware 25.01
  Last Release:  AddonSoftware 25.00
 =======================================================================================================================================
@@ -94,4 +94,14 @@ column does NOT exist in IVM_ITEMMAST.
 ----
 Modified: data/bar/ivm_itemmast.xml
 Modified: data/cdf/ivm_itemmast.cdf
+=======================================================================================================================================
+
+Revision: 7e5a3c087f96094d972c625ab96c46917a915199
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 4/29/2025 12:06:55 PM
+Message:
+Bug 11026: Email validation based on javax.mail.internet.internetaddress
+fails in v25. Replaced with jakarta.mail.internet.internetaddress
+----
+Modified: ad/src/ado_util.src
 =======================================================================================================================================
