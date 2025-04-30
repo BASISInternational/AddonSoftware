@@ -5,7 +5,7 @@
 		<RECORD id="ddm_tables.poe_rogdet">
 			<DD_TABLE_ALIAS id="ddm_tables.poe_rogdet">POE_ROGDET      </DD_TABLE_ALIAS>
 			<DD_ALIAS_DESC id="ddm_tables.poe_rogdet">Return Of Goods Detail</DD_ALIAS_DESC>
-			<DD_FILE_NAME id="ddm_tables.poe_rogdet">poe_rogdet</DD_FILE_NAME>
+			<DD_FILE_NAME id="ddm_tables.poe_rogdet"></DD_FILE_NAME>
 			<DD_TABLE_PATH id="ddm_tables.poe_rogdet">[+PODATA]</DD_TABLE_PATH>
 			<DD_ALIAS_TYPE id="ddm_tables.poe_rogdet">V</DD_ALIAS_TYPE>
 			<DD_KEY_LENGTH id="ddm_tables.poe_rogdet">0</DD_KEY_LENGTH>
@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.poe_rogdet"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poe_rogdet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poe_rogdet">20250412</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.poe_rogdet">20250414</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.poe_rogdet">20250412</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.poe_rogdet">140920</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.poe_rogdet">20250430</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.poe_rogdet">20250430</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.poe_rogdet">135800</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.poe_rogdet"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.poe_rogdet"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.poe_rogdet"></DD_ATTR_DKNM>
@@ -36,7 +36,7 @@
 			<DD_ATTR_NOTE id="ddm_tables.poe_rogdet"></DD_ATTR_NOTE>
 			<DD_ATTR_PCAL id="ddm_tables.poe_rogdet"></DD_ATTR_PCAL>
 			<DD_ATTR_PRUN id="ddm_tables.poe_rogdet"></DD_ATTR_PRUN>
-			<DD_ATTR_PTAB id="ddm_tables.poe_rogdet"></DD_ATTR_PTAB>
+			<DD_ATTR_PTAB id="ddm_tables.poe_rogdet">POE_ROGHDR      </DD_ATTR_PTAB>
 			<DD_ATTR_SLEV id="ddm_tables.poe_rogdet"></DD_ATTR_SLEV>
 			<DD_ATTR_WINT id="ddm_tables.poe_rogdet">Return Of Goods Detail</DD_ATTR_WINT>
 			<SQL_DB_ALIAS id="ddm_tables.poe_rogdet"></SQL_DB_ALIAS>
@@ -56,6 +56,13 @@
 			<DD_ATTR_PADW id="ddm_tables.poe_rogdet">0</DD_ATTR_PADW>
 			<DD_ATTR_PADH id="ddm_tables.poe_rogdet">0</DD_ATTR_PADH>
 			<DD_ATTR_PADG id="ddm_tables.poe_rogdet">0</DD_ATTR_PADG>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_dtld">
+		<ID id="ddm_table_dtld">DDM_TABLE_DTLD</ID>
+		<RECORD id="ddm_table_dtld.poe_rogdetpoe_roglsdet">
+			<DD_TABLE_ALIAS id="ddm_table_dtld.poe_rogdetpoe_roglsdet">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_ATTR_DTLD id="ddm_table_dtld.poe_rogdetpoe_roglsdet">POE_ROGLSDET    </DD_ATTR_DTLD>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_opts">
@@ -83,6 +90,68 @@
 		<RECORD id="ddm_table_opts.poe_rogdetr">
 			<DD_TABLE_ALIAS id="ddm_table_opts.poe_rogdetr">POE_ROGDET      </DD_TABLE_ALIAS>
 			<DD_ATTR_OPTS id="ddm_table_opts.poe_rogdetr">r</DD_ATTR_OPTS>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_tpls">
+		<ID id="ddm_table_tpls">DDM_TABLE_TPLS</ID>
+		<RECORD id="ddm_table_tpls.poe_rogdet">
+			<DD_TABLE_ALIAS id="ddm_table_tpls.poe_rogdet">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_FILE_NAME id="ddm_table_tpls.poe_rogdet"></DD_FILE_NAME>
+			<DD_TABLE_TPL id="ddm_table_tpls.poe_rogdet">firm_id:c(2),po_no:c(7),receiver_no:c(7),return_date:c(8),return_auth:c(15),rec_int_seq_ref:c(12),line_no:c(3),warehouse_id:c(2),item_id:c(20),ns_item_id:c(20),order_memo:c(40),memo_1024:c(1024),return_reason:c(40),unit_measure:c(6),conv_factor:n(7*),qty_ordered:n(7*),qty_prev_rec:n(7*),qty_received:n(7*),qty_returned:n(7*),replace_qty:n(7*)</DD_TABLE_TPL>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_ref">
+		<ID id="ddm_table_ref">DDM_TABLE_REF</ID>
+		<RECORD id="ddm_table_ref.poe_rogdetitem_idivm_itemmast">
+			<DD_TABLE_ALIAS id="ddm_table_ref.poe_rogdetitem_idivm_itemmast">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.poe_rogdetitem_idivm_itemmast">ITEM_ID         </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.poe_rogdetitem_idivm_itemmast">IVM_ITEMMAST    </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.poe_rogdetitem_idivm_itemmast">FK_POE_ROGDET_ITEM_ID_IVM_ITEMMAST                                                                                                                                                                                                                             </TABLE_REF_NAME>
+		</RECORD>
+		<RECORD id="ddm_table_ref.poe_rogdetunit_measureivc_umcodes">
+			<DD_TABLE_ALIAS id="ddm_table_ref.poe_rogdetunit_measureivc_umcodes">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.poe_rogdetunit_measureivc_umcodes">UNIT_MEASURE    </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.poe_rogdetunit_measureivc_umcodes">IVC_UMCODES     </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.poe_rogdetunit_measureivc_umcodes">FK_POE_ROGDET_UNIT_MEASURE_IVC_UMCODES                                                                                                                                                                                                                         </TABLE_REF_NAME>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_refcol">
+		<ID id="ddm_table_refcol">DDM_TABLE_REFCOL</ID>
+		<RECORD id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0001">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0001">ITEM_ID         </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0001">IVM_ITEMMAST    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0002">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0002">ITEM_ID         </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0002">IVM_ITEMMAST    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0002">ITEM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0002">ITEM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0001">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0001">UNIT_MEASURE    </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0001">IVC_UMCODES     </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0002">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0002">UNIT_MEASURE    </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0002">IVC_UMCODES     </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0002">UNIT_MEASURE    </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0002">UNIT_MEASURE    </FK_TABLE_COL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_keys">
@@ -330,7 +399,7 @@
 		<RECORD id="ddm_table_cols.poe_rogdet002">
 			<DD_TABLE_ALIAS id="ddm_table_cols.poe_rogdet002">POE_ROGDET      </DD_TABLE_ALIAS>
 			<DD_SEQUENCE id="ddm_table_cols.poe_rogdet002">002</DD_SEQUENCE>
-			<DD_DATA_NAME id="ddm_table_cols.poe_rogdet002">PO_NO_LK        </DD_DATA_NAME>
+			<DD_DATA_NAME id="ddm_table_cols.poe_rogdet002">PO_NO           </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.poe_rogdet002">PO_NO           </DD_DVAR_NAME>
 			<DD_COL_REPEATS id="ddm_table_cols.poe_rogdet002">0</DD_COL_REPEATS>
 			<DD_COL_OCCURS id="ddm_table_cols.poe_rogdet002">0</DD_COL_OCCURS>
@@ -371,12 +440,12 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet002"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet002">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet002">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet002">3001</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet002">dis_po_no</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet002">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet002"></DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet002"></DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet002"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet002"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.poe_rogdet002">Y</DD_ATTR_RKEY>
-			<DD_ATTR_BTNS id="ddm_table_cols.poe_rogdet002">F</DD_ATTR_BTNS>
+			<DD_ATTR_BTNS id="ddm_table_cols.poe_rogdet002"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.poe_rogdet003">
 			<DD_TABLE_ALIAS id="ddm_table_cols.poe_rogdet003">POE_ROGDET      </DD_TABLE_ALIAS>
@@ -422,9 +491,9 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet003"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet003">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet003">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet003">3002</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet003">ine_receiver_no</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet003">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet003"></DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet003"></DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet003"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet003"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.poe_rogdet003">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.poe_rogdet003"></DD_ATTR_BTNS>
@@ -473,9 +542,9 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet004"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet004">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet004">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet004">3003</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet004">ind_return_date</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet004">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet004"></DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet004"></DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet004"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet004"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.poe_rogdet004">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.poe_rogdet004">C</DD_ATTR_BTNS>
@@ -524,9 +593,9 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet005"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet005">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet005">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet005">3004</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet005">ine_return_auth</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet005">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet005"></DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet005"></DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet005"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet005"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.poe_rogdet005">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.poe_rogdet005"></DD_ATTR_BTNS>
@@ -575,9 +644,9 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet006"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet006">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet006">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet006">3005</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet006">ine_rec_int_seq_ref</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet006">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet006"></DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet006"></DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet006"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet006"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.poe_rogdet006">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.poe_rogdet006"></DD_ATTR_BTNS>
@@ -608,8 +677,8 @@
 			<DD_ATTR_DRLE id="ddm_table_cols.poe_rogdet007"></DD_ATTR_DRLE>
 			<DD_ATTR_GHDR id="ddm_table_cols.poe_rogdet007"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.poe_rogdet007"></DD_ATTR_IDEF>
-			<DD_ATTR_LABL id="ddm_table_cols.poe_rogdet007"></DD_ATTR_LABL>
-			<DD_ATTR_LABS id="ddm_table_cols.poe_rogdet007"></DD_ATTR_LABS>
+			<DD_ATTR_LABL id="ddm_table_cols.poe_rogdet007">Detail Line Number</DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_table_cols.poe_rogdet007">Line No</DD_ATTR_LABS>
 			<DD_ATTR_MLAN id="ddm_table_cols.poe_rogdet007">N</DD_ATTR_MLAN>
 			<DD_ATTR_MINL id="ddm_table_cols.poe_rogdet007"></DD_ATTR_MINL>
 			<DD_ATTR_MAXL id="ddm_table_cols.poe_rogdet007"></DD_ATTR_MAXL>
@@ -626,7 +695,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet007"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet007">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet007">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet007">3006</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet007">3001</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet007">ine_line_no</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet007">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet007"></DD_ATTR_RADG>
@@ -660,7 +729,7 @@
 			<DD_ATTR_GHDR id="ddm_table_cols.poe_rogdet008"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.poe_rogdet008"></DD_ATTR_IDEF>
 			<DD_ATTR_LABL id="ddm_table_cols.poe_rogdet008"></DD_ATTR_LABL>
-			<DD_ATTR_LABS id="ddm_table_cols.poe_rogdet008"></DD_ATTR_LABS>
+			<DD_ATTR_LABS id="ddm_table_cols.poe_rogdet008">Whse</DD_ATTR_LABS>
 			<DD_ATTR_MLAN id="ddm_table_cols.poe_rogdet008">N</DD_ATTR_MLAN>
 			<DD_ATTR_MINL id="ddm_table_cols.poe_rogdet008"></DD_ATTR_MINL>
 			<DD_ATTR_MAXL id="ddm_table_cols.poe_rogdet008"></DD_ATTR_MAXL>
@@ -677,7 +746,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet008"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet008">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet008">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet008">3007</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet008">3002</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet008">dis_warehouse_id</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet008">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet008"></DD_ATTR_RADG>
@@ -728,7 +797,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet009"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet009">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet009">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet009">3008</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet009">3003</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet009">dis_item_id</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet009">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet009"></DD_ATTR_RADG>
@@ -779,7 +848,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet010"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet010">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet010">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet010">3009</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet010">3004</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet010">ine_ns_item_id</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet010">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet010"></DD_ATTR_RADG>
@@ -830,7 +899,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet011"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet011">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet011">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet011">3010</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet011">3005</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet011">ine_order_memo</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet011">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet011"></DD_ATTR_RADG>
@@ -881,7 +950,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet012"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet012">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet012">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet012">3011</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet012">3006</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet012">ced_memo_1024</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet012">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet012"></DD_ATTR_RADG>
@@ -932,7 +1001,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet013"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet013">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet013">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet013">3012</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet013">3007</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet013">ine_return_reason</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet013">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet013"></DD_ATTR_RADG>
@@ -946,8 +1015,8 @@
 			<DD_DVAR_NAME id="ddm_table_cols.poe_rogdet014">UNIT_MEASURE    </DD_DVAR_NAME>
 			<DD_COL_REPEATS id="ddm_table_cols.poe_rogdet014">0</DD_COL_REPEATS>
 			<DD_COL_OCCURS id="ddm_table_cols.poe_rogdet014">0</DD_COL_OCCURS>
-			<DD_FIELD_DELIM id="ddm_table_cols.poe_rogdet014">Y</DD_FIELD_DELIM>
-			<DD_DELIM_CHAR id="ddm_table_cols.poe_rogdet014">0A</DD_DELIM_CHAR>
+			<DD_FIELD_DELIM id="ddm_table_cols.poe_rogdet014">N</DD_FIELD_DELIM>
+			<DD_DELIM_CHAR id="ddm_table_cols.poe_rogdet014"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.poe_rogdet014"></DD_SYSTEM_REC>
 			<DD_SYSTEM_ID id="ddm_table_cols.poe_rogdet014"></DD_SYSTEM_ID>
 			<DD_MASK_TYPE id="ddm_table_cols.poe_rogdet014"></DD_MASK_TYPE>
@@ -983,7 +1052,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet014"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet014">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet014">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet014">3013</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet014">3008</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet014">dis_unit_measure</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet014">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet014"></DD_ATTR_RADG>
@@ -1034,7 +1103,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet015"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet015">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet015">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet015">3014</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet015">3009</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet015">inn_conv_factor</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet015">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet015"></DD_ATTR_RADG>
@@ -1068,7 +1137,7 @@
 			<DD_ATTR_GHDR id="ddm_table_cols.poe_rogdet016"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.poe_rogdet016"></DD_ATTR_IDEF>
 			<DD_ATTR_LABL id="ddm_table_cols.poe_rogdet016"></DD_ATTR_LABL>
-			<DD_ATTR_LABS id="ddm_table_cols.poe_rogdet016"></DD_ATTR_LABS>
+			<DD_ATTR_LABS id="ddm_table_cols.poe_rogdet016">Qty Ordered</DD_ATTR_LABS>
 			<DD_ATTR_MLAN id="ddm_table_cols.poe_rogdet016">N</DD_ATTR_MLAN>
 			<DD_ATTR_MINL id="ddm_table_cols.poe_rogdet016"></DD_ATTR_MINL>
 			<DD_ATTR_MAXL id="ddm_table_cols.poe_rogdet016"></DD_ATTR_MAXL>
@@ -1085,7 +1154,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet016"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet016">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet016">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet016">3015</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet016">3010</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet016">inn_qty_ordered</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet016">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet016"></DD_ATTR_RADG>
@@ -1136,7 +1205,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet017"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet017">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet017">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet017">3016</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet017">3011</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet017">inn_qty_prev_rec</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet017">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet017"></DD_ATTR_RADG>
@@ -1187,7 +1256,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet018"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet018">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet018">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet018">3017</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet018">3012</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet018">inn_qty_received</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet018">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet018"></DD_ATTR_RADG>
@@ -1221,7 +1290,7 @@
 			<DD_ATTR_GHDR id="ddm_table_cols.poe_rogdet019"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.poe_rogdet019"></DD_ATTR_IDEF>
 			<DD_ATTR_LABL id="ddm_table_cols.poe_rogdet019"></DD_ATTR_LABL>
-			<DD_ATTR_LABS id="ddm_table_cols.poe_rogdet019"></DD_ATTR_LABS>
+			<DD_ATTR_LABS id="ddm_table_cols.poe_rogdet019">Qty Returned</DD_ATTR_LABS>
 			<DD_ATTR_MLAN id="ddm_table_cols.poe_rogdet019">N</DD_ATTR_MLAN>
 			<DD_ATTR_MINL id="ddm_table_cols.poe_rogdet019"></DD_ATTR_MINL>
 			<DD_ATTR_MAXL id="ddm_table_cols.poe_rogdet019"></DD_ATTR_MAXL>
@@ -1238,12 +1307,116 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet019"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet019">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet019">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet019">3018</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet019">3013</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet019">inn_qty_returned</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet019">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet019"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.poe_rogdet019">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.poe_rogdet019"></DD_ATTR_BTNS>
+		</RECORD>
+		<RECORD id="ddm_table_cols.poe_rogdet020">
+			<DD_TABLE_ALIAS id="ddm_table_cols.poe_rogdet020">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_SEQUENCE id="ddm_table_cols.poe_rogdet020">020</DD_SEQUENCE>
+			<DD_DATA_NAME id="ddm_table_cols.poe_rogdet020">QTY_BACKORD     </DD_DATA_NAME>
+			<DD_DVAR_NAME id="ddm_table_cols.poe_rogdet020">REPLACE_QTY     </DD_DVAR_NAME>
+			<DD_COL_REPEATS id="ddm_table_cols.poe_rogdet020">0</DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.poe_rogdet020">0</DD_COL_OCCURS>
+			<DD_FIELD_DELIM id="ddm_table_cols.poe_rogdet020">Y</DD_FIELD_DELIM>
+			<DD_DELIM_CHAR id="ddm_table_cols.poe_rogdet020">0A</DD_DELIM_CHAR>
+			<DD_SYSTEM_REC id="ddm_table_cols.poe_rogdet020"></DD_SYSTEM_REC>
+			<DD_SYSTEM_ID id="ddm_table_cols.poe_rogdet020"></DD_SYSTEM_ID>
+			<DD_MASK_TYPE id="ddm_table_cols.poe_rogdet020"></DD_MASK_TYPE>
+			<DD_CREATE_DATE id="ddm_table_cols.poe_rogdet020">20250425</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_table_cols.poe_rogdet020">20250425</DD_LSTREV_DATE>
+			<DD_ATTR_ABLC id="ddm_table_cols.poe_rogdet020"></DD_ATTR_ABLC>
+			<DD_ATTR_ABLV id="ddm_table_cols.poe_rogdet020"></DD_ATTR_ABLV>
+			<DD_ATTR_CPGM id="ddm_table_cols.poe_rogdet020"></DD_ATTR_CPGM>
+			<DD_ATTR_COLW id="ddm_table_cols.poe_rogdet020">0</DD_ATTR_COLW>
+			<DD_ATTR_CTLX id="ddm_table_cols.poe_rogdet020"></DD_ATTR_CTLX>
+			<DD_ATTR_CTLY id="ddm_table_cols.poe_rogdet020"></DD_ATTR_CTLY>
+			<DD_ATTR_CTLW id="ddm_table_cols.poe_rogdet020"></DD_ATTR_CTLW>
+			<DD_ATTR_CTLH id="ddm_table_cols.poe_rogdet020"></DD_ATTR_CTLH>
+			<DD_ATTR_DFLT id="ddm_table_cols.poe_rogdet020"></DD_ATTR_DFLT>
+			<DD_ATTR_DRLE id="ddm_table_cols.poe_rogdet020"></DD_ATTR_DRLE>
+			<DD_ATTR_GHDR id="ddm_table_cols.poe_rogdet020"></DD_ATTR_GHDR>
+			<DD_ATTR_IDEF id="ddm_table_cols.poe_rogdet020"></DD_ATTR_IDEF>
+			<DD_ATTR_LABL id="ddm_table_cols.poe_rogdet020">Replacement Qty</DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_table_cols.poe_rogdet020">Replace Qty</DD_ATTR_LABS>
+			<DD_ATTR_MLAN id="ddm_table_cols.poe_rogdet020">N</DD_ATTR_MLAN>
+			<DD_ATTR_MINL id="ddm_table_cols.poe_rogdet020"></DD_ATTR_MINL>
+			<DD_ATTR_MAXL id="ddm_table_cols.poe_rogdet020"></DD_ATTR_MAXL>
+			<DD_ATTR_MINV id="ddm_table_cols.poe_rogdet020"></DD_ATTR_MINV>
+			<DD_ATTR_MAXV id="ddm_table_cols.poe_rogdet020"></DD_ATTR_MAXV>
+			<DD_ATTR_PROM id="ddm_table_cols.poe_rogdet020"></DD_ATTR_PROM>
+			<DD_ATTR_PVAL id="ddm_table_cols.poe_rogdet020"></DD_ATTR_PVAL>
+			<DD_ATTR_SLEV id="ddm_table_cols.poe_rogdet020"></DD_ATTR_SLEV>
+			<DD_ATTR_TABG id="ddm_table_cols.poe_rogdet020"></DD_ATTR_TABG>
+			<DD_ATTR_TIND id="ddm_table_cols.poe_rogdet020">20</DD_ATTR_TIND>
+			<DD_ATTR_HELP id="ddm_table_cols.poe_rogdet020"></DD_ATTR_HELP>
+			<SQL_COLUMN_NAME id="ddm_table_cols.poe_rogdet020">REPLACE_QTY</SQL_COLUMN_NAME>
+			<DD_ATTR_FONT id="ddm_table_cols.poe_rogdet020"></DD_ATTR_FONT>
+			<DD_ATTR_STYL id="ddm_table_cols.poe_rogdet020"></DD_ATTR_STYL>
+			<DD_ATTR_FTSR id="ddm_table_cols.poe_rogdet020">N</DD_ATTR_FTSR>
+			<DD_ATTR_CWID id="ddm_table_cols.poe_rogdet020">0</DD_ATTR_CWID>
+			<DD_ATTR_CTLI id="ddm_table_cols.poe_rogdet020">3014</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.poe_rogdet020">inn_replace_qty</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.poe_rogdet020">0</DD_ATTR_CTLC>
+			<DD_ATTR_RADG id="ddm_table_cols.poe_rogdet020"></DD_ATTR_RADG>
+			<DD_ATTR_RKEY id="ddm_table_cols.poe_rogdet020">N</DD_ATTR_RKEY>
+			<DD_ATTR_BTNS id="ddm_table_cols.poe_rogdet020"></DD_ATTR_BTNS>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_column_opts">
+		<ID id="ddm_column_opts">DDM_COLUMN_OPTS</ID>
+		<RECORD id="ddm_column_opts.poe_rogdetpo_nog">
+			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetpo_nog">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.poe_rogdetpo_nog">PO_NO           </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.poe_rogdetpo_nog">G</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.poe_rogdetpo_now">
+			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetpo_now">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.poe_rogdetpo_now">PO_NO           </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.poe_rogdetpo_now">W</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.poe_rogdetreceiver_nog">
+			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetreceiver_nog">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.poe_rogdetreceiver_nog">RECEIVER_NO     </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.poe_rogdetreceiver_nog">G</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.poe_rogdetreceiver_now">
+			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetreceiver_now">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.poe_rogdetreceiver_now">RECEIVER_NO     </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.poe_rogdetreceiver_now">W</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.poe_rogdetreturn_dateg">
+			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetreturn_dateg">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.poe_rogdetreturn_dateg">RETURN_DATE     </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.poe_rogdetreturn_dateg">G</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.poe_rogdetreturn_datew">
+			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetreturn_datew">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.poe_rogdetreturn_datew">RETURN_DATE     </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.poe_rogdetreturn_datew">W</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.poe_rogdetreturn_authg">
+			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetreturn_authg">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.poe_rogdetreturn_authg">RETURN_AUTH     </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.poe_rogdetreturn_authg">G</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.poe_rogdetreturn_authw">
+			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetreturn_authw">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.poe_rogdetreturn_authw">RETURN_AUTH     </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.poe_rogdetreturn_authw">W</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.poe_rogdetrec_int_seq_refg">
+			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetrec_int_seq_refg">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.poe_rogdetrec_int_seq_refg">REC_INT_SEQ_REF </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.poe_rogdetrec_int_seq_refg">G</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.poe_rogdetrec_int_seq_refw">
+			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetrec_int_seq_refw">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.poe_rogdetrec_int_seq_refw">REC_INT_SEQ_REF </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.poe_rogdetrec_int_seq_refw">W</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">
@@ -1300,57 +1473,57 @@
 			<DD_ATTR_Y2KW id="ddm_elements.firm_id"></DD_ATTR_Y2KW>
 			<DD_ATTR_CASB id="ddm_elements.firm_id"></DD_ATTR_CASB>
 		</RECORD>
-		<RECORD id="ddm_elements.po_no_lk">
-			<DD_DATA_NAME id="ddm_elements.po_no_lk">PO_NO_LK        </DD_DATA_NAME>
-			<DD_DESCRIPTION id="ddm_elements.po_no_lk">Purchase Order Number Lookup</DD_DESCRIPTION>
-			<DD_DATA_TYPE id="ddm_elements.po_no_lk">C</DD_DATA_TYPE>
-			<DD_DATA_LENGTH id="ddm_elements.po_no_lk">7</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.po_no_lk"> </DD_MASK_TYPE>
-			<DD_SYSTEM_REC id="ddm_elements.po_no_lk"></DD_SYSTEM_REC>
-			<ASC_COMP_ID id="ddm_elements.po_no_lk">01007514</ASC_COMP_ID>
-			<ASC_PROD_ID id="ddm_elements.po_no_lk">PO </ASC_PROD_ID>
-			<LOCALIZATION_EX id="ddm_elements.po_no_lk">N</LOCALIZATION_EX>
-			<DD_CREATE_DATE id="ddm_elements.po_no_lk">20090604</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_elements.po_no_lk">20090604</DD_LSTREV_DATE>
-			<DD_AUTO_COMP id="ddm_elements.po_no_lk"></DD_AUTO_COMP>
-			<DD_ATTR_BLNK id="ddm_elements.po_no_lk"></DD_ATTR_BLNK>
-			<DD_ATTR_CDAT id="ddm_elements.po_no_lk"></DD_ATTR_CDAT>
-			<DD_ATTR_CTLW id="ddm_elements.po_no_lk"></DD_ATTR_CTLW>
-			<DD_ATTR_CTLH id="ddm_elements.po_no_lk"></DD_ATTR_CTLH>
-			<DD_ATTR_CTYP id="ddm_elements.po_no_lk">E</DD_ATTR_CTYP>
-			<DD_ATTR_DCOL id="ddm_elements.po_no_lk">PO_NO</DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.po_no_lk"></DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.po_no_lk"></DD_ATTR_DEXP>
-			<DD_ATTR_DFLT id="ddm_elements.po_no_lk"></DD_ATTR_DFLT>
-			<DD_ATTR_DKNM id="ddm_elements.po_no_lk"></DD_ATTR_DKNM>
-			<DD_ATTR_DKEY id="ddm_elements.po_no_lk">[+FIRM_ID]+@</DD_ATTR_DKEY>
-			<DD_ATTR_DTAB id="ddm_elements.po_no_lk">POE_POHDR       </DD_ATTR_DTAB>
-			<DD_ATTR_DINQ id="ddm_elements.po_no_lk"></DD_ATTR_DINQ>
-			<DD_ATTR_ENCR id="ddm_elements.po_no_lk"></DD_ATTR_ENCR>
-			<DD_ATTR_IDEF id="ddm_elements.po_no_lk"></DD_ATTR_IDEF>
-			<DD_ATTR_LABL id="ddm_elements.po_no_lk">Purchase Order Number</DD_ATTR_LABL>
-			<DD_ATTR_LABS id="ddm_elements.po_no_lk">PO No</DD_ATTR_LABS>
-			<DD_ATTR_LDIS id="ddm_elements.po_no_lk"></DD_ATTR_LDIS>
-			<DD_ATTR_MAXL id="ddm_elements.po_no_lk"></DD_ATTR_MAXL>
-			<DD_ATTR_MAXR id="ddm_elements.po_no_lk"></DD_ATTR_MAXR>
-			<DD_ATTR_MAXV id="ddm_elements.po_no_lk"></DD_ATTR_MAXV>
-			<DD_ATTR_MINL id="ddm_elements.po_no_lk"></DD_ATTR_MINL>
-			<DD_ATTR_MINV id="ddm_elements.po_no_lk"></DD_ATTR_MINV>
-			<DD_ATTR_MSKI id="ddm_elements.po_no_lk">0000000</DD_ATTR_MSKI>
-			<DD_ATTR_MSKO id="ddm_elements.po_no_lk">0000000</DD_ATTR_MSKO>
-			<DD_ATTR_PADC id="ddm_elements.po_no_lk">30</DD_ATTR_PADC>
-			<DD_ATTR_PADJ id="ddm_elements.po_no_lk">R</DD_ATTR_PADJ>
-			<DD_ATTR_PREC id="ddm_elements.po_no_lk">0</DD_ATTR_PREC>
-			<DD_ATTR_PROM id="ddm_elements.po_no_lk"></DD_ATTR_PROM>
-			<DD_ATTR_PVAL id="ddm_elements.po_no_lk"></DD_ATTR_PVAL>
-			<DD_ATTR_SDLG id="ddm_elements.po_no_lk"></DD_ATTR_SDLG>
-			<DD_ATTR_SLEV id="ddm_elements.po_no_lk"></DD_ATTR_SLEV>
-			<DD_ATTR_STYP id="ddm_elements.po_no_lk"></DD_ATTR_STYP>
-			<DD_ATTR_STEP id="ddm_elements.po_no_lk"></DD_ATTR_STEP>
-			<DD_ATTR_FLPT id="ddm_elements.po_no_lk"></DD_ATTR_FLPT>
-			<DD_ATTR_OEMD id="ddm_elements.po_no_lk"></DD_ATTR_OEMD>
-			<DD_ATTR_Y2KW id="ddm_elements.po_no_lk"></DD_ATTR_Y2KW>
-			<DD_ATTR_CASB id="ddm_elements.po_no_lk"></DD_ATTR_CASB>
+		<RECORD id="ddm_elements.po_no">
+			<DD_DATA_NAME id="ddm_elements.po_no">PO_NO           </DD_DATA_NAME>
+			<DD_DESCRIPTION id="ddm_elements.po_no">Purchase Order Number         </DD_DESCRIPTION>
+			<DD_DATA_TYPE id="ddm_elements.po_no">C</DD_DATA_TYPE>
+			<DD_DATA_LENGTH id="ddm_elements.po_no">7</DD_DATA_LENGTH>
+			<DD_MASK_TYPE id="ddm_elements.po_no"> </DD_MASK_TYPE>
+			<DD_SYSTEM_REC id="ddm_elements.po_no"></DD_SYSTEM_REC>
+			<ASC_COMP_ID id="ddm_elements.po_no">01007514</ASC_COMP_ID>
+			<ASC_PROD_ID id="ddm_elements.po_no">AD </ASC_PROD_ID>
+			<LOCALIZATION_EX id="ddm_elements.po_no"></LOCALIZATION_EX>
+			<DD_CREATE_DATE id="ddm_elements.po_no">20060119</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_elements.po_no">20060119</DD_LSTREV_DATE>
+			<DD_AUTO_COMP id="ddm_elements.po_no"></DD_AUTO_COMP>
+			<DD_ATTR_BLNK id="ddm_elements.po_no"></DD_ATTR_BLNK>
+			<DD_ATTR_CDAT id="ddm_elements.po_no"></DD_ATTR_CDAT>
+			<DD_ATTR_CTLW id="ddm_elements.po_no"></DD_ATTR_CTLW>
+			<DD_ATTR_CTLH id="ddm_elements.po_no"></DD_ATTR_CTLH>
+			<DD_ATTR_CTYP id="ddm_elements.po_no">E</DD_ATTR_CTYP>
+			<DD_ATTR_DCOL id="ddm_elements.po_no"></DD_ATTR_DCOL>
+			<DD_ATTR_DCOM id="ddm_elements.po_no">            </DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.po_no">            </DD_ATTR_DEXP>
+			<DD_ATTR_DFLT id="ddm_elements.po_no"></DD_ATTR_DFLT>
+			<DD_ATTR_DKNM id="ddm_elements.po_no"></DD_ATTR_DKNM>
+			<DD_ATTR_DKEY id="ddm_elements.po_no"></DD_ATTR_DKEY>
+			<DD_ATTR_DTAB id="ddm_elements.po_no"></DD_ATTR_DTAB>
+			<DD_ATTR_DINQ id="ddm_elements.po_no"></DD_ATTR_DINQ>
+			<DD_ATTR_ENCR id="ddm_elements.po_no"></DD_ATTR_ENCR>
+			<DD_ATTR_IDEF id="ddm_elements.po_no"></DD_ATTR_IDEF>
+			<DD_ATTR_LABL id="ddm_elements.po_no">Purchase Order Number</DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_elements.po_no">PO No</DD_ATTR_LABS>
+			<DD_ATTR_LDIS id="ddm_elements.po_no"></DD_ATTR_LDIS>
+			<DD_ATTR_MAXL id="ddm_elements.po_no"></DD_ATTR_MAXL>
+			<DD_ATTR_MAXR id="ddm_elements.po_no"></DD_ATTR_MAXR>
+			<DD_ATTR_MAXV id="ddm_elements.po_no"></DD_ATTR_MAXV>
+			<DD_ATTR_MINL id="ddm_elements.po_no"></DD_ATTR_MINL>
+			<DD_ATTR_MINV id="ddm_elements.po_no"></DD_ATTR_MINV>
+			<DD_ATTR_MSKI id="ddm_elements.po_no">0000000</DD_ATTR_MSKI>
+			<DD_ATTR_MSKO id="ddm_elements.po_no">0000000</DD_ATTR_MSKO>
+			<DD_ATTR_PADC id="ddm_elements.po_no">30</DD_ATTR_PADC>
+			<DD_ATTR_PADJ id="ddm_elements.po_no">R</DD_ATTR_PADJ>
+			<DD_ATTR_PREC id="ddm_elements.po_no"></DD_ATTR_PREC>
+			<DD_ATTR_PROM id="ddm_elements.po_no"></DD_ATTR_PROM>
+			<DD_ATTR_PVAL id="ddm_elements.po_no"></DD_ATTR_PVAL>
+			<DD_ATTR_SDLG id="ddm_elements.po_no"></DD_ATTR_SDLG>
+			<DD_ATTR_SLEV id="ddm_elements.po_no"></DD_ATTR_SLEV>
+			<DD_ATTR_STYP id="ddm_elements.po_no"></DD_ATTR_STYP>
+			<DD_ATTR_STEP id="ddm_elements.po_no"></DD_ATTR_STEP>
+			<DD_ATTR_FLPT id="ddm_elements.po_no"></DD_ATTR_FLPT>
+			<DD_ATTR_OEMD id="ddm_elements.po_no"></DD_ATTR_OEMD>
+			<DD_ATTR_Y2KW id="ddm_elements.po_no"></DD_ATTR_Y2KW>
+			<DD_ATTR_CASB id="ddm_elements.po_no"></DD_ATTR_CASB>
 		</RECORD>
 		<RECORD id="ddm_elements.receiver_no">
 			<DD_DATA_NAME id="ddm_elements.receiver_no">RECEIVER_NO     </DD_DATA_NAME>
@@ -2183,6 +2356,58 @@
 			<DD_ATTR_OEMD id="ddm_elements.qty_returned"></DD_ATTR_OEMD>
 			<DD_ATTR_Y2KW id="ddm_elements.qty_returned"></DD_ATTR_Y2KW>
 			<DD_ATTR_CASB id="ddm_elements.qty_returned"></DD_ATTR_CASB>
+		</RECORD>
+		<RECORD id="ddm_elements.qty_backord">
+			<DD_DATA_NAME id="ddm_elements.qty_backord">QTY_BACKORD     </DD_DATA_NAME>
+			<DD_DESCRIPTION id="ddm_elements.qty_backord">Back-Order Quantity           </DD_DESCRIPTION>
+			<DD_DATA_TYPE id="ddm_elements.qty_backord">N</DD_DATA_TYPE>
+			<DD_DATA_LENGTH id="ddm_elements.qty_backord">7</DD_DATA_LENGTH>
+			<DD_MASK_TYPE id="ddm_elements.qty_backord">U</DD_MASK_TYPE>
+			<DD_SYSTEM_REC id="ddm_elements.qty_backord"></DD_SYSTEM_REC>
+			<ASC_COMP_ID id="ddm_elements.qty_backord">01007514</ASC_COMP_ID>
+			<ASC_PROD_ID id="ddm_elements.qty_backord">IV </ASC_PROD_ID>
+			<LOCALIZATION_EX id="ddm_elements.qty_backord"></LOCALIZATION_EX>
+			<DD_CREATE_DATE id="ddm_elements.qty_backord">20060119</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_elements.qty_backord">20150114</DD_LSTREV_DATE>
+			<DD_AUTO_COMP id="ddm_elements.qty_backord"></DD_AUTO_COMP>
+			<DD_ATTR_BLNK id="ddm_elements.qty_backord"></DD_ATTR_BLNK>
+			<DD_ATTR_CDAT id="ddm_elements.qty_backord"></DD_ATTR_CDAT>
+			<DD_ATTR_CTLW id="ddm_elements.qty_backord"></DD_ATTR_CTLW>
+			<DD_ATTR_CTLH id="ddm_elements.qty_backord"></DD_ATTR_CTLH>
+			<DD_ATTR_CTYP id="ddm_elements.qty_backord">N</DD_ATTR_CTYP>
+			<DD_ATTR_DCOL id="ddm_elements.qty_backord"></DD_ATTR_DCOL>
+			<DD_ATTR_DCOM id="ddm_elements.qty_backord">            </DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.qty_backord">            </DD_ATTR_DEXP>
+			<DD_ATTR_DFLT id="ddm_elements.qty_backord"></DD_ATTR_DFLT>
+			<DD_ATTR_DKNM id="ddm_elements.qty_backord"></DD_ATTR_DKNM>
+			<DD_ATTR_DKEY id="ddm_elements.qty_backord"></DD_ATTR_DKEY>
+			<DD_ATTR_DTAB id="ddm_elements.qty_backord"></DD_ATTR_DTAB>
+			<DD_ATTR_DINQ id="ddm_elements.qty_backord"></DD_ATTR_DINQ>
+			<DD_ATTR_ENCR id="ddm_elements.qty_backord"></DD_ATTR_ENCR>
+			<DD_ATTR_IDEF id="ddm_elements.qty_backord"></DD_ATTR_IDEF>
+			<DD_ATTR_LABL id="ddm_elements.qty_backord">Back-Order Quantity</DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_elements.qty_backord">Back-Ord Qty</DD_ATTR_LABS>
+			<DD_ATTR_LDIS id="ddm_elements.qty_backord"></DD_ATTR_LDIS>
+			<DD_ATTR_MAXL id="ddm_elements.qty_backord"></DD_ATTR_MAXL>
+			<DD_ATTR_MAXR id="ddm_elements.qty_backord"></DD_ATTR_MAXR>
+			<DD_ATTR_MAXV id="ddm_elements.qty_backord"></DD_ATTR_MAXV>
+			<DD_ATTR_MINL id="ddm_elements.qty_backord"></DD_ATTR_MINL>
+			<DD_ATTR_MINV id="ddm_elements.qty_backord"></DD_ATTR_MINV>
+			<DD_ATTR_MSKI id="ddm_elements.qty_backord"></DD_ATTR_MSKI>
+			<DD_ATTR_MSKO id="ddm_elements.qty_backord"></DD_ATTR_MSKO>
+			<DD_ATTR_PADC id="ddm_elements.qty_backord"></DD_ATTR_PADC>
+			<DD_ATTR_PADJ id="ddm_elements.qty_backord"></DD_ATTR_PADJ>
+			<DD_ATTR_PREC id="ddm_elements.qty_backord">4</DD_ATTR_PREC>
+			<DD_ATTR_PROM id="ddm_elements.qty_backord"></DD_ATTR_PROM>
+			<DD_ATTR_PVAL id="ddm_elements.qty_backord"></DD_ATTR_PVAL>
+			<DD_ATTR_SDLG id="ddm_elements.qty_backord"></DD_ATTR_SDLG>
+			<DD_ATTR_SLEV id="ddm_elements.qty_backord"></DD_ATTR_SLEV>
+			<DD_ATTR_STYP id="ddm_elements.qty_backord"></DD_ATTR_STYP>
+			<DD_ATTR_STEP id="ddm_elements.qty_backord"></DD_ATTR_STEP>
+			<DD_ATTR_FLPT id="ddm_elements.qty_backord"></DD_ATTR_FLPT>
+			<DD_ATTR_OEMD id="ddm_elements.qty_backord"></DD_ATTR_OEMD>
+			<DD_ATTR_Y2KW id="ddm_elements.qty_backord"></DD_ATTR_Y2KW>
+			<DD_ATTR_CASB id="ddm_elements.qty_backord"></DD_ATTR_CASB>
 		</RECORD>
 	</ALIAS>
 </POE_ROGDET>

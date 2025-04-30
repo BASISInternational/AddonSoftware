@@ -73,4 +73,28 @@
 		<MSG_TEXT>Cannot use the dropship warehouse %1 unless the Dropship checkbox is marked.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
+	<barista_record>
+		<MSG_ID>PO_NOT_FND_FOR_VEND </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>PO </ASC_PROD_ID>
+		<MSG_TEXT>Purchase Order %1 not found for Vendor %2[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>PO_RCVR_FND_FOR_PO  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>PO </ASC_PROD_ID>
+		<MSG_TEXT>Receiver %1 not found for PO %2[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
 </barista_admin_records>
