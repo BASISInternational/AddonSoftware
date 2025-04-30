@@ -1618,4 +1618,120 @@
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>PO </ASC_PROD_ID>
 	</barista_record>
+	<barista_record>
+		<QUERY_ID>PO_REC_OPEN+HIST</QUERY_ID>
+		<SEQUENCE_NO>001</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>H</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>POE_RECHDR      </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>FIRM_ID         </DD_TABLE_COL>
+		<COLUMN_ALIAS>FIRM_ID         </COLUMN_ALIAS>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>PO </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>PO_REC_OPEN+HIST</QUERY_ID>
+		<SEQUENCE_NO>002</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>POE_RECHDR      </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>VENDOR_ID       </DD_TABLE_COL>
+		<COLUMN_ALIAS>VENDOR_ID       </COLUMN_ALIAS>
+		<COLUMN_HDR>Vendor</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>PO </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>PO_REC_OPEN+HIST</QUERY_ID>
+		<SEQUENCE_NO>003</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>POE_RECHDR      </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>PO_NO           </DD_TABLE_COL>
+		<COLUMN_ALIAS>PO_NO           </COLUMN_ALIAS>
+		<COLUMN_HDR>PO No</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>PO </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>PO_REC_OPEN+HIST</QUERY_ID>
+		<SEQUENCE_NO>004</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>POE_RECHDR      </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>RECEIVER_NO     </DD_TABLE_COL>
+		<COLUMN_ALIAS>RECEIVER_NO     </COLUMN_ALIAS>
+		<COLUMN_HDR>Receiver</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_DRILL>PO_REC_HIST_DET </COLUMN_DRILL>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>PO </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>PO_REC_OPEN+HIST</QUERY_ID>
+		<SEQUENCE_NO>005</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>POE_RECHDR      </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>WAREHOUSE_ID    </DD_TABLE_COL>
+		<COLUMN_ALIAS>WAREHOUSE_ID    </COLUMN_ALIAS>
+		<COLUMN_HDR>Whse</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>PO </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>PO_REC_OPEN+HIST</QUERY_ID>
+		<SEQUENCE_NO>006</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>POE_RECHDR      </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>RECPT_DATE      </DD_TABLE_COL>
+		<COLUMN_ALIAS>RECPT_DATE      </COLUMN_ALIAS>
+		<COLUMN_HDR>Receipt Date</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>PO </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>PO_REC_OPEN+HIST</QUERY_ID>
+		<SEQUENCE_NO>007</SEQUENCE_NO>
+		<COLUMN_TYPE>S</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_DATA_NAME>REFERENCE       </DD_DATA_NAME>
+		<COLUMN_ALIAS>STATUS          </COLUMN_ALIAS>
+		<COLUMN_HDR>Status</COLUMN_HDR>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>PO </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
 </barista_admin_records>
