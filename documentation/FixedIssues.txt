@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-04-29
+ Report Date:   2025-04-30
  Report Branch: AddonSoftware 25.01
  Last Release:  AddonSoftware 25.00
 =======================================================================================================================================
@@ -104,4 +104,29 @@ Bug 11026: Email validation based on javax.mail.internet.internetaddress
 fails in v25. Replaced with jakarta.mail.internet.internetaddress
 ----
 Modified: ad/src/ado_util.src
+=======================================================================================================================================
+
+Revision: cb1088e3d3896c0c9422e63920e3bbf410e3f0f8
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 4/30/2025 3:04:33 PM
+Message:
+ER 7040: Initial commit of new Return Of Goods form.
+----
+Modified: data/bar/poe_rogdet.xml
+Modified: data/bar/poe_roghdr.xml
+Modified: data/bar/poe_roglsdet.xml
+Deleted: data/bar/poe_rogrefund.xml
+Deleted: data/bar/poe_rogreplacedt.xml
+Modified: data/bar/pot_rogdet.xml
+Modified: data/bar/pot_roghdr.xml
+Modified: data/bar/pot_roglsdet.xml
+Deleted: data/bar/pot_rogrefund.xml
+Deleted: data/bar/pot_rogreplacedt.xml
+Added: data/cdf/poe_roghdr.cdf
+Modified: data/sync/adm_query_cols~[01007514PO].xml
+Modified: data/sync/adm_query~[01007514PO].xml
+Modified: data/sync/ads_messages~[01007514PO].xml
+Modified: documentation/readme.htm
+Modified: prop/addon.properties
+Modified: prop/addon_en.properties
 =======================================================================================================================================
