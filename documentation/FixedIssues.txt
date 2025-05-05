@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-04-30
+ Report Date:   2025-05-05
  Report Branch: AddonSoftware 25.01
  Last Release:  AddonSoftware 25.00
 =======================================================================================================================================
@@ -129,4 +129,17 @@ Modified: data/sync/ads_messages~[01007514PO].xml
 Modified: documentation/readme.htm
 Modified: prop/addon.properties
 Modified: prop/addon_en.properties
+=======================================================================================================================================
+
+Revision: edaea304c1bc50a8eef86d487c71aa859fb66bfb
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 5/5/2025 10:26:04 AM
+Message:
+Bug 11027: Added "Document Inquiry" and "Job Numbers" to the "Addon
+Expresso (Hidden)" menu and set their Barista Security Tasks for the
+Guest user.
+----
+Modified: data/sync/adm_mnu_item~[01007514AD].xml
+Modified: data/sync/adm_mnu_trans~[01007514AD].xml
+Modified: data/sync/adm_rolealias~[all].xml
 =======================================================================================================================================
