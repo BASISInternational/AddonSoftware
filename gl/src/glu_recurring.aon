@@ -62,8 +62,6 @@ rem --- Initializations
 
     more=1
     moredetail=1
-    yyyymm$=sysinfo.system_date$(1,6)
-    if postper$<>"" then let yyyymm$=postper$;rem "override sys dt w/ post yr/per specified by user
 
 rem --- Options
 
@@ -102,11 +100,11 @@ rem --- gle-01/11 Journal Entry files.
           gle02_key$=key(gle02_dev,end=*break)
           if pos(firm_id$=gle02_key$)<>1 break
           read record (gle02_dev)gle02a$
+          gle02a.trans_date$=postdate$
           call stbl("+DIR_PGM")+"adc_copyfile.aon",gle02a$,gle01a$,status
           call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,0,status
           if cycle$<>"" if gle01a.cycle_code$<>cycle$ then continue
           reversal=cvs(gle01a.reverse_date$,2)<>"" and cvs(cycle_reversal$,2)<>"" 
-          if reversal=0 gosub end_of_month
           if reversal if cycle_reversal$="C" gosub calculation
           if reversal if cycle_reversal$="D" gosub bydate
           gle01a.batch_no$=batch_no$
@@ -150,7 +148,6 @@ rem --- the original transaction date and the original reversal date.
     enddate$=gle01a.reverse_date$
     numdays=0
     call pgmdir$+"adc_daydates.aon",begdate$,enddate$,numdays
-    gosub end_of_month
     begdate$=gle01a.trans_date$
     enddate$=""
     call pgmdir$+"adc_daydates.aon",begdate$,enddate$,numdays
@@ -169,7 +166,6 @@ rem --- the original transaction date and the original reversal date.
     months=num(enddate$(5,2))-num(begdate$(5,2))
     new_day=num(enddate$(7,2))
     if new_day<1 new_day=1
-    gosub end_of_month
     begdate$=gle01a.trans_date$
     new_month=num(begdate$(5,2))+months
     new_year=num(begdate$(1,4))+years
@@ -191,18 +187,6 @@ previous_day: rem --- Ran past the end of the month, need to back up a day
 bydate_exit: rem --- Set reversal date and return
 
     gle01a.reverse_date$=str(new_year:"0000")+str(new_month:"00")+str(new_day:"00")
-    return
-
-end_of_month: rem --- Make sure the date doesn't fall beyond the end of the month
-
-    month=num(yyyymm$(5,2))
-    xday=num(gle01a.trans_date$(7,2))
-    year=num(yyyymm$(1,4))
-    if month=2 
-:      if fpt(year/4)=0 and xday>29 xday=29 
-:         else if xday>28 xday=28
-    if (month=4 or month=6 or month=9 or month=11) and xday>30 xday=30
-    gle01a.trans_date$=str(year:"0000")+str(month:"00")+str(xday:"00")
     return
 
 rem #include disp_message.src
