@@ -1,9 +1,8 @@
 [[GLR_RECURRING.ARAR]]
-rem --- Initialize Posting Month and Posting Year with system date
+rem --- Initialize Posting Date with system date
 	dim sysinfo$:stbl("+SYSINFO_TPL")
 	sysinfo$=stbl("+SYSINFO")
-	callpoint!.setColumnData("GLR_RECURRING.POSTING_MONTH",sysinfo.system_date$(5,2),1)
-	callpoint!.setColumnData("GLR_RECURRING.POSTING_YEAR",sysinfo.system_date$(1,4),1)
+	callpoint!.setColumnData("GLR_RECURRING.POSTING_DATE",sysinfo.system_date$,1)
 
 [[GLR_RECURRING.BSHO]]
 rem --- Open/Lock files
@@ -12,6 +11,20 @@ rem --- Open/Lock files
 	open_tables$[1]="GLC_CYCLECODE",open_opts$[1]="OTA"
 
 	gosub open_tables
+
+	gl$="N"
+	status=0
+	source$=pgm(-2)
+	call stbl("+DIR_PGM")+"glc_ctlcreate.aon",err=*next,source$,"GL",glw11$,gl$,status
+	if status<>0 then
+		msg_id$="GLC_CTLCREATE_ERR"
+		dim msg_tokens$[1]
+		msg_tokens$[1]=str(status)
+		gosub disp_message
+		callpoint!.setStatus("EXIT")
+		break
+	endif
+	callpoint!.setDevObject("glint",gl$)
 
 [[GLR_RECURRING.CYCLE_CODE.AVAL]]
 rem --- Warn about inactive code Cycle Code
@@ -27,6 +40,13 @@ rem --- Warn about inactive code Cycle Code
 		gosub disp_message
 		if msg_opt$="C" then callpoint!.setStatus("ABORT")
 		break
+	endif
+
+[[GLR_RECURRING.POSTING_DATE.AVAL]]
+rem --- Skip validation if date checked before and it has not changed.
+	if callpoint!.getDevObject("glint")="Y" and callpoint!.getUserInput()<>callpoint!.getColumnData("GLR_RECURRING.POSTING_DATE") then
+		call stbl("+DIR_PGM")+"glc_datecheck.aon",callpoint!.getUserInput(),"Y",period$,year$,status
+		if status>100 callpoint!.setStatus("ABORT")
 	endif
 
 
