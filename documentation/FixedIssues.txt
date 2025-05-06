@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-05-05
+ Report Date:   2025-05-06
  Report Branch: AddonSoftware 25.01
  Last Release:  AddonSoftware 25.00
 =======================================================================================================================================
@@ -142,4 +142,17 @@ Guest user.
 Modified: data/sync/adm_mnu_item~[01007514AD].xml
 Modified: data/sync/adm_mnu_trans~[01007514AD].xml
 Modified: data/sync/adm_rolealias~[all].xml
+=======================================================================================================================================
+
+Revision: ffd65a07ac42ac774fe001f2547136c7e9ffab1a
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 5/6/2025 3:47:00 PM
+Message:
+Bug 11028: Replaced the Posting Month and Posting Year fields on the
+Recurring Journal Entry Register form with Posting Date.
+----
+Modified: data/bar/glr_recurring.xml
+Modified: data/cdf/glr_recurring.cdf
+Modified: gl/src/glr_recurring.aon
+Modified: gl/src/glu_recurring.aon
 =======================================================================================================================================
