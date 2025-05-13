@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-05-06
+ Report Date:   2025-05-13
  Report Branch: AddonSoftware 25.01
  Last Release:  AddonSoftware 25.00
 =======================================================================================================================================
@@ -156,3 +156,13 @@ Modified: data/cdf/glr_recurring.cdf
 Modified: gl/src/glr_recurring.aon
 Modified: gl/src/glu_recurring.aon
 =======================================================================================================================================
+Author: Ricky <rgonzales@basis.cloud>
+Date:   Tue May 13 16:21:59 2025 -0600
+
+ER - 11018: Added kit to BM_ITEM_LK and added a filter to the query.
+
+ data/sync/adm_query_cols~[01007514BM].xml
+ data/sync/ads_filter_text~[all].xml
+ data/sync/ads_filters~[all].xml
+
+
