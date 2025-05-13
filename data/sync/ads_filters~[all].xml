@@ -140,6 +140,13 @@
 	<barista_record>
 		<USER_ID>                </USER_ID>
 		<DD_TABLE_ALIAS>BM_ITEM_LK      </DD_TABLE_ALIAS>
+		<FILTER_ID>ACTIVE_KITS                   </FILTER_ID>
+		<DD_DESCRIPTION>ACTIVE_KITS</DD_DESCRIPTION>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<USER_ID>                </USER_ID>
+		<DD_TABLE_ALIAS>BM_ITEM_LK      </DD_TABLE_ALIAS>
 		<FILTER_ID>ALL_BILLS                     </FILTER_ID>
 		<DD_DESCRIPTION>ALL_BILLS</DD_DESCRIPTION>
 	</barista_record>
@@ -401,6 +408,13 @@
 		<FILTER_ID>ACTIVE_BILLS                  </FILTER_ID>
 		<DD_DESCRIPTION>ACTIVE_BILLS</DD_DESCRIPTION>
 		<DFLT_FILT>Y</DFLT_FILT>
+	</barista_record>
+	<barista_record>
+		<USER_ID>ADMIN           </USER_ID>
+		<DD_TABLE_ALIAS>BM_ITEM_LK      </DD_TABLE_ALIAS>
+		<FILTER_ID>ACTIVE_KITS                   </FILTER_ID>
+		<DD_DESCRIPTION>ACTIVE_KITS</DD_DESCRIPTION>
+		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
 		<USER_ID>ADMIN           </USER_ID>
