@@ -2,6 +2,58 @@
 rem --- Display Vendor Purchase Address
 	gosub vend_purchase_addr
 
+rem --- For inventoried lot/serial items, item qty_returned must equal sum of lot/serial items qty_returned.
+	poe_roglsdet_dev=fnget_dev("POE_ROGLSDET")
+	dim poe_roglsdet$:fnget_tpl$("POE_ROGLSDET")
+
+	po_no$=callpoint!.getColumnData("POE_ROGHDR.PO_NO")
+	receiver_no$=callpoint!.getColumnData("POE_ROGHDR.RECEIVER_NO")
+	return_date$=callpoint!.getColumnData("POE_ROGHDR.RETURN_DATE")
+	return_auth$=callpoint!.getColumnData("POE_ROGHDR.RETURN_AUTH")
+
+	dim gridrec$:fnget_tpl$("POE_ROGDET")
+	rowData!=cast(BBjVector,GridVect!.getItem(0))
+	for curr_row=0 to rowData!.size()-1
+		gridrec$=rowData!.getItem(curr_row)
+		item_id$=gridrec.item_id$
+		gosub lot_ser_check
+		if lotser_item$="Y" then
+			lotser_returned=0
+			trip_key$=firm_id$+po_no$+receiver_no$+return_date$+pad(return_auth$,15)+gridrec.rec_int_seq_ref$
+			read(poe_roglsdet_dev,key=trip_key$,knum="PRIMARY",dom=*next)
+			while 1
+				poe_roglsdet_key$=key(poe_roglsdet_dev,end=*break)
+				if pos(trip_key$=poe_roglsdet_key$)<>1 then break
+				readrecord(poe_roglsdet_dev)poe_roglsdet$
+				lotser_returned=lotser_returned+poe_roglsdet.qty_returned
+			wend
+
+			qty_returned=gridrec.qty_returned
+			if lotser_returned<>qty_returned then
+				msg_id$="PO_ROG_LSQTY_WARN1"
+				dim msg_tokens$[2]
+				msg_tokens$[1]=str(qty_returned)
+				msg_tokens$[2]=str(lotser_returned)
+				gosub disp_message
+
+				rem --- Show problem qty_returned in bold red
+				curr_row=num(gridrec.line_no$)-1
+				qtyReturned_col=callpoint!.getDevObject("qtyReturned_col")
+
+				grid! = util.getGrid(Form!)
+				grid!.setCellFont(curr_row,qtyReturned_col,callpoint!.getDevObject("boldFont"))
+				grid!.setCellForeColor(curr_row,qtyReturned_col,callpoint!.getDevObject("redColor"))
+			else
+				rem --- Reset color and font for qty_returned
+				qtyReturned_col=callpoint!.getDevObject("qtyReturned_col")
+
+				grid! = util.getGrid(Form!)
+				grid!.setCellFont(curr_row,qtyReturned_col,callpoint!.getDevObject("plainFont"))
+				grid!.setCellForeColor(curr_row,qtyReturned_col,callpoint!.getDevObject("blackColor"))
+			endif
+		endif
+	next curr_row
+
 [[POE_ROGHDR.ARAR]]
 rem --- Display Vendor Purchase Address
 	gosub vend_purchase_addr
@@ -167,6 +219,22 @@ rem --- Relaunch form with all the initialized data
 	rec_key$=poe_roghdr.firm_id$+poe_roghdr.po_no$+poe_roghdr.receiver_no$+poe_roghdr.return_date$+poe_roghdr.return_auth$
 	callpoint!.setStatus("RECORD:["+rec_key$+"]")
 
+[[POE_ROGHDR.ASHO]]
+rem --- Set up a color and font to be used when qty returned is NOT equal to the sum of lot/serial number qty returned
+	grid! = util.getGrid(Form!)
+	plainFont!=grid!.getRowFont(0)
+	boldFont!=sysGUI!.makeFont(plainFont!.getName(),plainFont!.getSize(),1);rem bold
+	callpoint!.setDevObject("plainFont",plainFont!)
+	callpoint!.setDevObject("boldFont",boldFont!)
+
+	RGB$="255,0,0"
+	gosub get_RGB
+	callpoint!.setDevObject("redColor",BBjAPI().getSysGui().makeColor(R,G,B))
+
+	RGB$="0,0,0"
+	gosub get_RGB
+	callpoint!.setDevObject("blackColor",BBjAPI().getSysGui().makeColor(R,G,B))
+
 [[POE_ROGHDR.BDEL]]
 rem --- Delete POE_ROGDET and POE_ROGLSDET records when the POE_ROGHDR record is deleted
 	poe_roghdr_dev=fnget_dev("POE_ROGHDR")
@@ -208,7 +276,7 @@ rem --- Initialize sysinfo$
 	sysinfo$=stbl("+SYSINFO")
 
 rem --- Open Files
-	num_files=10
+	num_files=11
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="POE_ROGDET",open_opts$[1]="OTA"
 	open_tables$[2]="POE_ROGLSDET",open_opts$[2]="OTA"
@@ -220,30 +288,66 @@ rem --- Open Files
 	open_tables$[8]="POT_RECLSDET",open_opts$[8]="OTA"
 	open_tables$[9]="APM_VENDADDR",open_opts$[9]="OTA"
 	open_tables$[10]="APM_VENDMAST",open_opts$[10]="OTA"
+	open_tables$[11]="IVM_ITEMMAST",open_opts$[11]="OTA"
 
 	gosub open_tables
 
-	poe_rogdet_dev=num(open_chans$[1])
-	poe_roglsdet_dev=num(open_chans$[2])
-	poe_rechdr_dev=num(open_chans$[3])
-	poe_recdet_dev=num(open_chans$[4])
-	poe_reclsdet_dev=num(open_chans$[5])
-	pot_rechdr_dev=num(open_chans$[6])
-	pot_recdet_dev=num(open_chans$[7])
-	pot_reclsdet_dev=num(open_chans$[8])
-	apm_vendaddr_dev=num(open_chans$[9])
-	apm_vendmast_dev=num(open_chans$[10])
+[[POE_ROGHDR.BWRI]]
+rem --- For inventoried lot/serial items, item qty_returned must equal sum of lot/serial items qty_returned.
+	poe_roglsdet_dev=fnget_dev("POE_ROGLSDET")
+	dim poe_roglsdet$:fnget_tpl$("POE_ROGLSDET")
 
-	dim poe_rogdet$:open_tpls$[1]
-	dim poe_roglsdet$:open_tpls$[2]
-	dim poe_rechdr$:open_tpls$[3]
-	dim poe_recdet$:open_tpls$[4]
-	dim poe_reclsdet$:open_tpls$[5]
-	dim pot_recdet$:open_tpls$[6]
-	dim pot_rechdr$:open_tpls$[7]
-	dim pot_reclshdr$:open_tpls$[8]
-	dim apm_vendaddr$:open_tpls$[9]
-	dim apm_vendmast$:open_tpls$[10]
+	po_no$=callpoint!.getColumnData("POE_ROGHDR.PO_NO")
+	receiver_no$=callpoint!.getColumnData("POE_ROGHDR.RECEIVER_NO")
+	return_date$=callpoint!.getColumnData("POE_ROGHDR.RETURN_DATE")
+	return_auth$=callpoint!.getColumnData("POE_ROGHDR.RETURN_AUTH")
+
+	dim gridrec$:fnget_tpl$("POE_ROGDET")
+	rowData!=cast(BBjVector,GridVect!.getItem(0))
+	for curr_row=0 to rowData!.size()-1
+		gridrec$=rowData!.getItem(curr_row)
+		item_id$=gridrec.item_id$
+		gosub lot_ser_check
+		if lotser_item$="Y" then
+			lotser_returned=0
+			trip_key$=firm_id$+po_no$+receiver_no$+return_date$+pad(return_auth$,15)+gridrec.rec_int_seq_ref$
+			read(poe_roglsdet_dev,key=trip_key$,knum="PRIMARY",dom=*next)
+			while 1
+				poe_roglsdet_key$=key(poe_roglsdet_dev,end=*break)
+				if pos(trip_key$=poe_roglsdet_key$)<>1 then break
+				readrecord(poe_roglsdet_dev)poe_roglsdet$
+				lotser_returned=lotser_returned+poe_roglsdet.qty_returned
+			wend
+
+			qty_returned=gridrec.qty_returned
+			if lotser_returned<>qty_returned then
+				msg_id$="PO_ROG_LSQTY_WARN1"
+				dim msg_tokens$[2]
+				msg_tokens$[1]=str(qty_returned)
+				msg_tokens$[2]=str(lotser_returned)
+				gosub disp_message
+				callpoint!.setStatus("ABORT")
+
+				rem --- Show problem qty_returned in bold red
+				curr_row=num(gridrec.line_no$)-1
+				qtyReturned_col=callpoint!.getDevObject("qtyReturned_col")
+
+				grid! = util.getGrid(Form!)
+				grid!.setCellFont(curr_row,qtyReturned_col,callpoint!.getDevObject("boldFont"))
+				grid!.setCellForeColor(curr_row,qtyReturned_col,callpoint!.getDevObject("redColor"))
+
+				callpoint!.setOptionEnabled("EDIT",1)
+				break
+			else
+				rem --- Reset color and font for qty_returned
+				qtyReturned_col=callpoint!.getDevObject("qtyReturned_col")
+
+				grid! = util.getGrid(Form!)
+				grid!.setCellFont(curr_row,qtyReturned_col,callpoint!.getDevObject("plainFont"))
+				grid!.setCellForeColor(curr_row,qtyReturned_col,callpoint!.getDevObject("blackColor"))
+			endif
+		endif
+	next curr_row
 
 [[POE_ROGHDR.PO_NO.AVAL]]
 rem --- Must be an existing POE_RECHDR or POT_RECHDR record
@@ -473,6 +577,41 @@ vend_purchase_addr: rem --- Display Vendor Purchase Address
 	endif
 
 	return
+
+rem ==========================================================================
+lot_ser_check: rem --- Check for lotted/serialized item
+               rem      IN: item_id$
+               rem   OUT: lotser_item$
+rem ==========================================================================
+	lotser_item$="N"
+	if cvs(item_id$, 2)<>""
+		ivm_itemMast_dev=fnget_dev("IVM_ITEMMAST")
+		dim ivm_itemMast$:fnget_tpl$("IVM_ITEMMAST")
+		read record (ivm_itemMast_dev, key=firm_id$+item_id$, dom=*endif) ivm_itemMast$
+		if pos(ivm_itemMast.lotser_flag$="LS") then lotser_item$="Y"
+	endif
+
+	return
+
+rem ==========================================================================
+get_RGB: rem --- Parse Red, Green and Blue segments from RGB$ string
+	rem --- input: RGB$
+	rem --- output: R
+	rem --- output: G
+	rem --- output: B
+rem ==========================================================================
+	comma1=pos(","=RGB$,1,1)
+	comma2=pos(","=RGB$,1,2)
+	R=num(RGB$(1,comma1-1))
+	G=num(RGB$(comma1+1,comma2-comma1-1))
+	B=num(RGB$(comma2+1))
+
+	return
+
+rem ==========================================================================
+rem 	Use util object
+rem ==========================================================================
+	use ::ado_util.src::util
 
 
 

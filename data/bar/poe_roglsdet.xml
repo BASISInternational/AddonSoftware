@@ -21,14 +21,14 @@
 			<ASC_LICENSE_ID id="ddm_tables.poe_roglsdet"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poe_roglsdet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poe_roglsdet">20250414</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.poe_roglsdet">20250430</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.poe_roglsdet">20250430</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.poe_roglsdet">135820</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.poe_roglsdet">20250514</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.poe_roglsdet">20250514</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.poe_roglsdet">120104</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.poe_roglsdet"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.poe_roglsdet"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.poe_roglsdet">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.poe_roglsdet"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.poe_roglsdet"></DD_ATTR_FIMG>
-			<DD_ATTR_FTYP id="ddm_tables.poe_roglsdet">T</DD_ATTR_FTYP>
+			<DD_ATTR_FTYP id="ddm_tables.poe_roglsdet">G</DD_ATTR_FTYP>
 			<DD_ATTR_HELP id="ddm_tables.poe_roglsdet"></DD_ATTR_HELP>
 			<DD_ATTR_IKEY id="ddm_tables.poe_roglsdet"></DD_ATTR_IKEY>
 			<DD_ATTR_IDEF id="ddm_tables.poe_roglsdet"></DD_ATTR_IDEF>
@@ -58,11 +58,26 @@
 			<DD_ATTR_PADG id="ddm_tables.poe_roglsdet">0</DD_ATTR_PADG>
 		</RECORD>
 	</ALIAS>
+	<ALIAS id="ddm_table_cpro">
+		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.poe_roglsdetbend">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.poe_roglsdetbend">POE_ROGLSDET    </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.poe_roglsdetbend">BEND</DD_ATTR_CPRO>
+		</RECORD>
+	</ALIAS>
 	<ALIAS id="ddm_table_opts">
 		<ID id="ddm_table_opts">DDM_TABLE_OPTS</ID>
 		<RECORD id="ddm_table_opts.poe_roglsdeta">
 			<DD_TABLE_ALIAS id="ddm_table_opts.poe_roglsdeta">POE_ROGLSDET    </DD_TABLE_ALIAS>
 			<DD_ATTR_OPTS id="ddm_table_opts.poe_roglsdeta">A</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.poe_roglsdetb">
+			<DD_TABLE_ALIAS id="ddm_table_opts.poe_roglsdetb">POE_ROGLSDET    </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.poe_roglsdetb">B</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.poe_roglsdetd">
+			<DD_TABLE_ALIAS id="ddm_table_opts.poe_roglsdetd">POE_ROGLSDET    </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.poe_roglsdetd">D</DD_ATTR_OPTS>
 		</RECORD>
 		<RECORD id="ddm_table_opts.poe_roglsdetn">
 			<DD_TABLE_ALIAS id="ddm_table_opts.poe_roglsdetn">POE_ROGLSDET    </DD_TABLE_ALIAS>
@@ -71,6 +86,10 @@
 		<RECORD id="ddm_table_opts.poe_roglsdetp">
 			<DD_TABLE_ALIAS id="ddm_table_opts.poe_roglsdetp">POE_ROGLSDET    </DD_TABLE_ALIAS>
 			<DD_ATTR_OPTS id="ddm_table_opts.poe_roglsdetp">P</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.poe_roglsdets">
+			<DD_TABLE_ALIAS id="ddm_table_opts.poe_roglsdets">POE_ROGLSDET    </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.poe_roglsdets">S</DD_ATTR_OPTS>
 		</RECORD>
 		<RECORD id="ddm_table_opts.poe_roglsdetu">
 			<DD_TABLE_ALIAS id="ddm_table_opts.poe_roglsdetu">POE_ROGLSDET    </DD_TABLE_ALIAS>
@@ -979,7 +998,7 @@
 			<DD_ATTR_GHDR id="ddm_table_cols.poe_roglsdet013"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.poe_roglsdet013"></DD_ATTR_IDEF>
 			<DD_ATTR_LABL id="ddm_table_cols.poe_roglsdet013"></DD_ATTR_LABL>
-			<DD_ATTR_LABS id="ddm_table_cols.poe_roglsdet013"></DD_ATTR_LABS>
+			<DD_ATTR_LABS id="ddm_table_cols.poe_roglsdet013">Qty Returned</DD_ATTR_LABS>
 			<DD_ATTR_MLAN id="ddm_table_cols.poe_roglsdet013">N</DD_ATTR_MLAN>
 			<DD_ATTR_MINL id="ddm_table_cols.poe_roglsdet013"></DD_ATTR_MINL>
 			<DD_ATTR_MAXL id="ddm_table_cols.poe_roglsdet013"></DD_ATTR_MAXL>
