@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.poe_roghdr"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poe_roghdr">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poe_roghdr">20250412</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.poe_roghdr">20250430</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.poe_roghdr">20250430</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.poe_roghdr">145350</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.poe_roghdr">20250514</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.poe_roghdr">20250514</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.poe_roghdr">153034</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.poe_roghdr"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.poe_roghdr">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.poe_roghdr"></DD_ATTR_DKNM>
@@ -76,6 +76,10 @@
 			<DD_TABLE_ALIAS id="ddm_table_cpro.poe_roghdrarnf">POE_ROGHDR      </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.poe_roghdrarnf">ARNF</DD_ATTR_CPRO>
 		</RECORD>
+		<RECORD id="ddm_table_cpro.poe_roghdrasho">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.poe_roghdrasho">POE_ROGHDR      </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.poe_roghdrasho">ASHO</DD_ATTR_CPRO>
+		</RECORD>
 		<RECORD id="ddm_table_cpro.poe_roghdrbdel">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.poe_roghdrbdel">POE_ROGHDR      </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.poe_roghdrbdel">BDEL</DD_ATTR_CPRO>
@@ -83,6 +87,10 @@
 		<RECORD id="ddm_table_cpro.poe_roghdrbsho">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.poe_roghdrbsho">POE_ROGHDR      </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.poe_roghdrbsho">BSHO</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_table_cpro.poe_roghdrbwri">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.poe_roghdrbwri">POE_ROGHDR      </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.poe_roghdrbwri">BWRI</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_dtld">
