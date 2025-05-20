@@ -176,7 +176,7 @@ rem --- For inventoried lot/serial items, item qty_returned must equal sum of lo
 		if num(callpoint!.getColumnData("POE_ROGDET.QTY_RETURNED"))=0 then
 			rem --- Pass additional info needed in POE_ROGLSDET
 			key_pfx$=firm_id$+po_no$+receiver_no$+return_date$+return_auth$+rec_int_seq_ref$
-			callpoint!.setDevObject("qty_returned", num(callpoint!.getColumnData("POE_ROGDET.QTY_RETURNED")))
+			callpoint!.setDevObject("qty_returned",qty_returned)
 
 			call stbl("+DIR_SYP") + "bam_run_prog.bbj", 
 :				"POE_ROGLSDET", 
