@@ -17,3 +17,15 @@ form for Inventory's Open Purchase Orders report.
 ----
 Modified: data/bar/ivr_openpo.xml
 =======================================================================================================================================
+
+Revision: c189d2b29143d1d543c347e306b67cacfe67e249
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 5/20/2025 4:24:48 PM
+Message:
+Bug 11034: Only initialize the Qty Received on the Purchase Order
+Receipt lot/serial grid for new rows when the current Qty Received is
+zero.
+----
+Modified: data/bar/poe_reclsdet.xml
+Modified: data/cdf/poe_reclsdet.cdf
+=======================================================================================================================================
