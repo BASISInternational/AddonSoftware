@@ -68,7 +68,8 @@ rem --- Initialize PO_NO and UNIT_COST
 
 [[POE_RECLSDET.LOTSER_NO.AVAL]]
 rem --- Initialize qty_received for new rows
-	if callpoint!.getGridRowNewStatus(callpoint!.getValidationRow())="Y" then
+	if callpoint!.getGridRowNewStatus(callpoint!.getValidationRow())="Y" and
+:	num(callpoint!.getColumnData("POE_RECLSDET.QTY_RECEIVED"))=0 then
 		if callpoint!.getDevObject("lotser_flag")="S" then 
 			callpoint!.setColumnData("POE_RECLSDET.QTY_RECEIVED","1",1)
 		else
