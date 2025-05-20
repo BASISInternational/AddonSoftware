@@ -7,3 +7,13 @@
 25.01 released 05/19/2025
 BBjBaristaAddonDemos2501_05-18-2025_0219.jar
 =======================================================================================================================================
+
+Revision: 6fba1de6b3b029d873c373c4e18b853574f3c9b3
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 5/20/2025 4:06:03 PM
+Message:
+Bug 11036: Allow 1-character entry for Warehouse on the option entry
+form for Inventory's Open Purchase Orders report.
+----
+Modified: data/bar/ivr_openpo.xml
+=======================================================================================================================================
