@@ -83,6 +83,8 @@ rem --- Write POE_ROGHDR, POE_ROGDET and POE_ROGLSDET records for the entered Re
 	poe_roghdr$=field(poe_roghdr$)
 	writerecord(poe_roghdr_dev)poe_roghdr$
 
+	poc_LineCode_dev=fnget_dev("POC_LINECODE")
+	dim poc_LineCode$:fnget_tpl$("POC_LINECODE")
 	poe_rechdr_dev=fnget_dev("POE_RECHDR")
 	dim poe_rechdr$:fnget_tpl$("POE_RECHDR")
 	recordFound=0
@@ -103,6 +105,11 @@ rem --- Write POE_ROGHDR, POE_ROGDET and POE_ROGLSDET records for the entered Re
 			poe_recdet_key$=key(poe_recdet_dev,end=*break)
 			if pos(firm_id$+receiver_no$=poe_recdet_key$)<>1 then break
 			readrecord(poe_recdet_dev)poe_recdet$
+
+			rem --- Must be S, N or O line type
+			findrecord(poc_LineCode_dev,key=firm_id$+poe_recdet.po_line_code$,dom=*continue)poc_LineCode$
+			if pos(poc_LineCode.line_type$="SNO")=0 then continue
+
 			redim poe_rogdet$
 			poe_rogdet.firm_id$=poe_recdet.firm_id$
 			poe_rogdet.po_no$=poe_recdet.po_no$
@@ -111,6 +118,7 @@ rem --- Write POE_ROGHDR, POE_ROGDET and POE_ROGLSDET records for the entered Re
 			poe_rogdet.return_auth$=return_auth$
 			poe_rogdet.rec_int_seq_ref$=poe_recdet.internal_seq_no$
 			poe_rogdet.line_no$=poe_recdet.po_line_no$
+			poe_rogdet.line_code$=poe_recdet.po_line_code$
 			poe_rogdet.warehouse_id$=poe_recdet.warehouse_id$
 			poe_rogdet.item_id$=poe_recdet.item_id$
 			poe_rogdet.ns_item_id$=poe_recdet.ns_item_id$
@@ -166,6 +174,11 @@ rem --- Write POE_ROGHDR, POE_ROGDET and POE_ROGLSDET records for the entered Re
 			pot_recdet_key$=key(pot_recdet_dev,end=*break)
 			if pos(firm_id$+po_no$+receiver_no$=pot_recdet_key$)<>1 then break
 			readrecord(pot_recdet_dev)pot_recdet$
+
+			rem --- Must be S, N or O line type
+			findrecord(poc_LineCode_dev,key=firm_id$+pot_recdet.po_line_code$,dom=*continue)poc_LineCode$
+			if pos(poc_LineCode.line_type$="SNO")=0 then continue
+
 			redim poe_rogdet$
 			poe_rogdet.firm_id$=pot_recdet.firm_id$
 			poe_rogdet.po_no$=pot_recdet.po_no$
@@ -174,6 +187,7 @@ rem --- Write POE_ROGHDR, POE_ROGDET and POE_ROGLSDET records for the entered Re
 			poe_rogdet.return_auth$=return_auth$
 			poe_rogdet.rec_int_seq_ref$=pot_recdet.po_int_seq_ref$
 			poe_rogdet.line_no$=pot_recdet.po_line_no$
+			poe_rogdet.line_code$=pot_recdet.po_line_code$
 			poe_rogdet.warehouse_id$=pot_recdet.warehouse_id$
 			poe_rogdet.item_id$=pot_recdet.item_id$
 			poe_rogdet.ns_item_id$=pot_recdet.ns_item_id$
@@ -276,7 +290,7 @@ rem --- Initialize sysinfo$
 	sysinfo$=stbl("+SYSINFO")
 
 rem --- Open Files
-	num_files=11
+	num_files=12
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="POE_ROGDET",open_opts$[1]="OTA"
 	open_tables$[2]="POE_ROGLSDET",open_opts$[2]="OTA"
@@ -289,6 +303,7 @@ rem --- Open Files
 	open_tables$[9]="APM_VENDADDR",open_opts$[9]="OTA"
 	open_tables$[10]="APM_VENDMAST",open_opts$[10]="OTA"
 	open_tables$[11]="IVM_ITEMMAST",open_opts$[11]="OTA"
+	open_tables$[12]="POC_LINECODE",open_opts$[12]="OTA"
 
 	gosub open_tables
 

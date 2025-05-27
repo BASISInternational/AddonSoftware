@@ -1,0 +1,570 @@
+rem --- PO Return Of Goods Register
+rem --- Program por_roereg
+
+rem --- AddonSoftware Version 25.02
+rem --- Copyright BASIS International Ltd.  All Rights Reserved.
+
+    seterr std_error
+    setesc std_error
+
+rem --- Retrieve the program path
+    pgmdir$=stbl("+dir_pgm",err=*next)
+
+rem --- Retrieve sysinfo data
+    rem --- If BUI, initialize Barista processes
+    if info(3,6)="5" then
+        use ::ado_util.src::util
+        Translate!=util.initBUIProcess()
+        if Translate!=null() then goto std_exit
+    endif
+
+    sysinfo_template$=stbl("+SYSINFO_TPL",err=*next)
+    dim sysinfo$:sysinfo_template$
+    sysinfo$=stbl("+SYSINFO",err=*next)
+    milestone=num(stbl("+MILESTONE",err=*next),err=*next)
+    firm_id$=sysinfo.firm_id$
+
+rem --- set rd_alias_id$, if needed, for DocOut Settings
+    if rd_alias_id$=""
+        rd_alias_id$=pgm(-2)
+        rd_alias_id$=rd_alias_id$(max(pos("/"="/"+rd_alias_id$,-1),pos("\"="\"+rd_alias_id$,-1)))
+        rd_alias_id$=rd_alias_id$(1,pos("."=rd_alias_id$+".")-1)
+    endif
+	rd_alias_id$=cvs(rd_alias_id$,4)
+
+rem --- Get Batch information
+    call stbl("+DIR_PGM")+"adc_getbatch.aon","",pgm(-2),rd_table_chans$[all]
+	batch_no$=stbl("+BATCH_NO")
+	process_id$=stbl("+PROCESS_ID")
+    
+rem --- Open/Lock files
+    files=10,begfile=1,endfile=files
+    dim files$[files],options$[files],ids$[files],templates$[files],channels[files]
+
+    files$[1]="poe_roghdr",ids$[1]="POE_ROGHDR",options$[1]="L"
+    files$[2]="poe_rogdet",ids$[2]="POE_ROGDET"
+    files$[3]="poe_roglsdet",ids$[3]="POE_ROGLSDET"
+    files$[4]="poe-04",ids$[4]="POE_RECHDR",options$[4]="L"
+    files$[5]="poe-14",ids$[5]="POE_RECDET"
+    files$[6]="poe-24",ids$[6]="POE_RECLSDET"
+    files$[7]="apm-01",ids$[7]="APM_VENDMAST"
+    files$[8]="ivm-01",ids$[8]="IVM_ITEMMAST"
+    files$[9]="ivs_params",ids$[9]="IVS_PARAMS"
+    files$[10]="pom-02",ids$[10]="POC_LINECODE"
+
+    call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
+:                                   ids$[all],templates$[all],channels[all],batch,status
+    if status goto std_exit
+    poeRogHdr_dev=channels[1]
+    poeRogDet_dev=channels[2]
+    poeRogLSDet_dev=channels[3]
+    poeRecHdr_dev=channels[4]
+    poeRecDet_dev=channels[5]
+    poeRecLSDet_dev=channels[6]
+    apmVendMast_dev=channels[7]
+    ivmItemMast_dev=channels[8]
+    ivsParams_dev=channels[9]
+    pocLineCode_dev=channels[10]
+
+rem --- Dimension string templates
+    dim poeRogHdr$:templates$[1],poeRogDet$:templates$[2],poeRogLSDet$:templates$[3],
+:       poeRecHdr$:templates$[4],poeRecDet$:templates$[5],poeRecLSDet$:templates$[6],
+:       apmVendMast$:templates$[7],ivmItemMast$:templates$[8],ivsParams$:templates$[9],
+:       pocLineCode$:templates$[10]
+    
+rem --- Document initializations
+    OutVect!=bbjAPI().makeVector()
+    HdrVect!=bbjAPI().makeVector()
+    BrkVect!=bbjAPI().makeVector()
+    TotVect!=bbjAPI().makeVector()
+    rep_date$=date(0:"%Mz/%Dz/%Yd")
+    rep_date_stamp$=date(0:"%Yd%Mz%Dz")
+    rep_time$=date(0:"%hz:%mz %p")
+    rep_time_stamp$=date(0:"%Hz%mz%sz")
+    rep_prog$=pgm(-2)
+
+rem --- masks
+    call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","U","",m2$,0,m2
+    call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","I","",ivIMask$,0,0
+    call stbl("+DIR_PGM")+"adc_getmask.aon","","AP","I","",m0$,0,m0
+
+rem --- Retrieve parameter records
+    find record (ivsParams_dev,key=firm_id$+"IV00",err=std_missing_params)ivsParams$
+
+    rem --- Parameters
+    dim i[5]
+    i[0]=ivsParams.item_id_len
+    i[1]=num(ivsParams.precision$)
+    i[2]=ivsParams.ls_no_len
+    i[3]=num(ivsParams.desc_len_01$)
+    i[4]=num(ivsParams.desc_len_02$)
+    i[5]=num(ivsParams.desc_len_03$)
+
+rem --- Initializations
+    precision i[1]
+    dim headings$[2],totals[3],receipt[3],vendor[3],report[3]
+    clock$=""
+    when$=sysinfo.system_date$
+    done=0
+    headings$[0]=sysinfo.firm_name$
+    headings$[1]=sysinfo.task_desc$
+	if num(batch_no$)<>0 headings$[2]="Batch: "+batch_no$
+    nf$=Translate!.getTranslation("AON_(NOT_ON_FILE)")
+    lsdesc$=Translate!.getTranslation("AON_LOT/SERIAL_NO")
+    lotser=0
+    errors=0
+
+rem --- Headings and print positions
+    columns = 9
+    dim columns$[columns,10]
+    columns$[0,0]=Translate!.getTranslation("AON_VENDOR"),columns$[0,1]="C",columns$[0,2]="8"
+    columns$[1,0]=Translate!.getTranslation("AON_CD"),columns$[1,1]="C",columns$[1,2]="3"
+    columns$[2,0]=Translate!.getTranslation("AON_WH"),columns$[2,1]="C",columns$[2,2]="3"
+    columns$[3,0]=Translate!.getTranslation("AON_ITEM"),columns$[3,1]="C",columns$[3,2]="12"
+    columns$[4,0]=Translate!.getTranslation("AON_DIST_CODE"),columns$[4,1]="C",columns$[4,2]="15"
+    columns$[5,0]="UM", columns$[5,1]="C",columns$[5,2]="3"
+    columns$[6,0]=Translate!.getTranslation("AON_QUANTITY^ORDERED"),columns$[6,1]="C",columns$[6,2]=str(len(m2$)+2),columns$[6,5]="R^R",columns$[6,10]="T"
+    columns$[7,0]=Translate!.getTranslation("AON_QUANTITY^RECEIVED"),columns$[7,1]="C",columns$[7,2]=str(len(m2$)+2),columns$[7,5]="R^R",columns$[7,10]="T"
+    quantityReturned$=Translate!.getTranslation("AON_QUANTITY")+"^"+Translate!.getTranslation("AON_RETURNED")
+    columns$[8,0]=quantityReturned$,columns$[8,1]="C",columns$[8,2]=str(len(m2$)+2),columns$[8,5]="R^R",columns$[8,10]="T"
+    replacementQuantity$=Translate!.getTranslation("AON_REPLACMENT")+"^"+Translate!.getTranslation("AON_QUANTITY")
+    columns$[9,0]=replacementQuantity$,columns$[9,1]="C",columns$[9,2]=str(len(m2$)+2),columns$[9,5]="R^R",columns$[9,10]="T"
+
+    call stbl("+DIR_PGM",err=*next)+"adc_docout_adj.aon",columns$[all]
+
+rem --- Get user approval to proceed
+    msg_id$="AON_RUN_QUERY"
+    dim msg_tokens$[1]
+    msg_tokens$[1]=sysinfo.task_desc$
+    gosub disp_message
+    if msg_opt$<>"Y" then goto std_exit
+        
+rem --- Position file
+    call pgmdir$ + "adc_progress.aon","N","","","","",0,poe04_dev,1,meter_num,status
+    read (poeRogHdr_dev,key=firm_id$,knum="VEND_PO_REC",dom=*next)
+
+    while 1
+
+        k$=key(poeRogHdr_dev,end=*break)
+        if pos(firm_id$=k$)<>1 break
+        read record (poeRogHdr_dev)poeRogHdr$
+        call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
+
+        rem --- Header fields
+        dim receipt[3]
+
+        rem --- Level break?
+        if t0$<>poeRogHdr.vendor_id$ gosub vendor_break
+
+        rem --- Print receipt subheading
+        gosub receipt_subheading
+        trip_key$=poeRogHdr.firm_id$+poeRogHdr.po_no$+poeRogHdr.receiver_no$+poeRogHdr.return_date$+poeRogHdr.return_auth$+poeRogHdrrec_int_seq_ref$
+        read (poeRogDet_dev,key=trip_key$,knum="PRIMARY",dom=*next)
+
+        rem --- Read next detail record
+        while 1
+            poeRogDet_key$=key(poeRogDet_dev,end=*break)
+            if pos(trip_key$=poeRogDet_key$)<>1 break
+            read record (poeRogDet_dev) poeRogDet$
+
+            rem --- Get PO Line Type, and skip record if not S, N or O line type
+            findrecord(pocLineCode_dev,key=poeRogDet.firm_id$+poeRogDet.line_code$,dom=*continue)pocLineCode$
+			if pos(pocLineCode.line_type$="SNO")=0 then continue
+            recs=recs+1
+
+            rem --- Branch based on line code
+            switch (BBjAPI().TRUE)
+                case pocLineCode.line_type$="S"
+                    rem --- Standard line
+                    OutVect!.addItem("")
+                    OutVect!.addItem(poeRogDet.line_code$)
+                    OutVect!.addItem(poeRogDet.warehouse_id$)
+                    OutVect!.addItem(fnmask$(poeRogDet.item_id$,ivIMask$))
+                    OutVect!.addItem(poeRogDet.line_code$)
+                    OutVect!.addItem(poeRogDet.unit_measure$)
+                    OutVect!.addItem(str(poeRogDet.qty_ordered:m2$)+$00$+"R")
+                    OutVect!.addItem(str(poeRogDet.qty_received:m2$)+$00$+"R")
+                    OutVect!.addItem(str(poeRogDet.qty_returned:m2$)+$00$+"R")
+                    OutVect!.addItem(str(poeRogDet.replace_qty:m2$)+$00$+"R")
+
+                    description$=nf$
+                    redim ivmItemMast$
+                    find record (ivmItemMast_dev,key=poeRogDet.firm_id$+poeRogDet.item_id$,dom=*next)ivmItemMast$
+                    if ivmItemMast.item_id$=poeRogDet.item_id$ then description$=fnitem$(ivmItemMast.item_desc$,i[3],i[4],i[5])
+                    
+                    xvk=fnblank(3)
+                    OutVect!.addItem(description$)
+                    xvk=fnblank(6)
+
+                    rem --- Lotted/Serialized?
+                    if  pos(ivmItemMast.lotser_flag$="LS") and ivmItemMast.inventoried$="Y" then
+                        read (poeRogLSDet_dev,key=poeRogDet_key$,knum="PRIMARY",dom=*next)
+
+                        rem --- Read next lot/serial detail record
+                        lotser_received=0
+                        lotser_returned=0
+                        while 1
+                            poeRogLSDet_key$=key(poeRogLSDet_dev,end=*break)
+                            if pos(poeRogDet_key$=poeRogLSDet_key$)<>1 break
+                            read record (poeRogLSDet_dev) poeRogLSDet$
+
+                            rem --- Print lor/serial detail line
+                            xvk=fnblank(3)
+                            OutVect!.addItem(lsdesc$+" "+poeRogLSDet.sequence_no$+" "+poeRogLSDet.lotser_no$)
+                            xvk=fnblank(1)
+                            OutVect!.addItem(poeRogDet.unit_measure$)
+                            xvk=fnblank(1)
+                            OutVect!.addItem(str(poeRogLSDet.qty_received:m2$)+$00$+"L")
+                            OutVect!.addItem(str(poeRogLSDet.qty_returned:m2$)+$00$+"L")
+                            xvk=fnblank(1)
+                            
+                            lotser_received=lotser_received+poeRogLSDet.qty_received
+                            lotser_returned=lotser_returned+poeRogLSDet.qty_returned
+                        wend
+
+                        rem --- Enough lot/serial numbers?
+                        underline$=pad("",len(m2$)+4,"-")
+                        xvk=fnblank(7)
+                        OutVect!.addItem(underline$+$00$+"L")
+                        OutVect!.addItem(underline$+$00$+"L")
+                        xvk=fnblank(1)
+
+                        xvk=fnblank(4)
+                        OutVect!.addItem(Translate!.getTranslation("AON_LOT/SERIAL")+" "+Translate!.getTranslation("AON_TOTALS:"))
+                        xvk=fnblank(2)
+                        OutVect!.addItem(str(lotser_received:m2$)+$00$+"L")
+                        OutVect!.addItem(str(lotser_returned:m2$)+$00$+"L")
+                        xvk=fnblank(1)
+
+                        rem --- Warn when number of return lot/serial doesn't equal the number returned for the item
+                        if lotser_returned<>poeRogDet.qty_returned then
+                            OutVect!.addItem("***** "+Translate!.getTranslation("AON_ERROR")+" ***** "+Translate!.getTranslation("AON_LOT/SERIAL_TOTAL_RETURNED")+$00$+"B")
+                            xvk=fnblank(9)
+
+                            rem --- flag as error so update can NOT be run
+                            errors=1
+                        endif
+                    endif
+                break
+                case pocLineCode.line_type$="N"
+                    rem --- Non-stock line
+                    OutVect!.addItem("")
+                    OutVect!.addItem(poeRogDet.line_code$)
+                    OutVect!.addItem(poeRogDet.warehouse_id$)
+                    OutVect!.addItem(poeRogDet.ns_item_id$)
+                    OutVect!.addItem(poeRogDet.line_code$)
+                    OutVect!.addItem(poeRogDet.unit_measure$)
+                    OutVect!.addItem(str(poeRogDet.qty_ordered:m2$)+$00$+"R")
+                    OutVect!.addItem(str(poeRogDet.qty_received:m2$)+$00$+"R")
+                    OutVect!.addItem(str(poeRogDet.qty_returned:m2$)+$00$+"R")
+                    OutVect!.addItem(str(poeRogDet.replace_qty:m2$)+$00$+"R")
+
+                    xvk=fnblank(3)
+                    OutVect!.addItem(poeRogDet.order_memo$)
+                    xvk=fnblank(6)
+                break
+                case pocLineCode.line_type$="O"
+                    rem --- Other type line
+                    OutVect!.addItem("")
+                    OutVect!.addItem(poeRogDet.line_code$)
+                    OutVect!.addItem(poeRogDet.warehouse_id$)
+                    xvk=fnblank(3)
+                    OutVect!.addItem(str(poeRogDet.qty_ordered:m2$)+$00$+"R")
+                    OutVect!.addItem(str(poeRogDet.qty_received:m2$)+$00$+"R")
+                    OutVect!.addItem(str(poeRogDet.qty_returned:m2$)+$00$+"R")
+                    OutVect!.addItem(str(poeRogDet.replace_qty:m2$)+$00$+"R")
+
+                    xvk=fnblank(3)
+                    OutVect!.addItem(poeRogDet.order_memo$)
+                    xvk=fnblank(6)
+                break
+            swend
+
+            rem --- Accumulate totals
+            receipt[0]=receipt[0]+poeRogDet.qty_ordered
+            receipt[1]=receipt[1]+poeRogDet.qty_received
+            receipt[2]=receipt[2]+poeRogDet.qty_returned
+            receipt[3]=receipt[3]+poeRogDet.replace_qty
+            vendor[0]=vendor[0]+poeRogDet.qty_ordered
+            vendor[1]=vendor[1]+poeRogDet.qty_received
+            vendor[2]=vendor[2]+poeRogDet.qty_returned
+            vendor[3]=vendor[3]+poeRogDet.replace_qty
+            report[0]=report[0]+poeRogDet.qty_ordered
+            report[1]=report[1]+poeRogDet.qty_received
+            report[2]=report[2]+poeRogDet.qty_returned
+            report[3]=report[3]+poeRogDet.replace_qty
+        wend
+
+        rem --- Print totals for this receipt
+        totals$=Translate!.getTranslation("AON_TOTAL_FOR_PO_#_")+poeRogHdr.po_no$
+        next_hdr$=""
+        totals[all]=receipt[all]
+        gosub print_totals
+    wend
+
+rem --- All done
+    let done=1
+    gosub vendor_break
+    totals$=Translate!.getTranslation("AON_TOTAL_FOR_REGISTER")
+    next_hdr$=""
+    totals[all]=report[all]
+    gosub print_totals
+
+    rem --- Run next overlay
+    if recs=0
+        msg_id$="DOC_OUTPUT_NODATA"
+        gosub disp_message
+        goto std_exit_no_report
+    endif
+
+    if !errors then
+        next_overlay$="pou_rogreb.aon"
+    else
+        rem --- Warn update cannot be run due to errors
+        msg_id$="AON_REG_ERRS"
+        gosub disp_message
+        next_overlay$=""
+    endif
+
+    goto std_exit
+
+receipt_subheading: rem --- Receipt subheading
+    xvk=fnblank(columns+1)
+    
+    OutVect!.addItem(Translate!.getTranslation("AON_VENDOR:_")+vendor$)
+    xvf=fnblank(6)
+    OutVect!.addItem(Translate!.getTranslation("AON_REC_#:_")+poeRogHdr.receiver_no$)
+    xvf=fnblank(2)
+
+    xvf=fnblank(7)
+    OutVect!.addItem("PO #: "+poeRogHdr.po_no$)
+    xvf=fnblank(2)
+    
+    xvk=fnblank(columns+1)    
+
+    return
+
+vendor_break: rem --- Vendor break
+    let next_hdr$=fnmask$(apmVendMast.vendor_id$,m0$)+" "+cvs(apmVendMast.vendor_name$,2)
+    if t0$<>"" then
+        let totals$=Translate!.getTranslation("AON_TOTAL_FOR_")+vendor$,totals[all]=vendor[all]
+        gosub print_totals
+    endif
+    if done = 0
+        dim vendor[3]
+        redim apmVendMast$
+        apmVendMast.firm_id$=firm_id$,apmVendMast.vendor_id$=poeRogHdr.vendor_id$
+        t0$=poeRogHdr.vendor_id$
+        find record (apmVendMast_dev,key=apmVendMast.firm_id$+apmVendMast.vendor_id$,dom=*next) apmVendMast$
+        vendor$=fnmask$(apmVendMast.vendor_id$,m0$)+" "+cvs(apmVendMast.vendor_name$,2)
+    endif
+
+    return
+
+print_totals: rem --- Print totals
+    OutVect!.addItem(totals$)
+    xvf=fnblank(5)
+    OutVect!.addItem(str(totals[0]:m2$)+$00$+"R")
+    OutVect!.addItem(str(totals[1]:m2$)+$00$+"R")
+    OutVect!.addItem(str(totals[2]:m2$)+$00$+"R")
+    OutVect!.addItem(str(totals[3]:m2$)+$00$+"R")
+    
+    TotVect!.addItem(str(OutVect!.size()/(columns+1)))
+    
+    return
+
+rem #include disp_message.src
+
+disp_message:rem --- Display Message Dialog
+
+    call stbl("+DIR_SYP")+"bac_message.bbj",msg_id$,msg_tokens$[all],msg_opt$,table_chans$[all]
+    return
+
+rem #endinclude disp_message.src
+
+rem #include std_functions.src
+rem --- Standard AddonSoftware functions (01Mar2006)
+rem --- Functions used to retrieve form values
+
+    def fnstr_pos(q0$,q1$,q1)=int((pos(q0$=q1$,q1)+q1-1)/q1)
+    def fnget_rec_date$(q0$)=rd_rec_data$[fnstr_pos(cvs(q0$,1+2+4)+"."+                            cvs(q0$,1+2+4),rd_rec_data$[0,0],40),0]
+    def fnget_fld_data$(q0$,q1$)=cvs(rd_rec_data$[fnstr_pos(cvs(q0$,1+2+4)+"."+                                cvs(q1$,1+2+4),rd_rec_data$[0,0],40),0],2)
+
+rem --- Miscellaneous functions
+
+    def fnisn$(q$)=q$(7)
+
+    def fncenter(q$,q)=int((q-len(q$))/2)
+
+rem --- Format inventory item description
+
+	def fnitem$(q$,q1,q2,q3)
+		q$=pad(q$,q1+q2+q3)
+		return cvs(q$(1,q1)+" "+q$(q1+1,q2)+" "+q$(q1+q2+1,q3),32)
+	fnend
+
+rem --- Format zip/postal code
+
+    def fnzipcode$(q$)
+        q$=cvs(q$,4)
+        if len(cvs(q$,2))<>9 and len(cvs(q$,2))<>6 return q$
+        if len(cvs(q$,2))=9
+            q1$="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
+            q1=mask(cvs(q$,2),q1$)
+            if q1=0 return q$
+            if q1<>0
+                if q$(6,4)="0000" return q$(1,5)
+            return q$(1,5)+"-"+q$(6,4)
+            endif
+        endif
+        if len(cvs(q$,2))=6
+            q1$="[a-zA-Z][0-9][a-zA-Z][0-9][a-zA-Z][0-9]"
+            q1=mask(cvs(q$,2),q1$)
+            if q1=0 return q$ else return q$(1,3)+" "+q$(4,3)
+        endif
+    fnend
+
+rem --- Date/time handling functions
+
+    def fndate$(q$)
+        q1$=""
+        q1$=date(jul(num(q$(1,4)),num(q$(5,2)),num(q$(7,2)),err=*next),err=*next)
+        if q1$="" q1$=q$
+        return q1$
+    fnend
+    def fnyy$(q$)=q$(3,2)
+    def fnclock$(q$)=date(0:"%hz:%mz %p")
+    def fntime$(q$)=date(0:"%Hz%mz")
+
+rem --- fnmask$: Alphanumeric Masking Function (formerly fnf$)
+
+    def fnmask$(q1$,q2$)
+        if cvs(q1$,2)="" return ""
+        if q2$="" q2$=fill(len(q1$),"0")
+        if pos("E"=cvs(q1$,4)) goto alpha_mask
+:      else return str(-num(q1$,err=alpha_mask):q2$,err=alpha_mask)
+alpha_mask:
+        q=1
+        q0=0
+        while len(q2$(q))
+            if pos(q2$(q,1)="-()") q0=q0+1 else q2$(q,1)="X"
+            q=q+1
+        wend
+        if len(q1$)>len(q2$)-q0 q1$=q1$(1,len(q2$)-q0)
+        return str(q1$:q2$)
+    fnend
+
+rem --- fnbasename$: Strip path and optionally the suffix from a file name
+
+    def fnbasename$(q$,q0$)
+        q=max(pos("/"=q$,-1),pos(":"=q$,-1),pos(">"=q$,-1),pos("\"=q$,-1))
+        if q then q$=q$(q+1)
+        if q0$<>"" then q=mask(q$,q0$); if q q$=q$(1,q-1)
+    return q$
+
+rem --- fnglobal: Return numeric value of passed stbl variable
+
+    def fnglobal(q$,q1)
+        q1$=stbl(q$,err=*next),q1=num(q1$,err=*next)
+        return q1
+    fnend
+
+rem --- fnglobal$: Return string value of passed STBL variable
+
+    def fnglobal$(q$,q1$)
+        q1$=stbl(q$,err=*next)
+        return q1$
+    fnend
+
+rem #endinclude std_functions.src
+
+rem --- fnBlank : Create blank cells in OutVect!. No return value
+   
+    def fnblank(q0)
+        for q1=1 to q0
+            OutVect!.addItem("")
+        next q1
+        return q1
+    fnend
+
+rem #include std_error.src
+
+std_error: rem --- Standard error handler (11Oct2017)
+
+    if tcb(19)>0
+        rem --- Escape handler
+        if and(chr(tcb(19)),$08$)=$08$
+            release
+        else
+            setesc std_error
+            return
+        endif
+    endif
+
+    if err=0   
+        rem --- Get tcb(12) and tcb(10) to send into bac_error
+        lock_byte=tcb(10)
+        lock_chan=tcb(12)  
+    endif
+
+    rd_err_text$="",err_num=err
+    if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+    if err_num=252 then
+        E!=BBjAPI().getLastBBjException()
+        rd_err_text$=rd_err_text$+$0A$+E!.getClass().getName()
+        if E!.getMessage()<>null() then rd_err_text$=rd_err_text$+": "+E!.getMessage()
+    endif
+    call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err_num),rd_err_text$,rd_err_act$,lock_byte,lock_chan
+    if pos("ESCAPE"=rd_err_act$) seterr 0; setesc 0
+    if pos("RETRY"=rd_err_act$) retry
+    if pgm(-1)<>pgm(-2) status=999; exit 
+    release
+
+rem #endinclude std_error.src
+
+rem #include std_missing_params.src
+
+std_missing_params: rem --- Standard missing parameter handler (15Apr2006)
+
+    rd_err_text$=""
+    if tcb(5)<>0 and pgm(-1)=pgm(-2) rd_err_text$=pgm(tcb(5))
+    pgmdir$=stbl("+DIR_PGM",err=std_missing_params_exit)
+    call pgmdir$+"adc_noparams.aon",err=std_missing_params_exit,pgm(-2),str(tcb(5)),                                   str(err),rd_err_text$,rd_err_act$
+std_missing_params_exit:
+    master_user$=cvs(stbl("+MASTER_USER",err=std_missing_params_release),2)
+    sysinfo_template$=stbl("+SYSINFO_TPL",err=std_missing_params_release)
+    dim sysinfo$:sysinfo_template$
+    sysinfo$=stbl("+SYSINFO",err=std_missing_params_release)
+    if cvs(sysinfo.user_id$,2)=master_user$ escape
+std_missing_params_release:
+    status=999
+    if pgm(-1)<>pgm(-2) exit
+    release
+
+rem #endinclude std_missing_params.src
+
+std_exit_no_report:
+
+    OutVect!=null()
+
+std_exit_no_update:
+
+   if num(batch_no$)<>0
+        unlock_key$=firm_id$+stbl("+PROCESS_ID")+stbl("+BATCH_NO")
+        lock_status$=""
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj",
+:         "ADM_PROCBATCHES",unlock_key$,"X","",rd_table_chan,
+:         rd_table_chans$[all],lock_status$
+    endif
+ 
+rem #include std_end.src
+
+std_exit: rem --- Standard program end (01Mar2006)
+
+    call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,0,status    
+    out_action$="FORMAT"
+    run stbl("+DIR_SYP")+"bas_process_end.bbj",err=*next
+    release
+rem #endinclude std_end.src
+
+    end
