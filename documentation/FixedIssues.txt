@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-05-20
+ Report Date:   2025-05-27
  Report Branch: AddonSoftware 25.02
  Last Release:  AddonSoftware 25.01
 =======================================================================================================================================
@@ -28,4 +28,19 @@ zero.
 ----
 Modified: data/bar/poe_reclsdet.xml
 Modified: data/cdf/poe_reclsdet.cdf
+=======================================================================================================================================
+
+Revision: 6c7581d3507038c6945124a94ec954a9ccfb0bd1
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 5/27/2025 11:47:33 AM
+Message:
+ER 7040: Added PO Return Of Goods Register (but not the update yet).
+----
+Modified: data/bar/poe_rogdet.xml
+Modified: data/bar/poe_roghdr.xml
+Modified: data/bar/pot_rogdet.xml
+Modified: data/cdf/poe_roghdr.cdf
+Added: po/src/por_rogreg.aon
+Modified: prop/addon.properties
+Modified: prop/addon_en.properties
 =======================================================================================================================================
