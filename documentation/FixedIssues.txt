@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-05-20
+ Report Date:   2025-05-28
  Report Branch: AddonSoftware 25.02
  Last Release:  AddonSoftware 25.01
 =======================================================================================================================================
@@ -29,3 +29,14 @@ zero.
 Modified: data/bar/poe_reclsdet.xml
 Modified: data/cdf/poe_reclsdet.cdf
 =======================================================================================================================================
+Author: Ricky <rgonzales@basis.cloud>
+Date:   Wed May 28 10:26:21 2025 -0600
+
+    Bug 11035 Added Kit access in order entry needs a menu entry to enable
+
+M       data/sync/adm_mnu_item~[01007514OP].xml
+M       data/sync/adm_mnu_trans~[01007514OP].xml
+M       data/sync/adm_rolealias~[all].xml
+=======================================================================================================================================
+
+
