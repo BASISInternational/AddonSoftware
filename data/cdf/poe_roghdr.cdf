@@ -108,7 +108,7 @@ rem --- Write POE_ROGHDR, POE_ROGDET and POE_ROGLSDET records for the entered Re
 
 			rem --- Must be S, N or O line type
 			findrecord(poc_LineCode_dev,key=firm_id$+poe_recdet.po_line_code$,dom=*continue)poc_LineCode$
-			if pos(poc_LineCode.line_type$="SNO")=0 then continue
+			if pos(poc_LineCode.line_type$="SN")=0 then continue
 
 			redim poe_rogdet$
 			poe_rogdet.firm_id$=poe_recdet.firm_id$
@@ -177,7 +177,7 @@ rem --- Write POE_ROGHDR, POE_ROGDET and POE_ROGLSDET records for the entered Re
 
 			rem --- Must be S, N or O line type
 			findrecord(poc_LineCode_dev,key=firm_id$+pot_recdet.po_line_code$,dom=*continue)poc_LineCode$
-			if pos(poc_LineCode.line_type$="SNO")=0 then continue
+			if pos(poc_LineCode.line_type$="SN")=0 then continue
 
 			redim poe_rogdet$
 			poe_rogdet.firm_id$=pot_recdet.firm_id$

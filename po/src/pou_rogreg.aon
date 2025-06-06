@@ -1,0 +1,484 @@
+rem --- PO Return Of Goods Register Update
+rem --- Program pou_roereg
+
+rem --- AddonSoftware Version 25.02
+rem --- Copyright BASIS International Ltd.  All Rights Reserved.
+
+    use java.util.HashMap
+
+    setesc std_error
+    seterr std_error
+    
+    next_overlay$=""
+
+rem --- Retrieve the program path
+    pgmdir$=stbl("+DIR_PGM",err=*next)
+
+rem --- Retrieve sysinfo data
+    sysinfo_template$=stbl("+SYSINFO_TPL",err=*next)
+    dim sysinfo$:sysinfo_template$
+    sysinfo$=stbl("+SYSINFO",err=*next)
+    milestone=num(stbl("+MILESTONE",err=*next),err=*next)
+    firm_id$=sysinfo.firm_id$
+
+    
+rem --- Get user approval to update
+    msg_id$="AON_UPDT_QUERY"
+    dim x$:stbl("+SYSINFO_TPL")
+    dim msg_tokens$[1]
+    x$=stbl("+SYSINFO")                                                            
+    msg_tokens$[1]=x.task_desc$
+    gosub disp_message
+    if msg_opt$<>"Y" then goto std_exit_no_update
+    
+rem --- Open/Lock files
+    files=6,begfile=1,endfile=files
+    dim files$[files],options$[files],ids$[files],templates$[files],channels[files]
+
+    files$[1]="pot_roghdr",ids$[1]="POT_ROGHDR"
+    files$[2]="pot_rogdet",ids$[2]="POT_ROGDET"
+    files$[3]="pot_roglsdet",ids$[3]="POT_ROGLSDET"
+    files$[4]="pot-04",ids$[4]="POT_RECHDR"
+    files$[5]="pot-14",ids$[5]="POT_RECDET"
+    files$[6]="pot_reclsdet",ids$[6]="POT_RECLSDET"
+
+    call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
+:                                   ids$[all],templates$[all],channels[all],batch,status
+    if status goto std_exit_no_update
+
+    potRogHdr_dev=channels[1]
+    potRogDet_dev=channels[2]
+    potRogLSDet_dev=channels[3]
+    potRecHdr_dev=channels[4]
+    potRecDet_dev=channels[5]
+    potRecLSDet_dev=channels[6]
+
+rem --- Dimension string templates
+    dim potRogHdr$:templates$[1],potRogDet$:templates$[2],potRogLSDet$:templates$[3],
+:       potRecHdr$:templates$[4],potRecDet$:templates$[5],potRecLSDet$:templates$[6]
+    
+rem --- Initializations
+    precision i[1]
+    
+    dim files[44],item$[3],refs$[20],refs[20]
+    call pgmdir$+"ivc_itemupdt.aon::init",files[all],ivsParams$,items$[all],refs$[all],refs[all],table_chans$[all],status
+
+rem --- Read header records
+    call pgmdir$+"adc_progress.aon","N","","","","",0,poeRogHdr_dev,1,meter_num,status
+    read (poeRogHdr_dev,key=firm_id$,knum="VEND_PO_REC",dom=*next)
+
+    while 1
+        poeRogHdr_key$=key(poeRogHdr_dev,end=*break)
+        if pos(firm_id$=poeRogHdr_key$)<>1 break
+        readrecord(poeRogHdr_dev)poeRogHdr$
+        creditReceiver$=""
+        replacementReceiver$=""
+        call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
+
+        rem --- Read detail records
+        returnsMap!=new HashMap()
+        replacements=0
+        poeRogDet_trip$=firm_id$+poeRogHdr.po_no$+poeRogHdr.receiver_no$+poeRogHdr.return_date$+poeRogHdr.return_auth$
+        read (poeRogDet_dev,key=poeRogDet_trip$,knum="PRIMARY",dom=*next)
+        while 1
+            poeRogDet_key$=key(poeRogDet_dev,end=*break)
+            if pos(poeRogDet_trip$=poeRogDet_key$)<>1 break
+            readrecord(poeRogDet_dev)poeRogDet$
+            if poeRogDet.qty_returned=0 then continue
+
+            rem --- When were the goods returned?
+            returnedBefore=0
+            poeRecDet_key$=firm_id$+poeRogDet.receiver_no$+poeRogDet.rec_int_seq_ref$
+            readrecord(poeRecDet_dev,key=poeRecDet_key$,knum="PRIMARY",dom=*next)poeRecDet$; returnedBefore=1
+            if returnedBefore then
+                rem --- Goods returned BEFORE the PO Receipt Register was updated
+                rem --- Subtract the quantity returned from the QTY_RECEIVED
+                poeRecDet.qty_received=poeRecDet.qty_received-poeRogDet.qty_returned
+                writerecord(poeRecDet_dev)poeRecDet$
+                returnsMap!.put(poeRecDet_key$,poeRogDet.qty_returned)
+                
+               rem --- Mark the POE_RECHDR record NOT Complete if receiving replacements
+                if poeRogDet.replace_qty>0 and !replacements then
+                    readrecord(poeRecHdr_dev,key=firm_id$+poeRogDet.receiver_no$,dom=*endif)poeRecHdr$
+                    poeRecHdr.rec_complete$="N"
+                    writerecord(poeRecHdr_dev)poeRecHdr$
+                    replacements=1
+                endif
+
+                rem --- For lot/serial numbers returned for the item, subtract the quantity returned from the QTY_RECEIVED
+                poeRogLSDet_trip$=poeRogDet_key$
+                read(poeRogLSDet_dev,key=poeRogLSDet_trip$,knum="PRIMARY",dom=*next)
+                while 1
+                    poeRogLSDet_key$=key(poeRogLSDet_dev,end=*break)
+                    if pos(poeRogLSDet_trip$=poeRogLSDet_key$)<>1 break
+                    readrecord(poeRogLSDet_dev)poeRogLSDet$
+
+                    poeRecLSDet_trip$=firm_id$+poeRogLSDet.receiver_no$+poeRogLSDet.rec_int_seq_ref$
+                    read(poeRecLSDet_dev,key=poeRecLSDet_trip$,knum="PRIMARY",dom=*next)
+                    while 1
+                        poeRecLSDet_key$=key(poeRecLSDet_dev,end=*break)
+                        if pos(poeRecLSDet_trip$=poeRecLSDet_key$)<>1 break
+                        readrecord(poeRecLSDet_dev)poeRecLSDet$
+                        if poeRecLSDet.lotser_no$<>poeRogLSDet.lotser_no$ then continue
+                        poeRecLSDet.qty_received=poeRecLSDet.qty_received-poeRogLSDet.qty_returned
+                        writerecord(poeRecLSDet_dev)poeRecLSDet$
+                        break
+                    wend
+                    
+                    rem --- Write pot_roglsdet record and remove poe_roglsdet record
+                    redim potRogLSDet$
+                    call pgmdir$+"adc_copyfile.aon",poeRogLSDet$,potRogLSDet$,status
+                    writerecord(potRogLSDet_dev)potRogLSDet$
+                    remove(poeRogLSDet_dev,key=poeRogLSDet_key$)
+                wend
+            else
+                rem --- Goods returned AFTER the PO Receipt Register was updated
+                rem --- Create new receiver for credit for returned goods
+                if creditReceiver$="" then
+                    potRecHdr_key$=firm_id$+poeRogHdr.po_no$+poeRogHdr.receiver_no$
+                    readrecord(potRecHdr_dev,key=potRecHdr_key$,knum="PRIMARY")potRecHdr$
+
+                    redim poeRecHdr$
+                    call pgmdir$+"adc_copyfile.aon",potRecHdr$,poeRecHdr$,status
+                    call stbl("+DIR_SYP")+"bas_sequences.bbj","RECEIVER_NO",creditReceiver$,table_chans$[all],"QUIET"
+                    poeRecHdr.batch_no$="0000000"
+                    poeRecHdr.receiver_no$=creditReceiver$
+                    poeRecHdr.rec_complete$="Y"
+                    poeRecHdr.recpt_date$=sysinfo.system_date$
+                    writerecord(poeRecHdr_dev)poeRecHdr$                    
+                endif
+                
+                rem --- Create new receiver for replacements for returned goods
+                if replacementReceiver$="" and poeRogDet.replace_qty<>0 then
+                    potRecHdr_key$=firm_id$+poeRogHdr.po_no$+poeRogHdr.receiver_no$
+                    readrecord(potRecHdr_dev,key=potRecHdr_key$,knum="PRIMARY")potRecHdr$
+
+                    redim poeRecHdr$
+                    call pgmdir$+"adc_copyfile.aon",potRecHdr$,poeRecHdr$,status
+                    call stbl("+DIR_SYP")+"bas_sequences.bbj","RECEIVER_NO",replacementReceiver$,table_chans$[all],"QUIET"
+                    poeRecHdr.batch_no$="0000000"
+                    poeRecHdr.receiver_no$=replacementReceiver$
+                    poeRecHdr.rec_complete$="N"
+                    poeRecHdr.recpt_date$=sysinfo.system_date$
+                    writerecord(poeRecHdr_dev)poeRecHdr$                    
+                endif
+
+                rem --- Get credit for ALL goods being returned
+                potRecDet_key$=firm_id$+poeRogDet.po_no$+poeRogDet.receiver_no$+poeRogDet.rec_int_seq_ref$
+                readrecord(potRecDet_dev,key=potRecDet_key$,knum="PRIMARY")potRecDet$
+
+                redim poeRecDet$
+                call pgmdir$+"adc_copyfile.aon",potRecDet$,poeRecDet$,status
+                poeRecDet.batch_no$="0000000"
+                poeRecDet.receiver_no$=creditReceiver$
+                poeRecDet.internal_seq_no$=poeRogDet.rec_int_seq_ref$
+                poeRecDet.qty_ordered=-poeRogDet.qty_returned
+                poeRecDet.qty_prev_rec=0
+                poeRecDet.qty_received=-poeRogDet.qty_returned
+                writerecord(poeRecDet_dev)poeRecDet$                    
+
+                rem --- Update Inventory On-Order for the returned goods
+                items$[1]=poeRecDet.warehouse_id$
+                items$[2]=poeRecDet.item_id$
+                refs[0]=-poeRogDet.qty_returned
+                call stbl("+DIR_PGM")+"ivc_itemupdt.aon","OO",files[all],ivsParams$,items$[all],refs$[all],refs[all],table_chans$[all],status
+               
+                rem --- Get credit for lot/serial numbers returned for ALL item
+                poeRogLSDet_trip$=poeRogDet_key$
+                read(poeRogLSDet_dev,key=poeRogLSDet_trip$,knum="PRIMARY",dom=*next)
+                while 1
+                    poeRogLSDet_key$=key(poeRogLSDet_dev,end=*break)
+                    if pos(poeRogLSDet_trip$=poeRogLSDet_key$)<>1 break
+                    readrecord(poeRogLSDet_dev)poeRogLSDet$
+
+                    if poeRogLSDet.qty_returned<>0 then continue
+                        potRecLSDet_trip$=firm_id$+poeRogLSDet.receiver_no$+poeRogLSDet.rec_int_seq_ref$
+                        read(potRecLSDet_dev,key=poetecLSDet_trip$,knum="PRIMARY",dom=*next)
+                        while 1
+                            potRecLSDet_key$=key(potRecLSDet_dev,end=*break)
+                            if pos(potRecLSDet_trip$=potRecLSDet_key$)<>1 break
+                            readrecord(potRecLSDet_dev)potRecLSDet$
+                            if potRecLSDet.lotser_no$<>poeRogLSDet.lotser_no$ then continue
+                            
+                            redim poeRecLSDet$
+                            call pgmdir$+"adc_copyfile.aon",potRecLSDet$,poeRecLSDet$,status
+                            poeRecLSDet.receiver_no$=creditReceiver$
+                            poeRecLSDet.po_int_seq_ref$=poeRogLSDet.rec_int_seq_ref$
+                            poeRecLSDet.qty_received=-poeRogLSDet.qty_returned
+                            writerecord(poeRecLSDet_dev)poeRecLSDet$                    
+                            
+                            break
+                        wend
+                    endif
+                    
+                    rem --- Write pot_roglsdet record and remove poe_roglsdet record
+                    redim potRogLSDet$
+                    call pgmdir$+"adc_copyfile.aon",poeRogLSDet$,potRogLSDet$,status
+                    writerecord(potRogLSDet_dev)potRogLSDet$
+                    remove(poeRogLSDet_dev,key=poeRogLSDet_key$)
+                wend
+                
+                rem --- Add goods being replaced to the new receiver for replacements
+                if replacementReceiver$<>"" and poeRogDet.replace_qty<>0 then
+                    potRecDet_key$=firm_id$+poeRogDet.po_no$+poeRogDet.receiver_no$+poeRogDet.rec_int_seq_ref$
+                    readrecord(potRecDet_dev,key=potRecDet_key$,knum="PRIMARY")potRecDet$
+
+                    redim poeRecDet$
+                    call pgmdir$+"adc_copyfile.aon",potRecDet$,poeRecDet$,status
+                    poeRecDet.batch_no$="0000000"
+                    poeRecDet.receiver_no$=replacementReceiver$
+                    poeRecDet.internal_seq_no$=poeRogDet.rec_int_seq_ref$
+                    poeRecDet.qty_ordered=poeRogDet.qty_returned
+                    poeRecDet.qty_prev_rec=0
+                    poeRecDet.qty_received=0
+                    writerecord(poeRecDet_dev)poeRecDet$                    
+
+                    rem --- Update Inventory On-Order for the goods being replaced
+                    items$[1]=poeRecDet.warehouse_id$
+                    items$[2]=poeRecDet.item_id$
+                    refs[0]=poeRogDet.qty_returned 
+                    call stbl("+DIR_PGM")+"ivc_itemupdt.aon","OO",files[all],ivsParams$,items$[all],refs$[all],refs[all],table_chans$[all],status
+                endif
+            endif
+                    
+            rem --- Write pot_rogdet record and remove poe_rogdet record
+            redim potRogDet$
+            call pgmdir$+"adc_copyfile.aon",poeRogDet$,potRogDet$,status
+            writerecord(potRogDet_dev)potRogDet$
+            remove(poeRogDet_dev,key=poeRogDet_key$)
+        wend
+            
+        rem --- If not getting replacements, mark the POE_RECHDR record Complete if all other POE_RECDET records were received complete.
+        rem --- This isn't necessary for goods returned AFTER the Receipt Register was updated. 
+        rem --- They will get skipped because they use new receivers that have a different receiver_no than the POE_ROGDET receiver_no
+        if !replacements then
+            markComplet=1
+            poeRecDet_trip$=firm_id$+poeRogDet.receiver_no$
+            read(poeRecDet_dev,key=poeRecDet_trip$,knum="PRIMARY",dom=*next)
+            while 1
+                poeRecDet_key$=key(poeRecDet_dev,end=*break)
+                if pos(poeRecDet_trip$=poeRecDet_key$)<>1 then break
+                readrecord(poeRecDet_dev)poeRecDet$
+                if poeRecDet.qty_received=poeRecDet.qty_ordered-poeRecDet.qty_prev_rec then continue
+                
+                rem --- Were these returned for credit?
+                qty_returned=returnsMap!.get(poeRecDet_key$)
+                if qty_returned=poeRecDet.qty_ordered-poeRecDet.qty_prev_rec-poeRecDet.qty_received then continue
+
+                markComplete=0
+                break
+            wend
+        endif
+        if markComplete then 
+            readrecord(poeRecHdr_dev,key=firm_id$+poeRogDet.receiver_no$,dom=*endif)poeRecHdr$
+            poeRecHdr.rec_complete$="Y"
+            writerecord(poeRecHdr_dev)poeRecHdr$
+        endif
+                    
+        rem --- Write pot_roghdr record and remove poe_roghdr record
+        redim potRogHdr$
+        call pgmdir$+"adc_copyfile.aon",poeRogHdr$,potRogHdr$,status
+        potRogHdr.credit_receiver$=creditReceiver$
+        potRogHdr.replace_receiver$=replacementReceiver$
+        writerecord(potRogHdr_dev)potRogHdr$
+        remove(poeRogHdr_dev,key=firm_id$+poeRogHdr.po_no$+poeRogHdr.receiver_no$+poeRogHdr.return_date$+poeRogHdr.return_auth$)
+        read(poeRogHdr_dev,key=poeRogHdr_key$,knum="VEND_PO_REC",dom=*next)                    
+    wend
+
+done: rem --- All done
+    goto std_exit
+        
+disp_message:rem --- Display Message Dialog
+
+    call stbl("+DIR_SYP")+"bac_message.bbj",msg_id$,msg_tokens$[all],msg_opt$,table_chans$[all]
+    return
+    
+rem #include std_functions.src
+rem --- Standard AddonSoftware functions (01Mar2006)
+rem --- Functions used to retrieve form values
+
+    def fnstr_pos(q0$,q1$,q1)=int((pos(q0$=q1$,q1)+q1-1)/q1)
+    def fnget_rec_date$(q0$)=rd_rec_data$[fnstr_pos(cvs(q0$,1+2+4)+"."+
+:                            cvs(q0$,1+2+4),rd_rec_data$[0,0],40),0]
+    def fnget_fld_data$(q0$,q1$)=cvs(rd_rec_data$[fnstr_pos(cvs(q0$,1+2+4)+"."+
+:                                cvs(q1$,1+2+4),rd_rec_data$[0,0],40),0],2)
+    def fnget_table$(q0$)=rd_alias_id$
+
+rem --- Miscellaneous functions
+
+    def fncenter(q$,q)=int((q-len(q$))/2)
+
+rem --- Format inventory item description
+
+	def fnitem$(q$,q1,q2,q3)
+		q$=pad(q$,q1+q2+q3)
+		return cvs(q$(1,q1)+" "+q$(q1+1,q2)+" "+q$(q1+q2+1,q3),32)
+	fnend
+
+rem --- Format zip/postal code
+
+    def fnzipcode$(q$)
+        q$=cvs(q$,4)
+        if len(cvs(q$,2))<>9 and len(cvs(q$,2))<>6 return q$
+        if len(cvs(q$,2))=9
+            q1$="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"
+            q1=mask(cvs(q$,2),q1$)
+            if q1=0 return q$
+            if q1<>0
+                if q$(6,4)="0000" return q$(1,5)
+            return q$(1,5)+"-"+q$(6,4)
+            endif
+        endif
+        if len(cvs(q$,2))=6
+            q1$="[a-zA-Z][0-9][a-zA-Z][0-9][a-zA-Z][0-9]"
+            q1=mask(cvs(q$,2),q1$)
+            if q1=0 return q$ else return q$(1,3)+" "+q$(4,3)
+        endif
+    fnend
+
+rem --- Date/time handling functions
+
+    def fndate$(q$)
+        q1$=""
+        q1$=date(jul(num(q$(1,4)),num(q$(5,2)),num(q$(7,2)),err=*next),err=*next)
+        if q1$="" q1$=q$
+        return q1$
+    fnend
+    def fnyy$(q$)=q$(3,2)
+    def fnclock$(q$)=date(0:"%hz:%mz %p")
+    def fntime$(q$)=date(0:"%Hz%mz")
+
+rem --- fnmask$: Alphanumeric Masking Function (formerly fnf$)
+
+    def fnmask$(q1$,q2$)
+        if cvs(q1$,2)="" return ""
+        if q2$="" q2$=fill(len(q1$),"0")
+        if pos("E"=cvs(q1$,4)) goto alpha_mask
+:      else return str(-num(q1$,err=alpha_mask):q2$,err=alpha_mask)
+alpha_mask:
+        q=1
+        q0=0
+        while len(q2$(q))
+            if pos(q2$(q,1)="-()") q0=q0+1 else q2$(q,1)="X"
+            q=q+1
+        wend
+        if len(q1$)>len(q2$)-q0 q1$=q1$(1,len(q2$)-q0)
+        return str(q1$:q2$)
+    fnend
+
+rem --- fnbasename$: Strip path and optionally the suffix from a file name
+
+    def fnbasename$(q$,q0$)
+        q=max(pos("/"=q$,-1),pos(":"=q$,-1),pos(">"=q$,-1),pos("\"=q$,-1))
+        if q then q$=q$(q+1)
+        if q0$<>"" then q=mask(q$,q0$); if q q$=q$(1,q-1)
+    return q$
+
+rem --- fnglobal: Return numeric value of passed stbl variable
+
+    def fnglobal(q$,q1)
+        q1$=stbl(q$,err=*next),q1=num(q1$,err=*next)
+        return q1
+    fnend
+
+rem --- fnglobal$: Return string value of passed STBL variable
+
+    def fnglobal$(q$,q1$)
+        q1$=stbl(q$,err=*next)
+        return q1$
+    fnend
+
+rem #endinclude std_functions.src
+
+rem #include std_error.src
+
+std_error: rem --- Standard error handler (11Oct2017)
+
+    if tcb(19)>0
+        rem --- Escape handler
+        if and(chr(tcb(19)),$08$)=$08$
+            release
+        else
+            setesc std_error
+            return
+        endif
+    endif
+
+    if err=0   
+        rem --- Get tcb(12) and tcb(10) to send into bac_error
+        lock_byte=tcb(10)
+        lock_chan=tcb(12)  
+    endif
+
+    rd_err_text$="",err_num=err
+    if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+    if err_num=252 then
+        E!=BBjAPI().getLastBBjException()
+        rd_err_text$=rd_err_text$+$0A$+E!.getClass().getName()
+        if E!.getMessage()<>null() then rd_err_text$=rd_err_text$+": "+E!.getMessage()
+    endif
+    call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err_num),rd_err_text$,rd_err_act$,lock_byte,lock_chan
+    if pos("ESCAPE"=rd_err_act$) seterr 0; setesc 0
+    if pos("RETRY"=rd_err_act$) retry
+    if pgm(-1)<>pgm(-2) status=999; exit 
+    release
+
+rem #endinclude std_error.src
+
+rem #include std_missing_params.src
+
+std_missing_params: rem --- Standard missing parameter handler (15Apr2006)
+
+    rd_err_text$=""
+    if tcb(5)<>0 and pgm(-1)=pgm(-2) rd_err_text$=pgm(tcb(5))
+    pgmdir$=stbl("+DIR_PGM",err=std_missing_params_exit)
+    call pgmdir$+"adc_noparams.aon",err=std_missing_params_exit,pgm(-2),str(tcb(5)),
+:                                   str(err),rd_err_text$,rd_err_act$
+std_missing_params_exit:
+    master_user$=cvs(stbl("+MASTER_USER",err=std_missing_params_release),2)
+    sysinfo_template$=stbl("+SYSINFO_TPL",err=std_missing_params_release)
+    dim sysinfo$:sysinfo_template$
+    sysinfo$=stbl("+SYSINFO",err=std_missing_params_release)
+    if cvs(sysinfo.user_id$,2)=master_user$ escape
+std_missing_params_release:
+    status=999
+    if pgm(-1)<>pgm(-2) exit
+    release
+
+rem #endinclude std_missing_params.src
+
+rem #include std_end.src
+
+std_exit: rem --- Standard program end (01Mar2006)
+
+    msg_id$="UPDATE_COMPLETE"
+    dim msg_tokens$[1]
+    msg_opt$=""
+    gosub disp_message
+
+std_exit_no_update:
+
+	if num(batch_no$)<>0
+		unlock_key$=firm_id$+stbl("+PROCESS_ID")+stbl("+BATCH_NO")
+		lock_status$=""
+		call stbl("+DIR_SYP")+"bac_lock_record.bbj",
+:		   "ADM_PROCBATCHES",unlock_key$,"X","",
+:		   rd_table_chan,table_chans$[all],lock_status$
+	endif
+
+    gosub remove_locks_and_exit
+    call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
+    run stbl("+DIR_SYP")+"bas_process_end.bbj",err=*next
+    release
+rem #endinclude std_end.src
+
+remove_locks_and_exit: rem --- Remove soft locks and exit
+    if lockKeys! <> null() and lockKeys!.size() > 1 then
+        for lck=1 to lockKeys!.size()-1
+            lckk$=cast(BBjString, lockKeys!.getItem(lck))
+            call stbl("+DIR_SYP")+"bac_lock_record.bbj",lockKeys!.getItem(0),lckk$,"U","",0,table_chans$[all],lock_stat$
+        next lck
+    endif
+    return
+
+    end
