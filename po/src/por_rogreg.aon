@@ -55,6 +55,7 @@ rem --- Open/Lock files
     call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
 :                                   ids$[all],templates$[all],channels[all],batch,status
     if status goto std_exit
+
     poeRogHdr_dev=channels[1]
     poeRogDet_dev=channels[2]
     poeRogLSDet_dev=channels[3]
@@ -140,7 +141,7 @@ rem --- Get user approval to proceed
     if msg_opt$<>"Y" then goto std_exit
         
 rem --- Position file
-    call pgmdir$ + "adc_progress.aon","N","","","","",0,poe04_dev,1,meter_num,status
+    call pgmdir$ + "adc_progress.aon","N","","","","",0,poeRogHdr_dev,1,meter_num,status
     read (poeRogHdr_dev,key=firm_id$,knum="VEND_PO_REC",dom=*next)
 
     while 1
@@ -169,7 +170,7 @@ rem --- Position file
 
             rem --- Get PO Line Type, and skip record if not S, N or O line type
             findrecord(pocLineCode_dev,key=poeRogDet.firm_id$+poeRogDet.line_code$,dom=*continue)pocLineCode$
-			if pos(pocLineCode.line_type$="SNO")=0 then continue
+			if pos(pocLineCode.line_type$="SN")=0 then continue
             recs=recs+1
 
             rem --- Branch based on line code
@@ -263,21 +264,6 @@ rem --- Position file
                     OutVect!.addItem(poeRogDet.order_memo$)
                     xvk=fnblank(6)
                 break
-                case pocLineCode.line_type$="O"
-                    rem --- Other type line
-                    OutVect!.addItem("")
-                    OutVect!.addItem(poeRogDet.line_code$)
-                    OutVect!.addItem(poeRogDet.warehouse_id$)
-                    xvk=fnblank(3)
-                    OutVect!.addItem(str(poeRogDet.qty_ordered:m2$)+$00$+"R")
-                    OutVect!.addItem(str(poeRogDet.qty_received:m2$)+$00$+"R")
-                    OutVect!.addItem(str(poeRogDet.qty_returned:m2$)+$00$+"R")
-                    OutVect!.addItem(str(poeRogDet.replace_qty:m2$)+$00$+"R")
-
-                    xvk=fnblank(3)
-                    OutVect!.addItem(poeRogDet.order_memo$)
-                    xvk=fnblank(6)
-                break
             swend
 
             rem --- Accumulate totals
@@ -318,7 +304,7 @@ rem --- All done
     endif
 
     if !errors then
-        next_overlay$="pou_rogreb.aon"
+        next_overlay$="pou_rogreg.aon"
     else
         rem --- Warn update cannot be run due to errors
         msg_id$="AON_REG_ERRS"

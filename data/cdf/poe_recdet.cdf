@@ -444,7 +444,7 @@ rem --- Is this item lot/serial?
 				if pos(firm_id$+rcvr_no$+int_seq$=poe_reclsdet_key$)<>1 break
 				readrecord(poe_reclsdet_dev,key=poe_reclsdet_key$)poe_reclsdet$
 				readrecord(ivm_lsmaster_dev,key=firm_id$+wh$+item$+poe_reclsdet.lotser_no$,dom=*continue)ivm_lsmaster$
-				if ivm_lsmaster.qty_on_hand>0
+				if ivm_lsmaster.qty_on_hand>0 and poe_reclsdet.qty_received<>-1 then
 					remove (poe_reclsdet_dev,key=poe_reclsdet_key$)
 					msg_id$="IV_SER_ZERO_QOH"
 					gosub disp_message
