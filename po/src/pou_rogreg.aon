@@ -191,7 +191,7 @@ rem --- Read header records
                     if pos(poeRogLSDet_trip$=poeRogLSDet_key$)<>1 break
                     readrecord(poeRogLSDet_dev)poeRogLSDet$
 
-                    if poeRogLSDet.qty_returned<>0 then continue
+                    if poeRogLSDet.qty_returned<>0 then
                         potRecLSDet_trip$=firm_id$+poeRogLSDet.receiver_no$+poeRogLSDet.rec_int_seq_ref$
                         read(potRecLSDet_dev,key=poetecLSDet_trip$,knum="PRIMARY",dom=*next)
                         while 1
