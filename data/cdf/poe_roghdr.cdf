@@ -417,23 +417,129 @@ rem --- Display Vendor Purchase Address
 	callpoint!.setColumnData("POE_ROGHDR.PURCH_ADDR",purch_addr$)
 
 [[POE_ROGHDR.PO_NO.BDRL]]
+rem --- Open work file used for drilldown
+	num_files=2
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="POW_VENDORPOS",open_opts$[1]="OTA"
+	open_tables$[2]="POW_RECEIPTDET",open_opts$[2]="OTA"
+	gosub open_tables
+	powVendorPOs_dev=num(open_chans$[1])
+	powReceiptDet_dev=num(open_chans$[2])
+	dim powVendorPOs$:open_tpls$[1]
+	dim powReceiptDet$:open_tpls$[2]
+
+	vendor_id$=callpoint!.getColumnData("POE_ROGHDR.VENDOR_ID")
+	call stbl("+DIR_PGM")+"adc_clearpartial.aon","",powVendorPOs_dev,firm_id$+vendor_id$,status
+	if status then
+		callpoint!.setStatus("ABORT")
+		goto close_work_file
+	endif
+
+	call stbl("+DIR_PGM")+"adc_clearpartial.aon","",powReceiptDet_dev,firm_id$,status
+	if status then
+		callpoint!.setStatus("ABORT")
+		goto close_work_file
+	endif
+
+rem --- Build pow_vendorpos from receipts in poe_rechdr and pot_rechdr for this vendor
+	sqlprep$=""
+	sqlprep$=sqlprep$+"SELECT firm_id, vendor_id, po_no, receiver_no, warehouse_id, recpt_date, 'New' as status"
+	sqlprep$=sqlprep$+" FROM poe_rechdr"
+	sqlprep$=sqlprep$+" WHERE firm_id="+"'"+firm_id$+"'"+" AND vendor_id="+"'"+vendor_id$+"'"
+	sqlprep$=sqlprep$+" UNION"
+	sqlprep$=sqlprep$+" SELECT firm_id, vendor_id,po_no, receiver_no, warehouse_id, recpt_date, 'Updated' as status"
+	sqlprep$=sqlprep$+" FROM pot_rechdr"
+	sqlprep$=sqlprep$+" WHERE firm_id="+"'"+firm_id$+"'"+" AND vendor_id="+"'"+vendor_id$+"'"
+
+	sql_chan=sqlunt
+	sqlopen(sql_chan,err=*next)stbl("+DBNAME")
+	sqlprep(sql_chan)sqlprep$
+	dim read_tpl$:sqltmpl(sql_chan)
+	sqlexec(sql_chan)
+
+	rem --- Process through SQL results 
+	poe_recdet_dev=fnget_dev("POE_RECDET")
+	dim poe_recdet$:fnget_tpl$("POE_RECDET")
+	pot_recdet_dev=fnget_dev("POT_RECDET")
+	dim pot_recdet$:fnget_tpl$("POT_RECDET")
+	while 1
+		read_tpl$ = sqlfetch(sql_chan,end=*break)
+
+		powVendorPOs.firm_id$=read_tpl.firm_id$
+		powVendorPOs.vendor_id$=read_tpl.vendor_id$
+		powVendorPOs.po_no$=read_tpl.po_no$
+		powVendorPOs.receiver_no$=read_tpl.receiver_no$
+		powVendorPOs.warehouse_id$=read_tpl.warehouse_id$
+		powVendorPOs.recpt_date$=read_tpl.recpt_date$
+		powVendorPOs.status$=read_tpl.status$
+		writerecord(powVendorPOs_dev)powVendorPOs$
+
+		rem --- Build pow_receiptdet from receipts in poe_recdet and pot_recdet for this vendor
+		if cvs(powVendorPOs.status$,2)="New" then
+			poe_recdet_trip$=firm_id$+powVendorPOs.po_no$+powVendorPOs.receiver_no$
+			read(poe_recdet_dev,key=poe_recdet_trip$,knum="PO_RECVR",dom=*next)
+			while 1
+				poe_recdet_key$=key(poe_recdet_dev,end=*break)
+				if pos(poe_recdet_trip$=poe_recdet_key$)<>1 then break
+				readrecord(poe_recdet_dev)poe_recdet$
+
+				powReceiptDet.firm_id$=poe_recdet.firm_id$
+				powReceiptDet.po_no$=poe_recdet.po_no$
+				powReceiptDet.receiver_no$=poe_recdet.receiver_no$
+				powReceiptDet.po_int_seq_ref$=poe_recdet.internal_seq_no$
+				powReceiptDet.po_line_no$=poe_recdet.po_line_no$
+				powReceiptDet.po_line_code$=poe_recdet.po_line_code$
+				powReceiptDet.warehouse_id$=poe_recdet.warehouse_id$
+				powReceiptDet.item_id$=poe_recdet.item_id$
+				powReceiptDet.recpt_date$=read_tpl.recpt_date$
+				powReceiptDet.qty_ordered=poe_recdet.qty_ordered
+				powReceiptDet.qty_received=poe_recdet.qty_received
+				powReceiptDet.status$=read_tpl.status$
+				writerecord(powReceiptDet_dev)powReceiptDet$
+			wend
+		else
+			pot_recdet_trip$=firm_id$+powVendorPOs.po_no$+powVendorPOs.receiver_no$
+			read(pot_recdet_dev,key=pot_recdet_trip$,knum="PRIMARY",dom=*next)
+			while 1
+				pot_recdet_key$=key(pot_recdet_dev,end=*break)
+				if pos(pot_recdet_trip$=pot_recdet_key$)<>1 then break
+				readrecord(pot_recdet_dev)pot_recdet$
+
+				powReceiptDet.firm_id$=pot_recdet.firm_id$
+				powReceiptDet.po_no$=pot_recdet.po_no$
+				powReceiptDet.receiver_no$=pot_recdet.receiver_no$
+				powReceiptDet.po_int_seq_ref$=pot_recdet.po_int_seq_ref$
+				powReceiptDet.po_line_no$=pot_recdet.po_line_no$
+				powReceiptDet.po_line_code$=pot_recdet.po_line_code$
+				powReceiptDet.warehouse_id$=pot_recdet.warehouse_id$
+				powReceiptDet.item_id$=pot_recdet.item_id$
+				powReceiptDet.recpt_date$=read_tpl.recpt_date$
+				powReceiptDet.qty_ordered=pot_recdet.qty_ordered
+				powReceiptDet.qty_received=pot_recdet.qty_received
+				powReceiptDet.status$=read_tpl.status$
+				writerecord(powReceiptDet_dev)powReceiptDet$
+			wend
+		endif
+	wend
+
 rem --- Do custom query
 	query_id$="PO_REC_OPEN+HIST"
 	query_mode$="DEFAULT"
 	dim filter_defs$[2,2]
 	filter_defs$[1,0] = "POE_RECHDR.FIRM_ID"
-	filter_defs$[1,1] = "='"+callpoint!.getColumnData("POE_ROGHDR.FIRM_ID")+"'"
+	filter_defs$[1,1] = "='"+firm_id$+"'"
 	filter_defs$[1,2] = "LOCK"
 	filter_defs$[2,0] = "POE_RECHDR.VENDOR_ID"
-	filter_defs$[2,1] = "='" + callpoint!.getColumnData("POE_ROGHDR.VENDOR_ID")+"'"
+	filter_defs$[2,1] = "='"+vendor_id$+"'"
 	filter_defs$[2,2] = "LOCK"
 
 	dim search_defs$[2]
-	search_defs$[0]="POE_RECHDR.PO_NO"
+	search_defs$[0]="POW_VENDORPOS.RECEIVER_NO"
+	search_defs$[1]=""
 	search_defs$[2]="D"
 
-	key_pfx$=callpoint!.getColumnData("POE_ROGHDR.FIRM_ID")+callpoint!.getColumnData("POE_ROGHDR.VENDOR_ID")
-	key_id$="AO_VEND_RCVR_PO"
+	key_pfx$=firm_id$+vendor_id$
+	key_id$="PRIMARY"
 
 	call stbl("+DIR_SYP")+"bax_query.bbj",
 :		gui_dev,
@@ -447,21 +553,27 @@ rem --- Do custom query
 :		key_pfx$,
 :		key_id$
 
-
 	if sel_key$<>""
 		call stbl("+DIR_SYP")+"bac_key_template.bbj",
-:			"POE_RECHDR",
+:			"POW_VENDORPOS",
 :			key_id$,
-:			poe_rechdr_key$,
+:			powVendorPOs_key$,
 :			table_chans$[all],
 :			status$
 
-		dim poe_rechdr_key$:poe_rechdr_key$
-		poe_rechdr_key$=sel_key$
-		callpoint!.setColumnData("POE_ROGHDR.PO_NO",poe_rechdr_key.po_no$,1)
-		callpoint!.setColumnData("POE_ROGHDR.RECEIVER_NO",poe_rechdr_key.receiver_no$,1)
+		dim powVendorPOs_key$:powVendorPOs_key$
+		powVendorPOs_key$=sel_key$
+		callpoint!.setColumnData("POE_ROGHDR.PO_NO",powVendorPOs_key.po_no$,1)
+		callpoint!.setColumnData("POE_ROGHDR.RECEIVER_NO",powVendorPOs.receiver_no$,1)
 		callpoint!.setStatus("MODIFIED")
 	endif
+
+close_work_file: rem --- Close work file
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="POW_VENDORPOS",open_opts$[1]="C"
+	gosub open_tables
+
 	callpoint!.setStatus("ACTIVATE-ABORT")
 
 [[POE_ROGHDR.PO_NO.BINQ]]
