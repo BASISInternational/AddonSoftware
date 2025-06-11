@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.poe_rogdet"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poe_rogdet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poe_rogdet">20250412</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.poe_rogdet">20250521</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.poe_rogdet">20250521</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.poe_rogdet">153512</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.poe_rogdet">20250611</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.poe_rogdet">20250611</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.poe_rogdet">104042</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.poe_rogdet"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.poe_rogdet">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.poe_rogdet"></DD_ATTR_DKNM>
@@ -172,6 +172,12 @@
 			<REF_TABLE_ALIAS id="ddm_table_ref.poe_rogdetitem_idivm_itemmast">IVM_ITEMMAST    </REF_TABLE_ALIAS>
 			<TABLE_REF_NAME id="ddm_table_ref.poe_rogdetitem_idivm_itemmast">FK_POE_ROGDET_ITEM_ID_IVM_ITEMMAST                                                                                                                                                                                                                             </TABLE_REF_NAME>
 		</RECORD>
+		<RECORD id="ddm_table_ref.poe_rogdetline_codepoc_linecode">
+			<DD_TABLE_ALIAS id="ddm_table_ref.poe_rogdetline_codepoc_linecode">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.poe_rogdetline_codepoc_linecode">LINE_CODE       </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.poe_rogdetline_codepoc_linecode">POC_LINECODE    </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.poe_rogdetline_codepoc_linecode">FK_POE_ROGDET_LINE_CODE_POC_LINECODE                                                                                                                                                                                                                           </TABLE_REF_NAME>
+		</RECORD>
 		<RECORD id="ddm_table_ref.poe_rogdetunit_measureivc_umcodes">
 			<DD_TABLE_ALIAS id="ddm_table_ref.poe_rogdetunit_measureivc_umcodes">POE_ROGDET      </DD_TABLE_ALIAS>
 			<DD_TABLE_COL id="ddm_table_ref.poe_rogdetunit_measureivc_umcodes">UNIT_MEASURE    </DD_TABLE_COL>
@@ -198,6 +204,24 @@
 			<REF_KEY_SEGMENT id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0002">02</REF_KEY_SEGMENT>
 			<REF_KEY_COLUMN id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0002">ITEM_ID         </REF_KEY_COLUMN>
 			<FK_TABLE_COL id="ddm_table_refcol.poe_rogdetitem_idivm_itemmast0002">ITEM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0001">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0001">LINE_CODE       </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0001">POC_LINECODE    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0002">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0002">LINE_CODE       </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0002">POC_LINECODE    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0002">PO_LINE_CODE    </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.poe_rogdetline_codepoc_linecode0002">LINE_CODE       </FK_TABLE_COL>
 		</RECORD>
 		<RECORD id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0001">
 			<DD_TABLE_ALIAS id="ddm_table_refcol.poe_rogdetunit_measureivc_umcodes0001">POE_ROGDET      </DD_TABLE_ALIAS>
@@ -1570,6 +1594,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetitem_idc">POE_ROGDET      </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.poe_rogdetitem_idc">ITEM_ID         </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.poe_rogdetitem_idc">C</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.poe_rogdetitem_idv">
+			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetitem_idv">POE_ROGDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.poe_rogdetitem_idv">ITEM_ID         </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.poe_rogdetitem_idv">V</DD_ATTR_OPTS>
 		</RECORD>
 		<RECORD id="ddm_column_opts.poe_rogdetns_item_idc">
 			<DD_TABLE_ALIAS id="ddm_column_opts.poe_rogdetns_item_idc">POE_ROGDET      </DD_TABLE_ALIAS>
