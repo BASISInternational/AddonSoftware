@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ItemDetail_gl" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon">
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ItemDetail_gl" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="97125e14-71f6-4826-a317-3fd2c93d1c3b">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="210"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="779"/>
 	<template><![CDATA["StyleTemplate.jrtx"]]></template>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="ITEM_ID" class="java.lang.String"/>
 	<parameter name="GL_MASK" class="java.lang.String"/>
 	<parameter name="GL_LEN" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select gl_inv_acct, gl_cogs_acct, gl_pur_acct, gl_ppv_acct, gl_inv_adj, gl_cogs_adj, gl1.gl_acct_desc AS inv_desc, gl2.gl_acct_desc AS cogs_desc, gl3.gl_acct_desc AS pur_desc, gl4.gl_acct_desc AS ppv_desc, gl5.gl_acct_desc AS ivadj_desc, gl6.gl_acct_desc AS cogsadj_desc from ivm_itemmast
-left join glm_acct gl1 on gl1.firm_id = $P{FIRM_ID} and gl1.gl_account = ivm_itemmast.gl_inv_acct
-left join glm_acct gl2 on gl2.firm_id = $P{FIRM_ID} and gl2.gl_account = ivm_itemmast.gl_cogs_acct
-left join glm_acct gl3 on gl3.firm_id = $P{FIRM_ID} and gl3.gl_account = ivm_itemmast.gl_pur_acct
-left join glm_acct gl4 on gl4.firm_id = $P{FIRM_ID} and gl4.gl_account = ivm_itemmast.gl_ppv_acct
-left join glm_acct gl5 on gl5.firm_id = $P{FIRM_ID} and gl5.gl_account = ivm_itemmast.gl_inv_adj
-left join glm_acct gl6 on gl6.firm_id = $P{FIRM_ID} and gl6.gl_account = ivm_itemmast.gl_cogs_adj
-where firm_id = $P{FIRM_ID} and item_id = $P{ITEM_ID}]]>
+		<![CDATA[CALL GLACCTLIST($P{FIRM_ID},$P{ITEM_ID},$P{GL_MASK},$P{GL_LEN})]]>
 	</queryString>
 	<field name="GL_INV_ACCT" class="java.lang.String"/>
 	<field name="GL_COGS_ACCT" class="java.lang.String"/>
@@ -42,7 +38,7 @@ where firm_id = $P{FIRM_ID} and item_id = $P{ITEM_ID}]]>
 	<columnHeader>
 		<band height="3" splitType="Stretch">
 			<textField>
-				<reportElement mode="Opaque" x="0" y="-13" width="572" height="13" backcolor="#ECECEC"/>
+				<reportElement mode="Opaque" x="0" y="-13" width="572" height="13" backcolor="#ECECEC" uuid="fc997562-b0f4-4e1c-a108-a3a85bb19283"/>
 				<textElement verticalAlignment="Middle">
 					<paragraph leftIndent="3"/>
 				</textElement>
@@ -53,93 +49,81 @@ where firm_id = $P{FIRM_ID} and item_id = $P{ITEM_ID}]]>
 	<detail>
 		<band height="97" splitType="Stretch">
 			<textField>
-				<reportElement x="3" y="12" width="110" height="13"/>
+				<reportElement x="3" y="12" width="110" height="13" uuid="163e842b-b165-4bee-8c06-a756c1a9a56d"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$R{AON_INVENTORY:}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="25" width="110" height="13"/>
+				<reportElement x="3" y="25" width="110" height="13" uuid="7912e814-f968-4dd2-a924-e318e9bd2a34"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$R{AON_COST_OF_GOODS_SOLD:}]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="false">
-				<reportElement x="125" y="12" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{GL_INV_ACCT}.substring(0,3)+"-"+$F{GL_INV_ACCT}.substring(3,6)]]></textFieldExpression>
+				<reportElement x="125" y="12" width="100" height="13" uuid="760d21ae-9918-491f-ada3-9bfdb8edb917"/>
+				<textFieldExpression><![CDATA[$F{GL_INV_ACCT}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="236" y="12" width="172" height="13"/>
-				<textElement/>
+				<reportElement x="236" y="12" width="172" height="13" uuid="9cc4fdd8-6418-41f6-8566-88736285d7a7"/>
 				<textFieldExpression><![CDATA[$F{INV_DESC}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="125" y="25" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{GL_COGS_ACCT}.substring(0,3)+"-"+$F{GL_COGS_ACCT}.substring(3,6)]]></textFieldExpression>
+				<reportElement x="125" y="25" width="100" height="13" uuid="102646e7-8a53-4809-9a9b-adf11744922d"/>
+				<textFieldExpression><![CDATA[$F{GL_COGS_ACCT}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="236" y="25" width="172" height="13"/>
-				<textElement/>
+				<reportElement x="236" y="25" width="172" height="13" uuid="247f3adf-5632-4571-b5e2-96186a43392f"/>
 				<textFieldExpression><![CDATA[$F{COGS_DESC}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="38" width="110" height="13"/>
+				<reportElement x="3" y="38" width="110" height="13" uuid="47ab2a2d-79a4-436f-8eb8-5777b69a0053"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$R{AON_PURCHASES:}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="51" width="110" height="13"/>
+				<reportElement x="3" y="51" width="110" height="13" uuid="30b40e21-5a2a-445a-9dd6-1fb7f74ad660"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$R{AON_PURCH_PRICE_VARIANCE:}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="64" width="110" height="13"/>
+				<reportElement x="3" y="64" width="110" height="13" uuid="184fd2c0-8851-424a-bcc8-ac215c25ee04"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$R{AON_INVENTORY_ADJUSTMENT:}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="77" width="110" height="13"/>
+				<reportElement x="3" y="77" width="110" height="13" uuid="f2322d1f-a518-486c-b632-a7a06ca40c1d"/>
 				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$R{AON_COGS_ADJUSTMENT:}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="125" y="38" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{GL_PUR_ACCT}.substring(0,3)+"-"+$F{GL_PUR_ACCT}.substring(3,6)]]></textFieldExpression>
+				<reportElement x="125" y="38" width="100" height="13" uuid="c7458375-1a80-4421-81e3-42852182f772"/>
+				<textFieldExpression><![CDATA[$F{GL_PUR_ACCT}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="125" y="51" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{GL_PPV_ACCT}.substring(0,3)+"-"+$F{GL_PPV_ACCT}.substring(3,6)]]></textFieldExpression>
+				<reportElement x="125" y="51" width="100" height="13" uuid="9e9c2ae8-56d9-4f86-9564-a21f64e15438"/>
+				<textFieldExpression><![CDATA[$F{GL_PPV_ACCT}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="125" y="64" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{GL_INV_ADJ}.substring(0,3)+"-"+$F{GL_INV_ADJ}.substring(3,6)]]></textFieldExpression>
+				<reportElement x="125" y="64" width="100" height="13" uuid="e7d863d3-b037-4d35-8eb9-2e449e06deba"/>
+				<textFieldExpression><![CDATA[$F{GL_INV_ADJ}]]></textFieldExpression>
 			</textField>
 			<textField pattern="">
-				<reportElement x="125" y="77" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{GL_COGS_ADJ}.substring(0,3)+"-"+$F{GL_COGS_ADJ}.substring(3,6)]]></textFieldExpression>
+				<reportElement x="125" y="77" width="100" height="13" uuid="29b94856-367d-4e08-a1ee-b8961e56a69f"/>
+				<textFieldExpression><![CDATA[$F{GL_COGS_ADJ}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="236" y="38" width="172" height="13"/>
-				<textElement/>
+				<reportElement x="236" y="38" width="172" height="13" uuid="3e48ffd4-e434-46a9-8eb7-fa5878837efa"/>
 				<textFieldExpression><![CDATA[$F{PUR_DESC}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="236" y="51" width="172" height="13"/>
-				<textElement/>
+				<reportElement x="236" y="51" width="172" height="13" uuid="c4ffb0a3-ea6b-4e47-bb51-5e0b9f27e9ee"/>
 				<textFieldExpression><![CDATA[$F{PPV_DESC}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="236" y="64" width="172" height="13"/>
-				<textElement/>
+				<reportElement x="236" y="64" width="172" height="13" uuid="0f0a0ab9-980a-46de-a1d1-8efad909ac86"/>
 				<textFieldExpression><![CDATA[$F{IVADJ_DESC}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="236" y="77" width="172" height="13"/>
-				<textElement/>
+				<reportElement x="236" y="77" width="172" height="13" uuid="da4cab26-2b7d-4c5a-8938-26cda31e48dc"/>
 				<textFieldExpression><![CDATA[$F{COGSADJ_DESC}]]></textFieldExpression>
 			</textField>
 		</band>
