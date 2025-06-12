@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-05-28
+ Report Date:   2025-06-12
  Report Branch: AddonSoftware 25.02
  Last Release:  AddonSoftware 25.01
 =======================================================================================================================================
@@ -29,6 +29,7 @@ zero.
 Modified: data/bar/poe_reclsdet.xml
 Modified: data/cdf/poe_reclsdet.cdf
 =======================================================================================================================================
+
 Author: Ricky <rgonzales@basis.cloud>
 Date:   Wed May 28 10:26:21 2025 -0600
 
@@ -39,4 +40,19 @@ M       data/sync/adm_mnu_trans~[01007514OP].xml
 M       data/sync/adm_rolealias~[all].xml
 =======================================================================================================================================
 
-
+Revision: 89d903ecbb7f1dce86639b84cbbb2e10ff893291
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 6/12/2025 3:25:21 PM
+Message:
+Bug 11047: Used GL ID mask for displaying the GL Accounts on the IV Item
+Detail Listing.
+----
+Modified: ad/src/adx_build_sproc.aon
+Modified: iv/src/ivr_itemdetail.aon
+Modified: reports/ItemDetail.jasper
+Modified: reports/ItemDetail.jrxml
+Modified: reports/ItemDetail_comments.jasper
+Modified: reports/ItemDetail_gl.jasper
+Modified: reports/ItemDetail_gl.jrxml
+Added: sprocs/GLACCTLIST.prc
+=======================================================================================================================================
