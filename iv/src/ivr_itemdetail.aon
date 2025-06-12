@@ -160,6 +160,11 @@ rem --- Build Pattern and Replacement string from Vendor Mask
 	params!.put("VEND_PATTERN",pattern$)
 	params!.put("VEND_REPLACE",replacement$)
 
+rem --- Get the GL Account mask and size
+    call stbl("+DIR_PGM")+"adc_getmask.aon","","GL","I","",glAccount_mask$,0,glAccount_size
+	params!.put("GL_MASK",glAccount_mask$)
+	params!.put("GL_LEN",str(glAccount_size))
+
 rem --- Set Report Name & Subreport directory
 
     reportDir$ = stbl("+DIR_REPORTS",err=*next)

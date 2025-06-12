@@ -59,6 +59,7 @@ rem --- POREPLENISHMENT_VENDOR
 rem --- PURCHASEREQUISITION_HDR
 rem --- PURCHASEREQUISITION_DET
 rem --- SFPICKLIST
+rem --- GLACCTLIST
 
 rem --- Dashboard SPROCs
 rem --- ARAGINGTOT_BAR
@@ -493,6 +494,10 @@ rem --- first drop all std Addon SPROCs
     gosub create_sproc_def
 
 	sproc_vw_name$="SFPICKLIST"
+    sqlprep$=sql_action$+" "+sproc_vw_name$+" "
+    gosub create_sproc_def
+
+	sproc_vw_name$="GLACCTLIST"
     sqlprep$=sql_action$+" "+sproc_vw_name$+" "
     gosub create_sproc_def
 	
@@ -1106,6 +1111,16 @@ rem --- now add them back (i.e., drop, then add, in case anything has changed)
     sqlprep$=sqlprep$+"'"+sproc_path$+"SFPICKLIST.prc' '"+barista_cfg_path$+"barista.cfg' "
     sqlprep$=sqlprep$+"RESULT_SET "
     sqlprep$=sqlprep$+"{_begin_}{_end_} 'Shop Floor Pick List'"
+
+    gosub create_sproc_def
+
+    rem --- GLACCTLIST
+    sproc_vw_name$="GLACCTLIST"
+	sqlprep$="CREATE PROCEDURE GLACCTLIST "
+    sqlprep$=sqlprep$+"(FIRM_ID CHAR(2) IN, ITEM_ID VARCHAR(1) IN, GL_MASK CHAR(20) IN, GL_LEN VARCHAR(1) IN)"	
+    sqlprep$=sqlprep$+"'"+sproc_path$+"GLACCTLIST.prc' '"+barista_cfg_path$+"barista.cfg' "
+    sqlprep$=sqlprep$+"RESULT_SET "
+    sqlprep$=sqlprep$+"{_begin_}{_end_} 'General Ledger Account list'"
 
     gosub create_sproc_def
 
