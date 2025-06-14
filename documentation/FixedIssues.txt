@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-06-12
+ Report Date:   2025-06-14
  Report Branch: AddonSoftware 25.02
  Last Release:  AddonSoftware 25.01
 =======================================================================================================================================
@@ -55,4 +55,21 @@ Modified: reports/ItemDetail_comments.jasper
 Modified: reports/ItemDetail_gl.jasper
 Modified: reports/ItemDetail_gl.jrxml
 Added: sprocs/GLACCTLIST.prc
+=======================================================================================================================================
+
+Revision: 3c65070cc212fa238d9f5a598506f09ea3cfbf9e
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 6/14/2025 3:35:09 PM
+Message:
+ER 11050: Modified logic limiting size of vendor addresses and purchase
+addresses for v6hybrid installations, to only limit the size when using
+v6hybrid Purchase Orders.
+----
+Modified: data/bar/apm_vendaddr.xml
+Modified: data/bar/apm_vendmast.xml
+Modified: data/cdf/apm_vendaddr.cdf
+Modified: data/cdf/apm_vendmast.cdf
+Modified: data/sync/ads_messages~[01007514AP].xml
+Modified: prop/addon.properties
+Modified: prop/addon_en.properties
 =======================================================================================================================================
