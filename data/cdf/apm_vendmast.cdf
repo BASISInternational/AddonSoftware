@@ -266,6 +266,15 @@ rem --- Set Date Opened
 rem --- Hold on to vendor_1099 for apm_vendhist
 	callpoint!.setDevObject("vendor_1099",callpoint!.getColumnData("APM_VENDMAST.VENDOR_1099"))
 
+[[APM_VENDMAST.ASHO]]
+rem --- Warn if length of address lines has been restricted
+	std_addr_line_len=num(callpoint!.getDevObject("std_addr_line_len"))
+	maxl=num(callpoint!.getTableColumnAttribute("APM_VENDMAST.ADDR_LINE_1","MAXL"))
+	if maxl<std_addr_line_len then
+		msg_id$="AP_VEND_ADDR_LIMIT"
+		gosub disp_message
+	endif
+
 [[APM_VENDMAST.AWRI]]
 rem --- Code input if new customer
 	cp_vendor_id$=callpoint!.getColumnData("APM_VENDMAST.VENDOR_ID")
@@ -527,20 +536,31 @@ rem --- if vendor maint has been launched from Invoice/Manual Check Entry, defau
 		callpoint!.setTableColumnAttribute("APM_VENDMAST.TEMP_VEND","DFLT","Y")
 	endif
 
-rem --- if running V6Hybrid, constrain address/city input lengths
+rem --- if running PO as V6Hybrid, constrain address/city input lengths
 
+callpoint!.setDevObject("std_addr_line_len",callpoint!.getTableColumnAttribute("APM_VENDMAST.ADDR_LINE_1","MAXL"))
 while 1
 	v6h$=stbl("+V6DATA",err=*break)
 	if v6h$<>""
-		callpoint!.setTableColumnAttribute("APM_VENDMAST.ADDR_LINE_1","MAXL","24")
-		addr1!=callpoint!.getControl("APM_VENDMAST.ADDR_LINE_1")
-		addr1!.setLength(24)
-		callpoint!.setTableColumnAttribute("APM_VENDMAST.ADDR_LINE_2","MAXL","24")
-		addr2!=callpoint!.getControl("APM_VENDMAST.ADDR_LINE_2")
-		addr2!.setLength(24)
-		callpoint!.setTableColumnAttribute("APM_VENDMAST.CITY","MAXL","24")
-		city!=callpoint!.getControl("APM_VENDMAST.CITY")
-		city!.setLength(24)
+		sym04_dev=unt
+		open(sym04_dev)v6h$+"SYM-04"
+		SYM04A: IOLIST A0$(1),A1$(1),A2$(1),A3$(1),A[ALL]
+		dim A0$(2),A1$(64),A2$(50),A3$(50),A[2]
+		A0$="PO"
+		find(sym04_dev,key=A0$,dom=*break)IOL=SYM04A
+		close(sym04_dev)
+		installed$=A1$(39,1)
+		if installed$="Y" then
+			callpoint!.setTableColumnAttribute("APM_VENDMAST.ADDR_LINE_1","MAXL","24")
+			addr1!=callpoint!.getControl("APM_VENDMAST.ADDR_LINE_1")
+			addr1!.setLength(24)
+			callpoint!.setTableColumnAttribute("APM_VENDMAST.ADDR_LINE_2","MAXL","24")
+			addr2!=callpoint!.getControl("APM_VENDMAST.ADDR_LINE_2")
+			addr2!.setLength(24)
+			callpoint!.setTableColumnAttribute("APM_VENDMAST.CITY","MAXL","24")
+			city!=callpoint!.getControl("APM_VENDMAST.CITY")
+			city!.setLength(24)
+		endif
 	endif
 	break
 wend
