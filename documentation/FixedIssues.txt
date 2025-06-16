@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-06-14
+ Report Date:   2025-06-16
  Report Branch: AddonSoftware 25.02
  Last Release:  AddonSoftware 25.01
 =======================================================================================================================================
@@ -72,4 +72,14 @@ Modified: data/cdf/apm_vendmast.cdf
 Modified: data/sync/ads_messages~[01007514AP].xml
 Modified: prop/addon.properties
 Modified: prop/addon_en.properties
+=======================================================================================================================================
+
+Revision: f238cc75d658ed1a261b6ddf5a17d0d345cf39bb
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 6/16/2025 8:55:09 AM
+Message:
+Bug 11051: For new inventory items defaulted "Kit of Items?" to "Not a
+kit (N)".
+----
+Modified: data/bar/ivm_itemmast.xml
 =======================================================================================================================================
