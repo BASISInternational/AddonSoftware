@@ -504,7 +504,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 		<INDENTS>0</INDENTS>
 		<EXPANDABLE>Y</EXPANDABLE>
-		<PREV_ITEM_ID>7f478e9d-fc48-4c49-92a2-3b8234cdfdd4</PREV_ITEM_ID>
+		<PREV_ITEM_ID>5fc155ce-764c-4387-812d-0223d80deb9f</PREV_ITEM_ID>
 		<NEXT_ITEM_ID>304658f7-ff7b-4c6f-8599-c06d738f7e8c</NEXT_ITEM_ID>
 		<INTERNAL>0</INTERNAL>
 		<EXTERNAL>0</EXTERNAL>
@@ -719,6 +719,7 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POE_ROGHDR      </TABLE_ID>
+		<HELP_TAG>PO_Return_Of_Goods_Entry                                        </HELP_TAG>
 		<MULT_PROC> </MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
@@ -861,6 +862,7 @@
 		<OPT_TYPE>A</OPT_TYPE>
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>[+DIR_PGM]por_rogreg.aon</MENU_PROG>
+		<HELP_TAG>PO_Return_Of_Goods_Register                                     </HELP_TAG>
 		<MULT_PROC> </MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>

@@ -2013,6 +2013,7 @@
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>PO Return Of Goods Entry</MENU_DESC>
+		<HELP_TAG>PO_Return_Of_Goods_Entry                                        </HELP_TAG>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>PO </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>
@@ -2375,6 +2376,7 @@
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>PO Return Of Goods Register</MENU_DESC>
+		<HELP_TAG>PO_Return_Of_Goods_Register                                     </HELP_TAG>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>PO </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>
