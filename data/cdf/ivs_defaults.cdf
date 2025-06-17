@@ -23,9 +23,9 @@ rem --- Open/Lock Files
 	num_files=2
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	if ar$="Y" then
-		open_tables$[1]="ARS_PARAMS",open_opts$[1]="OSTA"
 		open_tables$[1]="ARS_PARAMS",open_opts$[1]="OTA"
 	endif
+	open_tables$[2]="IVC_PRODCODE",open_opts$[2]="OTA"
 	gosub open_tables
 	ars01_dev=num(open_chans$[1]),ars01_tpl$=open_tpls$[1]
 
@@ -124,6 +124,22 @@ gosub gl_active
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(ivc_clascode.item_class$,3)
 		msg_tokens$[2]=cvs(ivc_clascode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+[[IVS_DEFAULTS.PRODUCT_TYPE.AVAL]]
+rem --- Don't allow inactive code
+	ivcProdCode_dev=fnget_dev("IVC_PRODCODE")
+	dim ivcProdCode$:fnget_tpl$("IVC_PRODCODE")
+	prod_code$=callpoint!.getUserInput()
+	read record (ivcProdCode_dev,key=firm_id$+"A"+prod_code$,dom=*next)ivcProdCode$
+	if ivcProdCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcProdCode.product_type$,3)
+		msg_tokens$[2]=cvs(ivcProdCode.code_desc$,3)
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break

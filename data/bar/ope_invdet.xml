@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.ope_invdet">BA8EF92D04BD6C841674DEB28D164BD7</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_invdet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_invdet">20090501</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ope_invdet">20250325</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ope_invdet">20250325</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_invdet">114818</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ope_invdet">20250617</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ope_invdet">20250617</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_invdet">142946</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_invdet">OPT_INVDET      </DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ope_invdet">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_invdet">AO_STAT_CUST_ORD</DD_ATTR_DKNM>
@@ -2377,7 +2377,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invdet010">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invdet010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invdet010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invdet010"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invdet010">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invdet010"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invdet010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invdet010"></DD_ATTR_CTLY>
@@ -4341,6 +4341,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ope_invdetline_codebinp">OPE_INVDET      </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.ope_invdetline_codebinp">LINE_CODE       </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.ope_invdetline_codebinp">BINP</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.ope_invdetproduct_typeaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.ope_invdetproduct_typeaval">OPE_INVDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.ope_invdetproduct_typeaval">PRODUCT_TYPE    </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.ope_invdetproduct_typeaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_column_cpro.ope_invdetwarehouse_idaval">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ope_invdetwarehouse_idaval">OPE_INVDET      </DD_TABLE_ALIAS>

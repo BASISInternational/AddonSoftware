@@ -255,7 +255,7 @@ rem --- Disable additional options for now
 [[OPT_INVHDR.BSHO]]
 rem --- Open needed files
 
-	num_files=39
+	num_files=40
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 
 	open_tables$[1]="ARM_CUSTMAST",  open_opts$[1]="OTA"
@@ -288,6 +288,7 @@ rem --- Open needed files
 	open_tables$[37]="OPC_DISCCODE", open_opts$[37]="OTA"
 	open_tables$[38]="OPC_TAXCODE",  open_opts$[38]="OTA"
 	open_tables$[39]="OPT_SHIPTRACK",  open_opts$[39]="OTA"
+	open_tables$[40]="IVC_PRODCODE",  open_opts$[40]="OTA"
 	
 gosub open_tables
 

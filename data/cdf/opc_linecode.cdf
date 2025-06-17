@@ -112,10 +112,11 @@ rem --- Inits
 	use ::opo_AvaTaxInterface.aon::AvaTaxInterface
 
 rem --- Open/Lock files
-	num_files=2
+	num_files=3
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="ARC_DISTCODE",open_opts$[1]="OTA"
 	open_tables$[2]="OPS_PARAMS",open_opts$[2]="OTA"
+	open_tables$[3]="IVC_PRODCODE",open_opts$[3]="OTA"
 	gosub open_tables
 	arc_dist_dev=num(open_chans$[1]),arc_dist_tpl$=open_tpls$[1]
 
@@ -165,6 +166,22 @@ rem "GL INACTIVE FEATURE"
 rem --- Disable fields that don't apply
 	callpoint!.setColumnData("OPC_LINECODE.LINE_TYPE", callpoint!.getUserInput())
 	gosub disable_ctls
+
+[[OPC_LINECODE.PRODUCT_TYPE.AVAL]]
+rem --- Don't allow inactive code
+	ivcProdCode_dev=fnget_dev("IVC_PRODCODE")
+	dim ivcProdCode$:fnget_tpl$("IVC_PRODCODE")
+	prod_code$=callpoint!.getUserInput()
+	read record (ivcProdCode_dev,key=firm_id$+"A"+prod_code$,dom=*next)ivcProdCode$
+	if ivcProdCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcProdCode.product_type$,3)
+		msg_tokens$[2]=cvs(ivcProdCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
 
 [[OPC_LINECODE.PROD_TYPE_PR.AVAL]]
 rem --- Maybe disable Product Type

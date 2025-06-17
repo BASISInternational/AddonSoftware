@@ -606,7 +606,7 @@ rem --- Is Sales Order Processing installed?
 
 rem --- Open/Lock files
 
-	num_files=11
+	num_files=12
 	if op$="Y" then num_files=12
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVS_PARAMS",open_opts$[1]="OTA"
@@ -619,6 +619,7 @@ rem --- Open/Lock files
 	open_tables$[9]="IVM_LSMASTER",open_opts$[9]="OTA"
 	open_tables$[10]="IVM_LSACT",open_opts$[10]="OTA"
 	open_tables$[11]="IVT_LSTRANS",open_opts$[11]="OTA"
+	open_tables$[12]="IVC_PRODCODE",open_opts$[12]="OTA"
 	if op$="Y" then open_tables$[9]="OPS_PARAMS",open_opts$[9]="OTA"
 
 	gosub open_tables
@@ -1158,6 +1159,21 @@ endif
 if num(callpoint!.getUserInput())<0 then callpoint!.setStatus("ABORT")
 
 [[IVM_ITEMMAST.PRODUCT_TYPE.AVAL]]
+rem --- Don't allow inactive code
+	ivcProdCode_dev=fnget_dev("IVC_PRODCODE")
+	dim ivcProdCode$:fnget_tpl$("IVC_PRODCODE")
+	prod_code$=callpoint!.getUserInput()
+	read record (ivcProdCode_dev,key=firm_id$+"A"+prod_code$,dom=*next)ivcProdCode$
+	if ivcProdCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcProdCode.product_type$,3)
+		msg_tokens$[2]=cvs(ivcProdCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Set SA Level and item defaults if new record
 	if callpoint!.getRecordMode()="A"
 		ivm10_dev=fnget_dev("IVC_PRODCODE")
