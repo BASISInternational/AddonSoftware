@@ -109,6 +109,7 @@ if pos(firm_id$+prod_type$=k$)=1
 	msg_id$="IV_NO_DELETE"
 	gosub disp_message
 	callpoint!.setStatus("ABORT")
+	break
 endif
 
 rem --- Make sure this prod type isn't a default
@@ -119,7 +120,25 @@ if ivs_defaults.product_type$=prod_type$ then
 	msg_id$="IV_PROD_DEFAULT"
 	gosub disp_message
 	callpoint!.setStatus("ABORT")
+	break
 endif
+
+rem --- When deleting the Product Type code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	gosub check_active_code
+	if found then
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+rem --- Do they want to deactivate code instead of deleting it?
+	msg_id$="AD_DEACTIVATE_CODE"
+	gosub disp_message
+	if msg_opt$="Y" then
+		rem --- Check the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("IVC_PRODCODE.CODE_INACTIVE","Y",1)
+		callpoint!.setStatus("SAVE;ABORT")
+		break
+	endif
 
 [[IVC_PRODCODE.BEND]]
 rem --- Close connection to Sales Tax Service
@@ -143,18 +162,33 @@ rem --- Is Sales Order Processing installed?
 call dir_pgm1$+"adc_application.aon","OP",info$[all]
 op$=info$[20]
 callpoint!.setDevObject("op",op$)
+callpoint!.setDevObject("usingOP",op$)
+
+rem --- This firm using Purchase Orders?
+call stbl("+DIR_PGM")+"adc_application.aon","PO",info$[all]
+callpoint!.setDevObject("usingPO",info$[20])
 
 rem --- Open/Lock files
 
-files=6
+files=11
 begfile=1,endfile=files
 dim files$[files],options$[files],chans$[files],templates$[files]
 files$[1]="IVS_PARAMS",options$[1]="OTA"
 files$[2]="IVM_ITEMMAST",options$[2]="OTA"
-files$[3]="IVS_DEFAULTS",options$[3]="OTA"
+files$[3]="IVM_ITEMWHSE",options$[3]="OTA"
 files$[4]="IVS_DEFAULTS",options$[4]="OTA"
-if op$="Y" then files$[5]="OPS_PARAMS",options$[5]="OTA"
-if ar$="Y" then files$[6]="ARC_DISTCODE",options$[6]="OTA"
+if op$="Y" then 
+	files$[5]="OPS_PARAMS",options$[5]="OTA"
+	files$[6]="OPC_LINECODE",options$[6]="OTA"
+	files$[7]="OPT_INVDET",options$[7]="OTA"
+	files$[8]="OPT_INVKITDET",options$[8]="OTA"
+endif
+if ar$="Y" then files$[9]="ARC_DISTCODE",options$[9]="OTA"
+if usingPO$="Y" then 
+	files$[10]="POE_ORDDET",options$[10]="OTA"
+	files$[11]="POE_ORDTOT",options$[11]="OTA"
+endif
+
 call dir_pgm$+"bac_open_tables.bbj",begfile,endfile,files$[all],options$[all],
 :                                 chans$[all],templates$[all],table_chans$[all],batch,status$
 if status$<>"" then
@@ -222,6 +256,18 @@ rem --- Don't allow inactive code
 		break
 	endif
 
+[[IVC_PRODCODE.CODE_INACTIVE.AVAL]]
+rem --- When deactivating the Product Type code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	current_inactive$=callpoint!.getUserInput()
+	prior_inactive$=callpoint!.getColumnData("IVC_PRODCODE.CODE_INACTIVE")
+	if current_inactive$="Y" and prior_inactive$<>"Y" then
+		gosub check_active_code
+		if found then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
 [[IVC_PRODCODE.ITEM_CLASS.AVAL]]
 	ivc_clascode=fnget_dev("IVC_CLASCODE")
 	dim ivc_clascode$:fnget_tpl$("IVC_CLASCODE")
@@ -275,6 +321,82 @@ rem --- Validate TAX_SVC_CD
 	endif
 
 [[IVC_PRODCODE.<CUSTOM>]]
+rem ==========================================================================
+check_active_code: rem --- Warn if there are any current/active transactions for the code
+rem ==========================================================================
+	found=0
+	product_type$=callpoint!.getColumnData("IVC_PRODCODE.PRODUCT_TYPE")
+
+	checkTables!=BBjAPI().makeVector()
+	checkTables!.addItem("IVM_ITEMMAST")
+	checkTables!.addItem("IVM_ITEMWHSE")
+	checkTables!.addItem("IVS_DEFAULTS")
+	if callpoint!.getDevObject("usingOP")="Y" then
+		checkTables!.addItem("OPC_LINECODE")
+		checkTables!.addItem("OPT_INVDET")
+		checkTables!.addItem("OPT_INVKITDET")
+	endif
+	if callpoint!.getDevObject("usingPO")="Y" then
+		checkTables!.addItem("POE_ORDDET")
+		checkTables!.addItem("POE_ORDTOT")
+	endif
+	for i=0 to checkTables!.size()-1
+		thisTable$=checkTables!.getItem(i)
+		table_dev = fnget_dev(thisTable$)
+		dim table_tpl$:fnget_tpl$(thisTable$)
+		read(table_dev,key=firm_id$,dom=*next)
+		while 1
+			readrecord(table_dev,end=*break)table_tpl$
+			if table_tpl.firm_id$<>firm_id$ then break
+			if table_tpl.product_type$=product_type$ then
+				msg_id$="AD_CODE_IN_USE"
+				dim msg_tokens$[2]
+				msg_tokens$[1]=Translate!.getTranslation("AON_PRODUCT_TYPE")+" "+Translate!.getTranslation("AON_CODE")
+				switch (BBjAPI().TRUE)
+                				case thisTable$="IVM_ITEMMAST"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVM_ITEMMAST-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="IVM_ITEMWHSE"
+                   				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVM_ITEMWHSE-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="IVS_DEFAULTS"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVS_DEFAULTS-DD_ATTR_WINT")
+						break
+                				case thisTable$="OPC_LINECODE"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-OPC_LINECODE-DD_ATTR_WINT")
+						break
+                				case thisTable$="OPT_INVDET"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-OPT_INVDET-DD_ATTR_WINT")
+						break
+                				case thisTable$="OPT_INVKITDET"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-OPT_INVKITDET-DD_ATTR_WINT")
+						break
+                				case thisTable$="POE_ORDDET"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-POE_ORDDET-DD_ATTR_WINT")
+						break
+                				case thisTable$="POE_ORDTOT"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-POE_ORDTOT-DD_ATTR_WINT")
+						break
+                				case default
+                    				msg_tokens$[2]="???"
+                    				break
+            				swend
+				gosub disp_message
+
+				found=1
+				break
+			endif
+		wend
+		if found then break
+	next i
+
+	if found then
+		rem --- Uncheck the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("IVC_PRODCODE.CODE_INACTIVE","N",1)
+	endif
+
+return
+
 rem #include fnget_control.src
 	def fnget_control!(ctl_name$)
 	ctlContext=num(callpoint!.getTableColumnAttribute(ctl_name$,"CTLC"))

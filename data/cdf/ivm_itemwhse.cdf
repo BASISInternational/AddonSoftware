@@ -432,6 +432,22 @@ rem --- don't run drilldown if SF isn't installed
 [[IVM_ITEMWHSE.ORDER_POINT.AVAL]]
 if num(callpoint!.getUserInput())<0 then callpoint!.setStatus("ABORT")
 
+[[IVM_ITEMWHSE.PRODUCT_TYPE.AVAL]]
+rem --- Don't allow inactive code
+	ivcProdCode_dev=fnget_dev("IVC_PRODCODE")
+	dim ivcProdCode$:fnget_tpl$("IVC_PRODCODE")
+	prod_code$=callpoint!.getUserInput()
+	read record (ivcProdCode_dev,key=firm_id$+"A"+prod_code$,dom=*next)ivcProdCode$
+	if ivcProdCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcProdCode.product_type$,3)
+		msg_tokens$[2]=cvs(ivcProdCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 [[IVM_ITEMWHSE.REP_COST.AVAL]]
 rem --- Update unit_cost if using replacement costing and replacement cost changes
 	rep_cost$=callpoint!.getUserInput()

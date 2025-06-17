@@ -2271,6 +2271,22 @@ rem --- invoke the comments dialog
 
 	gosub comment_entry
 
+[[OPE_ORDDET.PRODUCT_TYPE.AVAL]]
+rem --- Don't allow inactive code
+	ivcProdCode_dev=fnget_dev("IVC_PRODCODE")
+	dim ivcProdCode$:fnget_tpl$("IVC_PRODCODE")
+	prod_code$=callpoint!.getUserInput()
+	read record (ivcProdCode_dev,key=firm_id$+"A"+prod_code$,dom=*next)ivcProdCode$
+	if ivcProdCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcProdCode.product_type$,3)
+		msg_tokens$[2]=cvs(ivcProdCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 [[<<DISPLAY>>.QTY_BACKORD_DSP.AVAL]]
 rem --- Skip if qty_backord not changed
 	boqty  = num(callpoint!.getUserInput())
