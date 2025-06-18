@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivm_itemmast">6C5023A67CECD2E068F479C37AF5FA89</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivm_itemmast">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivm_itemmast">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivm_itemmast">20250617</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivm_itemmast">20250617</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivm_itemmast">115854</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivm_itemmast">20250618</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivm_itemmast">20250618</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivm_itemmast">105230</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivm_itemmast"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ivm_itemmast">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivm_itemmast"></DD_ATTR_DKNM>
@@ -2012,7 +2012,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivm_itemmast018">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivm_itemmast018"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivm_itemmast018"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivm_itemmast018"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivm_itemmast018">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivm_itemmast018"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivm_itemmast018"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivm_itemmast018"></DD_ATTR_CTLY>
@@ -4057,6 +4057,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ivm_itemmastabc_codeaval">IVM_ITEMMAST    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.ivm_itemmastabc_codeaval">ABC_CODE        </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.ivm_itemmastabc_codeaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.ivm_itemmastitem_typeaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.ivm_itemmastitem_typeaval">IVM_ITEMMAST    </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.ivm_itemmastitem_typeaval">ITEM_TYPE       </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.ivm_itemmastitem_typeaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_column_cpro.ivm_itemmastgl_inv_acctaval">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ivm_itemmastgl_inv_acctaval">IVM_ITEMMAST    </DD_TABLE_ALIAS>

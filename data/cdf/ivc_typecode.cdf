@@ -78,30 +78,22 @@ connectErr:
 	break
 
 [[IVC_TYPECODE.BDEL]]
-rem --- Make sure item type being deleted isn't used in ivm-01
+rem --- When deleting the Product Type code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	gosub check_active_code
+	if found then
+		callpoint!.setStatus("ABORT")
+		break
+	endif
 
-ivm01_dev=fnget_dev("IVM_ITEMMAST")
-ivs_defaults=fnget_dev("IVS_DEFAULTS")
-dim ivs_defaults$:fnget_tpl$("IVS_DEFAULTS")
-item_type$ = callpoint!.getColumnData("IVC_TYPECODE.ITEM_TYPE")
-
-read (ivm01_dev,key=firm_id$+item_type$,knum="AO_ITMTYPE_ITEM",dom=*next)
-k$="", k$=key(ivm01_dev,err=*next)
-if pos(firm_id$+item_type$=k$)=1
-	msg_id$="IV_TYPE_IN_USE"
+rem --- Do they want to deactivate code instead of deleting it?
+	msg_id$="AD_DEACTIVATE_CODE"
 	gosub disp_message
-	callpoint!.setStatus("ABORT")
-endif
-
-rem --- Make sure this item type isn't a default
-
-readrecord (ivs_defaults,key=firm_id$+"D",dom=*next)ivs_defaults$
-
-if ivs_defaults.item_type$=item_type$ then
-	msg_id$="IV_TYPE_DEFAULT"
-	gosub disp_message
-	callpoint!.setStatus("ABORT")
-endif
+	if msg_opt$="Y" then
+		rem --- Check the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("IVC_TYPECODE.CODE_INACTIVE","Y",1)
+		callpoint!.setStatus("SAVE;ABORT")
+		break
+	endif
 
 [[IVC_TYPECODE.BEND]]
 rem --- Close connection to Sales Tax Service
@@ -124,14 +116,15 @@ callpoint!.setDevObject("op",op$)
 
 rem --- Open/Lock files
 
-files=3
-if op$="Y" then files=4
+files=4
+if op$="Y" then files=5
 begfile=1,endfile=files
 dim files$[files],options$[files],chans$[files],templates$[files]
 files$[1]="IVS_PARAMS",options$[1]="OTA"
 files$[2]="IVM_ITEMMAST",options$[2]="OTA"
 files$[3]="IVS_DEFAULTS",options$[3]="OTA"
-if op$="Y" then files$[4]="OPS_PARAMS",options$[4]="OTA"
+files$[4]="IVC_PRODCODE",options$[4]="OTA"
+if op$="Y" then files$[5]="OPS_PARAMS",options$[5]="OTA"
 call dir_pgm$+"bac_open_tables.bbj",begfile,endfile,files$[all],options$[all],
 :                                 chans$[all],templates$[all],table_chans$[all],batch,status$
 if status$<>"" then
@@ -163,6 +156,18 @@ code_desc_width=code_desc!.getWidth()
 nxt_ctlID=util.getNextControlID()
 tax_svc_cd_desc!=Form!.addStaticText(nxt_ctlID,tax_svc_cd_x+tax_svc_cd_width+5,tax_svc_cd_y+3,int(code_desc_width*1.5),tax_svc_cd_height,"")
 callpoint!.setDevObject("tax_svc_cd_desc",tax_svc_cd_desc!)
+
+[[IVC_TYPECODE.CODE_INACTIVE.AVAL]]
+rem --- When deactivating the Item Type code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	current_inactive$=callpoint!.getUserInput()
+	prior_inactive$=callpoint!.getColumnData("IVC_TYPECODE.CODE_INACTIVE")
+	if current_inactive$="Y" and prior_inactive$<>"Y" then
+		gosub check_active_code
+		if found then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
 
 [[IVC_TYPECODE.TAX_SVC_CD.AVAL]]
 rem --- Validate TAX_SVC_CD
@@ -202,6 +207,58 @@ rem --- Validate TAX_SVC_CD
 	endif
 
 [[IVC_TYPECODE.<CUSTOM>]]
+rem ==========================================================================
+check_active_code: rem --- Warn if there are any current/active transactions for the code
+rem ==========================================================================
+	found=0
+	item_type$=callpoint!.getColumnData("IVC_TYPECODE.ITEM_TYPE")
+
+	checkTables!=BBjAPI().makeVector()
+	checkTables!.addItem("IVM_ITEMMAST")
+	checkTables!.addItem("IVC_PRODCODE")
+	checkTables!.addItem("IVS_DEFAULTS")
+	for i=0 to checkTables!.size()-1
+		thisTable$=checkTables!.getItem(i)
+		table_dev = fnget_dev(thisTable$)
+		dim table_tpl$:fnget_tpl$(thisTable$)
+		read(table_dev,key=firm_id$,dom=*next)
+		while 1
+			readrecord(table_dev,end=*break)table_tpl$
+			if table_tpl.firm_id$<>firm_id$ then break
+			if table_tpl.item_type$=item_type$ then
+				msg_id$="AD_CODE_IN_USE"
+				dim msg_tokens$[2]
+				msg_tokens$[1]=Translate!.getTranslation("AON_ITEM_TYPE_")+" "+Translate!.getTranslation("AON_CODE")
+				switch (BBjAPI().TRUE)
+                				case thisTable$="IVM_ITEMMAST"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVM_ITEMMAST-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="IVC_PRODCODE"
+                   				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVC_PRODCODE-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="IVS_DEFAULTS"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVS_DEFAULTS-DD_ATTR_WINT")
+						break
+                				case default
+                    				msg_tokens$[2]="???"
+                    				break
+            				swend
+				gosub disp_message
+
+				found=1
+				break
+			endif
+		wend
+		if found then break
+	next i
+
+	if found then
+		rem --- Uncheck the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("IVC_TYPECODE.CODE_INACTIVE","N",1)
+	endif
+
+return
+
 rem #include fnget_control.src
 	def fnget_control!(ctl_name$)
 	ctlContext=num(callpoint!.getTableColumnAttribute(ctl_name$,"CTLC"))
