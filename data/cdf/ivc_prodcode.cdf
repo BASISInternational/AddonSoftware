@@ -170,13 +170,14 @@ callpoint!.setDevObject("usingPO",info$[20])
 
 rem --- Open/Lock files
 
-files=11
+files=12
 begfile=1,endfile=files
 dim files$[files],options$[files],chans$[files],templates$[files]
 files$[1]="IVS_PARAMS",options$[1]="OTA"
 files$[2]="IVM_ITEMMAST",options$[2]="OTA"
 files$[3]="IVM_ITEMWHSE",options$[3]="OTA"
 files$[4]="IVS_DEFAULTS",options$[4]="OTA"
+files$[12]="IVC_TYPECODE",options$[12]="OTA"
 if op$="Y" then 
 	files$[5]="OPS_PARAMS",options$[5]="OTA"
 	files$[6]="OPC_LINECODE",options$[6]="OTA"
@@ -278,6 +279,22 @@ rem --- When deactivating the Product Type code, warn if there are any current/a
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(ivc_clascode.item_class$,3)
 		msg_tokens$[2]=cvs(ivc_clascode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+[[IVC_PRODCODE.ITEM_TYPE.AVAL]]
+rem --- Don't allow inactive code
+	ivcTypeCode_dev=fnget_dev("IVC_TYPECODE")
+	dim ivcTypeCode$:fnget_tpl$("IVC_TYPECODE")
+	type_code$=callpoint!.getUserInput()
+	read record (ivcTypeCode_dev,key=firm_id$+type_code$,dom=*next)ivcTypeCode$
+	if ivcTypeCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcTypeCode.item_type$,3)
+		msg_tokens$[2]=cvs(ivcTypeCode.code_desc$,3)
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break

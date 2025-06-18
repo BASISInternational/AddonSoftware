@@ -14,11 +14,12 @@ rem --- Inits
 
 rem --- Open files
 
-	num_files=3
+	num_files=4
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVS_PARAMS", open_opts$[1]="OTA"
 	open_tables$[2]="IVM_ITEMMAST", open_opts$[2]="OTA"
 	open_tables$[3]="IVC_PRODCODE", open_opts$[3]="OTA"
+	open_tables$[4]="IVC_TYPECODE", open_opts$[4]="OTA"
 
 	gosub open_tables
 
@@ -73,6 +74,22 @@ rem --- Can't change cost for kits, which is the sum of the cost of its componen
 		msg_tokens$[2]=cvs(ivm01a.display_desc$,2)
 		gosub disp_message
 		callpoint!.setStatus("ACTIVATE-ABORT")
+		break
+	endif
+
+[[IVR_COSTCHGBYPCT.ITEM_TYPE.AVAL]]
+rem --- Don't allow inactive code
+	ivcTypeCode_dev=fnget_dev("IVC_TYPECODE")
+	dim ivcTypeCode$:fnget_tpl$("IVC_TYPECODE")
+	type_code$=callpoint!.getUserInput()
+	read record (ivcTypeCode_dev,key=firm_id$+type_code$,dom=*next)ivcTypeCode$
+	if ivcTypeCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcTypeCode.item_type$,3)
+		msg_tokens$[2]=cvs(ivcTypeCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
 		break
 	endif
 

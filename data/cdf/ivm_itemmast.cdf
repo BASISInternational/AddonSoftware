@@ -606,8 +606,8 @@ rem --- Is Sales Order Processing installed?
 
 rem --- Open/Lock files
 
-	num_files=12
-	if op$="Y" then num_files=12
+	num_files=13
+	if op$="Y" then num_files=13
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVS_PARAMS",open_opts$[1]="OTA"
 	open_tables$[2]="IVS_DEFAULTS",open_opts$[2]="OTA"
@@ -620,6 +620,7 @@ rem --- Open/Lock files
 	open_tables$[10]="IVM_LSACT",open_opts$[10]="OTA"
 	open_tables$[11]="IVT_LSTRANS",open_opts$[11]="OTA"
 	open_tables$[12]="IVC_PRODCODE",open_opts$[12]="OTA"
+	open_tables$[13]="IVC_TYPECODE",open_opts$[13]="OTA"
 	if op$="Y" then open_tables$[9]="OPS_PARAMS",open_opts$[9]="OTA"
 
 	gosub open_tables
@@ -1074,6 +1075,22 @@ rem --- See if Auto Numbering in effect
 				callpoint!.setStatus("REFRESH")
 			endif
 		endif
+	endif
+
+[[IVM_ITEMMAST.ITEM_TYPE.AVAL]]
+rem --- Don't allow inactive code
+	ivcTypeCode_dev=fnget_dev("IVC_TYPECODE")
+	dim ivcTypeCode$:fnget_tpl$("IVC_TYPECODE")
+	type_code$=callpoint!.getUserInput()
+	read record (ivcTypeCode_dev,key=firm_id$+type_code$,dom=*next)ivcTypeCode$
+	if ivcTypeCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcTypeCode.item_type$,3)
+		msg_tokens$[2]=cvs(ivcTypeCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
 	endif
 
 [[IVM_ITEMMAST.KIT.AVAL]]
