@@ -102,7 +102,7 @@ rem --- Pre-inits
 
 rem --- Open files
 
-	num_files=7
+	num_files=8
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVS_PARAMS",   open_opts$[1]="OTA"
 	open_tables$[3]="IVC_TRANCODE", open_opts$[3]="OTA"
@@ -110,6 +110,7 @@ rem --- Open files
 	open_tables$[5]="IVM_ITEMMAST", open_opts$[5]="OTA"
 	open_tables$[6]="IVM_ITEMWHSE", open_opts$[6]="OTA"
 	open_tables$[7]="IVM_LSMASTER", open_opts$[7]="OTA"
+	open_tables$[8]="IVC_TRANCODE", open_opts$[8]="OTA"
 
 	gosub open_tables
 
@@ -219,7 +220,20 @@ rem --- You can't modify the trans code use you've entered the record
 	endif
 
 [[IVE_TRANSHDR.TRANS_CODE.AVAL]]
-print "in TRANS_CODE.AVAL"; rem debug
+rem --- Don't allow inactive code
+	ivcTranCode_dev=fnget_dev("IVC_TRANCODE")
+	dim ivcTranCode$:fnget_tpl$("IVC_TRANCODE")
+	trans_code$=callpoint!.getUserInput()
+	read record (ivcTranCode_dev,key=firm_id$+"B"+trans_code$,dom=*next)ivcTranCode$
+	if ivcTranCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcTranCode.tans_code$,3)
+		msg_tokens$[2]=cvs(ivcTranCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
 
 rem --- Get trans code record and set flags
 

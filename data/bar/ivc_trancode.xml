@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivc_trancode">1463D60A1C1B7CDF1B3A046A2F1A62D1</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivc_trancode">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivc_trancode">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivc_trancode">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivc_trancode">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivc_trancode">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivc_trancode">20250617</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivc_trancode">20250617</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivc_trancode">162814</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivc_trancode"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ivc_trancode">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ivc_trancode">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivc_trancode"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ivc_trancode"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ivc_trancode">T</DD_ATTR_FTYP>
@@ -424,7 +424,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivc_trancode005">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivc_trancode005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivc_trancode005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivc_trancode005">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivc_trancode005">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivc_trancode005"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivc_trancode005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivc_trancode005">+1</DD_ATTR_CTLY>
@@ -577,7 +577,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivc_trancode008">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivc_trancode008">IVC_TRANCODE.POST_GL</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivc_trancode008">Y</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivc_trancode008">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivc_trancode008">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivc_trancode008"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivc_trancode008"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivc_trancode008"></DD_ATTR_CTLY>
@@ -628,13 +628,13 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivc_trancode009">20170320</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivc_trancode009"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivc_trancode009"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivc_trancode009"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivc_trancode009">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivc_trancode009">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivc_trancode009"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivc_trancode009"></DD_ATTR_CTLY>
 			<DD_ATTR_CTLW id="ddm_table_cols.ivc_trancode009"></DD_ATTR_CTLW>
 			<DD_ATTR_CTLH id="ddm_table_cols.ivc_trancode009"></DD_ATTR_CTLH>
-			<DD_ATTR_DFLT id="ddm_table_cols.ivc_trancode009"></DD_ATTR_DFLT>
+			<DD_ATTR_DFLT id="ddm_table_cols.ivc_trancode009">N</DD_ATTR_DFLT>
 			<DD_ATTR_DRLE id="ddm_table_cols.ivc_trancode009"></DD_ATTR_DRLE>
 			<DD_ATTR_GHDR id="ddm_table_cols.ivc_trancode009"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.ivc_trancode009"></DD_ATTR_IDEF>
@@ -656,9 +656,9 @@
 			<DD_ATTR_STYL id="ddm_table_cols.ivc_trancode009"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.ivc_trancode009">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ivc_trancode009"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.ivc_trancode009"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.ivc_trancode009"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ivc_trancode009"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.ivc_trancode009">3006</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.ivc_trancode009">cbx_code_inactive</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.ivc_trancode009">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ivc_trancode009"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ivc_trancode009">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ivc_trancode009"></DD_ATTR_BTNS>
@@ -675,6 +675,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ivc_trancodegl_adj_acctaval">IVC_TRANCODE    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.ivc_trancodegl_adj_acctaval">GL_ADJ_ACCT     </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.ivc_trancodegl_adj_acctaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.ivc_trancodecode_inactiveaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.ivc_trancodecode_inactiveaval">IVC_TRANCODE    </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.ivc_trancodecode_inactiveaval">CODE_INACTIVE   </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.ivc_trancodecode_inactiveaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_opts">
@@ -693,11 +698,6 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.ivc_trancodegl_adj_acctu">IVC_TRANCODE    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.ivc_trancodegl_adj_acctu">GL_ADJ_ACCT     </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.ivc_trancodegl_adj_acctu">u</DD_ATTR_OPTS>
-		</RECORD>
-		<RECORD id="ddm_column_opts.ivc_trancodecode_inactiveo">
-			<DD_TABLE_ALIAS id="ddm_column_opts.ivc_trancodecode_inactiveo">IVC_TRANCODE    </DD_TABLE_ALIAS>
-			<DD_DVAR_NAME id="ddm_column_opts.ivc_trancodecode_inactiveo">CODE_INACTIVE   </DD_DVAR_NAME>
-			<DD_ATTR_OPTS id="ddm_column_opts.ivc_trancodecode_inactiveo">O</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">
