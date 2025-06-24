@@ -228,7 +228,7 @@ rem --- Read header records
                     poeRecDet.batch_no$="0000000"
                     poeRecDet.receiver_no$=replacementReceiver$
                     poeRecDet.internal_seq_no$=poeRogDet.rec_int_seq_ref$
-                    poeRecDet.qty_ordered=poeRogDet.qty_returned
+                    poeRecDet.qty_ordered=poeRogDet.replace_qty
                     poeRecDet.qty_prev_rec=0
                     poeRecDet.qty_received=0
                     writerecord(poeRecDet_dev)poeRecDet$                    
@@ -236,7 +236,7 @@ rem --- Read header records
                     rem --- Update Inventory On-Order for the goods being replaced
                     items$[1]=poeRecDet.warehouse_id$
                     items$[2]=poeRecDet.item_id$
-                    refs[0]=poeRogDet.qty_returned 
+                    refs[0]=poeRogDet.replace_qty 
                     call stbl("+DIR_PGM")+"ivc_itemupdt.aon","OO",files[all],ivsParams$,items$[all],refs$[all],refs[all],table_chans$[all],status
                 endif
             endif
