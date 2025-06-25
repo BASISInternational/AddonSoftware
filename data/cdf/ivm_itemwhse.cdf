@@ -329,7 +329,7 @@ rem --- Allow this warehouse to be deleted?
 [[IVM_ITEMWHSE.BSHO]]
 rem --- Open extra tables
 
-num_files=12
+num_files=13
 dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 open_tables$[1]="POE_PODET",open_opts$[1]="OTA"
 open_tables$[2]="OPE_ORDDET",open_opts$[2]="OTA"
@@ -347,6 +347,7 @@ if callpoint!.getDevObject("ap_installed") = "Y"
 	open_tables$[11]="IVM_ITEMVEND",open_opts$[11]="OTA"
 endif
 open_tables$[12]="IVC_WHSECODE",open_opts$[12]="OTA"
+open_tables$[13]="IVC_PHYSCODE",open_opts$[13]="OTA"
 
 gosub open_tables
 
@@ -432,6 +433,23 @@ rem --- don't run drilldown if SF isn't installed
 
 [[IVM_ITEMWHSE.ORDER_POINT.AVAL]]
 if num(callpoint!.getUserInput())<0 then callpoint!.setStatus("ABORT")
+
+[[IVM_ITEMWHSE.PI_CYCLECODE.AVAL]]
+rem --- Don't allow inactive code
+	ivcPhysCode_dev=fnget_dev("IVC_PHYSCODE")
+	dim ivcPhysCode$:fnget_tpl$("IVC_PHYSCODE")
+	pi_cyclecode$=callpoint!.getUserInput()
+	warehouse_id$=callpoint!.getColumnData("IVM_ITEMWHSE.WAREHOUSE_ID")
+	read record (ivcPhysCode_dev,key=firm_id$+warehouse_id$+pi_cyclecode$,dom=*next)ivcPhysCode$
+	if ivcPhysCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcPhysCode.pi_cyclecode$,3)
+		msg_tokens$[2]=cvs(ivcPhysCode.description$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
 
 [[IVM_ITEMWHSE.PRODUCT_TYPE.AVAL]]
 rem --- Don't allow inactive code
