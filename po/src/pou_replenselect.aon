@@ -35,7 +35,7 @@ rem --- Retrieve sysinfo data
 
 rem --- Open all files
 
-	num_files=18,open_beg=1,open_end=num_files
+	num_files=20,open_beg=1,open_end=num_files
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 
 	open_tables$[1]="APS_PARAMS", open_opts$[1]="OTA"
@@ -56,6 +56,8 @@ rem --- Open all files
 	open_tables$[16]="POE_REPSEL", open_opts$[16]="OTA"
 	open_tables$[17]="POE_REPXREF", open_opts$[17]="OTA"
 	open_tables$[18]="IVM_ITEMWHSE", open_opts$[18]="NTA"
+    open_tables$[19]="APM_VENDMAST", open_opts$[19]="OTA"
+    open_tables$[20]="IVC_WHSECODE", open_opts$[20]="OTA"
 
 
 	gosub open_tables
@@ -78,6 +80,8 @@ rem --- Open all files
 	poe_repsel_dev=num(open_chans$[16])
 	poe_repxref_dev=num(open_chans$[17])
 	ivm_itemwhse_dev2=num(open_chans$[18])
+    apmVendMast_dev=num( open_chans$[19] )
+    ivcWhseCode_dev=num(open_chans$[20])
 
 	dim aps_params$:open_tpls$[1]
 	dim gls_calendar$:open_tpls$[2]
@@ -97,6 +101,8 @@ rem --- Open all files
 	dim poe_repsel$:open_tpls$[16]
 	dim poe_repxref$:open_tpls$[17]
 	dim ivm_itemwhse2$:open_tpls$[18]
+    dim apmVendMast$:open_tpls$[19]
+    dim ivcWhseCode$:open_tpls$[20]
 
 rem --- call bac_key_template as needed to return templates for specified files/keys
 
@@ -115,6 +121,8 @@ rem --- Assign form input values to local variables
 	datethru$=Option!.getOptionData("REVIEW_DATE_2")
 	comment$=Option!.getOptionData("REP_COMMENTS")
 	replen_seq$=Option!.getOptionData("REPLEN_SEQ")
+    vend_inactive$=Option!.getOptionData("VEND_INACTIVE")
+    whse_inactive$=Option!.getOptionData("WHSE_INACTIVE")
 
 rem --- Retrieve parameter records
 
@@ -184,6 +192,11 @@ rem --- Main Read Loop
 		itemnum$=read_tpl.item_id$
 		call pgmdir$+"adc_progress.aon","S","","","",whse$+" "+prodtype$+" "+itemnum$,0,0,1,meter_num,status
 
+        find record (apmVendMast_dev, key=firm_id$+read_tpl.vendor_id$, dom=*continue) apmVendMast$
+        if vend_inactive$="Y" and apmVendMast.vend_inactive$="Y" then continue
+        find record (ivcWhseCode_dev, key=firm_id$+"C"+whse$, dom=*continue) ivcWhseCode$
+        if whse_inactive$="Y" and ivcWhseCode.code_inactive$="Y" then continue
+
 		if read_tpl.buyer_code$<>curbuyer$ gosub newbuyer
 		if read_tpl.vendor_id$<>curvend$ gosub newvendor
 		if read_tpl.item_id$<>curitem$ gosub newitem
@@ -204,6 +217,7 @@ rem --- Assign vars and get linepoint
 		max=0
 		ordpoint=0
 		find record (ivm_itemmast_dev,key=firm_id$+itemnum$,dom=*continue) ivm_itemmast$
+        if item_inactive$="Y" and ivm_itemmast.item_inactive$="Y" then continue
 		stocklevel$=ivm_itemmast.stock_level$
 		weight=ivm_itemmast.weight
 		if pos(stocklevel$="IW")=0 then continue

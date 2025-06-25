@@ -23,7 +23,7 @@ rem --- Retrieve sysinfo data
 
 rem --- Open/Lock files
 
-    files=13,begfile=1,endfile=files
+    files=14,begfile=1,endfile=files
     dim files$[files],options$[files],ids$[files],templates$[files],channels[files]
     files$[2]="apm-01",ids$[2]="APM_VENDMAST"
     files$[3]="ivm-01",ids$[3]="IVM_ITEMMAST"
@@ -32,6 +32,7 @@ rem --- Open/Lock files
     files$[11]="aps_params",ids$[11]="APS_PARAMS"
     files$[12]="ivs_params",ids$[12]="IVS_PARAMS"
     files$[13]="pos_params",ids$[13]="POS_PARAMS"
+    files$[14]="ivc_whsecode",ids$[14]="IVC_WHSECODE"
 
     call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
 :                                   ids$[all],templates$[all],channels[all],batch,status
@@ -43,13 +44,14 @@ rem --- Open/Lock files
     aps01a_dev=channels[11]
     ivs01a_dev=channels[12]
     pos01a_dev=channels[13]
+    ivcWhseCode_dev=channels[14]
 
 
 rem --- Dimension string templates
 
     dim apm01a$:templates$[2],ivm01a$:templates$[3],
-:       pot04a$:templates$[6],pot14a$:templates$[7],
-:       aps01a$:templates$[11],ivs01a$:templates$[12],pos01a$:templates$[13]
+:       pot04a$:templates$[6],pot14a$:templates$[7],aps01a$:templates$[11],
+:       ivs01a$:templates$[12],pos01a$:templates$[13],ivcWhseCode$:templates$[14]
 
 rem --- Assign form input values to local variables
 
@@ -60,6 +62,9 @@ rem --- Assign form input values to local variables
     itemthru$=option!.getOptionData("item_id_2")
     whsefrom$=option!.getOptionData("warehouse_id_1")
     whsethru$=option!.getOptionData("warehouse_id_2")
+    vend_inactive$=Option!.getOptionData("VEND_INACTIVE")
+    item_inactive$=Option!.getOptionData("ITEM_INACTIVE")
+    whse_inactive$=Option!.getOptionData("WHSE_INACTIVE")
 
 rem --- Retrieve parameter records
 
@@ -120,6 +125,9 @@ rem --- Valid Vendor/Receipt Date?
         if vendthru$<>"" if vendor$>vendthru$ break
         if rcptdate$>purgedate$ continue
 
+        find record (apm01_dev, key=firm_id$+vendor_id$, dom=*continue) apm01a$
+        if vend_inactive$="Y" and apm01a.vend_inactive$="Y" then continue
+
 rem --- Remove all passing detail
          
     dim pot14a_key$:pot14a_key_tpl$
@@ -138,6 +146,11 @@ rem --- Valid Whse/Item?
 :            whsethru$<>"" if whse$>whsethru$ or
 :            itemfrom$<>"" if item$<itemfrom$ or
 :            itemthru$<>"" if item$>itemthru$
+
+            find record (ivm01_dev, key=firm_id$+item$,       dom=*continue) ivm01a$
+            if item_inactive$="Y" and ivm01a.item_inactive$="Y" then continue
+            find record (ivcWhseCode_dev, key=firm_id$+"C"+whse$, dom=*continue) ivcWhseCode$
+            if whse_inactive$="Y" and ivcWhseCode.code_inactive$="Y" then continue
 
 rem --- Valid, so purge
 

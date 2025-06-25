@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.ive_pricechg">2E223A17A47DBF9D82BE1D6223C062A7</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ive_pricechg">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ive_pricechg">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ive_pricechg">20240710</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ive_pricechg">20240710</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ive_pricechg">143230</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ive_pricechg">20250621</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ive_pricechg">20250621</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ive_pricechg">142042</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ive_pricechg"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ive_pricechg">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ive_pricechg">BATCH_KEY</DD_ATTR_DKNM>
@@ -411,7 +411,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_pricechg003">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_pricechg003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_pricechg003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_pricechg003"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_pricechg003">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_pricechg003"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_pricechg003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_pricechg003"></DD_ATTR_CTLY>
@@ -836,6 +836,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ive_pricechgprice_codeaval">IVE_PRICECHG    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.ive_pricechgprice_codeaval">PRICE_CODE      </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.ive_pricechgprice_codeaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.ive_pricechgwarehouse_idaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.ive_pricechgwarehouse_idaval">IVE_PRICECHG    </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.ive_pricechgwarehouse_idaval">WAREHOUSE_ID    </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.ive_pricechgwarehouse_idaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_column_cpro.ive_pricechgitem_idainv">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ive_pricechgitem_idainv">IVE_PRICECHG    </DD_TABLE_ALIAS>

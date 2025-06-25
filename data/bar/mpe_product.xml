@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.mpe_product">A07A1C527DBAF9A967B95C564B7D7D75</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.mpe_product">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.mpe_product">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.mpe_product">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.mpe_product">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.mpe_product">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.mpe_product">20250623</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.mpe_product">20250623</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.mpe_product">144822</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.mpe_product"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.mpe_product"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.mpe_product">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.mpe_product"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.mpe_product"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.mpe_product">T</DD_ATTR_FTYP>
@@ -56,6 +56,13 @@
 			<DD_ATTR_PADW id="ddm_tables.mpe_product"></DD_ATTR_PADW>
 			<DD_ATTR_PADH id="ddm_tables.mpe_product"></DD_ATTR_PADH>
 			<DD_ATTR_PADG id="ddm_tables.mpe_product"></DD_ATTR_PADG>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_cpro">
+		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.mpe_productbsho">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.mpe_productbsho">MPE_PRODUCT     </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.mpe_productbsho">BSHO</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_opts">
@@ -332,7 +339,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.mpe_product003">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.mpe_product003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.mpe_product003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.mpe_product003"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.mpe_product003">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.mpe_product003"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.mpe_product003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.mpe_product003"></DD_ATTR_CTLY>
@@ -383,7 +390,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.mpe_product004">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.mpe_product004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.mpe_product004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.mpe_product004">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.mpe_product004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.mpe_product004"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.mpe_product004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.mpe_product004"></DD_ATTR_CTLY>
@@ -574,6 +581,11 @@
 	</ALIAS>
 	<ALIAS id="ddm_column_cpro">
 		<ID id="ddm_column_cpro">DDM_COLUMN_CPRO</ID>
+		<RECORD id="ddm_column_cpro.mpe_productwarehouse_idaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.mpe_productwarehouse_idaval">MPE_PRODUCT     </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.mpe_productwarehouse_idaval">WAREHOUSE_ID    </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.mpe_productwarehouse_idaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
 		<RECORD id="ddm_column_cpro.mpe_productitem_idainv">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.mpe_productitem_idainv">MPE_PRODUCT     </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.mpe_productitem_idainv">ITEM_ID         </DD_DVAR_NAME>

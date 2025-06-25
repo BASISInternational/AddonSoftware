@@ -102,7 +102,7 @@ rem --- Pre-inits
 
 rem --- Open files
 
-	num_files=8
+	num_files=9
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVS_PARAMS",   open_opts$[1]="OTA"
 	open_tables$[3]="IVC_TRANCODE", open_opts$[3]="OTA"
@@ -111,6 +111,7 @@ rem --- Open files
 	open_tables$[6]="IVM_ITEMWHSE", open_opts$[6]="OTA"
 	open_tables$[7]="IVM_LSMASTER", open_opts$[7]="OTA"
 	open_tables$[8]="IVC_TRANCODE", open_opts$[8]="OTA"
+	open_tables$[9]="IVC_WHSECODE", open_opts$[9]="OTA"
 
 	gosub open_tables
 

@@ -94,12 +94,13 @@ rem --- Remove software lock on batch, if batching
 
 [[IVE_TRANSFERHDR.BSHO]]
 rem --- Open files
-	num_files=4
+	num_files=5
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVS_PARAMS",   open_opts$[1]="OTA"
 	open_tables$[2]="IVM_ITEMMAST", open_opts$[2]="OTA"
 	open_tables$[3]="IVM_ITEMWHSE", open_opts$[3]="OTA"
 	open_tables$[4]="IVM_LSMASTER", open_opts$[4]="OTA"	
+	open_tables$[5]="IVC_WHSECODE", open_opts$[5]="OTA"	
 
 	gosub open_tables
 
@@ -158,6 +159,21 @@ rem --- Is date within range of GL period?
 	endif
 
 [[IVE_TRANSFERHDR.WAREHOUSE_ID.AVAL]]
+rem --- Don't allow inactive code
+	ivcWhseCode_dev=fnget_dev("IVC_WHSECODE")
+	dim ivcWhseCode$:fnget_tpl$("IVC_WHSECODE")
+	whse_code$=callpoint!.getUserInput()
+	read record (ivcWhseCode_dev,key=firm_id$+"C"+whse_code$,dom=*next)ivcWhseCode$
+	if ivcWhseCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE_OK"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcWhseCode.warehouse_id$,3)
+		msg_tokens$[2]=cvs(ivcWhseCode.short_name$,3)
+		gosub disp_message
+		if msg_opt$="C" then callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Both warehouses can't be the same
 	from_whse$ = callpoint!.getUserInput()
 	to_whse$   = callpoint!.getColumnData("IVE_TRANSFERHDR.WAREHOUSE_ID_TO")
@@ -169,6 +185,21 @@ rem --- Both warehouses can't be the same
 	endif
 
 [[IVE_TRANSFERHDR.WAREHOUSE_ID_TO.AVAL]]
+rem --- Don't allow inactive code
+	ivcWhseCode_dev=fnget_dev("IVC_WHSECODE")
+	dim ivcWhseCode$:fnget_tpl$("IVC_WHSECODE")
+	whse_code$=callpoint!.getUserInput()
+	read record (ivcWhseCode_dev,key=firm_id$+"C"+whse_code$,dom=*next)ivcWhseCode$
+	if ivcWhseCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE_OK"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcWhseCode.warehouse_id$,3)
+		msg_tokens$[2]=cvs(ivcWhseCode.short_name$,3)
+		gosub disp_message
+		if msg_opt$="C" then callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Both warehouses can't be the same
 	to_whse$ = callpoint!.getUserInput()
 	from_whse$   = callpoint!.getColumnData("IVE_TRANSFERHDR.WAREHOUSE_ID")

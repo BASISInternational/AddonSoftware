@@ -290,7 +290,7 @@ rem --- Initialize sysinfo$
 	sysinfo$=stbl("+SYSINFO")
 
 rem --- Open Files
-	num_files=12
+	num_files=13
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="POE_ROGDET",open_opts$[1]="OTA"
 	open_tables$[2]="POE_ROGLSDET",open_opts$[2]="OTA"
@@ -304,6 +304,7 @@ rem --- Open Files
 	open_tables$[10]="APM_VENDMAST",open_opts$[10]="OTA"
 	open_tables$[11]="IVM_ITEMMAST",open_opts$[11]="OTA"
 	open_tables$[12]="POC_LINECODE",open_opts$[12]="OTA"
+	open_tables$[13]="IVC_WHSECODE",open_opts$[13]="OTA"
 
 	gosub open_tables
 

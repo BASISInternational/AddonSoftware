@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivc_whsecode">45A8275CFD1763266486525899CE1CBE</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivc_whsecode">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivc_whsecode">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivc_whsecode">20240203</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivc_whsecode">20240201</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivc_whsecode">122148</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivc_whsecode">20250620</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivc_whsecode">20250620</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivc_whsecode">174316</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivc_whsecode"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ivc_whsecode">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivc_whsecode"></DD_ATTR_DKNM>
@@ -102,6 +102,36 @@
 			<DD_TABLE_ALIAS id="ddm_table_tpls.ivc_whsecode">IVC_WHSECODE    </DD_TABLE_ALIAS>
 			<DD_FILE_NAME id="ddm_table_tpls.ivc_whsecode"></DD_FILE_NAME>
 			<DD_TABLE_TPL id="ddm_table_tpls.ivc_whsecode">firm_id:c(2),record_id_c:c(1),warehouse_id:c(2),short_name:c(24),addr_line_1:c(30),addr_line_2:c(30),addr_line_3:c(30),city:c(30),state_code:c(2),phone_no:c(20),zip_code:c(9),reserved_str:c(16*),code_inactive:c(1)</DD_TABLE_TPL>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_ref">
+		<ID id="ddm_table_ref">DDM_TABLE_REF</ID>
+		<RECORD id="ddm_table_ref.ivc_whsecodestate_codeadc_statecode">
+			<DD_TABLE_ALIAS id="ddm_table_ref.ivc_whsecodestate_codeadc_statecode">IVC_WHSECODE    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.ivc_whsecodestate_codeadc_statecode">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.ivc_whsecodestate_codeadc_statecode">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.ivc_whsecodestate_codeadc_statecode">FK_IVC_WHSECODE_STATE_CODE_ADC_STATECODE                                                                                                                                                                                                                       </TABLE_REF_NAME>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_refcol">
+		<ID id="ddm_table_refcol">DDM_TABLE_REFCOL</ID>
+		<RECORD id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0001">IVC_WHSECODE    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0001">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0001">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0002">IVC_WHSECODE    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0002">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0002">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0002">STATE_CODE      </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.ivc_whsecodestate_codeadc_statecode0002">STATE_CODE      </FK_TABLE_COL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_keys">
@@ -611,11 +641,11 @@
 			<DD_ATTR_FTSR id="ddm_table_cols.ivc_whsecode009"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ivc_whsecode009"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ivc_whsecode009">3007</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.ivc_whsecode009">ine_state_code</DD_ATTR_CTLN>
+			<DD_ATTR_CTLN id="ddm_table_cols.ivc_whsecode009">dis_state_code</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ivc_whsecode009">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ivc_whsecode009"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ivc_whsecode009">N</DD_ATTR_RKEY>
-			<DD_ATTR_BTNS id="ddm_table_cols.ivc_whsecode009"></DD_ATTR_BTNS>
+			<DD_ATTR_BTNS id="ddm_table_cols.ivc_whsecode009">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ivc_whsecode010">
 			<DD_TABLE_ALIAS id="ddm_table_cols.ivc_whsecode010">IVC_WHSECODE    </DD_TABLE_ALIAS>
@@ -786,13 +816,13 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivc_whsecode013">20170320</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivc_whsecode013">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivc_whsecode013">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_CTLY>
 			<DD_ATTR_CTLW id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_CTLW>
 			<DD_ATTR_CTLH id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_CTLH>
-			<DD_ATTR_DFLT id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_DFLT>
+			<DD_ATTR_DFLT id="ddm_table_cols.ivc_whsecode013">N</DD_ATTR_DFLT>
 			<DD_ATTR_DRLE id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_DRLE>
 			<DD_ATTR_GHDR id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_IDEF>
@@ -814,12 +844,20 @@
 			<DD_ATTR_STYL id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.ivc_whsecode013">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.ivc_whsecode013">3010</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.ivc_whsecode013">cbx_code_inactive</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.ivc_whsecode013">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ivc_whsecode013">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ivc_whsecode013"></DD_ATTR_BTNS>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_column_cpro">
+		<ID id="ddm_column_cpro">DDM_COLUMN_CPRO</ID>
+		<RECORD id="ddm_column_cpro.ivc_whsecodecode_inactiveaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.ivc_whsecodecode_inactiveaval">IVC_WHSECODE    </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.ivc_whsecodecode_inactiveaval">CODE_INACTIVE   </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.ivc_whsecodecode_inactiveaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_opts">
@@ -843,11 +881,6 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.ivc_whsecodeaddr_line_3l">IVC_WHSECODE    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.ivc_whsecodeaddr_line_3l">ADDR_LINE_3     </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.ivc_whsecodeaddr_line_3l">L</DD_ATTR_OPTS>
-		</RECORD>
-		<RECORD id="ddm_column_opts.ivc_whsecodecode_inactiveo">
-			<DD_TABLE_ALIAS id="ddm_column_opts.ivc_whsecodecode_inactiveo">IVC_WHSECODE    </DD_TABLE_ALIAS>
-			<DD_DVAR_NAME id="ddm_column_opts.ivc_whsecodecode_inactiveo">CODE_INACTIVE   </DD_DVAR_NAME>
-			<DD_ATTR_OPTS id="ddm_column_opts.ivc_whsecodecode_inactiveo">O</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">
