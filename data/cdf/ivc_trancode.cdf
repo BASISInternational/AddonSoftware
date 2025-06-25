@@ -24,7 +24,7 @@ rem --- Do they want to deactivate code instead of deleting it?
 	gosub disp_message
 	if msg_opt$="Y" then
 		rem --- Check the CODE_INACTIVE checkbox
-		callpoint!.setColumnData("IVC_PRODCODE.CODE_INACTIVE","Y",1)
+		callpoint!.setColumnData("IVC_TRANCODE.CODE_INACTIVE","Y",1)
 		callpoint!.setStatus("SAVE;ABORT")
 		break
 	endif
@@ -153,7 +153,10 @@ rem ==========================================================================
                 				case thisTable$="IVE_TRANSHDR"
                     				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVE_TRANSHDR-DD_ATTR_WINT")
                     				break
-            				swend
+                				case default
+                    				msg_tokens$[2]="???"
+                    				break
+            			swend
 				gosub disp_message
 
 				found=1
