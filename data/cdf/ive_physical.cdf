@@ -152,6 +152,22 @@ rem --- if you enter one space, it does, but let's not make the user remember th
 	endif
 
 [[IVE_PHYSICAL.PI_CYCLECODE.AVAL]]
+rem --- Don't allow inactive code
+	ivcPhysCode_dev=fnget_dev("IVC_PHYSCODE")
+	dim ivcPhysCode$:fnget_tpl$("IVC_PHYSCODE")
+	pi_cyclecode$=callpoint!.getUserInput()
+	warehouse_id$=callpoint!.getColumnData("IVE_PHYSICAL.WAREHOUSE_ID")
+	read record (ivcPhysCode_dev,key=firm_id$+warehouse_id$+pi_cyclecode$,dom=*next)ivcPhysCode$
+	if ivcPhysCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcPhysCode.pi_cyclecode$,3)
+		msg_tokens$[2]=cvs(ivcPhysCode.description$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Is cycle in the correct stage?
 
 	whse$  = callpoint!.getColumnData("IVE_PHYSICAL.WAREHOUSE_ID")
