@@ -2695,7 +2695,7 @@ rem ==========================================================================
 			endif
 
 			if filter_due_op$<>"0" and filter_due_date$<>""
-				if fn_filter_txt(filter_due_op$,vectInvoicesMaster!.getItem(x-1+16),filter_due_date$)=0
+				if fn_filter_txt(filter_due_op$,vectInvoicesMaster!.getItem(x-1+17),filter_due_date$)=0
 					select_rec$="N"
 				endif
 			endif
