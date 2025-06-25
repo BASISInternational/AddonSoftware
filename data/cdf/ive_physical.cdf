@@ -20,13 +20,14 @@ rem --- if record not found confirm user wants to add
 [[IVE_PHYSICAL.BSHO]]
 rem --- Open files
 
-	num_files=5
+	num_files=6
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVS_PARAMS",   open_opts$[1]="OTA"
 	open_tables$[2]="IVM_ITEMMAST", open_opts$[2]="OTA"
 	open_tables$[3]="IVM_ITEMWHSE", open_opts$[3]="OTA"
 	open_tables$[4]="IVC_PHYSCODE", open_opts$[4]="OTA"
 	open_tables$[5]="IVM_LSMASTER", open_opts$[5]="OTA"
+	open_tables$[6]="IVC_WHSECODE", open_opts$[6]="OTA"
 
 	gosub open_tables
 
@@ -159,6 +160,22 @@ rem --- Is cycle in the correct stage?
 
 	if failed then
 		callpoint!.setStatus("ABORT")
+	endif
+
+[[IVE_PHYSICAL.WAREHOUSE_ID.AVAL]]
+rem --- Don't allow inactive code
+	ivcWhseCode_dev=fnget_dev("IVC_WHSECODE")
+	dim ivcWhseCode$:fnget_tpl$("IVC_WHSECODE")
+	whse_code$=callpoint!.getUserInput()
+	read record (ivcWhseCode_dev,key=firm_id$+"C"+whse_code$,dom=*next)ivcWhseCode$
+	if ivcWhseCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcWhseCode.warehouse_id$,3)
+		msg_tokens$[2]=cvs(ivcWhseCode.short_name$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
 	endif
 
 [[IVE_PHYSICAL.<CUSTOM>]]

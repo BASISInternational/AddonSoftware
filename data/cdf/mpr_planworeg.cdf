@@ -1,9 +1,11 @@
-[[IVE_ABCWHSE.ITEM_ID.AINV]]
-rem --- Item synonym processing
+[[MPR_PLANWOREG.BSHO]]
+rem --- Open/Lock tables
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="IVC_WHSECODE",open_opts$[1]="OTA"
+	gosub open_tables
 
-	call stbl("+DIR_PGM")+"ivc_itemsyn.aon::option_entry"
-
-[[IVE_ABCWHSE.WAREHOUSE_ID.AVAL]]
+[[MPR_PLANWOREG.WAREHOUSE_ID.AVAL]]
 rem --- Don't allow inactive code
 	ivcWhseCode_dev=fnget_dev("IVC_WHSECODE")
 	dim ivcWhseCode$:fnget_tpl$("IVC_WHSECODE")

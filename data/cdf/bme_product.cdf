@@ -61,12 +61,13 @@ rem --- remove software lock on batch, if batching
 [[BME_PRODUCT.BSHO]]
 rem --- Open files
 
-	num_files=4
+	num_files=5
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVM_ITEMMAST",open_opts$[1]="OTA"
 	open_tables$[2]="IVM_ITEMWHSE",open_opts$[2]="OTA"
 	open_tables$[3]="IVS_PARAMS",open_opts$[3]="OTA"
 	open_tables$[4]="BMM_BILLMAST",open_opts$[4]="OTA"
+	open_tables$[5]="IVC_WHSECODE",open_opts$[5]="OTA"
 	gosub open_tables
 
 rem --- get multiple warehouse flag and default warehouse
@@ -208,6 +209,22 @@ rem --- Check for zero quantity
 	if num(callpoint!.getUserInput()) = 0
 		callpoint!.setMessage("IV_QTY_ZERO")
 		callpoint!.setStatus("ABORT")
+	endif
+
+[[BME_PRODUCT.WAREHOUSE_ID.AVAL]]
+rem --- Don't allow inactive code
+	ivcWhseCode_dev=fnget_dev("IVC_WHSECODE")
+	dim ivcWhseCode$:fnget_tpl$("IVC_WHSECODE")
+	whse_code$=callpoint!.getUserInput()
+	read record (ivcWhseCode_dev,key=firm_id$+"C"+whse_code$,dom=*next)ivcWhseCode$
+	if ivcWhseCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(ivcWhseCode.warehouse_id$,3)
+		msg_tokens$[2]=cvs(ivcWhseCode.short_name$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
 	endif
 
 [[BME_PRODUCT.<CUSTOM>]]

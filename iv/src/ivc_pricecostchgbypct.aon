@@ -71,6 +71,9 @@ rem --- Assign form input values to local variables
     begitem$ = option!.getOptionData("ITEM_ID_1")
     enditem$ = option!.getOptionData("ITEM_ID_2")
     type$    = option!.getOptionData("ITEM_TYPE")
+    vend_inactive$=Option!.getOptionData("VEND_INACTIVE")
+    whse_inactive$=Option!.getOptionData("WHSE_INACTIVE")
+    item_inactive$=Option!.getOptionData("ITEM_INACTIVE")
     
     if action$ <> "R" then 
         percent = num( option!.getOptionData("PERCENT_CHANGE") )
@@ -78,7 +81,7 @@ rem --- Assign form input values to local variables
 
 rem --- Open all files
 
-    num_files = 5
+    num_files = 7
     open_beg  = 1
     open_end  = num_files
     
@@ -88,6 +91,8 @@ rem --- Open all files
     open_tables$[3]="IVM_ITEMMAST", open_opts$[3]="OTA"
     open_tables$[4]="IVM_ITEMWHSE", open_opts$[4]="OTA"
     open_tables$[5]=entry$,         open_opts$[5]="OTA"
+    open_tables$[6]="IVC_WHSECODE", open_opts$[6]="OTA"
+    open_tables$[7]="APM_VENDMAST", open_opts$[7]="OTA"
     
     call sypdir$+"bac_open_tables.bbj",
 :       open_beg,
@@ -113,11 +118,15 @@ rem --- Open all files
     itemmast_dev = num( open_chans$[3] )
     itemwhse_dev = num( open_chans$[4] )
     entry_dev    = num( open_chans$[5] )
+    ivcWhseCode_dev = num( open_chans$[6] )
+    apmVendMast_dev = num( open_chans$[7] )
     
     dim params_rec$:open_tpls$[1]
     dim itemmast_rec$:open_tpls$[3]
     dim itemwhse_rec$:open_tpls$[4]
     dim entry_rec$:open_tpls$[5]
+    dim ivcWhseCode$:open_tpls$[6]
+    dim apmVendMast$:open_tpls$[7]
 
 rem --- Parameters
     
@@ -161,80 +170,84 @@ rem --- Get next sort record
     no_of_records = 0
     
     while more
-    sql_rec$=sqlfetch(sql_chan,err=*break)
-        
-    whse$    = sql_rec.warehouse_id$
-    product$ = sql_rec.product_type$
-    item$    = sql_rec.item_id$
+        sql_rec$=sqlfetch(sql_chan,err=*break)
 
-rem --- Read item and warehouse records
+        whse$    = sql_rec.warehouse_id$
+        product$ = sql_rec.product_type$
+        item$    = sql_rec.item_id$
 
-    call pgmdir$+"adc_progress.aon","S","","",""," ",0,0,1,meter_num,ignore_status
-            
-    find record (itemmast_dev, key=firm_id$+item$,       dom=*continue) itemmast_rec$
-    find record (itemwhse_dev, key=firm_id$+whse$+item$, dom=*continue) itemwhse_rec$
+        rem --- Read item and warehouse records
 
-    rem --- Skip kits when doing costing
-    if action$="C" and pos(itemmast_rec.kit$="YP") then continue
-
-    rem --- Skip non-priced kits when doing pricing
-    if pos(action$="PR") and itemmast_rec.kit$="Y" then continue
-        
-    if itemmast_rec.stock_level$<>"W" then
-            vendor$=itemmast_rec.vendor_id$
-    else
-            vendor$=itemwhse_rec.vendor_id$
-        endif
-        
-    if begvend$<>"" and vendor$<begvend$ then continue
-    if endvend$<>"" and vendor$>endvend$ then continue
-
-	if action$="R" and cvs(itemwhse_rec.cur_price_cd$,2)<>price_code$ then continue
-
-rem --- Generate price/cost change record
-
-    if action$="C" then 
-
-            entry_rec.firm_id$      = firm_id$
-            entry_rec.effect_date$  = effect_date$
-            entry_rec.item_id$      = item$
-            entry_rec.warehouse_id$ = whse$
-            entry_rec.new_cost      = fnpercent_of(itemwhse_rec.unit_cost, percent)
-            entry_key$=entry_rec.firm_id$+entry_rec.effect_date$+entry_rec.warehouse_id$+entry_rec.item_id$
-            
-    else
-          
-            if action$="R" then
-               
-                entry_rec.firm_id$      = firm_id$
-                entry_rec.price_code$   = price_code$
-                entry_rec.warehouse_id$ = whse$
-                entry_rec.product_type$ = product$
-                entry_rec.item_id$      = item$
-                entry_key$=entry_rec.firm_id$+entry_rec.price_code$+entry_rec.warehouse_id$+entry_rec.product_type$+entry_rec.item_id$
+        call pgmdir$+"adc_progress.aon","S","","",""," ",0,0,1,meter_num,ignore_status
                 
-            else
+        find record (itemmast_dev, key=firm_id$+item$,       dom=*continue) itemmast_rec$
+        if item_inactive$="Y" and itemmast_rec.item_inactive$="Y" then continue
+        find record (itemwhse_dev, key=firm_id$+whse$+item$, dom=*continue) itemwhse_rec$
+        find record (ivcWhseCode_dev, key=firm_id$+"C"+whse$, dom=*continue) ivcWhseCode$
+        if whse_inactive$="Y" and ivcWhseCode.code_inactive$="Y" then continue
+
+        rem --- Skip kits when doing costing
+        if action$="C" and pos(itemmast_rec.kit$="YP") then continue
+
+        rem --- Skip non-priced kits when doing pricing
+        if pos(action$="PR") and itemmast_rec.kit$="Y" then continue
             
-                if action$="P" then
-                    
+        if itemmast_rec.stock_level$<>"W" then
+                vendor$=itemmast_rec.vendor_id$
+        else
+                vendor$=itemwhse_rec.vendor_id$
+        endif
+            
+        if begvend$<>"" and vendor$<begvend$ then continue
+        if endvend$<>"" and vendor$>endvend$ then continue
+        find record (apmVendMast_dev, key=firm_id$+vendor$, dom=*continue) apmVendMast$
+        if vend_inactive$="Y" and apmVendMast.vend_inactive$="Y" then continue
+
+        if action$="R" and cvs(itemwhse_rec.cur_price_cd$,2)<>price_code$ then continue
+
+        rem --- Generate price/cost change record
+
+        if action$="C" then 
+
+                entry_rec.firm_id$      = firm_id$
+                entry_rec.effect_date$  = effect_date$
+                entry_rec.item_id$      = item$
+                entry_rec.warehouse_id$ = whse$
+                entry_rec.new_cost      = fnpercent_of(itemwhse_rec.unit_cost, percent)
+                entry_key$=entry_rec.firm_id$+entry_rec.effect_date$+entry_rec.warehouse_id$+entry_rec.item_id$
+                
+        else
+              
+                if action$="R" then
+                   
                     entry_rec.firm_id$      = firm_id$
                     entry_rec.price_code$   = price_code$
                     entry_rec.warehouse_id$ = whse$
-                    entry_rec.unit_price    = fnpercent_of(itemwhse_rec.cur_price, percent)
+                    entry_rec.product_type$ = product$
                     entry_rec.item_id$      = item$
-                    entry_key$=entry_rec.firm_id$+entry_rec.price_code$+entry_rec.warehouse_id$+entry_rec.item_id$
+                    entry_key$=entry_rec.firm_id$+entry_rec.price_code$+entry_rec.warehouse_id$+entry_rec.product_type$+entry_rec.item_id$
+                    
+                else
+                
+                    if action$="P" then
+                        
+                        entry_rec.firm_id$      = firm_id$
+                        entry_rec.price_code$   = price_code$
+                        entry_rec.warehouse_id$ = whse$
+                        entry_rec.unit_price    = fnpercent_of(itemwhse_rec.cur_price, percent)
+                        entry_rec.item_id$      = item$
+                        entry_key$=entry_rec.firm_id$+entry_rec.price_code$+entry_rec.warehouse_id$+entry_rec.item_id$
+                    endif
                 endif
-            endif
-    endif
-    extract record (entry_dev,key=entry_key$,dom=*next)r$; rem Advisory Locking
-    entry_rec.batch_no$=batch_no$;rem batching.CAH
-    entry_rec$ = field(entry_rec$)
-    write record (entry_dev) entry_rec$
-        
-    no_of_records = no_of_records + 1
+        endif
+        extract record (entry_dev,key=entry_key$,dom=*next)r$; rem Advisory Locking
+        entry_rec.batch_no$=batch_no$;rem batching.CAH
+        entry_rec$ = field(entry_rec$)
+        write record (entry_dev) entry_rec$
+            
+        no_of_records = no_of_records + 1
 
-rem --- Loop back for next sort record
-
+    rem --- Loop back for next sort record
     wend
 
 rem --- All done

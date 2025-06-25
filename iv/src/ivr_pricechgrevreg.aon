@@ -122,10 +122,13 @@ rem --- Column headings
 	
 rem --- Report headings
 
-    headings=3
+    headings=5
 	dim headings$[headings]
     headings$[0]=sysinfo.firm_name$
     headings$[1]=sysinfo.task_desc$	
+    headings$[2]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+Translate!.getTranslation("AON_VENDORS")+" = "+inactive$
+    headings$[3]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+Translate!.getTranslation("AON_WAREHOUSE")+" = "+inactive$
+    headings$[4]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+Translate!.getTranslation("AON_ITEMS")+" = "+inactive$
 	headings$[headings]="[HEADER]"
 
 rem --- Call price/cost change entry program
