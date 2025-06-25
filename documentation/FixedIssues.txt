@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-06-16
+ Report Date:   2025-06-25
  Report Branch: AddonSoftware 25.02
  Last Release:  AddonSoftware 25.01
 =======================================================================================================================================
@@ -82,4 +82,15 @@ Bug 11051: For new inventory items defaulted "Kit of Items?" to "Not a
 kit (N)".
 ----
 Modified: data/bar/ivm_itemmast.xml
+=======================================================================================================================================
+
+Revision: 2d65a57b26a012223acc4f24bf38afa21ab52bd6
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 6/25/2025 10:17:36 AM
+Message:
+Bug 11054: Corrected the grid column location for the Due Date.
+
+----
+Modified: data/bar/ape_payselect.xml
+Modified: data/cdf/ape_payselect.cdf
 =======================================================================================================================================
