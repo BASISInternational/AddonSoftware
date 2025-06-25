@@ -73,6 +73,7 @@ rem --- Assign form input values to local variables
     type$    = option!.getOptionData("ITEM_TYPE")
     vend_inactive$=Option!.getOptionData("VEND_INACTIVE")
     whse_inactive$=Option!.getOptionData("WHSE_INACTIVE")
+    prod_inactive$=Option!.getOptionData("PROD_INACTIVE")
     item_inactive$=Option!.getOptionData("ITEM_INACTIVE")
     
     if action$ <> "R" then 
@@ -81,7 +82,7 @@ rem --- Assign form input values to local variables
 
 rem --- Open all files
 
-    num_files = 7
+    num_files = 8
     open_beg  = 1
     open_end  = num_files
     
@@ -93,6 +94,7 @@ rem --- Open all files
     open_tables$[5]=entry$,         open_opts$[5]="OTA"
     open_tables$[6]="IVC_WHSECODE", open_opts$[6]="OTA"
     open_tables$[7]="APM_VENDMAST", open_opts$[7]="OTA"
+    open_tables$[8]="IVC_PRODCODE", open_opts$[8]="OTA"
     
     call sypdir$+"bac_open_tables.bbj",
 :       open_beg,
@@ -120,6 +122,7 @@ rem --- Open all files
     entry_dev    = num( open_chans$[5] )
     ivcWhseCode_dev = num( open_chans$[6] )
     apmVendMast_dev = num( open_chans$[7] )
+    ivcProdCode_dev = num( open_chans$[8] )
     
     dim params_rec$:open_tpls$[1]
     dim itemmast_rec$:open_tpls$[3]
@@ -127,6 +130,7 @@ rem --- Open all files
     dim entry_rec$:open_tpls$[5]
     dim ivcWhseCode$:open_tpls$[6]
     dim apmVendMast$:open_tpls$[7]
+    dim ivcProdCode$:open_tpls$[8]
 
 rem --- Parameters
     
@@ -185,6 +189,8 @@ rem --- Get next sort record
         find record (itemwhse_dev, key=firm_id$+whse$+item$, dom=*continue) itemwhse_rec$
         find record (ivcWhseCode_dev, key=firm_id$+"C"+whse$, dom=*continue) ivcWhseCode$
         if whse_inactive$="Y" and ivcWhseCode.code_inactive$="Y" then continue
+        find record (ivcProdCode_dev, key=firm_id$+"A"+product$, dom=*continue) ivcProdCode$
+        if whse_inactive$="Y" and ivcProdCode.code_inactive$="Y" then continue
 
         rem --- Skip kits when doing costing
         if action$="C" and pos(itemmast_rec.kit$="YP") then continue
