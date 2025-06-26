@@ -361,7 +361,11 @@ rem ==========================================================================
 		thisTable$=checkTables!.getItem(i)
 		table_dev = fnget_dev(thisTable$)
 		dim table_tpl$:fnget_tpl$(thisTable$)
-		read(table_dev,key=firm_id$,dom=*next)
+		if thisTable$="OPT_INVDET" or hisTable$="OPT_INVKITDET" then
+			read(table_dev,key=firm_id$+"E",knum="AO_STATUS",dom=*next)
+		else
+			read(table_dev,key=firm_id$,dom=*next)
+		endif
 		while 1
 			readrecord(table_dev,end=*break)table_tpl$
 			if table_tpl.firm_id$<>firm_id$ then break
