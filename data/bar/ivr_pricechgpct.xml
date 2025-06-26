@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivr_pricechgpct"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivr_pricechgpct">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivr_pricechgpct">20090126</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivr_pricechgpct">20250625</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivr_pricechgpct">20250625</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivr_pricechgpct">163652</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivr_pricechgpct">20250626</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivr_pricechgpct">20250626</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivr_pricechgpct">153712</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivr_pricechgpct"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ivr_pricechgpct">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivr_pricechgpct"></DD_ATTR_DKNM>
@@ -279,7 +279,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivr_pricechgpct004">20090127</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivr_pricechgpct004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivr_pricechgpct004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivr_pricechgpct004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivr_pricechgpct004"></DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivr_pricechgpct004">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivr_pricechgpct004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivr_pricechgpct004"></DD_ATTR_CTLY>
@@ -381,7 +381,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivr_pricechgpct006">20090126</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivr_pricechgpct006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivr_pricechgpct006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivr_pricechgpct006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivr_pricechgpct006"></DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivr_pricechgpct006">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivr_pricechgpct006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivr_pricechgpct006"></DD_ATTR_CTLY>
@@ -674,25 +674,10 @@
 	</ALIAS>
 	<ALIAS id="ddm_column_cpro">
 		<ID id="ddm_column_cpro">DDM_COLUMN_CPRO</ID>
-		<RECORD id="ddm_column_cpro.ivr_pricechgpctproduct_typeaval">
-			<DD_TABLE_ALIAS id="ddm_column_cpro.ivr_pricechgpctproduct_typeaval">IVR_PRICECHGPCT </DD_TABLE_ALIAS>
-			<DD_DVAR_NAME id="ddm_column_cpro.ivr_pricechgpctproduct_typeaval">PRODUCT_TYPE    </DD_DVAR_NAME>
-			<DD_ATTR_CPRO id="ddm_column_cpro.ivr_pricechgpctproduct_typeaval">AVAL</DD_ATTR_CPRO>
-		</RECORD>
 		<RECORD id="ddm_column_cpro.ivr_pricechgpctitem_idainv">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ivr_pricechgpctitem_idainv">IVR_PRICECHGPCT </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.ivr_pricechgpctitem_idainv">ITEM_ID         </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.ivr_pricechgpctitem_idainv">AINV</DD_ATTR_CPRO>
-		</RECORD>
-		<RECORD id="ddm_column_cpro.ivr_pricechgpctitem_idaval">
-			<DD_TABLE_ALIAS id="ddm_column_cpro.ivr_pricechgpctitem_idaval">IVR_PRICECHGPCT </DD_TABLE_ALIAS>
-			<DD_DVAR_NAME id="ddm_column_cpro.ivr_pricechgpctitem_idaval">ITEM_ID         </DD_DVAR_NAME>
-			<DD_ATTR_CPRO id="ddm_column_cpro.ivr_pricechgpctitem_idaval">AVAL</DD_ATTR_CPRO>
-		</RECORD>
-		<RECORD id="ddm_column_cpro.ivr_pricechgpctitem_typeaval">
-			<DD_TABLE_ALIAS id="ddm_column_cpro.ivr_pricechgpctitem_typeaval">IVR_PRICECHGPCT </DD_TABLE_ALIAS>
-			<DD_DVAR_NAME id="ddm_column_cpro.ivr_pricechgpctitem_typeaval">ITEM_TYPE       </DD_DVAR_NAME>
-			<DD_ATTR_CPRO id="ddm_column_cpro.ivr_pricechgpctitem_typeaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_column_cpro.ivr_pricechgpctpercent_changeaval">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ivr_pricechgpctpercent_changeaval">IVR_PRICECHGPCT </DD_TABLE_ALIAS>
