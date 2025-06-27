@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivm_lsact">CDFC70DCC4036D7953DB291A20AAA50B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivm_lsact">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivm_lsact">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivm_lsact">20250623</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivm_lsact">20250623</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivm_lsact">101902</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivm_lsact">20250627</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivm_lsact">20250627</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivm_lsact">145554</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivm_lsact"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ivm_lsact">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivm_lsact">AO_ITM_WH_LOT_YR</DD_ATTR_DKNM>
