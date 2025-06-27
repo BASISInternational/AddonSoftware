@@ -329,7 +329,7 @@ rem --- Allow this warehouse to be deleted?
 [[IVM_ITEMWHSE.BSHO]]
 rem --- Open extra tables
 
-num_files=13
+num_files=14
 dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 open_tables$[1]="POE_PODET",open_opts$[1]="OTA"
 open_tables$[2]="OPE_ORDDET",open_opts$[2]="OTA"
@@ -348,6 +348,7 @@ if callpoint!.getDevObject("ap_installed") = "Y"
 endif
 open_tables$[12]="IVC_WHSECODE",open_opts$[12]="OTA"
 open_tables$[13]="IVC_PHYSCODE",open_opts$[13]="OTA"
+open_tables$[14]="IVC_PHYSCODE",open_opts$[14]="OTA"
 
 gosub open_tables
 

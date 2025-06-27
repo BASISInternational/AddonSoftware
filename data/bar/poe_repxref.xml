@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.poe_repxref">F70D656BF6E6A54C3D97AFB0D35DDDBD</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poe_repxref">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poe_repxref">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.poe_repxref">20241015</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.poe_repxref">20241015</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.poe_repxref">160730</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.poe_repxref">20250627</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.poe_repxref">20250627</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.poe_repxref">163746</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.poe_repxref"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.poe_repxref"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.poe_repxref">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.poe_repxref"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.poe_repxref"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.poe_repxref">T</DD_ATTR_FTYP>
@@ -56,6 +56,13 @@
 			<DD_ATTR_PADW id="ddm_tables.poe_repxref"></DD_ATTR_PADW>
 			<DD_ATTR_PADH id="ddm_tables.poe_repxref"></DD_ATTR_PADH>
 			<DD_ATTR_PADG id="ddm_tables.poe_repxref"></DD_ATTR_PADG>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_cpro">
+		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.poe_repxrefbsho">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.poe_repxrefbsho">POE_REPXREF     </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.poe_repxrefbsho">BSHO</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_opts">
@@ -214,7 +221,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.poe_repxref002">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.poe_repxref002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.poe_repxref002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.poe_repxref002">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.poe_repxref002">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.poe_repxref002"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.poe_repxref002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.poe_repxref002"></DD_ATTR_CTLY>

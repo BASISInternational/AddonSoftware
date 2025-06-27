@@ -15,10 +15,11 @@ endif
 [[APM_VENDREPL.BSHO]]
 rem --- Open necessary channel
 
-	num_files=2
+	num_files=3
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVM_ITEMMAST",open_opts$[1]="OTA"
 	open_tables$[2]="APM_VENDADDR",open_opts$[2]="OTA"
+	open_tables$[3]="IVC_BUYCODE",open_opts$[3]="OTA"
 	gosub open_tables
 
 rem --- Disable Buyer Code if IV not installed

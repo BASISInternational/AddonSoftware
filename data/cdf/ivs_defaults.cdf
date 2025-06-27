@@ -20,7 +20,7 @@ rem --- Is Accounts Receivable installed?
 	ar$=info$[20]
 
 rem --- Open/Lock Files
-	num_files=4
+	num_files=5
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	if ar$="Y" then
 		open_tables$[1]="ARS_PARAMS",open_opts$[1]="OTA"
@@ -28,6 +28,7 @@ rem --- Open/Lock Files
 	open_tables$[2]="IVC_PRODCODE",open_opts$[2]="OTA"
 	open_tables$[3]="IVC_TYPECODE",open_opts$[3]="OTA"
 	open_tables$[4]="IVC_CLASCODE",open_opts$[4]="OTA"
+	open_tables$[5]="IVC_BUYCODE",open_opts$[5]="OTA"
 	gosub open_tables
 	ars01_dev=num(open_chans$[1]),ars01_tpl$=open_tpls$[1]
 

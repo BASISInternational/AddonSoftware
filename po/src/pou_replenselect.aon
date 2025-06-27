@@ -35,7 +35,7 @@ rem --- Retrieve sysinfo data
 
 rem --- Open all files
 
-	num_files=20,open_beg=1,open_end=num_files
+	num_files=21,open_beg=1,open_end=num_files
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 
 	open_tables$[1]="APS_PARAMS", open_opts$[1]="OTA"
@@ -58,6 +58,7 @@ rem --- Open all files
 	open_tables$[18]="IVM_ITEMWHSE", open_opts$[18]="NTA"
     open_tables$[19]="APM_VENDMAST", open_opts$[19]="OTA"
     open_tables$[20]="IVC_WHSECODE", open_opts$[20]="OTA"
+    open_tables$[21]="IVC_BUYCODE", open_opts$[21]="OTA"
 
 
 	gosub open_tables
@@ -82,6 +83,7 @@ rem --- Open all files
 	ivm_itemwhse_dev2=num(open_chans$[18])
     apmVendMast_dev=num( open_chans$[19] )
     ivcWhseCode_dev=num(open_chans$[20])
+    ivcBuyerCode_dev=num(open_chans$[21])
 
 	dim aps_params$:open_tpls$[1]
 	dim gls_calendar$:open_tpls$[2]
@@ -103,6 +105,7 @@ rem --- Open all files
 	dim ivm_itemwhse2$:open_tpls$[18]
     dim apmVendMast$:open_tpls$[19]
     dim ivcWhseCode$:open_tpls$[20]
+    dim ivcBuyerCode$:open_tpls$[21]
 
 rem --- call bac_key_template as needed to return templates for specified files/keys
 
@@ -121,6 +124,7 @@ rem --- Assign form input values to local variables
 	datethru$=Option!.getOptionData("REVIEW_DATE_2")
 	comment$=Option!.getOptionData("REP_COMMENTS")
 	replen_seq$=Option!.getOptionData("REPLEN_SEQ")
+    buyer_inactive$=Option!.getOptionData("buyer_INACTIVE")
     vend_inactive$=Option!.getOptionData("VEND_INACTIVE")
     whse_inactive$=Option!.getOptionData("WHSE_INACTIVE")
 
@@ -196,6 +200,8 @@ rem --- Main Read Loop
         if vend_inactive$="Y" and apmVendMast.vend_inactive$="Y" then continue
         find record (ivcWhseCode_dev, key=firm_id$+"C"+whse$, dom=*continue) ivcWhseCode$
         if whse_inactive$="Y" and ivcWhseCode.code_inactive$="Y" then continue
+        find record (ivcBuyerCode_dev, key=firm_id$+"F"+whse$, dom=*continue) ivcBuyerCode$
+        if buyer_inactive$="Y" and ivcBuyerCode.code_inactive$="Y" then continue
 
 		if read_tpl.buyer_code$<>curbuyer$ gosub newbuyer
 		if read_tpl.vendor_id$<>curvend$ gosub newvendor

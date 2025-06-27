@@ -1,10 +1,11 @@
 [[POE_ORDDET.BSHO]]
 rem --- Open files
 
-	num_files=2
+	num_files=3
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVC_PRODCODE", open_opts$[1]="OTA"
 	open_tables$[2]="IVC_WHSECODE", open_opts$[2]="OTA"
+	open_tables$[3]="IVC_BUYCODE", open_opts$[3]="OTA"
 
 	gosub open_tables
 
