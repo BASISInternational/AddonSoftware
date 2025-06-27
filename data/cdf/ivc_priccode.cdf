@@ -17,10 +17,11 @@ rem --- Default pricing_basis is P, so disable break_amt_nn fields
 	next x
 
 [[IVC_PRICCODE.BSHO]]
-num_files=2
+num_files=3
 dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 open_tables$[1]="ARS_PARAMS",open_opts$[1]="OTA"
 open_tables$[2]="IVS_PARAMS",open_opts$[2]="OTA"
+open_tables$[3]="IVC_CLASCODE",open_opts$[3]="OTA"
 gosub open_tables
 ars_params_chn=num(open_chans$[1]),ars_params_tpl$=open_tpls$[1]
 ivs_params_chn=num(open_chans$[2]),ivs_params_tpl$=open_tpls$[2]
@@ -102,6 +103,7 @@ endif
 	
 
 [[IVC_PRICCODE.ITEM_CLASS.AVAL]]
+rem --- Don't allow inactive code
 	ivc_clascode=fnget_dev("IVC_CLASCODE")
 	dim ivc_clascode$:fnget_tpl$("IVC_CLASCODE")
 	item_class$=callpoint!.getUserInput()

@@ -138,12 +138,6 @@ call dir_pgm1$+"adc_application.aon","OP",info$[all]
 op$=info$[20]
 callpoint!.setDevObject("op",op$)
 
-call stbl("+DIR_PGM")+"adc_application.aon","IV",info$[all]
-callpoint!.setDevObject("usingIV",info$[20])
-
-call stbl("+DIR_PGM")+"adc_application.aon","AD",info$[all]
-callpoint!.setDevObject("usingAD",info$[20])
-
 rem --- Define Files Based on Installations
 num_files=6
 dim open_tables$[1:num_files], open_opts$[1:num_files], open_chans$[1:num_files], open_tpls$[1:num_files]
@@ -156,10 +150,8 @@ if op$="Y" then
     open_tables$[4]="OPS_PARAMS", open_opts$[4]="OTA"
 endif
 
-if callpoint!.getDevObject("usingIV")="Y" then
-    open_tables$[5]="IVC_PRICCODE", open_opts$[5]="OTA"
-    open_tables$[6]="IVC_PRODCODE", open_opts$[6]="OTA"
-endif
+open_tables$[5]="IVC_PRICCODE", open_opts$[5]="OTA"
+open_tables$[6]="IVC_PRODCODE", open_opts$[6]="OTA"
 
 gosub open_tables
 
@@ -244,9 +236,7 @@ rem ==========================================================================
 	checkTables!.addItem("IVC_PRICCODE")
 	checkTables!.addItem("IVC_PRODCODE")
 	checkTables!.addItem("IVM_ITEMMAST")
-	if callpoint!.getDevObject("usingAD")="Y" then
-		checkTables!.addItem("IVS_DEFAULTS")
-	endif
+	checkTables!.addItem("IVS_DEFAULTS")
 	for i=0 to checkTables!.size()-1
 		thisTable$=checkTables!.getItem(i)
 		table_dev = fnget_dev(thisTable$)
@@ -258,7 +248,7 @@ rem ==========================================================================
 			if table_tpl.item_class$=item_class$ then
 				msg_id$="AD_CODE_IN_USE"
 				dim msg_tokens$[2] 
-				msg_tokens$[1]="IV"+Translate!.getTranslation("AON_item_class")+" "+Translate!.getTranslation("AON_CODE")
+				msg_tokens$[1]=Translate!.getTranslation("DDM_ELEMENTS-ITEM_CLASS-DD_ATTR_LABL=Item Class")+" "+Translate!.getTranslation("AON_CODE")
 				switch (BBjAPI().TRUE)
                 				case thisTable$="IVC_PRICCODE"
                     				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVC_PRICCODE-DD_ATTR_WINT")
@@ -271,7 +261,7 @@ rem ==========================================================================
 						break
                 				case thisTable$="IVS_DEFAULTS"
                     				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-IVS_DEFAULTS-DD_ATTR_WINT")
-                        break
+                        				break
                 				case default
                     				msg_tokens$[2]="???"
                     				break

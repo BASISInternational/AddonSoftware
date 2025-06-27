@@ -170,14 +170,13 @@ callpoint!.setDevObject("usingPO",info$[20])
 
 rem --- Open/Lock files
 
-files=12
+files=13
 begfile=1,endfile=files
 dim files$[files],options$[files],chans$[files],templates$[files]
 files$[1]="IVS_PARAMS",options$[1]="OTA"
 files$[2]="IVM_ITEMMAST",options$[2]="OTA"
 files$[3]="IVM_ITEMWHSE",options$[3]="OTA"
 files$[4]="IVS_DEFAULTS",options$[4]="OTA"
-files$[12]="IVC_TYPECODE",options$[12]="OTA"
 if op$="Y" then 
 	files$[5]="OPS_PARAMS",options$[5]="OTA"
 	files$[6]="OPC_LINECODE",options$[6]="OTA"
@@ -189,6 +188,8 @@ if usingPO$="Y" then
 	files$[10]="POE_ORDDET",options$[10]="OTA"
 	files$[11]="POE_ORDTOT",options$[11]="OTA"
 endif
+files$[12]="IVC_TYPECODE",options$[12]="OTA"
+files$[13]="IVC_CLASCODE",options$[13]="OTA"
 
 call dir_pgm$+"bac_open_tables.bbj",begfile,endfile,files$[all],options$[all],
 :                                 chans$[all],templates$[all],table_chans$[all],batch,status$
@@ -270,6 +271,7 @@ rem --- When deactivating the Product Type code, warn if there are any current/a
 	endif
 
 [[IVC_PRODCODE.ITEM_CLASS.AVAL]]
+rem --- Don't allow inactive code
 	ivc_clascode=fnget_dev("IVC_CLASCODE")
 	dim ivc_clascode$:fnget_tpl$("IVC_CLASCODE")
 	item_class$=callpoint!.getUserInput()
