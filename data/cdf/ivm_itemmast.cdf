@@ -606,7 +606,7 @@ rem --- Is Sales Order Processing installed?
 
 rem --- Open/Lock files
 
-	num_files=13
+	num_files=15
 	if op$="Y" then num_files=13
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVS_PARAMS",open_opts$[1]="OTA"
@@ -621,7 +621,8 @@ rem --- Open/Lock files
 	open_tables$[11]="IVT_LSTRANS",open_opts$[11]="OTA"
 	open_tables$[12]="IVC_PRODCODE",open_opts$[12]="OTA"
 	open_tables$[13]="IVC_TYPECODE",open_opts$[13]="OTA"
-	if op$="Y" then open_tables$[9]="OPS_PARAMS",open_opts$[9]="OTA"
+	open_tables$[14]="IVC_CLASCODE",open_opts$[14]="OTA"
+	if op$="Y" then open_tables$[15]="OPS_PARAMS",open_opts$[15]="OTA"
 
 	gosub open_tables
 	if status$ <> ""  then goto std_exit
@@ -964,6 +965,7 @@ rem --- Can't change Inventoried flag if there is QOH
 	endif
 
 [[IVM_ITEMMAST.ITEM_CLASS.AVAL]]
+rem --- Don't allow inactive code
 	ivc_clascode=fnget_dev("IVC_CLASCODE")
 	dim ivc_clascode$:fnget_tpl$("IVC_CLASCODE")
 	item_class$=callpoint!.getUserInput()

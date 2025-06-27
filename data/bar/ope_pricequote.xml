@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ope_pricequote"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_pricequote">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_pricequote">20080909</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ope_pricequote">20241028</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ope_pricequote">20241028</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_pricequote">151334</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ope_pricequote">20250626</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ope_pricequote">20250626</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_pricequote">171108</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_pricequote"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ope_pricequote">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ope_pricequote">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_pricequote"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ope_pricequote"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ope_pricequote">S</DD_ATTR_FTYP>
@@ -206,7 +206,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_pricequote002">20080909</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_pricequote002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_pricequote002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote002">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote002">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_pricequote002">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_pricequote002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_pricequote002"></DD_ATTR_CTLY>
@@ -308,7 +308,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_pricequote004">20080909</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_pricequote004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_pricequote004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote004">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_pricequote004">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_pricequote004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_pricequote004"></DD_ATTR_CTLY>
@@ -359,7 +359,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_pricequote005">20080909</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_pricequote005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_pricequote005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote005">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote005">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_pricequote005">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_pricequote005">-35</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_pricequote005">+4</DD_ATTR_CTLY>
@@ -410,7 +410,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_pricequote006">20080913</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_pricequote006">OPE_PRICEQUOTE.FIRM_ID</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_pricequote006">z</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote006">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_pricequote006">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_pricequote006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_pricequote006"></DD_ATTR_CTLY>

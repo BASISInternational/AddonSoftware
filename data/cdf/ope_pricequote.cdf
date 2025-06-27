@@ -31,7 +31,7 @@ if cvs(item_id$,3) <>""
 endif
 
 [[OPE_PRICEQUOTE.BSHO]]
-num_files=8
+num_files=9
 dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 open_tables$[1]="ARM_CUSTMAST",open_opts$[1]="OTA"
 open_tables$[2]="ARM_CUSTDET",open_opts$[2]="OTA"
@@ -41,6 +41,7 @@ open_tables$[5]="IVC_PRICCODE",open_opts$[5]="OTA"
 open_tables$[6]="IVM_ITEMMAST",open_opts$[6]="OTA"
 open_tables$[7]="IVM_ITEMPRIC",open_opts$[7]="OTA"
 open_tables$[8]="IVC_WHSECODE",open_opts$[8]="OTA"
+open_tables$[9]="IVC_CLASCODE",open_opts$[9]="OTA"
 gosub open_tables
 arm01_dev=num(open_chans$[1]),arm01_tpl$=open_tpls$[1]
 arm02_dev=num(open_chans$[2]),arm02_tpl$=open_tpls$[2]
@@ -123,17 +124,19 @@ gosub build_arrays
 callpoint!.setStatus("REFRESH")
 
 [[OPE_PRICEQUOTE.ITEM_CLASS.AVAL]]
+rem --- Don't allow inactive code
 	ivc_clascode=fnget_dev("IVC_CLASCODE")
 	dim ivc_clascode$:fnget_tpl$("IVC_CLASCODE")
 	item_class$=callpoint!.getUserInput()
 	read record (ivc_clascode,key=firm_id$+item_class$,dom=*next)ivc_clascode$
 	if ivc_clascode.code_inactive$ = "Y"
-		msg_id$="AD_CODE_INACTIVE"
+		msg_id$="AD_CODE_INACTIVE_OK"
 		dim msg_tokens$[2]
-		msg_tokens$[1]=cvs(ivc_clascode.item_class$,3)
-		msg_tokens$[2]=cvs(ivc_clascode.code_desc$,3)
+		msg_tokens$[1]=cvs(ivcWhseCode.warehouse_id$,3)
+		msg_tokens$[2]=cvs(ivcWhseCode.short_name$,3)
 		gosub disp_message
-		return
+		if msg_opt$="C" then callpoint!.setStatus("ABORT")
+		break
 	endif
 
 [[OPE_PRICEQUOTE.ITEM_ID.AINV]]
