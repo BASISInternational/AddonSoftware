@@ -94,3 +94,11 @@ Bug 11054: Corrected the grid column location for the Due Date.
 Modified: data/bar/ape_payselect.xml
 Modified: data/cdf/ape_payselect.cdf
 =======================================================================================================================================
+Author: Ricky <rgonzales@basis.cloud>
+Date:   Fri Jun 27 10:46:40 2025 -0600
+
+    Bug 11055: Fixed Menu Maintenance security Permission
+
+M data/sync/adm_mnu_item~[01007514AD].xml
+M data/sync/adm_mnu_trans~[01007514AD].xml
+=======================================================================================================================================
