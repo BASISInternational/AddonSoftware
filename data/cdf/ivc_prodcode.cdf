@@ -170,7 +170,7 @@ callpoint!.setDevObject("usingPO",info$[20])
 
 rem --- Open/Lock files
 
-files=13
+files=14
 begfile=1,endfile=files
 dim files$[files],options$[files],chans$[files],templates$[files]
 files$[1]="IVS_PARAMS",options$[1]="OTA"
@@ -190,6 +190,7 @@ if usingPO$="Y" then
 endif
 files$[12]="IVC_TYPECODE",options$[12]="OTA"
 files$[13]="IVC_CLASCODE",options$[13]="OTA"
+files$[14]="IVC_BUYCODE",options$[14]="OTA"
 
 call dir_pgm$+"bac_open_tables.bbj",begfile,endfile,files$[all],options$[all],
 :                                 chans$[all],templates$[all],table_chans$[all],batch,status$

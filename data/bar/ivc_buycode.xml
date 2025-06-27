@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivc_buycode">DC6C34BCACAEAE66657EA2594946C638</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivc_buycode">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivc_buycode">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivc_buycode">20241016</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivc_buycode">20241016</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivc_buycode">141726</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivc_buycode">20250627</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivc_buycode">20250627</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivc_buycode">155858</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivc_buycode"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ivc_buycode">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ivc_buycode">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivc_buycode"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ivc_buycode"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ivc_buycode">T</DD_ATTR_FTYP>
@@ -480,7 +480,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivc_buycode007">20170320</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivc_buycode007"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivc_buycode007"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivc_buycode007">/Users/rgonzales/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivc_buycode007">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivc_buycode007">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivc_buycode007">-8</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivc_buycode007"></DD_ATTR_CTLY>

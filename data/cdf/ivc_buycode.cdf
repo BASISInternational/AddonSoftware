@@ -18,12 +18,8 @@ rem --- Do they want to deactivate code instead of deleting it?
 
 [[IVC_BUYCODE.BSHO]]
 rem --- This firm using Inventory?
-	call stbl("+DIR_PGM")+"adc_application.aon","IV",info$[all]
-	callpoint!.setDevObject("usingIV",info$[20])
-
-rem --- This firm using Anaylsis?
-	call stbl("+DIR_PGM")+"adc_application.aon","AD",info$[all]
-	callpoint!.setDevObject("usingAD",info$[20])
+	call stbl("+DIR_PGM")+"adc_application.aon","AP",info$[all]
+	callpoint!.setDevObject("usingAP",info$[20])
 
 rem --- This firm using Purchase Order?
 	call stbl("+DIR_PGM")+"adc_application.aon","PO",info$[all]
@@ -32,17 +28,13 @@ rem --- This firm using Purchase Order?
 rem --- Open/Lock files
 	num_files=9
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
-	open_tables$[1]="APM_VENDREPL",open_opts$[1]="OTA"
-
-rem --- Check if Inventory is used
-	if callpoint!.getDevObject("usingIV")="Y" then
-		open_tables$[2]="IVC_PRODCODE",open_opts$[2]="OTA"
-		open_tables$[3]="IVM_ITEMMAST",open_opts$[3]="OTA"
-		open_tables$[4]="IVM_ITEMWHSE",open_opts$[4]="OTA"
+	if callpoint!.getDevObject("usingAP")="Y" then
+		open_tables$[1]="APM_VENDREPL",open_opts$[1]="OTA"
 	endif
-	if callpoint!.getDevObject("usingAD")="Y" then
-		open_tables$[5]="IVS_DEFAULTS",open_opts$[5]="OTA"
-	endif
+	open_tables$[2]="IVC_PRODCODE",open_opts$[2]="OTA"
+	open_tables$[3]="IVM_ITEMMAST",open_opts$[3]="OTA"
+	open_tables$[4]="IVM_ITEMWHSE",open_opts$[4]="OTA"
+	open_tables$[5]="IVS_DEFAULTS",open_opts$[5]="OTA"
 	if callpoint!.getDevObject("usingPO")="Y" then
 		open_tables$[6]="POE_ORDDET",open_opts$[6]="OTA"
 		open_tables$[7]="POE_ORDHDR",open_opts$[7]="OTA"
@@ -72,15 +64,13 @@ rem ==========================================================================
 	buyer_code$=callpoint!.getColumnData("IVC_BUYCODE.BUYER_CODE")
 
 	checkTables!=BBjAPI().makeVector()
-	checkTables!.addItem("APM_VENDREPL")
-	if callpoint!.getDevObject("usingIV")="Y" then
-		checkTables!.addItem("IVC_PRODCODE")
-		checkTables!.addItem("IVM_ITEMMAST")
-		checkTables!.addItem("IVM_ITEMWHSE")
+	if callpoint!.getDevObject("usingAP")="Y" then
+		checkTables!.addItem("APM_VENDREPL")
 	endif
-	if callpoint!.getDevObject("usingAD")="Y" then
-		checkTables!.addItem("IVS_DEFAULTS")
-	endif
+	checkTables!.addItem("IVC_PRODCODE")
+	checkTables!.addItem("IVM_ITEMMAST")
+	checkTables!.addItem("IVM_ITEMWHSE")
+	checkTables!.addItem("IVS_DEFAULTS")
 	if callpoint!.getDevObject("usingPO")="Y" then
 		checkTables!.addItem("POE_ORDDET")
 		checkTables!.addItem("POE_ORDHDR")

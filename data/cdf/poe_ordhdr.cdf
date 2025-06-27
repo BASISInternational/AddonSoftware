@@ -1,3 +1,12 @@
+[[POE_ORDHDR.BSHO]]
+rem --- Open files
+
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="IVC_BUYCODE", open_opts$[1]="OTA"
+
+	gosub open_tables
+
 [[POE_ORDHDR.BUYER_CODE.AVAL]]
 rem --- Don't allow inactive code
 	ivc_buycode=fnget_dev("IVC_BUYCODE")

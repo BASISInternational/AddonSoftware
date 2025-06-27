@@ -607,7 +607,7 @@ rem --- Is Sales Order Processing installed?
 rem --- Open/Lock files
 
 	num_files=15
-	if op$="Y" then num_files=13
+	if op$="Y" then num_files=16
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVS_PARAMS",open_opts$[1]="OTA"
 	open_tables$[2]="IVS_DEFAULTS",open_opts$[2]="OTA"
@@ -622,7 +622,8 @@ rem --- Open/Lock files
 	open_tables$[12]="IVC_PRODCODE",open_opts$[12]="OTA"
 	open_tables$[13]="IVC_TYPECODE",open_opts$[13]="OTA"
 	open_tables$[14]="IVC_CLASCODE",open_opts$[14]="OTA"
-	if op$="Y" then open_tables$[15]="OPS_PARAMS",open_opts$[15]="OTA"
+	open_tables$[15]="IVC_BUYCODE",open_opts$[15]="OTA"
+	if op$="Y" then open_tables$[16]="OPS_PARAMS",open_opts$[16]="OTA"
 
 	gosub open_tables
 	if status$ <> ""  then goto std_exit
