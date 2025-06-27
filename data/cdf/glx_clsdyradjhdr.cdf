@@ -86,8 +86,10 @@ rem --- Warn about inactive code Journal ID code
 		msg_tokens$[1]=cvs(glcJournalCode.journal_id$,3)
 		msg_tokens$[2]=cvs(glcJournalCode.code_desc$,3)
 		gosub disp_message
-		if msg_opt$="C" then callpoint!.setStatus("ABORT")
-		break
+		if msg_opt$="C" then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
 	endif
 
 [[GLX_CLSDYRADJHDR.TRANS_DATE.AVAL]]

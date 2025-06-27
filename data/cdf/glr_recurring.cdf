@@ -38,8 +38,10 @@ rem --- Warn about inactive code Cycle Code
 		msg_tokens$[1]=cvs(glcCycleCode.cycle_code$,3)
 		msg_tokens$[2]=cvs(glcCycleCode.code_desc$,3)
 		gosub disp_message
-		if msg_opt$="C" then callpoint!.setStatus("ABORT")
-		break
+		if msg_opt$="C" then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
 	endif
 
 [[GLR_RECURRING.POSTING_DATE.AVAL]]

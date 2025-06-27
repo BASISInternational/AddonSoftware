@@ -494,8 +494,10 @@ rem --- Don't allow inactive code
 		msg_tokens$[1]=cvs(ivcWhseCode.warehouse_id$,3)
 		msg_tokens$[2]=cvs(ivcWhseCode.short_name$,3)
 		gosub disp_message
-		if msg_opt$="C" then callpoint!.setStatus("ABORT")
-		break
+		if msg_opt$="C" then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
 	endif
 
 rem --- If both warehouses are entered, they can't match
@@ -520,8 +522,10 @@ rem --- Don't allow inactive code
 		msg_tokens$[1]=cvs(ivcWhseCode.warehouse_id$,3)
 		msg_tokens$[2]=cvs(ivcWhseCode.short_name$,3)
 		gosub disp_message
-		if msg_opt$="C" then callpoint!.setStatus("ABORT")
-		break
+		if msg_opt$="C" then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
 	endif
 
 rem --- If both warehouses are entered, they can't match
