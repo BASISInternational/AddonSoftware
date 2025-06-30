@@ -2207,6 +2207,21 @@ rem --- Inventory Item/Whse Lookup
 	callpoint!.setStatus("ACTIVATE-ABORT")
 
 [[OPE_ORDDET.LINE_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcLineCode_dev=fnget_dev("OPC_LINECODE")
+	dim opcLineCode$:fnget_tpl$("OPC_LINECODE")
+	line_code$=callpoint!.getUserInput()
+	read record(opcLineCode_dev,key=firm_id$+line_code$,dom=*next)opcLineCode$
+	if opcLineCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcLineCode.line_code$,3)
+		msg_tokens$[2]=cvs(opcLineCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Initialize detail line for this line_code
 
 	line_code$ = callpoint!.getUserInput()

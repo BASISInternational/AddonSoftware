@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.ops_params">6C86E4DEC7C6B455A88D2DC7EC930ABC</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ops_params">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ops_params">20080429</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ops_params">20240215</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ops_params">20240215</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ops_params">143616</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ops_params">20250630</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ops_params">20250630</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ops_params">161134</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ops_params"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ops_params">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ops_params"></DD_ATTR_DKNM>
@@ -1607,7 +1607,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ops_params027">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ops_params027"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ops_params027"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ops_params027"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ops_params027">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ops_params027"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ops_params027"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ops_params027"></DD_ATTR_CTLY>
@@ -3458,6 +3458,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ops_paramsskip_ln_codeaval">OPS_PARAMS      </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.ops_paramsskip_ln_codeaval">SKIP_LN_CODE    </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.ops_paramsskip_ln_codeaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.ops_paramsline_codeaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.ops_paramsline_codeaval">OPS_PARAMS      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.ops_paramsline_codeaval">LINE_CODE       </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.ops_paramsline_codeaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_column_cpro.ops_paramsop_create_woaval">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.ops_paramsop_create_woaval">OPS_PARAMS      </DD_TABLE_ALIAS>

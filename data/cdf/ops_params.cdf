@@ -86,8 +86,8 @@ rem --- Are Bill Of Materials and Shop Floor installed?
 
 rem --- Open files
 
-	num_files=2
-	if bm_sf$="Y" then num_files=4
+	num_files=3
+	if bm_sf$="Y" then num_files=5
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="GLS_PARAMS",open_opts$[1]="OTA"
 	open_tables$[2]="ARS_PARAMS",open_opts$[2]="OTA"
@@ -95,6 +95,7 @@ rem --- Open files
 		open_tables$[3]="SFS_PARAMS",open_opts$[3]="OTA"
 		open_tables$[4]="SFC_WOTYPECD",open_opts$[4]="OTA"
 	endif
+	open_tables$[5]="OPC_LINECODE",open_opts$[5]="OTA"
 
 	gosub open_tables
 
@@ -205,6 +206,22 @@ rem --- Disable UNIT_COST when entering cost for dropships
 beg_cmt$=callpoint!.getColumnData("OPS_PARAMS.BEG_CMT_LINE")
 end_cmt$=callpoint!.getUserInput()
 gosub validate_cmt_lines
+
+[[OPS_PARAMS.LINE_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcLineCode_dev=fnget_dev("OPC_LINECODE")
+	dim opcLineCode$:fnget_tpl$("OPC_LINECODE")
+	line_code$=callpoint!.getUserInput()
+	read record(opcLineCode_dev,key=firm_id$+line_code$,dom=*next)opcLineCode$
+	if opcLineCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcLineCode.line_code$,3)
+		msg_tokens$[2]=cvs(opcLineCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
 
 [[OPS_PARAMS.OP_CREATE_WO.AVAL]]
 rem --- Disable and clear OP_CREATE_WO_TYP if not creating Work Orders
