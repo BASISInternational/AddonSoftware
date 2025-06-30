@@ -87,6 +87,24 @@ connectErr:
 
 	break
 
+[[OPC_LINECODE.BDEL]]
+rem --- When deleting the OP Line Code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	gosub check_active_code
+	if found then
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+rem --- Do they want to deactivate code instead of deleting it?
+	msg_id$="AD_DEACTIVATE_CODE"
+	gosub disp_message
+	if msg_opt$="Y" then
+		rem --- Check the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("OPC_LINECODE.CODE_INACTIVE","Y",1)
+		callpoint!.setStatus("SAVE;ABORT")
+		break
+	endif
+
 [[OPC_LINECODE.BEND]]
 rem --- Close connection to Sales Tax Service
 	salesTax!=callpoint!.getDevObject("salesTax")
@@ -112,11 +130,13 @@ rem --- Inits
 	use ::opo_AvaTaxInterface.aon::AvaTaxInterface
 
 rem --- Open/Lock files
-	num_files=3
+	num_files=5
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="ARC_DISTCODE",open_opts$[1]="OTA"
 	open_tables$[2]="OPS_PARAMS",open_opts$[2]="OTA"
 	open_tables$[3]="IVC_PRODCODE",open_opts$[3]="OTA"
+	open_tables$[4]="OPT_INVDET",open_opts$[4]="OTA"
+	open_tables$[5]="OPT_INVKITDET",open_opts$[5]="OTA"
 	gosub open_tables
 	arc_dist_dev=num(open_chans$[1]),arc_dist_tpl$=open_tpls$[1]
 
@@ -138,6 +158,18 @@ rem --- Add static label for displaying TAX_SVC_CD description
 	nxt_ctlID=util.getNextControlID()
 	tax_svc_cd_desc!=Form!.addStaticText(nxt_ctlID,tax_svc_cd_x+tax_svc_cd_width+5,tax_svc_cd_y+3,int(code_desc_width*1.5),tax_svc_cd_height,"")
 	callpoint!.setDevObject("tax_svc_cd_desc",tax_svc_cd_desc!)
+
+[[OPC_LINECODE.CODE_INACTIVE.AVAL]]
+rem --- When deactivating the OP Line Code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	current_inactive$=callpoint!.getUserInput()
+	prior_inactive$=callpoint!.getColumnData("OPC_LINECODE.CODE_INACTIVE")
+	if current_inactive$="Y" and prior_inactive$<>"Y" then
+		gosub check_active_code
+		if found then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
 
 [[OPC_LINECODE.DROPSHIP.AVAL]]
 rem --- Maybe disable Distribution Code
@@ -350,6 +382,63 @@ rem ========================================================
 		endif
 		callpoint!.setStatus("REFRESH")
 	endif
+return
+
+rem ==========================================================================
+check_active_code: rem --- Warn if there are any current/active transactions for the code
+rem ==========================================================================
+	found=0
+	line_code$=callpoint!.getColumnData("OPC_LINECODE.LINE_CODE")
+
+	checkTables!=BBjAPI().makeVector()
+	checkTables!.addItem("OPS_PARAMS")
+	checkTables!.addItem("OPT_INVDET")
+	checkTables!.addItem("OPT_INVKITDET")
+	for i=0 to checkTables!.size()-1
+		thisTable$=checkTables!.getItem(i)
+		table_dev = fnget_dev(thisTable$)
+		dim table_tpl$:fnget_tpl$(thisTable$)
+		if thisTable$="OPT_INVDET" or thisTable$="OPT_INVKITDET" then
+			read(table_dev,key=firm_id$+"E",knum="AO_STATUS",dom=*next)
+		else
+			read(table_dev,key=firm_id$,dom=*next)
+		endif
+		while 1
+			readrecord(table_dev,end=*break)table_tpl$
+			if table_tpl.firm_id$<>firm_id$ then break
+			if (thisTable$="OPT_INVHDR" or thisTable$="OPT_INVDET") and table_tpl.trans_status$<>"E" then break
+			if table_tpl.line_code$=line_code$ then
+				msg_id$="AD_CODE_IN_USE"
+				dim msg_tokens$[2]
+				msg_tokens$[1]="OP "+Translate!.getTranslation("AON_LINE_CODE")
+				switch (BBjAPI().TRUE)
+                				case thisTable$="OPS_PARAMS"
+                   				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-OPS_PARAMS-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="OPT_INVDET"
+                   				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-OPT_INVDET-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="OPT_INVKITDET"
+                   				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-OPE_INVKITDET-DD_ATTR_WINT")
+                    				break
+                				case default
+                    				msg_tokens$[2]="???"
+                    				break
+            				swend
+				gosub disp_message
+
+				found=1
+				break
+			endif
+		wend
+		if found then break
+	next i
+
+	if found then
+		rem --- Uncheck the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("OPC_LINECODE.CODE_INACTIVE","N",1)
+	endif
+
 return
 
 

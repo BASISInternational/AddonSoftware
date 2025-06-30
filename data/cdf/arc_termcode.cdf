@@ -116,7 +116,7 @@ rem ==========================================================================
                 				case thisTable$="ARE_FINCHG"
                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-ARE_FINCHG-DD_ATTR_WINT")
                     				break
-                				case thisTable$="DDM_TABLES-ARE_INVHDR-DD_ATTR_WINT"
+                				case thisTable$="ARE_INVHDR"
                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-ARM_CUSTSHIP-DD_ATTR_WINT")
                     				break
                 				case thisTable$="ARM_CUSTDET"
