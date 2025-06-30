@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.crm_custpmts">117F81C6785FB39376FAAC963E1B0669</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.crm_custpmts">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.crm_custpmts">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.crm_custpmts">20240203</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.crm_custpmts">20240604</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.crm_custpmts">163824</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.crm_custpmts">20250401</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.crm_custpmts">20250630</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.crm_custpmts">125706</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.crm_custpmts">ARM_CUSTPMTS    </DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.crm_custpmts"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.crm_custpmts"></DD_ATTR_DKNM>
