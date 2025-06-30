@@ -2326,7 +2326,7 @@ rem                 = 1 -> user_tpl.hist_ord$ = "N"
 
 rem --- Open needed files
 
-	num_files=53
+	num_files=54
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	
 	open_tables$[1]="ARM_CUSTMAST",  open_opts$[1]="OTA"
@@ -2379,6 +2379,7 @@ rem --- Open needed files
 	open_tables$[51]="ARC_DISTCODE", open_opts$[51]="OTA"
 	open_tables$[52]="ARC_TERRCODE", open_opts$[52]="OTA"
 	open_tables$[53]="IVC_PRODCODE", open_opts$[53]="OTA"
+	open_tables$[54]="OPC_DISCCODE", open_opts$[54]="OTA"
 
 	gosub open_tables
 
@@ -3007,6 +3008,21 @@ rem --- Now we've been on the Totals tab
 	callpoint!.setDevObject("was_on_tot_tab","Y")
 
 [[OPE_ORDHDR.DISC_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcDiscCode_dev=fnget_dev("OPC_DISCCODE")
+	dim opcDiscCode$:fnget_tpl$("OPC_DISCCODE")
+	disc_code$=callpoint!.getUserInput()
+	read record(opcDiscCode_dev,key=firm_id$+disc_code$,dom=*next)opcDiscCode$
+	if opcDiscCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcDiscCode.disc_code$,3)
+		msg_tokens$[2]=cvs(opcDiscCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Set discount code for use in Order Totals if it changed
 	disc_code$ = callpoint!.getUserInput()
 	if cvs(disc_code$,3)=cvs(callpoint!.getColumnData("OPE_ORDHDR.DISC_CODE"),3) then break

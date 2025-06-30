@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.crm_custmast">B0AE4537C94866F0AF91493A5C8B7BCB</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.crm_custmast">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.crm_custmast">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.crm_custmast">20240604</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.crm_custmast">20240604</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.crm_custmast">163822</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.crm_custmast">20250630</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.crm_custmast">20250630</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.crm_custmast">125704</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.crm_custmast">ARM_CUSTMAST    </DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.crm_custmast">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.crm_custmast"></DD_ATTR_DKNM>

@@ -54,7 +54,7 @@ rem  Initializations
 	use ::ado_util.src::util
 
 rem --- Open/Lock files
-	files=6,begfile=1,endfile=files
+	files=7,begfile=1,endfile=files
 	dim files$[files],options$[files],chans$[files],templates$[files]
 	files$[1]="ARC_CUSTTYPE",options$[1]="OTA"
 	files$[2]="ARC_DISTCODE",options$[2]="OTA"
@@ -62,6 +62,7 @@ rem --- Open/Lock files
 	files$[4]="ARC_TERMCODE",options$[4]="OTA"
 	files$[5]="ARC_TERRCODE",options$[5]="OTA"
 	files$[6]="ARM_CYCLECOD",options$[6]="OTA"
+	files$[7]="OPC_DISCCODE",options$[7]="OTA"
 	call dir_pgm$+"bac_open_tables.bbj",begfile,endfile,files$[all],options$[all],
 :       	chans$[all],templates$[all],table_chans$[all],batch,status$
 	if status$<>"" then
@@ -83,6 +84,22 @@ rem --- Don't allow inactive code
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(arcCustType.customer_type$,3)
 		msg_tokens$[2]=cvs(arcCustType.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+[[CRM_CUSTDET.DISC_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcDiscCode_dev=fnget_dev("OPC_DISCCODE")
+	dim opcDiscCode$:fnget_tpl$("OPC_DISCCODE")
+	disc_code$=callpoint!.getUserInput()
+	read record(opcDiscCode_dev,key=firm_id$+disc_code$,dom=*next)opcDiscCode$
+	if opcDiscCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcDiscCode.disc_code$,3)
+		msg_tokens$[2]=cvs(opcDiscCode.code_desc$,3)
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break

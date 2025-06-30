@@ -1,4 +1,21 @@
 [[OPC_DISCCODE.BDEL]]
+rem --- When deleting the OP Sales Discount Code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	gosub check_active_code
+	if found then
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+rem --- Do they want to deactivate code instead of deleting it?
+	msg_id$="AD_DEACTIVATE_CODE"
+	gosub disp_message
+	if msg_opt$="Y" then
+		rem --- Check the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("ARC_TERMCODE.CODE_INACTIVE","Y",1)
+		callpoint!.setStatus("SAVE;ABORT")
+		break
+	endif
+
 rem --- Check if code is used as a default code
 
 	num_files = 1
@@ -13,13 +30,15 @@ rem --- Check if code is used as a default code
 		callpoint!.setMessage("OP_DISC_CODE_IN_DFLT")
 		callpoint!.setStatus("ABORT")
 	endif
-[[OPC_DISCCODE.<CUSTOM>]]
-#include [+ADDON_LIB]std_missing_params.aon
+
 [[OPC_DISCCODE.BSHO]]
 rem --- Open/Lock files
-	files=1,begfile=1,endfile=1
+	files=4,begfile=1,endfile=4
 	dim files$[files],options$[files],chans$[files],templates$[files]
 	files$[1]="ARS_PARAMS";rem --- "ARS_PARAMS"..."ads-01"
+	files$[2]="ARM_CUSTDET"
+	files$[3]="ARS_CUSTDFLT"
+	files$[4]="OPT_INVHDR"
 	
 	for wkx=begfile to endfile
 		options$[wkx]="OTA"
@@ -47,3 +66,82 @@ rem --- check to see if main AR param rec (firm/AR/00) exists; if not, tell user
 		gosub remove_process_bar
 		release
 	endif
+
+[[OPC_DISCCODE.CODE_INACTIVE.AVAL]]
+rem --- When deactivating the OP Sales Discount Code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	current_inactive$=callpoint!.getUserInput()
+	prior_inactive$=callpoint!.getColumnData("OPC_DISCCODE.CODE_INACTIVE")
+	if current_inactive$="Y" and prior_inactive$<>"Y" then
+		gosub check_active_code
+		if found then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
+[[OPC_DISCCODE.<CUSTOM>]]
+#include [+ADDON_LIB]std_missing_params.aon
+
+rem ==========================================================================
+check_active_code: rem --- Warn if there are any current/active transactions for the code
+rem ==========================================================================
+	found=0
+	disc_code$=callpoint!.getColumnData("OPC_DISCCODE.DISC_CODE")
+
+	checkTables!=BBjAPI().makeVector()
+	checkTables!.addItem("ARM_CUSTDET")
+	checkTables!.addItem("ARS_CUSTDFLT")
+	checkTables!.addItem("OPT_INVHDR")
+	for i=0 to checkTables!.size()-1
+		thisTable$=checkTables!.getItem(i)
+		table_dev = fnget_dev(thisTable$)
+		dim table_tpl$:fnget_tpl$(thisTable$)
+		if thisTable$="OPT_INVHDR" then
+			read(table_dev,key=firm_id$+"E",knum="AO_STATUS",dom=*next)
+		else
+			read(table_dev,key=firm_id$,dom=*next)
+		endif
+		while 1
+			readrecord(table_dev,end=*break)table_tpl$
+			if table_tpl.firm_id$<>firm_id$ then break
+			if thisTable$="OPT_INVHDR" and table_tpl.trans_status$<>"E" then break
+			if table_tpl.disc_code$=disc_code$ then
+				msg_id$="AD_CODE_IN_USE"
+				dim msg_tokens$[2]
+				msg_tokens$[1]="OP "+Translate!.getTranslation("AON_SALE")+" "+Translate!.getTranslation("AON_DISCOUNT")
+				switch (BBjAPI().TRUE)
+                				case thisTable$="ARM_CUSTDET"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-ARM_CUSTDET-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="ARS_CUSTDFLT"
+                    				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-ARS_CUSTDFLT-DD_ATTR_WINT")
+						break
+                				case thisTable$="OPT_INVHDR"
+						if table_tpl.ordinv_flag$="I" then
+                    					msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-OPE_INVHDR-DD_ATTR_WINT")
+						else
+                    					msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-OPE_ORDHDR-DD_ATTR_WINT")
+						endif
+						break
+                				case default
+                    				msg_tokens$[2]="???"
+                    				break
+            				swend
+				gosub disp_message
+
+				found=1
+				break
+			endif
+		wend
+		if found then break
+	next i
+
+	if found then
+		rem --- Uncheck the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("OPC_DISCCODE.CODE_INACTIVE","N",1)
+	endif
+
+return
+
+
+
