@@ -17,11 +17,12 @@ rem --- Default pricing_basis is P, so disable break_amt_nn fields
 	next x
 
 [[IVC_PRICCODE.BSHO]]
-num_files=3
+num_files=4
 dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 open_tables$[1]="ARS_PARAMS",open_opts$[1]="OTA"
 open_tables$[2]="IVS_PARAMS",open_opts$[2]="OTA"
 open_tables$[3]="IVC_CLASCODE",open_opts$[3]="OTA"
+open_tables$[4]="OPC_PRICECDS",open_opts$[4]="OTA"
 gosub open_tables
 ars_params_chn=num(open_chans$[1]),ars_params_tpl$=open_tpls$[1]
 ivs_params_chn=num(open_chans$[2]),ivs_params_tpl$=open_tpls$[2]
@@ -129,6 +130,22 @@ rem --- Enable/disable break_disc_nn and break_amt_nn fields base on pricing_bas
 			callpoint!.setColumnEnabled("IVC_PRICCODE.BREAK_AMT_"+str(x,"00"),1)
 		endif
 	next x
+
+[[IVC_PRICCODE.PRICING_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcPiceCDs_dev=fnget_dev("OPC_PRICECDS")
+	dim opcPiceCDs$:fnget_tpl$("OPC_PRICECDS")
+	pricing_code$=callpoint!.getUserInput()
+	read record(opcPiceCDs_dev,key=firm_id$+pricing_code$,dom=*next)opcPiceCDs$
+	if opcPiceCDs.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcPiceCDs.pricing_code$,3)
+		msg_tokens$[2]=cvs(opcPiceCDs.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
 
 [[IVC_PRICCODE.<CUSTOM>]]
 validate_margin:

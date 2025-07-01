@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.opc_pricecds">C337CB292B58891D5E4C971666BAA071</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opc_pricecds">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opc_pricecds">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.opc_pricecds">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.opc_pricecds">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opc_pricecds">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.opc_pricecds">20250701</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.opc_pricecds">20250701</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.opc_pricecds">132052</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opc_pricecds"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.opc_pricecds">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.opc_pricecds">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opc_pricecds"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.opc_pricecds"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.opc_pricecds">T</DD_ATTR_FTYP>
@@ -63,6 +63,10 @@
 		<RECORD id="ddm_table_cpro.opc_pricecdsbdel">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.opc_pricecdsbdel">OPC_PRICECDS    </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.opc_pricecdsbdel">BDEL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_table_cpro.opc_pricecdsbsho">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.opc_pricecdsbsho">OPC_PRICECDS    </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.opc_pricecdsbsho">BSHO</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_opts">
@@ -361,13 +365,13 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opc_pricecds005">20170320</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opc_pricecds005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opc_pricecds005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opc_pricecds005"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opc_pricecds005">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opc_pricecds005">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opc_pricecds005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opc_pricecds005"></DD_ATTR_CTLY>
 			<DD_ATTR_CTLW id="ddm_table_cols.opc_pricecds005"></DD_ATTR_CTLW>
 			<DD_ATTR_CTLH id="ddm_table_cols.opc_pricecds005"></DD_ATTR_CTLH>
-			<DD_ATTR_DFLT id="ddm_table_cols.opc_pricecds005"></DD_ATTR_DFLT>
+			<DD_ATTR_DFLT id="ddm_table_cols.opc_pricecds005">N</DD_ATTR_DFLT>
 			<DD_ATTR_DRLE id="ddm_table_cols.opc_pricecds005"></DD_ATTR_DRLE>
 			<DD_ATTR_GHDR id="ddm_table_cols.opc_pricecds005"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.opc_pricecds005"></DD_ATTR_IDEF>
@@ -389,12 +393,20 @@
 			<DD_ATTR_STYL id="ddm_table_cols.opc_pricecds005"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.opc_pricecds005">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.opc_pricecds005"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.opc_pricecds005"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.opc_pricecds005"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.opc_pricecds005"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.opc_pricecds005">3003</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.opc_pricecds005">cbx_code_inactive</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.opc_pricecds005">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.opc_pricecds005"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.opc_pricecds005">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.opc_pricecds005"></DD_ATTR_BTNS>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_column_cpro">
+		<ID id="ddm_column_cpro">DDM_COLUMN_CPRO</ID>
+		<RECORD id="ddm_column_cpro.opc_pricecdscode_inactiveaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.opc_pricecdscode_inactiveaval">OPC_PRICECDS    </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.opc_pricecdscode_inactiveaval">CODE_INACTIVE   </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.opc_pricecdscode_inactiveaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_opts">
@@ -403,11 +415,6 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.opc_pricecdsfirm_ido">OPC_PRICECDS    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.opc_pricecdsfirm_ido">FIRM_ID         </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.opc_pricecdsfirm_ido">O</DD_ATTR_OPTS>
-		</RECORD>
-		<RECORD id="ddm_column_opts.opc_pricecdscode_inactiveo">
-			<DD_TABLE_ALIAS id="ddm_column_opts.opc_pricecdscode_inactiveo">OPC_PRICECDS    </DD_TABLE_ALIAS>
-			<DD_DVAR_NAME id="ddm_column_opts.opc_pricecdscode_inactiveo">CODE_INACTIVE   </DD_DVAR_NAME>
-			<DD_ATTR_OPTS id="ddm_column_opts.opc_pricecdscode_inactiveo">O</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">
