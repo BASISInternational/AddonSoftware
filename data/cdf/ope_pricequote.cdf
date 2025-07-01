@@ -197,6 +197,24 @@ else
 	callpoint!.setStatus("REFRESH")
 endif
 
+[[OPE_PRICEQUOTE.PRICING_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcPiceCDs_dev=fnget_dev("OPC_PRICECDS")
+	dim opcPiceCDs$:fnget_tpl$("OPC_PRICECDS")
+	pricing_code$=callpoint!.getUserInput()
+	read record(opcPiceCDs_dev,key=firm_id$+pricing_code$,dom=*next)opcPiceCDs$
+	if opcPiceCDs.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcPiceCDs.pricing_code$,3)
+		msg_tokens$[2]=cvs(opcPiceCDs.code_desc$,3)
+		gosub disp_message
+		if msg_opt$="C" then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
 [[OPE_PRICEQUOTE.WAREHOUSE_ID.AVAL]]
 rem --- Fill arrays
 	cust_id$=callpoint!.getColumnData("OPE_PRICEQUOTE.CUSTOMER_ID")

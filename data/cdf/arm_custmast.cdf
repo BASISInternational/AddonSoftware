@@ -871,7 +871,7 @@ rem --- Set New Customer flag
 rem --- Open/Lock files
 	dir_pgm$=stbl("+DIR_PGM")
 	sys_pgm$=stbl("+DIR_SYP")
-	num_files=21
+	num_files=22
 
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[2]="ARS_PARAMS",open_opts$[2]="OTA"
@@ -894,6 +894,7 @@ rem --- Open/Lock files
 	open_tables$[19]="ARM_CYCLECOD",open_opts$[19]="OTA"
 	open_tables$[20]="OPC_DISCCODE",open_opts$[20]="OTA"
 	open_tables$[21]="OPC_MESSAGE",open_opts$[21]="OTA"
+	open_tables$[22]="OPC_PRICECDS",open_opts$[22]="OTA"
 	gosub open_tables
 
 	ars01_dev=num(open_chans$[2])
@@ -1363,6 +1364,22 @@ rem --- Warn when pay_auth_email doesn't match ARS_CC_CUSTPMT Report Control Rec
 			callpoint!.setDevObject("match_email_to","OK")
 			callpoint!.setStatus("MODIFIED")
 		endif
+	endif
+
+[[ARM_CUSTDET.PRICING_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcPiceCDs_dev=fnget_dev("OPC_PRICECDS")
+	dim opcPiceCDs$:fnget_tpl$("OPC_PRICECDS")
+	pricing_code$=callpoint!.getUserInput()
+	read record(opcPiceCDs_dev,key=firm_id$+pricing_code$,dom=*next)opcPiceCDs$
+	if opcPiceCDs.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcPiceCDs.pricing_code$,3)
+		msg_tokens$[2]=cvs(opcPiceCDs.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
 	endif
 
 [[ARM_CUSTMAST.SHIPPING_EMAIL.AVAL]]

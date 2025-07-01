@@ -54,7 +54,7 @@ rem  Initializations
 	use ::ado_util.src::util
 
 rem --- Open/Lock files
-	files=8,begfile=1,endfile=files
+	files=9,begfile=1,endfile=files
 	dim files$[files],options$[files],chans$[files],templates$[files]
 	files$[1]="ARC_CUSTTYPE",options$[1]="OTA"
 	files$[2]="ARC_DISTCODE",options$[2]="OTA"
@@ -64,6 +64,7 @@ rem --- Open/Lock files
 	files$[6]="ARM_CYCLECOD",options$[6]="OTA"
 	files$[7]="OPC_DISCCODE",options$[7]="OTA"
 	files$[8]="OPC_MESSAGE",options$[8]="OTA"
+	files$[9]="OPC_PRICECDS",options$[9]="OTA"
 	call dir_pgm$+"bac_open_tables.bbj",begfile,endfile,files$[all],options$[all],
 :       	chans$[all],templates$[all],table_chans$[all],batch,status$
 	if status$<>"" then
@@ -126,6 +127,22 @@ rem --- Don't allow inactive code
 rem --- Validate email address
 	email$=callpoint!.getUserInput()
 	if !util.validEmailAddress(email$) then
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+[[CRM_CUSTDET.PRICING_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcPiceCDs_dev=fnget_dev("OPC_PRICECDS")
+	dim opcPiceCDs$:fnget_tpl$("OPC_PRICECDS")
+	pricing_code$=callpoint!.getUserInput()
+	read record(opcPiceCDs_dev,key=firm_id$+pricing_code$,dom=*next)opcPiceCDs$
+	if opcPiceCDs.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcPiceCDs.pricing_code$,3)
+		msg_tokens$[2]=cvs(opcPiceCDs.code_desc$,3)
+		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break
 	endif
