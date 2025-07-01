@@ -406,7 +406,7 @@ rem ==========================================================================
 		while 1
 			readrecord(table_dev,end=*break)table_tpl$
 			if table_tpl.firm_id$<>firm_id$ then break
-			if (thisTable$="OPT_INVHDR" or thisTable$="OPT_INVDET") and table_tpl.trans_status$<>"E" then break
+			if (thisTable$="OPT_INVDET" or thisTable$="OPT_INVKITDET") and table_tpl.trans_status$<>"E" then break
 			if table_tpl.line_code$=line_code$ then
 				msg_id$="AD_CODE_IN_USE"
 				dim msg_tokens$[2]
