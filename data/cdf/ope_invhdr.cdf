@@ -3351,6 +3351,21 @@ rem --- Skip if the TAX_CODE hasn't changed
 	tax_code$=callpoint!.getUserInput()
 	if tax_code$=callpoint!.getColumnData("OPE_INVHDR.TAX_CODE") then break
 
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	tax_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+tax_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Set code in the Order Helper object
 
 	ordHelp! = cast(OrderHelper, callpoint!.getDevObject("order_helper_object"))
