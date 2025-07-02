@@ -54,7 +54,7 @@ rem  Initializations
 	use ::ado_util.src::util
 
 rem --- Open/Lock files
-	files=9,begfile=1,endfile=files
+	files=10,begfile=1,endfile=files
 	dim files$[files],options$[files],chans$[files],templates$[files]
 	files$[1]="ARC_CUSTTYPE",options$[1]="OTA"
 	files$[2]="ARC_DISTCODE",options$[2]="OTA"
@@ -65,6 +65,7 @@ rem --- Open/Lock files
 	files$[7]="OPC_DISCCODE",options$[7]="OTA"
 	files$[8]="OPC_MESSAGE",options$[8]="OTA"
 	files$[9]="OPC_PRICECDS",options$[9]="OTA"
+	files$[10]="OPC_TAXCODE",options$[10]="OTA"
 	call dir_pgm$+"bac_open_tables.bbj",begfile,endfile,files$[all],options$[all],
 :       	chans$[all],templates$[all],table_chans$[all],batch,status$
 	if status$<>"" then
@@ -166,6 +167,22 @@ rem --- Don't allow inactive code
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(arcSaleCode.slspsn_code$,3)
 		msg_tokens$[2]=cvs(arcSaleCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+[[CRM_CUSTDET.TAX_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	tax_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+tax_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break

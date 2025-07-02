@@ -101,7 +101,7 @@ rem --- Is Sales Order Processing installed for this firm?
 
 rem --- Open needed files
 
-	num_files=5
+	num_files=6
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 
 	if op_installed$="Y" then
@@ -111,6 +111,7 @@ rem --- Open needed files
 	open_tables$[3]="ARC_SALECODE",  open_opts$[3]="OTA"
 	open_tables$[4]="ARC_TERRCODE",  open_opts$[4]="OTA"
 	open_tables$[5]="ARM_CUSTEXMPT",  open_opts$[5]="OTA"
+	open_tables$[6]="OPC_TAXCODE",  open_opts$[6]="OTA"
 
 	gosub open_tables
 
@@ -148,6 +149,22 @@ rem --- Don't allow inactive code
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(arcSaleCode.slspsn_code$,3)
 		msg_tokens$[2]=cvs(arcSaleCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+[[ARM_CUSTSHIP.TAX_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	tax_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+tax_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break

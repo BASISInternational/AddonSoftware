@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.art_salestax">9310223539ACDFBE67269F610D41A1B2</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.art_salestax">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.art_salestax">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.art_salestax">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.art_salestax">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.art_salestax">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.art_salestax">20250702</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.art_salestax">20250702</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.art_salestax">145318</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.art_salestax"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.art_salestax"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.art_salestax">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.art_salestax"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.art_salestax"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.art_salestax">T</DD_ATTR_FTYP>
@@ -56,6 +56,13 @@
 			<DD_ATTR_PADW id="ddm_tables.art_salestax"></DD_ATTR_PADW>
 			<DD_ATTR_PADH id="ddm_tables.art_salestax"></DD_ATTR_PADH>
 			<DD_ATTR_PADG id="ddm_tables.art_salestax"></DD_ATTR_PADG>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_cpro">
+		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.art_salestaxbsho">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.art_salestaxbsho">ART_SALESTAX    </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.art_salestaxbsho">BSHO</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_opts">
@@ -257,7 +264,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.art_salestax002">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.art_salestax002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.art_salestax002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.art_salestax002"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.art_salestax002">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.art_salestax002"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.art_salestax002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.art_salestax002"></DD_ATTR_CTLY>
@@ -597,6 +604,14 @@
 			<DD_ATTR_RADG id="ddm_table_cols.art_salestax008"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.art_salestax008">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.art_salestax008"></DD_ATTR_BTNS>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_column_cpro">
+		<ID id="ddm_column_cpro">DDM_COLUMN_CPRO</ID>
+		<RECORD id="ddm_column_cpro.art_salestaxtax_codeaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.art_salestaxtax_codeaval">ART_SALESTAX    </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.art_salestaxtax_codeaval">TAX_CODE        </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.art_salestaxtax_codeaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_opts">

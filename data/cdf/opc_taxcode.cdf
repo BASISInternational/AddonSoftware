@@ -51,6 +51,21 @@ rem --- Calculate and display all the extra tax codes
 	callpoint!.setStatus("REFRESH-ABLEMAP")
 
 [[OPC_TAXCODE.AR_TOT_CODE_01.AVAL]]
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	ar_tot_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+ar_tot_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Put new rate into array and calc total
 	cur_fld=1
 	gosub check_code
@@ -71,6 +86,21 @@ rem --- Put new rate into array and calc total
 	endif
 
 [[OPC_TAXCODE.AR_TOT_CODE_02.AVAL]]
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	ar_tot_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+ar_tot_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Put new rate into array and calc total
 	cur_fld=2
 	gosub check_code
@@ -91,6 +121,21 @@ rem --- Put new rate into array and calc total
 	endif
 
 [[OPC_TAXCODE.AR_TOT_CODE_03.AVAL]]
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	ar_tot_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+ar_tot_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Put new rate into array and calc total
 	cur_fld=3
 	gosub check_code
@@ -111,6 +156,21 @@ rem --- Put new rate into array and calc total
 	endif
 
 [[OPC_TAXCODE.AR_TOT_CODE_04.AVAL]]
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	ar_tot_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+ar_tot_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Put new rate into array and calc total
 	cur_fld=4
 	gosub check_code
@@ -131,6 +191,21 @@ rem --- Put new rate into array and calc total
 	endif
 
 [[OPC_TAXCODE.AR_TOT_CODE_05.AVAL]]
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	ar_tot_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+ar_tot_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Put new rate into array and calc total
 	cur_fld=5
 	gosub check_code
@@ -151,6 +226,21 @@ rem --- Put new rate into array and calc total
 	endif
 
 [[OPC_TAXCODE.AR_TOT_CODE_06.AVAL]]
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	ar_tot_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+ar_tot_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Put new rate into array and calc total
 	cur_fld=6
 	gosub check_code
@@ -171,6 +261,21 @@ rem --- Put new rate into array and calc total
 	endif
 
 [[OPC_TAXCODE.AR_TOT_CODE_07.AVAL]]
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	ar_tot_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+ar_tot_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Put new rate into array and calc total
 	cur_fld=7
 	gosub check_code
@@ -191,6 +296,21 @@ rem --- Put new rate into array and calc total
 	endif
 
 [[OPC_TAXCODE.AR_TOT_CODE_08.AVAL]]
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	ar_tot_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+ar_tot_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Put new rate into array and calc total
 	cur_fld=8
 	gosub check_code
@@ -211,6 +331,21 @@ rem --- Put new rate into array and calc total
 	endif
 
 [[OPC_TAXCODE.AR_TOT_CODE_09.AVAL]]
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	ar_tot_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+ar_tot_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Put new rate into array and calc total
 	cur_fld=9
 	gosub check_code
@@ -231,6 +366,21 @@ rem --- Put new rate into array and calc total
 	endif
 
 [[OPC_TAXCODE.AR_TOT_CODE_10.AVAL]]
+rem --- Don't allow inactive code
+	opcTaxCode_dev=fnget_dev("OPC_TAXCODE")
+	dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+	ar_tot_code$=callpoint!.getUserInput()
+	read record(opcTaxCode_dev,key=firm_id$+ar_tot_code$,dom=*next)opcTaxCode$
+	if opcTaxCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
+		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Put new rate into array and calc total
 	cur_fld=10
 	gosub check_code
@@ -251,6 +401,23 @@ rem --- Put new rate into array and calc total
 	endif
 
 [[OPC_TAXCODE.BDEL]]
+rem --- When deleting the Tax Code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	gosub check_active_code
+	if found then
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+rem --- Do they want to deactivate code instead of deleting it?
+	msg_id$="AD_DEACTIVATE_CODE"
+	gosub disp_message
+	if msg_opt$="Y" then
+		rem --- Check the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("OPC_TAXCODE.CODE_INACTIVE","Y",1)
+		callpoint!.setStatus("SAVE;ABORT")
+		break
+	endif
+
 rem --- Check if code is used as a default code
 
 	num_files = 1
@@ -276,27 +443,25 @@ rem --- clear out temporary rates
 	field user_tpl$,"this_code"=""
 
 [[OPC_TAXCODE.BSHO]]
-rem --- Open second channel to OPC_TAXCODE
-	files=2,begfile=1,endfile=files
-	dim files$[files],options$[files],ids$[files],templates$[files],channels[files]
-	files$[1]="opm-06",ids$[1]="OPC_TAXCODE"
-	files$[2]="ars_params",ids$[2]="OPS_PARAMS"
-	call stbl("+DIR_PGM")+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
-:					ids$[all],templates$[all],channels[all],batch,status
-	if status then
-		remove_process_bar:
-		bbjAPI!=bbjAPI()
-		rdFuncSpace!=bbjAPI!.getGroupNamespace()
-		rdFuncSpace!.setValue("+build_task","OFF")
-	 	release
-	endif
-	ops_params_dev=channels[2]
-	dim ops_params$:templates$[2]
+rem --- Open/Lock files
+	num_files=6
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="OPC_TAXCODE",open_opts$[1]="OTA"
+	open_tables$[2]="OPS_PARAMS",open_opts$[2]="OTA"
+	open_tables$[3]="ARM_CUSTDET",open_opts$[3]="OTA"
+	open_tables$[4]="ARM_CUSTSHIP",open_opts$[4]="OTA"
+	open_tables$[5]="ARS_CUSTDFLT",open_opts$[5]="OTA"
+	open_tables$[6]="OPT_INVHDR",open_opts$[6]="OTA"
+
+	gosub open_tables
+
+	ops_params_dev=num(open_chans$[2])
+	dim ops_params$:open_tpls$[2]
 
 rem --- Keep info in user_tpl$
 	dim user_tpl$:"opm06_dev:n(4),opm06_tpl:c(500),this_rate:n(10),code[10]:c(10),rate[10]:n(10),this_code:c(10),gl:C(1),gl_installed:c(1)"
-	user_tpl.opm06_dev=channels[1]
-	user_tpl.opm06_tpl$=templates$[1]
+	user_tpl.opm06_dev=num(open_chans$[1])
+	user_tpl.opm06_tpl$=open_tpls$[1]
 	call stbl("+DIR_PGM")+"adc_application.aon","OP",info$[all]
 	user_tpl.gl$=info$[9]
 	if info$[9]<>"Y"
@@ -309,6 +474,18 @@ rem --- Keep info in user_tpl$
 rem --- Get OP Parametes
 	find record (ops_params_dev,key=firm_id$+"AR00",err=std_missing_params)ops_params$
 	callpoint!.setDevObject("sls_tax_intrface",cvs(ops_params.sls_tax_intrface$,2))
+
+[[OPC_TAXCODE.CODE_INACTIVE.AVAL]]
+rem --- When deactivating the Tax Code, warn if there are any current/active transactions for the code, and disallow if there are any.
+	current_inactive$=callpoint!.getUserInput()
+	prior_inactive$=callpoint!.getColumnData("OPC_TAXCODE.CODE_INACTIVE")
+	if current_inactive$="Y" and prior_inactive$<>"Y" then
+		gosub check_active_code
+		if found then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
 
 [[OPC_TAXCODE.GL_ACCOUNT.AVAL]]
 rem "GL INACTIVE FEATURE"
@@ -441,6 +618,92 @@ check_code: rem --- Check code
 			endif
 		endif
 	next taxcode
+return
+
+rem ==========================================================================
+check_active_code: rem --- Warn if there are any current/active transactions for the code
+rem ==========================================================================
+	found=0
+	op_tax_code$=callpoint!.getColumnData("OPC_TAXCODE.OP_TAX_CODE")
+
+	checkTables!=BBjAPI().makeVector()
+	checkTables!.addItem("ARM_CUSTDET")
+	checkTables!.addItem("ARM_CUSTSHIP")
+	checkTables!.addItem("ARS_CUSTDFLT")
+	checkTables!.addItem("OPT_INVHDR")
+	for i=0 to checkTables!.size()-1
+		thisTable$=checkTables!.getItem(i)
+		table_dev = fnget_dev(thisTable$)
+		dim table_tpl$:fnget_tpl$(thisTable$)
+		if thisTable$="OPT_INVHDR" then
+			read(table_dev,key=firm_id$+"E",knum="AO_STATUS",dom=*next)
+		else
+			read(table_dev,key=firm_id$,dom=*next)
+		endif
+		while 1
+			readrecord(table_dev,end=*break)table_tpl$
+			if table_tpl.firm_id$<>firm_id$ then break
+			if thisTable$="OPT_INVHDR" and table_tpl.trans_status$<>"E" then break
+			if table_tpl.tax_code$=op_tax_code$ then
+				msg_id$="AD_CODE_IN_USE"
+				dim msg_tokens$[2]
+				msg_tokens$[1]=Translate!.getTranslation("DDM_ELEMENTS-OP_TAX_CODE-DD_ATTR_LABL")
+				switch (BBjAPI().TRUE)
+                				case thisTable$="ARM_CUSTDET"
+                   				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-ARM_CUSTDET-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="ARM_CUSTSHIP"
+                   				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-ARM_CUSTSHIP-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="ARS_CUSTDFLT"
+                   				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-ARS_CUSTDFLT-DD_ATTR_WINT")
+                    				break
+                				case thisTable$="OPT_INVHDR"
+                   				msg_tokens$[2]=Translate!.getTranslation("DDM_TABLES-OPT_INVHDR-DD_ATTR_WINT")
+                    				break
+                				case default
+                    				msg_tokens$[2]="???"
+                    				break
+            				swend
+				gosub disp_message
+
+				found=1
+				break
+			endif
+		wend
+		if found then break
+	next i
+
+	rem --- Check if this Tax Code is being used in another Tax Code
+	if !found then
+		opcTaxCode_dev = fnget_dev("OPC_TAXCODE")
+		dim opcTaxCode$:fnget_tpl$("OPC_TAXCODE")
+		read(opcTaxCode_dev,key=firm_id$,dom=*next)
+		while 1
+			readrecord(opcTaxCode_dev,end=*break)opcTaxCode$
+			if opcTaxCode.firm_id$<>firm_id$ then break
+			for x=1 to 10
+				next_code$=field(opcTaxCode$,"AR_TOT_CODE_"+str(x:"00"))
+				if next_code$=op_tax_code$ then
+					msg_id$="AD_CODE_IN_USE"
+					dim msg_tokens$[2]
+					msg_tokens$[1]=Translate!.getTranslation("DDM_ELEMENTS-OP_TAX_CODE-DD_ATTR_LABL")
+					msg_tokens$[2]=Translate!.getTranslation("DDM_ELEMENTS-OP_TAX_CODE-DD_ATTR_LABL")+" "+cvs(opcTaxCode.op_tax_code$,2)
+					gosub disp_message
+
+					found=1
+					break
+				endif
+			next x
+			if found then break
+		wend
+	endif
+
+	if found then
+		rem --- Uncheck the CODE_INACTIVE checkbox
+		callpoint!.setColumnData("OPC_TAXCODE.CODE_INACTIVE","N",1)
+	endif
+
 return
 
 
