@@ -61,7 +61,7 @@ rem --- Don't allow inactive code
 [[ARS_CUSTDFLT.AWIN]]
 rem --- Get AR parameters
 
-	num_files=12
+	num_files=13
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="ARS_PARAMS",open_opts$[1]="OTA"
 	open_tables$[2]="ARS_CREDIT",open_opts$[2]="OTA"
@@ -75,6 +75,7 @@ rem --- Get AR parameters
 	open_tables$[10]="OPC_MESSAGE",open_opts$[10]="OTA"
 	open_tables$[11]="OPC_PRICECDS",open_opts$[11]="OTA"
 	open_tables$[12]="OPC_TAXCODE",open_opts$[12]="OTA"
+	open_tables$[13]="OPM_FRTTERMS",open_opts$[13]="OTA"
 
 	gosub open_tables
 
@@ -162,6 +163,22 @@ rem --- Don't allow inactive code
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(opcDiscCode.disc_code$,3)
 		msg_tokens$[2]=cvs(opcDiscCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+[[ARS_CUSTDFLT.FRT_TERMS.AVAL]]
+rem --- Don't allow inactive code
+	opmFrtTerms_dev=fnget_dev("OPM_FRTTERMS")
+	dim opmFrtTerms$:fnget_tpl$("OPM_FRTTERMS")
+	frt_terms$=callpoint!.getUserInput()
+	read record(opmFrtTerms_dev,key=firm_id$+"A"+frt_terms$,dom=*next)opmFrtTerms$
+	if opmFrtTerms.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opmFrtTerms.frt_terms$,3)
+		msg_tokens$[2]=cvs(opmFrtTerms.description$,3)
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break
