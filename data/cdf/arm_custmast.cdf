@@ -871,7 +871,7 @@ rem --- Set New Customer flag
 rem --- Open/Lock files
 	dir_pgm$=stbl("+DIR_PGM")
 	sys_pgm$=stbl("+DIR_SYP")
-	num_files=23
+	num_files=24
 
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[2]="ARS_PARAMS",open_opts$[2]="OTA"
@@ -896,6 +896,7 @@ rem --- Open/Lock files
 	open_tables$[21]="OPC_MESSAGE",open_opts$[21]="OTA"
 	open_tables$[22]="OPC_PRICECDS",open_opts$[22]="OTA"
 	open_tables$[23]="OPC_TAXCODE",open_opts$[23]="OTA"
+	open_tables$[24]="OPM_FRTTERMS",open_opts$[24]="OTA"
 	gosub open_tables
 
 	ars01_dev=num(open_chans$[2])
@@ -1290,6 +1291,22 @@ rem --- Don't allow inactive code
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(opcDiscCode.disc_code$,3)
 		msg_tokens$[2]=cvs(opcDiscCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+[[ARM_CUSTDET.FRT_TERMS.AVAL]]
+rem --- Don't allow inactive code
+	opmFrtTerms_dev=fnget_dev("OPM_FRTTERMS")
+	dim opmFrtTerms$:fnget_tpl$("OPM_FRTTERMS")
+	frt_terms$=callpoint!.getUserInput()
+	read record(opmFrtTerms_dev,key=firm_id$+"A"+frt_terms$,dom=*next)opmFrtTerms$
+	if opmFrtTerms.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opmFrtTerms.frt_terms$,3)
+		msg_tokens$[2]=cvs(opmFrtTerms.description$,3)
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break
