@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.poc_linecode">CFF8A46A48FEF0EC707032A5D939201C</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poc_linecode">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poc_linecode">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.poc_linecode">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.poc_linecode">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.poc_linecode">142910</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.poc_linecode">20250705</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.poc_linecode">20250705</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.poc_linecode">153334</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.poc_linecode"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.poc_linecode">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.poc_linecode">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.poc_linecode"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.poc_linecode"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.poc_linecode">T</DD_ATTR_FTYP>
@@ -60,6 +60,10 @@
 	</ALIAS>
 	<ALIAS id="ddm_table_cpro">
 		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.poc_linecodebdel">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.poc_linecodebdel">POC_LINECODE    </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.poc_linecodebdel">BDEL</DD_ATTR_CPRO>
+		</RECORD>
 		<RECORD id="ddm_table_cpro.poc_linecodebsho">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.poc_linecodebsho">POC_LINECODE    </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.poc_linecodebsho">BSHO</DD_ATTR_CPRO>
@@ -364,7 +368,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.poc_linecode004">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.poc_linecode004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.poc_linecode004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.poc_linecode004">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.poc_linecode004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.poc_linecode004"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.poc_linecode004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.poc_linecode004"></DD_ATTR_CTLY>
@@ -670,7 +674,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.poc_linecode010">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.poc_linecode010">POC_LINECODE.LINE_TYPE</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.poc_linecode010">N;O</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.poc_linecode010">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.poc_linecode010">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.poc_linecode010"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.poc_linecode010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.poc_linecode010"></DD_ATTR_CTLY>
@@ -721,7 +725,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.poc_linecode011">20060306</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.poc_linecode011">POC_LINECODE.LINE_TYPE</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.poc_linecode011">N;O</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.poc_linecode011">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.poc_linecode011">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.poc_linecode011"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.poc_linecode011"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.poc_linecode011"></DD_ATTR_CTLY>
@@ -772,13 +776,13 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.poc_linecode012">20170320</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.poc_linecode012"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.poc_linecode012"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.poc_linecode012"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.poc_linecode012">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.poc_linecode012">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.poc_linecode012"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.poc_linecode012"></DD_ATTR_CTLY>
 			<DD_ATTR_CTLW id="ddm_table_cols.poc_linecode012"></DD_ATTR_CTLW>
 			<DD_ATTR_CTLH id="ddm_table_cols.poc_linecode012"></DD_ATTR_CTLH>
-			<DD_ATTR_DFLT id="ddm_table_cols.poc_linecode012"></DD_ATTR_DFLT>
+			<DD_ATTR_DFLT id="ddm_table_cols.poc_linecode012">N</DD_ATTR_DFLT>
 			<DD_ATTR_DRLE id="ddm_table_cols.poc_linecode012"></DD_ATTR_DRLE>
 			<DD_ATTR_GHDR id="ddm_table_cols.poc_linecode012"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.poc_linecode012"></DD_ATTR_IDEF>
@@ -800,9 +804,9 @@
 			<DD_ATTR_STYL id="ddm_table_cols.poc_linecode012"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.poc_linecode012">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.poc_linecode012"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.poc_linecode012"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.poc_linecode012"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.poc_linecode012"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.poc_linecode012">3008</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.poc_linecode012">cbx_code_inactive</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.poc_linecode012">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.poc_linecode012"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.poc_linecode012">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.poc_linecode012"></DD_ATTR_BTNS>
@@ -824,6 +828,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_cpro.poc_linecodegl_ppv_acctaval">POC_LINECODE    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.poc_linecodegl_ppv_acctaval">GL_PPV_ACCT     </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.poc_linecodegl_ppv_acctaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.poc_linecodecode_inactiveaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.poc_linecodecode_inactiveaval">POC_LINECODE    </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.poc_linecodecode_inactiveaval">CODE_INACTIVE   </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.poc_linecodecode_inactiveaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_ldat">
@@ -920,11 +929,6 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.poc_linecodegl_ppv_acctu">POC_LINECODE    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.poc_linecodegl_ppv_acctu">GL_PPV_ACCT     </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.poc_linecodegl_ppv_acctu">u</DD_ATTR_OPTS>
-		</RECORD>
-		<RECORD id="ddm_column_opts.poc_linecodecode_inactiveo">
-			<DD_TABLE_ALIAS id="ddm_column_opts.poc_linecodecode_inactiveo">POC_LINECODE    </DD_TABLE_ALIAS>
-			<DD_DVAR_NAME id="ddm_column_opts.poc_linecodecode_inactiveo">CODE_INACTIVE   </DD_DVAR_NAME>
-			<DD_ATTR_OPTS id="ddm_column_opts.poc_linecodecode_inactiveo">O</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">

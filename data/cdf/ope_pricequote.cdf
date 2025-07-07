@@ -204,7 +204,7 @@ rem --- Don't allow inactive code
 	pricing_code$=callpoint!.getUserInput()
 	read record(opcPiceCDs_dev,key=firm_id$+pricing_code$,dom=*next)opcPiceCDs$
 	if opcPiceCDs.code_inactive$ = "Y"
-		msg_id$="AD_CODE_INACTIVE"
+		msg_id$="AD_CODE_INACTIVE_OK"
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(opcPiceCDs.pricing_code$,3)
 		msg_tokens$[2]=cvs(opcPiceCDs.code_desc$,3)

@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.art_salestax">9310223539ACDFBE67269F610D41A1B2</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.art_salestax">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.art_salestax">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.art_salestax">20250702</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.art_salestax">20250702</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.art_salestax">145318</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.art_salestax">20250705</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.art_salestax">20250705</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.art_salestax">160032</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.art_salestax"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.art_salestax">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.art_salestax"></DD_ATTR_DKNM>

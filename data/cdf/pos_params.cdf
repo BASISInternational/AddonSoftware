@@ -5,10 +5,12 @@ rem --- Update post_to_gl if GL is uninstalled
 		callpoint!.setColumnData("POS_PARAMS.POST_TO_GL","N",1)
 		callpoint!.setStatus("MODIFIED")
 	endif
+
 [[POS_PARAMS.AREC]]
 rem --- Init new record
 	gl_installed$=callpoint!.getDevObject("gl_installed")
 	if gl_installed$="Y" then callpoint!.setColumnData("POS_PARAMS.POST_TO_GL","Y")
+
 [[POS_PARAMS.BSHO]]
 rem --- Disable update planned Work Orders if Shop Floor not installed
 pgm_dir$=stbl("+DIR_PGM")
@@ -24,25 +26,55 @@ call pgm_dir$+"adc_application.aon","GL",info$[all]
 gl_installed$=info$[20]
 callpoint!.setDevObject("gl_installed",gl_installed$)
 if gl_installed$<>"Y" then callpoint!.setColumnEnabled("POS_PARAMS.POST_TO_GL",-1)
+
+rem --- Open files
+
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="POC_LINECODE",open_opts$[1]="OTA"
+
+	gosub open_tables
+
+[[POS_PARAMS.LAND_METHOD.AVAL]]
+dummy$=callpoint!.getUserInput()
+if pos(dummy$="CQN")=0 then callpoint!.setStatus("ABORT-REFRESH")
+
 [[POS_PARAMS.PO_INV_CODE.AVAL]]
 tmp_po_line_code$=callpoint!.getUserInput()
 gosub validate_po_line_type
 if pom02a.line_type$<>"O" then callpoint!.setStatus("ABORT")
+
+[[POS_PARAMS.PO_LINE_CODE.AVAL]]
+rem --- Don't allow inactive code
+	pocLineCode_dev=fnget_dev("POC_LINECODE")
+	dim pocLineCode$:fnget_tpl$("POC_LINECODE")
+	po_line_code$=callpoint!.getUserInput()
+	read record(pocLineCode_dev,key=firm_id$+po_line_code$,dom=*next)pocLineCode$
+	if pocLineCode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(pocLineCode.po_line_code$,3)
+		msg_tokens$[2]=cvs(pocLineCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 [[POS_PARAMS.REQ_M_LINECD.AVAL]]
 tmp_po_line_code$=callpoint!.getUserInput()
 gosub validate_po_line_type
 if pom02a.line_type$<>"M" then callpoint!.setStatus("ABORT")
+
 [[POS_PARAMS.REQ_N_LINECD.AVAL]]
 tmp_po_line_code$=callpoint!.getUserInput()
 gosub validate_po_line_type
 if pom02a.line_type$<>"N" then callpoint!.setStatus("ABORT")
+
 [[POS_PARAMS.REQ_S_LINECD.AVAL]]
 tmp_po_line_code$=callpoint!.getUserInput()
 gosub validate_po_line_type
 if pom02a.line_type$<>"S" then callpoint!.setStatus("ABORT")
-[[POS_PARAMS.LAND_METHOD.AVAL]]
-dummy$=callpoint!.getUserInput()
-if pos(dummy$="CQN")=0 then callpoint!.setStatus("ABORT-REFRESH")
+
 [[POS_PARAMS.<CUSTOM>]]
 disable_fields:
  rem --- used to disable/enable controls depending on parameter settings
@@ -64,3 +96,6 @@ validate_po_line_type:
 	pom02a.po_line_code$=tmp_po_line_code$
 	read record (pom02_dev,key=pom02a.firm_id$+pom02a.po_line_code$,dom=*next)pom02a$
 return
+
+
+
