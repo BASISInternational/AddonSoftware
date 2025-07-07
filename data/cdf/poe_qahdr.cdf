@@ -1,12 +1,29 @@
 [[POE_QAHDR.BSHO]]
 rem --- Open Files
-	num_files=3
+	num_files=4
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="APC_TERMSCODE",open_opts$[1]="OTA"
 	open_tables$[2]="APM_VENDADDR",open_opts$[2]="OTA"
 	open_tables$[3]="IVC_WHSECODE",open_opts$[3]="OTA"
+	open_tables$[4]="POC_MESSAGE",open_opts$[4]="OTA"
 
 	gosub open_tables
+
+[[POE_QAHDR.PO_MSG_CODE.AVAL]]
+rem --- Don't allow inactive code
+	pocMessage_dev=fnget_dev("POC_MESSAGE")
+	dim pocMessage$:fnget_tpl$("POC_MESSAGE")
+	po_msg_code$=callpoint!.getUserInput()
+	read record(pocMessage_dev,key=firm_id$+po_msg_code$,dom=*next)pocMessage$
+	if pocMessage.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(pocMessage.po_msg_code$,3)
+		msg_tokens$[2]=cvs(pocMessage.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
 
 [[POE_QAHDR.PURCH_ADDR.AVAL]]
 rem --- Don't allow inactive code

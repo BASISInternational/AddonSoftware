@@ -23,7 +23,7 @@
 			<DD_CREATE_DATE id="ddm_tables.poe_qadet">20060119</DD_CREATE_DATE>
 			<DD_LSTREV_DATE id="ddm_tables.poe_qadet">20250707</DD_LSTREV_DATE>
 			<DD_LSTSYNC_DATE id="ddm_tables.poe_qadet">20250707</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.poe_qadet">100136</DD_LSTSYNC_TIME>
+			<DD_LSTSYNC_TIME id="ddm_tables.poe_qadet">131716</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.poe_qadet"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.poe_qadet">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.poe_qadet"></DD_ATTR_DKNM>
@@ -942,7 +942,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.poe_qadet012">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.poe_qadet012"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.poe_qadet012"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.poe_qadet012"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.poe_qadet012">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.poe_qadet012"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.poe_qadet012"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.poe_qadet012"></DD_ATTR_CTLY>
@@ -2223,6 +2223,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_cpro.poe_qadetpo_line_codeaval">POE_QADET       </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.poe_qadetpo_line_codeaval">PO_LINE_CODE    </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.poe_qadetpo_line_codeaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.poe_qadetpo_msg_codeaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.poe_qadetpo_msg_codeaval">POE_QADET       </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.poe_qadetpo_msg_codeaval">PO_MSG_CODE     </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.poe_qadetpo_msg_codeaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_column_cpro.poe_qadetwarehouse_idaval">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.poe_qadetwarehouse_idaval">POE_QADET       </DD_TABLE_ALIAS>
