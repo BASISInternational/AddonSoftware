@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.pot_qarejhst">6D3B495D7927FE8E31EAA4F84049F440</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.pot_qarejhst">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.pot_qarejhst">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.pot_qarejhst">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.pot_qarejhst">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.pot_qarejhst">142910</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.pot_qarejhst">20250707</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.pot_qarejhst">20250228</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.pot_qarejhst">153806</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.pot_qarejhst"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.pot_qarejhst"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.pot_qarejhst"></DD_ATTR_DKNM>
@@ -352,7 +352,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.pot_qarejhst002"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.pot_qarejhst002">3001</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.pot_qarejhst002">dis_vendor_id</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst002">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst002">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_qarejhst002"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.pot_qarejhst002">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_qarejhst002">F</DD_ATTR_BTNS>
@@ -403,7 +403,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.pot_qarejhst003"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.pot_qarejhst003">3002</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.pot_qarejhst003">ine_receiver_no</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst003">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst003">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_qarejhst003"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.pot_qarejhst003">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_qarejhst003"></DD_ATTR_BTNS>
@@ -454,7 +454,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.pot_qarejhst004"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.pot_qarejhst004">3003</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.pot_qarejhst004">ine_po_no</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst004">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst004">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_qarejhst004"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.pot_qarejhst004">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_qarejhst004"></DD_ATTR_BTNS>
@@ -505,7 +505,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.pot_qarejhst005"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.pot_qarejhst005">3004</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.pot_qarejhst005">ine_po_line_no</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst005">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst005">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_qarejhst005"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.pot_qarejhst005">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_qarejhst005"></DD_ATTR_BTNS>
@@ -556,7 +556,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.pot_qarejhst006"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.pot_qarejhst006">3005</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.pot_qarejhst006">ine_sequence_no</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst006">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst006">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_qarejhst006"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.pot_qarejhst006">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_qarejhst006"></DD_ATTR_BTNS>
@@ -607,7 +607,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.pot_qarejhst007"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.pot_qarejhst007">3006</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.pot_qarejhst007">dis_reject_code</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst007">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst007">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_qarejhst007"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.pot_qarejhst007">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_qarejhst007">F</DD_ATTR_BTNS>
@@ -658,7 +658,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.pot_qarejhst008"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.pot_qarejhst008">3007</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.pot_qarejhst008">dis_user_id</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst008">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst008">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_qarejhst008"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.pot_qarejhst008">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_qarejhst008">F</DD_ATTR_BTNS>
@@ -709,7 +709,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.pot_qarejhst009"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.pot_qarejhst009">3008</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.pot_qarejhst009">ine_ra_no</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst009">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst009">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_qarejhst009"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.pot_qarejhst009">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_qarejhst009"></DD_ATTR_BTNS>
@@ -862,7 +862,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.pot_qarejhst012"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.pot_qarejhst012">3009</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.pot_qarejhst012">inn_qty_reject</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst012">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_qarejhst012">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_qarejhst012"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.pot_qarejhst012">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_qarejhst012"></DD_ATTR_BTNS>
@@ -976,6 +976,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.pot_qarejhstfirm_ido">POT_QAREJHST    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.pot_qarejhstfirm_ido">FIRM_ID         </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.pot_qarejhstfirm_ido">O</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.pot_qarejhstreject_codec">
+			<DD_TABLE_ALIAS id="ddm_column_opts.pot_qarejhstreject_codec">POT_QAREJHST    </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.pot_qarejhstreject_codec">REJECT_CODE     </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.pot_qarejhstreject_codec">C</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">
