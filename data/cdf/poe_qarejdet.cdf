@@ -1,7 +1,13 @@
-[[POC_REJCTCMT.BSHO]]
-rem - this is run by POC_REJCTCODE
+[[POE_QAREJDET.BSHO]]
+rem --- open files
 
-[[POC_REJCTCMT.REJECT_CODE.AVAL]]
+num_files=1
+dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+open_tables$[1]="POC_REJCTCOD",open_opts$[1]="OTA"
+
+gosub open_tables
+
+[[POE_QAREJDET.REJECT_CODE.AVAL]]
 rem --- Don't allow inactive code
 	pocRejctCode_dev=fnget_dev("POC_REJCTCOD")
 	dim pocRejctCode$:fnget_tpl$("POC_REJCTCOD")
