@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.poe_reqdet">1930AF9934EE5322C68214240B4CBC18</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poe_reqdet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poe_reqdet">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.poe_reqdet">20250625</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.poe_reqdet">20250625</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.poe_reqdet">111206</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.poe_reqdet">20250707</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.poe_reqdet">20250707</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.poe_reqdet">132204</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.poe_reqdet"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.poe_reqdet">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.poe_reqdet">AO_REQ_LINE</DD_ATTR_DKNM>
@@ -1116,7 +1116,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.poe_reqdet012">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.poe_reqdet012"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.poe_reqdet012"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.poe_reqdet012"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.poe_reqdet012">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.poe_reqdet012"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.poe_reqdet012"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.poe_reqdet012"></DD_ATTR_CTLY>
@@ -2174,6 +2174,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_cpro.poe_reqdetpo_line_codeaval">POE_REQDET      </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.poe_reqdetpo_line_codeaval">PO_LINE_CODE    </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.poe_reqdetpo_line_codeaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.poe_reqdetpo_msg_codeaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.poe_reqdetpo_msg_codeaval">POE_REQDET      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.poe_reqdetpo_msg_codeaval">PO_MSG_CODE     </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.poe_reqdetpo_msg_codeaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_column_cpro.poe_reqdetwo_noaval">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.poe_reqdetwo_noaval">POE_REQDET      </DD_TABLE_ALIAS>

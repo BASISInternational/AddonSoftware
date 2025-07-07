@@ -727,6 +727,22 @@ if line_type$="M" and cvs(callpoint!.getColumnData("POE_PODET.ORDER_MEMO"),2)=""
 	callpoint!.setStatus("MODIFIED")
 endif
 
+[[POE_PODET.PO_MSG_CODE.AVAL]]
+rem --- Don't allow inactive code
+	pocMessage_dev=fnget_dev("POC_MESSAGE")
+	dim pocMessage$:fnget_tpl$("POC_MESSAGE")
+	po_msg_code$=callpoint!.getUserInput()
+	read record(pocMessage_dev,key=firm_id$+po_msg_code$,dom=*next)pocMessage$
+	if pocMessage.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(pocMessage.po_msg_code$,3)
+		msg_tokens$[2]=cvs(pocMessage.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 [[POE_PODET.PROMISE_DATE.AVAL]]
 ord_date$=cvs(callpoint!.getHeaderColumnData("POE_POHDR.ORD_DATE"),2)
 req_date$=cvs(callpoint!.getColumnData("POE_PODET.REQD_DATE"),2)

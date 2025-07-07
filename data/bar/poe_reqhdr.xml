@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.poe_reqhdr">F9FC21F71215048005A59538BE93E299</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poe_reqhdr">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poe_reqhdr">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.poe_reqhdr">20250625</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.poe_reqhdr">20250625</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.poe_reqhdr">111512</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.poe_reqhdr">20250707</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.poe_reqhdr">20250707</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.poe_reqhdr">132344</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.poe_reqhdr"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.poe_reqhdr">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.poe_reqhdr"></DD_ATTR_DKNM>
@@ -1053,7 +1053,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.poe_reqhdr012">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.poe_reqhdr012"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.poe_reqhdr012"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.poe_reqhdr012"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.poe_reqhdr012">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.poe_reqhdr012"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.poe_reqhdr012">+32</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.poe_reqhdr012">-10</DD_ATTR_CTLY>
@@ -2445,6 +2445,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_cpro.poe_reqhdrap_terms_codeaval">POE_REQHDR      </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.poe_reqhdrap_terms_codeaval">AP_TERMS_CODE   </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.poe_reqhdrap_terms_codeaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.poe_reqhdrpo_msg_codeaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.poe_reqhdrpo_msg_codeaval">POE_REQHDR      </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.poe_reqhdrpo_msg_codeaval">PO_MSG_CODE     </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.poe_reqhdrpo_msg_codeaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_column_cpro.poe_reqhdrpromise_dateaval">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.poe_reqhdrpromise_dateaval">POE_REQHDR      </DD_TABLE_ALIAS>

@@ -1,9 +1,10 @@
 [[POE_QADET.BSHO]]
 rem --- Open Files
-	num_files=2
+	num_files=3
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVC_WHSECODE",open_opts$[1]="OTA"
-	open_tables$[2]="IVC_WHSECODE",open_opts$[2]="OTA"
+	open_tables$[2]="POC_LINECODE",open_opts$[2]="OTA"
+	open_tables$[3]="POC_MESSAGE",open_opts$[3]="OTA"
 
 	gosub open_tables
 
@@ -35,6 +36,22 @@ rem --- Don't allow inactive code
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(pocLineCode.po_line_code$,3)
 		msg_tokens$[2]=cvs(pocLineCode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+[[POE_QADET.PO_MSG_CODE.AVAL]]
+rem --- Don't allow inactive code
+	pocMessage_dev=fnget_dev("POC_MESSAGE")
+	dim pocMessage$:fnget_tpl$("POC_MESSAGE")
+	po_msg_code$=callpoint!.getUserInput()
+	read record(pocMessage_dev,key=firm_id$+po_msg_code$,dom=*next)pocMessage$
+	if pocMessage.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(pocMessage.po_msg_code$,3)
+		msg_tokens$[2]=cvs(pocMessage.code_desc$,3)
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break
