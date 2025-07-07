@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivt_lstrans">B1AA327C799CA9D44A1B05FDFBCEEB70</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivt_lstrans">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivt_lstrans">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivt_lstrans">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivt_lstrans">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivt_lstrans">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivt_lstrans">20250705</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivt_lstrans">20250705</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivt_lstrans">155526</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivt_lstrans"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ivt_lstrans"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ivt_lstrans">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivt_lstrans">AO_ITM_WH_LOT_DT</DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ivt_lstrans"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ivt_lstrans">G</DD_ATTR_FTYP>
@@ -56,6 +56,13 @@
 			<DD_ATTR_PADW id="ddm_tables.ivt_lstrans"></DD_ATTR_PADW>
 			<DD_ATTR_PADH id="ddm_tables.ivt_lstrans"></DD_ATTR_PADH>
 			<DD_ATTR_PADG id="ddm_tables.ivt_lstrans"></DD_ATTR_PADG>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_cpro">
+		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.ivt_lstransbsho">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.ivt_lstransbsho">IVT_LSTRANS     </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.ivt_lstransbsho">BSHO</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_opts">
@@ -1322,7 +1329,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivt_lstrans019">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivt_lstrans019"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivt_lstrans019"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivt_lstrans019"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivt_lstrans019">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivt_lstrans019"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivt_lstrans019"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivt_lstrans019"></DD_ATTR_CTLY>
@@ -2079,6 +2086,14 @@
 			<DD_DVAR_NAME id="ddm_column_cmts.ivt_lstranstrans_source001">TRANS_SOURCE    </DD_DVAR_NAME>
 			<DD_COMM_SEQ id="ddm_column_cmts.ivt_lstranstrans_source001">001</DD_COMM_SEQ>
 			<DD_COMM_TEXT id="ddm_column_cmts.ivt_lstranstrans_source001">BB=Beg Balance  n/a                                         </DD_COMM_TEXT>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_column_cpro">
+		<ID id="ddm_column_cpro">DDM_COLUMN_CPRO</ID>
+		<RECORD id="ddm_column_cpro.ivt_lstranspo_line_codeaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.ivt_lstranspo_line_codeaval">IVT_LSTRANS     </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.ivt_lstranspo_line_codeaval">PO_LINE_CODE    </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.ivt_lstranspo_line_codeaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_opts">

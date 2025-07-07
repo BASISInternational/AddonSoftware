@@ -14,7 +14,7 @@ rem --- Don't allow inactive code
 	tax_code$=callpoint!.getUserInput()
 	read record(opcTaxCode_dev,key=firm_id$+tax_code$,dom=*next)opcTaxCode$
 	if opcTaxCode.code_inactive$ = "Y"
-		msg_id$="AD_CODE_INACTIVE"
+		msg_id$="AD_CODE_INACTIVE_OK"
 		dim msg_tokens$[2]
 		msg_tokens$[1]=cvs(opcTaxCode.op_tax_code$,3)
 		msg_tokens$[2]=cvs(opcTaxCode.code_desc$,3)
