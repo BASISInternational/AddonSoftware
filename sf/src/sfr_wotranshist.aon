@@ -91,6 +91,8 @@ rem --- Assign form input values to local variables
         mat$=Option!.getOptionData("sf_transtype_m")
         opr$=Option!.getOptionData("sf_transtype_O")
         sub$=Option!.getOptionData("sf_transtype_s")
+        wo_type_inactive$=Option!.getOptionData("WO_TYPE_INACTIVE")
+        cust_inactive$=Option!.getOptionData("CUST_INACTIVE")
 
         transtype$=""
         if mat$="Y" transtype$=transtype$+"M"
@@ -205,6 +207,8 @@ rem --- Init Data
 
         h0=132
         headings=5,h=0,when$=sysinfo.system_date$,clock$=""
+        if wo_type_inactive$="Y" then headings=headings+1
+        if cust_inactive$="Y" then headings=headings+1
         dim headings$[headings]
         headings$[0]=sysinfo.firm_name$
         headings$[1]=sysinfo.task_desc$

@@ -97,6 +97,8 @@ rem --- Assign form input values to local variables
         wo_planned$=Option!.getOptionData("planned")
         wo_quoted$=Option!.getOptionData("quoted")
         option$=""
+        wo_type_inactive$=Option!.getOptionData("WO_TYPE_INACTIVE")
+        cust_inactive$=Option!.getOptionData("CUST_INACTIVE")
         if wo_open$="Y" option$=option$+"O"
         if wo_closed$="Y" option$=option$+"C"
         if wo_quoted$="Y" option$=option$+"Q"
@@ -123,6 +125,8 @@ rem --- Init Data
 
         h0=132
         h=0,headings=5,when$=sysinfo.system_date$,clock$=""
+        if wo_type_inactive$="Y" then headings=headings+1
+        if cust_inactive$="Y" then headings=headings+1
         dim headings$[headings]
         headings$[0]=sysinfo.firm_name$
         headings$[1]=sysinfo.task_desc$

@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.mpe_pegging">7BD618E1C12CC3811450AB53C47EE50C</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.mpe_pegging">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.mpe_pegging">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.mpe_pegging">20250623</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.mpe_pegging">20250623</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.mpe_pegging">131608</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.mpe_pegging">20250708</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.mpe_pegging">20250708</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.mpe_pegging">152830</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.mpe_pegging"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.mpe_pegging">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.mpe_pegging"></DD_ATTR_DKNM>
@@ -987,7 +987,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.mpe_pegging014">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.mpe_pegging014"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.mpe_pegging014"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.mpe_pegging014"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.mpe_pegging014">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.mpe_pegging014"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.mpe_pegging014"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.mpe_pegging014"></DD_ATTR_CTLY>
@@ -1711,6 +1711,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_cpro.mpe_peggingitem_idbinq">MPE_PEGGING     </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.mpe_peggingitem_idbinq">ITEM_ID         </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.mpe_peggingitem_idbinq">BINQ</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.mpe_peggingwo_typeaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.mpe_peggingwo_typeaval">MPE_PEGGING     </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.mpe_peggingwo_typeaval">WO_TYPE         </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.mpe_peggingwo_typeaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_opts">
