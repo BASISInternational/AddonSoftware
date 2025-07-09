@@ -122,6 +122,8 @@ rem --- Assign form input values to local variables
         if wo_closed$="Y" then wostatus$=wostatus$+"C"
         min_variance=num(Option!.getOptionData("min_variance"))
         includecost$=Option!.getOptionData("inc_cost_ovrun")
+        wo_type_inactive$=Option!.getOptionData("WO_TYPE_INACTIVE")
+        cust_inactive$=Option!.getOptionData("CUST_INACTIVE")
 
 rem --- Retrieve parameter records
 
@@ -154,6 +156,8 @@ rem --- Init Data
 
         h0=132
         headings=5,h=0,when$=sysinfo.system_date$,clock$=""
+        if wo_type_inactive$="Y" then headings=headings+1
+        if cust_inactive$="Y" then headings=headings+1
         dim headings$[headings]
         headings$[0]=n1$
         headings$[1]=n3$

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SFHardCopy" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="28" bottomMargin="28" resourceBundle="addon" uuid="d161469e-994e-4528-9381-9bfa0b4b35c5">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="60"/>
@@ -44,8 +44,10 @@
 	<parameter name="WO_CATEGORY" class="java.lang.String"/>
 	<parameter name="INCLUDE_IMAGE" class="java.lang.String"/>
 	<parameter name="POST_TO_GL" class="java.lang.String"/>
+	<parameter name="WO_TYPE_INACTIVE" class="java.lang.String"/>
+	<parameter name="CUST_INACTIVE" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[call sfhardcopy($P{FIRM_ID},$P{WO_CATEGORY},$P{WO_LOCATION},$P{WO_NO_1},$P{WO_NO_2},$P{BARISTA_WD},$P{REPORT_SEQ},$P{WOSTATUS},$P{BILL_NO_1},$P{BILL_NO_2},$P{WAREHOUSE_ID},$P{CUSTOMER_ID_1},$P{CUSTOMER_ID_2},$P{WO_TYPE_1},$P{WO_TYPE_2},$P{REPORT_TYPE},$P{MASKS},$P{SF_PREVPER_ENDDATE},$P{STATUS_OPEN},$P{STATUS_PLANNED},$P{STATUS_CLOSED},$P{STATUS_QUOTED})]]>
+		<![CDATA[call sfhardcopy($P{FIRM_ID},$P{WO_CATEGORY},$P{WO_LOCATION},$P{WO_NO_1},$P{WO_NO_2},$P{BARISTA_WD},$P{REPORT_SEQ},$P{WOSTATUS},$P{BILL_NO_1},$P{BILL_NO_2},$P{WAREHOUSE_ID},$P{CUSTOMER_ID_1},$P{CUSTOMER_ID_2},$P{WO_TYPE_1},$P{WO_TYPE_2},$P{REPORT_TYPE},$P{MASKS},$P{CUST_INACTIVE},$P{WO_TYPE_INACTIVE},$P{SF_PREVPER_ENDDATE},$P{STATUS_OPEN},$P{STATUS_PLANNED},$P{STATUS_CLOSED},$P{STATUS_QUOTED})]]>
 	</queryString>
 	<field name="FIRM_ID" class="java.lang.String"/>
 	<field name="WO_NO" class="java.lang.String"/>

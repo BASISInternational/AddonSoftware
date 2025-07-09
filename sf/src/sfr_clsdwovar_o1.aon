@@ -117,6 +117,14 @@ rem --- Assign Title, Record, and keys
 		headings$[2]=h3$
         headings$[3]=h4$
 		headings$[4]=h7$
+        if wo_type_inactive$="Y" then headings$[5]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_WO_TYPE_")
+        if cust_inactive$="Y" then 
+            if wo_type_inactive$="Y" then 
+                headings$[6]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_CUSTOMER")
+            else
+                headings$[5]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_CUSTOMER")
+            endif
+        endif
 
 rem --- Init Data
         
@@ -279,6 +287,14 @@ rem --- Breaks
         if sfe01a.wo_status$<>"C" then continue
         if sfe01a.closed_date$<begdate$ then continue
         if sfe01a.closed_date$>enddate$ then continue
+        if cust_inactive$="Y" then
+            findrecord(arm01a_dev,key=firm_id$+sfe01a.customer_id$,dom=*endif)arm01a$
+            if arm01a.cust_inactive$="Y" then continue
+        endif
+        if wo_type_inactive$="Y" then 
+            findrecord(sfm10a_dev,key=firm_id$+"A"+sfe01a.wo_type$,dom=*endif)sfm10a$
+            if sfm10a.code_inactive$="Y" then continue
+        endif
         if sfe01a.wo_category$="I" 
             find record (ivm01a_dev,key=firm_id$+sfe01a.item_id$,dom=calc_std) ivm01a$
             sfe01a.description_01$=ivm01a.item_desc$(1,min(desc[1],30))

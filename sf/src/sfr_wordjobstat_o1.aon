@@ -116,10 +116,25 @@ rem --- Retrieve key templates
         headings$[3]=h4$
         if h6$="" then  
             headings$[4]=Translate!.getTranslation("AON_IN_")+h5$ 
+            if wo_type_inactive$="Y" then headings$[5]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_WO_TYPE_")
+            if cust_inactive$="Y" then 
+                if wo_type_inactive$="Y" then 
+                    headings$[6]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_CUSTOMER")
+                else
+                    headings$[5]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_CUSTOMER")
+                endif
+            endif
         else 
             headings$[4]=h6$
             headings$[5]=Translate!.getTranslation("AON_IN_")+h5$
-                
+            if wo_type_inactive$="Y" then headings$[6]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_WO_TYPE_")
+            if cust_inactive$="Y" then 
+                if wo_type_inactive$="Y" then 
+                    headings$[7]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_CUSTOMER")
+                else
+                    headings$[6]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_CUSTOMER")
+                endif
+            endif
         endif
             
 rem        headings$[4]=h6$
@@ -235,6 +250,14 @@ rem --- Breaks
                     endif
                 endif
             endif
+if cust_inactive$="Y" then
+    findrecord(arm01_dev,key=firm_id$+sfe01a.customer_id$,dom=*endif)arm01a$
+    if arm01a.cust_inactive$="Y" then continue
+endif
+if wo_type_inactive$="Y" then 
+    findrecord(sfm10_dev,key=firm_id$+"A"+sfe01a.wo_type$,dom=*endif)sfm10a$
+    if sfm10a.code_inactive$="Y" then continue
+endif
 
             if sfe01a.wo_category$<>"I" then
                 d1$=sfe01a.description_01$+" "+sfe01a.description_02$

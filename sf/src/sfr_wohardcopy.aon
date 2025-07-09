@@ -168,6 +168,8 @@ rem --- Add to params!
     params!.put("STATUS_PO",Translate!.getTranslation("AON_PO"))
     params!.put("STATUS_RCPT",Translate!.getTranslation("AON_RCPT"))
     params!.put("STATUS_NONE",Translate!.getTranslation("AON_NONE"))
+    params!.put("WO_TYPE_INACTIVE","N")
+    params!.put("CUST_INACTIVE","N")
 
 rem --- Parameters (confirm params aren't missing, so no error in subsequent pgms)
 

@@ -48,8 +48,10 @@ rem --- Get the IN parameters used by the procedure
 	wh_id$ = sp!.getParameter("WAREHOUSE_ID")
 	from_cust$ = sp!.getParameter("CUSTOMER_ID_1")
 	thru_cust$ = sp!.getParameter("CUSTOMER_ID_2")
+	cust_inactive$ = sp!.getParameter("CUST_INACTIVE")
 	from_type$ = sp!.getParameter("WO_TYPE_1")
 	thru_type$ = sp!.getParameter("WO_TYPE_2")
+	wo_type_inactive$ = sp!.getParameter("WO_TYPE_INACTIVE")
 	masks$ = sp!.getParameter("MASKS")
     statusOpen$ = sp!.getParameter("STATUS_OPEN")
     statusPlanned$ = sp!.getParameter("STATUS_PLANNED")
@@ -303,6 +305,16 @@ rem --- Trip Read
         warnMaterialTransactions$="N"
         warnOperationTransactions$="N"
         warnSubcontractTransactions$="N"
+
+rem wgh ... 11067 ... stopped here
+if cust_inactive$="Y" then
+    readrecord(arm_custmast,key=firm_id$+read_tpl.customer_id$,dom=*endif)arm_custmast$
+    if arm_custmast.cust_inactive$="Y" then continue
+endif
+if wo_type_inactive$="Y" then 
+    readrecord(sfc_type_dev,key=firm_id$+"A"+read_tpl.wo_type$,dom=*endif)sfc_type$
+    if sfc_type.code_inactive$="Y" then continue
+endif
 
 		dim ivm_itemmast$:fattr(ivm_itemmast$)
 		find record (ivm_itemmast_dev,key=firm_id$+read_tpl.item_id$,dom=*next)ivm_itemmast$

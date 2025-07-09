@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.sfc_wotypecd">1686552A101DB41E0552CCDE73CF1B9F</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfc_wotypecd">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfc_wotypecd">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.sfc_wotypecd">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.sfc_wotypecd">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.sfc_wotypecd">142910</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.sfc_wotypecd">20250708</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.sfc_wotypecd">20250708</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.sfc_wotypecd">161556</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.sfc_wotypecd"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.sfc_wotypecd">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.sfc_wotypecd">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.sfc_wotypecd"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.sfc_wotypecd"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.sfc_wotypecd">T</DD_ATTR_FTYP>
@@ -63,6 +63,10 @@
 		<RECORD id="ddm_table_cpro.sfc_wotypecdadis">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.sfc_wotypecdadis">SFC_WOTYPECD    </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.sfc_wotypecdadis">ADIS</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_table_cpro.sfc_wotypecdbdel">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.sfc_wotypecdbdel">SFC_WOTYPECD    </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.sfc_wotypecdbdel">BDEL</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_table_cpro.sfc_wotypecdbsho">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.sfc_wotypecdbsho">SFC_WOTYPECD    </DD_TABLE_ALIAS>
@@ -651,7 +655,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfc_wotypecd006">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfc_wotypecd006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfc_wotypecd006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfc_wotypecd006">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfc_wotypecd006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfc_wotypecd006"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfc_wotypecd006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfc_wotypecd006"></DD_ATTR_CTLY>
@@ -1263,13 +1267,13 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfc_wotypecd018">20170320</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfc_wotypecd018">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfc_wotypecd018">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_CTLY>
 			<DD_ATTR_CTLW id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_CTLW>
 			<DD_ATTR_CTLH id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_CTLH>
-			<DD_ATTR_DFLT id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_DFLT>
+			<DD_ATTR_DFLT id="ddm_table_cols.sfc_wotypecd018">N</DD_ATTR_DFLT>
 			<DD_ATTR_DRLE id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_DRLE>
 			<DD_ATTR_GHDR id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_IDEF>
@@ -1291,9 +1295,9 @@
 			<DD_ATTR_STYL id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.sfc_wotypecd018">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.sfc_wotypecd018">3014</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.sfc_wotypecd018">cbx_code_inactive</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.sfc_wotypecd018">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sfc_wotypecd018">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sfc_wotypecd018"></DD_ATTR_BTNS>
@@ -1310,6 +1314,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_cpro.sfc_wotypecdstdact_flagaval">SFC_WOTYPECD    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.sfc_wotypecdstdact_flagaval">STDACT_FLAG     </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.sfc_wotypecdstdact_flagaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.sfc_wotypecdcode_inactiveaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.sfc_wotypecdcode_inactiveaval">SFC_WOTYPECD    </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.sfc_wotypecdcode_inactiveaval">CODE_INACTIVE   </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.sfc_wotypecdcode_inactiveaval">AVAL</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_opts">
@@ -1368,11 +1377,6 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.sfc_wotypecdgl_sub_varu">SFC_WOTYPECD    </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.sfc_wotypecdgl_sub_varu">GL_SUB_VAR      </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.sfc_wotypecdgl_sub_varu">u</DD_ATTR_OPTS>
-		</RECORD>
-		<RECORD id="ddm_column_opts.sfc_wotypecdcode_inactiveo">
-			<DD_TABLE_ALIAS id="ddm_column_opts.sfc_wotypecdcode_inactiveo">SFC_WOTYPECD    </DD_TABLE_ALIAS>
-			<DD_DVAR_NAME id="ddm_column_opts.sfc_wotypecdcode_inactiveo">CODE_INACTIVE   </DD_DVAR_NAME>
-			<DD_ATTR_OPTS id="ddm_column_opts.sfc_wotypecdcode_inactiveo">O</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">

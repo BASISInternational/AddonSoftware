@@ -127,6 +127,8 @@ rem --- Assign needed jasper params
     wo_closed$=Option!.getOptionData("closed"); rem From O/E
     wo_planned$=Option!.getOptionData("planned"); rem From O/E
     wo_quoted$=Option!.getOptionData("quoted"); rem From O/E
+    wo_type_inactive$=Option!.getOptionData("WO_TYPE_INACTIVE")
+    cust_inactive$=Option!.getOptionData("CUST_INACTIVE")
 	
     wostatus$=""
     if wo_open$="Y" then wostatus$=wostatus$+"O"
@@ -179,6 +181,8 @@ rem --- Add to params!
     params!.put("STATUS_PO",Translate!.getTranslation("AON_PO"))
     params!.put("STATUS_RCPT",Translate!.getTranslation("AON_RCPT"))
     params!.put("STATUS_NONE",Translate!.getTranslation("AON_NONE"))
+    params!.put("WO_TYPE_INACTIVE",wo_type_inactive$)
+    params!.put("CUST_INACTIVE",cust_inactive$)
 	
 rem --- Parameters (confirm params aren't missing, so no error in subsequent pgms)
 

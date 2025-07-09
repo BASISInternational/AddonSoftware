@@ -41,6 +41,14 @@ rem --- Init Data
         headings$[3]=h4$
 		headings$[4]=hdaterange$
         headings$[5]=h7$
+        if wo_type_inactive$="Y" then headings$[6]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_WO_TYPE_")
+        if cust_inactive$="Y" then 
+            if wo_type_inactive$="Y" then 
+                headings$[7]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_CUSTOMER")
+            else
+                headings$[6]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_CUSTOMER")
+            endif
+        endif
         more=1
 
         call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","I","",ivIMask$,0,0
@@ -305,6 +313,14 @@ init_data: rem --- Init Data
 rem --- Main Read
     while more
 		read_tpl$ = sqlfetch(sql_chan,err=*break)
+        if cust_inactive$="Y" then
+            findrecord(arm01a_dev,key=firm_id$+read_tpl.customer_id$,dom=*endif)arm01a$
+            if arm01a.cust_inactive$="Y" then continue
+        endif
+        if wo_type_inactive$="Y" then 
+            findrecord(sfm10a_dev,key=firm_id$+"A"+read_tpl.wo_type$,dom=*endif)sfm10a$
+            if sfm10a.code_inactive$="Y" then continue
+        endif
 
 		if prev_wo$<>read_tpl.wo_no$
 			if prev_wo$<>"" and l2>0 gosub wo_subtot
@@ -608,7 +624,7 @@ rem --- Print It Here
                     endif
 					
 					if lstran_dev=sft12a_dev then 
-						OutVect!.addItem(lotser$+lstran.lotser_no$+Translate!.getTranslation("AON___ISSUED:")+str(lstran.qty_closed:sf_units_mask$)+Translate!.getTranslation("AON___COST:")+str(lstran.unit_cost:sf_cost_mask$)+Translate!.getTranslation("AON___AMOUNT:_")+str(lstran.ext_cost:sf_amt_mask$))
+						OutVect!.addItem(lotser$+lstran.lotser_no$+Translate!.getTranslation("AON___ISSUED:")+str(lstran.cls_inp_qty:sf_units_mask$)+Translate!.getTranslation("AON___COST:")+str(lstran.closed_cost:sf_cost_mask$)+Translate!.getTranslation("AON___AMOUNT:_")+str(lstran.ext_cost:sf_amt_mask$))
 					endif
 					xwk=fnblank(columns-3)
                 else

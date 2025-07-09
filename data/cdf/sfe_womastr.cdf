@@ -1786,6 +1786,21 @@ rem --- Only allow changes to status if P or Q
 	callpoint!.setDevObject("wo_status",callpoint!.getUserInput())
 
 [[SFE_WOMASTR.WO_TYPE.AVAL]]
+rem --- Don't allow inactive code
+	sfcWOType_dev=fnget_dev("SFC_WOTYPECD")
+	dim sfcWOType$:fnget_tpl$("SFC_WOTYPECD")
+	wo_type$=callpoint!.getUserInput()
+	read record (sfcWOType_dev,key=firm_id$+"A"+wo_type$,dom=*next)sfcWOType$
+	if sfcWOType.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(sfcWOType.wo_type$,3)
+		msg_tokens$[2]=cvs(sfcWOType.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Only allow change to Type if it's the same Category
 
 	typecode_dev=fnget_dev("SFC_WOTYPECD")
