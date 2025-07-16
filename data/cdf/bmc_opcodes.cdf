@@ -26,7 +26,7 @@ rem --- This firm using Shop Floor?
 	callpoint!.setDevObject("usingSF",info$[20])
 
 rem --- Open/Lock files
-	num_files=9
+	num_files=4
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="BMM_BILLOPER",open_opts$[1]="OTA"
 	if callpoint!.getDevObject("usingMP")="Y" then
@@ -34,15 +34,31 @@ rem --- Open/Lock files
 		open_tables$[3]="MPE_RESOURCE",open_opts$[3]="OTA"
 	endif
 	if callpoint!.getDevObject("usingSF")="Y" then
-		open_tables$[4]="SFE_TIMEDATEDET",open_opts$[4]="OTA"
-		open_tables$[5]="SFE_TIMEEMPLDET",open_opts$[5]="OTA"
-		open_tables$[6]="SFE_TIMEWODET",open_opts$[6]="OTA"
-		open_tables$[7]="SFE_WOOPRTN",open_opts$[7]="OTA"
-		open_tables$[8]="SFE_WOSCHDL",open_opts$[8]="OTA"
-		open_tables$[9]="SFM_OPCALNDR",open_opts$[9]="OTA"
+		open_tables$[4]="SFS_PARAMS",open_opts$[4]="OTA"
 	endif
 
 	gosub open_tables
+
+rem --- Open/Lock SF files if needed
+	if callpoint!.getDevObject("usingSF")="Y" then
+		sfs_params_dev=num(open_chans$[4])
+		dim sfs_params$:open_tpls$[4]
+		read record (sfs_params_dev,key=firm_id$+"SF00",dom=std_missing_params) sfs_params$
+		callpoint!.setDevObject("usingSF",sfs_params.bm_interface$)
+
+		if sfs_params.bm_interface$="Y" then
+			num_files=6
+			dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+			open_tables$[1]="SFE_TIMEDATEDET",open_opts$[1]="OTA"
+			open_tables$[2]="SFE_TIMEEMPLDET",open_opts$[2]="OTA"
+			open_tables$[3]="SFE_TIMEWODET",open_opts$[3]="OTA"
+			open_tables$[4]="SFE_WOOPRTN",open_opts$[4]="OTA"
+			open_tables$[5]="SFE_WOSCHDL",open_opts$[5]="OTA"
+			open_tables$[6]="SFM_OPCALNDR",open_opts$[6]="OTA"
+
+			gosub open_tables
+		endif
+	endif
 
 [[BMC_OPCODES.CODE_INACTIVE.AVAL]]
 rem --- When deactivating the Operation Code, warn if there are any current/active transactions for the code, and disallow if there are any.
@@ -66,6 +82,8 @@ rem --- Make sure value is greater than 0
 	endif
 
 [[BMC_OPCODES.<CUSTOM>]]
+#include [+ADDON_LIB]std_missing_params.aon
+
 rem ==========================================================================
 check_active_code: rem --- Warn if there are any current/active transactions for the code
 rem ==========================================================================
