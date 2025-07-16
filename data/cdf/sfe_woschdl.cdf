@@ -20,32 +20,34 @@ rem --- open files/init
 	endif
 	callpoint!.setDevObject("bm",bm$)
 
+	rem --- Open Operation Code table
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	if bm$<>"Y"
 		callpoint!.setTableColumnAttribute("SFE_WOSCHDL.OP_CODE","DTAB","SFC_OPRTNCOD")
+		open_tables$[1]="SFC_OPRTNCOD",open_opts$[1]="OTA"
 	else
-		rem --- Open Bill Of Materials tables
-		num_files=1
-		dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 		open_tables$[1]="BMC_OPCODES",open_opts$[1]="OTA"
-		gosub open_tables
 	endif
+	gosub open_tables
+
+	callpoint!.setDevObject("opcode_chan",num(open_chans$[1]))
+	callpoint!.setDevObject("opcode_tpl",open_tpls$[1])
 
 [[SFE_WOSCHDL.OP_CODE.AVAL]]
 rem --- Don't allow inactive code
-	if callpoint!.getDevObject("bm")="Y" then
-		bmm08=fnget_dev("BMC_OPCODES")
-		dim bmm08$:fnget_tpl$("BMC_OPCODES")
-		op_code$=callpoint!.getUserInput()
-		read record (bmm08,key=firm_id$+op_code$,dom=*next)bmm08$
-		if bmm08.code_inactive$ = "Y"
-			msg_id$="AD_CODE_INACTIVE"
-			dim msg_tokens$[2]
-			msg_tokens$[1]=cvs(bmm08.op_code$,3)
-			msg_tokens$[2]=cvs(bmm08.code_desc$,3)
-			gosub disp_message
-			callpoint!.setStatus("ABORT")
-			break
-		endif
+	opcode_dev=callpoint!.getDevObject("opcode_chan")
+	dim opcode$:callpoint!.getDevObject("opcode_tpl")
+	op_code$=callpoint!.getUserInput()
+	read record (opcode_dev,key=firm_id$+op_code$,dom=*next) opcode$
+	if opcode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcode.op_code$,3)
+		msg_tokens$[2]=cvs(opcode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
 	endif
 
 [[SFE_WOSCHDL.<CUSTOM>]]

@@ -214,20 +214,18 @@ rem --- Calculate totals
 
 [[SFE_WOOPRTN.OP_CODE.AVAL]]
 rem --- Don't allow inactive code
-	if callpoint!.getDevObject("bm")="Y" then
-		bmm08=fnget_dev("BMC_OPCODES")
-		dim bmm08$:fnget_tpl$("BMC_OPCODES")
-		op_code$=callpoint!.getUserInput()
-		read record (bmm08,key=firm_id$+op_code$,dom=*next)bmm08$
-		if bmm08.code_inactive$ = "Y"
-			msg_id$="AD_CODE_INACTIVE"
-			dim msg_tokens$[2]
-			msg_tokens$[1]=cvs(bmm08.op_code$,3)
-			msg_tokens$[2]=cvs(bmm08.code_desc$,3)
-			gosub disp_message
-			callpoint!.setStatus("ABORT")
-			break
-		endif
+	opcode_dev=callpoint!.getDevObject("opcode_chan")
+	dim opcode$:callpoint!.getDevObject("opcode_tpl")
+	op_code$=callpoint!.getUserInput()
+	read record (opcode_dev,key=firm_id$+op_code$,dom=*next) opcode$
+	if opcode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcode.op_code$,3)
+		msg_tokens$[2]=cvs(opcode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
 	endif
 
 rem --- Display Queue time

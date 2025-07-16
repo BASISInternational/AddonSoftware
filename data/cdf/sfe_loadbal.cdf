@@ -1,18 +1,3 @@
-[[SFE_LOADBAL.BSHO]]
-rem --- create the widget
-
-
-	use ::ado_util.src::util
-	gosub create_widget
-	util.resizeWindow(Form!, SysGui!)
-[[SFE_LOADBAL.ASIZ]]
-rem --- resize the chart control
-
-	LBWidgetControl!=callpoint!.getDevObject("barWidgetControl")
-	if LBWidgetControl!<>null()
-		yctl!=callpoint!.getControl("SFE_LOADBAL.CHK_QUOTED")
-		LBWidgetControl!.setSize(form!.getWidth()-20, (form!.getHeight()-yctl!.getY()-yctl!.getHeight()-10))
-	endif
 [[SFE_LOADBAL.ARAR]]
 rem --- Default Op Code to first in the file
 
@@ -35,6 +20,55 @@ rem --- call graphing routine
 		num_days$=callpoint!.getColumnData("SFE_LOADBAL.DAYS_IN_MTH")
 
 		if cvs(op_code$,3)<>"" and cvs(beg_date$,3)<>"" and cvs(num_days$,3)<>"" then gosub set_widget_data
+
+[[SFE_LOADBAL.ASIZ]]
+rem --- resize the chart control
+
+	LBWidgetControl!=callpoint!.getDevObject("barWidgetControl")
+	if LBWidgetControl!<>null()
+		yctl!=callpoint!.getControl("SFE_LOADBAL.CHK_QUOTED")
+		LBWidgetControl!.setSize(form!.getWidth()-20, (form!.getHeight()-yctl!.getY()-yctl!.getHeight()-10))
+	endif
+
+[[SFE_LOADBAL.ASVA]]
+rem --- call graphing routine
+
+		wo_open$=callpoint!.getColumnData("SFE_LOADBAL.CHK_OPENED")
+		wo_planned$=callpoint!.getColumnData("SFE_LOADBAL.CHK_PLANNED")
+		wo_quoted$=callpoint!.getColumnData("SFE_LOADBAL.CHK_QUOTED")
+		op_code$=callpoint!.getColumnData("SFE_LOADBAL.OP_CODE")
+		beg_date$=callpoint!.getColumnData("SFE_LOADBAL.BEG_WO_DATE")
+		num_days$=callpoint!.getColumnData("SFE_LOADBAL.DAYS_IN_MTH")
+
+		if cvs(op_code$,3)<>"" and cvs(beg_date$,3)<>"" and cvs(num_days$,3)<>"" then gosub set_widget_data
+
+[[SFE_LOADBAL.BEG_WO_DATE.AVAL]]
+rem --- validate this date is in calendar
+	
+	op_code$=callpoint!.getColumnData("SFE_LOADBAL.OP_CODE")
+	beg_dt$=callpoint!.getUserInput()
+	if cvs(beg_dt$,3)="" 
+		beg_dt$=stbl("+SYSTEM_DATE")
+		callpoint!.setUserInput(beg_dt$)
+	endif
+
+
+	rem --- call graphing routine
+	if callpoint!.getColumnData("SFE_LOADBAL.BEG_WO_DATE")<>callpoint!.getUserInput() and cvs(callpoint!.getUserInput(),3)<>""
+
+		wo_open$=callpoint!.getColumnData("SFE_LOADBAL.CHK_OPENED")
+		wo_planned$=callpoint!.getColumnData("SFE_LOADBAL.CHK_PLANNED")
+		wo_quoted$=callpoint!.getColumnData("SFE_LOADBAL.CHK_QUOTED")
+		op_code$=callpoint!.getColumnData("SFE_LOADBAL.OP_CODE")
+		beg_date$=callpoint!.getUserInput()
+		num_days$=callpoint!.getColumnData("SFE_LOADBAL.DAYS_IN_MTH")
+
+		gosub set_widget_data
+	
+	endif
+
+	
+
 [[SFE_LOADBAL.BFMC]]
 rem --- open files/init
 
@@ -79,21 +113,30 @@ rem --- open files/init
 
 	callpoint!.setDevObject("opcode_chan",num(open_chans$[1]))
 	callpoint!.setDevObject("opcode_tpl",open_tpls$[1])
-[[SFE_LOADBAL.CHK_QUOTED.AVAL]]
+
+[[SFE_LOADBAL.BSHO]]
+rem --- create the widget
+
+
+	use ::ado_util.src::util
+	gosub create_widget
+	util.resizeWindow(Form!, SysGui!)
+
+[[SFE_LOADBAL.CHK_OPENED.AVAL]]
 rem --- call graphing routine
 
-	if callpoint!.getColumnData("SFE_LOADBAL.CHK_QUOTED")<>callpoint!.getUserInput()
-
-		wo_open$=callpoint!.getColumnData("SFE_LOADBAL.CHK_OPENED")
+	if callpoint!.getColumnData("SFE_LOADBAL.CHK_OPENED")<>callpoint!.getUserInput()
+		wo_open$=callpoint!.getUserInput()
 		wo_planned$=callpoint!.getColumnData("SFE_LOADBAL.CHK_PLANNED")
-		wo_quoted$=callpoint!.getUserInput()
+		wo_quoted$=callpoint!.getColumnData("SFE_LOADBAL.CHK_QUOTED")
 		op_code$=callpoint!.getColumnData("SFE_LOADBAL.OP_CODE")
 		beg_date$=callpoint!.getColumnData("SFE_LOADBAL.BEG_WO_DATE")
 		num_days$=callpoint!.getColumnData("SFE_LOADBAL.DAYS_IN_MTH")
 
 		gosub set_widget_data
-	
+
 	endif
+
 [[SFE_LOADBAL.CHK_PLANNED.AVAL]]
 rem --- call graphing routine
 	
@@ -109,57 +152,23 @@ rem --- call graphing routine
 		gosub set_widget_data
 
 	endif
-[[SFE_LOADBAL.CHK_OPENED.AVAL]]
+
+[[SFE_LOADBAL.CHK_QUOTED.AVAL]]
 rem --- call graphing routine
 
-	if callpoint!.getColumnData("SFE_LOADBAL.CHK_OPENED")<>callpoint!.getUserInput()
-		wo_open$=callpoint!.getUserInput()
+	if callpoint!.getColumnData("SFE_LOADBAL.CHK_QUOTED")<>callpoint!.getUserInput()
+
+		wo_open$=callpoint!.getColumnData("SFE_LOADBAL.CHK_OPENED")
 		wo_planned$=callpoint!.getColumnData("SFE_LOADBAL.CHK_PLANNED")
-		wo_quoted$=callpoint!.getColumnData("SFE_LOADBAL.CHK_QUOTED")
+		wo_quoted$=callpoint!.getUserInput()
 		op_code$=callpoint!.getColumnData("SFE_LOADBAL.OP_CODE")
 		beg_date$=callpoint!.getColumnData("SFE_LOADBAL.BEG_WO_DATE")
 		num_days$=callpoint!.getColumnData("SFE_LOADBAL.DAYS_IN_MTH")
 
 		gosub set_widget_data
-
-	endif
-[[SFE_LOADBAL.BEG_WO_DATE.AVAL]]
-rem --- validate this date is in calendar
-	
-	op_code$=callpoint!.getColumnData("SFE_LOADBAL.OP_CODE")
-	beg_dt$=callpoint!.getUserInput()
-	if cvs(beg_dt$,3)="" 
-		beg_dt$=stbl("+SYSTEM_DATE")
-		callpoint!.setUserInput(beg_dt$)
-	endif
-
-
-	rem --- call graphing routine
-	if callpoint!.getColumnData("SFE_LOADBAL.BEG_WO_DATE")<>callpoint!.getUserInput() and cvs(callpoint!.getUserInput(),3)<>""
-
-		wo_open$=callpoint!.getColumnData("SFE_LOADBAL.CHK_OPENED")
-		wo_planned$=callpoint!.getColumnData("SFE_LOADBAL.CHK_PLANNED")
-		wo_quoted$=callpoint!.getColumnData("SFE_LOADBAL.CHK_QUOTED")
-		op_code$=callpoint!.getColumnData("SFE_LOADBAL.OP_CODE")
-		beg_date$=callpoint!.getUserInput()
-		num_days$=callpoint!.getColumnData("SFE_LOADBAL.DAYS_IN_MTH")
-
-		gosub set_widget_data
 	
 	endif
 
-	
-[[SFE_LOADBAL.ASVA]]
-rem --- call graphing routine
-
-		wo_open$=callpoint!.getColumnData("SFE_LOADBAL.CHK_OPENED")
-		wo_planned$=callpoint!.getColumnData("SFE_LOADBAL.CHK_PLANNED")
-		wo_quoted$=callpoint!.getColumnData("SFE_LOADBAL.CHK_QUOTED")
-		op_code$=callpoint!.getColumnData("SFE_LOADBAL.OP_CODE")
-		beg_date$=callpoint!.getColumnData("SFE_LOADBAL.BEG_WO_DATE")
-		num_days$=callpoint!.getColumnData("SFE_LOADBAL.DAYS_IN_MTH")
-
-		if cvs(op_code$,3)<>"" and cvs(beg_date$,3)<>"" and cvs(num_days$,3)<>"" then gosub set_widget_data
 [[SFE_LOADBAL.DAYS_IN_MTH.AVAL]]
 rem --- call graphing routine
 
@@ -175,13 +184,27 @@ rem --- call graphing routine
 		gosub set_widget_data
 	
 	endif
+
 [[SFE_LOADBAL.OP_CODE.AVAL]]
-rem --- get op code record (either sf op codes or bm op codes) and display setup/queue time
-
-	opcode_dev=num(callpoint!.getDevObject("opcode_chan"))
+rem --- Don't allow inactive code
+	opcode_dev=callpoint!.getDevObject("opcode_chan")
 	dim opcode$:callpoint!.getDevObject("opcode_tpl")
-
+	op_code$=callpoint!.getUserInput()
 	found=0
+	read record (opcode_dev,key=firm_id$+op_code$,dom=*next) opcode$;found=1
+	if opcode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE_OK"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcode.op_code$,3)
+		msg_tokens$[2]=cvs(opcode.code_desc$,3)
+		gosub disp_message
+		if msg_opt$="C" then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
+rem --- get op code record (either sf op codes or bm op codes) and display setup/queue time
 
 	read record (opcode_dev,key=firm_id$+callpoint!.getUserInput(),dom=*next)opcode$;found=1
 	if found
@@ -203,6 +226,7 @@ rem --- call graphing routine
 		gosub set_widget_data
 	
 	endif
+
 [[SFE_LOADBAL.<CUSTOM>]]
 use java.util.GregorianCalendar
 
@@ -380,3 +404,6 @@ rem ========================================================
 	return
 
 #include [+ADDON_LIB]std_missing_params.aon
+
+
+

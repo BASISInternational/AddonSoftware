@@ -18,13 +18,41 @@ rem --- open files/init
 		call stbl("+DIR_PGM")+"adc_application.aon","BM",info$[all]
 		bm$=info$[20]
 	endif
+	callpoint!.setDevObject("bm",bm$)
 
+	rem --- Open Operation Code table
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	if bm$<>"Y"
 		callpoint!.setTableColumnAttribute("SFR_CALENDAR.OP_CODE","DTAB","SFC_OPRTNCOD")
+		open_tables$[1]="SFC_OPRTNCOD",open_opts$[1]="OTA"
+	else
+		open_tables$[1]="BMC_OPCODES",open_opts$[1]="OTA"
 	endif
-[[SFR_CALENDAR.<CUSTOM>]]
-#include [+ADDON_LIB]std_missing_params.aon
+	gosub open_tables
+
+	callpoint!.setDevObject("opcode_chan",num(open_chans$[1]))
+	callpoint!.setDevObject("opcode_tpl",open_tpls$[1])
+
 [[SFR_CALENDAR.OP_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcode_dev=callpoint!.getDevObject("opcode_chan")
+	dim opcode$:callpoint!.getDevObject("opcode_tpl")
+	op_code$=callpoint!.getUserInput()
+	found=0
+	read record (opcode_dev,key=firm_id$+op_code$,dom=*next) opcode$;found=1
+	if opcode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE_OK"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcode.op_code$,3)
+		msg_tokens$[2]=cvs(opcode.code_desc$,3)
+		gosub disp_message
+		if msg_opt$="C" then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
 rem --- Set default dates
 	files=1,begfile=1,endfile=1
 	dim files$[files],options$[files],chans$[files],templates$[files]
@@ -81,9 +109,25 @@ label1:
 	if cvs(callpoint!.getColumnData("SFR_CALENDAR.FIRST_DATE"),3)=""
 		callpoint!.setColumnData("SFR_CALENDAR.FIRST_DATE",first_date$)
 		callpoint!.setColumnData("SFR_CALENDAR.LAST_DATE",last_date$)
-		callpoint!.setColumnData("SFR_CALENDAR.PERIOD",first_date$(1,2))
-		callpoint!.setColumnData("SFR_CALENDAR.PERIOD1",last_date$(1,2))
-		callpoint!.setColumnData("SFR_CALENDAR.YEAR",first_date$(7,4))
-		callpoint!.setColumnData("SFR_CALENDAR.YEAR1",last_date$(7,4))
+		if cvs(first_date$,2)="" then
+			callpoint!.setColumnData("SFR_CALENDAR.PERIOD","")
+			callpoint!.setColumnData("SFR_CALENDAR.YEAR","")
+		else
+			callpoint!.setColumnData("SFR_CALENDAR.PERIOD",first_date$(1,2))
+			callpoint!.setColumnData("SFR_CALENDAR.YEAR",first_date$(7,4))
+		endif
+		if cvs(last_date$,2)="" then
+			callpoint!.setColumnData("SFR_CALENDAR.PERIOD1","")
+			callpoint!.setColumnData("SFR_CALENDAR.YEAR1","")
+		else
+			callpoint!.setColumnData("SFR_CALENDAR.PERIOD1",last_date$(1,2))
+			callpoint!.setColumnData("SFR_CALENDAR.YEAR1",last_date$(7,4))
+		endif
 		callpoint!.setStatus("REFRESH")
 	endif
+
+[[SFR_CALENDAR.<CUSTOM>]]
+#include [+ADDON_LIB]std_missing_params.aon
+
+
+
