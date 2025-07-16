@@ -245,6 +245,19 @@ rem --- Init for this employee
 	if callpoint!.getDevObject("pr")="Y" then
 		callpoint!.setDevObject("normal_title",empcode.normal_title$)
 		callpoint!.setDevObject("hrlysalary",empcode.hrlysalary$)
+	else
+		rem --- Don't allow inactive code
+		employee_no$=callpoint!.getUserInput()
+		read record (empcode_dev,key=firm_id$+employee_no$,dom=*next)empcode$
+		if empcode.code_inactive$ = "Y"
+			msg_id$="AD_CODE_INACTIVE"
+			dim msg_tokens$[2]
+			msg_tokens$[1]=cvs(empcode.employee_no$,3)
+			msg_tokens$[2]=cvs(empcode.empl_givname$,3)+" "+cvs(empcode.empl_surname$,3)
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
+		endif
 	endif
 
 	callpoint!.setColumnData("<<DISPLAY>>.NAME",cvs(empcode.empl_surname$,2)+", "+cvs(empcode.empl_givname$,2),1)
