@@ -70,6 +70,7 @@ rem --- Assign form input values to local variables
     utilperc=num(Option!.getOptionData("Per_Of_Util"))
 	open_wo$=Option!.getOptionData("OPEN")
 	plan_wo$=Option!.getOptionData("PLANNED")
+    op_inactive$=Option!.getOptionData("OP_INACTIVE")
 
 rem --- Retrieve parameter records
 

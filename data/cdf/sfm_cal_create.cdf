@@ -1,60 +1,3 @@
-[[SFM_CAL_CREATE.BFMC]]
-rem --- See if BOM is being used
-
-	num_files=1
-	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
-	open_tables$[1]="SFS_PARAMS",open_opts$[1]="OTA"
-	gosub open_tables
-
-	sfs_params=num(open_chans$[1])
-	dim sfs_params$:open_tpls$[1]
-
-	read record(sfs_params,key=firm_id$+"SF00",dom=std_missing_params) sfs_params$
-
-	if sfs_params.bm_interface$<>"Y"
-		callpoint!.setTableColumnAttribute("SFM_CAL_CREATE.OP_CODE","DTAB","SFC_OPRTNCOD")
-	endif
-[[SFM_CAL_CREATE.<CUSTOM>]]
-rem ===============================================
-write_rec:
-rem ===============================================
-
-	wom04a.firm_id$=firm_id$	
-	wom04a.op_code$=callpoint!.getColumnData("SFM_CAL_CREATE.OP_CODE")
-	wom04a.year$=old_date$(1,4)
-	wom04a.month$=old_date$(5,2)
-	wom04a.days_in_mth=32
-	while 1
-		wom04a.days_in_mth=wom04a.days_in_mth-1
-		X=jul(num(x9$(1,4)),num(x9$(5,2)),wom04a.days_in_mth,err=*continue)
-		break
-	wend
-	write record (wom04_dev) wom04a$
-	for x9=1 to 31
-		field wom04a$,"hrs_per_day_"+str(x9:"00")=-1
-	next x9
-	old_date$=first_date$
-	gosub get_rec
-
-	return
-
-rem ===============================================
-get_rec:
-rem ===============================================
-
-	dim wom04a$:fattr(wom04a$)
-	wom04a.firm_id$=firm_id$	
-	wom04a.op_code$=callpoint!.getColumnData("SFM_CAL_CREATE.OP_CODE")
-	wom04a.year$=first_date$(1,4)
-	wom04a.month$=first_date$(5,2)
-	for x9=1 to 31
-		field wom04a$,"hrs_per_day_"+str(x9:"00")=-1
-	next x9
-	read record (wom04_dev,key=firm_id$+wom04a.op_code$+wom04a.year$+wom04a.month$,dom=*next) wom04a$
-
-	return
-
-#include [+ADDON_LIB]std_missing_params.aon
 [[SFM_CAL_CREATE.ASVA]]
 rem  --- Write records
 
@@ -108,7 +51,67 @@ rem  --- Write records
 
 	msg_id$="UPDATE_COMPLETE"
 	gosub disp_message
+
+[[SFM_CAL_CREATE.BFMC]]
+rem --- open files/init
+
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="SFS_PARAMS",open_opts$[1]="OTA"
+
+	gosub open_tables
+
+	sfs_params=num(open_chans$[1])
+
+	dim sfs_params$:open_tpls$[1]
+
+	read record (sfs_params,key=firm_id$+"SF00",dom=std_missing_params)sfs_params$
+	bm$=sfs_params.bm_interface$
+
+	if bm$="Y"
+		call stbl("+DIR_PGM")+"adc_application.aon","BM",info$[all]
+		bm$=info$[20]
+	endif
+	callpoint!.setDevObject("bm",bm$)
+
+	rem --- Open Operation Code table
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	if bm$<>"Y"
+		callpoint!.setTableColumnAttribute("SFM_CAL_CREATE.OP_CODE","DTAB","SFC_OPRTNCOD")
+		open_tables$[1]="SFC_OPRTNCOD",open_opts$[1]="OTA"
+	else
+		open_tables$[1]="BMC_OPCODES",open_opts$[1]="OTA"
+	endif
+	gosub open_tables
+
+	callpoint!.setDevObject("opcode_chan",num(open_chans$[1]))
+	callpoint!.setDevObject("opcode_tpl",open_tpls$[1])
+
+[[SFM_CAL_CREATE.BSHO]]
+rem --- Open files
+
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="SFM_OPCALNDR",open_opts$[1]="OTA"
+	gosub open_tables
+
 [[SFM_CAL_CREATE.OP_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcode_dev=callpoint!.getDevObject("opcode_chan")
+	dim opcode$:callpoint!.getDevObject("opcode_tpl")
+	op_code$=callpoint!.getUserInput()
+	read record (opcode_dev,key=firm_id$+op_code$,dom=*next) opcode$
+	if opcode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcode.op_code$,3)
+		msg_tokens$[2]=cvs(opcode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Calc Last Date Defined for this Op Code
 
 	op_code$=callpoint!.getUserInput()
@@ -130,10 +133,48 @@ rem --- Calc Last Date Defined for this Op Code
 	wend
 
 	callpoint!.setColumnData("<<DISPLAY>>.LAST_SCHED_DT",last_date$,1)
-[[SFM_CAL_CREATE.BSHO]]
-rem --- Open files
 
-	num_files=1
-	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
-	open_tables$[1]="SFM_OPCALNDR",open_opts$[1]="OTA"
-	gosub open_tables
+[[SFM_CAL_CREATE.<CUSTOM>]]
+rem ===============================================
+write_rec:
+rem ===============================================
+
+	wom04a.firm_id$=firm_id$	
+	wom04a.op_code$=callpoint!.getColumnData("SFM_CAL_CREATE.OP_CODE")
+	wom04a.year$=old_date$(1,4)
+	wom04a.month$=old_date$(5,2)
+	wom04a.days_in_mth=32
+	while 1
+		wom04a.days_in_mth=wom04a.days_in_mth-1
+		X=jul(num(x9$(1,4)),num(x9$(5,2)),wom04a.days_in_mth,err=*continue)
+		break
+	wend
+	write record (wom04_dev) wom04a$
+	for x9=1 to 31
+		field wom04a$,"hrs_per_day_"+str(x9:"00")=-1
+	next x9
+	old_date$=first_date$
+	gosub get_rec
+
+	return
+
+rem ===============================================
+get_rec:
+rem ===============================================
+
+	dim wom04a$:fattr(wom04a$)
+	wom04a.firm_id$=firm_id$	
+	wom04a.op_code$=callpoint!.getColumnData("SFM_CAL_CREATE.OP_CODE")
+	wom04a.year$=first_date$(1,4)
+	wom04a.month$=first_date$(5,2)
+	for x9=1 to 31
+		field wom04a$,"hrs_per_day_"+str(x9:"00")=-1
+	next x9
+	read record (wom04_dev,key=firm_id$+wom04a.op_code$+wom04a.year$+wom04a.month$,dom=*next) wom04a$
+
+	return
+
+#include [+ADDON_LIB]std_missing_params.aon
+
+
+

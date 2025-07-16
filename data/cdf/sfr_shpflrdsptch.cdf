@@ -1,7 +1,3 @@
-[[SFR_SHPFLRDSPTCH.<CUSTOM>]]
-rem ==========================================================================
-#include [+ADDON_LIB]std_missing_params.aon
-rem ==========================================================================
 [[SFR_SHPFLRDSPTCH.BFMC]]
 rem --- open files/init
 
@@ -22,7 +18,45 @@ rem --- open files/init
 		call stbl("+DIR_PGM")+"adc_application.aon","BM",info$[all]
 		bm$=info$[20]
 	endif
+	callpoint!.setDevObject("bm",bm$)
 
+	rem --- Open Operation Code table
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	if bm$<>"Y"
 		callpoint!.setTableColumnAttribute("SFR_SHPFLRDSPTCH.OPER_CODE","DTAB","SFC_OPRTNCOD")
+		open_tables$[1]="SFC_OPRTNCOD",open_opts$[1]="OTA"
+	else
+		open_tables$[1]="BMC_OPCODES",open_opts$[1]="OTA"
 	endif
+	gosub open_tables
+
+	callpoint!.setDevObject("opcode_chan",num(open_chans$[1]))
+	callpoint!.setDevObject("opcode_tpl",open_tpls$[1])
+
+[[SFR_SHPFLRDSPTCH.OPER_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcode_dev=callpoint!.getDevObject("opcode_chan")
+	dim opcode$:callpoint!.getDevObject("opcode_tpl")
+	op_code$=callpoint!.getUserInput()
+	found=0
+	read record (opcode_dev,key=firm_id$+op_code$,dom=*next) opcode$;found=1
+	if opcode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE_OK"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcode.op_code$,3)
+		msg_tokens$[2]=cvs(opcode.code_desc$,3)
+		gosub disp_message
+		if msg_opt$="C" then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
+[[SFR_SHPFLRDSPTCH.<CUSTOM>]]
+rem ==========================================================================
+#include [+ADDON_LIB]std_missing_params.aon
+rem ==========================================================================
+
+
+

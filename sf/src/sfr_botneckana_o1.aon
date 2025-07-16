@@ -28,6 +28,7 @@ rem --- Retrieve the program path
 rem --- Init Data
 
     headings=4
+    if op_inactive$="Y" then headings=headings+1
 	dim t[2],x0$(30),headings$[headings],w$[9]
 	if opfrom$="" then h4$=Translate!.getTranslation("AON_THE_FIRST_OP_CODE_THRU_") else h4$=Translate!.getTranslation("AON_FROM_OP_CODE_")+opfrom$+Translate!.getTranslation("AON__THRU_")
 	if opthru$="" then h4$=h4$+Translate!.getTranslation("AON_THE_LAST_OP_CODE_") else   h4$=h4$+Translate!.getTranslation("AON_OP_CODE_")+opthru$+" "
@@ -38,7 +39,8 @@ rem --- Init Data
 	headings$[1]=h2$
 	headings$[2]=h4$
 	headings$[3]=h5$
-	headings$[4]="[HEADER]"
+    if op_inactive$="Y" then headings$[4]=Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+" "+Translate!.getTranslation("AON_OPERATIONS")
+	headings$[headings]="[HEADER]"
 	more=1
 
     call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","I","",ivIMask$,0,0
@@ -156,11 +158,13 @@ op_code_break: rem --- Main Header
 		dim bmm08a$:fattr(bmm08a$)
 		find record (bmm08_dev,key=firm_id$+opcode$,dom=*next) bmm08a$
 		op_desc$=bmm08a.code_desc$
+        opcode_inactive$=bmm08a.code_inactive$
 	endif
 	if sfs01a.bm_interface$<>"Y"
 		dim sfm02a$:fattr(sfm02a$)
 		find record (sfm02_dev,key=firm_id$+opcode$,dom=*next) sfm02a$
 		op_desc$=sfm02a.code_desc$
+        opcode_inactive$=sfm02a.code_inactive$
 	endif
 	subheading$=opcode$+" "+cvs(op_desc$,2)
 	BrkVect!.addItem(str(OutVect!.size()/(columns+1)))
@@ -246,6 +250,7 @@ print_data: rem --- Print Data
 		endif
 		if s_hrs>0 and 100*t0/s_hrs<utilperc then break
 		if sfm05a.op_code$<>opcode_break$ gosub op_code_break
+        if op_inactive$<>"Y" and opcode_inactive$="Y" then continue
 		gosub date_break
 		dim sfm05a1$:fattr(sfm05a$)
 

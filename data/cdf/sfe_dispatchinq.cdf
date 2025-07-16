@@ -1,88 +1,12 @@
-[[SFE_DISPATCHINQ.BFMC]]
-rem --- open files/init
+[[SFE_DISPATCHINQ.ASIZ]]
+rem --- Resize the grid
 
-	num_files=1
-	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
-	open_tables$[1]="SFS_PARAMS",open_opts$[1]="OTA"
-
-	gosub open_tables
-
-	sfs_params=num(open_chans$[1])
-
-	dim sfs_params$:open_tpls$[1]
-
-	read record (sfs_params,key=firm_id$+"SF00",dom=std_missing_params)sfs_params$
-	bm$=sfs_params.bm_interface$
-
-	if bm$="Y"
-		call stbl("+DIR_PGM")+"adc_application.aon","BM",info$[all]
-		bm$=info$[20]
+	if UserObj!<>null() then
+		gridDispatch!=UserObj!.getItem(num(user_tpl.gridDispatchOffset$))
+		gridDispatch!.setSize(Form!.getWidth()-(gridDispatch!.getX()*2),Form!.getHeight()-(gridDispatch!.getY()+10))
+		gridDispatch!.setFitToGrid(1)
 	endif
 
-	if bm$<>"Y"
-		callpoint!.setTableColumnAttribute("SFE_DISPATCHINQ.OP_CODE","DTAB","SFC_OPRTNCOD")
-	endif
-[[SFE_DISPATCHINQ.WO_STATUS.AVAL]]
-rem --- Populate grid
-
-	op_code$=callpoint!.getColumnData("SFE_DISPATCHINQ.OP_CODE")
-	status$=callpoint!.getUserInput()
-	pri_code$=callpoint!.getColumnData("SFE_DISPATCHINQ.PRIORITY")
-	begdate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_1")
-	enddate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_2")
-
-	gosub create_reports_vector
-	gosub fill_grid
-[[SFE_DISPATCHINQ.PRIORITY.AVAL]]
-rem --- Populate grid
-
-	op_code$=callpoint!.getColumnData("SFE_DISPATCHINQ.OP_CODE")
-	status$=callpoint!.getColumnData("SFE_DISPATCHINQ.WO_STATUS")
-	pri_code$=callpoint!.getUserInput()
-	begdate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_1")
-	enddate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_2")
-
-	gosub create_reports_vector
-	gosub fill_grid
-[[SFE_DISPATCHINQ.DATE_OPENED.AVAL]]
-rem --- Populate grid
-
-	op_code$=callpoint!.getColumnData("SFE_DISPATCHINQ.OP_CODE")
-	status$=callpoint!.getColumnData("SFE_DISPATCHINQ.WO_STATUS")
-	pri_code$=callpoint!.getColumnData("SFE_DISPATCHINQ.PRIORITY")
-	v$ = callpoint!.getVariableName()
-	attr_ctli = num(callpoint!.getTableColumnAttribute(v$ + "_1", "CTLI"))
-	ctl_id = num(callpoint!.getControlID())
-	if ctl_id = attr_ctli then
-		rem --- From control
-		begdate$=callpoint!.getUserInput()
-		enddate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_2")
-	else
-		rem --- To control
-		begdate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_1")
-		enddate$=callpoint!.getUserInput()
-	endif
-
-	gosub create_reports_vector
-	gosub fill_grid
-[[SFE_DISPATCHINQ.OP_CODE.AVAL]]
-rem --- Get Queue Time and Pieces per Hour
-
-	opcode=callpoint!.getDevObject("opcode_chan")
-	dim opcode$:callpoint!.getDevObject("opcode_tpl")
-
-	read record (opcode,key=firm_id$+callpoint!.getUserInput(),dom=*next) opcode$
-	callpoint!.setColumnData("<<DISPLAY>>.PCS_PER_HOUR",str(opcode.pcs_per_hour),1)
-	callpoint!.setColumnData("<<DISPLAY>>.QUEUE_TIME",str(opcode.queue_time),1)
-
-	op_code$=callpoint!.getUserInput()
-	status$=callpoint!.getColumnData("SFE_DISPATCHINQ.WO_STATUS")
-	pri_code$=callpoint!.getColumnData("SFE_DISPATCHINQ.PRIORITY")
-	begdate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_1")
-	enddate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_2")
-
-	gosub create_reports_vector
-	gosub fill_grid
 [[SFE_DISPATCHINQ.AWIN]]
 rem --- Open/Lock files
 
@@ -171,6 +95,106 @@ rem --- Add grid to show Dispatch records
 rem --- Set mask for tracking
 
 	callpoint!.setDevObject("umask","-#####0.000")
+
+[[SFE_DISPATCHINQ.BFMC]]
+rem --- open files/init
+
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="SFS_PARAMS",open_opts$[1]="OTA"
+
+	gosub open_tables
+
+	sfs_params=num(open_chans$[1])
+
+	dim sfs_params$:open_tpls$[1]
+
+	read record (sfs_params,key=firm_id$+"SF00",dom=std_missing_params)sfs_params$
+	bm$=sfs_params.bm_interface$
+
+	if bm$="Y"
+		call stbl("+DIR_PGM")+"adc_application.aon","BM",info$[all]
+		bm$=info$[20]
+	endif
+
+	if bm$<>"Y"
+		callpoint!.setTableColumnAttribute("SFE_DISPATCHINQ.OP_CODE","DTAB","SFC_OPRTNCOD")
+	endif
+
+[[SFE_DISPATCHINQ.DATE_OPENED.AVAL]]
+rem --- Populate grid
+
+	op_code$=callpoint!.getColumnData("SFE_DISPATCHINQ.OP_CODE")
+	status$=callpoint!.getColumnData("SFE_DISPATCHINQ.WO_STATUS")
+	pri_code$=callpoint!.getColumnData("SFE_DISPATCHINQ.PRIORITY")
+	v$ = callpoint!.getVariableName()
+	attr_ctli = num(callpoint!.getTableColumnAttribute(v$ + "_1", "CTLI"))
+	ctl_id = num(callpoint!.getControlID())
+	if ctl_id = attr_ctli then
+		rem --- From control
+		begdate$=callpoint!.getUserInput()
+		enddate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_2")
+	else
+		rem --- To control
+		begdate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_1")
+		enddate$=callpoint!.getUserInput()
+	endif
+
+	gosub create_reports_vector
+	gosub fill_grid
+
+[[SFE_DISPATCHINQ.OP_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcode_dev=callpoint!.getDevObject("opcode_chan")
+	dim opcode$:callpoint!.getDevObject("opcode_tpl")
+	op_code$=callpoint!.getUserInput()
+	read record (opcode_dev,key=firm_id$+op_code$,dom=*next) opcode$
+	if opcode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcode.op_code$,3)
+		msg_tokens$[2]=cvs(opcode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+rem --- Get Queue Time and Pieces per Hour
+	callpoint!.setColumnData("<<DISPLAY>>.PCS_PER_HOUR",str(opcode.pcs_per_hour),1)
+	callpoint!.setColumnData("<<DISPLAY>>.QUEUE_TIME",str(opcode.queue_time),1)
+
+	status$=callpoint!.getColumnData("SFE_DISPATCHINQ.WO_STATUS")
+	pri_code$=callpoint!.getColumnData("SFE_DISPATCHINQ.PRIORITY")
+	begdate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_1")
+	enddate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_2")
+
+	gosub create_reports_vector
+	gosub fill_grid
+
+[[SFE_DISPATCHINQ.PRIORITY.AVAL]]
+rem --- Populate grid
+
+	op_code$=callpoint!.getColumnData("SFE_DISPATCHINQ.OP_CODE")
+	status$=callpoint!.getColumnData("SFE_DISPATCHINQ.WO_STATUS")
+	pri_code$=callpoint!.getUserInput()
+	begdate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_1")
+	enddate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_2")
+
+	gosub create_reports_vector
+	gosub fill_grid
+
+[[SFE_DISPATCHINQ.WO_STATUS.AVAL]]
+rem --- Populate grid
+
+	op_code$=callpoint!.getColumnData("SFE_DISPATCHINQ.OP_CODE")
+	status$=callpoint!.getUserInput()
+	pri_code$=callpoint!.getColumnData("SFE_DISPATCHINQ.PRIORITY")
+	begdate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_1")
+	enddate$=callpoint!.getColumnData("SFE_DISPATCHINQ.DATE_OPENED_2")
+
+	gosub create_reports_vector
+	gosub fill_grid
+
 [[SFE_DISPATCHINQ.<CUSTOM>]]
 rem ==========================================================================
 format_grid: rem --- Use Barista program to format the grid
@@ -511,11 +535,6 @@ rem --- Calculate Remaining Units
 rem ==========================================================================
 #include [+ADDON_LIB]std_missing_params.aon
 rem ==========================================================================
-[[SFE_DISPATCHINQ.ASIZ]]
-rem --- Resize the grid
 
-	if UserObj!<>null() then
-		gridDispatch!=UserObj!.getItem(num(user_tpl.gridDispatchOffset$))
-		gridDispatch!.setSize(Form!.getWidth()-(gridDispatch!.getX()*2),Form!.getHeight()-(gridDispatch!.getY()+10))
-		gridDispatch!.setFitToGrid(1)
-	endif
+
+

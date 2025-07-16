@@ -1,27 +1,3 @@
-[[SFM_CAL_COPY.AREC]]
-rem --- Clear previous selections
-	vectOps!=UserObj!.getItem(num(user_tpl.vectOpsOfst$))
-	vectOps!.clear()
-	gosub create_reports_vector
-	gosub fill_grid
-	UserObj!.setItem(num(user_tpl.vectOpsOfst$),vectOps!)
-[[SFM_CAL_COPY.OP_CODE.AVAL]]
-rem --- Create vector excluding the current Op Code
-
-	current_opcode$=callpoint!.getUserInput()
-	gosub get_first_last
-	if cvs(first_date$,2)=""
-		msg_id$="SF_NO_OP_CAL"
-		gosub disp_message
-		callpoint!.setUserInput("")
-		callpoint!.setFocus("SFM_CAL_COPY.OP_CODE")
-	else
-		vectOps!=UserObj!.getItem(num(user_tpl.vectOpsOfst$))
-		vectOps!.clear()
-		gosub create_reports_vector
-		gosub fill_grid
-		UserObj!.setItem(num(user_tpl.vectOpsOfst$),vectOps!)
-	endif
 [[SFM_CAL_COPY.ACUS]]
 rem --- Process custom event
 rem --- Select/de-select checkboxes in grid and edit payment and discount amounts
@@ -60,6 +36,26 @@ rem See basis docs notice() function, noticetpl() function, notify event, grid c
 
 		break
 	swend
+
+[[SFM_CAL_COPY.AREC]]
+rem --- Clear previous selections
+	vectOps!=UserObj!.getItem(num(user_tpl.vectOpsOfst$))
+	vectOps!.clear()
+	gosub create_reports_vector
+	gosub fill_grid
+	UserObj!.setItem(num(user_tpl.vectOpsOfst$),vectOps!)
+
+[[SFM_CAL_COPY.ASIZ]]
+rem --- Resize the grid
+
+	if UserObj!<>null() then
+		gridOps!=UserObj!.getItem(num(user_tpl.gridOpsOfst$))
+		gridOps!.setColumnWidth(0,25)
+		gridOps!.setColumnWidth(1,50)
+		gridOps!.setSize(Form!.getWidth()-(gridOps!.getX()*2),Form!.getHeight()-(gridOps!.getY()+10))
+		gridOps!.setFitToGrid(1)
+	endif
+
 [[SFM_CAL_COPY.ASVA]]
 rem --- Update calendar based on what's checked in the grid
 
@@ -155,16 +151,7 @@ rem --- Now loop through vectOldOps to create/update new Op Codes
 
 	msg_id$="UPDATE_COMPLETE"
 	gosub disp_message
-[[SFM_CAL_COPY.ASIZ]]
-rem --- Resize the grid
 
-	if UserObj!<>null() then
-		gridOps!=UserObj!.getItem(num(user_tpl.gridOpsOfst$))
-		gridOps!.setColumnWidth(0,25)
-		gridOps!.setColumnWidth(1,50)
-		gridOps!.setSize(Form!.getWidth()-(gridOps!.getX()*2),Form!.getHeight()-(gridOps!.getY()+10))
-		gridOps!.setFitToGrid(1)
-	endif
 [[SFM_CAL_COPY.AWIN]]
 rem --- Initial setup
 
@@ -224,6 +211,76 @@ rem --- Set callbacks - processed in ACUS callpoint
 
 	gridOps!.setCallback(gridOps!.ON_GRID_KEY_PRESS,"custom_event")
 	gridOps!.setCallback(gridOps!.ON_GRID_MOUSE_UP,"custom_event")
+
+[[SFM_CAL_COPY.BFMC]]
+rem --- open files/init
+
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="SFS_PARAMS",open_opts$[1]="OTA"
+
+	gosub open_tables
+
+	sfs_params=num(open_chans$[1])
+
+	dim sfs_params$:open_tpls$[1]
+
+	read record (sfs_params,key=firm_id$+"SF00",dom=std_missing_params)sfs_params$
+	bm$=sfs_params.bm_interface$
+
+	if bm$="Y"
+		call stbl("+DIR_PGM")+"adc_application.aon","BM",info$[all]
+		bm$=info$[20]
+	endif
+	callpoint!.setDevObject("bm",bm$)
+
+	rem --- Open Operation Code table
+	num_files=1
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	if bm$<>"Y"
+		callpoint!.setTableColumnAttribute("SFM_CAL_COPY.OP_CODE","DTAB","SFC_OPRTNCOD")
+		open_tables$[1]="SFC_OPRTNCOD",open_opts$[1]="OTA"
+	else
+		open_tables$[1]="BMC_OPCODES",open_opts$[1]="OTA"
+	endif
+	gosub open_tables
+
+	callpoint!.setDevObject("opcode_chan",num(open_chans$[1]))
+	callpoint!.setDevObject("opcode_tpl",open_tpls$[1])
+
+[[SFM_CAL_COPY.OP_CODE.AVAL]]
+rem --- Don't allow inactive code
+	opcode_dev=callpoint!.getDevObject("opcode_chan")
+	dim opcode$:callpoint!.getDevObject("opcode_tpl")
+	op_code$=callpoint!.getUserInput()
+	read record (opcode_dev,key=firm_id$+op_code$,dom=*next) opcode$
+	if opcode.code_inactive$ = "Y"
+		msg_id$="AD_CODE_INACTIVE"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=cvs(opcode.op_code$,3)
+		msg_tokens$[2]=cvs(opcode.code_desc$,3)
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+rem --- Create vector excluding the current Op Code
+
+	current_opcode$=callpoint!.getUserInput()
+	gosub get_first_last
+	if cvs(first_date$,2)=""
+		msg_id$="SF_NO_OP_CAL"
+		gosub disp_message
+		callpoint!.setUserInput("")
+		callpoint!.setFocus("SFM_CAL_COPY.OP_CODE")
+	else
+		vectOps!=UserObj!.getItem(num(user_tpl.vectOpsOfst$))
+		vectOps!.clear()
+		gosub create_reports_vector
+		gosub fill_grid
+		UserObj!.setItem(num(user_tpl.vectOpsOfst$),vectOps!)
+	endif
+
 [[SFM_CAL_COPY.<CUSTOM>]]
 rem ==========================================================================
 format_grid: rem --- Use Barista program to format the grid
@@ -405,21 +462,6 @@ rem ========================================================
 	return
 
 #include [+ADDON_LIB]std_missing_params.aon
-[[SFM_CAL_COPY.BFMC]]
-rem --- See if BOM is being used
 
-	num_files=1
-	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
-	open_tables$[1]="SFS_PARAMS",open_opts$[1]="OTA"
-	gosub open_tables
 
-	sfs_params=num(open_chans$[1])
-	dim sfs_params$:open_tpls$[1]
 
-	read record(sfs_params,key=firm_id$+"SF00",dom=std_missing_params) sfs_params$
-
-	if sfs_params.bm_interface$<>"Y"
-		callpoint!.setTableColumnAttribute("SFM_CAL_COPY.OP_CODE","DTAB","SFC_OPRTNCOD")
-	endif
-
-	callpoint!.setDevObject("bm_interface",sfs_params.bm_interface$)
