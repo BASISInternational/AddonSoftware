@@ -101,10 +101,10 @@ rem --- Set precision
 [[SFE_TIMEWODET.EMPLOYEE_NO.AVAL]]
 rem --- Init for this employee
 
+	empcode_dev=callpoint!.getDevObject("empcode_dev")
+	dim empcode$:callpoint!.getDevObject("empcode_tpl")
+	findrecord(empcode_dev,key=firm_id$+callpoint!.getUserInput(),dom=*next)empcode$
 	if callpoint!.getDevObject("pr")="Y" then
-		empcode_dev=callpoint!.getDevObject("empcode_dev")
-		dim empcode$:callpoint!.getDevObject("empcode_tpl")
-		findrecord(empcode_dev,key=firm_id$+callpoint!.getUserInput(),dom=*next)empcode$
 		callpoint!.setDevObject("normal_title",empcode.normal_title$)
 		callpoint!.setDevObject("hrlysalary",empcode.hrlysalary$)
 		if cvs(callpoint!.getColumnData("SFE_TIMEWODET.TITLE_CODE"),2)="" then
@@ -112,6 +112,19 @@ rem --- Init for this employee
 		endif
 		if cvs(callpoint!.getColumnData("SFE_TIMEWODET.PAY_CODE"),2)="" then
 			callpoint!.setColumnData("SFE_TIMEWODET.PAY_CODE",str(callpoint!.getDevObject("reg_pay_code")),1)
+		endif
+	else
+		rem --- Don't allow inactive code
+		employee_no$=callpoint!.getUserInput()
+		read record (empcode_dev,key=firm_id$+employee_no$,dom=*next)empcode$
+		if empcode.code_inactive$ = "Y"
+			msg_id$="AD_CODE_INACTIVE"
+			dim msg_tokens$[2]
+			msg_tokens$[1]=cvs(empcode.employee_no$,3)
+			msg_tokens$[2]=cvs(empcode.empl_givname$,3)+" "+cvs(empcode.empl_surname$,3)
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
 		endif
 	endif
 

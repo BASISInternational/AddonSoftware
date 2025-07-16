@@ -21,14 +21,14 @@
 			<ASC_LICENSE_ID id="ddm_tables.sft_clsoprtr">2FDB75EE331AEF9BC40E8DE35DE633F8</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sft_clsoprtr">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sft_clsoprtr">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.sft_clsoprtr">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.sft_clsoprtr">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.sft_clsoprtr">142910</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.sft_clsoprtr">20250711</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.sft_clsoprtr">20250228</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.sft_clsoprtr">154412</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.sft_clsoprtr"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.sft_clsoprtr"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.sft_clsoprtr"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.sft_clsoprtr"></DD_ATTR_FIMG>
-			<DD_ATTR_FTYP id="ddm_tables.sft_clsoprtr">T</DD_ATTR_FTYP>
+			<DD_ATTR_FTYP id="ddm_tables.sft_clsoprtr">X</DD_ATTR_FTYP>
 			<DD_ATTR_HELP id="ddm_tables.sft_clsoprtr"></DD_ATTR_HELP>
 			<DD_ATTR_IKEY id="ddm_tables.sft_clsoprtr"></DD_ATTR_IKEY>
 			<DD_ATTR_IDEF id="ddm_tables.sft_clsoprtr"></DD_ATTR_IDEF>
@@ -409,7 +409,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr002"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr002">3001</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr002">ine_wo_location</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr002">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr002">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr002"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr002">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr002"></DD_ATTR_BTNS>
@@ -460,7 +460,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr003"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr003">3002</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr003">dis_wo_no</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr003">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr003">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr003"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr003">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr003">F</DD_ATTR_BTNS>
@@ -511,7 +511,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr004"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr004">3003</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr004">ind_trans_date</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr004">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr004">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr004"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr004">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr004">C</DD_ATTR_BTNS>
@@ -562,7 +562,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr005"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr005">3004</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr005">ine_trans_seq</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr005">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr005">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr005"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr005">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr005"></DD_ATTR_BTNS>
@@ -613,7 +613,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr006"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr006">3005</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr006">ine_oper_seq_ref</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr006">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr006">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr006"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr006">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr006"></DD_ATTR_BTNS>
@@ -664,7 +664,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr007"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr007">3006</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr007">dis_op_code</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr007">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr007">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr007"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr007">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr007">F</DD_ATTR_BTNS>
@@ -715,7 +715,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr008"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr008">3007</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr008">dis_employee_no</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr008">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr008">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr008"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr008">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr008">F</DD_ATTR_BTNS>
@@ -766,7 +766,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr009"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr009">3008</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr009">inn_units</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr009">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr009">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr009"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr009">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr009"></DD_ATTR_BTNS>
@@ -817,7 +817,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr010"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr010">3009</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr010">inn_unit_cost</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr010">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr010">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr010"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr010">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr010"></DD_ATTR_BTNS>
@@ -868,7 +868,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr011"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr011">3010</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr011">inn_ext_cost</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr011">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr011">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr011"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr011">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr011"></DD_ATTR_BTNS>
@@ -919,7 +919,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr012"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr012">3011</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr012">inn_direct_rate</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr012">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr012">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr012"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr012">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr012"></DD_ATTR_BTNS>
@@ -970,7 +970,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr013"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr013">3012</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr013">inn_ovhd_rate</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr013">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr013">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr013"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr013">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr013"></DD_ATTR_BTNS>
@@ -1021,7 +1021,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr014"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr014">3013</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr014">inn_complete_qty</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr014">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr014">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr014"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr014">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr014"></DD_ATTR_BTNS>
@@ -1072,7 +1072,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.sft_clsoprtr015"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.sft_clsoprtr015">3014</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.sft_clsoprtr015">inn_setup_time</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr015">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.sft_clsoprtr015">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sft_clsoprtr015"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.sft_clsoprtr015">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sft_clsoprtr015"></DD_ATTR_BTNS>
