@@ -1,104 +1,10 @@
 =======================================================================================================================================
- Report Date:   2025-06-25
- Report Branch: AddonSoftware 25.02
- Last Release:  AddonSoftware 25.01
+ Report Date:   2025-07-16
+ Report Branch: AddonSoftware 25.03
+ Last Release:  AddonSoftware 25.02
 =======================================================================================================================================
 
-25.01 released 05/19/2025
-BBjBaristaAddonDemos2501_05-18-2025_0219.jar
+25.02 released 07/14/2025
+BBjBaristaAddonDemos2502_07-14-2025_1219.jar
 =======================================================================================================================================
 
-Revision: 6fba1de6b3b029d873c373c4e18b853574f3c9b3
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 5/20/2025 4:06:03 PM
-Message:
-Bug 11036: Allow 1-character entry for Warehouse on the option entry
-form for Inventory's Open Purchase Orders report.
-----
-Modified: data/bar/ivr_openpo.xml
-=======================================================================================================================================
-
-Revision: c189d2b29143d1d543c347e306b67cacfe67e249
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 5/20/2025 4:24:48 PM
-Message:
-Bug 11034: Only initialize the Qty Received on the Purchase Order
-Receipt lot/serial grid for new rows when the current Qty Received is
-zero.
-----
-Modified: data/bar/poe_reclsdet.xml
-Modified: data/cdf/poe_reclsdet.cdf
-=======================================================================================================================================
-
-Author: Ricky <rgonzales@basis.cloud>
-Date:   Wed May 28 10:26:21 2025 -0600
-
-    Bug 11035 Added Kit access in order entry needs a menu entry to enable
-
-M       data/sync/adm_mnu_item~[01007514OP].xml
-M       data/sync/adm_mnu_trans~[01007514OP].xml
-M       data/sync/adm_rolealias~[all].xml
-=======================================================================================================================================
-
-Revision: 89d903ecbb7f1dce86639b84cbbb2e10ff893291
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 6/12/2025 3:25:21 PM
-Message:
-Bug 11047: Used GL ID mask for displaying the GL Accounts on the IV Item
-Detail Listing.
-----
-Modified: ad/src/adx_build_sproc.aon
-Modified: iv/src/ivr_itemdetail.aon
-Modified: reports/ItemDetail.jasper
-Modified: reports/ItemDetail.jrxml
-Modified: reports/ItemDetail_comments.jasper
-Modified: reports/ItemDetail_gl.jasper
-Modified: reports/ItemDetail_gl.jrxml
-Added: sprocs/GLACCTLIST.prc
-=======================================================================================================================================
-
-Revision: 3c65070cc212fa238d9f5a598506f09ea3cfbf9e
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 6/14/2025 3:35:09 PM
-Message:
-ER 11050: Modified logic limiting size of vendor addresses and purchase
-addresses for v6hybrid installations, to only limit the size when using
-v6hybrid Purchase Orders.
-----
-Modified: data/bar/apm_vendaddr.xml
-Modified: data/bar/apm_vendmast.xml
-Modified: data/cdf/apm_vendaddr.cdf
-Modified: data/cdf/apm_vendmast.cdf
-Modified: data/sync/ads_messages~[01007514AP].xml
-Modified: prop/addon.properties
-Modified: prop/addon_en.properties
-=======================================================================================================================================
-
-Revision: f238cc75d658ed1a261b6ddf5a17d0d345cf39bb
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 6/16/2025 8:55:09 AM
-Message:
-Bug 11051: For new inventory items defaulted "Kit of Items?" to "Not a
-kit (N)".
-----
-Modified: data/bar/ivm_itemmast.xml
-=======================================================================================================================================
-
-Revision: 2d65a57b26a012223acc4f24bf38afa21ab52bd6
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 6/25/2025 10:17:36 AM
-Message:
-Bug 11054: Corrected the grid column location for the Due Date.
-
-----
-Modified: data/bar/ape_payselect.xml
-Modified: data/cdf/ape_payselect.cdf
-=======================================================================================================================================
-Author: Ricky <rgonzales@basis.cloud>
-Date:   Fri Jun 27 10:46:40 2025 -0600
-
-    Bug 11055: Fixed Menu Maintenance security Permission
-
-M data/sync/adm_mnu_item~[01007514AD].xml
-M data/sync/adm_mnu_trans~[01007514AD].xml
-=======================================================================================================================================
