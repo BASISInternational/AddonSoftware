@@ -257,11 +257,7 @@ rem --- see if we're on a new WO that's for an I-category bill, and if so explod
 		new_bill$=sfe_womastr.item_id$
 		mat_isn$=pad("",len(sfe_womatl.internal_seq_no$),"0")
 
-		if cvs(new_bill$,3)<>""
-			read(bmm02_dev,key=firm_id$+new_bill$,dom=*next)
-			bmm02_key$=key(bmm02_dev,end=*endif)
-			if pos(firm_id$+new_bill$=bmm02_key$)=1 then gosub explode_bills
-		endif
+		if cvs(new_bill$,3)<>"" then gosub explode_bills
 	endif
 
 rem --- Disable grid if Closed Work Order or Recurring
