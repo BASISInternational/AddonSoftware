@@ -100,6 +100,8 @@ rem --- Get SF parameters
 
 	call stbl("+DIR_PGM")+"adc_getmask.aon","","SF","U","",unit_mask$,0,0
 	callpoint!.setDevObject("unit_mask",unit_mask$)
+	call stbl("+DIR_PGM")+"adc_getmask.aon","","SF","H","",hour_mask$,0,0
+	callpoint!.setDevObject("hour_mask",hour_mask$)
 
 	if bm$="Y"
 		call stbl("+DIR_PGM")+"adc_application.aon","BM",info$[all]
@@ -217,7 +219,7 @@ rem --- Check entered hrs
 	if entered_hrs<>total_hrs then
 		msg_id$ = "SF_HOURS_OOB"
 		dim msg_tokens$[1]
-		msg_tokens$[1]=str(total_hrs-entered_hrs:callpoint!.getDevObject("unit_mask"))
+		msg_tokens$[1]=str(total_hrs-entered_hrs:callpoint!.getDevObject("hour_mask"))
 		gosub disp_message
 		if msg_opt$="O" then
 			rem --- Ok oob

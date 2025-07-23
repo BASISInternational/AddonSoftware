@@ -90,11 +90,12 @@ rem --- Get SF parameters
 	call stbl("+DIR_PGM")+"adc_getmask.aon","","SF","A","",m1$,0,m1
 	call stbl("+DIR_PGM")+"adc_getmask.aon","","SF","U","",m2$,0,m2
     call stbl("+DIR_PGM")+"adc_getmask.aon","","SF","R","",m3$,0,m3
+	call stbl("+DIR_PGM")+"adc_getmask.aon","","SF","H","",m4$,0,m4
 	if bm$="Y"
-		call stbl("+DIR_PGM")+"adc_getmask.aon","","BM","U","",setup_mask$,0,setup_mask
+		call stbl("+DIR_PGM")+"adc_getmask.aon","","BM","H","",setup_mask$,0,setup_mask
 	else
-		setup_mask$=m2$
-		setup_mask=m2
+		setup_mask$=m4$
+		setup_mask=m4
 	endif
 
 	p[0]=m0
@@ -281,9 +282,9 @@ rem --- Document initializations
         columns$[7,0]="", columns$[7,1]="C", columns$[7,2]="0"
         columns$[8,0]="", columns$[8,1]="C", columns$[8,2]="0"
     endif
-    columns$[9,0]=Translate!.getTranslation("AON_SETUP^HRS"),      columns$[9,1]="N",   columns$[9,2]=str(max(m2,10)),   columns$[9,3]=setup_mask$,  columns$[9,10]="T"
-    columns$[10,0]=Translate!.getTranslation("AON_RUN^HRS"),       columns$[10,1]="N",  columns$[10,2]=str(max(m2,10)),  columns$[10,3]=m2$, columns$[10,10]="T"
-    columns$[11,0]=Translate!.getTranslation("AON_TOTAL^HRS"),     columns$[11,1]="N",  columns$[11,2]=str(max(m2,10)),  columns$[11,3]=m2$, columns$[11,10]="T"
+    columns$[9,0]=Translate!.getTranslation("AON_SETUP^HRS"),      columns$[9,1]="N",   columns$[9,2]=str(max(setup_mask,10)),   columns$[9,3]=setup_mask$,  columns$[9,10]="T"
+    columns$[10,0]=Translate!.getTranslation("AON_RUN^HRS"),       columns$[10,1]="N",  columns$[10,2]=str(max(m4,10)),  columns$[10,3]=m4$, columns$[10,10]="T"
+    columns$[11,0]=Translate!.getTranslation("AON_TOTAL^HRS"),     columns$[11,1]="N",  columns$[11,2]=str(max(m4,10)),  columns$[11,3]=m4$, columns$[11,10]="T"
     columns$[12,0]=Translate!.getTranslation("AON_DIRECT")+"^"+Translate!.getTranslation("AON_RATE") 
                                                                 columns$[12,1]="N", columns$[12,2]=str(max(m3,10)), columns$[12,3]=m3$
     columns$[13,0]=Translate!.getTranslation("AON_DIRECT")+"^"+Translate!.getTranslation("AON_TOTAL")
