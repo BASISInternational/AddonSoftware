@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.sfe_woconvrn">F580F9A0EC78E2A558E11AC2C715EC6A</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfe_woconvrn">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfe_woconvrn">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.sfe_woconvrn">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.sfe_woconvrn">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.sfe_woconvrn">142910</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.sfe_woconvrn">20250401</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.sfe_woconvrn">20250228</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.sfe_woconvrn">154308</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.sfe_woconvrn"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.sfe_woconvrn">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.sfe_woconvrn">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.sfe_woconvrn">BATCH_KEY</DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.sfe_woconvrn"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.sfe_woconvrn">T</DD_ATTR_FTYP>
@@ -347,7 +347,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woconvrn003">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woconvrn003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woconvrn003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woconvrn003">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woconvrn003">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woconvrn003"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woconvrn003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woconvrn003"></DD_ATTR_CTLY>
@@ -449,7 +449,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woconvrn005">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woconvrn005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woconvrn005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woconvrn005">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woconvrn005">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woconvrn005"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woconvrn005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woconvrn005">+1</DD_ATTR_CTLY>
@@ -500,7 +500,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woconvrn006">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woconvrn006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woconvrn006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woconvrn006">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woconvrn006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woconvrn006"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woconvrn006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woconvrn006"></DD_ATTR_CTLY>
@@ -551,7 +551,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woconvrn007">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woconvrn007"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woconvrn007"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woconvrn007">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woconvrn007">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woconvrn007"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woconvrn007"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woconvrn007"></DD_ATTR_CTLY>
@@ -653,7 +653,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woconvrn009">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woconvrn009"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woconvrn009"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woconvrn009">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woconvrn009">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woconvrn009"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woconvrn009">+25</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woconvrn009">-1</DD_ATTR_CTLY>
@@ -704,7 +704,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woconvrn010">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woconvrn010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woconvrn010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woconvrn010">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woconvrn010">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woconvrn010"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woconvrn010">+25</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woconvrn010">-1</DD_ATTR_CTLY>
@@ -1474,16 +1474,16 @@
 		</RECORD>
 		<RECORD id="ddm_elements.hrs">
 			<DD_DATA_NAME id="ddm_elements.hrs">HRS             </DD_DATA_NAME>
-			<DD_DESCRIPTION id="ddm_elements.hrs">Hours                         </DD_DESCRIPTION>
+			<DD_DESCRIPTION id="ddm_elements.hrs">Hours</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.hrs">N</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.hrs">7</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.hrs">U</DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.hrs">H</DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.hrs"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.hrs">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.hrs">SF </ASC_PROD_ID>
 			<LOCALIZATION_EX id="ddm_elements.hrs"></LOCALIZATION_EX>
 			<DD_CREATE_DATE id="ddm_elements.hrs">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_elements.hrs">20150114</DD_LSTREV_DATE>
+			<DD_LSTREV_DATE id="ddm_elements.hrs">20250723</DD_LSTREV_DATE>
 			<DD_AUTO_COMP id="ddm_elements.hrs"></DD_AUTO_COMP>
 			<DD_ATTR_BLNK id="ddm_elements.hrs"></DD_ATTR_BLNK>
 			<DD_ATTR_CDAT id="ddm_elements.hrs"></DD_ATTR_CDAT>
@@ -1512,14 +1512,14 @@
 			<DD_ATTR_MSKO id="ddm_elements.hrs"></DD_ATTR_MSKO>
 			<DD_ATTR_PADC id="ddm_elements.hrs"></DD_ATTR_PADC>
 			<DD_ATTR_PADJ id="ddm_elements.hrs"></DD_ATTR_PADJ>
-			<DD_ATTR_PREC id="ddm_elements.hrs">4</DD_ATTR_PREC>
+			<DD_ATTR_PREC id="ddm_elements.hrs">2</DD_ATTR_PREC>
 			<DD_ATTR_PROM id="ddm_elements.hrs"></DD_ATTR_PROM>
 			<DD_ATTR_PVAL id="ddm_elements.hrs"></DD_ATTR_PVAL>
 			<DD_ATTR_SDLG id="ddm_elements.hrs"></DD_ATTR_SDLG>
 			<DD_ATTR_SLEV id="ddm_elements.hrs"></DD_ATTR_SLEV>
 			<DD_ATTR_STYP id="ddm_elements.hrs"></DD_ATTR_STYP>
-			<DD_ATTR_STEP id="ddm_elements.hrs"></DD_ATTR_STEP>
-			<DD_ATTR_FLPT id="ddm_elements.hrs"></DD_ATTR_FLPT>
+			<DD_ATTR_STEP id="ddm_elements.hrs">0</DD_ATTR_STEP>
+			<DD_ATTR_FLPT id="ddm_elements.hrs">N</DD_ATTR_FLPT>
 			<DD_ATTR_OEMD id="ddm_elements.hrs"></DD_ATTR_OEMD>
 			<DD_ATTR_Y2KW id="ddm_elements.hrs"></DD_ATTR_Y2KW>
 			<DD_ATTR_CASB id="ddm_elements.hrs"></DD_ATTR_CASB>

@@ -34,8 +34,8 @@ rem --- Document initializations
     columns$[3,0]=Translate!.getTranslation("AON_OPRTN_DESC"),         columns$[3,1]="C", columns$[3,2]=str(max(len(wooprtn.code_desc$),20))
     columns$[4,0]=Translate!.getTranslation("AON_DATE"),               columns$[4,1]="C", columns$[4,2]="8"
     columns$[5,0]=Translate!.getTranslation("AON_COMPLETED^QUANTITY"), columns$[5,1]="N", columns$[5,2]=str(max(m2,15)), columns$[5,3]=m2$, columns$[5,10]="T"
-    columns$[6,0]=Translate!.getTranslation("AON_SETUP^HRS"),          columns$[6,1]="N", columns$[6,2]=str(max(m2,15)), columns$[6,3]=m2$, columns$[6,10]="T"
-    columns$[7,0]=Translate!.getTranslation("AON_RUN^HRS"),            columns$[7,1]="N", columns$[7,2]=str(max(m2,15)), columns$[7,3]=m2$, columns$[7,10]="T"
+    columns$[6,0]=Translate!.getTranslation("AON_SETUP^HRS"),          columns$[6,1]="N", columns$[6,2]=str(max(setup_mask,15)), columns$[6,3]=setup_mask$, columns$[6,10]="T"
+    columns$[7,0]=Translate!.getTranslation("AON_RUN^HRS"),            columns$[7,1]="N", columns$[7,2]=str(max(m4,15)), columns$[7,3]=m4$, columns$[7,10]="T"
     columns$[8,0]=Translate!.getTranslation("AON_DIRECT")+"^"+Translate!.getTranslation("AON_TOTAL")
                                                                        columns$[8,1]="N", columns$[8,2]=str(max(m1,15)), columns$[8,3]=m1$, columns$[8,10]="T"
     columns$[9,0]=Translate!.getTranslation("AON_OVHD")+"^"+Translate!.getTranslation("AON_TOTAL")
@@ -77,8 +77,8 @@ rem --- Main Read (header file)
         endif
         OutVect!.addItem(fndate$(sfw11a.trans_date$))
         OutVect!.addItem(str(sfw11a.complete_qty:m2$))
-        OutVect!.addItem(str(sfw11a.setup_time:m2$))
-        OutVect!.addItem(str(sfw11a.hrs:m2$))
+        OutVect!.addItem(str(sfw11a.setup_time:setup_mask$))
+        OutVect!.addItem(str(sfw11a.hrs:m4$))
         OutVect!.addItem(str(sfw11a.act_dir_amt:m1$))
         OutVect!.addItem(str(sfw11a.act_ovhd_amt:m1$))
         OutVect!.addItem(str(sfw11a.labor_cost:m1$))
@@ -128,8 +128,8 @@ rem --- End
     TotVect!.addItem(str(OutVect!.size()/(columns+1)))
     OutVect!.addItem(Translate!.getTranslation("AON_GRAND")+" "+Translate!.getTranslation("AON_TOTAL")+":")
     xwk = fnblank(columns-5)
-    OutVect!.addItem(str(u[4]:m2$))
-    OutVect!.addItem(str(u[0]:m2$))
+    OutVect!.addItem(str(u[4]:setup_mask$))
+    OutVect!.addItem(str(u[0]:m4$))
     OutVect!.addItem(str(u[1]:m1$))
     OutVect!.addItem(str(u[2]:m1$))
     OutVect!.addItem(str(u[3]:m1$))
@@ -202,8 +202,8 @@ work_order_tot: rem --- Work Order Total
             OutVect!.addItem(Translate!.getTranslation("AON_WORK_ORDER_")+t0$+Translate!.getTranslation("AON__TOTALS:"))
             xwk = fnblank(columns-7)
             OutVect!.addItem(str(t[5]:m2$))
-            OutVect!.addItem(str(t[4]:m2$))
-            OutVect!.addItem(str(t[0]:m2$))
+            OutVect!.addItem(str(t[4]:setup_mask$))
+            OutVect!.addItem(str(t[0]:m4$))
             OutVect!.addItem(str(t[1]:m1$))
             OutVect!.addItem(str(t[2]:m1$))
             OutVect!.addItem(str(t[3]:m1$))
@@ -230,8 +230,8 @@ step_sub_tot:rem --- Step Sub Total
         OutVect!.addItem(Translate!.getTranslation("AON_REF_")+t1Ref$+Translate!.getTranslation("AON__TOTAL:_"))
         xwk = fnblank(columns-8)
         OutVect!.addItem(str(s[5]:m2$))
-        OutVect!.addItem(str(s[4]:m2$))
-        OutVect!.addItem(str(s[0]:m2$))
+        OutVect!.addItem(str(s[4]:setup_mask$))
+        OutVect!.addItem(str(s[0]:m4$))
         OutVect!.addItem(str(s[1]:m1$))
         OutVect!.addItem(str(s[2]:m1$))
         OutVect!.addItem(str(s[3]:m1$))
