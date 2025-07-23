@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-07-22
+ Report Date:   2025-07-23
  Report Branch: AddonSoftware 25.03
  Last Release:  AddonSoftware 25.02
 =======================================================================================================================================
@@ -17,4 +17,29 @@ include materials.
 ----
 Modified: data/bar/sfe_womatl.xml
 Modified: data/cdf/sfe_womatl.cdf
+=======================================================================================================================================
+
+Revision: 3060c5ec5fa16f81227569306d8305841309c8d5
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 7/23/2025 1:39:20 PM
+Message:
+Bug 11071: Modified SF Time Sheets to use the SF Hours mask instead of
+SF Units mask for display/printed hours.
+----
+Modified: data/bar/sfe_timedate.xml
+Modified: data/bar/sfe_timedatedet.xml
+Modified: data/bar/sfe_timeempl.xml
+Modified: data/bar/sfe_timeempldet.xml
+Modified: data/bar/sfe_timewo.xml
+Modified: data/bar/sfe_timewodet.xml
+Modified: data/bar/sfe_woconvrn.xml
+Modified: data/bar/sfm_cal_create.xml
+Modified: data/bar/sfw_timesort.xml
+Modified: data/cdf/sfe_timedate.cdf
+Modified: data/cdf/sfe_timeempl.cdf
+Modified: data/cdf/sfe_timewo.cdf
+Modified: data/sync/ads_masks~0101007514sf_h.xml
+Added: data/sync/ads_masks~[01007514SF].xml
+Modified: sf/src/sfr_timesheet.aon
+Modified: sf/src/sfr_timesheet_o1.aon
 =======================================================================================================================================
