@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-07-23
+ Report Date:   2025-07-238
  Report Branch: AddonSoftware 25.03
  Last Release:  AddonSoftware 25.02
 =======================================================================================================================================
@@ -42,4 +42,13 @@ Modified: data/sync/ads_masks~0101007514sf_h.xml
 Added: data/sync/ads_masks~[01007514SF].xml
 Modified: sf/src/sfr_timesheet.aon
 Modified: sf/src/sfr_timesheet_o1.aon
+=======================================================================================================================================
+
+Revision: 578b01a880f8ca0538afefb34dfa318723e61b95
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 7/28/2025 1:14:54 PM
+Message:
+Bug 11077: Corrected references to elements in the SFT_CLSLSTRN table
+----
+Modified: sprocs/SFHARDCOPYTRANS.prc
 =======================================================================================================================================
