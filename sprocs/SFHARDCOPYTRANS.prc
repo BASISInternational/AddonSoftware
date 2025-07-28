@@ -575,8 +575,8 @@ rem --- Serial Numbers Here
                 data!.setFieldValue("LSISSUED",str(lstran.cls_inp_qty:sf_units_mask$))    
                 data!.setFieldValue("LSCOST",str(lstran.closed_cost:sf_cost_mask$))
             else
-                data!.setFieldValue("LSISSUED",str(lstran.qty_closed:sf_units_mask$))
-                data!.setFieldValue("LSCOST",str(lstran.unit_cost:sf_cost_mask$))
+                data!.setFieldValue("LSISSUED",str(lstran.cls_inp_qty:sf_units_mask$))
+                data!.setFieldValue("LSCOST",str(lstran.closed_cost:sf_cost_mask$))
             endif
             
             rs!.insert(data!)
