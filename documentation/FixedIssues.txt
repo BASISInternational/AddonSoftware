@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-07-238
+ Report Date:   2025-08-09
  Report Branch: AddonSoftware 25.03
  Last Release:  AddonSoftware 25.02
 =======================================================================================================================================
@@ -51,4 +51,14 @@ Message:
 Bug 11077: Corrected references to elements in the SFT_CLSLSTRN table
 ----
 Modified: sprocs/SFHARDCOPYTRANS.prc
+=======================================================================================================================================
+
+Revision: 2af81712c64cf851ed1cbc5dc52ecf780e731625
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/9/2025 3:16:15 PM
+Message:
+Bug 11085: Corrected quantities on Order Fulfillment's Ready To Invoice
+report for non-kit items.
+----
+Modified: op/src/opr_fillmntrpt.aon
 =======================================================================================================================================
