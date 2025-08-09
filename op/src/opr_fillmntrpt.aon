@@ -229,6 +229,7 @@ rem --- Main Loop Starts
             redim ivmItemMast$
             findrecord(ivmItemMast_dev,key=firm_id$+optInvDet.item_id$,dom=*next)ivmItemMast$
             if pos(ivmItemMast.kit$="YP")=0 then
+                optInvDet_key$=firm_id$+"E"+ar_type$+customer_id$+order_no$+ar_inv_no$+optInvDet.internal_seq_no$
                 gosub doDetailLine
             else
                 rem --- Explode this kit into its components
