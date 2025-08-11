@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-08-09
+ Report Date:   2025-08-11
  Report Branch: AddonSoftware 25.03
  Last Release:  AddonSoftware 25.02
 =======================================================================================================================================
@@ -61,4 +61,15 @@ Bug 11085: Corrected quantities on Order Fulfillment's Ready To Invoice
 report for non-kit items.
 ----
 Modified: op/src/opr_fillmntrpt.aon
+=======================================================================================================================================
+
+Revision: 084108a7b3553ee1e6c369e2f885e2956f311e67
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/11/2025 11:48:58 AM
+Message:
+ER 11087: Added "Salesperson Cd" and "Order Taken By" columns to the
+Backordered Items query OP_BACKORD_ITEMS.
+----
+Modified: data/sync/adm_query_cols~[01007514OP].xml
+Modified: data/sync/adm_query~[01007514OP].xml
 =======================================================================================================================================
