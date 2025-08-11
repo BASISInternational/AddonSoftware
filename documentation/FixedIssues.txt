@@ -73,3 +73,17 @@ Backordered Items query OP_BACKORD_ITEMS.
 Modified: data/sync/adm_query_cols~[01007514OP].xml
 Modified: data/sync/adm_query~[01007514OP].xml
 =======================================================================================================================================
+
+Revision: 7d97a9247e3e862a79a6e94fe16e8154e378b283
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/11/2025 3:40:08 PM
+Message:
+ER 11086: Allowed defaulting the Order Fulfillment quantity picked to
+the shipped quantity.
+----
+Modified: data/bar/opt_fillmnthdr.xml
+Modified: data/cdf/opt_fillmnthdr.cdf
+Modified: data/sync/ads_messages~[01007514OP].xml
+Modified: prop/addon.properties
+Modified: prop/addon_en.properties
+=======================================================================================================================================
