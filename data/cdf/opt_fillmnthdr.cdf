@@ -601,6 +601,15 @@ rem --- Hold onto ar_ship_via and shipping_id for use in opt_carthdr
 	callpoint!.setDevObject("ar_ship_via",optFillmntHdr.ar_ship_via$)
 	callpoint!.setDevObject("shipping_id",optFillmntHdr.shipping_id$)
 
+rem --- Initialize item Qty Picked?
+	msg_id$="OP_INIT_QTY_PICKED"
+	gosub disp_message
+	if msg_opt$="N"
+		init_qtyPicked=0
+	else
+		init_qtyPicked=1
+	endif
+
 rem --- Initialize Picking tab with corresponding OPE_ORDDET data
 	optFillmntDet_dev=fnget_dev("OPT_FILLMNTDET")
 	dim optFillmntDet$:fnget_tpl$("OPT_FILLMNTDET")
@@ -616,6 +625,7 @@ rem --- Initialize Picking tab with corresponding OPE_ORDDET data
 		readrecord(opeOrdDet_dev)opeOrdDet$
 
 		rem --- Initialize OPT_FILLMNTLSDET with corresponding OPE_ORDLSDET data
+		lsPicked=0
 		optFillmntLsDet_dev=fnget_dev("OPT_FILLMNTLSDET")
 		dim optFillmntLsDet$:fnget_tpl$("OPT_FILLMNTLSDET")
 		opeOrdLsDet_dev=fnget_dev("OPE_ORDLSDET")
@@ -646,16 +656,13 @@ rem --- Initialize Picking tab with corresponding OPE_ORDDET data
 			optFillmntLsDet.created_time$=date(0:"%Hz%mz")
 			optFillmntLsDet.trans_status$="E"
 			optFillmntLsDet.qty_shipped=opeOrdLsDet.qty_shipped
-			if status then
-				rem --- Wasn't able to uncommit the lot/serial number
-				optFillmntLsDet.qty_picked=opeOrdLsDet.qty_shipped
-			else
-				optFillmntLsDet.qty_picked=0
-			endif
+			optFillmntLsDet.qty_picked=opeOrdLsDet.qty_shipped
 			optFillmntLsDet.unit_cost=opeOrdLsDet.unit_cost
 			writerecord(optFillmntLsDet_dev)optFillmntLsDet$
-		wend
 
+			lsPicked=lsPicked+optFillmntLsDet.qty_picked
+		wend
+        
 		rem --- Get warehouse location for this item
 		redim ivmItemWhse$
 		readrecord(ivmItemWhse_dev,key=firm_id$+opeOrdDet.warehouse_id$+opeOrdDet.item_id$,dom=*next)ivmItemWhse$
@@ -686,7 +693,15 @@ rem --- Initialize Picking tab with corresponding OPE_ORDDET data
 			optFillmntDet.created_time$=date(0:"%Hz%mz")
 			optFillmntDet.trans_status$="E"
 			optFillmntDet.qty_shipped=opeOrdDet.qty_shipped
-			optFillmntDet.qty_picked=0
+			if init_qtyPicked then
+				if pos(ivmItemMast.lotser_flag$="LS") and ivmItemMast.inventoried$="Y" then
+					optFillmntDet.qty_picked=lsPicked
+				else
+					optFillmntDet.qty_picked=opeOrdDet.qty_shipped
+				endif
+			else
+				optFillmntDet.qty_picked=0
+			endif
 			optFillmntDet.conv_factor=opeOrdDet.conv_factor
 			writerecord(optFillmntDet_dev)optFillmntDet$
 		else
@@ -720,7 +735,11 @@ rem --- Initialize Picking tab with corresponding OPE_ORDDET data
 				optFillmntDet.created_time$=date(0:"%Hz%mz")
 				optFillmntDet.trans_status$="E"
 				optFillmntDet.qty_shipped=optInvKitDet.qty_shipped
-				optFillmntDet.qty_picked=0
+				if init_qtyPicked then
+					optFillmntDet.qty_picked=optInvKitDet.qty_shipped
+				else
+					optFillmntDet.qty_picked=0
+				endif
 				optFillmntDet.conv_factor=optInvKitDet.conv_factor
 				writerecord(optFillmntDet_dev)optFillmntDet$
 			wend
