@@ -1,0 +1,327 @@
+rem ==========================================================================
+rem --- ado_AO_CreditCardPayment.aon 
+rem --- AO_CreditCardPayment class (CreditCardPayment superclass)
+rem --- AD superclass that interfaces with the J2Pay open source multi-gateway
+rem --- payment processing library.
+rem --- 
+rem --- AddonSoftware Version 26.0
+rem --- Copyright BASIS International Ltd.  All Rights Reserved.
+rem ==========================================================================
+
+rem /**
+rem  * This class uses J2Pay for making various types of credit card payments.
+rem  */
+
+rem --- Use statements and declares
+
+    use ::sys/prog/bao_callpoint.bbj::Callpoint
+	use ::sys/prog/bao_encryptor.bbj::Encryptor
+    use ::bbtranslator.bbj::BBTranslator
+
+    use com.tranxactive.j2pay.gateways.core.AvailableGateways
+    use com.tranxactive.j2pay.gateways.core.Gateway
+    use com.tranxactive.j2pay.gateways.core.GatewayFactory
+
+	use com.tranxactive.j2pay.gateways.parameters.Customer
+	use com.tranxactive.j2pay.gateways.parameters.CustomerCard
+	use com.tranxactive.j2pay.gateways.parameters.Currency
+	use com.tranxactive.j2pay.gateways.parameters.Country
+    
+    use com.tranxactive.j2pay.net.HTTPResponse
+
+    use java.util.HashMap
+
+	use org.json.JSONObject
+
+    class public AO_CreditCardPayment
+    
+        field protected JSONObject apiSampleParameters! = null()  
+        field protected BBjNumber apply_amt! = 0
+        field protected Customer customer! = null()
+        field protected CustomerCard customerCard! = null()
+        field protected BBjNumber devArsGatewayDet = -1
+        field protected BBjString firm_id$
+        field protected Gateway gateway! = null()
+        field protected BBjString gateway_id$
+        field protected HashMap gw_config! = new HashMap()
+        field protected BBjString interface_tp$
+        field protected BBjString tplArsGatewayDet$
+        field protected BBTranslator Translate! = null()
+
+        rem /**
+        rem  * Constructor.
+        rem  *
+        rem  * @param BBjString firm_id$
+        rem  * @param BBjString gateway_id$
+        rem  * @param BBjString interface_tp$  A = J2Pay API
+        rem  *                                 H = Hosted page
+        rem  */
+        method public AO_CreditCardPayment(BBjString firm_id$, BBjString gateway_id$, BBjString interface_tp$)
+            seterr AO_CreditCardPayment_error
+
+            rem --- Initialize field variables
+            #firm_id$ = firm_id$
+            #gateway_id$ = gateway_id$
+            #interface_tp$ = interface_tp$
+
+            rem --- Get Translator
+            declare BBTranslator Translate!
+            rdTransSpaceKey$=stbl("+PROPS_NAME")+"_"+stbl("+USER_LOCALE")+"_BBTranslator"
+            Translate!=cast(BBTranslator,BBjAPI().getGroupNamespace().getValue(rdTransSpaceKey$,err=*next))
+            if Translate!=null()
+                Translate!=BBTranslator.getInstance(stbl("+PROPS_NAME"),stbl("+USER_LOCALE"),null(),stbl("+PROPS_PATH"))
+                BBjAPI().getGroupNamespace().setValue(rdTransSpaceKey$,Translate!)
+            endif
+            #Translate! = Translate!
+            
+            rem --- Open needed files          
+            num_files=1
+            dim open_tables$[1:num_files], open_opts$[1:num_files], open_chans$[1:num_files], open_tpls$[1:num_files]
+            open_tables$[1] ="ARS_GATEWAYDET",   open_opts$[1] = "OTA[1]"
+        
+            rem --- Note that rd_table_chans$[all] is NOT being shared/passed.
+            call stbl("+DIR_SYP")+"bac_open_tables.bbj",open_beg,open_end,open_tables$[all],open_opts$[all],open_chans$[all],open_tpls$[all],rd_table_chans$[all],open_batch,open_status$
+
+            if open_status$ = "" then
+                rem --- Hold on to channels and record templates
+                #devArsGatewayDet = num(open_chans$[1])
+                
+                #tplArsGatewayDet$ = open_tpls$[1]
+            else
+                #close()
+                
+                rem --- Throw error
+                err_num=err
+                err_num=num(open_status$,err=*next)
+                seterr 0
+                x$=stbl("+THROWN_ERR","TRUE")   
+                throw "["+pgm(-2)+"] Constructor failed to open files: "+open_status$,err_num
+            endif
+
+            rem --- Use J2Pay library to get gateway
+            gw! = new GatewayFactory()
+            #gateway! = cast(Gateway, gw!.getGateway(AvailableGateways.valueOf(cvs(gateway_id$,3))))
+            #apiSampleParameters! = cast(JSONObject, #gateway!.getApiSampleParameters())
+            paramKeys! = #apiSampleParameters!.keys()
+
+            rem --- Get gateway config attributes
+            #gw_config! = #getGatewayConfig(#firm_id$, #gateway_id$)
+
+            rem --- Using J2Pay API
+            if #interface_tp$="A" then
+                rem --- Get gateway config values
+                while paramKeys!.hasNext()
+                    gw_attrib$=paramKeys!.next()
+                    param!=#gw_config!.get(gw_attrib$)
+                    if param!=null()
+                        rem --- Throw error
+                        seterr 0   
+                        x$=stbl("+THROWN_ERR","TRUE") 
+                        message$=#Translate!.getTranslation("AON_MISSING_GATEWAY_CONFIG")+$0A$+"("+gateway_id$+")"
+                        throw "["+pgm(-2)+"] "+message$,300
+                    endif
+                    #apiSampleParameters!.put(gw_attrib$,param!.toString())
+                wend
+
+                rem --- Set gateway testMode
+                ip$=iff(#gw_config!.get("ip")=null(),"127.0.0.1",#gw_config!.get("ip"))
+                testMode$=#gw_config!.get("testMode")
+                #gateway!.setTestMode(Boolean.valueOf(testMode$))
+            endif
+
+            methodret
+            
+AO_CreditCardPayment_error:rem --- Method error trap/handler (11Oct2017)
+    rd_err_text$="", err_num=err
+    if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+    if err_num=252 then
+        E!=BBjAPI().getLastBBjException()
+        rd_err_text$=rd_err_text$+$0A$+E!.getClass().getName()
+        if E!.getMessage()<>null() then rd_err_text$=rd_err_text$+": "+E!.getMessage()
+    endif
+    call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err_num),rd_err_text$,rd_err_act$
+    if pos("ESCAPE"=rd_err_act$)<>0 seterr 0;setesc 0
+    if pos("RETRY"=rd_err_act$)<>0 retry
+    x$=stbl("+THROWN_ERR","TRUE")   
+    throw "["+pgm(-2)+"] "+str(tcb(5))+": "+rd_err_text$,err_num
+        methodend
+
+        rem /**
+        rem  * Make the credit card transaction for a purchase.
+        rem  *
+        rem  * @return HashMap of response from various gateways
+        rem  */
+        method public HashMap doPurchase()
+            seterr doPurchase_error
+
+            gw_response!=new HashMap()
+
+            rem --- Using J2Pay API
+            if #interface_tp$="A" then
+                response! = new HTTPResponse()
+                response! = #gateway!.purchase(#apiSampleParameters!, #customer!, #customerCard!, Currency.USD, #apply_amt!.floatValue())
+                gw_response!.put("J2PAY", response!)
+            endif
+            
+            methodret gw_response!
+            
+doPurchase_error:rem --- Method error trap/handler (11Oct2017)
+    rd_err_text$="", err_num=err
+    if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+    if err_num=252 then
+        E!=BBjAPI().getLastBBjException()
+        rd_err_text$=rd_err_text$+$0A$+E!.getClass().getName()
+        if E!.getMessage()<>null() then rd_err_text$=rd_err_text$+": "+E!.getMessage()
+    endif
+    call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err_num),rd_err_text$,rd_err_act$
+    if pos("ESCAPE"=rd_err_act$)<>0 seterr 0;setesc 0
+    if pos("RETRY"=rd_err_act$)<>0 retry
+    x$=stbl("+THROWN_ERR","TRUE")   
+    throw "["+pgm(-2)+"] "+str(tcb(5))+": "+rd_err_text$,err_num
+        methodend
+
+        rem /**
+        rem  * Get config attributes for specified gateway.
+        rem  * 
+        rem  * @param BBjString firm_id$
+        rem  * @param BBjString gateway_id$
+        rem  *
+        rem  * @return HashMap of attributes and values
+        rem  */
+        method public HashMap getGatewayConfig(BBjString firm_id$, BBjString gateway_id$)
+            seterr getGatewayConfig_error
+
+            gw_config!=new HashMap()
+
+            encryptor! = new Encryptor()
+            config_id$ = "GATEWAY_AUTH"
+            encryptor!.setConfiguration(config_id$)
+
+            read(#devArsGatewayDet,key=firm_id$+gateway_id$,knum="PRIMARY",dom=*next)
+            while 1
+                dim arsGatewayDet$:#tplArsGatewayDet$
+                readrecord(#devArsGatewayDet,end=*break)arsGatewayDet$
+                if pos(firm_id$+gateway_id$=arsGatewayDet$)<>1 then break
+                if gw_config!.get("gateway_id")=null() then gw_config!.put("gateway_id",gateway_id$)
+                cfg_value$=encryptor!.decryptData(cvs(arsGatewayDet.config_value$,3))
+                if pos("token>"=cfg_value$)
+                    rem --- Throw error
+                    seterr 0   
+                    x$=stbl("+THROWN_ERR","TRUE") 
+                    message$=#Translate!.getTranslation("AON_INVALID_GATEWAY_CONFIG","One or more configuration values for the payment gateway are invalid.",1)+$0A$+"("+gateway_id$+")"
+                    throw "["+pgm(-2)+"] "+message$,301
+                else
+                    gw_config!.put(cvs(arsGatewayDet.config_attr$,3),cfg_value$)
+                endif
+            wend
+
+            methodret gw_config!
+            
+getGatewayConfig_error:rem --- Method error trap/handler (11Oct2017)
+    rd_err_text$="", err_num=err
+    if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+    if err_num=252 then
+        E!=BBjAPI().getLastBBjException()
+        rd_err_text$=rd_err_text$+$0A$+E!.getClass().getName()
+        if E!.getMessage()<>null() then rd_err_text$=rd_err_text$+": "+E!.getMessage()
+    endif
+    call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err_num),rd_err_text$,rd_err_act$
+    if pos("ESCAPE"=rd_err_act$)<>0 seterr 0;setesc 0
+    if pos("RETRY"=rd_err_act$)<>0 retry
+    x$=stbl("+THROWN_ERR","TRUE")   
+    throw "["+pgm(-2)+"] "+str(tcb(5))+": "+rd_err_text$,err_num
+        methodend
+
+        rem /**
+        rem  * Get customer and credit card information for this transaction.
+        rem  * 
+        rem  * @param Callpoint callpoint!
+        rem  */
+        method public void getTransactionInfo(Callpoint callpoint!)
+            seterr getTransactionInfo_error
+
+            customer! = new Customer()
+            customer!.setFirstName(cvs(callpoint!.getColumnData("ARE_CCPMT.NAME_FIRST"),3))
+            customer!.setLastName(cvs(callpoint!.getColumnData("ARE_CCPMT.NAME_LAST"),3))
+            customer!.setCountry(Country.valueOf(cvs(callpoint!.getColumnData("ARE_CCPMT.CNTRY_ID"),3)))
+            customer!.setState(cvs(callpoint!.getColumnData("ARE_CCPMT.STATE_CODE"),3))
+            customer!.setCity(cvs(callpoint!.getColumnData("ARE_CCPMT.CITY"),3))
+            customer!.setAddress(cvs(callpoint!.getColumnData("ARE_CCPMT.ADDRESS_LINE_1"),3)+" "+cvs(callpoint!.getColumnData("ARE_CCPMT.ADDRESS_LINE_2"),3))
+            customer!.setZip(cvs(callpoint!.getColumnData("ARE_CCPMT.ZIP_CODE"),3))
+            customer!.setPhoneNumber(cvs(callpoint!.getColumnData("ARE_CCPMT.PHONE_NO"),3))
+            customer!.setEmail(cvs(callpoint!.getColumnData("ARE_CCPMT.EMAIL_ADDR"),3))
+            customer!.setIp(ip$);rem --- only required by BillPro
+            #customer! = cast(Customer, customer!)
+
+            customerCard! = new CustomerCard()
+            customerCard!.setName(cvs(callpoint!.getColumnData("ARE_CCPMT.NAME_FIRST"),3)+" "+cvs(callpoint!.getColumnData("ARE_CCPMT.NAME_LAST"),3))
+            customerCard!.setNumber(cvs(callpoint!.getColumnData("ARE_CCPMT.CARD_NO"),3))
+            customerCard!.setCvv(cvs(callpoint!.getColumnData("ARE_CCPMT.SECURITY_CD"),3))
+            customerCard!.setExpiryMonth(cvs(callpoint!.getColumnData("ARE_CCPMT.MONTH"),3))
+            customerCard!.setExpiryYear(cvs(callpoint!.getColumnData("ARE_CCPMT.YEAR"),3))
+            #customerCard! = cast(CustomerCard, customerCard!)
+
+            #apply_amt!=cast(BBjNumber, num(callpoint!.getColumnData("<<DISPLAY>>.APPLY_AMT")))
+
+            methodret
+            
+getTransactionInfo_error:rem --- Method error trap/handler (11Oct2017)
+    rd_err_text$="", err_num=err
+    if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+    if err_num=252 then
+        E!=BBjAPI().getLastBBjException()
+        rd_err_text$=rd_err_text$+$0A$+E!.getClass().getName()
+        if E!.getMessage()<>null() then rd_err_text$=rd_err_text$+": "+E!.getMessage()
+    endif
+    call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err_num),rd_err_text$,rd_err_act$
+    if pos("ESCAPE"=rd_err_act$)<>0 seterr 0;setesc 0
+    if pos("RETRY"=rd_err_act$)<>0 retry
+    x$=stbl("+THROWN_ERR","TRUE")   
+    throw "["+pgm(-2)+"] "+str(tcb(5))+": "+rd_err_text$,err_num
+        methodend
+
+        rem /**
+        rem  * Close all open channels and connections.
+        rem  */
+        method public void close()
+            seterr close_error
+
+            rem --- Note that even though tables were opened using bac_open_tables.bbj, rd_table_chans$[all] is NOT being shared/passed.
+            if #devArsGatewayDet>0 then close(#devArsGatewayDet,err=*next)
+ 
+            methodret
+            
+close_error:rem --- Method error trap/handler (11Oct2017)
+    rd_err_text$="", err_num=err
+    if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+    if err_num=252 then
+        E!=BBjAPI().getLastBBjException()
+        rd_err_text$=rd_err_text$+$0A$+E!.getClass().getName()
+        if E!.getMessage()<>null() then rd_err_text$=rd_err_text$+": "+E!.getMessage()
+    endif
+    call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err_num),rd_err_text$,rd_err_act$
+    if pos("ESCAPE"=rd_err_act$)<>0 seterr 0;setesc 0
+    if pos("RETRY"=rd_err_act$)<>0 retry
+    x$=stbl("+THROWN_ERR","TRUE")   
+    throw "["+pgm(-2)+"] "+str(tcb(5))+": "+rd_err_text$,err_num
+        methodend
+
+rem wgh ... 11078 ... testing
+method public Customer getCustomer()
+
+    methodret #customer!
+methodend
+
+rem wgh ... 11078 ... testing
+method public CustomerCard getCustomerCard()
+
+    methodret #customerCard!
+methodend
+
+rem wgh ... 11078 ... testing
+method public HashMap getGwConfig()
+
+    methodret #gw_config!
+methodend
+
+classend

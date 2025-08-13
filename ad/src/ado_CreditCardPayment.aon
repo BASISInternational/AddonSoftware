@@ -1,0 +1,38 @@
+rem ==========================================================================
+rem --- opo_CreditCardPayment.aon 
+rem --- CreditCardPayment class (subclass of AO_CreditCardPayment)
+rem --- Customized AD helper class for superclass used to interface with
+rem --- the J2Pay open source multi-gateway payment processing library.
+rem --- 
+rem --- AddonSoftware Version 26.0
+rem --- Copyright BASIS International Ltd.  All Rights Reserved.
+rem ==========================================================================
+
+rem /**
+rem  * Customized OP helper class for superclass used to interface with
+rem  * Avalara's AvaTax sales tax service.
+rem  */
+
+rem --- Use statements and declares
+
+    use ::ado_AO_CreditCardPayment.aon::AO_CreditCardPayment
+
+    class public CreditCardPayment extends AO_CreditCardPayment
+
+        rem /**
+        rem  * Constructor.
+        rem  *
+        rem  * @param BBjString firm_id$
+        rem  * @param BBjString gateway_id$
+        rem  * @param BBjString interface_tp$  A = J2Pay API
+        rem  *                                 H = Hosted pages
+        rem  */
+        method public CreditCardPayment(BBjString firm_id$, BBjString gateway_id$, BBjString interface_tp$)
+
+            #super!(firm_id$, gateway_id$, interface_tp$)
+
+            methodret
+
+        methodend
+
+    classend
