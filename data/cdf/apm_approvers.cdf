@@ -37,10 +37,11 @@ rem --- Inits
 
 rem --- Open/Lock files
 
-	num_files=6
+	num_files=3
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="APS_PARAMS",open_opts$[1]="OTA@"
 	open_tables$[2]="APS_PAYAUTH",open_opts$[2]="OTA@"
+	open_tables$[3]="ADM_USER",open_opts$[3]="OTA"
 
 	gosub open_tables
 
@@ -63,6 +64,7 @@ rem --- Verify using Payment Authorization
 		callpoint!.setStatus("EXIT")
 		break
 	endif
+	callpoint!.setDevObject("send_email",payauth.send_email$)
 
 [[APM_APPROVERS.CHECK_SIGNER.AVAL]]
 rem --- Enable/disable REVIEW_APPROVE
@@ -115,6 +117,23 @@ rem --- Verify signature file exists
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break
+	endif
+
+[[APM_APPROVERS.USER_ID.AVAL]]
+rem --- User must have an email address when sending notification emails
+	if num(callpoint!.getDevObject("send_email")) then
+		admUser_dev=fnget_dev("ADM_USER")
+		dim admUser$:fnget_tpl$("ADM_USER")
+		user_id$=callpoint!.getUserInput()
+		findrecord(admUser_dev,key=user_id$,dom=*next)admUser$
+		if cvs(admUser.email_address$,2)="" then
+			msg_id$="AD_EMAIL_ADDR_NEEDED"
+			dim msg_tokens$[1]
+			msg_tokens$[1]=cvs(user_id$,2)
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
+		endif
 	endif
 
 [[APM_APPROVERS.<CUSTOM>]]
