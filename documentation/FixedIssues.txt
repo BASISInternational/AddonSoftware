@@ -113,3 +113,13 @@ vendor's invoice.
 ----
 Modified: ap/src/apu_invoiceentry.aon
 =======================================================================================================================================
+
+Revision: f33052c4055c64671a49f68480a8b797bd7bc4fc
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/20/2025 4:08:14 PM
+Message:
+Bug 11093: Made a couple of corrections to previous commit of
+apu_invoiceentry.aon.
+----
+Modified: ap/src/apu_invoiceentry.aon
+=======================================================================================================================================
