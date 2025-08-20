@@ -129,7 +129,31 @@ rem --- Read next Invoice Header (ape-01) record
             apt01a$ = field(apt01a$)
             writerecord(apt01_dev)apt01a$
 
-            if cvs(ape01a.creditcard_id$,2)<>"" then gosub doCcPaidInvoice
+            rem --- New invoice for vendor was paid via Credit Card
+            apt11a.firm_id$=ape01a.firm_id$
+            apt11a.ap_type$=ape01a.ap_type$
+            apt11a.vendor_id$=ape01a.vendor_id$
+            apt11a.ap_inv_no$=ape01a.ap_inv_no$
+            apt11a.sequence_no$=str(c1+1:"000")
+            apt11a.trans_type$="A"
+            apt11a.trans_date$=ape01a.accting_date$
+            if cvs(ape01a.reference$,2)<>"" then
+                apt11a.trans_ref$=ape01a.reference$
+            else
+                apt11a.trans_ref$=ape01a.creditcard_id$
+            endif
+            apt11a.trans_amt=-ape01a.invoice_amt
+            apt11a.trans_disc=-ape01a.discount_amt
+            apt11a.trans_ret=-ape01a.retention
+            apt11a$ = field(apt11a$)
+            write record (apt11_dev) apt11a$
+
+            rem --- Make new invoice for Credit Card vendor
+            if cvs(ape01a.creditcard_id$,2)<>"" then
+                invoice_amt=ape01a.invoice_amt
+                invoice_bal=ape01a.invoice_amt
+                gosub doCcPaidInvoice
+            endif
             
         else
             rem --- Adjusting an old invoice already in apt_invoicehdr (apt-01)
@@ -161,14 +185,11 @@ rem --- Read next Invoice Header (ape-01) record
             if cvs(ape01a.creditcard_id$,2)="" then
                 apt01a.invoice_bal=apt01a.invoice_bal+ape01a.invoice_amt
             else
-                rem --- Previously paid via credit card
+                rem --- Paid via credit card
                 apt01a.invoice_bal=0
             endif
-
             apt01a$ = field(apt01a$)
             write record (apt01_dev) apt01a$
-
-            if cvs(ape01a.creditcard_id$,2)<>"" then gosub doCcPaidInvoice
 
         rem --- Find Detail Record
 
@@ -186,7 +207,7 @@ rem --- Read next Invoice Header (ape-01) record
                 if apt11a.trans_type$=" " then exitto update_apt11 else read (apt11_dev);rem release extract
             wend
 
-        rem --- New Record
+            rem --- New Record
 
             apt11a.firm_id$=ape01a.firm_id$
             apt11a.ap_type$=ape01a.ap_type$
@@ -194,20 +215,45 @@ rem --- Read next Invoice Header (ape-01) record
             apt11a.ap_inv_no$=ape01a.ap_inv_no$
             apt11a.sequence_no$=str(c1+1:"000")
 
-        update_apt11: rem --- Update
+update_apt11: rem --- Update
 
             apt11a.trans_type$="A"
             apt11a.trans_date$=ape01a.accting_date$
-            apt11a.trans_ref$=ape01a.reference$
-            apt11a.trans_amt=ape01a.invoice_amt
-            apt11a.trans_disc=ape01a.discount_amt
-            apt11a.trans_ret=ape01a.retention
+            if cvs(ape01a.reference$,2)<>"" then
+                apt11a.trans_ref$=ape01a.reference$
+            else
+                apt11a.trans_ref$=ape01a.creditcard_id$
+            endif
+            apt11a.trans_amt=-ape01a.invoice_amt
+            apt11a.trans_disc=-ape01a.discount_amt
+            apt11a.trans_ret=-ape01a.retention
 
             apt11a$ = field(apt11a$)
             write record (apt11_dev) apt11a$
-        endif
 
-    rem --- ****** end of missing code 11/07.CH
+            rem --- Update balance for transactions
+            trans=0
+            read(apt11_dev,key=ape01a.firm_id$+ape01a.ap_type$+ape01a.vendor_id$+ape01a.ap_inv_no$,dom=*next)
+            while 1
+                readrecord (apt11_dev,end=*break) apt11a$
+                if pos(apt01_key$=apt11a$)<>1 break
+                trans=trans+apt11a.trans_amt+trans_disc+trans_ret
+            wend
+            apt01a.firm_id$=ape01a.firm_id$
+            apt01a.ap_type$=ape01a.ap_type$
+            apt01a.vendor_id$=ape01a.vendor_id$
+            apt01a.ap_inv_no$=ape01a.ap_inv_no$
+            apt01a.invoice_bal=apt01a.invoice_amt+trans
+            apt01a$ = field(apt01a$)
+            writerecord(apt01_dev)apt01a$
+
+            rem --- Make new invoice for Credit Card vendor
+            if cvs(ape01a.creditcard_id$,2)<>"" then 
+                invoice_amt=ape01a.invoice_amt
+                invoice_bal=ape01a.invoice_amt
+                gosub doCcPaidInvoice
+            endif
+        endif
 
     rem --- Position the Invoice Detail (ape-11) file
 
@@ -323,27 +369,8 @@ doCcPaidInvoice: rem --- Make new invoice for Credit Card vendor, and capture th
     apt01a.invoice_date$=""
     apt01a.inv_due_date$=""
     apt01a.disc_date$=""
-    apt01a.invoice_bal=apt01a.invoice_amt
-
-    rem --- Is this an adjustment to a previously updated invoice?
-    dim old_apt01$:fattr(apt01a$)
-    apt01_key$=firm_id$+ape01a.ap_type$+ape01a.vendor_id$+ape01a.ap_inv_no$
-    findrecord(apt01_dev,key=apt01_key$,dom=*next)old_apt01$
-    if pos(apt01_key$=old_apt01$)=1 then
-        rem --- Update balance for prior adjustments
-        apt01a.invoice_bal=old_apt01.invoice_amt
-        read(apt11_dev,key=apt01_key$,dom=*next)
-        while 1
-            readrecord (apt11_dev,end=*break) apt11a$
-            if pos(apt01_key$=apt11a$)<>1 break
-            apt01a.invoice_bal=apt01a.invoice_bal+apt11a.trans_amt
-        wend
-    
-        rem --- Update balance for current adjustments
-        apt01a.invoice_bal=apt01a.invoice_bal+ape01a.invoice_amt
-        apt01a.invoice_amt=apt01a.invoice_bal
-    endif
-
+    apt01a.invoice_amt=invoice_amt
+    apt01a.invoice_bal=invoice_bal
     apt01a$ = field(apt01a$)
     writerecord(apt01_dev)apt01a$
 
