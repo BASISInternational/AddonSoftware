@@ -224,9 +224,9 @@ update_apt11: rem --- Update
             else
                 apt11a.trans_ref$=ape01a.creditcard_id$
             endif
-            apt11a.trans_amt=-ape01a.invoice_amt
-            apt11a.trans_disc=-ape01a.discount_amt
-            apt11a.trans_ret=-ape01a.retention
+            apt11a.trans_amt=ape01a.invoice_amt
+            apt11a.trans_disc=ape01a.discount_amt
+            apt11a.trans_ret=ape01a.retention
 
             apt11a$ = field(apt11a$)
             write record (apt11_dev) apt11a$
@@ -237,7 +237,7 @@ update_apt11: rem --- Update
             while 1
                 readrecord (apt11_dev,end=*break) apt11a$
                 if pos(apt01_key$=apt11a$)<>1 break
-                trans=trans+apt11a.trans_amt+trans_disc+trans_ret
+                trans=trans+apt11a.trans_amt+apt11a.trans_disc+apt11a.trans_ret
             wend
             apt01a.firm_id$=ape01a.firm_id$
             apt01a.ap_type$=ape01a.ap_type$
@@ -249,8 +249,8 @@ update_apt11: rem --- Update
 
             rem --- Make new invoice for Credit Card vendor
             if cvs(ape01a.creditcard_id$,2)<>"" then 
-                invoice_amt=ape01a.invoice_amt
-                invoice_bal=ape01a.invoice_amt
+                invoice_amt=-ape01a.invoice_amt
+                invoice_bal=-ape01a.invoice_amt
                 gosub doCcPaidInvoice
             endif
         endif
@@ -386,7 +386,7 @@ doCcPaidInvoice: rem --- Make new invoice for Credit Card vendor, and capture th
     aptCheckHistory.ap_dist_code$=ape01a.ap_dist_code$
     aptCheckHistory.check_date$=ape01a.cc_trans_date$
     aptCheckHistory.vendor_name$=apm01a.vendor_name$
-    aptCheckHistory.invoice_amt=ape01a.invoice_amt
+    aptCheckHistory.invoice_amt=invoice_amt
     aptCheckHistory.discount_amt=ape01a.discount_amt
     aptCheckHistory.retention=ape01a.retention
     writerecord(aptCheckHistory_dev)aptCheckHistory$
