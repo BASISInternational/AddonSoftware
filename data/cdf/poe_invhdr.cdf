@@ -901,8 +901,14 @@ invoiceOrAdjustment: rem --- Is this a new invoice or an adjustment to an existi
 	if adjust_flag then
 		Form!.getControl(num(callpoint!.getDevObject("inv_adj_label"))).setText(Translate!.getTranslation("AON_(ADJUSTMENT)"))
 		callpoint!.setColumnEnabled("POE_INVHDR.NET_INV_AMT",0)
+
+		rem --- Don't allow credit card for adjustments
+		callpoint!.setColumnEnabled("POE_INVHDR.CREDITCARD_ID",0)
 	else
 		Form!.getControl(num(callpoint!.getDevObject("inv_adj_label"))).setText(Translate!.getTranslation("AON_(INVOICE)"))
+
+		rem --- Allow credit card for new invoice
+		callpoint!.setColumnEnabled("POE_INVHDR.CREDITCARD_ID",1)
 	endif
 return
 
