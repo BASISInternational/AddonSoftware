@@ -106,13 +106,32 @@ rem --- Create apt-01 record
     if cvs(poe05a.creditcard_id$,2)="" then
         apt01a.invoice_bal=apt01a.invoice_amt
     else
-        rem --- Previously paid via credit card
+        rem --- Paid via credit card
         apt01a.invoice_bal=0
     endif
     apt01a$ = field(apt01a$)
     write record (apt01_dev,dom=l1400) apt01a$
 
     if cvs(poe05a.creditcard_id$,2)<>"" then
+        rem --- New invoice for vendor was paid via Credit Card
+        dim apt11a$:fattr(apt11a$)
+        apt11a.firm_id$=firm_id$
+        apt11a.ap_type$=apt01a.ap_type$
+        apt11a.vendor_id$=apt01a.vendor_id$
+        apt11a.ap_inv_no$=apt01a.ap_inv_no$
+        apt11a.trans_type$="A"
+        apt11a.trans_date$=apt01a.accting_date$
+        apt11a.trans_ref$=apt01a.reference$
+        apt11a.trans_amt=-poe05a.invoice_amt
+        apt11a.trans_disc=-apt01a.discount_amt
+        apt11a.trans_ret=-apt01a.retention
+        channel=apt11_dev
+        x$=apt11a.firm_id$+apt11a.ap_type$+apt11a.vendor_id$+apt11a.ap_inv_no$
+        k=len(x$)
+        gosub l6800
+        apt11a.sequence_no$=str(seq:"000")
+        write record (apt11_dev) apt11a$
+
         rem --- Make new invoice for Credit Card vendor
         apt01a.ap_type$=apmCcVend.cc_aptype$
         apt01a.vendor_id$=apmCcVend.cc_vendor$
@@ -123,7 +142,7 @@ rem --- Create apt-01 record
         endif
         apt01a.cc_trans_date$=poe05a.cc_trans_date$
         apt01a.creditcard_id$=poe05a.creditcard_id$
-        apt01a.orig_aptype$=poe05a.ap_inv_no$
+        apt01a.orig_aptype$=poe05a.ap_type$
         apt01a.orig_vendor$=poe05a.vendor_id$
         apt01a.invoice_date$=""
         apt01a.inv_due_date$=""
