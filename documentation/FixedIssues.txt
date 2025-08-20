@@ -123,3 +123,15 @@ apu_invoiceentry.aon.
 ----
 Modified: ap/src/apu_invoiceentry.aon
 =======================================================================================================================================
+
+Revision: ea773d6a555d9bfe748c8ac65f3c3d70de2980f3
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/20/2025 4:24:31 PM
+Message:
+Bug 11094: Added missing APT_INVOICEDET (apt-11) record when paying an
+invoice via Credit Card in Purchase Order Invoice Entry.
+----
+Modified: data/bar/poe_invhdr.xml
+Modified: data/cdf/poe_invhdr.cdf
+Modified: po/src/pou_invreg.aon
+=======================================================================================================================================
