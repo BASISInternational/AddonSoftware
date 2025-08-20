@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-08-18
+ Report Date:   2025-08-20
  Report Branch: AddonSoftware 25.03
  Last Release:  AddonSoftware 25.02
 =======================================================================================================================================
@@ -100,4 +100,16 @@ Modified: data/cdf/apm_approvers.cdf
 Modified: data/sync/ads_messages~[01007514AD].xml
 Modified: prop/addon.properties
 Modified: prop/addon_en.properties
+=======================================================================================================================================
+
+Revision: d34f86ecf917621a8c009c08eb3d57a05ecfe002
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/20/2025 1:09:28 PM
+Message:
+Bug 11093: Modified AP Invoice Register update to eliminate doubling of
+the invoice amount paid via credit card. And, added the missing
+APT_INVOICEDET (apt-11) record for paying/adjusting the original
+vendor's invoice.
+----
+Modified: ap/src/apu_invoiceentry.aon
 =======================================================================================================================================
