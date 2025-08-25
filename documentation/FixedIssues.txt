@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-08-20
+ Report Date:   2025-08-25
  Report Branch: AddonSoftware 25.03
  Last Release:  AddonSoftware 25.02
 =======================================================================================================================================
@@ -134,4 +134,15 @@ invoice via Credit Card in Purchase Order Invoice Entry.
 Modified: data/bar/poe_invhdr.xml
 Modified: data/cdf/poe_invhdr.cdf
 Modified: po/src/pou_invreg.aon
+=======================================================================================================================================
+
+Revision: ab2c0725d149fb4b525ea562e17f3b1e9c4755ec
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/25/2025 10:54:26 AM
+Message:
+Bug 11095: Removed requirement that the WO Material Requirements grid be
+in Edit Mode in order to enable the "Auto Ref No" button.
+----
+Modified: data/bar/sfe_womatl.xml
+Modified: data/cdf/sfe_womatl.cdf
 =======================================================================================================================================
