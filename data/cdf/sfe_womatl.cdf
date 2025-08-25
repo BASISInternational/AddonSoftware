@@ -765,6 +765,7 @@ mats_loop:
 		else
 			sfe_womatl.unit_measure$=ivm_itemmast.unit_of_sale$
 			sfe_womatl.require_date$=sfe_womastr.eststt_date$
+			sfe_womatl.wo_ref_num$=bmm_billmat.wo_ref_num$
 			sfe_womatl.warehouse_id$=sfe_womastr.warehouse_id$
 			sfe_womatl.item_id$=bmm_billmat.item_id$
 			sfe_womatl.line_type$="S"
@@ -961,6 +962,7 @@ do_operations:
 		sfe_wooprtn.wo_no$=wo_no$
 		sfe_wooprtn.op_code$=bmm_billoper.op_code$
 		sfe_wooprtn.require_date$=sfe_womastr.opened_date$
+		sfe_wooprtn.wo_op_ref$=bmm_billoper.wo_op_ref$
 		sfe_wooprtn.line_type$=bmm_billoper.line_type$
 
 		if sfe_wooprtn.line_type$="M"
@@ -1010,7 +1012,6 @@ do_operations:
 no_prev_ops_key:
 		sfe_wooprtn.op_seq$=str(num(sfe_wooprtn.op_seq$)+1:op_seq_mask$)
 
-		sfe_wooprtn.wo_op_ref$=""
 		nextOpRef=num(sfe_wooprtn.op_seq$)
 		while cvs(sfe_wooprtn.wo_op_ref$,2)=""
 			rem --- With 6 digit wo_op_ref, would need 1,000,000 operations to create an endless loop
@@ -1073,6 +1074,7 @@ do_subcontracts:
 		if ok$="N" then continue
 
 		sfe_wosubcnt.require_date$=sfe_womastr.opened_date$
+		sfe_wosubcnt.wo_ref_num$=bmm_billsub.wo_ref_num$
 		sfe_wosubcnt.vendor_id$=bmm_billsub.vendor_id$
 		sfe_wosubcnt.line_type$=bmm_billsub.line_type$
 
