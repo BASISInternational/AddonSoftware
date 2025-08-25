@@ -146,3 +146,14 @@ in Edit Mode in order to enable the "Auto Ref No" button.
 Modified: data/bar/sfe_womatl.xml
 Modified: data/cdf/sfe_womatl.cdf
 =======================================================================================================================================
+
+Revision: f75190fbca433496761efcc2a8fa5930ba9e84af
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/25/2025 4:16:01 PM
+Message:
+Bug 11096: Initialized WO_REF_NUM in SFE_WOMATL and SFE_WOSUBCNT, and
+WO_OP_REF in SFE_WOOPRTN with the corresponding fields in BM.
+----
+Modified: data/bar/sfe_womatl.xml
+Modified: data/cdf/sfe_womatl.cdf
+=======================================================================================================================================
