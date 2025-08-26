@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<barista_record_table>ADS_MASKS</barista_record_table>
+<barista_admin_records>
+	<barista_record>
+		<FIRM_ID>01</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>A</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>#,###,##0.00-</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>#,###,##0.00-</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>01</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>I</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>UU-UUUU</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>UU-UUUU</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>01</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>Q</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>##</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>##</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>01</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>R</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>###.000-</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>###.000-</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>01</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>U</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>##,##0-</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>##,##0-</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>02</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>A</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>#,###,##0.00-</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>#,###,##0.00-</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>02</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>I</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>UU-UUUU</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>UU-UUUU</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>02</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>R</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>##0.000-</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>##0.000-</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>02</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>U</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>##,##0-</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>##,##0-</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>ZZ</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>A</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>#,###,##0.00-</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>#,###,##0.00-</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>ZZ</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>I</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>UU-UUUU</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>UU-UUUU</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>ZZ</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>Q</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>##</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>##</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>ZZ</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>R</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>###.000-</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>###.000-</DD_ATTR_MSKO>
+	</barista_record>
+	<barista_record>
+		<FIRM_ID>ZZ</FIRM_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_MASK_TYPE>U</DD_MASK_TYPE>
+		<DD_ATTR_MSKI>##,##0-</DD_ATTR_MSKI>
+		<DD_ATTR_MSKO>##,##0-</DD_ATTR_MSKO>
+	</barista_record>
+</barista_admin_records>

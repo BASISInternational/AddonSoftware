@@ -2,16 +2,34 @@
 <barista_record_table>ADS_MESSAGES</barista_record_table>
 <barista_admin_records>
 	<barista_record>
-		<MSG_ID>BM_KIT_NOT_OPER_SUB </MSG_ID>
+		<MSG_ID>BILL_EXISTS         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>BM </ASC_PROD_ID>
+		<MSG_TEXT>This Bill already exists.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>BM_BAD_COMP_ITEM    </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
 		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>BM </ASC_PROD_ID>
-		<MSG_TEXT>Item %1 is a kit, and BOMs for kits cannot include operations or subcontracts.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>Item Number May Not Be The Same As The Bill Number.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>BM_EFF_OBS          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>BM </ASC_PROD_ID>
+		<MSG_TEXT>Obsolete Date must be blank or greater than the Effective Date.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
 	</barista_record>
 	<barista_record>
 		<MSG_ID>BM_KIT_NOT_LOTSER   </MSG_ID>
@@ -26,6 +44,49 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
+		<MSG_ID>BM_KIT_NOT_OPER_SUB </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>BM </ASC_PROD_ID>
+		<MSG_TEXT>Item %1 is a kit, and BOMs for kits cannot include operations or subcontracts.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>BM_OBS_EFF          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>BM </ASC_PROD_ID>
+		<MSG_TEXT>Effective Date must be blank or less than the Obsolete Date.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>BM_OPCODE_USED      </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>BM </ASC_PROD_ID>
+		<MSG_TEXT>This Operation Code is being used by a Bill and cannot be deleted.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>BM_RUN_VALUATION    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>BM </ASC_PROD_ID>
+		<MSG_TEXT>This update will modify Inventory Unit Costs. [$0a$][$0a$]You should run an Inventory Valuation Report before [$0a$]and after the update and make note of any change in valuation.[$0a$][$0a$]Run BOM Costing Report to view a report of what will be updated.[$0a$][$0a$]Continue with update of Inventory Item Costs?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
+	</barista_record>
+	<barista_record>
 		<MSG_ID>BM_UPDATE_COST      </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>4</MSG_TYPE>
@@ -36,5 +97,26 @@
 		<ASC_PROD_ID>BM </ASC_PROD_ID>
 		<MSG_TEXT>Update the inventory item unit cost for this BOM?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>DIVISOR_NOT_ZERO    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>BM </ASC_PROD_ID>
+		<MSG_TEXT>Divisor must not be zero.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>NOT_UPDT_INV_LS_ITEM</MSG_ID>
+		<MSG_TITLE>Cannot Update This Item</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>BM </ASC_PROD_ID>
+		<MSG_TEXT>Cannot update inventoried lotted/serialed items.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
 	</barista_record>
 </barista_admin_records>

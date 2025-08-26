@@ -2,42 +2,6 @@
 <barista_record_table>ADS_MESSAGES</barista_record_table>
 <barista_admin_records>
 	<barista_record>
-		<MSG_ID>INVALID_CREDIT_CARD </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>This credit card number is not valid. Please re-enter it.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AR_FIX_PAYAUTHEMAIL </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>4</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>Y;N</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>The Online Pay Auth Email address does NOT match the ARS_CC_CUSTPMT Report Control Recipients email-to address for this customer.[$0a$][$0a$]Do you want to change the Online Pay Auth Email address to match?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>CONF_CC_PAYMENT     </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>4</MSG_TYPE>
-		<MSG_ICON>32</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>Y;N</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>Do you want to process this credit card payment for %1?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
 		<MSG_ID>AGE_CREDITS         </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
@@ -50,7 +14,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>FUTURE_AGING        </MSG_ID>
+		<MSG_ID>AGE_INFO_NOT_AVAIL  </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
@@ -58,102 +22,18 @@
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>Future Aging is required to update the Customer.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>Last aging date and type not available. Run Aging Report to update customer aging summary.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AR_BAD_ENTITY_CD    </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
+		<MSG_ID>AR_ACCEPT_CC_PARAMS </MSG_ID>
+		<MSG_TITLE>Accept Credit Card Parameters</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>Invalid Entity Use code entered: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AR_ENTITY_CD_EXISTS </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>Cannot use standard Entity Use code: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>PER_30_REQUIRED     </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>Fixed Periods of %1 days each are required when updating the Customer.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>MIN_MAX_AGE_PER_SIZE</MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>This aging period size must be at least %1, but not greater than %2.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AR_CUST_AGING_REQ   </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>Default aging periods (%1, %2, %3 and %4), Future Aging and Aging Credits are required when updating the Customer.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AR_NEED_AGING_UPDATE</MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>3</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>Y;N;C</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>The Age Transactions task needs to be run after changing the Aging Bucket Days.[$0a$]Do you want to age transactions now?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AR_INV_NOT_FND      </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>0</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>Simple Invoice not found: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AR_DEPOSIT_STATUS_R </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O:UPDT_OVERRIDE</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>This deposit is currently on the Cash Receipts Register,[$0a$]and cannot be used.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
+		<MSG_TEXT>Credit Card Parameters for this Cash Receipt Code set to accept credit cards will also be inactivated.  Do you want to continue?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -193,16 +73,296 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AR_ACCEPT_CC_PARAMS </MSG_ID>
-		<MSG_TITLE>Accept Credit Card Parameters</MSG_TITLE>
+		<MSG_ID>AR_BAD_ENTITY_CD    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Invalid Entity Use code entered: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_CHK_EXISTS       </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Operation not permitted on existing transaction.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_CODE_INACTIVE    </MSG_ID>
+		<MSG_TITLE>CASH CODE INACTIVE</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Cash Receipt Code is inactive.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_CREDIT_BALANCE   </MSG_ID>
+		<MSG_TITLE>Created Credit Balance</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>You have created a credit balance. If this is unintentional,[$0a$]adjust the Applied or Disc Amt values.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_CUSTNO_MAX       </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Number of characters in Customer Number cannot exceed %1.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_CUST_AGING_REQ   </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Default aging periods (%1, %2, %3 and %4), Future Aging and Aging Credits are required when updating the Customer.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_CUST_INACTIVE    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Customer %1 - %2 is Set as an Inactive Customer![$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_CUST_SEQ         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>You need to set up a Sequence Number record for CUSTOMER_ID in the Administration Menu before you can auto-number customers.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_CUST_TYPE_IN_DFLT</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This customer type is being used as a new customer default and cannot be deleted.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_CYCLE_CD_IN_DFLT </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This cycle code is being used as a new customer default and cannot be deleted.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DEL_FIN_CHRG     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Do you want to remove all generated and entered finance charges?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DEL_INV          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>4</MSG_TYPE>
 		<MSG_ICON>32</MSG_ICON>
 		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
 		<MSG_CODES>Y;N</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>Credit Card Parameters for this Cash Receipt Code set to accept credit cards will also be inactivated.  Do you want to continue?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+		<MSG_TEXT>Do you wish to permanently remove all zero balance invoices through %1 ?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DEPOSIT_AMT_BAD  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>7</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_DISPLAY>Change Deposit; Edit Cash Receipts; Leave As-Is</MSG_DISPLAY>
+		<MSG_CODES>C;E;L</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>The deposit amount (%1) must equal the total of the receipt payments in the deposit (%2).[$0a$]Do you want to Change Deposit amount, Edit Cash Receipts, or Leave As-Is?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DEPOSIT_BANK_REC </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This deposit is currently being used in Bank Reconciliation Other Transactions.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DEPOSIT_BATCH_BAD</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Deposit %1 belongs batch %2, and must be used there.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DEPOSIT_HAS_RCPTS</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Cannot delete this Deposit. It includes existing cash receipts.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DEPOSIT_NO_RCPTS </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>There are currently no cash receipts in this deposit.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DEPOSIT_STATUS_R </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O:UPDT_OVERRIDE</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This deposit is currently on the Cash Receipts Register,[$0a$]and cannot be used.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DEPOSIT_STATUS_U </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This deposit has already been through the Cash Receipts Register update,[$0a$]and cannot be used again.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DEPOSIT_USED     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This Deposit Number has already been used, and cannot be used again.[$0a$]Do you want to assign a new Deposit Number?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DEPOSIT_WRONG    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This cash receipt is not in the current deposit %1.[$0a$]To edit this cash receipt, switch to deposit %2.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DISTITEM_ERR     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Cannot Distribute by Item unless Inventory application is installed.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_DIST_CODE_IN_DFLT</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This distribution code is being used as a new customer default and cannot be deleted.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_ENTITY_CD_EXISTS </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Cannot use standard Entity Use code: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_FIX_PAYAUTHEMAIL </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>The Online Pay Auth Email address does NOT match the ARS_CC_CUSTPMT Report Control Recipients email-to address for this customer.[$0a$][$0a$]Do you want to change the Online Pay Auth Email address to match?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_GL_ERR           </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Missing valid GL Account, or trying to post zero amount.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
 	</barista_record>
 	<barista_record>
 		<MSG_ID>AR_INACTIVE_OPTION  </MSG_ID>
@@ -217,6 +377,207 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
+		<MSG_ID>AR_INV_ADJ          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Outstanding Invoice(s) exist.  Create an adjustment?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_INV_NO           </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Invalid Invoice Number.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_INV_NOT_FND      </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>0</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Simple Invoice not found: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_INV_REG          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Run the Invoice Register?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_INV_TYPE         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Invalid Invoice Type; enter S for Sale, R for Return, or F for Finance Charge.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_INV_USED         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This Invoice number already exists for this customer.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_NEED_AGING_UPDATE</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>3</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N;C</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>The Age Transactions task needs to be run after changing the Aging Bucket Days.[$0a$]Do you want to age transactions now?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_NEG_BAL          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>One or more invoices contain negative balances.  Click Yes to update anyway, or No to resume posting.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_NEG_CHK          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Cannot use Auto-Select for negative transaction.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_NOT_BNKREC_CASHCD</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>The GL cash account for this cash receipt code[$0a$]is not set up in Bank Reconciliation.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_NOT_DIST         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>7</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_DISPLAY>Correct;On Account</MSG_DISPLAY>
+		<MSG_CODES>N;O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This check isn't fully distributed.  Do you wish to correct or[$0a$]put the balance On Account?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_NO_BAL           </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>There is no balance left to apply.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_NO_CHKS          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>There are no checks, on-accounts or credit memos displayed.  Enter a new check, or click the 'Include OA/CM' check box.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_NO_GL            </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This feature not available unless General Ledger is installed.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_NO_UPDT_CSHRCPT  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>The Cash Receipt Register cannot be updated when a deposit amount[$0a$]is not equal to the total of the receipt payments in the deposit.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_PARAM_ERR        </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Please set up the AR System Parameters before continuing.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_POST_GL          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Do you want to post to the General Ledger when this register is updated ?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_REQ_DATA         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Missing required data.  Please fill in customer and check information.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+	</barista_record>
+	<barista_record>
 		<MSG_ID>AR_REVIEW_CC_PARAMS </MSG_ID>
 		<MSG_TITLE>Review CC Params ReActivate</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
@@ -229,15 +590,178 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AR_CODE_INACTIVE    </MSG_ID>
-		<MSG_TITLE>CASH CODE INACTIVE</MSG_TITLE>
+		<MSG_ID>AR_SALESPSN_IN_DFLT </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
 		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AR </ASC_PROD_ID>
-		<MSG_TEXT>Cash Receipt Code is inactive.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
+		<MSG_TEXT>This sales person is being used as a new customer default and cannot be deleted.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_TERM_IN_DFLT     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This terms code is being used as a customer default and cannot be deleted[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_TERM_IN_USE      </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This terms code is being used by a customer and cannot be deleted[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_TERR_CODE_IN_DFLT</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This territory code is being used as a new customer default and cannot be deleted.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AR_VOID_INV         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This is a voided invoice.  Would you like to reuse it?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>BANK_OOB            </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>1</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This account is *** %1 *** by %2.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>BO_EXCEEDS_ORD      </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Backorder Quantity exceeds Order Quantity.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>CONF_CC_PAYMENT     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Do you want to process this credit card payment for %1?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>CONVERT_QUOTE       </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Do you wish to convert this Quote to an Order?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>FIXED_PERIODS       </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Fixed Periods are required to update the Customer.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>FUTURE_AGING        </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Future Aging is required to update the Customer.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>INVALID_CREDIT_CARD </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This credit card number is not valid. Please re-enter it.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>MIN_MAX_AGE_PER_SIZE</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>This aging period size must be at least %1, but not greater than %2.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>MISSING_SEQ         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>You need to enter a sequence number for this message.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>PER_30_REQUIRED     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Fixed Periods of %1 days each are required when updating the Customer.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>REMOVE_PAID         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<MSG_TEXT>Do you want to remove all paid transactions?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
 	</barista_record>
 </barista_admin_records>

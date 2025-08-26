@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<barista_record_table>ADS_MESSAGES</barista_record_table>
+<barista_admin_records>
+	<barista_record>
+		<MSG_ID>INVALID_SA          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>SA </ASC_PROD_ID>
+		<MSG_TEXT>Sales Analysis by %1 has not been defined[$0a$]in the Sales Analysis Parameters.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>INVALID_SA_LEVEL    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>SA </ASC_PROD_ID>
+		<MSG_TEXT>You have selected an invalid Level[$0a$]based on the Sales Analysis Parameters.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>SA_PARAM_ERR        </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>SA </ASC_PROD_ID>
+		<MSG_TEXT>You must enter a Detail Level for each selected Option.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>SA_PRIOR_INVALID    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>SA </ASC_PROD_ID>
+		<MSG_TEXT>You cannot use Prior YTD by itself. You must select[$0a$]MTD and/or YTD as well.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>SA_REBUILD          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>SA </ASC_PROD_ID>
+		<MSG_TEXT>This utility will generate Sales Analysis for the current Firm in the   [$0a$]selected S/A files using your existing Invoice History. It is recommended[$0a$]that you purge existing Sales Analysis prior to running this program,   [$0a$]or your Sales Analysis data may be duplicated.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
+	</barista_record>
+</barista_admin_records>

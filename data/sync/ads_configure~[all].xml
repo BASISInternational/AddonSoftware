@@ -2,25 +2,45 @@
 <barista_record_table>ADS_CONFIGURE</barista_record_table>
 <barista_admin_records>
 	<barista_record>
-		<CONFIG_ID>GATEWAY_AUTH    </CONFIG_ID>
-		<DESCRIPTION>Encryption for Payment Gateway</DESCRIPTION>
-		<CONFIG_VALUE>9A871911655B15DDCB2746188142A7CBCBD476956CC258D878EAD290F2C844BA</CONFIG_VALUE>
-		<COMMENTS>Used to encrypt/decrypt login credentials for credit card payment gateways (Authorize.net, PayPal, etc.).[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                      </COMMENTS>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<CONFIG_ID>SLSTAXSVC_AUTH  </CONFIG_ID>
-		<DESCRIPTION>Encryption for Sales Tax Svc</DESCRIPTION>
-		<CONFIG_VALUE>C5DF3DBE4CB7BAB3C323597E64B7A636B50B7BAD3A6814A6657C7F7B911CBA1E</CONFIG_VALUE>
-		<COMMENTS>Used to encrypt/decrypt login credentials for sales tax services (AvaTax, etc.).[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                               </COMMENTS>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<CONFIG_ID>BANK_ACCT_AUTH  </CONFIG_ID>
-		<DESCRIPTION>Encryption for Bank Acct No</DESCRIPTION>
+		<CONFIG_ID>+EMAIL_PASSWORD </CONFIG_ID>
+		<DESCRIPTION>Email Password</DESCRIPTION>
 		<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
-		<CONFIG_VALUE>8CFD051760A98428A6B7A0F0FA92B130FB356C76AA0B914DB0F2E9EC386B0F35</CONFIG_VALUE>
-		<COMMENTS>For GL and AP Bank Accts[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </COMMENTS>
+		<COMMENTS>User password for Document Processing Queue configuration.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>+EMAIL_USER_ID  </CONFIG_ID>
+		<DESCRIPTION>Email Account User ID</DESCRIPTION>
+		<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
+		<COMMENTS>User ID for Document Processing Queue configuration.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>+MAIL_ACCT      </CONFIG_ID>
+		<DESCRIPTION>Error report email account</DESCRIPTION>
+		<COMMENTS>Optional email account to use for sending error reports.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>+MAIL_HOST      </CONFIG_ID>
+		<DESCRIPTION>SMTP Mail Host</DESCRIPTION>
+		<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
+		<COMMENTS>SMTP mail host for send email without using Outlook.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>+MAIL_PASS      </CONFIG_ID>
+		<DESCRIPTION>SMTP Mail Password</DESCRIPTION>
+		<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
+		<COMMENTS>If applicable, used to gain access to the smtp mail host.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>+MAIL_USER      </CONFIG_ID>
+		<DESCRIPTION>SMTP Mail User</DESCRIPTION>
+		<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
+		<COMMENTS>If applicable, used to gain access to the smtp mail host.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>+PASSREQ_TIMOUT </CONFIG_ID>
+		<DESCRIPTION>Password Request Timeout</DESCRIPTION>
+		<CONFIG_VALUE>39E5CA4D870FBB9BC89F0E20C5060709</CONFIG_VALUE>
+		<COMMENTS>Online password request timeout for customer payment portal. Configuration value is in number of days, and should be a positive integer. Used to see if a password request has expired and if it should be deleted from ARC_CC_PWDREQ.[$0a$]                                                                                                                                                                                                                                                                                         </COMMENTS>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -32,10 +52,72 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<CONFIG_ID>+PASSREQ_TIMOUT </CONFIG_ID>
-		<DESCRIPTION>Password Request Timeout</DESCRIPTION>
-		<CONFIG_VALUE>39E5CA4D870FBB9BC89F0E20C5060709</CONFIG_VALUE>
-		<COMMENTS>Online password request timeout for customer payment portal. Configuration value is in number of days, and should be a positive integer. Used to see if a password request has expired and if it should be deleted from ARC_CC_PWDREQ.[$0a$]                                                                                                                                                                                                                                                                                         </COMMENTS>
+		<CONFIG_ID>+REPORT_USER_ID </CONFIG_ID>
+		<DESCRIPTION>User ID for Addon reports</DESCRIPTION>
+		<CONFIG_VALUE>022EB1C6E5CD9DFAF82CB0648F887715</CONFIG_VALUE>
+		<COMMENTS>Make sure this User ID exists in Enterprise Manager. It is the User ID used to generate Addon reports and dashboard.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                           </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>+REPORT_USER_PWD</CONFIG_ID>
+		<DESCRIPTION>Report User Password</DESCRIPTION>
+		<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
+		<COMMENTS>Make sure this password is used for the +REPORT_USER_ID user in Enterprise Manager. It is the password for the User ID used to generate Addon reports and dashboard.[$0a$]                                                                                                                                                                                                                                                                                                                                                           </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>BANK_ACCT_AUTH  </CONFIG_ID>
+		<DESCRIPTION>Encryption for Bank Acct No</DESCRIPTION>
+		<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
+		<CONFIG_VALUE>8CFD051760A98428A6B7A0F0FA92B130FB356C76AA0B914DB0F2E9EC386B0F35</CONFIG_VALUE>
+		<COMMENTS>For GL and AP Bank Accts[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </COMMENTS>
 		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>BARISTA_COMP    </CONFIG_ID>
+		<DESCRIPTION>Barista ASC Company</DESCRIPTION>
+		<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
+		<CONFIG_VALUE>ABFCDB20792460BD64A493A0C2A84B22</CONFIG_VALUE>
+		<COMMENTS>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>BAR_CREDIT_CARD </CONFIG_ID>
+		<DESCRIPTION>Default Credit Card Encryption</DESCRIPTION>
+		<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
+		<CONFIG_VALUE>D33A02BBD99548D1A4D3A28B8D6222F8E18EA94EEC74CADEA4CFB44A2CEC23EFC0D9E9F3C837A2B1D00C57C1DBBDC0CD</CONFIG_VALUE>
+		<COMMENTS>Used by Barista to encrypt/decrypt credit card information.  It is strongly suggested a new configuration record with a different value be created for this purpose.[$0a$]                                                                                                                                                                                                                                                                                                                                                           </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>GATEWAY_AUTH    </CONFIG_ID>
+		<DESCRIPTION>Encryption for Payment Gateway</DESCRIPTION>
+		<CONFIG_VALUE>9A871911655B15DDCB2746188142A7CBCBD476956CC258D878EAD290F2C844BA</CONFIG_VALUE>
+		<COMMENTS>Used to encrypt/decrypt login credentials for credit card payment gateways (Authorize.net, PayPal, etc.).[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                      </COMMENTS>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>ISSUE_AUTH      </CONFIG_ID>
+		<DESCRIPTION>Authorization for memory dump</DESCRIPTION>
+		<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
+		<CONFIG_VALUE>5B23872F262DF92CDA662986E36483A0</CONFIG_VALUE>
+		<COMMENTS>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>PASSWORD_USER   </CONFIG_ID>
+		<DESCRIPTION>User Password Configuration</DESCRIPTION>
+		<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
+		<CONFIG_VALUE>3A345637839FEFBEB405F842B20AB86DE655BD34D972C8837CCCBD76313D3F19BEE24436658C1B1D31AA3027EB37EDDE</CONFIG_VALUE>
+		<COMMENTS>This record contains the password used when encrypting/decrypting user PASSWORD element.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                       </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>SLSTAXSVC_AUTH  </CONFIG_ID>
+		<DESCRIPTION>Encryption for Sales Tax Svc</DESCRIPTION>
+		<CONFIG_VALUE>C5DF3DBE4CB7BAB3C323597E64B7A636B50B7BAD3A6814A6657C7F7B911CBA1E</CONFIG_VALUE>
+		<COMMENTS>Used to encrypt/decrypt login credentials for sales tax services (AvaTax, etc.).[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                               </COMMENTS>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<CONFIG_ID>UPDT_OVERRIDE   </CONFIG_ID>
+		<DESCRIPTION>Allows override processing</DESCRIPTION>
+		<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
+		<CONFIG_VALUE>66B2CA33C5B9AC80B30AC485A8CD00AD</CONFIG_VALUE>
+		<COMMENTS>Replaces legacy 'SPECIAL' override in Addon.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </COMMENTS>
 	</barista_record>
 </barista_admin_records>
