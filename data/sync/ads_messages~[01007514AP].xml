@@ -2,6 +2,169 @@
 <barista_record_table>ADS_MESSAGES</barista_record_table>
 <barista_admin_records>
 	<barista_record>
+		<MSG_ID>1099_EXPORT_NOTE    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>This task will export PAYER data for firm %1 to:      [$0a$]%2                                                    [$0a$]and Form 1099 vendor data for firm %1 to:             [$0a$]%3                                                    [$0a$]                                                      [$0a$]Existing files will be overwritten. Continue?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_1099_CLS         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>This task will roll Vendor Calendar YTD Summaries from the current to the prior year.[$0a$]You will not be able to print 1099 Forms for %1 after this task has been run.[$0a$]Do you want to continue ?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_1099_PHONE       </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Company phone number is required.  Use AP Report Parameter Maintenance to enter the number.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_1099_REMINDER    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>The current 1099 year is %1. Don't forget to close it.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_ACHCHK_NOT_UPDTED</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Cannot delete Bank Account Code. There are ACH Payments in Check Register that have not been updated.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_ACH_DATE_SATSUN  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>The ACH Effective Date cannot be a Saturday or Sunday.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_ADJUST_DISC_DT   </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Adjust the Discount Date for this invoice?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_BAD_DIST_CD      </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Invoice %1 distribution code's (%2) GL Cash Account (%3) must use in Bank Reconciliation[$0a$]the same Bank Account Code (%4) used by the selected Checking Account.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_CCID_ACTIVE      </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Credit Card ID %1 is currently in use for AP Invoice %2.[$0a$]It cannot be deleted, or marked Inactive, at this time.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_CC_ID            </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>The Credit Card ID must start with the letter "C".[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_CC_INV_USED      </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Invoice %1 is already used by the credit card vendor %2 in the %3 table.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_CHANGE_ACH       </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Cannot change ACH Payment Type while this vendor has ACH non-negotiable checks waiting to be updated.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_CHANGE_PAY_AUTH  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Cannot change Payment Authorization parameters at this time.[$0a$]Invoices have already been selected for payment.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_CHECKS           </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Please mount Accounts Payable Checks for %1.  Click OK when ready.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+	</barista_record>
+	<barista_record>
 		<MSG_ID>AP_CHECK_NUM_USED   </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>1</MSG_TYPE>
@@ -14,7 +177,63 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_PAYSELECT_EXIT   </MSG_ID>
+		<MSG_ID>AP_CHECK_SELECT     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>1</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Would you like to print the Payment Selection Report?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_CHG_MTYPE_PARAM  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>1</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>O;C</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>WARNING - Changing this setting will prevent access to current and historical invoice records.[$0a$]Consult with your dealer about the option to update the existing records to the new format.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_CHKS_PRINTING    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>LK</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O;UPDT_OVERRIDE</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Checks are currently printing for this firm. [$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_DELETE_MANCHK    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>This check has been printed, and cannot be deleted. Instead, it must be voided.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_DEL_REPL         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>This Buyer/Vendor referenced in Inventory -- cannot delete.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_DISCARD_ACH      </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>4</MSG_TYPE>
 		<MSG_ICON>32</MSG_ICON>
@@ -22,8 +241,223 @@
 		<MSG_CODES>Y;N</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Abandon your changes?[$0a$]If you close the form you will lose any changes you have made.[$0a$][$0a$]Click Yes to exit Payment Selection and abandon all of your changes.[$0a$]Click No to return to Payment Selection and exit via the green Run Process arrow when you are satisfied with your changes.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+		<MSG_TEXT>Would you like to discard these ACH Settings?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_DIST_CD_USED     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Cannot delete this Distribution Code. It is currently used in the following tables: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_DUPE_INV         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>This Invoice is already selected to be paid. Either select a different Invoice, or delete this row and modify the existing Invoice being paid.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_EARLY_ACH_DATE   </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>The ACH Effective Date cannot be before the Check Date.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_EDIT_PURCH_HIST  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O;UPDT_OVERRIDE</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Password required to edit Purchase History.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_EXT_INV          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Note -- this invoice is not in the Open Invoice file.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_IMAGE_LIMIT      </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Exceeded maximum allowed images.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INVIMAGE_UPLOADED</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Invoice image uploaded successfully.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INVOICEWRITE     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Mandatory data has not been entered, or the AP Type doesn't exist for the Vendor.[$0a$]This invoice cannot be saved.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INVOICE_PAID     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Note -- this invoice has been fully paid.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INVOICE_SKIPPED  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Invoices were skipped and NOT paid with this checking account.[$0a$]See the Payment Selection Report for details. [$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INV_HOLD         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Cannot pay an invoice that is on hold.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INV_HOLD2        </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Invoice %1 is on hold and cannot be paid at this time.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INV_IN_DTL_GRID  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Invoice %1 has already been entered for this check. It is already in the invoice detail grid.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INV_IN_MANCHCK   </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Invoice %1 for vendor %2 is in use in Manual Check Entry for check %3, and will be skipped here.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INV_IN_USE       </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>This invoice is already in the %1 table.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INV_NOT_SAVED    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Invoice not saved.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INV_ON_CHK_REGSTR</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Invoice %1 is already being paid by a check currently in the computer Check Register.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INV_PAY_APPVD    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Do you want to approve %1 for payment?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INV_PAY_REVWD    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Do you want to mark %1 as reviewed and ready for further approvals?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
 	</barista_record>
 	<barista_record>
 		<MSG_ID>AP_INV_PAY_REVW_APPV</MSG_ID>
@@ -50,7 +484,18 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_REVERSE_ACH      </MSG_ID>
+		<MSG_ID>AP_INV_PUR          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>All zero balance invoices and related checks through %1 will be removed. [$0a$]Do you wish to proceed with this purge?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_INV_RMVHOLD      </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>4</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
@@ -58,11 +503,10 @@
 		<MSG_CODES>Y;N</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>This is an open ACH payment.  Create reversal?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>This invoice is on hold. Click Yes to pay it anyway, or No to cancel.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_REQUIRED_FOR_ACH </MSG_ID>
+		<MSG_ID>AP_INV_SEL_HOLD     </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
@@ -70,43 +514,18 @@
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>%1 is required for ACH payments.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>One or more invoices in the selection is on hold and will not be paid. To pay held invoices, select them individually.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_CHANGE_ACH       </MSG_ID>
+		<MSG_ID>AP_MANCHKWRITE      </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
+		<MSG_ICON>16</MSG_ICON>
 		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Cannot change ACH Payment Type while this vendor has ACH non-negotiable checks waiting to be updated.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AP_ACHCHK_NOT_UPDTED</MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Cannot delete Bank Account Code. There are ACH Payments in Check Register that have not been updated.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AP_CHANGE_PAY_AUTH  </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Cannot change Payment Authorization parameters at this time.[$0a$]Invoices have already been selected for payment.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>Mandatory data has not been entered, or the AP Type doesn't exist for the Vendor.[$0a$]This record cannot be saved.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
 	</barista_record>
 	<barista_record>
 		<MSG_ID>AP_MULTI_CHK_ACCTS  </MSG_ID>
@@ -119,6 +538,51 @@
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
 		<MSG_TEXT>Invoices are being paid from multiple checking accounts.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_NEGATIVE_CHK     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Negative checks are not allowed.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_NOBAL            </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Amount distributed to GL doesn't match invoice amount![$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_NOPO             </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Purchase Order Processing system must be installed to access this feature.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_NOREPLEN         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Cannot access replenishment information unless Inventory is installed.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
 	</barista_record>
 	<barista_record>
 		<MSG_ID>AP_NOT_BANK_REC     </MSG_ID>
@@ -145,66 +609,18 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_INVOICE_SKIPPED  </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Invoices were skipped and NOT paid with this checking account.[$0a$]See the Payment Selection Report for details. [$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AP_DIST_CD_USED     </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Cannot delete this Distribution Code. It is currently used in the following tables: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AP_RETAIN_PAY_APPROV</MSG_ID>
+		<MSG_ID>AP_NOT_DIST         </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>4</MSG_TYPE>
-		<MSG_ICON>32</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Retain current invoice payment approvals?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AP_EDIT_PURCH_HIST  </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>64</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O;UPDT_OVERRIDE</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Password required to edit Purchase History.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>1099_EXPORT_NOTE    </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>4</MSG_TYPE>
-		<MSG_ICON>32</MSG_ICON>
+		<MSG_ICON>48</MSG_ICON>
 		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
 		<MSG_CODES>Y;N</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>This task will export PAYER data for firm %1 to:      [$0a$]%2                                                    [$0a$]and Form 1099 vendor data for firm %1 to:             [$0a$]%3                                                    [$0a$]                                                      [$0a$]Existing files will be overwritten. Continue?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>Current Invoice not fully distributed.  Click Yes to update anyway, No to resume entry.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_INV_ON_CHK_REGSTR</MSG_ID>
+		<MSG_ID>AP_NO_INV_INQ       </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
@@ -212,32 +628,39 @@
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Invoice %1 is already being paid by a check currently in the computer Check Register.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+		<MSG_TEXT>You can only view/select Open Invoices for a Manual Check, not for Reversals and/or Voids.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_NO_PAY_SELECT    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>No invoice selected. Done with this task?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_INV_IN_DTL_GRID  </MSG_ID>
+		<MSG_ID>AP_NO_SELECT        </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>64</MSG_ICON>
+		<MSG_ICON>48</MSG_ICON>
 		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Invoice %1 has already been entered for this check. It is already in the invoice detail grid.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>With the 'Print Checks in AP Type Sequence' parameter set, you[$0a$]are not allowed to select Invoices for more than one A/P Type.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_INV_HOLD2        </MSG_ID>
+		<MSG_ID>AP_NO_TYPE_OR_VENDOR</MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>64</MSG_ICON>
+		<MSG_ICON>48</MSG_ICON>
 		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Invoice %1 is on hold and cannot be paid at this time.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>You must enter an AP Type and Vendor ID before searching Open Invoices[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
 	</barista_record>
 	<barista_record>
 		<MSG_ID>AP_ONE_INV_PER_CHK  </MSG_ID>
@@ -252,7 +675,18 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_BAD_DIST_CD      </MSG_ID>
+		<MSG_ID>AP_OPEN_CHK         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>This check is either a void or reversal.  Would you like to re-use this check number?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_PARAM_ERR        </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
@@ -260,30 +694,29 @@
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Invoice %1 distribution code's (%2) GL Cash Account (%3) must use in Bank Reconciliation[$0a$]the same Bank Account Code (%4) used by the selected Checking Account.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>Please set up the AP System Parameters before continuing.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_INV_IN_MANCHCK   </MSG_ID>
+		<MSG_ID>AP_PAYAUTH_EMAIL    </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>64</MSG_ICON>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
 		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Invoice %1 for vendor %2 is in use in Manual Check Entry for check %3, and will be skipped here.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>%1 Would you like to send the notice email to the approvers?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_DELETE_MANCHK    </MSG_ID>
+		<MSG_ID>AP_PAYSELECT_EXIT   </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>This check has been printed, and cannot be deleted. Instead, it must be voided.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+		<MSG_TEXT>Abandon your changes?[$0a$]If you close the form you will lose any changes you have made.[$0a$][$0a$]Click Yes to exit Payment Selection and abandon all of your changes.[$0a$]Click No to return to Payment Selection and exit via the green Run Process arrow when you are satisfied with your changes.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -299,63 +732,60 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_VEND_PAYTO       </MSG_ID>
+		<MSG_ID>AP_REQUIRED_FOR_ACH </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>4</MSG_TYPE>
-		<MSG_ICON>64</MSG_ICON>
-		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
-		<MSG_CODES>Y;N</MSG_CODES>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>This vendor's master address is also their current pay-to address.[$0a$]Do you want to change this vendor's pay-to address?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+		<MSG_TEXT>%1 is required for ACH payments.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_DISCARD_ACH      </MSG_ID>
+		<MSG_ID>AP_RETAIN_PAY_APPROV</MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>4</MSG_TYPE>
 		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Retain current invoice payment approvals?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_REUSE_ERR        </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Warning - you can only create a reversal on an open manual or computer check![$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_REVERSE          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
 		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
 		<MSG_CODES>Y;N</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Would you like to discard these ACH Settings?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>This is an open computer or manual check.  Create reversal?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_NEGATIVE_CHK     </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Negative checks are not allowed.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AP_RUN_PAY_SELECTION</MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Run the Payment Selection Report to identify the source of the negative check.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AP_NO_PAY_SELECT    </MSG_ID>
+		<MSG_ID>AP_REVERSE_ACH      </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>4</MSG_TYPE>
-		<MSG_ICON>64</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
 		<MSG_CODES>Y;N</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>No invoice selected. Done with this task?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+		<MSG_TEXT>This is an open ACH payment.  Create reversal?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -371,7 +801,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_CC_ID            </MSG_ID>
+		<MSG_ID>AP_RUN_PAY_SELECTION</MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
@@ -379,11 +809,11 @@
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>The Credit Card ID must start with the letter "C".[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+		<MSG_TEXT>Run the Payment Selection Report to identify the source of the negative check.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>AP_CCID_ACTIVE      </MSG_ID>
+		<MSG_ID>AP_VEND_ACTIVE      </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
@@ -391,56 +821,7 @@
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Credit Card ID %1 is currently in use for AP Invoice %2.[$0a$]It cannot be deleted, or marked Inactive, at this time.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AP_CC_INV_USED      </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Invoice %1 is already used by the credit card vendor %2 in the %3 table.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AP_ADJUST_DISC_DT   </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>4</MSG_TYPE>
-		<MSG_ICON>32</MSG_ICON>
-		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
-		<MSG_CODES>Y;N</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>Adjust the Discount Date for this invoice?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AP_EARLY_ACH_DATE   </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>The ACH Effective Date cannot be before the Check Date.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AP_ACH_DATE_SATSUN  </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AP </ASC_PROD_ID>
-		<MSG_TEXT>The ACH Effective Date cannot be a Saturday or Sunday.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>Cannot delete -- this vendor is active/referenced elsewhere.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
 	</barista_record>
 	<barista_record>
 		<MSG_ID>AP_VEND_ADDR_LIMIT  </MSG_ID>
@@ -453,5 +834,92 @@
 		<ASC_PROD_ID>AP </ASC_PROD_ID>
 		<MSG_TEXT>Address field lengths limited by Addon Version 6 Purchase Order. [$0a$]For larger address fields for Payment Processing, setup a Vendor Pay-To Address.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_VEND_BAD_APTYPE  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Vendor not set up for this AP Type.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_VEND_HOLD        </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Cannot pay a Vendor that is on Invoice Hold.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_VEND_INACTIVE    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Vendor %1 - %2 is Set as an Inactive Vendor![$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>AP_VEND_PAYTO       </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>This vendor's master address is also their current pay-to address.[$0a$]Do you want to change this vendor's pay-to address?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>CHECKS_IN_PROGRESS  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O;UPDT_OVERRIDE</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Check printing already in progress.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>CLEAR_SEL           </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Do You Wish To Clear All Previous Selections?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>NEG_CHECKS_ON_RPT   </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>There are negative Checks on this report.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>PAYAUTH_PARAM_ERR   </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AP </ASC_PROD_ID>
+		<MSG_TEXT>Please set up the AP Payment Authorization Parameters before continuing.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
 	</barista_record>
 </barista_admin_records>

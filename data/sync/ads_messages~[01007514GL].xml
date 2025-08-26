@@ -2,158 +2,25 @@
 <barista_record_table>ADS_MESSAGES</barista_record_table>
 <barista_admin_records>
 	<barista_record>
-		<MSG_ID>GL_INVALID_EDIT_CD  </MSG_ID>
+		<MSG_ID>ACTIVITY_EXISTS     </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
 		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>Invalid Editing code entered. Use up to five of the following characters:[$0a$]- $ C D F P S U[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>The Account is Active and cannot be deleted.[$0a$]Activity has been detected in the %1 table.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>GLC_CTLCREATE_ERR   </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>16</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O;UPDT_OVERRIDE</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>Create +GLCONTROL Error: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>GL_BAD_BANK_ACCT_CD </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>16</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>Bank Account Code not found: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>GL_EXISTING_TRANS   </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>This change to the fiscal calendar is NOT allowed.[$0a$]There are existing GL transactions on or between %1 and %2.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>GL_NO_PRI_DATE      </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_ID>AON_REG_OOB_POSTED  </MSG_ID>
+		<MSG_TITLE>OOB Amount Posted</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>64</MSG_ICON>
 		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>It looks like this is the first time you have used Bank Reconciliation. Please provide a prior statement date and amount to get started.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>GL_PER_END_EARLY    </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>Period end date cannot be before %1.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>GL_PER_END_LATE     </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>Period end date must be before %1.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>GL_BNKACCT_USED     </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>Sorry, Bank Account Code %1 is already used for GL Account %2.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>GL_BNKACCT_WARN     </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>A Bank Account Code should be used for only one GL Account.[$0a$]Bank Account Code %1 is currently used for GL Accounts: %2.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>GL_MISSING_RECORD_CD</MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>16</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>At least one Record Code is required in the Default Display Columns parameter form.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>GL_MISSING_BUDGET_CD</MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>16</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>At least one Budget Code is required in the Default Display Columns parameter form.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>SUSP_NOT_ZERO_YR    </MSG_ID>
-		<MSG_TITLE>AddonSofware</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>16</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O;</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>The Suspense Account balance is not zero. [$0a$]The Supense Acccount must be zero to close the year. [$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>SUSP_NOT_ZERO_PER   </MSG_ID>
-		<MSG_TITLE>AddonSoftware</MSG_TITLE>
-		<MSG_TYPE>1</MSG_TYPE>
-		<MSG_ICON>48</MSG_ICON>
-		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
-		<MSG_CODES>O;C</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>The Suspense Account balance is not zero. [$0a$]Account must be zero to close the year. [$0a$]Cancel to exit or OK to close period anyway.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+		<MSG_TEXT>OOB amount posted to the suspense account.[$0a$]This register MUST BE RUN AGAIN before updating.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -181,6 +48,96 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
+		<MSG_ID>CLSDYRADJ_UPDT_STOP </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>An error occurred during the Daily Detail Register or update. Therefore, this[$0a$]Closed Fiscal Year Adjustments Register update must be terminated before completion.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>CLSDYRADJ_UPDT_STOP2</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>An error occurred during the Update Beginning Balances register or update. Therefore, [$0a$]this Closed Fiscal Year Adjustments Register update must be terminated before completion.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>FISCAL_CLOSED       </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O;UPDT_OVERRIDE</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Fiscal %1 has already been closed.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GLC_CTLCREATE_ERR   </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O;UPDT_OVERRIDE</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Create +GLCONTROL Error: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GLT_DD_ENTRIES      </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>The Daily Detail Register and Update must be run first.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_ACCT_INACTIVE    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>GL Account %1 - %2 is set as an Inactive Account[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_ALLOC_PCT        </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Allocation percentage is %1, and should be 100.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_BAD_BANK_ACCT_CD </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Bank Account Code not found: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
 		<MSG_ID>GL_BAD_BUDGET_CODE  </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
@@ -202,18 +159,6 @@
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>GL </ASC_PROD_ID>
 		<MSG_TEXT>Invalid Budget Revision. Budget Code: %1 with Amounts or Units: %2[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<MSG_ID>AON_REG_OOB_POSTED  </MSG_ID>
-		<MSG_TITLE>OOB Amount Posted</MSG_TITLE>
-		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>64</MSG_ICON>
-		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
-		<MSG_CODES>O</MSG_CODES>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>OOB amount posted to the suspense account.[$0a$]This register MUST BE RUN AGAIN before updating.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -241,6 +186,29 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
+		<MSG_ID>GL_BAD_RECID        </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>The selected revision source is either invalid or inconsistent with the amount/units selection.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_BAD_RETAINED_ACCT</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>The Retained Earnings account must be a Capital type account.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
 		<MSG_ID>GL_BAD_START_DATE   </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>4</MSG_TYPE>
@@ -251,6 +219,352 @@
 		<ASC_PROD_ID>GL </ASC_PROD_ID>
 		<MSG_TEXT>Start Date must be the day after the last day of the last period of the prior year.[$0a$]Do you want to adjust the end date of the last period of the prior year?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_BAD_TOTAL_PERS   </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>There is an existing GL transaction in period %1.[$0a$]The total number of periods must be at least %2.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_BANK_NEGBAL      </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>The current Statement Amount is zero or negative.[$0a$]Are you sure you want to continue with the Posting process?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_BANK_PRIDATE     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>The current Statement Date precedes the Prior Statement Date.[$0a$]Are you sure you want to continue with the Posting process?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_BCKUP_FILE_EXISTS</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>This directory cannot be used for the backup. It already contains a file that will be backed up: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_BEG_BAL          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Do you want to produce the Beginning Balances Register?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_BNKACCT_USED     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Sorry, Bank Account Code %1 is already used for GL Account %2.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_BNKACCT_WARN     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>A Bank Account Code should be used for only one GL Account.[$0a$]Bank Account Code %1 is currently used for GL Accounts: %2.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_CALENDAR_MISSING </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>A calender must already exist for either the prior or next year.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_CANNOT_ALIGN_PERS</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Not able to align fiscal periods for %1.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_CANNOT_DEL_CAL   </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Cannot delete calendar when there are entries for it in[$0a$]GLM_ACCTSUMMARY, GLM_ACCTBUDGET or GLM_BUDGETPLANS.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_CLS_FISC         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Do you want to close fiscal %1 ?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_COPY_CALENDAR    </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Copy calendar from current fiscal year?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_CPY_FIN          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Are you ready to copy Firm/Report %1/%2  to Firm/Report %3/%4 ?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_EXISTING_TRANS   </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>This change to the fiscal calendar is NOT allowed.[$0a$]There are existing GL transactions on or between %1 and %2.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_FIN_EDIT         </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>No more than five of the defined Grid Editing Choices may be selected.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_FIN_SELECT       </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>You must select a minimum of one report before running this option.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_FIRMS            </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Cannot use same Company ID for "from" and "to."[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_FIRM_MISSING_CAL </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Firm %1 fiscal calendar is missing for %2 year.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_INVALID_EDIT_CD  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Invalid Editing code entered. Use up to five of the following characters:[$0a$]- $ C D F P S U[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_INVAL_PER        </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Invalid period ending date.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_JID              </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>This Journal ID may not be used for Entry.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_JOURNAL_OOB      </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O;UPDT_OVERRIDE</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>This entry is out of balance by %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_MISSING_BUDGET_CD</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>At least one Budget Code is required in the Default Display Columns parameter form.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_MISSING_RECORD_CD</MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>At least one Record Code is required in the Default Display Columns parameter form.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_NOT_DEL_PCN_CAL  </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Cannot delete calendar for the prior, current, or next fiscal year.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_NOT_PRIOR_YR     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>For this utility the Transaction Date must be in the prior fiscal year: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_NO_ACTSUM_RECS   </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Missing required GL Account Summary data for the current fiscal year %1.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_NO_BUDG          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Budgets not set in GL Parameter Record.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_NO_PRI_DATE      </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>64</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>It looks like this is the first time you have used Bank Reconciliation. Please provide a prior statement date and amount to get started.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_PARAM_ERR        </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Please set up the GL System Parameters before continuing.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_PER_END          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Do you want to close %1 (fiscal period %2/%3)?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
 	</barista_record>
 	<barista_record>
 		<MSG_ID>GL_PER_END_AFTER    </MSG_ID>
@@ -277,14 +591,27 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>GL_NOT_PRIOR_YR     </MSG_ID>
+		<MSG_ID>GL_PER_END_EARLY    </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>For this utility the Transaction Date must be in the prior fiscal year: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </MSG_TEXT>
+		<MSG_TEXT>Period end date cannot be before %1.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_PER_END_LATE     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Period end date must be before %1.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -299,7 +626,18 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>GL_BCKUP_FILE_EXISTS</MSG_ID>
+		<MSG_ID>GL_PRT_OUT          </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>4</MSG_TYPE>
+		<MSG_ICON>32</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>Y;N</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Do you want to only print outstanding items?[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_RECID            </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
@@ -307,32 +645,40 @@
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>This directory cannot be used for the backup. It already contains a file that will be backed up: %1[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>Record types zero through five (0 - 5) reserved.  Use a different record type.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </MSG_TEXT>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>CLSDYRADJ_UPDT_STOP </MSG_ID>
+		<MSG_ID>GL_RECID_BUD        </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>16</MSG_ICON>
+		<MSG_ICON>48</MSG_ICON>
 		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>An error occurred during the Daily Detail Register or update. Therefore, this[$0a$]Closed Fiscal Year Adjustments Register update must be terminated before completion.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>Cannot use record types 0, 2 or 4 in Budget Maintenance.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </MSG_TEXT>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>CLSDYRADJ_UPDT_STOP2</MSG_ID>
+		<MSG_ID>GL_REPLICATE        </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
-		<MSG_ICON>16</MSG_ICON>
+		<MSG_ICON>48</MSG_ICON>
 		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>An error occurred during the Update Beginning Balances register or update. Therefore, [$0a$]this Closed Fiscal Year Adjustments Register update must be terminated before completion.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
-		<USER_MODIFIED> </USER_MODIFIED>
+		<MSG_TEXT>The Replicate feature will replicate a selected amount to the remainder of the periods in that same row.  [$0a$]You need to select an amount before pressing the Replicate button.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>GL_US_CAL_REQ_1     </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>Per US Tax Code, fiscal calendar must include at least a minimum of 359 days,[$0a$]but not more than a maximum of 371 days[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </MSG_TEXT>
 	</barista_record>
 	<barista_record>
 		<MSG_ID>GL_VERIFY_BEG_BAL   </MSG_ID>
@@ -347,7 +693,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
-		<MSG_ID>GL_BAD_RETAINED_ACCT</MSG_ID>
+		<MSG_ID>GL_WILDCARD_LONG    </MSG_ID>
 		<MSG_TITLE>AddonSoftware</MSG_TITLE>
 		<MSG_TYPE>0</MSG_TYPE>
 		<MSG_ICON>48</MSG_ICON>
@@ -355,7 +701,30 @@
 		<MSG_CODES>O</MSG_CODES>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>GL </ASC_PROD_ID>
-		<MSG_TEXT>The Retained Earnings account must be a Capital type account.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </MSG_TEXT>
+		<MSG_TEXT>Entered wildcard is longer than GL account mask.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>SUSP_NOT_ZERO_PER   </MSG_ID>
+		<MSG_TITLE>AddonSoftware</MSG_TITLE>
+		<MSG_TYPE>1</MSG_TYPE>
+		<MSG_ICON>48</MSG_ICON>
+		<MSG_DEFAULT_BUT>256</MSG_DEFAULT_BUT>
+		<MSG_CODES>O;C</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>The Suspense Account balance is not zero. [$0a$]Account must be zero to close the year. [$0a$]Cancel to exit or OK to close period anyway.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MSG_ID>SUSP_NOT_ZERO_YR    </MSG_ID>
+		<MSG_TITLE>AddonSofware</MSG_TITLE>
+		<MSG_TYPE>0</MSG_TYPE>
+		<MSG_ICON>16</MSG_ICON>
+		<MSG_DEFAULT_BUT>000</MSG_DEFAULT_BUT>
+		<MSG_CODES>O;</MSG_CODES>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<MSG_TEXT>The Suspense Account balance is not zero. [$0a$]The Supense Acccount must be zero to close the year. [$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </MSG_TEXT>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 </barista_admin_records>

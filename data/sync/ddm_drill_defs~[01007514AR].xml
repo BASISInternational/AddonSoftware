@@ -2,6 +2,34 @@
 <barista_record_table>DDM_DRILL_DEFS</barista_record_table>
 <barista_admin_records>
 	<barista_record>
+		<DRILL_DEF_ID>AR_CUSTBALAGE   </DRILL_DEF_ID>
+		<DESCRIPTION>Aged Customer Balances</DESCRIPTION>
+		<DD_ATTR_DTAB>ART_INVHDR      </DD_ATTR_DTAB>
+		<DD_ATTR_DKEY>[+FIRM_ID]+"  "+[CUSTOMER_ID]</DD_ATTR_DKEY>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_ATTR_DINQ>ard_agedBals.aon</DD_ATTR_DINQ>
+	</barista_record>
+	<barista_record>
+		<DRILL_DEF_ID>AR_CUSTBALDET   </DRILL_DEF_ID>
+		<DESCRIPTION>Historical Invoice Detail</DESCRIPTION>
+		<DD_ATTR_DTAB>ART_INVDET      </DD_ATTR_DTAB>
+		<DD_ATTR_DKEY>[FIRM_ID]+"  "+[CUSTOMER_ID]+[AR_INV_NO]</DD_ATTR_DKEY>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_FILTER_COL_01>                </DD_FILTER_COL_01>
+		<DD_ATTR_IDEF>AR_CUSTBALDET   </DD_ATTR_IDEF>
+	</barista_record>
+	<barista_record>
+		<DRILL_DEF_ID>AR_CUST_INV     </DRILL_DEF_ID>
+		<DESCRIPTION>Historical Invoices</DESCRIPTION>
+		<DD_ATTR_DTAB>ART_INVHDR      </DD_ATTR_DTAB>
+		<DD_ATTR_DKEY>[FIRM_ID]+"  "+[CUSTOMER_ID]+[AR_INV_NO]</DD_ATTR_DKEY>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_ATTR_DINQ>ard_custInvoices.aon</DD_ATTR_DINQ>
+	</barista_record>
+	<barista_record>
 		<DRILL_DEF_ID>AR_CUST_PMT_DET </DRILL_DEF_ID>
 		<DESCRIPTION>Customer Payment Detail</DESCRIPTION>
 		<DD_ATTR_DTAB>ART_CASHDET     </DD_ATTR_DTAB>
@@ -10,6 +38,16 @@
 		<ASC_PROD_ID>AR </ASC_PROD_ID>
 		<DD_ATTR_IDEF>AR_CUST_PMT_DET </DD_ATTR_IDEF>
 		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<DRILL_DEF_ID>AR_DEPOSITDET   </DRILL_DEF_ID>
+		<DESCRIPTION>Bank Deposit Detail</DESCRIPTION>
+		<DD_ATTR_DTAB>ARE_CASHHDR     </DD_ATTR_DTAB>
+		<DD_ATTR_DKNM>AO_DEPOSIT      </DD_ATTR_DKNM>
+		<DD_ATTR_DKEY>[FIRM_ID]+[DEPOSIT_ID]</DD_ATTR_DKEY>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<DD_ATTR_IDEF>AR_DEPOSITDET   </DD_ATTR_IDEF>
 	</barista_record>
 	<barista_record>
 		<DRILL_DEF_ID>AR_INVHIST      </DRILL_DEF_ID>

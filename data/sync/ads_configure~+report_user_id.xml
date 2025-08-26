@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<barista_admin_record>
-	<barista_record_table>ADS_CONFIGURE</barista_record_table>
-	<CONFIG_ID>+REPORT_USER_ID </CONFIG_ID>
-	<DESCRIPTION>User ID for Addon reports</DESCRIPTION>
-	<CONFIG_VALUE>022EB1C6E5CD9DFAF82CB0648F887715</CONFIG_VALUE>
-	<COMMENTS>Make sure this User ID exists in Enterprise Manager. It is the User ID used to generate Addon reports and dashboard.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                           </COMMENTS>
-</barista_admin_record>

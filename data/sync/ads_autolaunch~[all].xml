@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<barista_record_table>ADS_AUTOLAUNCH</barista_record_table>
+<barista_admin_records>
+	<barista_record>
+		<PROCESS_ID>00BARIST  </PROCESS_ID>
+		<DESCRIPTION>Barista Welcome</DESCRIPTION>
+		<PROCESS_TYPE>M</PROCESS_TYPE>
+		<PROCESS_STATUS>C</PROCESS_STATUS>
+		<TRANS_DATE>20250311</TRANS_DATE>
+		<TRANS_TIME>143003</TRANS_TIME>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>ADB</ASC_PROD_ID>
+		<COMMENTS>Thank you for downloading and installing the Barista\u00ae Application Framework.[$0a$][$0a$]Barista is BASIS' GUI-only data dictionary-driven development framework[$0a$]and runtime engine. Barista drives a new productivity leap forward in GUI[$0a$]development by facilitating:[$0a$][$0a$]\u2022 New GUI application development[$0a$]\u2022 Conversion of CUI applications to GUI[$0a$]\u2022 Modernization of existing GUI applications[$0a$][$0a$]Barista imports a BASIS data dictionary and, with little development effort,[$0a$]delivers a functional GUI application running on multiple platforms with a modern[$0a$]GUI look-and-feel, standardized keyboard and mouse navigation, and a built-in[$0a$]SQL-based inquiry engine. Barista delivers enormous productivity gains on both[$0a$]initial product development and, more importantly, on future application[$0a$]maintenance and enhancement tasks.[$0a$][$0a$]For more information, please visit the Barista page at:[$0a$]www.basis.cloud/barista-documentation[$0a$] [$0a$]BASIS International Ltd.[$0a$]                                                                                    </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<PROCESS_ID>01AONLIC  </PROCESS_ID>
+		<DESCRIPTION>License Agreement</DESCRIPTION>
+		<PROGRAM_PATH>[+DIR_PGM]adx_aoneula.aon</PROGRAM_PATH>
+		<PROGRAM_ARGS>-u[+USER_ID]</PROGRAM_ARGS>
+		<PROCESS_TYPE>O</PROCESS_TYPE>
+		<PROCESS_STATUS>C</PROCESS_STATUS>
+		<TRANS_DATE>20250429</TRANS_DATE>
+		<TRANS_TIME>085852</TRANS_TIME>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COMMENTS>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COMMENTS>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<PROCESS_ID>10AUTOUPD </PROCESS_ID>
+		<DESCRIPTION>Auto-Update</DESCRIPTION>
+		<PROGRAM_PATH>[+DIR_SYP]bar_autoupdate.bbj</PROGRAM_PATH>
+		<PROGRAM_ARGS>-u[+USER_ID]</PROGRAM_ARGS>
+		<PROCESS_TYPE>O</PROCESS_TYPE>
+		<PROCESS_STATUS>C</PROCESS_STATUS>
+		<TRANS_DATE>20250311</TRANS_DATE>
+		<TRANS_TIME>143003</TRANS_TIME>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>ADB</ASC_PROD_ID>
+		<COMMENTS>Placeholder for post-install updates.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<PROCESS_ID>18DOCUPD  </PROCESS_ID>
+		<DESCRIPTION>Update DocOut Column Settings</DESCRIPTION>
+		<PROGRAM_PATH>[+DIR_SYP]bar_doc_upd_1800.bbj</PROGRAM_PATH>
+		<PROGRAM_ARGS>-u[+USER_ID]</PROGRAM_ARGS>
+		<PROCESS_TYPE>O</PROCESS_TYPE>
+		<PROCESS_STATUS>C</PROCESS_STATUS>
+		<TRANS_DATE>20250311</TRANS_DATE>
+		<TRANS_TIME>143007</TRANS_TIME>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>ADB</ASC_PROD_ID>
+		<COMMENTS>Updates pre-v18.00 DocOut column settings to new report values @72DPI. Also removes any existing DocOut column adjustment entries from all user setting files. Reset and launch, if still needed.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<PROCESS_ID>50AUTOSYNC</PROCESS_ID>
+		<DESCRIPTION>Auto-Sync Barista</DESCRIPTION>
+		<PROGRAM_PATH>[+DIR_SYP]bax_dd_synch_auto.bbj</PROGRAM_PATH>
+		<PROGRAM_ARGS>-u[+USER_ID] -lMENU</PROGRAM_ARGS>
+		<PROCESS_TYPE>O</PROCESS_TYPE>
+		<PROCESS_STATUS>C</PROCESS_STATUS>
+		<TRANS_DATE>20250319</TRANS_DATE>
+		<TRANS_TIME>171058</TRANS_TIME>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>ADB</ASC_PROD_ID>
+		<COMMENTS>The Auto Synchronie Barista Utility is used to import application data into a new Barista install.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<PROCESS_ID>90MNUIMP  </PROCESS_ID>
+		<DESCRIPTION>Import Menus into 21.00 Tables</DESCRIPTION>
+		<PROGRAM_PATH>[+DIR_SYP]bar_mnu_imp_2100.bbj</PROGRAM_PATH>
+		<PROGRAM_ARGS>-u[+USER_ID]</PROGRAM_ARGS>
+		<PROCESS_TYPE>O</PROCESS_TYPE>
+		<PROCESS_STATUS>C</PROCESS_STATUS>
+		<TRANS_DATE>20250311</TRANS_DATE>
+		<TRANS_TIME>143814</TRANS_TIME>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>ADB</ASC_PROD_ID>
+		<COMMENTS>Imports any existing menu (.men) text files into the table based menu system available since v21.00.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<PROCESS_ID>AONDEMONAG</PROCESS_ID>
+		<DESCRIPTION>Addon Demo Nag</DESCRIPTION>
+		<PROGRAM_PATH>[+DIR_PGM]adx_demo_nag.aon</PROGRAM_PATH>
+		<PROGRAM_ARGS>-u[+USER_ID]</PROGRAM_ARGS>
+		<PROCESS_TYPE>O</PROCESS_TYPE>
+		<PROCESS_STATUS>N</PROCESS_STATUS>
+		<TRANS_DATE>20250826</TRANS_DATE>
+		<TRANS_TIME>080045</TRANS_TIME>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COMMENTS>Warns (nags) when AddonSoftware is being run from the BASIS product download area (the demo area).[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </COMMENTS>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<PROCESS_ID>BUILDSPROC</PROCESS_ID>
+		<DESCRIPTION>Init for building SPROC defs</DESCRIPTION>
+		<PROGRAM_PATH>[+DIR_PGM]adx_build_sproc.aon</PROGRAM_PATH>
+		<PROGRAM_ARGS>-u[+USER_ID]</PROGRAM_ARGS>
+		<PROCESS_TYPE>O</PROCESS_TYPE>
+		<PROCESS_STATUS>C</PROCESS_STATUS>
+		<TRANS_DATE>20250709</TRANS_DATE>
+		<TRANS_TIME>101930</TRANS_TIME>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COMMENTS>This program adds SPROC definitions to the BASIS DD (procedures.dd and proc_params.dd), based on a hard-coded list of SPROCs used in Addon.  Eventually, list of SPROCs will be table-based.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   </COMMENTS>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<PROCESS_ID>INIT_1DATA</PROCESS_ID>
+		<DESCRIPTION>Distribute EM Update Wiz Files</DESCRIPTION>
+		<PROGRAM_PATH>[+DIR_PGM]adx_disocjfiles.aon</PROGRAM_PATH>
+		<PROGRAM_ARGS>-u[+USER_ID]</PROGRAM_ARGS>
+		<PROCESS_TYPE>O</PROCESS_TYPE>
+		<PROCESS_STATUS>N</PROCESS_STATUS>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COMMENTS>Automatically run the Distribute EM Update Wiz Files task when the conversion control file data/adx_conversionCtrl is present.[$0a$](NOTE: This task must run BEFORE the INIT_DATA auto-launch task.)[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<PROCESS_ID>INIT_DATA </PROCESS_ID>
+		<DESCRIPTION>Initialize Addon Data</DESCRIPTION>
+		<PROGRAM_PATH>[+DIR_PGM]adx_init_data.aon</PROGRAM_PATH>
+		<PROGRAM_ARGS>-u[+USER_ID]</PROGRAM_ARGS>
+		<PROCESS_TYPE>O</PROCESS_TYPE>
+		<PROCESS_STATUS>N</PROCESS_STATUS>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COMMENTS>This task performs one time data initializations and conversions for Addon, such as sometimes required following an upgrade.[$0a$](NOTE: This task must run AFTER the INIT_1DATA auto-launch task.)[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </COMMENTS>
+	</barista_record>
+	<barista_record>
+		<PROCESS_ID>INIT_DATA9</PROCESS_ID>
+		<DESCRIPTION>Rebuild FTIs</DESCRIPTION>
+		<PROGRAM_PATH>[+DIR_PGM]adx_rebuild_FTI.aon</PROGRAM_PATH>
+		<PROGRAM_ARGS>-u[+USER_ID]</PROGRAM_ARGS>
+		<PROCESS_TYPE>O</PROCESS_TYPE>
+		<PROCESS_STATUS>C</PROCESS_STATUS>
+		<TRANS_DATE>20250310</TRANS_DATE>
+		<TRANS_TIME>161840</TRANS_TIME>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COMMENTS>This task rebuilds Fulltext Indexes immediately after the post-upgrade conversion task.[$0a$](NOTE: This task must run AFTER the INIT_DATA auto-launch task, and should be the last of the post-upgrade conversion tasks.)[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </COMMENTS>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<PROCESS_ID>INIT_GLCAL</PROCESS_ID>
+		<DESCRIPTION>Initialize GLS_CALENDAR fields</DESCRIPTION>
+		<PROGRAM_PATH>[+DIR_PGM]glx_init_fiscal_cal.aon</PROGRAM_PATH>
+		<PROGRAM_ARGS>-u[+USER_ID]</PROGRAM_ARGS>
+		<PROCESS_TYPE>O</PROCESS_TYPE>
+		<PROCESS_STATUS>C</PROCESS_STATUS>
+		<TRANS_DATE>20250226</TRANS_DATE>
+		<TRANS_TIME>125138</TRANS_TIME>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>GL </ASC_PROD_ID>
+		<COMMENTS>Initializes new v21.00 PERIOD_END_nn dates and START_DATE in GLS_CALENDAR.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     </COMMENTS>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<PROCESS_ID>WARNFISCAL</PROCESS_ID>
+		<DESCRIPTION>Verify Fiscal Calendars</DESCRIPTION>
+		<PROGRAM_PATH>[+DIR_PGM]adx_check_fiscal_cal.aon</PROGRAM_PATH>
+		<PROGRAM_ARGS>-u[+USER_ID]</PROGRAM_ARGS>
+		<PROCESS_TYPE>O</PROCESS_TYPE>
+		<PROCESS_STATUS>N</PROCESS_STATUS>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COMMENTS>Verifies fiscal calendars exist for the prior/current/next fiscal years when the current fiscal year has been defined.[$0a$]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </COMMENTS>
+	</barista_record>
+</barista_admin_records>

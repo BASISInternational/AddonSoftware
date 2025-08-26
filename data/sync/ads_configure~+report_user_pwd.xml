@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<barista_admin_record>
-	<barista_record_table>ADS_CONFIGURE</barista_record_table>
-	<CONFIG_ID>+REPORT_USER_PWD</CONFIG_ID>
-	<DESCRIPTION>Report User Password</DESCRIPTION>
-	<LOAD_ON_EXEC>N</LOAD_ON_EXEC>
-	<COMMENTS>Make sure this password is used for the +REPORT_USER_ID user in Enterprise Manager. It is the password for the User ID used to generate Addon reports and dashboard.[$0a$]                                                                                                                                                                                                                                                                                                                                                           </COMMENTS>
-</barista_admin_record>
