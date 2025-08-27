@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<POR_ROGREG>
+	<ALIAS id="ddm_tables">
+		<ID id="ddm_tables">DDM_TABLES</ID>
+		<RECORD id="ddm_tables.por_rogreg">
+			<DD_TABLE_ALIAS id="ddm_tables.por_rogreg">POR_ROGREG      </DD_TABLE_ALIAS>
+			<DD_ALIAS_DESC id="ddm_tables.por_rogreg">PO Return Of Goods Register</DD_ALIAS_DESC>
+			<DD_FILE_NAME id="ddm_tables.por_rogreg"></DD_FILE_NAME>
+			<DD_TABLE_PATH id="ddm_tables.por_rogreg">[+PODATA]</DD_TABLE_PATH>
+			<DD_ALIAS_TYPE id="ddm_tables.por_rogreg">P</DD_ALIAS_TYPE>
+			<DD_KEY_LENGTH id="ddm_tables.por_rogreg">0</DD_KEY_LENGTH>
+			<DD_NBR_RECORD id="ddm_tables.por_rogreg">0</DD_NBR_RECORD>
+			<DD_RECORD_LEN id="ddm_tables.por_rogreg">0</DD_RECORD_LEN>
+			<DD_SYSTEM_REC id="ddm_tables.por_rogreg"></DD_SYSTEM_REC>
+			<RESTRICT_CREATE id="ddm_tables.por_rogreg">Y</RESTRICT_CREATE>
+			<RESTRICT_REBUILD id="ddm_tables.por_rogreg">Y</RESTRICT_REBUILD>
+			<RESTRICT_AUTOADD id="ddm_tables.por_rogreg">Y</RESTRICT_AUTOADD>
+			<ASC_COMP_ID id="ddm_tables.por_rogreg">01007514</ASC_COMP_ID>
+			<ASC_PROD_ID id="ddm_tables.por_rogreg">PO </ASC_PROD_ID>
+			<ASC_VERSION_ID id="ddm_tables.por_rogreg">25.0</ASC_VERSION_ID>
+			<ASC_LICENSE_ID id="ddm_tables.por_rogreg"></ASC_LICENSE_ID>
+			<DD_EXPORT_DATA id="ddm_tables.por_rogreg">N</DD_EXPORT_DATA>
+			<DD_CREATE_DATE id="ddm_tables.por_rogreg">20250827</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_tables.por_rogreg">20250827</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.por_rogreg">20250827</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.por_rogreg">152014</DD_LSTSYNC_TIME>
+			<DD_ATTR_ATAB id="ddm_tables.por_rogreg"></DD_ATTR_ATAB>
+			<DD_ATTR_CPGM id="ddm_tables.por_rogreg"></DD_ATTR_CPGM>
+			<DD_ATTR_DKNM id="ddm_tables.por_rogreg"></DD_ATTR_DKNM>
+			<DD_ATTR_FIMG id="ddm_tables.por_rogreg"></DD_ATTR_FIMG>
+			<DD_ATTR_FTYP id="ddm_tables.por_rogreg">S</DD_ATTR_FTYP>
+			<DD_ATTR_HELP id="ddm_tables.por_rogreg"></DD_ATTR_HELP>
+			<DD_ATTR_IKEY id="ddm_tables.por_rogreg"></DD_ATTR_IKEY>
+			<DD_ATTR_IDEF id="ddm_tables.por_rogreg"></DD_ATTR_IDEF>
+			<DD_ATTR_MRES id="ddm_tables.por_rogreg"></DD_ATTR_MRES>
+			<DD_ATTR_NOTE id="ddm_tables.por_rogreg"></DD_ATTR_NOTE>
+			<DD_ATTR_PCAL id="ddm_tables.por_rogreg"></DD_ATTR_PCAL>
+			<DD_ATTR_PRUN id="ddm_tables.por_rogreg">[+DIR_PGM]por_rogreg.aon</DD_ATTR_PRUN>
+			<DD_ATTR_PTAB id="ddm_tables.por_rogreg"></DD_ATTR_PTAB>
+			<DD_ATTR_SLEV id="ddm_tables.por_rogreg"></DD_ATTR_SLEV>
+			<DD_ATTR_WINT id="ddm_tables.por_rogreg">PO Return Of Goods Register</DD_ATTR_WINT>
+			<SQL_DB_ALIAS id="ddm_tables.por_rogreg"></SQL_DB_ALIAS>
+			<SQL_CATALOG id="ddm_tables.por_rogreg"></SQL_CATALOG>
+			<SQL_SCHEMA id="ddm_tables.por_rogreg"></SQL_SCHEMA>
+			<SQL_TABLE id="ddm_tables.por_rogreg"></SQL_TABLE>
+			<DD_ATTR_FONT id="ddm_tables.por_rogreg"></DD_ATTR_FONT>
+			<DD_ATTR_STYL id="ddm_tables.por_rogreg"></DD_ATTR_STYL>
+			<DD_ADMIN_BACKUP id="ddm_tables.por_rogreg"></DD_ADMIN_BACKUP>
+			<DD_ATTR_RSET id="ddm_tables.por_rogreg"></DD_ATTR_RSET>
+			<DD_ATTR_IGNR id="ddm_tables.por_rogreg"></DD_ATTR_IGNR>
+			<DD_ATTR_RPOS id="ddm_tables.por_rogreg"></DD_ATTR_RPOS>
+			<DD_ATTR_XPOS id="ddm_tables.por_rogreg">0</DD_ATTR_XPOS>
+			<DD_ATTR_YPOS id="ddm_tables.por_rogreg">0</DD_ATTR_YPOS>
+			<DD_ATTR_FWID id="ddm_tables.por_rogreg">0</DD_ATTR_FWID>
+			<DD_ATTR_FHGT id="ddm_tables.por_rogreg">0</DD_ATTR_FHGT>
+			<DD_ATTR_PADW id="ddm_tables.por_rogreg">0</DD_ATTR_PADW>
+			<DD_ATTR_PADH id="ddm_tables.por_rogreg">0</DD_ATTR_PADH>
+			<DD_ATTR_PADG id="ddm_tables.por_rogreg">0</DD_ATTR_PADG>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_opts">
+		<ID id="ddm_table_opts">DDM_TABLE_OPTS</ID>
+		<RECORD id="ddm_table_opts.por_rogrega">
+			<DD_TABLE_ALIAS id="ddm_table_opts.por_rogrega">POR_ROGREG      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.por_rogrega">A</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.por_rogregh">
+			<DD_TABLE_ALIAS id="ddm_table_opts.por_rogregh">POR_ROGREG      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.por_rogregh">H</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.por_rogregn">
+			<DD_TABLE_ALIAS id="ddm_table_opts.por_rogregn">POR_ROGREG      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.por_rogregn">N</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.por_rogregp">
+			<DD_TABLE_ALIAS id="ddm_table_opts.por_rogregp">POR_ROGREG      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.por_rogregp">P</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.por_rogregu">
+			<DD_TABLE_ALIAS id="ddm_table_opts.por_rogregu">POR_ROGREG      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.por_rogregu">U</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.por_rogregv">
+			<DD_TABLE_ALIAS id="ddm_table_opts.por_rogregv">POR_ROGREG      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.por_rogregv">V</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.por_rogregx">
+			<DD_TABLE_ALIAS id="ddm_table_opts.por_rogregx">POR_ROGREG      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.por_rogregx">X</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.por_rogregr">
+			<DD_TABLE_ALIAS id="ddm_table_opts.por_rogregr">POR_ROGREG      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.por_rogregr">r</DD_ATTR_OPTS>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_tpls">
+		<ID id="ddm_table_tpls">DDM_TABLE_TPLS</ID>
+		<RECORD id="ddm_table_tpls.por_rogreg">
+			<DD_TABLE_ALIAS id="ddm_table_tpls.por_rogreg">POR_ROGREG      </DD_TABLE_ALIAS>
+			<DD_FILE_NAME id="ddm_table_tpls.por_rogreg"></DD_FILE_NAME>
+			<DD_TABLE_TPL id="ddm_table_tpls.por_rogreg">print_zero:c(1*)</DD_TABLE_TPL>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_cols">
+		<ID id="ddm_table_cols">DDM_TABLE_COLS</ID>
+		<RECORD id="ddm_table_cols.por_rogreg001">
+			<DD_TABLE_ALIAS id="ddm_table_cols.por_rogreg001">POR_ROGREG      </DD_TABLE_ALIAS>
+			<DD_SEQUENCE id="ddm_table_cols.por_rogreg001">001</DD_SEQUENCE>
+			<DD_DATA_NAME id="ddm_table_cols.por_rogreg001">PICK_CHECK      </DD_DATA_NAME>
+			<DD_DVAR_NAME id="ddm_table_cols.por_rogreg001">PRINT_ZERO      </DD_DVAR_NAME>
+			<DD_COL_REPEATS id="ddm_table_cols.por_rogreg001">0</DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.por_rogreg001">0</DD_COL_OCCURS>
+			<DD_FIELD_DELIM id="ddm_table_cols.por_rogreg001">Y</DD_FIELD_DELIM>
+			<DD_DELIM_CHAR id="ddm_table_cols.por_rogreg001">0A</DD_DELIM_CHAR>
+			<DD_SYSTEM_REC id="ddm_table_cols.por_rogreg001"></DD_SYSTEM_REC>
+			<DD_SYSTEM_ID id="ddm_table_cols.por_rogreg001"></DD_SYSTEM_ID>
+			<DD_MASK_TYPE id="ddm_table_cols.por_rogreg001"></DD_MASK_TYPE>
+			<DD_CREATE_DATE id="ddm_table_cols.por_rogreg001">20250827</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_table_cols.por_rogreg001">20250827</DD_LSTREV_DATE>
+			<DD_ATTR_ABLC id="ddm_table_cols.por_rogreg001"></DD_ATTR_ABLC>
+			<DD_ATTR_ABLV id="ddm_table_cols.por_rogreg001"></DD_ATTR_ABLV>
+			<DD_ATTR_CPGM id="ddm_table_cols.por_rogreg001"></DD_ATTR_CPGM>
+			<DD_ATTR_COLW id="ddm_table_cols.por_rogreg001">0</DD_ATTR_COLW>
+			<DD_ATTR_CTLX id="ddm_table_cols.por_rogreg001"></DD_ATTR_CTLX>
+			<DD_ATTR_CTLY id="ddm_table_cols.por_rogreg001"></DD_ATTR_CTLY>
+			<DD_ATTR_CTLW id="ddm_table_cols.por_rogreg001"></DD_ATTR_CTLW>
+			<DD_ATTR_CTLH id="ddm_table_cols.por_rogreg001"></DD_ATTR_CTLH>
+			<DD_ATTR_DFLT id="ddm_table_cols.por_rogreg001">N</DD_ATTR_DFLT>
+			<DD_ATTR_DRLE id="ddm_table_cols.por_rogreg001"></DD_ATTR_DRLE>
+			<DD_ATTR_GHDR id="ddm_table_cols.por_rogreg001"></DD_ATTR_GHDR>
+			<DD_ATTR_IDEF id="ddm_table_cols.por_rogreg001"></DD_ATTR_IDEF>
+			<DD_ATTR_LABL id="ddm_table_cols.por_rogreg001">Print zero returned items</DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_table_cols.por_rogreg001">Print Zero</DD_ATTR_LABS>
+			<DD_ATTR_MLAN id="ddm_table_cols.por_rogreg001">N</DD_ATTR_MLAN>
+			<DD_ATTR_MINL id="ddm_table_cols.por_rogreg001"></DD_ATTR_MINL>
+			<DD_ATTR_MAXL id="ddm_table_cols.por_rogreg001"></DD_ATTR_MAXL>
+			<DD_ATTR_MINV id="ddm_table_cols.por_rogreg001"></DD_ATTR_MINV>
+			<DD_ATTR_MAXV id="ddm_table_cols.por_rogreg001"></DD_ATTR_MAXV>
+			<DD_ATTR_PROM id="ddm_table_cols.por_rogreg001"></DD_ATTR_PROM>
+			<DD_ATTR_PVAL id="ddm_table_cols.por_rogreg001"></DD_ATTR_PVAL>
+			<DD_ATTR_SLEV id="ddm_table_cols.por_rogreg001"></DD_ATTR_SLEV>
+			<DD_ATTR_TABG id="ddm_table_cols.por_rogreg001"></DD_ATTR_TABG>
+			<DD_ATTR_TIND id="ddm_table_cols.por_rogreg001">1</DD_ATTR_TIND>
+			<DD_ATTR_HELP id="ddm_table_cols.por_rogreg001"></DD_ATTR_HELP>
+			<SQL_COLUMN_NAME id="ddm_table_cols.por_rogreg001">PRINT_ZERO</SQL_COLUMN_NAME>
+			<DD_ATTR_FONT id="ddm_table_cols.por_rogreg001"></DD_ATTR_FONT>
+			<DD_ATTR_STYL id="ddm_table_cols.por_rogreg001"></DD_ATTR_STYL>
+			<DD_ATTR_FTSR id="ddm_table_cols.por_rogreg001">N</DD_ATTR_FTSR>
+			<DD_ATTR_CWID id="ddm_table_cols.por_rogreg001">0</DD_ATTR_CWID>
+			<DD_ATTR_CTLI id="ddm_table_cols.por_rogreg001">3001</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.por_rogreg001">cbx_print_zero</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.por_rogreg001">0</DD_ATTR_CTLC>
+			<DD_ATTR_RADG id="ddm_table_cols.por_rogreg001"></DD_ATTR_RADG>
+			<DD_ATTR_RKEY id="ddm_table_cols.por_rogreg001">N</DD_ATTR_RKEY>
+			<DD_ATTR_BTNS id="ddm_table_cols.por_rogreg001"></DD_ATTR_BTNS>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_elements">
+		<ID id="ddm_elements">DDM_ELEMENTS</ID>
+		<RECORD id="ddm_elements.pick_check">
+			<DD_DATA_NAME id="ddm_elements.pick_check">PICK_CHECK      </DD_DATA_NAME>
+			<DD_DESCRIPTION id="ddm_elements.pick_check">Pick Screen Check Box</DD_DESCRIPTION>
+			<DD_DATA_TYPE id="ddm_elements.pick_check">C</DD_DATA_TYPE>
+			<DD_DATA_LENGTH id="ddm_elements.pick_check">1</DD_DATA_LENGTH>
+			<DD_MASK_TYPE id="ddm_elements.pick_check"></DD_MASK_TYPE>
+			<DD_SYSTEM_REC id="ddm_elements.pick_check">N</DD_SYSTEM_REC>
+			<ASC_COMP_ID id="ddm_elements.pick_check">01007514</ASC_COMP_ID>
+			<ASC_PROD_ID id="ddm_elements.pick_check">AD </ASC_PROD_ID>
+			<LOCALIZATION_EX id="ddm_elements.pick_check"></LOCALIZATION_EX>
+			<DD_CREATE_DATE id="ddm_elements.pick_check">20060418</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_elements.pick_check">20070306</DD_LSTREV_DATE>
+			<DD_AUTO_COMP id="ddm_elements.pick_check"></DD_AUTO_COMP>
+			<DD_ATTR_BLNK id="ddm_elements.pick_check"></DD_ATTR_BLNK>
+			<DD_ATTR_CDAT id="ddm_elements.pick_check">Y;N</DD_ATTR_CDAT>
+			<DD_ATTR_CTLW id="ddm_elements.pick_check"></DD_ATTR_CTLW>
+			<DD_ATTR_CTLH id="ddm_elements.pick_check"></DD_ATTR_CTLH>
+			<DD_ATTR_CTYP id="ddm_elements.pick_check">C</DD_ATTR_CTYP>
+			<DD_ATTR_DCOL id="ddm_elements.pick_check"></DD_ATTR_DCOL>
+			<DD_ATTR_DCOM id="ddm_elements.pick_check"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.pick_check"></DD_ATTR_DEXP>
+			<DD_ATTR_DFLT id="ddm_elements.pick_check"></DD_ATTR_DFLT>
+			<DD_ATTR_DKNM id="ddm_elements.pick_check"></DD_ATTR_DKNM>
+			<DD_ATTR_DKEY id="ddm_elements.pick_check"></DD_ATTR_DKEY>
+			<DD_ATTR_DTAB id="ddm_elements.pick_check"></DD_ATTR_DTAB>
+			<DD_ATTR_DINQ id="ddm_elements.pick_check"></DD_ATTR_DINQ>
+			<DD_ATTR_ENCR id="ddm_elements.pick_check"></DD_ATTR_ENCR>
+			<DD_ATTR_IDEF id="ddm_elements.pick_check"></DD_ATTR_IDEF>
+			<DD_ATTR_LABL id="ddm_elements.pick_check">Check Box</DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_elements.pick_check">Check</DD_ATTR_LABS>
+			<DD_ATTR_LDIS id="ddm_elements.pick_check"></DD_ATTR_LDIS>
+			<DD_ATTR_MAXL id="ddm_elements.pick_check"></DD_ATTR_MAXL>
+			<DD_ATTR_MAXR id="ddm_elements.pick_check"></DD_ATTR_MAXR>
+			<DD_ATTR_MAXV id="ddm_elements.pick_check"></DD_ATTR_MAXV>
+			<DD_ATTR_MINL id="ddm_elements.pick_check"></DD_ATTR_MINL>
+			<DD_ATTR_MINV id="ddm_elements.pick_check"></DD_ATTR_MINV>
+			<DD_ATTR_MSKI id="ddm_elements.pick_check"></DD_ATTR_MSKI>
+			<DD_ATTR_MSKO id="ddm_elements.pick_check"></DD_ATTR_MSKO>
+			<DD_ATTR_PADC id="ddm_elements.pick_check"></DD_ATTR_PADC>
+			<DD_ATTR_PADJ id="ddm_elements.pick_check"></DD_ATTR_PADJ>
+			<DD_ATTR_PREC id="ddm_elements.pick_check"></DD_ATTR_PREC>
+			<DD_ATTR_PROM id="ddm_elements.pick_check"></DD_ATTR_PROM>
+			<DD_ATTR_PVAL id="ddm_elements.pick_check"></DD_ATTR_PVAL>
+			<DD_ATTR_SDLG id="ddm_elements.pick_check"></DD_ATTR_SDLG>
+			<DD_ATTR_SLEV id="ddm_elements.pick_check"></DD_ATTR_SLEV>
+			<DD_ATTR_STYP id="ddm_elements.pick_check"></DD_ATTR_STYP>
+			<DD_ATTR_STEP id="ddm_elements.pick_check"></DD_ATTR_STEP>
+			<DD_ATTR_FLPT id="ddm_elements.pick_check"></DD_ATTR_FLPT>
+			<DD_ATTR_OEMD id="ddm_elements.pick_check"></DD_ATTR_OEMD>
+			<DD_ATTR_Y2KW id="ddm_elements.pick_check"></DD_ATTR_Y2KW>
+			<DD_ATTR_CASB id="ddm_elements.pick_check"></DD_ATTR_CASB>
+		</RECORD>
+	</ALIAS>
+</POR_ROGREG>
