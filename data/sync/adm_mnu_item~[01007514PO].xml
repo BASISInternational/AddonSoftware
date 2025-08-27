@@ -175,12 +175,10 @@
 		<MENU_DESC>Purchase Order Receipt Register</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
-		<OPT_TYPE>A</OPT_TYPE>
-		<TABLE_ID>                </TABLE_ID>
-		<MENU_PROG>[+DIR_PGM]por_recptreg.aon</MENU_PROG>
-		<HELP_TAG>Purchase_Order_Receipt_Register</HELP_TAG>
+		<OPT_TYPE>T</OPT_TYPE>
+		<TABLE_ID>POR_RECPTREG    </TABLE_ID>
 		<MULT_PROC> </MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>

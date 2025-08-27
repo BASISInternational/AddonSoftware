@@ -52,13 +52,11 @@ rem --- Document initializations
     
     lockKeys!=bbjAPI().makeVector()
     lockKeys!.addItem("POE_RECHDR")
-    
-rem --- each receipt on separate page?
 
-    msg_id$="PO_RECREG_BRK"
-    gosub disp_message
-    if msg_opt$="C" then goto std_exit
-    break$=msg_opt$
+rem --- Assign form input values to local variables
+
+    break$=option!.getOptionData("NEW_PAGE")
+    print_zero$=option!.getOptionData("PRINT_ZERO")
     x$=stbl("rpt_break",break$)
 
 rem --- Open/Lock files
@@ -410,6 +408,7 @@ rem --- Read next detail record
             k$=key(poe14_dev,end=*break)
             if pos(poe04a.firm_id$+poe04a.batch_no$+poe04a.receiver_no$=k$)<>1 break
             read record (poe14_dev) poe14a$
+            if poe14a.qty_received=0 and print_zero$="N" then continue
             if pom02a.firm_id$+pom02a.po_line_code$<>firm_id$+poe14a.po_line_code$
                 pom02a.firm_id$=firm_id$
                 pom02a.po_line_code$=poe14a.po_line_code$
