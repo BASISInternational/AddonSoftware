@@ -108,15 +108,13 @@ rem --- Invoice Read
     while more
         read record(apt01_dev,end=roll_totals)apt01a$
         if firm_id$<>apt01a.firm_id$ exitto roll_totals
-        if apt01a.sequence_00$<>"00" gosub remove_invoice; continue
+        if apt01a.sequence_00$<>"00" then continue
         if apt01a.invoice_date$>p9$ or apt01a.accting_date$>p9$ continue
         call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
 
     rem --- Init Totals
 
         dim t[2]
-    rem o9=0; rem remove zero balance invoices
-        o9=1; rem keep zero balance invoices
 
     rem --- Find Totals
 
@@ -144,7 +142,6 @@ rem --- Invoice Read
     rem --- Keep or Remove
 
         if t[0]<>0 or t[2]<>0 continue
-        if o9=0 gosub remove_invoice
 
     rem --- Next Invoice
 
@@ -202,26 +199,6 @@ done: rem --- Increment Period
     endif
 
     goto std_exit
-
-remove_invoice: rem --- Remove Invoice
-
-    read (apt11_dev,key=apt01a.firm_id$+apt01a.ap_type$+apt01a.vendor_id$+apt01a.ap_inv_no$,dom=*next)
-    while more
-        read record(apt11_dev,end=*break)apt11a$
-        if apt01a.firm_id$+apt01a.ap_type$+apt01a.vendor_id$+apt01a.ap_inv_no$<>
-:           apt11a.firm_id$+apt11a.ap_type$+apt11a.vendor_id$+apt11a.ap_inv_no$ break
-        remove (apt11_dev,key=apt11a.firm_id$+apt11a.ap_type$+apt11a.vendor_id$+apt11a.ap_inv_no$)
-    wend
-
-    remove (apt01_dev,key=apt01a.firm_id$+apt01a.ap_type$+apt01a.vendor_id$+apt01a.ap_inv_no$+apt01a.sequence_00$,dom=*next)
-    read (apt02_dev,key=apt01a.firm_id$+apt01a.ap_type$+apt01a.vendor_id$+"I"+apt01a.ap_inv_no$,dom=*next)
-    while more
-        apt02_key$=key(apt02_dev,end=*break)
-        if pos(apt01a.firm_id$+apt01a.ap_type$+apt01a.vendor_id$+"I"+apt01a.ap_inv_no$=apt02_key$)<>1 then break
-        remove (apt02_dev,key=apt02_key$)
-    wend
-
-    return
 
 disp_message: rem --- Display Message Dialog
 
