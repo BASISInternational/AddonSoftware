@@ -32,6 +32,9 @@ rem --- set rd_alias_id$, if needed, for DocOut Settings
     endif
 	rd_alias_id$=cvs(rd_alias_id$,4)
 
+rem --- Assign form input values to local variables
+    print_zero$=option!.getOptionData("PRINT_ZERO")
+
 rem --- Get Batch information
     call stbl("+DIR_PGM")+"adc_getbatch.aon","",pgm(-2),rd_table_chans$[all]
 	batch_no$=stbl("+BATCH_NO")
@@ -132,13 +135,6 @@ rem --- Headings and print positions
     columns$[9,0]=replacementQuantity$,columns$[9,1]="C",columns$[9,2]=str(len(m2$)+2),columns$[9,5]="R^R",columns$[9,10]="T"
 
     call stbl("+DIR_PGM",err=*next)+"adc_docout_adj.aon",columns$[all]
-
-rem --- Get user approval to proceed
-    msg_id$="AON_RUN_QUERY"
-    dim msg_tokens$[1]
-    msg_tokens$[1]=sysinfo.task_desc$
-    gosub disp_message
-    if msg_opt$<>"Y" then goto std_exit
         
 rem --- Position file
     call pgmdir$ + "adc_progress.aon","N","","","","",0,poeRogHdr_dev,1,meter_num,status
@@ -167,6 +163,7 @@ rem --- Position file
             poeRogDet_key$=key(poeRogDet_dev,end=*break)
             if pos(trip_key$=poeRogDet_key$)<>1 break
             read record (poeRogDet_dev) poeRogDet$
+            if poeRogDet.qty_returned=0 and print_zero$="N" then continue
 
             rem --- Get PO Line Type, and skip record if not S, N or O line type
             findrecord(pocLineCode_dev,key=poeRogDet.firm_id$+poeRogDet.line_code$,dom=*continue)pocLineCode$

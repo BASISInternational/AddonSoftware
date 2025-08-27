@@ -179,6 +179,7 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_RECPTREG    </TABLE_ID>
+		<HELP_TAG>Purchase_Order_Receipt_Register                                 </HELP_TAG>
 		<MULT_PROC> </MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
@@ -857,15 +858,14 @@
 		<NO_SHOW> </NO_SHOW>
 		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
-		<OPT_TYPE>A</OPT_TYPE>
-		<TABLE_ID>                </TABLE_ID>
-		<MENU_PROG>[+DIR_PGM]por_rogreg.aon</MENU_PROG>
+		<OPT_TYPE>T</OPT_TYPE>
+		<TABLE_ID>POR_ROGREG      </TABLE_ID>
 		<HELP_TAG>PO_Return_Of_Goods_Register                                     </HELP_TAG>
 		<MULT_PROC> </MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
-		<OPT_ID>POR_PORREG          </OPT_ID>
+		<OPT_ID>POR_ROGREG          </OPT_ID>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>PO </ASC_PROD_ID>
 		<ASC_VERSION_ID>25.0</ASC_VERSION_ID>
