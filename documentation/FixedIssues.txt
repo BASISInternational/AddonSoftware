@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-08-25
+ Report Date:   2025-09-02
  Report Branch: AddonSoftware 25.03
  Last Release:  AddonSoftware 25.02
 =======================================================================================================================================
@@ -156,4 +156,14 @@ WO_OP_REF in SFE_WOOPRTN with the corresponding fields in BM.
 ----
 Modified: data/bar/sfe_womatl.xml
 Modified: data/cdf/sfe_womatl.cdf
+=======================================================================================================================================
+
+Revision: efdec09a2ca470743257940f0482ef19ccac1e04
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 9/2/2025 11:21:14 AM
+Message:
+Bug 11093: Corrected an adjustment being applied to ALL new invoices,
+not just the ones paid via credit card.
+----
+Modified: ap/src/apu_invoiceentry.aon
 =======================================================================================================================================
