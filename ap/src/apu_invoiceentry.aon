@@ -129,30 +129,30 @@ rem --- Read next Invoice Header (ape-01) record
             apt01a$ = field(apt01a$)
             writerecord(apt01_dev)apt01a$
 
-            rem --- New invoice for vendor was paid via Credit Card
-            apt11a.firm_id$=ape01a.firm_id$
-            apt11a.ap_type$=ape01a.ap_type$
-            apt11a.vendor_id$=ape01a.vendor_id$
-            apt11a.ap_inv_no$=ape01a.ap_inv_no$
-            apt11a.sequence_no$=str(c1+1:"000")
-            apt11a.trans_type$="A"
-            apt11a.trans_date$=ape01a.accting_date$
-            if cvs(ape01a.reference$,2)<>"" then
-                apt11a.trans_ref$=ape01a.reference$
-            else
-                apt11a.trans_ref$=ape01a.creditcard_id$
-            endif
-            apt11a.trans_amt=-ape01a.invoice_amt
-            apt11a.trans_disc=-ape01a.discount_amt
-            apt11a.trans_ret=-ape01a.retention
-            apt11a$ = field(apt11a$)
-            write record (apt11_dev) apt11a$
-
             rem --- Make new invoice for Credit Card vendor
             if cvs(ape01a.creditcard_id$,2)<>"" then
                 invoice_amt=ape01a.invoice_amt
                 invoice_bal=ape01a.invoice_amt
                 gosub doCcPaidInvoice
+
+                rem --- New invoice for vendor was paid via Credit Card
+                apt11a.firm_id$=ape01a.firm_id$
+                apt11a.ap_type$=ape01a.ap_type$
+                apt11a.vendor_id$=ape01a.vendor_id$
+                apt11a.ap_inv_no$=ape01a.ap_inv_no$
+                apt11a.sequence_no$=str(c1+1:"000")
+                apt11a.trans_type$="A"
+                apt11a.trans_date$=ape01a.accting_date$
+                if cvs(ape01a.reference$,2)<>"" then
+                    apt11a.trans_ref$=ape01a.reference$
+                else
+                    apt11a.trans_ref$=ape01a.creditcard_id$
+                endif
+                apt11a.trans_amt=-ape01a.invoice_amt
+                apt11a.trans_disc=-ape01a.discount_amt
+                apt11a.trans_ret=-ape01a.retention
+                apt11a$ = field(apt11a$)
+                write record (apt11_dev) apt11a$
             endif
             
         else
