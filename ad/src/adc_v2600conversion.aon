@@ -1,0 +1,349 @@
+rem --- Upgrade Conversion Utility For Version 26.00
+rem --- Program adc_v2600conversion.aon
+
+rem --- AddonSoftware Version 26.00
+rem --- Copyright BASIS International Ltd.  All Rights Reserved.
+
+
+rem --- CONVCTRLFILECHAN : Channel number conversion control file data/adx_conversionCtrl is open on (Input)
+rem --- CONVCTRL!        : Property object of the conversion control file data/adx_conversionCtrl (Input)
+rem --- INSTALLMAP!      : HashMap object of installed modules, keyed by module ID (Input)
+rem --- rdForm!          : Window object to hold progress meter
+rem --- Translate!       : Translator object translations
+rem --- CONV_STATUS      : Status code/0=No error (Returned)
+
+    use java.io.File
+    use java.util.HashMap
+    use java.util.GregorianCalendar
+    use java.util.Properties
+
+    use ::ado_file.src::FileObject
+    use ::ado_SyncRecords.aon::SyncRecords
+
+    setesc std_error
+    seterr std_error
+
+    enter convCtrlFileChan,convCtrl!,installMap!,rdForm!,Translate!,conv_status
+
+rem --- Initializations
+
+    conv_status=1
+    dir_syp$=stbl("+DIR_SYP")
+    pgmdir$=stbl("+DIR_PGM",err=*next)
+    dataDir$=FileObject.fixPath(stbl("+DIR_DAT",err=*next), "/")
+
+    Calendar! = new GregorianCalendar()
+    
+rem --- Open log file in aon/logs directory
+
+    num_files=1
+    dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+    open_tables$[1]="DDM_SYSTEMS",open_opts$[1]="OTA"
+    gosub open_tables
+    ddm_systems=num(open_chans$[1]);dim ddm_systems$:open_tpls$[1]
+    
+    aonDir$=""
+    readrecord(ddm_systems,key=pad("ADDON",16," "),knum="SYSTEM_ID",err=*next)ddm_systems$
+    if cvs(ddm_systems.mount_dir$,2)<>"" then
+        aonDir$=ddm_systems.mount_dir$
+    endif
+
+    location$ = aonDir$
+    gosub open_log
+    
+rem --- Start progress meter
+
+    meter_title$="adc_v2600conversion.aon"
+    meter_proc_recs=0
+    meter_text$=""
+    meter_action$="WIN-LST"
+    gosub disp_meter
+
+rem --- Initialize data file changes implemented during minor releases of v25
+
+    if num(convCtrl!.getProperty("start_version"))>=25 then
+        rem --- If starting version is before v25, then the following conversions are handled in adc_v2500conversion.aon
+
+        this_module$="AR"
+        if installMap!.get(this_module$)="Y" then
+            task$="2500_AR_arc_labelcode"
+            if convCtrl!.getProperty(task$)<>"Completed" then
+                rem --- Increment progress meter
+                meter_text$=this_module$+" "+Translate!.getTranslation("AON_INSTALLED","Installed")+", "+
+    :               Translate!.getTranslation("AON_DO_DATA_CONV","Doing data conversion for")+" "+this_module$
+                meter_proc_recs=meter_proc_recs+1
+                meter_action$="MTR-LST"
+                gosub disp_meter
+                print(log_dev)meter_text$
+            
+                rem --- Increment progress meter
+                meter_text$=Translate!.getTranslation("AON_INITIALIZING","Initializing")+": ARC_LABELCODE"
+                meter_proc_recs=meter_proc_recs+1
+                meter_action$="MTR-LST"
+                gosub disp_meter
+                print(log_dev)meter_text$
+        
+                rem --- Execute AR upgrade conversion utility for minor releases of v25
+                theFirm$=""
+                call pgmdir$+"arc_v26initMinorRev.aon",theFirm$,rdForm!,status
+                if status=0 then
+                    rem --- Conversion completed successfully
+                    rem --- Increment progress meter
+                    meter_text$=Translate!.getTranslation("AON_DATA_CONV","Data conversion")+" "+
+    :                       Translate!.getTranslation("AON_COMPLETED_FOR","completed for")+": ARC_LABELCODE"
+                    meter_proc_recs=meter_proc_recs+1
+                    meter_action$="MTR-LST"
+                    gosub disp_meter
+                    print(log_dev)meter_text$
+                    write(convCtrlFileChan)task$+"=Completed"
+                else
+                    rem --- Conversion did NOT complete successfully, exit with error message
+                    err_msg$="***** "+Translate!.getTranslation("AON_ERROR","Error")+": "+
+    :                       Translate!.getTranslation("AON_DATA_CONV","Data conversion")+" "+Translate!.getTranslation("AON_NOT","Not")+" "+
+    :                       Translate!.getTranslation("AON_COMPLETED_FOR","completed for")+": ARC_LABELCODE"+" *****"
+                    goto done
+                endif
+            else
+                rem --- Increment progress meter
+                meter_text$=Translate!.getTranslation("AON_CONV_PREVIOUSLY","Conversion previously completed for")+" "+task$
+                meter_proc_recs=meter_proc_recs+1
+                meter_action$="MTR-LST"
+                gosub disp_meter
+                print(log_dev)meter_text$
+            endif
+        else
+            rem --- Increment progress meter
+            meter_text$=this_module$+" "+Translate!.getTranslation("AON_NOT","Not")+" "+Translate!.getTranslation("AON_INSTALLED","Installed")+", "+
+    :           Translate!.getTranslation("AON_SKIP","SKIP")+" "+Translate!.getTranslation("AON_DO_DATA_CONV","Doing data conversion for")+" "+this_module$
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+        endif
+    endif
+
+done: rem --- Done, close things up
+
+    rem --- Complete progress meter
+    completed_successfully=0
+    if err_msg$<>"" then
+        meter_text$=err_msg$
+    else
+        meter_text$=Translate!.getTranslation("AON_CONV_COMPLETED","Conversions completed successfully")
+        completed_successfully=1
+    endif
+    meter_proc_recs=meter_total_recs
+    meter_action$="MTR-LST"
+    gosub disp_meter
+    print(log_dev)meter_text$
+    
+    rem --- Stop progress meter
+    meter_text$=""
+    meter_action$="LST-END"
+    gosub disp_meter
+
+    rem --- Complete and close log file
+    print(log_dev)
+    print(log_dev)"v2600conversion log finished: " + date(0:"%Yd-%Mz-%Dz@%Hz:%mz:%sz")
+    close(log_dev)
+
+    rem --- Close opened files
+    if ddm_table_tpls then close(ddm_table_tpls,err=*next)
+
+    if completed_successfully then conv_status=0; rem --- no errors encountered
+	goto std_exit
+
+get_path_to_old_file: rem --- Locate data directory in old Addon installation
+    rem --- IN: oldStbl$ - STBL in old addon.syn that points to the data directory where the old file is located
+    rem --- IN: oldFile$ - name of old file to get path for
+    rem --- OUT: oldPathToFile$ - full path to requested file, including the file name
+    oldPathToFile$=oldFile$
+
+    rem --- Open old aon/config/addon.syn
+    open_success=0
+    old_addonsyn_dev=unt
+    open(old_addonsyn_dev,isz=-1,err=*next)convCtrl!.getProperty("addon_source")+"/aon/config/addon.syn"; open_success=1
+    if !open_success then return
+
+    rem --- Get specified data directory from old addon.syn
+    key$="=SET "+oldStbl$+"="
+    while 1
+        read(old_addonsyn_dev,end=*break)record$
+        if(pos(key$=record$)) then
+            xpos=pos(key$=record$)
+            oldPathToFile$=record$(xpos+len(key$))+oldFile$
+            break
+        endif
+    wend
+    close(old_addonsyn_dev)
+
+    return
+
+open_log: rem --- Open log file
+           
+    rem --- create logs directory at location
+    logDir$=FileObject.fixPath(location$ + "/logs", "/")
+    FileObject.makeDirs(new File(logDir$))
+
+    rem --- create and open log file
+    log$=logDir$+"/v2600conversion_"+DATE(0:"%Yd%Mz%Dz")+"_"+DATE(0:"%Hz%mz")+".log"
+    erase log$,err=*next
+    string log$
+    log_dev=unt
+    open(log_dev)log$
+            
+    rem --- write log header info
+    print(log_dev)"v2600conversion log started: " + date(0:"%Yd-%Mz-%Dz@%Hz:%mz:%sz")
+    print(log_dev)
+
+    return
+
+update_PO_SO_links: rem --- Create historical PO-to-SO link for links that are now closed
+    linkedSOs!=new HashMap()
+
+    rem --- Check ope_reqdet for open links to SO detail lines
+    read(poeReqDet_dev,key=thisFirm$,dom=*next)
+    while 1
+        poeReqDet_key$=key(poeReqDet_dev,end=*break)
+        if pos(thisFirm$=poeReqDet_key$)<>1 then break
+        readrecord(poeReqDet_dev)poeReqDet$
+        if cvs(poeReqDet.so_int_seq_ref$,2)<>"" then linkedSOs!.put(poeReqDet.so_int_seq_ref$, poeReqDet_key$)
+    wend
+
+    rem --- Check ope_podet for open links to SO detail lines
+    read(poe12_dev,key=thisFirm$,dom=*next)
+    while 1
+        poe12_key$=key(poe12_dev,end=*break)
+        if pos(thisFirm$=poe12_key$)<>1 then break
+        readrecord(poe12_dev)poe12a$
+        if cvs(poe12a.so_int_seq_ref$,2)<>"" then linkedSOs!.put(poe12a.so_int_seq_ref$, poe12_key$)
+    wend
+
+    rem --- Check ope_recdet for open links to SO detail lines
+    read(poeRecDet_dev,key=thisFirm$,dom=*next)
+    while 1
+        poeRecDet_key$=key(poeRecDet_dev,end=*break)
+        if pos(thisFirm$=poeRecDet_key$)<>1 then break
+        readrecord(poeRecDet_dev)poeRecDet$
+        if cvs(poeRecDet.so_int_seq_ref$,2)<>"" then linkedSOs!.put(poeRecDet.so_int_seq_ref$, poeRecDet_key$)
+    wend
+
+    rem --- Check ope_invdet for open links to SO detail lines
+    read(poe25_dev,key=thisFirm$,dom=*next)
+    while 1
+        poe25_key$=key(poe25_dev,end=*break)
+        if pos(thisFirm$=poe25_key$)<>1 then break
+        readrecord(poe25_dev)poe25a$
+        po_no$=poe25a.po_no$
+        receiver_no$=poe25a.po_no$
+        
+        read(pot14_dev,key=thisFirm$+po_no$+receiver_no$,dom=*next)
+        while 1
+            pot14_key$=key(pot14_dev,end=*break)
+            if pos(thisFirm$=pot14_key$)<>1 then break
+            readrecord(pot14_dev)pot14a$
+            if cvs(pot14a.so_int_seq_ref$,2)<>"" then linkedSOs!.put(pot14a.so_int_seq_ref$, pot14_key$)
+        wend
+    wend
+
+    rem --- Move poe_linked record to pot_linked if link NOT found in PO req/po/rec/inv entry files
+    read(poeLinked_dev,key=thisFirm$,dom=*next)
+    while 1
+        poeLinked_key$=key(poeLinked_dev,end=*break)
+        if pos(thisFirm$=poeLinked_key$)<>1 then break
+        readrecord(poeLinked_dev)poeLinked$
+        if linkedSOs!.get(poeLinked.opedet_seq_ref$)=null() then
+            writerecord(potLinked_dev)poeLinked$
+            remove(poeLinked_dev,key=poeLinked_key$)
+        endif
+    wend
+    
+    return
+    
+disp_meter: rem --- Display Progress Meter
+
+    rem --- sysGUI! is not declared in bam_prog_bar.bbj, so can't declare it here
+    rem declare BBjSysGui sysGUI!
+    sysGUI!=BBjAPI().getSysGui()
+
+    rem --- rdForm! is not declared in bam_prog_bar.bbj, so can't declare it here
+    rem declare BBjTopLevelWindow rdForm!
+
+    rem --- meterWin! is not declared in bam_prog_bar.bbj, so can't declare it here
+    rem declare BBjTopLevelWindow meterWin!
+
+    call dir_syp$+"bam_prog_bar.bbj",
+:       sysGUI!,
+:       rdForm!,
+:       meterWin!,
+:       meter_title$,
+:       meter_total_recs,
+:       meter_proc_recs,
+:       meter_text$,
+:       meter_action$
+
+    return
+   
+open_tables:rem --- Open Tables
+
+    call stbl("+DIR_SYP")+"bac_open_tables.bbj",
+:       open_beg,
+:       open_end,
+:       open_tables$[all],
+:       open_opts$[all],
+:       open_chans$[all],
+:       open_tpls$[all],
+:       rd_table_chans$[all],
+:       open_batch,
+:       open_status$
+
+    if open_status$<>"" then
+        msg_id$="ENTRY_OPEN_ERROR"
+        dim msg_tokens$[1]
+        msg_tokens$[1]=open_status$
+        gosub disp_message
+        rdFuncSpace!=bbjAPI().getGroupNamespace().setValue("+build_task","OFF")
+        release
+    endif
+    return
+
+disp_message: rem --- Display Message Dialog
+
+    call stbl("+DIR_SYP")+"bac_message.bbj",msg_id$,msg_tokens$[all],msg_opt$,table_chans$[all]
+
+    return
+
+rem #include std_error.src
+
+std_error: rem --- Standard error handler (22Feb2013)
+
+    if tcb(19)>0
+        rem --- Escape handler
+        if and(chr(tcb(19)),$08$)=$08$
+            release
+        else
+            setesc std_error
+            return
+        endif
+    endif
+
+    rd_err_text$=""
+    if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+    call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err),rd_err_text$,rd_err_act$
+    if pos("ESCAPE"=rd_err_act$) seterr 0; setesc 0
+    if pos("RETRY"=rd_err_act$) retry
+    if pgm(-1)<>pgm(-2) status=999; exit 
+    release
+
+rem #endinclude std_error.src
+
+
+rem #include std_exit.src
+
+std_exit: rem --- Standard called program exit (01Mar2006)
+    
+    exit
+
+rem #endinclude std_exit.src
+
+    end

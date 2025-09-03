@@ -2092,6 +2092,16 @@
 	</barista_record>
 	<barista_record>
 		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
+		<MENUITEM_ID>496cd507-0543-4a26-821a-d63a9d5c8e44</MENUITEM_ID>
+		<LANG_ID>ENU</LANG_ID>
+		<NO_SHOW> </NO_SHOW>
+		<MENU_DESC>v25 Minor Rev Upgrade Utilities</MENU_DESC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
 		<MENUITEM_ID>4da06de9-6c72-471a-8098-04ef5fbcc095</MENUITEM_ID>
 		<LANG_ID>ENU</LANG_ID>
 		<NO_SHOW>Y</NO_SHOW>
@@ -6183,6 +6193,16 @@
 	</barista_record>
 	<barista_record>
 		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
+		<MENUITEM_ID>f41769ee-b78c-4226-a699-2565b135a75e</MENUITEM_ID>
+		<LANG_ID>ENU</LANG_ID>
+		<NO_SHOW> </NO_SHOW>
+		<MENU_DESC>AR v25 Minor Rev Upgrade</MENU_DESC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
 		<MENUITEM_ID>f70ba327-351e-4257-bc42-e42895209f69</MENUITEM_ID>
 		<LANG_ID>DEU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
@@ -6345,6 +6365,16 @@
 		<LANG_ID>ITA</LANG_ID>
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>Copy Directory Recursively</MENU_DESC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
+		<MENUITEM_ID>ff36decf-c671-49fb-ab63-e1690c73f72d</MENUITEM_ID>
+		<LANG_ID>ENU</LANG_ID>
+		<NO_SHOW> </NO_SHOW>
+		<MENU_DESC>v25 Minor Rev Upgrade Utilities</MENU_DESC>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AD </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>
