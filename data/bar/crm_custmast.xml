@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.crm_custmast">B0AE4537C94866F0AF91493A5C8B7BCB</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.crm_custmast">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.crm_custmast">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.crm_custmast">20250703</DD_LSTREV_DATE>
+			<DD_LSTREV_DATE id="ddm_tables.crm_custmast">20250901</DD_LSTREV_DATE>
 			<DD_LSTSYNC_DATE id="ddm_tables.crm_custmast">20250703</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.crm_custmast">144044</DD_LSTSYNC_TIME>
+			<DD_LSTSYNC_TIME id="ddm_tables.crm_custmast">144102</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.crm_custmast">ARM_CUSTMAST    </DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.crm_custmast">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.crm_custmast"></DD_ATTR_DKNM>
@@ -267,7 +267,7 @@
 			<DD_ATTR_DCOL id="ddm_table_acol.crm_custmast011">LABEL_CODE      </DD_ATTR_DCOL>
 			<DD_ATTR_TIND id="ddm_table_acol.crm_custmast011">34</DD_ATTR_TIND>
 			<DD_ATTR_CTLI id="ddm_table_acol.crm_custmast011">3211</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_acol.crm_custmast011">ine_label_code</DD_ATTR_CTLN>
+			<DD_ATTR_CTLN id="ddm_table_acol.crm_custmast011">dis_label_code</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_acol.crm_custmast011">2</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_acol.crm_custmast011"></DD_ATTR_RADG>
 			<DD_ATTR_CTLX id="ddm_table_acol.crm_custmast011"></DD_ATTR_CTLX>

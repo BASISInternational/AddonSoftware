@@ -112,6 +112,65 @@ rem --- For version 24.01, Copy ADC_STATECODE ZZ records for all firms (ER 8362)
         print(log_dev)meter_text$
     endif
 
+rem --- Initialize AR data file changes implemented during minor releases of v25
+
+    this_module$="AR"
+    if installMap!.get(this_module$)="Y" then
+        task$="2500_AR_arc_labelcode"
+        if convCtrl!.getProperty(task$)<>"Completed" then
+            rem --- Increment progress meter
+            meter_text$=this_module$+" "+Translate!.getTranslation("AON_INSTALLED","Installed")+", "+
+:               Translate!.getTranslation("AON_DO_DATA_CONV","Doing data conversion for")+" "+this_module$
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+        
+            rem --- Increment progress meter
+            meter_text$=Translate!.getTranslation("AON_INITIALIZING","Initializing")+": ARC_LABELCODE"
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+    
+            rem --- Execute AR upgrade conversion utility for minor releases of v25
+            theFirm$=""
+            call pgmdir$+"arc_v25initMinorRev.aon",theFirm$,rdForm!,status
+            if status=0 then
+                rem --- Conversion completed successfully
+                rem --- Increment progress meter
+                meter_text$=Translate!.getTranslation("AON_DATA_CONV","Data conversion")+" "+
+:                       Translate!.getTranslation("AON_COMPLETED_FOR","completed for")+": ARC_LABELCODE"
+                meter_proc_recs=meter_proc_recs+1
+                meter_action$="MTR-LST"
+                gosub disp_meter
+                print(log_dev)meter_text$
+                write(convCtrlFileChan)task$+"=Completed"
+            else
+                rem --- Conversion did NOT complete successfully, exit with error message
+                err_msg$="***** "+Translate!.getTranslation("AON_ERROR","Error")+": "+
+:                       Translate!.getTranslation("AON_DATA_CONV","Data conversion")+" "+Translate!.getTranslation("AON_NOT","Not")+" "+
+:                       Translate!.getTranslation("AON_COMPLETED_FOR","completed for")+": ARC_LABELCODE"+" *****"
+                goto done
+            endif
+        else
+            rem --- Increment progress meter
+            meter_text$=Translate!.getTranslation("AON_CONV_PREVIOUSLY","Conversion previously completed for")+" "+task$
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+        endif
+    else
+        rem --- Increment progress meter
+        meter_text$=this_module$+" "+Translate!.getTranslation("AON_NOT","Not")+" "+Translate!.getTranslation("AON_INSTALLED","Installed")+", "+
+:           Translate!.getTranslation("AON_SKIP","SKIP")+" "+Translate!.getTranslation("AON_DO_DATA_CONV","Doing data conversion for")+" "+this_module$
+        meter_proc_recs=meter_proc_recs+1
+        meter_action$="MTR-LST"
+        gosub disp_meter
+        print(log_dev)meter_text$
+    endif
+
 rem --- Create historical PO-to-SO link for links that are now closed, and update PO_NO in POT_REQHDR_ARC
     this_module$="PO"
     if installMap!.get(this_module$)="Y" then
