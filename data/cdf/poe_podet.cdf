@@ -354,6 +354,9 @@ rem --- Initialize warehouse_id for dropships
 if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" and callpoint!.getHeaderColumnData("POE_POHDR.DROPSHIP")="Y" then
 	callpoint!.setColumnData("POE_PODET.WAREHOUSE_ID",str(callpoint!.getDevObject("dropship_whse")),1)
 	callpoint!.setColumnEnabled(callpoint!.getValidationRow(),"POE_PODET.WAREHOUSE_ID",0)
+else
+rem wgh ... 11100 ... testing
+	callpoint!.setColumnData("POE_PODET.WAREHOUSE_ID",callpoint!.getHeaderColumnData("POE_POHDR.WAREHOUSE_ID"))
 endif
 
 [[POE_PODET.AUDE]]
@@ -666,31 +669,53 @@ rem print "modify status:",callpoint!.getGridRowModifyStatus(num(callpoint!.getV
 
 rem I think if line type changes on existing row, need to uncommit whatever's on this line (assuming old line code was a stock type)
 
+rem wgh ... 11100 ... testing
+poc_linecode_dev=fnget_dev("POC_LINECODE")
+dim poc_linecode$:fnget_tpl$("POC_LINECODE")
+this_line_code$=callpoint!.getUserInput()
+read record(poc_linecode_dev,key=firm_id$+this_line_code$,dom=*next)poc_linecode$
+this_line_type$=poc_linecode.line_type$
+previous_line_code$=callpoint!.getColumnData("POE_PODET.PO_LINE_CODE")
+read record(poc_linecode_dev,key=firm_id$+previous_line_code$,dom=*next)poc_linecode$
+previous_line_type$=poc_linecode.line_type$
+if callpoint!.getGridRowNewStatus(num(callpoint!.getValidationRow()))<>"Y" and this_line_type$=previous_line_type$ then break
+rem wgh ... 11100 ... testing
+
 gosub update_line_type_info
 
-if callpoint!.getGridRowNewStatus(num(callpoint!.getValidationRow()))="Y" or cvs(callpoint!.getUserInput(),2)<>cvs(callpoint!.getColumnData("POE_PODET.PO_LINE_CODE"),2) then
-		callpoint!.setColumnData("POE_PODET.PO_LINE_CODE",callpoint!.getUserInput())
-		callpoint!.setColumnData("POE_PODET.CONV_FACTOR","")
-		callpoint!.setColumnData("POE_PODET.FORECAST","")
-		callpoint!.setColumnData("POE_PODET.ITEM_ID","")
-		callpoint!.setColumnData("POE_PODET.LEAD_TIM_FLG","")
-		callpoint!.setColumnData("POE_PODET.LOCATION","")
-		callpoint!.setColumnData("POE_PODET.MEMO_1024","")
-		callpoint!.setColumnData("POE_PODET.NOT_B4_DATE",callpoint!.getHeaderColumnData("POE_POHDR.NOT_B4_DATE"))
-		callpoint!.setColumnData("POE_PODET.NS_ITEM_ID","")
-		callpoint!.setColumnData("POE_PODET.ORDER_MEMO","")
-		callpoint!.setColumnData("POE_PODET.PO_MSG_CODE","")
-		callpoint!.setColumnData("POE_PODET.PROMISE_DATE",callpoint!.getHeaderColumnData("POE_POHDR.PROMISE_DATE"))
-		callpoint!.setColumnData("POE_PODET.REQD_DATE",callpoint!.getHeaderColumnData("POE_POHDR.REQD_DATE"))
-		callpoint!.setColumnData("POE_PODET.REQ_QTY","")
-		callpoint!.setColumnData("POE_PODET.SO_INT_SEQ_REF","")
-		callpoint!.setColumnData("POE_PODET.SOURCE_CODE","")
-		callpoint!.setColumnData("POE_PODET.UNIT_COST","")
-		callpoint!.setColumnData("POE_PODET.UNIT_MEASURE","")
-		callpoint!.setColumnData("POE_PODET.WAREHOUSE_ID",callpoint!.getHeaderColumnData("POE_POHDR.WAREHOUSE_ID"))
-		callpoint!.setColumnData("POE_PODET.WO_NO","")
-		callpoint!.setColumnData("POE_PODET.WK_ORD_SEQ_REF","")
-		callpoint!.setStatus("REFRESH")
+rem wgh ... 11100 ... testing
+if this_line_type$<>previous_line_type$ then
+	callpoint!.setColumnData("POE_PODET.PO_LINE_CODE",callpoint!.getUserInput())
+	callpoint!.setColumnData("POE_PODET.NOT_B4_DATE",callpoint!.getHeaderColumnData("POE_POHDR.NOT_B4_DATE"))
+	callpoint!.setColumnData("POE_PODET.PROMISE_DATE",callpoint!.getHeaderColumnData("POE_POHDR.PROMISE_DATE"))
+	callpoint!.setColumnData("POE_PODET.REQD_DATE",callpoint!.getHeaderColumnData("POE_POHDR.REQD_DATE"))
+	callpoint!.setColumnData("POE_PODET.WAREHOUSE_ID",callpoint!.getHeaderColumnData("POE_POHDR.WAREHOUSE_ID"))
+	callpoint!.setStatus("REFRESH")
+endif
+rem wgh ... 11100 ... testing
+
+rem wgh ... 11100 ... testing
+rem ... if callpoint!.getGridRowNewStatus(num(callpoint!.getValidationRow()))="Y" or cvs(callpoint!.getUserInput(),2)<>cvs(callpoint!.getColumnData("POE_PODET.PO_LINE_CODE"),2) then
+if this_line_type$<>previous_line_type$ then
+	callpoint!.setColumnData("POE_PODET.CONV_FACTOR","")
+	callpoint!.setColumnData("POE_PODET.FORECAST","")
+	callpoint!.setColumnData("POE_PODET.ITEM_ID","")
+	callpoint!.setColumnData("POE_PODET.LEAD_TIM_FLG","")
+	callpoint!.setColumnData("POE_PODET.LOCATION","")
+	callpoint!.setColumnData("POE_PODET.MEMO_1024","")
+	callpoint!.setColumnData("POE_PODET.NS_ITEM_ID","")
+	callpoint!.setColumnData("POE_PODET.ORDER_MEMO","")
+	callpoint!.setColumnData("POE_PODET.PO_MSG_CODE","")
+	callpoint!.setColumnData("POE_PODET.REQ_QTY","")
+	callpoint!.setColumnData("POE_PODET.SO_INT_SEQ_REF","")
+	callpoint!.setColumnData("POE_PODET.SOURCE_CODE","")
+	callpoint!.setColumnData("POE_PODET.QTY_ORDERED","")
+	callpoint!.setColumnData("POE_PODET.UNIT_COST","")
+	callpoint!.setColumnData("POE_PODET.UNIT_MEASURE","")
+	callpoint!.setColumnData("POE_PODET.WO_NO","")
+	callpoint!.setColumnData("POE_PODET.WK_ORD_SEQ_REF","")
+	callpoint!.setStatus("REFRESH")
+rem wgh ... 11100 ... testing
 
 	rem --- If a V line type immediately follows an S line type containing an item with this vendor's part number,
 	rem --- that number is automatically displayed.
@@ -1101,6 +1126,7 @@ rem ==========================================================================
 
 rem --- Manually enable/disable fields based on Line Type
 
+rem wgh ... 11100 ... testing
 	switch pos(poc_linecode.line_type$="SNOMV")
 		case 1; rem Standard
 			callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"POE_PODET.NS_ITEM_ID",0)
