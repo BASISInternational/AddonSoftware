@@ -2736,6 +2736,16 @@
 	</barista_record>
 	<barista_record>
 		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
+		<MENUITEM_ID>74ae9925-3908-422a-9931-b51b288c174e</MENUITEM_ID>
+		<LANG_ID>ENU</LANG_ID>
+		<NO_SHOW> </NO_SHOW>
+		<MENU_DESC>Sales Order-to-Work Order Links</MENU_DESC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>OP </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
 		<MENUITEM_ID>76ef41ae-5364-4ae5-bfd8-4a39a688274d</MENUITEM_ID>
 		<LANG_ID>DEU</LANG_ID>
 		<NO_SHOW>Y</NO_SHOW>
@@ -4225,6 +4235,16 @@
 		<NO_SHOW> </NO_SHOW>
 		<MENU_DESC>Rapporto tassa sulle vendite</MENU_DESC>
 		<HELP_TAG>Sales_Tax_Report</HELP_TAG>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>OP </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
+		<MENUITEM_ID>c0d315b7-ef4a-4b0f-a727-41d44f2c68c1</MENUITEM_ID>
+		<LANG_ID>ENU</LANG_ID>
+		<NO_SHOW> </NO_SHOW>
+		<MENU_DESC>Fulfillment Print Packing List</MENU_DESC>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>OP </ASC_PROD_ID>
 		<USER_MODIFIED> </USER_MODIFIED>
