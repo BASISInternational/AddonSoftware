@@ -92,6 +92,15 @@ rem --- Disable/enable fields if all_packed, or not.
 	endif
 	callpoint!.setDevObject("all_packed",all_packed$)
 
+rem --- Force Edit Mode for new records, and select the appropriate grid/tab
+	tabFocus=callpoint!.getDevObject("tabFocus")
+	if tabFocus>-1 then
+		callpoint!.setStatus("EDITON")
+
+		tabCtrl!=Form!.getControl(num(stbl("+TAB_CTL")))
+		tabCtrl!.setSelectedIndex(tabFocus)
+	endif
+
 [[OPT_FILLMNTHDR.ALL_PACKED.AVAL]]
 rem --- Skip if all_packed hasn't changed
 	all_packed$=callpoint!.getUserInput()
@@ -611,6 +620,7 @@ rem --- Initialize item Qty Picked?
 	endif
 
 rem --- Initialize Picking tab with corresponding OPE_ORDDET data
+	allPicked=1
 	optFillmntDet_dev=fnget_dev("OPT_FILLMNTDET")
 	dim optFillmntDet$:fnget_tpl$("OPT_FILLMNTDET")
 	opeOrdDet_dev=fnget_dev("OPE_ORDDET")
@@ -704,6 +714,8 @@ rem --- Initialize Picking tab with corresponding OPE_ORDDET data
 			endif
 			optFillmntDet.conv_factor=opeOrdDet.conv_factor
 			writerecord(optFillmntDet_dev)optFillmntDet$
+
+			if optFillmntDet.qty_picked<>opeOrdDet.qty_shipped then allPicked=0
 		else
 			rem --- Explode this kit into its components and initialize OPT_FILLMNTDET with the OPT_INVKITDET data
 			optInvKitDet_dev=fnget_dev("OPT_INVKITDET")
@@ -742,6 +754,8 @@ rem --- Initialize Picking tab with corresponding OPE_ORDDET data
 				endif
 				optFillmntDet.conv_factor=optInvKitDet.conv_factor
 				writerecord(optFillmntDet_dev)optFillmntDet$
+
+				if optFillmntDet.qty_picked<>opeOrdDet.qty_shipped then allPicked=0
 			wend
 		endif
 	wend
@@ -755,6 +769,11 @@ rem --- Remove Barista soft lock for the Order.
 	call stbl("+DIR_SYP")+"bac_lock_record.bbj",lock_table$,lock_record$,lock_type$,lock_disp$,rd_table_chan,table_chans$[all],lock_status$
 
 rem --- Relaunch form with all the initialized data
+	if allPicked then
+		callpoint!.setDevObject("tabFocus",callpoint!.getDevObject("packShipTabIndex"))
+	else
+		callpoint!.setDevObject("tabFocus",callpoint!.getDevObject("pickTabIndex"))
+	endif
 	rec_key$=optFillmntHdr.firm_id$+optFillmntHdr.trans_status$+optFillmntHdr.ar_type$+optFillmntHdr.customer_id$+optFillmntHdr.order_no$+optFillmntHdr.ar_inv_no$
 	callpoint!.setStatus("RECORD:["+rec_key$+"]")
 
@@ -1066,6 +1085,7 @@ rem --- Disable all detail grid buttons
 rem --- Initializations
 	callpoint!.setDevObject("recordDeleted",0)
 	callpoint!.setDevObject("shipping_id","")
+	callpoint!.setDevObject("tabFocus",-1)
 
 [[OPT_FILLMNTHDR.BWRI]]
 rem --- Initialize RTP modified fields for modified existing records
