@@ -2326,7 +2326,7 @@ rem                 = 1 -> user_tpl.hist_ord$ = "N"
 
 rem --- Open needed files
 
-	num_files=55
+	num_files=56
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	
 	open_tables$[1]="ARM_CUSTMAST",  open_opts$[1]="OTA"
@@ -2381,6 +2381,7 @@ rem --- Open needed files
 	open_tables$[53]="IVC_PRODCODE", open_opts$[53]="OTA"
 	open_tables$[54]="OPC_DISCCODE", open_opts$[54]="OTA"
 	open_tables$[55]="OPC_MESSAGE", open_opts$[55]="OTA"
+	open_tables$[56]="ARM_CUSTITEMS", open_opts$[56]="OTA"
 
 	gosub open_tables
 
