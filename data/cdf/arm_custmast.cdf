@@ -311,6 +311,21 @@ rem --- Show AR invoices
 :		"",
 :		filter_defs$[all]
 
+[[ARM_CUSTMAST.AOPT-ITEM]]
+rem --- Launch Customer Item Number form
+	dim dflt_data$[1,1]
+	dflt_data$[1,0]="CUSTOMER_ID"
+	dflt_data$[1,1]=callpoint!.getColumnData("ARM_CUSTMAST.CUSTOMER_ID")
+
+	call stbl("+DIR_SYP")+"bam_run_prog.bbj",
+:		"ARM_CUSTITEMS",
+:		stbl("+USER_ID"),
+:		"MNT",
+:		"",
+:		table_chans$[all],
+:		"",
+:		dflt_data$[all]
+
 [[ARM_CUSTMAST.AOPT-ORDR]]
 rem --- Show orders
 

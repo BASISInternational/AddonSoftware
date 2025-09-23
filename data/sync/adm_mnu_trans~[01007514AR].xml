@@ -1495,6 +1495,16 @@
 	</barista_record>
 	<barista_record>
 		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
+		<MENUITEM_ID>310aef33-16bd-4bd7-a521-b2fac5f9ff1f</MENUITEM_ID>
+		<LANG_ID>ENU</LANG_ID>
+		<NO_SHOW> </NO_SHOW>
+		<MENU_DESC>Customer Item Number</MENU_DESC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AR </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
 		<MENUITEM_ID>36df65f5-6730-4264-8c80-88e80e64f62a</MENUITEM_ID>
 		<LANG_ID>DEU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>

@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.ope_orddet">BA8EF92D04BD6C841674DEB28D164BD7</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_orddet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_orddet">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ope_orddet">20250630</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ope_orddet">20250630</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_orddet">161438</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ope_orddet">20250923</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ope_orddet">20250923</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_orddet">103128</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_orddet">OPT_INVDET      </DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ope_orddet">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_orddet">AO_STAT_CUST_ORD</DD_ATTR_DKNM>
@@ -6510,8 +6510,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.disc_percent"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.disc_percent">N</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.disc_percent"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.disc_percent">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.disc_percent">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.disc_percent"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.disc_percent"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.disc_percent"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.disc_percent"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.disc_percent"></DD_ATTR_DKEY>
@@ -6524,9 +6524,9 @@
 			<DD_ATTR_LDIS id="ddm_elements.disc_percent"></DD_ATTR_LDIS>
 			<DD_ATTR_MAXL id="ddm_elements.disc_percent"></DD_ATTR_MAXL>
 			<DD_ATTR_MAXR id="ddm_elements.disc_percent"></DD_ATTR_MAXR>
-			<DD_ATTR_MAXV id="ddm_elements.disc_percent">  </DD_ATTR_MAXV>
+			<DD_ATTR_MAXV id="ddm_elements.disc_percent"></DD_ATTR_MAXV>
 			<DD_ATTR_MINL id="ddm_elements.disc_percent"></DD_ATTR_MINL>
-			<DD_ATTR_MINV id="ddm_elements.disc_percent">  </DD_ATTR_MINV>
+			<DD_ATTR_MINV id="ddm_elements.disc_percent"></DD_ATTR_MINV>
 			<DD_ATTR_MSKI id="ddm_elements.disc_percent">##0.00#-</DD_ATTR_MSKI>
 			<DD_ATTR_MSKO id="ddm_elements.disc_percent">##0.00#-</DD_ATTR_MSKO>
 			<DD_ATTR_PADC id="ddm_elements.disc_percent"></DD_ATTR_PADC>
