@@ -86,7 +86,7 @@ rem See basis docs notice() function, noticetpl() function, notify event, grid c
 				endif
 
 				rem --- Discount Amount
-				
+
 				if curr_col = 12 then
 					ap_type$ = gridInvoices!.getCellText(curr_row,3)
 					vend_id$ = gridInvoices!.getCellText(curr_row,4)
@@ -148,6 +148,7 @@ rem See basis docs notice() function, noticetpl() function, notify event, grid c
 								gridInvoices!.setCellText(curr_row,0,statusVect!.get(0))
 							else
 								gridInvoices!.setCellText(curr_row,0,statusVect!.get(5))
+							endif
 							gridInvoices!.setRowFont(curr_row,callpoint!.getDevObject("plain_font"))
 							gridRow=curr_row
 							gosub showCCPaidCells
