@@ -2113,7 +2113,7 @@ rem --- For new items with a customer item number, show the customer item number
 		armCustItems_dev=fnget_dev("ARM_CUSTITEMS")
 		dim armCustItems$:fnget_tpl$("ARM_CUSTITEMS")
 		customer_id$=callpoint!.getColumnData("OPE_ORDDET.CUSTOMER_ID")
-		findrecord(armCustItems_dev,key=firm_id$+customer_id$+item$,dom=*endif)armCustItems$
+		findrecord(armCustItems_dev,key=firm_id$+customer_id$+item$,knum="CUST_ITEMID",dom=*endif)armCustItems$
 		custItem_Desc$=cvs(armCustItems.customer_item$,2)+" "+cvs(armCustItems.description$,3)
 		callpoint!.setColumnData("OPE_ORDDET.ORDER_MEMO",custItem_Desc$,1)
 		callpoint!.setColumnData("OPE_ORDDET.MEMO_1024",custItem_Desc$+$0A$,1)
