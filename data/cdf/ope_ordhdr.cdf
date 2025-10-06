@@ -398,6 +398,20 @@ rem --- Have ship-to or bill-to address changed?
 		endif
 	endif
 
+rem --- Show static label for this Order
+	orderType_label!=callpoint!.getDevObject("orderType_label")
+	if callpoint!.getColumnData("OPE_ORDHDR.INVOICE_TYPE")="P" then
+		rem --- This Order is a Quote
+		orderType_label!.setText("Quote")
+	 	orderType_label!.setForeColor(BBjColor.RED)
+		orderType_label!.setVisible(1)
+	else
+		rem --- This Order is a Sale
+		orderType_label!.setText("Sale")
+		orderType_label!.setForeColor(callpoint!.getDevObject("colorGreen"))
+		orderType_label!.setVisible(1)
+	endif
+
 [[OPE_ORDHDR.AFMC]]
 rem --- Inits
 
@@ -473,6 +487,27 @@ rem --- Add static label footnote for TAX_AMOUNT to identify it as possibly bein
 	taxAmount_fnote!.setBackColor(tabCtrl!.getBackColor())
 	taxAmount_fnote!.setVisible(0)
 	callpoint!.setDevObject("taxAmount_fnote",taxAmount_fnote!)
+
+rem --- Add static label to identify this Order as either a Sale or a Quote
+	order_no!=fnget_control!("OPE_ORDHDR.ORDER_NO")
+	order_no_x=order_no!.getX()
+	order_no_y=order_no!.getY()
+	order_no_height=order_no!.getHeight()
+	order_no_width=order_no!.getWidth()
+	label_width=50
+	nxt_ctlID=util.getNextControlID()
+	orderType_label!=Form!.addStaticText(nxt_ctlID,order_no_x+105,order_no_y+2,label_width,order_no_height-6,"")
+	orderType_label!.setText("")
+	tabCtrl!=Form!.getControl(num(stbl("+TAB_CTL")))
+	orderType_label!.setBackColor(tabCtrl!.getBackColor())
+	defaultFont!=order_no!.getFont()
+	boldFont!=SysGUI!.makeFont(defaultFont!.getName(),defaultFont!.getSize()+2,1)
+	orderType_label!.setFont(boldFont!)
+	orderType_label!.setVisible(0)
+	callpoint!.setDevObject("orderType_label",orderType_label!)
+
+	colorGreen!=SysGUI!.makeColor(0,205,0)
+	callpoint!.setDevObject("colorGreen",colorGreen!)
 
 [[OPE_ORDHDR.AOPT-AGNG]]
 rem --- Update this customer's aging stats if allowed by param
@@ -1561,6 +1596,10 @@ rem --- Enable Freight Amount
 
 rem --- Enable Backordered button
 	callpoint!.setOptionEnabled("BACK",1)
+
+rem --- Hide Order static label
+	orderType_label!=callpoint!.getDevObject("orderType_label")
+	orderType_label!.setVisible(0)
 
 [[OPE_ORDHDR.AR_DIST_CODE.AVAL]]
 rem --- Don't allow inactive code
