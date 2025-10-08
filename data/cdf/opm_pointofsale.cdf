@@ -24,9 +24,10 @@ rem --- Inits
 
 rem --- Open/Lock files
 
-	num_files=1
+	num_files=2
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVC_WHSECODE",open_opts$[1]="OTA"
+	open_tables$[2]="OPS_PARAMS",open_opts$[2]="OTA"
 
 	gosub open_tables
 
@@ -102,6 +103,19 @@ rem --- Valid Hex?
 	if hex$ <> "" and !func.isHex(hex$) then
 		callpoint!.setMessage("NOT_HEX")
 		callpoint!.setStatus("ABORT")
+	endif
+
+[[OPM_POINTOFSALE.QUOTE_CUST_ID.AVAL]]
+rem --- Cannot use the Default Cash Customer of a POS Default Quote Customer
+	quote_cust_id$=callpoint!.getUserInput()
+	opsParams_dev=fnget_dev("OPS_PARAMS")
+	dim opsParams$:fnget_tpl$("OPS_PARAMS")
+	findrecord(opsParams_dev,key=firm_id$+"AR00",dom=*next)opsParams$
+	if opsParams.customer_id$=quote_cust_id$ then
+		msg_id$="OP_CASH_CUST_CANNOT"
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
 	endif
 
 [[OPM_POINTOFSALE.REC_PRINTER.AVAL]]
