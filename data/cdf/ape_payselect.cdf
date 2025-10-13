@@ -86,7 +86,7 @@ rem See basis docs notice() function, noticetpl() function, notify event, grid c
 				endif
 
 				rem --- Discount Amount
-
+				
 				if curr_col = 12 then
 					ap_type$ = gridInvoices!.getCellText(curr_row,3)
 					vend_id$ = gridInvoices!.getCellText(curr_row,4)
@@ -1053,6 +1053,12 @@ rem --- Set filters on grid if value was changed
 [[APE_PAYSELECT.PAYMENT_METHOD.BINP]]
 rem --- Capture current value so will know in AVAL if it's changed
 	callpoint!.setDevObject("prev_payment_method",callpoint!.getColumnData("APE_PAYSELECT.PAYMENT_METHOD"))
+
+[[APE_PAYSELECT.SHOW_ONLY_DISC.AVAL]]
+rem --- Set filters on grid if value was changed
+	if callpoint!.getUserInput()<>callpoint!.getColumnData("APE_PAYSELECT.SHOW_ONLY_DISC") then
+		gosub filter_recs
+	endif
 
 [[APE_PAYSELECT.VENDOR_ID.AVAL]]
 rem --- "VENDOR INACTIVE - FEATURE"
@@ -2652,6 +2658,8 @@ rem ==========================================================================
 		filter_disc_op$=callpoint!.getColumnData("APE_PAYSELECT.DISC_DATE_OP")
 		filter_disc_date$=callpoint!.getColumnData("APE_PAYSELECT.DISC_DATE_DT")
 		filter_inv_no$=callpoint!.getColumnData("APE_PAYSELECT.AP_INV_NO")
+		filter_show_only_disc$=callpoint!.getColumnData("APE_PAYSELECT.SHOW_ONLY_DISC")
+
 
 		if callpoint!.getVariableName()="APE_PAYSELECT.PAYMENT_GRP" then filter_pymnt_grp$=callpoint!.getUserInput()
 		if callpoint!.getVariableName()="APE_PAYSELECT.PAYMENT_METHOD" then filter_pymnt_method$=callpoint!.getUserInput()
@@ -2662,6 +2670,7 @@ rem ==========================================================================
 		if callpoint!.getVariableName()="APE_PAYSELECT.DISC_DATE_OP" then filter_disc_op$=callpoint!.getUserInput()
 		if callpoint!.getVariableName()="APE_PAYSELECT.DISC_DATE_DT" then filter_disc_date$=callpoint!.getUserInput()
 		if callpoint!.getVariableName()="APE_PAYSELECT.AP_INV_NO" then filter_inv_no$=callpoint!.getUserInput()
+		if callpoint!.getVariableName()="APE_PAYSELECT.SHOW_ONLY_DISC" then filter_show_only_disc$=callpoint!.getUserInput()
 
 		if cvs(filter_vendor$,3)="" filter_vendor$=""
 
@@ -2705,6 +2714,10 @@ rem ==========================================================================
 				if fn_filter_txt(filter_disc_op$,vectInvoicesMaster!.getItem(x-1+19),filter_disc_date$)=0
 					select_rec$="N"
 				endif
+			endif
+
+			if filter_show_only_disc$="Y" and num(vectInvoicesMaster!.getItem(x-1+13))=0
+				select_rec$="N"
 			endif
 
 			if select_rec$="N"
