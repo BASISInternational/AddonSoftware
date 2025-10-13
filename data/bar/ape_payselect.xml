@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ape_payselect">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ape_payselect">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ape_payselect">AP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ape_payselect">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ape_payselect">25.0</ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ape_payselect">0A768FB460EAEA4E9E25B3C94EFA7E4C</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ape_payselect">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ape_payselect">20071023</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ape_payselect">20250929</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ape_payselect">20250929</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ape_payselect">120952</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ape_payselect">20251013</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ape_payselect">20251013</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ape_payselect">111354</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ape_payselect"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ape_payselect">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ape_payselect"></DD_ATTR_DKNM>
@@ -173,7 +173,7 @@
 		<RECORD id="ddm_table_tpls.ape_payselect">
 			<DD_TABLE_ALIAS id="ddm_table_tpls.ape_payselect">APE_PAYSELECT   </DD_TABLE_ALIAS>
 			<DD_FILE_NAME id="ddm_table_tpls.ape_payselect"></DD_FILE_NAME>
-			<DD_TABLE_TPL id="ddm_table_tpls.ape_payselect">firm_id:c(2),system_date:c(8),payment_grp:c(2),payment_method:c(30),ap_type:c(2),vendor_id:c(6),due_date_dt:c(8),due_date_op:c(1),disc_date_op:c(1),disc_date_dt:c(8),include_disc:c(1),ap_inv_no:c(20)</DD_TABLE_TPL>
+			<DD_TABLE_TPL id="ddm_table_tpls.ape_payselect">firm_id:c(2),system_date:c(8),payment_grp:c(2),payment_method:c(30),ap_type:c(2),vendor_id:c(6),due_date_dt:c(8),due_date_op:c(1),disc_date_op:c(1),disc_date_dt:c(8),include_disc:c(1),ap_inv_no:c(20),show_only_disc:c(1)</DD_TABLE_TPL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_cols">
@@ -790,6 +790,57 @@
 			<DD_ATTR_RKEY id="ddm_table_cols.ape_payselect012">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ape_payselect012"></DD_ATTR_BTNS>
 		</RECORD>
+		<RECORD id="ddm_table_cols.ape_payselect013">
+			<DD_TABLE_ALIAS id="ddm_table_cols.ape_payselect013">APE_PAYSELECT   </DD_TABLE_ALIAS>
+			<DD_SEQUENCE id="ddm_table_cols.ape_payselect013">013</DD_SEQUENCE>
+			<DD_DATA_NAME id="ddm_table_cols.ape_payselect013">SHOW_ONLY_DISC  </DD_DATA_NAME>
+			<DD_DVAR_NAME id="ddm_table_cols.ape_payselect013">SHOW_ONLY_DISC  </DD_DVAR_NAME>
+			<DD_COL_REPEATS id="ddm_table_cols.ape_payselect013">0</DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ape_payselect013">0</DD_COL_OCCURS>
+			<DD_FIELD_DELIM id="ddm_table_cols.ape_payselect013">N</DD_FIELD_DELIM>
+			<DD_DELIM_CHAR id="ddm_table_cols.ape_payselect013"></DD_DELIM_CHAR>
+			<DD_SYSTEM_REC id="ddm_table_cols.ape_payselect013"></DD_SYSTEM_REC>
+			<DD_SYSTEM_ID id="ddm_table_cols.ape_payselect013"></DD_SYSTEM_ID>
+			<DD_MASK_TYPE id="ddm_table_cols.ape_payselect013"></DD_MASK_TYPE>
+			<DD_CREATE_DATE id="ddm_table_cols.ape_payselect013">20251013</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_table_cols.ape_payselect013">20251013</DD_LSTREV_DATE>
+			<DD_ATTR_ABLC id="ddm_table_cols.ape_payselect013"></DD_ATTR_ABLC>
+			<DD_ATTR_ABLV id="ddm_table_cols.ape_payselect013"></DD_ATTR_ABLV>
+			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect013">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_COLW id="ddm_table_cols.ape_payselect013">0</DD_ATTR_COLW>
+			<DD_ATTR_CTLX id="ddm_table_cols.ape_payselect013"></DD_ATTR_CTLX>
+			<DD_ATTR_CTLY id="ddm_table_cols.ape_payselect013">+2</DD_ATTR_CTLY>
+			<DD_ATTR_CTLW id="ddm_table_cols.ape_payselect013"></DD_ATTR_CTLW>
+			<DD_ATTR_CTLH id="ddm_table_cols.ape_payselect013"></DD_ATTR_CTLH>
+			<DD_ATTR_DFLT id="ddm_table_cols.ape_payselect013"></DD_ATTR_DFLT>
+			<DD_ATTR_DRLE id="ddm_table_cols.ape_payselect013"></DD_ATTR_DRLE>
+			<DD_ATTR_GHDR id="ddm_table_cols.ape_payselect013"></DD_ATTR_GHDR>
+			<DD_ATTR_IDEF id="ddm_table_cols.ape_payselect013"></DD_ATTR_IDEF>
+			<DD_ATTR_LABL id="ddm_table_cols.ape_payselect013"></DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_table_cols.ape_payselect013"></DD_ATTR_LABS>
+			<DD_ATTR_MLAN id="ddm_table_cols.ape_payselect013">N</DD_ATTR_MLAN>
+			<DD_ATTR_MINL id="ddm_table_cols.ape_payselect013"></DD_ATTR_MINL>
+			<DD_ATTR_MAXL id="ddm_table_cols.ape_payselect013"></DD_ATTR_MAXL>
+			<DD_ATTR_MINV id="ddm_table_cols.ape_payselect013"></DD_ATTR_MINV>
+			<DD_ATTR_MAXV id="ddm_table_cols.ape_payselect013"></DD_ATTR_MAXV>
+			<DD_ATTR_PROM id="ddm_table_cols.ape_payselect013"></DD_ATTR_PROM>
+			<DD_ATTR_PVAL id="ddm_table_cols.ape_payselect013"></DD_ATTR_PVAL>
+			<DD_ATTR_SLEV id="ddm_table_cols.ape_payselect013"></DD_ATTR_SLEV>
+			<DD_ATTR_TABG id="ddm_table_cols.ape_payselect013"></DD_ATTR_TABG>
+			<DD_ATTR_TIND id="ddm_table_cols.ape_payselect013">16</DD_ATTR_TIND>
+			<DD_ATTR_HELP id="ddm_table_cols.ape_payselect013"></DD_ATTR_HELP>
+			<SQL_COLUMN_NAME id="ddm_table_cols.ape_payselect013">SHOW_ONLY_DISC</SQL_COLUMN_NAME>
+			<DD_ATTR_FONT id="ddm_table_cols.ape_payselect013"></DD_ATTR_FONT>
+			<DD_ATTR_STYL id="ddm_table_cols.ape_payselect013"></DD_ATTR_STYL>
+			<DD_ATTR_FTSR id="ddm_table_cols.ape_payselect013">N</DD_ATTR_FTSR>
+			<DD_ATTR_CWID id="ddm_table_cols.ape_payselect013">0</DD_ATTR_CWID>
+			<DD_ATTR_CTLI id="ddm_table_cols.ape_payselect013">3014</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.ape_payselect013">cbx_show_only_disc</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.ape_payselect013">0</DD_ATTR_CTLC>
+			<DD_ATTR_RADG id="ddm_table_cols.ape_payselect013"></DD_ATTR_RADG>
+			<DD_ATTR_RKEY id="ddm_table_cols.ape_payselect013">N</DD_ATTR_RKEY>
+			<DD_ATTR_BTNS id="ddm_table_cols.ape_payselect013"></DD_ATTR_BTNS>
+		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_disp">
 		<ID id="ddm_table_disp">DDM_TABLE_DISP</ID>
@@ -950,6 +1001,11 @@
 			<DD_DVAR_NAME id="ddm_column_cpro.ape_payselectap_inv_nobinp">AP_INV_NO       </DD_DVAR_NAME>
 			<DD_ATTR_CPRO id="ddm_column_cpro.ape_payselectap_inv_nobinp">BINP</DD_ATTR_CPRO>
 		</RECORD>
+		<RECORD id="ddm_column_cpro.ape_payselectshow_only_discaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.ape_payselectshow_only_discaval">APE_PAYSELECT   </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.ape_payselectshow_only_discaval">SHOW_ONLY_DISC  </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.ape_payselectshow_only_discaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_ldat">
 		<ID id="ddm_column_ldat">DDM_COLUMN_LDAT</ID>
@@ -1096,8 +1152,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.system_date"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.system_date">D</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.system_date"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.system_date"></DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.system_date"></DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.system_date">            </DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.system_date">            </DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.system_date"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.system_date"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.system_date"></DD_ATTR_DKEY>
@@ -1149,7 +1205,7 @@
 			<DD_ATTR_CTYP id="ddm_elements.payment_grp">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.payment_grp">CODE_DESC       </DD_ATTR_DCOL>
 			<DD_ATTR_DCOM id="ddm_elements.payment_grp"></DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.payment_grp"></DD_ATTR_DEXP>
+			<DD_ATTR_DEXP id="ddm_elements.payment_grp">            </DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.payment_grp"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.payment_grp"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.payment_grp">[+FIRM_ID]+"D"+@</DD_ATTR_DKEY>
@@ -1238,7 +1294,7 @@
 			<DD_DESCRIPTION id="ddm_elements.ap_type">AP Type</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.ap_type">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.ap_type">2</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.ap_type"></DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.ap_type"> </DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.ap_type"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.ap_type">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.ap_type">AP </ASC_PROD_ID>
@@ -1252,8 +1308,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.ap_type"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.ap_type">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.ap_type">CODE_DESC       </DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.ap_type"></DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.ap_type"></DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.ap_type">            </DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.ap_type">            </DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.ap_type"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.ap_type"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.ap_type">[+FIRM_ID]+"A"+@</DD_ATTR_DKEY>
@@ -1342,7 +1398,7 @@
 			<DD_DESCRIPTION id="ddm_elements.due_date">Invoice Due Date              </DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.due_date">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.due_date">8</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.due_date"></DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.due_date"> </DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.due_date"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.due_date">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.due_date">AD </ASC_PROD_ID>
@@ -1356,8 +1412,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.due_date"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.due_date">D</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.due_date"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.due_date"></DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.due_date"></DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.due_date">            </DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.due_date">            </DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.due_date"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.due_date"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.due_date"></DD_ATTR_DKEY>
@@ -1446,7 +1502,7 @@
 			<DD_DESCRIPTION id="ddm_elements.disc_date">Discount Date                 </DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.disc_date">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.disc_date">8</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.disc_date"></DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.disc_date"> </DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.disc_date"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.disc_date">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.disc_date">AD </ASC_PROD_ID>
@@ -1460,8 +1516,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.disc_date"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.disc_date">D</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.disc_date"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.disc_date"></DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.disc_date"></DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.disc_date">            </DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.disc_date">            </DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.disc_date"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.disc_date"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.disc_date"></DD_ATTR_DKEY>
@@ -1512,8 +1568,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.include_disc"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.include_disc">C</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.include_disc"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.include_disc"></DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.include_disc"></DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.include_disc">            </DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.include_disc">            </DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.include_disc"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.include_disc"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.include_disc"></DD_ATTR_DKEY>
@@ -1564,8 +1620,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.ap_inv_no"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.ap_inv_no">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.ap_inv_no"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.ap_inv_no"></DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.ap_inv_no"></DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.ap_inv_no">            </DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.ap_inv_no">            </DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.ap_inv_no"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.ap_inv_no"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.ap_inv_no"></DD_ATTR_DKEY>
@@ -1596,6 +1652,58 @@
 			<DD_ATTR_OEMD id="ddm_elements.ap_inv_no"></DD_ATTR_OEMD>
 			<DD_ATTR_Y2KW id="ddm_elements.ap_inv_no"></DD_ATTR_Y2KW>
 			<DD_ATTR_CASB id="ddm_elements.ap_inv_no"></DD_ATTR_CASB>
+		</RECORD>
+		<RECORD id="ddm_elements.show_only_disc">
+			<DD_DATA_NAME id="ddm_elements.show_only_disc">SHOW_ONLY_DISC  </DD_DATA_NAME>
+			<DD_DESCRIPTION id="ddm_elements.show_only_disc">Show Discounted Invoices Only</DD_DESCRIPTION>
+			<DD_DATA_TYPE id="ddm_elements.show_only_disc">C</DD_DATA_TYPE>
+			<DD_DATA_LENGTH id="ddm_elements.show_only_disc">1</DD_DATA_LENGTH>
+			<DD_MASK_TYPE id="ddm_elements.show_only_disc"></DD_MASK_TYPE>
+			<DD_SYSTEM_REC id="ddm_elements.show_only_disc"></DD_SYSTEM_REC>
+			<ASC_COMP_ID id="ddm_elements.show_only_disc">01007514</ASC_COMP_ID>
+			<ASC_PROD_ID id="ddm_elements.show_only_disc">AP </ASC_PROD_ID>
+			<LOCALIZATION_EX id="ddm_elements.show_only_disc">N</LOCALIZATION_EX>
+			<DD_CREATE_DATE id="ddm_elements.show_only_disc">2460962</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_elements.show_only_disc">20251013</DD_LSTREV_DATE>
+			<DD_AUTO_COMP id="ddm_elements.show_only_disc"></DD_AUTO_COMP>
+			<DD_ATTR_BLNK id="ddm_elements.show_only_disc">N</DD_ATTR_BLNK>
+			<DD_ATTR_CDAT id="ddm_elements.show_only_disc">Y;N</DD_ATTR_CDAT>
+			<DD_ATTR_CTLW id="ddm_elements.show_only_disc"></DD_ATTR_CTLW>
+			<DD_ATTR_CTLH id="ddm_elements.show_only_disc"></DD_ATTR_CTLH>
+			<DD_ATTR_CTYP id="ddm_elements.show_only_disc">C</DD_ATTR_CTYP>
+			<DD_ATTR_DCOL id="ddm_elements.show_only_disc"></DD_ATTR_DCOL>
+			<DD_ATTR_DCOM id="ddm_elements.show_only_disc"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.show_only_disc"></DD_ATTR_DEXP>
+			<DD_ATTR_DFLT id="ddm_elements.show_only_disc"></DD_ATTR_DFLT>
+			<DD_ATTR_DKNM id="ddm_elements.show_only_disc"></DD_ATTR_DKNM>
+			<DD_ATTR_DKEY id="ddm_elements.show_only_disc"></DD_ATTR_DKEY>
+			<DD_ATTR_DTAB id="ddm_elements.show_only_disc"></DD_ATTR_DTAB>
+			<DD_ATTR_DINQ id="ddm_elements.show_only_disc"></DD_ATTR_DINQ>
+			<DD_ATTR_ENCR id="ddm_elements.show_only_disc"></DD_ATTR_ENCR>
+			<DD_ATTR_IDEF id="ddm_elements.show_only_disc"></DD_ATTR_IDEF>
+			<DD_ATTR_LABL id="ddm_elements.show_only_disc">Show Discounted Invoices Only</DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_elements.show_only_disc">Show Disc Inv Only</DD_ATTR_LABS>
+			<DD_ATTR_LDIS id="ddm_elements.show_only_disc"></DD_ATTR_LDIS>
+			<DD_ATTR_MAXL id="ddm_elements.show_only_disc"></DD_ATTR_MAXL>
+			<DD_ATTR_MAXR id="ddm_elements.show_only_disc"></DD_ATTR_MAXR>
+			<DD_ATTR_MAXV id="ddm_elements.show_only_disc"></DD_ATTR_MAXV>
+			<DD_ATTR_MINL id="ddm_elements.show_only_disc"></DD_ATTR_MINL>
+			<DD_ATTR_MINV id="ddm_elements.show_only_disc"></DD_ATTR_MINV>
+			<DD_ATTR_MSKI id="ddm_elements.show_only_disc"></DD_ATTR_MSKI>
+			<DD_ATTR_MSKO id="ddm_elements.show_only_disc"></DD_ATTR_MSKO>
+			<DD_ATTR_PADC id="ddm_elements.show_only_disc"></DD_ATTR_PADC>
+			<DD_ATTR_PADJ id="ddm_elements.show_only_disc"></DD_ATTR_PADJ>
+			<DD_ATTR_PREC id="ddm_elements.show_only_disc">0</DD_ATTR_PREC>
+			<DD_ATTR_PROM id="ddm_elements.show_only_disc"></DD_ATTR_PROM>
+			<DD_ATTR_PVAL id="ddm_elements.show_only_disc"></DD_ATTR_PVAL>
+			<DD_ATTR_SDLG id="ddm_elements.show_only_disc"></DD_ATTR_SDLG>
+			<DD_ATTR_SLEV id="ddm_elements.show_only_disc"></DD_ATTR_SLEV>
+			<DD_ATTR_STYP id="ddm_elements.show_only_disc"></DD_ATTR_STYP>
+			<DD_ATTR_STEP id="ddm_elements.show_only_disc">0</DD_ATTR_STEP>
+			<DD_ATTR_FLPT id="ddm_elements.show_only_disc"></DD_ATTR_FLPT>
+			<DD_ATTR_OEMD id="ddm_elements.show_only_disc"></DD_ATTR_OEMD>
+			<DD_ATTR_Y2KW id="ddm_elements.show_only_disc"></DD_ATTR_Y2KW>
+			<DD_ATTR_CASB id="ddm_elements.show_only_disc"></DD_ATTR_CASB>
 		</RECORD>
 		<RECORD id="ddm_elements.ap_payment_amt">
 			<DD_DATA_NAME id="ddm_elements.ap_payment_amt">AP_PAYMENT_AMT  </DD_DATA_NAME>
