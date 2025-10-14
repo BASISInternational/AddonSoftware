@@ -670,15 +670,7 @@ rem ==========================================================================
 		rem --- PRODUCT_TYPE -- hidden don't clear, initialized to itemmast_tpl.product_type$
 
 		rem --- Enable Stocking tab fields
-		if cvs(callpoint!.getColumnData("IVM_ITEMWHSE.ABC_CODE"),2)="" then
-			callpoint!.setColumnData("IVM_ITEMWHSE.ABC_CODE",ivs10d.abc_code$,1)
-			callpoint!.setStatus("MODIFIED")
-		endif
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.ABC_CODE",1)
-		if cvs(callpoint!.getColumnData("IVM_ITEMWHSE.BUYER_CODE"),2)="" then
-			callpoint!.setColumnData("IVM_ITEMWHSE.BUYER_CODE",ivs10d.buyer_code$,1)
-			callpoint!.setStatus("MODIFIED")
-		endif
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.BUYER_CODE",1)
 		rem --- NOTE: The VENDOR_ID field remains permanently disable if if AP not installed
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.VENDOR_ID",1)
@@ -687,21 +679,19 @@ rem ==========================================================================
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.ORDER_POINT",1)
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.EOQ",1)
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.SAFETY_STOCK",1)
-		if cvs(callpoint!.getColumnData("IVM_ITEMWHSE.ORD_PNT_CODE"),2)="" then
-			callpoint!.setColumnData("IVM_ITEMWHSE.ORD_PNT_CODE",ivs10d.ord_pnt_code$,1)
-			callpoint!.setStatus("MODIFIED")
-		endif
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.ORD_PNT_CODE",1)
-		if cvs(callpoint!.getColumnData("IVM_ITEMWHSE.EOQ_CODE"),2)="" then
-			callpoint!.setColumnData("IVM_ITEMWHSE.EOQ_CODE",ivs10d.eoq_code$,1)
-			callpoint!.setStatus("MODIFIED")
-		endif
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.EOQ_CODE",1)
-		if cvs(callpoint!.getColumnData("IVM_ITEMWHSE.SAF_STK_CODE"),2)="" then
-			callpoint!.setColumnData("IVM_ITEMWHSE.SAF_STK_CODE",ivs10d.saf_stk_code$,1)
-			callpoint!.setStatus("MODIFIED")
-		endif
 		callpoint!.setColumnEnabled("IVM_ITEMWHSE.SAF_STK_CODE",1)
+
+		rem --- For new records clear Stocking tab fields
+		eventFrom$=callpoint!.getCallpointEvent()
+		if eventFrom$="IVM_ITEMWHSE.AREC" then
+			callpoint!.setColumnData("IVM_ITEMWHSE.ABC_CODE",ivs10d.abc_code$,1)
+			callpoint!.setColumnData("IVM_ITEMWHSE.BUYER_CODE",ivs10d.buyer_code$,1)
+			callpoint!.setColumnData("IVM_ITEMWHSE.ORD_PNT_CODE",ivs10d.ord_pnt_code$,1)
+			callpoint!.setColumnData("IVM_ITEMWHSE.EOQ_CODE",ivs10d.eoq_code$,1)
+			callpoint!.setColumnData("IVM_ITEMWHSE.SAF_STK_CODE",ivs10d.saf_stk_code$,1)
+		endif 
 	endif
 
 	return
