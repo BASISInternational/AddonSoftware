@@ -1,0 +1,372 @@
+rem --- AD Utility to add missing table templates to VKeyed file text
+rem --- Program adc_addTemplates.aon
+
+rem --- AddonSoftware Version 25.10 - October2025
+rem --- Copyright BASIS International Ltd.  All Rights Reserved.
+
+rem --- rdForm!      : Window object to hold progress meter (input)
+rem --- status       : Status/0=No error (returned)
+
+    use java.io.File
+    use ::bbtranslator.bbj::BBTranslator
+    use ::ado_file.src::FileObject
+
+    seterr std_error
+    setesc std_error
+    
+    enter rdForm!,status
+
+rem --- Initializations
+    status=0
+
+rem --- Get program path
+    pgmdir$=stbl("+DIR_PGM",err=*next)
+    
+rem --- Retrieve sysinfo data
+    rem --- If BUI, initialize Barista processes
+    if info(3,6)="5" then
+        use ::ado_util.src::util
+        Translate!=util.initBUIProcess()
+        if Translate!=null() then goto std_exit
+    endif
+
+    sysinfo_template$=stbl("+SYSINFO_TPL",err=*next)
+    dim sysinfo$:sysinfo_template$
+    sysinfo$=stbl("+SYSINFO",err=*next)
+    milestone=50
+    milestone=num(stbl("+MILESTONE",err=*next),err=*next)
+    firm_id$=sysinfo.firm_id$
+
+    BBjFileSystem! = BBjAPI().getFileSystem()
+    
+rem --- Open log file in aon/logs directory
+    num_files=1
+    dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+    open_tables$[1]="DDM_SYSTEMS",      open_opts$[1]="OTA"
+    gosub open_tables
+    ddm_systems=num(open_chans$[1]); dim ddm_systems$:open_tpls$[1]
+
+    aonDir$=""
+    readrecord(ddm_systems,key=pad("ADDON",16," "),knum="SYSTEM_ID",err=*next)ddm_systems$
+    if cvs(ddm_systems.mount_dir$,2)<>"" then
+        aonDir$=ddm_systems.mount_dir$
+    endif
+
+    location$ = aonDir$
+    gosub open_log
+
+rem --- Verify have BBTranslator object Translate!
+    if Translate!=null() then 
+        gosub get_translate_object
+        if status then
+            err_msg$="Cannot open Barista file adm_modules.dat. Status="+str(status)
+            err_no$="12"
+        else
+            if Translate!=null() then
+                err_msg$="Cannot create BBTranslator object Translate!"
+                err_no$="999"
+            endif
+        endif
+        if err_msg$<>"" then
+            call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),"",err_no$,err_msg$,err_act$
+            print(log_dev)"***** Error: "+err_msg$+" *****"
+            print(log_dev)
+            print(log_dev)"addTemplates log finished: " + date(0:"%Yd-%Mz-%Dz@%Hz:%mz:%sz")
+            close(log_dev)
+            
+            msg_id$="GENERIC_WARN"
+            dim msg_tokens$[1]
+            msg_tokens$[1]=err_msg$
+            gosub disp_message
+            
+            status=num(err_no$)
+            goto std_exit
+        endif
+    endif
+
+rem --- As necessary, creating a small invisible window to hold progress meter
+    if rdForm!=null() then
+        sysGUI!=BBjAPI().getSysGui()
+        if BBjAPI().isInMDI() then
+            desktop_w=BBjAPI().getMDI().getClientWidth()
+            desktop_h=BBjAPI().getMDI().getClientHeight()
+        else
+            screenSize!=sysGUI!.getSystemMetrics().getScreenSize()
+            desktop_w=screenSize!.width
+            desktop_h=screenSize!.height
+        endif
+        rdForm!=sysGUI!.addWindow(int(desktop_w/2),int(desktop_h/2),1,1,"",$00000000$)
+        rdForm!.setTitleBarVisible(0)
+        rdForm!.setVisible(0)
+    endif
+    
+rem --- Start progress meter
+    meter_title$="adc_addTemplates.aon"
+    meter_proc_recs=0
+    meter_text$=""
+    meter_action$="WIN-LST"
+
+    sql_chan=sqlunt
+    sqlopen(sql_chan)stbl("+DBNAME")
+    sql_prep$="select count(*) from ddm_tables where dd_file_name=''"
+    sqlprep(sql_chan)sql_prep$
+    dim select_tpl$:sqltmpl(sql_chan)
+    sqlexec(sql_chan)
+    select_tpl$=sqlfetch(sql_chan) 
+    sqlclose(sql_chan)
+    meter_total_recs=num(select_tpl$)
+    gosub disp_meter
+
+rem --- Open needed Barista tables
+    num_files=2
+    dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+    open_tables$[1]="DDM_TABLES",     open_opts$[1]="OTAS"
+    open_tables$[2]="DDM_TABLE_TPLS", open_opts$[2]="OTA"
+    gosub open_tables
+    ddmTables_dev=num(open_chans$[1])
+    ddmTableTpls_dev=num(open_chans$[2])
+    dim ddmTables$:open_tpls$[1]
+    dim ddmTableTpls$:open_tpls$[2]
+
+rem --- Add missing table templates to Addon's files
+    addonModules$="ADAPARBMCRGLGMIVMPOPPOPRSASF"
+    read(ddmTables_dev,key="",dom=*next)
+    while 1
+        readrecord(ddmTables_dev,end=*break)ddmTables$
+        file_name$=cvs(ddmTables.dd_file_name$,2)
+        if file_name$="" then continue
+        
+        if ddmTables.asc_comp_id$<>"01007514" or pos(cvs(ddmTables.asc_prod_id$,2)=addonModules$,2)=0 then
+            rem --- Not an Addon table so skip it.
+            action$="Skipped, Not Addon"
+        else
+            rem --- Open data file for the table
+            table_path$=cvs(ddmTables.dd_table_path$,3)
+            if table_path$<>"" then
+                while pos("["=table_path$)<>0
+                    from_pos=pos("["=table_path$)+1
+                    thru_pos=pos("]"=table_path$)
+                    if thru_pos=0 then break
+                    stbl_path$=stbl(table_path$(from_pos,thru_pos-from_pos),err=*break)
+                    if thru_pos=len(table_path$)
+                        table_path$=table_path$(1,from_pos-2)+stbl_path$
+                    else
+                        table_path$=table_path$(1,from_pos-2)+stbl_path$+table_path$(thru_pos+1)
+                    endif
+                wend
+                filePath$=table_path$
+            else
+                filePath$=stbl(("+DIR_DAT")
+            endif
+            gosub fix_path
+            
+            chan=unt
+            success=0
+            open(chan,err=*next)filePath$+"/"+file_name$; success=1
+            if !success then
+                rem --- Data file doesn't exist yet for the table.
+                rem --- Barista will automatically add the table's template when it creates the file.
+                action$="Okay"
+            else
+                rem --- Must be a VKeyed file in order to add the table's template
+                BBjFileInfo! = BBjFileSystem!.getFileInfo(chan)
+                if BBjFileInfo!.getFileType()<>13 then
+                    action$="*** Not required VKeyed file type ***"
+                else
+                    rem --- Does the data file hold a template
+                    if cvs(BBjFileInfo!.getText(),2)<>"" then
+                        rem --- File has a template
+                        action$="Okay"
+                    else
+                        rem --- Add the table's template to the data file
+                        redim ddmTableTpls$
+                        readrecord(ddmTableTpls_dev,key=ddmTables.dd_table_alias$,dom=*next)ddmTableTpls$
+                        table_tpl$=cvs(ddmTableTpls.dd_table_tpl$,2)
+                        if table_tpl$="" then
+                            rem --- The Table's template is missing
+                            action$="*** Template missing ***"
+                        else
+                            rem --- Must lock data file before adding template
+                            success=0
+                            lock(chan,err=*next); success=1
+                            if !success then
+                                action$="*** Cannot lock data file ***"
+                            else
+                                BBjFileInfo!.setText(table_tpl$)
+                                action$="Added template: "+table_tpl$
+                            endif
+                        endif
+                    endif
+                endif
+            endif
+            close(chan,err=*next)
+        endif
+
+        rem --- Increment progress meter
+        meter_text$=cvs(ddmTables.dd_table_alias$,2)+" ... "+action$
+        meter_proc_recs=meter_proc_recs+1
+        meter_action$="MTR-LST"
+        gosub disp_meter
+        print(log_dev)
+        print(log_dev)meter_text$
+    wend
+
+done: rem --- All done
+    
+    rem --- Stop progress meter
+    meter_text$=""
+    meter_action$="LST-END"
+    gosub disp_meter
+
+    rem --- Complete and close log file
+    print(log_dev)
+    print(log_dev)"addTemplates log finished: " + date(0:"%Yd-%Mz-%Dz@%Hz:%mz:%sz")
+    close(log_dev)
+
+    goto std_exit
+
+fix_path: rem --- Flip directory path separators
+    pos=pos("\"=filePath$)
+    while pos
+        filePath$=filePath$(1, pos-1)+"/"+filePath$(pos+1)
+        pos=pos("\"=filePath$)
+    wend
+    
+    rem --- Remove trailing slash
+    if filePath$(len(filePath$))="/" then filePath$=filePath$(1,len(filePath$)-1)
+	return
+
+open_log: rem --- Open log file
+    rem --- create logs directory at location
+    logDir$=FileObject.fixPath(location$ + "/logs", "/")
+    FileObject.makeDirs(new File(logDir$))
+
+    rem --- create and open log file
+    log$=logDir$+"/addTemplates_"+DATE(0:"%Yd%Mz%Dz")+"_"+DATE(0:"%Hz%mz")+".log"
+    erase log$,err=*next
+    string log$
+    log_dev=unt
+    open(log_dev)log$
+            
+    rem --- write log header info
+    print(log_dev)"addTemplates log started: " + date(0:"%Yd-%Mz-%Dz@%Hz:%mz:%sz")
+    print(log_dev)
+
+    return
+
+get_translate_object: rem --- Get BBTranslator object Translate!
+    num_files=1
+    dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+    open_tables$[1]="ADM_MODULES", open_opts$[1]="OTA"
+    gosub open_tables
+    if status then return
+
+    adm_modules=num(open_chans$[1]);dim adm_modules$:open_tpls$[1]
+    readrecord(adm_modules,key=pad("01007514AD",11),dom=*next)adm_modules$
+    if adm_modules.locale_resource$="" or adm_modules.locale_path$=""
+        readrecord(adm_modules,key=pad(sysinfo.lic_feature$,11),dom=*next)adm_modules$
+    endif
+    if adm_modules.locale_resource$<>"" and adm_modules.locale_path$<>""
+        locale_path$=adm_modules.locale_path$
+        rdTransSpaceKey$=adm_modules.locale_resource$+"_"+stbl("+USER_LOCALE")+"_BBTranslator"
+        Translate!=cast(BBTranslator,BBjAPI().getGroupNamespace().getValue(rdTransSpaceKey$,err=*next))
+        if Translate!=null()
+            Translate!=BBTranslator.getInstance(adm_modules.locale_resource$,stbl("+USER_LOCALE"),null(),locale_path$)
+            BBjAPI().getGroupNamespace().setValue(rdTransSpaceKey$,Translate!)
+        endif
+    endif
+
+    return
+    
+disp_meter: rem --- Display Progress Meter
+    rem --- sysGUI! is not declared in bam_prog_bar.bbj, so can't declare it here
+    rem declare BBjSysGui sysGUI!
+    sysGUI!=BBjAPI().getSysGui()
+
+    rem --- rdForm! is not declared in bam_prog_bar.bbj, so can't declare it here
+    rem declare BBjTopLevelWindow rdForm!
+
+    rem --- meterWin! is not declared in bam_prog_bar.bbj, so can't declare it here
+    rem declare BBjTopLevelWindow meterWin!
+
+    call stbl("+DIR_SYP")+"bam_prog_bar.bbj",
+:       sysGUI!,
+:       rdForm!,
+:       meterWin!,
+:       meter_title$,
+:       meter_total_recs,
+:       meter_proc_recs,
+:       meter_text$,
+:       meter_action$
+
+    return
+   
+open_tables:rem --- Open Tables
+    call stbl("+DIR_SYP")+"bac_open_tables.bbj",
+:       open_beg,
+:       open_end,
+:       open_tables$[all],
+:       open_opts$[all],
+:       open_chans$[all],
+:       open_tpls$[all],
+:       rd_table_chans$[all],
+:       open_batch,
+:       open_status$
+
+    if open_status$<>"" then
+        msg_id$="ENTRY_OPEN_ERROR"
+        dim msg_tokens$[1]
+        msg_tokens$[1]=open_status$
+        gosub disp_message
+        rdFuncSpace!=bbjAPI().getGroupNamespace().setValue("+build_task","OFF")
+        release
+    endif
+    return
+
+disp_message: rem --- Display Message Dialog
+    call stbl("+DIR_SYP")+"bac_message.bbj",msg_id$,msg_tokens$[all],msg_opt$,table_chans$[all]
+
+    return
+   
+rem #include std_error.src
+
+std_error: rem --- Standard error handler (11Oct2017)
+
+    if tcb(19)>0
+        rem --- Escape handler
+        if and(chr(tcb(19)),$08$)=$08$
+            release
+        else
+            setesc std_error
+            return
+        endif
+    endif
+
+    if err=0   
+        rem --- Get tcb(12) and tcb(10) to send into bac_error
+        lock_byte=tcb(10)
+        lock_chan=tcb(12)  
+    endif
+
+    rd_err_text$="",err_num=err
+    if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+    if err_num=252 then
+        E!=BBjAPI().getLastBBjException()
+        rd_err_text$=rd_err_text$+$0A$+E!.getClass().getName()
+        if E!.getMessage()<>null() then rd_err_text$=rd_err_text$+": "+E!.getMessage()
+    endif
+    call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err_num),rd_err_text$,rd_err_act$,lock_byte,lock_chan
+    if pos("ESCAPE"=rd_err_act$) seterr 0; setesc 0
+    if pos("RETRY"=rd_err_act$) retry
+    if pgm(-1)<>pgm(-2) status=999; exit 
+    release
+
+rem #endinclude std_error.src
+
+rem #include std_exit.src
+
+std_exit: rem --- Standard called program exit (01Mar2006)
+
+    exit
+
+rem #endinclude std_exit.src
