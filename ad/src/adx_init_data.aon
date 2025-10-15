@@ -416,6 +416,16 @@ rem --- Update firm ZZ records in "required" data files
         close(thisFile_dev,err=*next)
         close(demoFile_dev,err=*next)
     next i
+
+rem --- Launch utility to add missing table templates to VKeyed file text
+    call pgmdir$+"adc_addTemplates.aon",rdForm!,status
+
+    rem --- Increment progress meter
+    meter_text$=Translate!.getTranslation("AON_ADD_MISSING_TEMPLATES","Add missing table templates")
+    meter_proc_recs=meter_proc_recs+1
+    meter_action$="MTR-LST"
+    gosub disp_meter
+    print(log_dev)meter_text$
 	
 done: rem --- All done
 
