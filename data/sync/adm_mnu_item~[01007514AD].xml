@@ -693,6 +693,34 @@
 	</barista_record>
 	<barista_record>
 		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
+		<MENUITEM_ID>2cca1566-124e-4c31-b282-e1b26c77a246</MENUITEM_ID>
+		<MENU_DESC>Add Table Templates To Files</MENU_DESC>
+		<IMAGE>im_menui_update.png</IMAGE>
+		<NO_SHOW> </NO_SHOW>
+		<EXPAND> </EXPAND>
+		<NO_ACTION> </NO_ACTION>
+		<OPT_TYPE>A</OPT_TYPE>
+		<TABLE_ID>                </TABLE_ID>
+		<MENU_PROG>[+DIR_PGM]adx_addTemplates.aon</MENU_PROG>
+		<MULT_PROC> </MULT_PROC>
+		<NO_BUI> </NO_BUI>
+		<NO_SDI> </NO_SDI>
+		<NO_MDI> </NO_MDI>
+		<OPT_ID>ADX_ADDTEMPLATES    </OPT_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<ASC_VERSION_ID>25.0</ASC_VERSION_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+		<INDENTS>3</INDENTS>
+		<EXPANDABLE>N</EXPANDABLE>
+		<PREV_ITEM_ID>fe89e8d8-6216-4c87-b71a-69ff8ab9ac0f</PREV_ITEM_ID>
+		<NEXT_ITEM_ID>                                    </NEXT_ITEM_ID>
+		<INTERNAL>0</INTERNAL>
+		<EXTERNAL>0</EXTERNAL>
+		<PARTNER>0</PARTNER>
+	</barista_record>
+	<barista_record>
+		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
 		<MENUITEM_ID>2d118854-838a-4533-8f52-418cc288b438</MENUITEM_ID>
 		<MENU_DESC>AR v18 Minor Rev Upgrade</MENU_DESC>
 		<IMAGE>im_menui_utility.png</IMAGE>
@@ -3331,7 +3359,7 @@
 		<INDENTS>3</INDENTS>
 		<EXPANDABLE>N</EXPANDABLE>
 		<PREV_ITEM_ID>b000ea12-db45-4aab-943d-2d1fc6617d24</PREV_ITEM_ID>
-		<NEXT_ITEM_ID>                                    </NEXT_ITEM_ID>
+		<NEXT_ITEM_ID>2cca1566-124e-4c31-b282-e1b26c77a246</NEXT_ITEM_ID>
 		<INTERNAL>0</INTERNAL>
 		<EXTERNAL>0</EXTERNAL>
 		<PARTNER>0</PARTNER>
