@@ -23,7 +23,7 @@
 			<DD_CREATE_DATE id="ddm_tables.opr_quotes_dmd">20251022</DD_CREATE_DATE>
 			<DD_LSTREV_DATE id="ddm_tables.opr_quotes_dmd">20251022</DD_LSTREV_DATE>
 			<DD_LSTSYNC_DATE id="ddm_tables.opr_quotes_dmd">20251022</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opr_quotes_dmd">144024</DD_LSTSYNC_TIME>
+			<DD_LSTSYNC_TIME id="ddm_tables.opr_quotes_dmd">162250</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opr_quotes_dmd"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.opr_quotes_dmd">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opr_quotes_dmd"></DD_ATTR_DKNM>
@@ -155,7 +155,7 @@
 			<DD_ATTR_CTLC id="ddm_table_cols.opr_quotes_dmd001">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.opr_quotes_dmd001"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.opr_quotes_dmd001">N</DD_ATTR_RKEY>
-			<DD_ATTR_BTNS id="ddm_table_cols.opr_quotes_dmd001">F</DD_ATTR_BTNS>
+			<DD_ATTR_BTNS id="ddm_table_cols.opr_quotes_dmd001"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.opr_quotes_dmd002">
 			<DD_TABLE_ALIAS id="ddm_table_cols.opr_quotes_dmd002">OPR_QUOTES_DMD  </DD_TABLE_ALIAS>
@@ -364,6 +364,16 @@
 	</ALIAS>
 	<ALIAS id="ddm_column_opts">
 		<ID id="ddm_column_opts">DDM_COLUMN_OPTS</ID>
+		<RECORD id="ddm_column_opts.opr_quotes_dmdcustomer_idc">
+			<DD_TABLE_ALIAS id="ddm_column_opts.opr_quotes_dmdcustomer_idc">OPR_QUOTES_DMD  </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.opr_quotes_dmdcustomer_idc">CUSTOMER_ID     </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.opr_quotes_dmdcustomer_idc">C</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.opr_quotes_dmdorder_noc">
+			<DD_TABLE_ALIAS id="ddm_column_opts.opr_quotes_dmdorder_noc">OPR_QUOTES_DMD  </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.opr_quotes_dmdorder_noc">ORDER_NO        </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.opr_quotes_dmdorder_noc">C</DD_ATTR_OPTS>
+		</RECORD>
 		<RECORD id="ddm_column_opts.opr_quotes_dmdauto_ord_confo">
 			<DD_TABLE_ALIAS id="ddm_column_opts.opr_quotes_dmdauto_ord_confo">OPR_QUOTES_DMD  </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.opr_quotes_dmdauto_ord_confo">AUTO_ORD_CONF   </DD_DVAR_NAME>
