@@ -1073,28 +1073,36 @@ rem --- Print a counter Picking Slip
 	dim arm02a$:fnget_tpl$("ARM_CUSTDET")
 	read record (arm02_dev,key=firm_id$+customer_id$+"  ",dom=*next) arm02a$
 
+	rem --- No need to check credit first
 	if user_tpl.credit_installed$ <> "Y" or 
 :		user_tpl.pick_hold$ = "Y"         or
 :		callpoint!.getColumnData("OPE_ORDHDR.INVOICE_TYPE") = "P" or
 :		arm02a.cred_hold$="E"
 :	then
-
-	rem --- No need to check credit first
-
-		gosub do_picklist
+		rem --- Okay to print
+		if callpoint!.getColumnData("OPE_ORDHDR.INVOICE_TYPE")="P" then
+			rem --- Print Quotation
+			gosub print_quote
+		else
+			rem --- Print Picking List
+			gosub do_picklist
+		endif
 		user_tpl.do_end_of_form = 0
 	else
-
-	rem --- Can't print until released from credit
+		rem --- Can't print until released from credit
 
 		callpoint!.setDevObject("cred_action_from_print_now","Y")
 		gosub do_credit_action
 
 		if pos(action$ = "XUS") or (pos(action$ = "RM") and str(callpoint!.getDevObject("document_printed")) <> "Y") then 
-
-		rem --- Couldn't do credit action, or did credit action w/ no problem, or released from credit but didn't print
-
-			gosub do_picklist
+			rem --- Couldn't do credit action, or did credit action w/ no problem, or released from credit but didn't print
+			if callpoint!.getColumnData("OPE_ORDHDR.INVOICE_TYPE")="P" then
+				rem --- Print Quotation
+				gosub print_quote
+			else
+				rem --- Print Picking List
+				gosub do_picklist
+			endif
 			user_tpl.do_end_of_form = 0
 		else
 			if action$ = "R" and str(callpoint!.getDevObject("document_printed")) = "Y" then 
@@ -4891,6 +4899,30 @@ rem ==========================================================================
 
 	call stbl("+DIR_SYP")+"bam_run_prog.bbj",
 :	                       "OPR_ODERPICKDMD",
+:	                       user_id$,
+:	                       "",
+:	                       "",
+:	                       table_chans$[all],
+:	                       "",
+:	                       dflt_data$[all]	
+
+	return
+
+rem ==========================================================================
+print_quote: rem --- Print Quotation
+rem IN: customer_id$
+rem IN: order_no$
+rem ==========================================================================
+	user_id$=stbl("+USER_ID")
+ 
+	dim dflt_data$[3,1]
+	dflt_data$[1,0]="CUSTOMER_ID"
+	dflt_data$[1,1]=customer_id$
+	dflt_data$[2,0]="ORDER_NO"
+	dflt_data$[2,1]=order_no$
+
+	call stbl("+DIR_SYP")+"bam_run_prog.bbj",
+:	                       "OPR_QUOTES_DMD",
 :	                       user_id$,
 :	                       "",
 :	                       "",

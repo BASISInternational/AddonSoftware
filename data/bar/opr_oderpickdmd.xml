@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.opr_oderpickdmd"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opr_oderpickdmd">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opr_oderpickdmd">2457396</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.opr_oderpickdmd">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.opr_oderpickdmd">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opr_oderpickdmd">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.opr_oderpickdmd">20251022</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.opr_oderpickdmd">20251022</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.opr_oderpickdmd">144810</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opr_oderpickdmd"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.opr_oderpickdmd">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.opr_oderpickdmd">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opr_oderpickdmd"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.opr_oderpickdmd"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.opr_oderpickdmd">S</DD_ATTR_FTYP>
@@ -260,9 +260,9 @@
 			<DD_ATTR_STYL id="ddm_table_cols.opr_oderpickdmd003"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.opr_oderpickdmd003">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.opr_oderpickdmd003"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpickdmd003">3004</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.opr_oderpickdmd003">cbx_print_prices</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.opr_oderpickdmd003">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpickdmd003"></DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.opr_oderpickdmd003"></DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.opr_oderpickdmd003"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.opr_oderpickdmd003"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.opr_oderpickdmd003">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.opr_oderpickdmd003"></DD_ATTR_BTNS>
@@ -311,9 +311,9 @@
 			<DD_ATTR_STYL id="ddm_table_cols.opr_oderpickdmd004"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.opr_oderpickdmd004">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.opr_oderpickdmd004"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpickdmd004">3005</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.opr_oderpickdmd004">cbx_send_via_rpt_ctl</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.opr_oderpickdmd004">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpickdmd004"></DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.opr_oderpickdmd004"></DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.opr_oderpickdmd004"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.opr_oderpickdmd004"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.opr_oderpickdmd004">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.opr_oderpickdmd004"></DD_ATTR_BTNS>
@@ -432,6 +432,16 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.opr_oderpickdmdorder_noc">OPR_ODERPICKDMD </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.opr_oderpickdmdorder_noc">ORDER_NO        </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.opr_oderpickdmdorder_noc">C</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.opr_oderpickdmdprint_priceso">
+			<DD_TABLE_ALIAS id="ddm_column_opts.opr_oderpickdmdprint_priceso">OPR_ODERPICKDMD </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.opr_oderpickdmdprint_priceso">PRINT_PRICES    </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.opr_oderpickdmdprint_priceso">O</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.opr_oderpickdmdsend_via_rpt_ctlo">
+			<DD_TABLE_ALIAS id="ddm_column_opts.opr_oderpickdmdsend_via_rpt_ctlo">OPR_ODERPICKDMD </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.opr_oderpickdmdsend_via_rpt_ctlo">SEND_VIA_RPT_CTL</DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.opr_oderpickdmdsend_via_rpt_ctlo">O</DD_ATTR_OPTS>
 		</RECORD>
 		<RECORD id="ddm_column_opts.opr_oderpickdmdinvoice_typeg">
 			<DD_TABLE_ALIAS id="ddm_column_opts.opr_oderpickdmdinvoice_typeg">OPR_ODERPICKDMD </DD_TABLE_ALIAS>

@@ -54,6 +54,7 @@ rem --- Assign form input values to local variables
     rem *** what does this do? restart$ = option!.getOptionData("pick_check"); rem p6$
     cust_id$ = option!.getOptionData("customer_id"); rem p5$
     report_sequence$ = option!.getOptionData("report_sequence"); rem p5$
+    sale_or_quote$=callpoint!.getDevObject("sale_or_quote")
 
 rem --- Initialize Data
 
@@ -81,7 +82,10 @@ rem --- Main Read, create customer and order vectors
         if ope01a.ordinv_flag$<>"O" or ope01a.ord_conf_printed$="Y" then continue
         
         rem --- Skip quotes
-        if ope01a.invoice_type$="P" then continue
+        if sale_or_quote$="S" and ope01a.invoice_type$="P" then continue
+        
+        rem --- Skip acknowledgements
+        if sale_or_quote$="Q" and ope01a.invoice_type$="S" then continue
 
 rem --- Check to see if record is in use in Order Entry
 		call stbl("+DIR_SYP")+"bac_lock_record.bbj","OPE_ORDHDR",firm_id$+"  "+ope01a.customer_id$+ope01a.order_no$,"C","",0,table_chans$[all],lock_stat$
@@ -118,7 +122,7 @@ rem --- Re-sort custIds! and orderNos! in Order Number order
     
 rem --- Call the acknowledgement printing program with the vectors
     
-    call pgmdir$+"opc_ordconf.aon::batch_ack", custIds!, orderNos!, option!, table_chans$[all], status
+    call pgmdir$+"opc_ordconf.aon::batch_ack", custIds!, orderNos!, option!, callpoint!.getDevObject("sale_or_quote"), table_chans$[all], status
     goto std_exit
     
 open_tables: rem --- Open Tables
