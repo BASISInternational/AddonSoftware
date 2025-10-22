@@ -24,7 +24,7 @@ on_demand: rem --- Entry point for on-demand acknowledgement
     setesc std_error
     seterr std_error
     
-    enter cust_id$, order_no$, option!, table_chans$[all], status
+    enter cust_id$, order_no$, option!, sale_or_quote$, table_chans$[all], status
  
     custIds! = BBjAPI().makeVector()
     orderNos! = BBjAPI().makeVector()
@@ -47,12 +47,12 @@ batch_ack: rem --- Batch printing of acknowledgements
     setesc std_error
     seterr std_error
 
-    enter custIds!, orderNos!, option!, table_chans$[all], status
+    enter custIds!, orderNos!, option!, sale_or_quote$, table_chans$[all], status
 
     rem --- Assign form input values to local variables
     alias$ = option!.getAlias()
     restart$ = option!.getOptionData("pick_check")
-    restart_customer$ = option!.getOptionData("customer_id")  
+    restart_customer$ = option!.getOptionData("customer_id")
     batch_adhoc_message$ = option!.getOptionData("pick_text")
     
     type = 2
@@ -70,6 +70,7 @@ auto_on_demand: rem --- Entry point for automatic on-demand acknowledgement
     custIds!.addItem( cust_id$ )
     orderNos!.addItem( order_no$ )   
 
+    sale_or_quote$="S"
     alias$ = "OPR_ORDCONF_DMD"
     batch_adhoc_message$ = ""
     send_via_rpt_ctl$ = "Y"
@@ -177,8 +178,10 @@ rem --- Set Report Name & Subreport directory
     close (temp)
     reportBaseName$ = "OPOrderConfHdr"
     filename$ = reportDir$ + reportBaseName$ + ".jasper"
+rem wgh ... 10666 ...
     masterBaseName$ = "OPOrderConfMaster"
     master_filename$ = reportDir$ + masterBaseName$+".jasper"
+rem wgh ... 10666 ...
     printBaseName$ = "OPOrderConfPrint"
     print_filename$ = reportDir$ + printBaseName$+".jasper"    
 
@@ -431,12 +434,14 @@ rem --- Main Read
 
     rem --- Report parameters  (Master/Print only processed once, followed by actual acknowledgements)
 		if master_document
+            master_params!.put("SALE_OR_QUOTE",sale_or_quote$)
 			master_params!.put("RESTART",restart$)
 			master_params!.put("RESTART_CUSTOMER",restart_customer$)
 			master_params!.put("MESSAGE",batch_adhoc_message$)
 		endif
 
 		if print_document
+            print_params!.put("SALE_OR_QUOTE",sale_or_quote$)
 			print_params!.put("RESTART",restart$)
 			print_params!.put("RESTART_CUSTOMER",restart_customer$)
 			print_params!.put("MESSAGE",batch_adhoc_message$)
@@ -448,6 +453,7 @@ rem --- Main Read
 		params!.put("CUSTOMER_ID",ope01a.customer_id$)
 		params!.put("ORDER_NO",ope01a.order_no$)
         params!.put("AR_INV_NO",ope01a.ar_inv_no$)
+        params!.put("SALE_OR_QUOTE",sale_or_quote$)
         params!.put("SHIP_SEQ_NO",ope01a.ship_seq_no$)
 		params!.put("QTY_MASK",qty_mask$)
 		params!.put("QTY_MASK_PATTERN",qty_mask_pattern$)

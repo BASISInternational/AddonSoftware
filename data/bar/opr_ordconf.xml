@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.opr_ordconf"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opr_ordconf">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opr_ordconf">20210621</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.opr_ordconf">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.opr_ordconf">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opr_ordconf">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.opr_ordconf">20251021</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.opr_ordconf">20251021</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.opr_ordconf">152726</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opr_ordconf"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.opr_ordconf"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.opr_ordconf">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opr_ordconf"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.opr_ordconf"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.opr_ordconf">S</DD_ATTR_FTYP>
@@ -56,6 +56,13 @@
 			<DD_ATTR_PADW id="ddm_tables.opr_ordconf">0</DD_ATTR_PADW>
 			<DD_ATTR_PADH id="ddm_tables.opr_ordconf">0</DD_ATTR_PADH>
 			<DD_ATTR_PADG id="ddm_tables.opr_ordconf">0</DD_ATTR_PADG>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_cpro">
+		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.opr_ordconfbsho">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.opr_ordconfbsho">OPR_ORDCONF     </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.opr_ordconfbsho">BSHO</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_opts">
