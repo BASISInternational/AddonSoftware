@@ -27,5 +27,9 @@ rem --- Pass along ORD_CONF_PRINTED value
 	auto_ord_conf$=callpoint!.getDevObject("auto_ord_conf")
 	callpoint!.setColumnData("OPR_ORDCONF_DMD.AUTO_ORD_CONF",auto_ord_conf$)
 
+[[OPR_ORDCONF_DMD.BSHO]]
+rem --- This form is only used for printing Order Acknowledgements
+	callpoint!.setDevObject("sale_or_quote","S")
+
 
 
