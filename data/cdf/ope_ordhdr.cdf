@@ -398,19 +398,8 @@ rem --- Have ship-to or bill-to address changed?
 		endif
 	endif
 
-rem --- Show static label for this Order
-	orderType_label!=callpoint!.getDevObject("orderType_label")
-	if callpoint!.getColumnData("OPE_ORDHDR.INVOICE_TYPE")="P" then
-		rem --- This Order is a Quote
-		orderType_label!.setText("Quote")
-	 	orderType_label!.setForeColor(BBjColor.RED)
-		orderType_label!.setVisible(1)
-	else
-		rem --- This Order is a Sale
-		orderType_label!.setText("Sale")
-		orderType_label!.setForeColor(callpoint!.getDevObject("colorGreen"))
-		orderType_label!.setVisible(1)
-	endif
+rem --- Show static Order Type label for this Order
+	gosub orderType_display
 
 [[OPE_ORDHDR.AFMC]]
 rem --- Inits
@@ -3234,6 +3223,9 @@ rem --- Convert Quote?
 					soCreateWO!.initIsnWOMap(GridVect!.getItem(0))
 					soCreateWO!.setCreateWO(Boolean.valueOf("true"))
 				endif
+
+				rem --- Update static Order Type label for this Order
+				gosub orderType_display
 			else
 				rem --- Changed their mind about converting a quote
 				inv_type$="P"
@@ -5356,6 +5348,25 @@ rem ==========================================================================
 		ordship_tpl.audit_number   = 0
 		ordship_tpl$ = field(ordship_tpl$)
 		write record (ordship_dev) ordship_tpl$
+	endif
+
+	return
+
+
+rem ==========================================================================
+orderType_display: rem --- Refresh orderType_label
+rem ==========================================================================
+	orderType_label!=callpoint!.getDevObject("orderType_label")
+	if callpoint!.getColumnData("OPE_ORDHDR.INVOICE_TYPE")="P" then
+		rem --- This Order is a Quote
+		orderType_label!.setText("Quote")
+	 	orderType_label!.setForeColor(BBjColor.RED)
+		orderType_label!.setVisible(1)
+	else
+		rem --- This Order is a Sale
+		orderType_label!.setText("Sale")
+		orderType_label!.setForeColor(callpoint!.getDevObject("colorGreen"))
+		orderType_label!.setVisible(1)
 	endif
 
 	return
