@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.opr_oderpicklst"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opr_oderpicklst">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opr_oderpicklst">20080312</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.opr_oderpicklst">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.opr_oderpicklst">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opr_oderpicklst">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.opr_oderpicklst">20251027</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.opr_oderpicklst">20251027</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.opr_oderpicklst">093922</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opr_oderpicklst"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.opr_oderpicklst"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opr_oderpicklst"></DD_ATTR_DKNM>
@@ -143,9 +143,9 @@
 			<DD_ATTR_STYL id="ddm_table_cols.opr_oderpicklst001"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.opr_oderpicklst001"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.opr_oderpicklst001"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpicklst001">3001</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.opr_oderpicklst001">cbx_print_price</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.opr_oderpicklst001">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpicklst001"></DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.opr_oderpicklst001"></DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.opr_oderpicklst001"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.opr_oderpicklst001"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.opr_oderpicklst001">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.opr_oderpicklst001"></DD_ATTR_BTNS>
@@ -194,7 +194,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.opr_oderpicklst002"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.opr_oderpicklst002"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.opr_oderpicklst002"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpicklst002">3002</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpicklst002">3001</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.opr_oderpicklst002">cbx_restart</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.opr_oderpicklst002">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.opr_oderpicklst002"></DD_ATTR_RADG>
@@ -245,7 +245,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.opr_oderpicklst003"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.opr_oderpicklst003"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.opr_oderpicklst003"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpicklst003">3003</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpicklst003">3002</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.opr_oderpicklst003">dis_customer_id</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.opr_oderpicklst003">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.opr_oderpicklst003"></DD_ATTR_RADG>
@@ -296,7 +296,7 @@
 			<DD_ATTR_STYL id="ddm_table_cols.opr_oderpicklst004"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.opr_oderpicklst004"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.opr_oderpicklst004"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpicklst004">3004</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpicklst004">3003</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.opr_oderpicklst004">dis_warehouse_id</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.opr_oderpicklst004">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.opr_oderpicklst004"></DD_ATTR_RADG>
@@ -325,7 +325,7 @@
 			<DD_ATTR_CTLY id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_CTLY>
 			<DD_ATTR_CTLW id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_CTLW>
 			<DD_ATTR_CTLH id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_CTLH>
-			<DD_ATTR_DFLT id="ddm_table_cols.opr_oderpicklst005">B</DD_ATTR_DFLT>
+			<DD_ATTR_DFLT id="ddm_table_cols.opr_oderpicklst005">P</DD_ATTR_DFLT>
 			<DD_ATTR_DRLE id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_DRLE>
 			<DD_ATTR_GHDR id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_IDEF>
@@ -347,9 +347,9 @@
 			<DD_ATTR_STYL id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpicklst005">3005</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.opr_oderpicklst005">lbn_print_list</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.opr_oderpicklst005">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.opr_oderpicklst005">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.opr_oderpicklst005"></DD_ATTR_BTNS>
@@ -381,6 +381,11 @@
 	</ALIAS>
 	<ALIAS id="ddm_column_opts">
 		<ID id="ddm_column_opts">DDM_COLUMN_OPTS</ID>
+		<RECORD id="ddm_column_opts.opr_oderpicklstprint_priceo">
+			<DD_TABLE_ALIAS id="ddm_column_opts.opr_oderpicklstprint_priceo">OPR_ODERPICKLST </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.opr_oderpicklstprint_priceo">PRINT_PRICE     </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.opr_oderpicklstprint_priceo">O</DD_ATTR_OPTS>
+		</RECORD>
 		<RECORD id="ddm_column_opts.opr_oderpicklstcustomer_idu">
 			<DD_TABLE_ALIAS id="ddm_column_opts.opr_oderpicklstcustomer_idu">OPR_ODERPICKLST </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.opr_oderpicklstcustomer_idu">CUSTOMER_ID     </DD_DVAR_NAME>
@@ -395,6 +400,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.opr_oderpicklstwarehouse_idu">OPR_ODERPICKLST </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.opr_oderpicklstwarehouse_idu">WAREHOUSE_ID    </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.opr_oderpicklstwarehouse_idu">u</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.opr_oderpicklstprint_listo">
+			<DD_TABLE_ALIAS id="ddm_column_opts.opr_oderpicklstprint_listo">OPR_ODERPICKLST </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.opr_oderpicklstprint_listo">PRINT_LIST      </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.opr_oderpicklstprint_listo">O</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">
