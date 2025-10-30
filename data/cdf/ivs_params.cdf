@@ -100,6 +100,30 @@ rem --- init/parameters
 
 	if gl_installed$<>"Y" then callpoint!.setColumnEnabled("IVS_PARAMS.POST_TO_GL",-1)
 
+rem --- warehouses exist?
+
+	whse_dev=num(open_chans$[3])
+	read (whse_dev,key=firm_id$,dom=*next)
+	warehouses=0
+	while 1
+		testkey$=key(whse_dev,end=*break)
+		if testkey$(1,2)<>firm_id$ then
+			break
+		else
+			warehouses=warehouses+1
+			read (whse_dev)
+		endif
+	wend
+
+	if warehouses = 0 then 
+		callpoint!.setColumnEnabled("IVS_PARAMS.WAREHOUSE_ID",-1)
+		callpoint!.setColumnEnabled("IVS_PARAMS.DROPSHIP_WHSE",-1)
+	endif
+
+	if warehouses < 2 then
+		callpoint!.setColumnEnabled("IVS_PARAMS.MULTI_WHSE",-1)
+	endif
+
 [[IVS_PARAMS.COST_METHOD.AVAL]]
 rem --- Display message if costing method has changed
 
