@@ -131,6 +131,62 @@ rem --- For version 26.00, initialize new fields in IV tables/files
         gosub disp_meter
         print(log_dev)meter_text$
 
+        rem --- Initialize new PRICING_ADJ_BASE in IVC_PRICCODE
+        task$="2600_IV_ivc_priccode"
+        if convCtrl!.getProperty(task$)<>"Completed" then
+            rem --- Open File(s)
+            num_files=1
+            dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+            open_tables$[1]="IVC_PRICCODE",   open_opts$[1]="OTA"
+    
+            gosub open_tables
+    
+            ivcPricCode_dev=num(open_chans$[1])
+            dim ivcPricCode$:open_tpls$[1]
+
+            read(ivcPricCode_dev,key="",dom=*next)
+            while 1
+                readrecord(ivcPricCode_dev,end=*break)ivcPricCode$
+
+                rem --- Initialize PRICING_ADJ_BASE
+                if ivcPricCode.iv_price_mth$="L" then
+                    rem --- For Markdown From List, set PRICING_ADJ_BASE to Current Price
+                    ivcPricCode.pricing_adj_base$="C"
+                endif
+
+                if pos(ivcPricCode.iv_price_mth$="CM") then
+                    rem --- For Markup From Cost and Margin Over Cost, set PRICING_ADJ_BASE to Unit Cost
+                    ivcPricCode.pricing_adj_base$="U"
+                endif
+                
+                writerecord(ivcPricCode_dev)ivcPricCode$
+            wend
+            
+            rem --- close files opened for this conversion
+            num_files=1
+            dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+            open_tables$[1]="IVC_PRICCODE", open_opts$[1]="C"
+            gosub open_tables
+           
+            write(convCtrlFileChan)task$+"=Completed"
+
+            rem --- This task$ conversion completed successfully
+            rem --- Increment progress meter
+            meter_text$=Translate!.getTranslation("AON_DATA_CONV","Data conversion")+" "+
+:                       Translate!.getTranslation("AON_COMPLETED_FOR","completed for")+": "+task$
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+        else
+            rem --- Increment progress meter
+            meter_text$=Translate!.getTranslation("AON_CONV_PREVIOUSLY","Conversion previously completed for")+" "+task$
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+        endif
+
 		rem --- Initialize new PRICE_TABLE_COST field in IVM_ITEMWHSE
         task$="2600_IV_ivm_itemwhse"
         if convCtrl!.getProperty(task$)<>"Completed" then
