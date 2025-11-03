@@ -150,8 +150,8 @@
 			</band>
 		</groupHeader>
 		<groupFooter>
-			<band height="106" splitType="Prevent">
-				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<band height="120" splitType="Prevent">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				<rectangle radius="4">
 					<reportElement positionType="Float" mode="Opaque" x="395" y="41" width="160" height="52" forecolor="#E0E0E0" backcolor="#EBF0FA" uuid="e04eb550-99d3-4d3e-91d1-2d2f13cc74bd">
 						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
@@ -268,7 +268,7 @@
 						<font fontName="DejaVu Sans" isBold="true" isItalic="false"/>
 						<paragraph leftIndent="6"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$R{AON_TOTAL_DUE}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$R{AON_TOTAL}]]></textFieldExpression>
 				</textField>
 				<textField pattern="">
 					<reportElement positionType="Float" x="477" y="42" width="78" height="12" uuid="c0975af9-eb3f-441d-ad17-5c4f5dd947ee">
@@ -300,7 +300,7 @@
 						<font fontName="DejaVu Serif" size="9"/>
 						<paragraph rightIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$V{TAX_AMT_BigDec}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$V{TAX_AMT_BigDec}==0?"**":$V{TAX_AMT_BigDec}]]></textFieldExpression>
 					<patternExpression><![CDATA[$P{AMT_MASK_PATTERN}]]></patternExpression>
 				</textField>
 				<textField pattern="">
@@ -311,7 +311,7 @@
 						<font fontName="DejaVu Serif" size="9"/>
 						<paragraph rightIndent="4"/>
 					</textElement>
-					<textFieldExpression><![CDATA[$V{FREIGHT_AMT_BigDec}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$V{FREIGHT_AMT_BigDec}==0?"**":$V{FREIGHT_AMT_BigDec}]]></textFieldExpression>
 					<patternExpression><![CDATA[$P{AMT_MASK_PATTERN}]]></patternExpression>
 				</textField>
 				<textField pattern="">
@@ -344,6 +344,19 @@
 						<font fontName="DejaVu Serif" size="8"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{INV_STD_MESSAGE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="395" y="107" width="160" height="13" uuid="2bda58ea-fd90-4534-aa7a-ede0f37c2bee">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<printWhenExpression><![CDATA[$V{TAX_AMT_BigDec}==0 || $V{FREIGHT_AMT_BigDec}==0]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["** "+$R{AON_TO_BE_DETERMINED}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupFooter>
