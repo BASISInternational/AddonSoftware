@@ -375,6 +375,7 @@ rem --- Open tables
 	sfs_params=num(open_chans$[2])
 	dim sfs_params$:open_tpls$[2]
 	read record (sfs_params,key=firm_id$+"SF00",dom=std_missing_params) sfs_params$
+	callpoint!.setDevObject("edit_planned_wo",sfs_params.edit_planned_wo$)
 
 	rem --- Get end date of previous SF period
 	gls_calendar=num(open_chans$[12])

@@ -34,6 +34,11 @@ rem --- Enable/disable comments
 	line_type$=callpoint!.getColumnData("SFE_WOMATL.LINE_TYPE")
 	gosub enable_comments
 
+rem --- Enable the grid Delete button when editing planned WO
+	deleteButton!=null()
+	deleteButton!=callpoint!.getDevObject("deleteButton",err=*next)
+	if deleteButton!<>null() then	deleteButton!.setEnabled(1)
+
 [[SFE_WOMATL.ALT_FACTOR.AVAL]]
 rem --- Calc Totals
 
@@ -93,6 +98,48 @@ rem --- Update grid with changes
 [[SFE_WOMATL.AOPT-COMM]]
 rem --- Launch Comments dialog
 	gosub comment_entry
+
+[[SFE_WOMATL.AOPT-EDIT]]
+rem --- Allow editing planned WO (undo disabling grid columns done in BSHO)
+	opts$=callpoint!.getTableAttribute("OPTS")
+	if len(opts$)>3 and pos(";BID"=opts$)=len(opts$)-3 then 
+		opts$=opts$(1,len(opts$)-4)
+		callpoint!.setTableAttribute("OPTS",opts$)
+	endif
+
+	x$=callpoint!.getTableColumns()
+	worefnumPos=pos("SFE_WOMATL.WO_REF_NUM"=x$)
+	for x=1 to len(x$) step 40
+		opts$=callpoint!.getTableColumnAttribute(cvs(x$(x,40),2),"OPTS")
+
+		if len(opts$)>1 and pos(opts$(len(opts$)-1)=";C") then opts$=opts$(1,len(opts$)-2)
+
+		rem --- Skip Display Only columns
+		gridCol$=cvs(x$(x,40),2)
+		if gridCol$="<<DISPLAY>>.ROW_NUM" then continue
+		if gridCol$="SFE_WOMATL.REQUIRE_DATE" then continue
+		if gridCol$="SFE_WOMATL.IV_UNIT_COST" then continue
+		if gridCol$="SFE_WOMATL.UNITS" then continue
+		if gridCol$="SFE_WOMATL.UNIT_COST" then continue
+		if gridCol$="SFE_WOMATL.TOTAL_UNITS" then continue
+		if gridCol$="SFE_WOMATL.TOTAL_COST" then continue
+
+		if opts$="C" then opts$=""
+
+		callpoint!.setTableColumnAttribute(cvs(x$(x,40),2),"OPTS",opts$); rem - makes cells editable
+	next x
+
+	rem --- Enable the Delete button on the grid
+	navWin!=Form!.getChildWindow(num(stbl("+NAVBAR_CTL")))
+	ctrlVec!=navWin!.getAllControls()
+	for i=0 to ctrlVec!.size()-1
+		ctrl!=ctrlVec!.get(i)
+		if ctrl!.getToolTipText()="Delete current record" then
+			ctrl!.setEnabled(1)
+			callpoint!.setDevObject("deleteButton",ctrl!)
+			break
+		endif
+	next i
 
 [[SFE_WOMATL.AREC]]
 rem --- Initializations
@@ -203,6 +250,9 @@ rem --- prompt user to explode them; if yes, explode, then re-launch form so use
 		endif
 	endif
 
+	rem --- The grid Delete button control gets cleared when exit the form
+	callpoint!.setDevObject("deleteButton",null())
+
 [[SFE_WOMATL.BSHO]]
 use ::ado_func.src::func
 use ::ado_util.src::util
@@ -266,11 +316,12 @@ rem --- Disable grid if Closed Work Order or Recurring
 :		callpoint!.getDevObject("wo_category")="R" or
 :		(callpoint!.getDevObject("wo_category")="I" and callpoint!.getDevObject("bm")="Y")
 		opts$=callpoint!.getTableAttribute("OPTS")
-		callpoint!.setTableAttribute("OPTS",opts$+"BID")
+ 		callpoint!.setTableAttribute("OPTS",opts$+"BID")
 
 		x$=callpoint!.getTableColumns()
 		worefnumPos=pos("SFE_WOMATL.WO_REF_NUM"=x$)
 		for x=1 to len(x$) step 40
+
 			rem --- Don't disable wo_ref_num for Bills Of Materials unless WO is closed
 			if x<>worefnumPos or
 :			(x=worefnumPos and 
@@ -336,6 +387,11 @@ rem --- Disable WO_REF_NUM when locked or WO closed
 		opts$=callpoint!.getTableColumnAttribute("SFE_WOMATL.WO_REF_NUM","OPTS")
 		callpoint!.setTableColumnAttribute("SFE_WOMATL.WO_REF_NUM","OPTS",opts$+"C"); rem --- makes read only
 		callpoint!.setOptionEnabled("AUTO",0)
+	endif
+
+rem --- Disable Edit Planned WO unless allowed
+ 	if callpoint!.getDevObject("wo_status")<>"P" or callpoint!.getDevObject("edit_planned_wo")<>"Y" then
+		callpoint!.setOptionEnabled("EDIT",0)
 	endif
 
 [[SFE_WOMATL.BUDE]]
