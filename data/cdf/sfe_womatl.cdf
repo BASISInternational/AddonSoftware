@@ -39,6 +39,29 @@ rem --- Enable the grid Delete button when editing planned WO
 	deleteButton!=callpoint!.getDevObject("deleteButton",err=*next)
 	if deleteButton!<>null() then	deleteButton!.setEnabled(1)
 
+rem --- Disable the Edit Button when the grid is disabled, otherwise enable it
+	editButton!=callpoint!.getDevObject("editButton")
+	if editButton!=null() then
+		if callpoint!.getDevObject("wo_status")="C" or 
+:		callpoint!.getDevObject("wo_category")="R" or
+:		(callpoint!.getDevObject("wo_category")="I" and callpoint!.getDevObject("bm")="Y") then
+			navWin!=Form!.getChildWindow(num(stbl("+NAVBAR_CTL")))
+			ctrlVec!=navWin!.getAllControls()
+			for i=0 to ctrlVec!.size()-1
+				ctrl!=ctrlVec!.get(i)
+				if ctrl!.getToolTipText()="Edit" then ctrl!.setEnabled(0)
+				if ctrl!.getToolTipText()="Add new" then ctrl!.setEnabled(0)
+				if ctrl!.getToolTipText()="Insert new" then ctrl!.setEnabled(0)
+			next i
+		endif
+	else
+		editButton!.setEnabled(1)
+		addButton!=callpoint!.getDevObject("addButton")
+		addButton!.setEnabled(1)
+		insertButton!=callpoint!.getDevObject("insertButton")
+		insertButton!.setEnabled(1)
+	endif
+
 [[SFE_WOMATL.ALT_FACTOR.AVAL]]
 rem --- Calc Totals
 
@@ -129,15 +152,26 @@ rem --- Allow editing planned WO (undo disabling grid columns done in BSHO)
 		callpoint!.setTableColumnAttribute(cvs(x$(x,40),2),"OPTS",opts$); rem - makes cells editable
 	next x
 
-	rem --- Enable the Delete button on the grid
+	rem --- Need to be able to enable the Edit and Delete buttons on the grid
 	navWin!=Form!.getChildWindow(num(stbl("+NAVBAR_CTL")))
 	ctrlVec!=navWin!.getAllControls()
 	for i=0 to ctrlVec!.size()-1
 		ctrl!=ctrlVec!.get(i)
+		if ctrl!.getToolTipText()="Edit" then
+			ctrl!.setEnabled(1)
+			callpoint!.setDevObject("editButton",ctrl!)
+		endif
 		if ctrl!.getToolTipText()="Delete current record" then
 			ctrl!.setEnabled(1)
 			callpoint!.setDevObject("deleteButton",ctrl!)
-			break
+		endif
+		if ctrl!.getToolTipText()="Add new" then
+			ctrl!.setEnabled(1)
+			callpoint!.setDevObject("addButton",ctrl!)
+		endif
+		if ctrl!.getToolTipText()="Insert new" then
+			ctrl!.setEnabled(1)
+			callpoint!.setDevObject("insertButton",ctrl!)
 		endif
 	next i
 
@@ -250,8 +284,11 @@ rem --- prompt user to explode them; if yes, explode, then re-launch form so use
 		endif
 	endif
 
-	rem --- The grid Delete button control gets cleared when exit the form
+	rem --- The grid Edit and Delete button controls gets cleared when exit the form
+	callpoint!.setDevObject("editButton",null())
 	callpoint!.setDevObject("deleteButton",null())
+	callpoint!.setDevObject("addButton",null())
+	callpoint!.setDevObject("insertButton",null())
 
 [[SFE_WOMATL.BSHO]]
 use ::ado_func.src::func
@@ -392,6 +429,25 @@ rem --- Disable WO_REF_NUM when locked or WO closed
 rem --- Disable Edit Planned WO unless allowed
  	if callpoint!.getDevObject("wo_status")<>"P" or callpoint!.getDevObject("edit_planned_wo")<>"Y" then
 		callpoint!.setOptionEnabled("EDIT",0)
+	else
+		rem --- Check Barista security settings
+		allowEdit$=""
+		call stbl("+DIR_SYP")+"bac_getsecurity.bbj",
+:       	stbl("+USER_ID"),
+:       	"SF_EDIT_PLANNED_WO",
+:       	"",
+:       	firm_id$,
+:       	temp_array$[all],
+:       	access$[all],
+:       	table_chans$[all],
+:       	"ACCESS",
+:       	role_status$
+
+		if role_status$<>"INVALID"
+			allowEdit$=iff(pos("Y"=access$[0]),"Y","")
+		endif
+
+		if allowEdit$<>"Y" then callpoint!.setOptionEnabled("EDIT",0)
 	endif
 
 [[SFE_WOMATL.BUDE]]
