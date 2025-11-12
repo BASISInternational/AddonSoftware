@@ -51,19 +51,21 @@ rem --- Headings and print positions
 
 rem --- Headings and print positions
 
-    dim columns$[10,10]
-    columns = 11
+    dim columns$[11,10]
+    columns = 12
     columns$[0,0]=Translate!.getTranslation("AON_PO_NUMBER"),                  columns$[0,1]="C",columns$[0,2]="10"
     columns$[1,0]=Translate!.getTranslation("AON_PO_DATE"),                    columns$[1,1]="C",columns$[1,2]="10"
     columns$[2,0]=Translate!.getTranslation("AON_PO_AMOUNT"),                  columns$[2,1]="N",columns$[2,2]="13",columns$[2,3]=m1$,columns$[2,10]="T"
-    columns$[3,0]=Translate!.getTranslation("AON_PO_RECEIPT^DATE"),            columns$[3,1]="C",columns$[3,2]="10"
-    columns$[4,0]=Translate!.getTranslation("AON_PO_RECEIPT^AMOUNT"),          columns$[4,1]="N",columns$[4,2]="10",columns$[4,3]=m1$,columns$[4,10]="T"
-    columns$[5,0]=Translate!.getTranslation("AON_AP_TYPE"),                    columns$[5,1]="C",columns$[5,2]="8"
-    columns$[6,0]=Translate!.getTranslation("AON_INVOICE_NUMBER"),             columns$[6,1]="C",columns$[6,2]="12"
-    columns$[7,0]=Translate!.getTranslation("AON_INVOICE_DATE"),               columns$[7,1]="C",columns$[7,2]="10"
-    columns$[8,0]=Translate!.getTranslation("AON_INVOICE_TOTAL"),              columns$[8,1]="N",columns$[8,2]="14",columns$[8,3]=m1$,columns$[8,10]="T"
-    columns$[9,0]=Translate!.getTranslation("AON_PO_RECEIPT_AMT^ON_INVOICE"),  columns$[9,1]="N",columns$[9,2]="14",columns$[9,3]=m1$,columns$[9,10]="T"
-    columns$[10,0]=Translate!.getTranslation("AON_RECEIPT_VARIANCE"),          columns$[10,1]="N",columns$[10,2]="14",columns$[10,3]=m1$,columns$[10,10]="T"
+rem wgh ... 11125 ... receiver
+columns$[3,0]=Translate!.getTranslation("AON_RECEIVER")+"^"+Translate!.getTranslation("AON_NUMBER"),columns$[3,1]="C",columns$[3,2]="10"
+    columns$[4,0]=Translate!.getTranslation("AON_PO_RECEIPT^DATE"),            columns$[4,1]="C",columns$[4,2]="10"
+    columns$[5,0]=Translate!.getTranslation("AON_PO_RECEIPT^AMOUNT"),          columns$[5,1]="N",columns$[5,2]="10",columns$[5,3]=m1$,columns$[5,10]="T"
+    columns$[6,0]=Translate!.getTranslation("AON_AP_TYPE"),                    columns$[6,1]="C",columns$[6,2]="8"
+    columns$[7,0]=Translate!.getTranslation("AON_INVOICE_NUMBER"),             columns$[7,1]="C",columns$[7,2]="12"
+    columns$[8,0]=Translate!.getTranslation("AON_INVOICE_DATE"),               columns$[8,1]="C",columns$[8,2]="10"
+    columns$[9,0]=Translate!.getTranslation("AON_INVOICE_TOTAL"),              columns$[9,1]="N",columns$[9,2]="14",columns$[9,3]=m1$,columns$[9,10]="T"
+    columns$[10,0]=Translate!.getTranslation("AON_PO_RECEIPT_AMT^ON_INVOICE"),  columns$[10,1]="N",columns$[10,2]="14",columns$[10,3]=m1$,columns$[10,10]="T"
+    columns$[11,0]=Translate!.getTranslation("AON_RECEIPT_VARIANCE"),          columns$[11,1]="N",columns$[11,2]="14",columns$[11,3]=m1$,columns$[11,10]="T"
 
     call stbl("+DIR_PGM",err=*next)+"adc_docout_adj.aon",columns$[all]
 
@@ -72,23 +74,25 @@ positions:
     o[1]=o[0]+8
     o[2]=o[1]+9
     o[3]=o[2]+m1+1
-    o[4]=o[3]+9
-    o[5]=o[4]+m1+1
-    o[6]=o[5]+5
-    o[7]=o[6]+11
-    o[8]=o[7]+9
-    o[9]=o[8]+m1+1
+rem wgh ... 11125
+o[4]=o[3]+9
+    o[5]=o[4]+9
+    o[6]=o[5]+m1+1
+    o[7]=o[6]+5
+    o[8]=o[7]+11
+    o[9]=o[8]+9
     o[10]=o[9]+m1+1
+    o[11]=o[10]+m1+1
 
-    if o[10]+15>=width
-        o[10]=width-m1
+    if o[11]+15>=width
+        o[11]=width-m1
+        o[10]=o[11]-m1
         o[9]=o[10]-m1
-        o[8]=o[9]-m1
-        o[7]=o[8]-9
-        o[6]=o[7]-9
-        o[5]=o[6]-3
-        o[4]=o[5]-m1
-        o[3]=o[4]-9
+        o[7]=o[9]-9
+        o[7]=o[7]-9
+        o[6]=o[7]-3
+        o[5]=o[6]-m1
+        o[3]=o[5]-9
         o[2]=o[3]-m1
     endif
 
@@ -216,8 +220,10 @@ rem --- Sort by Alt Seq or Vendor Num?
         
             rcptamt$=str(rcptamt)
             if rcptamt=0 and pot04a.rec_complete$="Y" havedata=0
-            pline$(o[3]+1)=rcptdate$
-            pline$(o[4]+1)=rcptamt$
+rem wgh ... 11125
+pline$(o[3]+1)=pot04a.receiver_no$
+            pline$(o[4]+1)=rcptdate$
+            pline$(o[5]+1)=rcptamt$
             if havedata then gosub fillrestpline else break
 
         rem --- Get Invoice Data (via POT-35, Xref)
@@ -318,7 +324,7 @@ done: rem --- All Done
     a=fnblank(1)
     OutVect!.addItem(Translate!.getTranslation("AON_REPORT_TOTAL"))
     OutVect!.addItem(str(grandpoamt))
-    a=fnblank(1)
+    a=fnblank(2)
     OutVect!.addItem(str(grandrcptamt))
     a=fnblank(3)
     OutVect!.addItem(str(grandinvamt))
@@ -381,7 +387,7 @@ brnch3:
 
     if l+4>l9 gosub report_heading
     OutVect!.addItem(Translate!.getTranslation("AON_VENDOR:_")+fnmask$(vendor$(1,vendlen),vendomask$)+" "+vendname$)
-    a=fnblank(10)
+    a=fnblank(11)
     l=l+1
 
     return
@@ -406,6 +412,8 @@ printline: rem --- Test breaks
         a=fnblank(3)
     endif
 
+rem wgh ... 11126
+OutVect!.addItem(pot04a.receiver_no$)
     OutVect!.addItem(rcptdate$)
     OutVect!.addItem(rcptamt$)
     OutVect!.addItem(aptype$)
@@ -430,10 +438,10 @@ rem --- Accumulate totals
 
 fillrestpline: rem --- Complete filling print line
 
-    pline$(o[5]+1)=aptype$,pline$(o[6]+1)=invnum$,pline$(o[7]+1)=invdate$
-    pline$(o[8]+1)=invamt$,pline$(o[9]+1)=rcptamt_iv$
+    pline$(o[6]+1)=aptype$,pline$(o[7]+1)=invnum$,pline$(o[7]+1)=invdate$
+    pline$(o[9]+1)=invamt$,pline$(o[10]+1)=rcptamt_iv$
     variance=rcptamt-rcptamt_iv,variance$=str(variance)
-    pline$(o[10]+1)=variance$
+    pline$(o[11]+1)=variance$
 
     return
 
@@ -447,13 +455,13 @@ vendtotals:
     a=fnblank(1)
     OutVect!.addItem(Translate!.getTranslation("AON_VENDOR_TOTAL"))
     OutVect!.addItem(str(vendpoamt))
-    a=fnblank(1)
+    a=fnblank(2)
     OutVect!.addItem(str(vendrcptamt))
     a=fnblank(3)
     OutVect!.addItem(str(vendinvamt))
     OutVect!.addItem(str(vendrcptamt_iv))
     OutVect!.addItem(str(vendvari))
-    a=fnblank(11)
+    a=fnblank(12)
 
     l=l+2
 
