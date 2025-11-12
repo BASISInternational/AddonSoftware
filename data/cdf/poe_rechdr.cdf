@@ -452,8 +452,29 @@ if cvs(callpoint!.getUserInput(),3)<>""
 	dim pot_rechdr$:fnget_tpl$("POT_RECHDR")
 	readrecord (pot_rechdr_dev,key=firm_id$+callpoint!.getUserInput()+callpoint!.getColumnData("POE_RECHDR.RECEIVER_NO"),dom=*next)pot_rechdr$
 	if pot_rechdr$.firm_id$<>firm_id$ or pot_rechdr.po_no$<>callpoint!.getUserInput() or pot_rechdr.receiver_no$<>callpoint!.getColumnData("POE_RECHDR.RECEIVER_NO")
+		poe_pohdr_dev=fnget_dev("POE_POHDR")
+		dim poe_pohdr$:fnget_tpl$("POE_POHDR")
+		findrecord(poe_pohdr_dev,key=firm_id$+callpoint!.getUserInput(),dom=*next)poe_pohdr$
+		if poe_pohdr.po_no$<>callpoint!.getUserInput() then
+			msg_id$="PO_VEND_NOT_FND"
+			dim msg_tokens$[1]
+			msg_tokens$[1]=callpoint!.getUserInput()
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+
+		apm_vendmast_dev=fnget_dev("APM_VENDMAST")
+		dim apm_vendmast$:fnget_tpl$("APM_VENDMAST")
+		apm_vendmast.vendor_name$="Not Found"
+		findrecord (apm_vendmast_dev,key=firm_id$+poe_pohdr.vendor_id$,err=*break)apm_vendmast$
+		call stbl("+DIR_PGM")+"adc_getmask.aon","VENDOR_ID","","","",m0$,0,vendor_size
+		vendor_id$=fnmask$(apm_vendmast.vendor_id$(1,vendor_size),m0$)
+		vendor$=vendor_id$+"  "+cvs(apm_vendmast.vendor_name$,3)
 
 		msg_id$="PO_CREATE_REC"
+		dim msg_tokens$[1]
+		msg_tokens$[1]=vendor$
 		gosub disp_message
 
 		if msg_opt$="Y"
