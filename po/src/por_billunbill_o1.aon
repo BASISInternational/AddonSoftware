@@ -56,8 +56,7 @@ rem --- Headings and print positions
     columns$[0,0]=Translate!.getTranslation("AON_PO_NUMBER"),                  columns$[0,1]="C",columns$[0,2]="10"
     columns$[1,0]=Translate!.getTranslation("AON_PO_DATE"),                    columns$[1,1]="C",columns$[1,2]="10"
     columns$[2,0]=Translate!.getTranslation("AON_PO_AMOUNT"),                  columns$[2,1]="N",columns$[2,2]="13",columns$[2,3]=m1$,columns$[2,10]="T"
-rem wgh ... 11125 ... receiver
-columns$[3,0]=Translate!.getTranslation("AON_RECEIVER")+"^"+Translate!.getTranslation("AON_NUMBER"),columns$[3,1]="C",columns$[3,2]="10"
+    columns$[3,0]=Translate!.getTranslation("AON_RECEIVER")+"^"+Translate!.getTranslation("AON_NUMBER"),columns$[3,1]="C",columns$[3,2]="10"
     columns$[4,0]=Translate!.getTranslation("AON_PO_RECEIPT^DATE"),            columns$[4,1]="C",columns$[4,2]="10"
     columns$[5,0]=Translate!.getTranslation("AON_PO_RECEIPT^AMOUNT"),          columns$[5,1]="N",columns$[5,2]="10",columns$[5,3]=m1$,columns$[5,10]="T"
     columns$[6,0]=Translate!.getTranslation("AON_AP_TYPE"),                    columns$[6,1]="C",columns$[6,2]="8"
@@ -74,8 +73,7 @@ positions:
     o[1]=o[0]+8
     o[2]=o[1]+9
     o[3]=o[2]+m1+1
-rem wgh ... 11125
-o[4]=o[3]+9
+    o[4]=o[3]+9
     o[5]=o[4]+9
     o[6]=o[5]+m1+1
     o[7]=o[6]+5
@@ -220,8 +218,7 @@ rem --- Sort by Alt Seq or Vendor Num?
         
             rcptamt$=str(rcptamt)
             if rcptamt=0 and pot04a.rec_complete$="Y" havedata=0
-rem wgh ... 11125
-pline$(o[3]+1)=pot04a.receiver_no$
+            pline$(o[3]+1)=pot04a.receiver_no$
             pline$(o[4]+1)=rcptdate$
             pline$(o[5]+1)=rcptamt$
             if havedata then gosub fillrestpline else break
@@ -412,8 +409,7 @@ printline: rem --- Test breaks
         a=fnblank(3)
     endif
 
-rem wgh ... 11126
-OutVect!.addItem(pot04a.receiver_no$)
+    OutVect!.addItem(pot04a.receiver_no$)
     OutVect!.addItem(rcptdate$)
     OutVect!.addItem(rcptamt$)
     OutVect!.addItem(aptype$)
