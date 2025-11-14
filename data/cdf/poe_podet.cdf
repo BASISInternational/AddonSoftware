@@ -668,7 +668,7 @@ rem print "modify status:",callpoint!.getGridRowModifyStatus(num(callpoint!.getV
 
 rem I think if line type changes on existing row, need to uncommit whatever's on this line (assuming old line code was a stock type)
 
-c_linecode_dev=fnget_dev("POC_LINECODE")
+poc_linecode_dev=fnget_dev("POC_LINECODE")
 dim poc_linecode$:fnget_tpl$("POC_LINECODE")
 this_line_code$=callpoint!.getUserInput()
 read record(poc_linecode_dev,key=firm_id$+this_line_code$,dom=*next)poc_linecode$
