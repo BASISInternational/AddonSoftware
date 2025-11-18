@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.poe_rechdr">B4EF7697B3177406A17214903B053944</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.poe_rechdr">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.poe_rechdr">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.poe_rechdr">20251111</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.poe_rechdr">20251111</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.poe_rechdr">164654</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.poe_rechdr">20251118</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.poe_rechdr">20251118</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.poe_rechdr">124358</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.poe_rechdr"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.poe_rechdr">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.poe_rechdr">BATCH_KEY</DD_ATTR_DKNM>
@@ -58,6 +58,16 @@
 			<DD_ATTR_PADG id="ddm_tables.poe_rechdr">0</DD_ATTR_PADG>
 		</RECORD>
 	</ALIAS>
+	<ALIAS id="ddm_table_aopt">
+		<ID id="ddm_table_aopt">DDM_TABLE_AOPT</ID>
+		<RECORD id="ddm_table_aopt.poe_rechdr01">
+			<DD_TABLE_ALIAS id="ddm_table_aopt.poe_rechdr01">POE_RECHDR      </DD_TABLE_ALIAS>
+			<DD_ATTR_SEQ id="ddm_table_aopt.poe_rechdr01">01</DD_ATTR_SEQ>
+			<DD_ATTR_AOPT id="ddm_table_aopt.poe_rechdr01">&Print PO Receiver</DD_ATTR_AOPT>
+			<DD_ATTR_AOPT_CD id="ddm_table_aopt.poe_rechdr01">PREC</DD_ATTR_AOPT_CD>
+			<DD_ATTR_AOPT_FM id="ddm_table_aopt.poe_rechdr01">B</DD_ATTR_AOPT_FM>
+		</RECORD>
+	</ALIAS>
 	<ALIAS id="ddm_table_cpro">
 		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
 		<RECORD id="ddm_table_cpro.poe_rechdradel">
@@ -67,6 +77,10 @@
 		<RECORD id="ddm_table_cpro.poe_rechdradis">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.poe_rechdradis">POE_RECHDR      </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.poe_rechdradis">ADIS</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_table_cpro.poe_rechdraopt-prec">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.poe_rechdraopt-prec">POE_RECHDR      </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.poe_rechdraopt-prec">AOPT-PREC</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_table_cpro.poe_rechdrapfe">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.poe_rechdrapfe">POE_RECHDR      </DD_TABLE_ALIAS>

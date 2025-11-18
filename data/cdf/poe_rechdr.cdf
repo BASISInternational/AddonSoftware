@@ -108,6 +108,25 @@ if callpoint!.getDevObject("new PO Receipt")="Y" then
 	callpoint!.setDevObject("new PO Receipt","N")
 endif
 
+[[POE_RECHDR.AOPT-PREC]]
+	if callpoint!.getRecordStatus()="M" then
+		rem --- PO changes must be saved before on-demand PO print
+		msg_id$="PO_SAVE_REQUIRED"
+		gosub disp_message
+	else
+		vendor_id$=callpoint!.getColumnData("POE_RECHDR.VENDOR_ID")
+		po_no$=callpoint!.getColumnData("POE_RECHDR.PO_NO")
+		if cvs(vendor_id$,3)<>"" and cvs(po_no$,3)<>""
+			dim dflt_data$[2,1]
+			dflt_data$[1,0]="PO_NO"
+			dflt_data$[1,1]=po_no$
+			dflt_data$[2,0]="VENDOR_ID"
+			dflt_data$[2,1]=vendor_id$
+
+			call stbl("+DIR_SYP")+"bam_run_prog.bbj","POR_PORECEIVER",stbl("+USER_ID"),"","",table_chans$[all],"",dflt_data$[all]
+		endif
+	endif
+
 [[POE_RECHDR.APFE]]
 rem --- set total order amt
 

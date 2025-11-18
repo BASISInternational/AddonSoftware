@@ -45,6 +45,8 @@ rem --- OPORDERCONF_DET_LOTSER
 rem --- OPORDERCONF_HDR
 rem --- PURCHASEORDER_HDR
 rem --- PURCHASEORDER_DET
+rem --- PORECEIVER_HDR
+rem --- PORECEIVER_DET
 rem --- OPPACKLIST_HDR
 rem --- OPPACKLIST_DET
 rem --- OPPACKLIST_DET_LOTSER
@@ -362,6 +364,14 @@ rem --- first drop all std Addon SPROCs
     gosub create_sproc_def
 
 	sproc_vw_name$="PURCHASEORDER_DET"
+    sqlprep$=sql_action$+" "+sproc_vw_name$+" "
+    gosub create_sproc_def
+        
+	sproc_vw_name$="PORECEIVER_HDR"
+    sqlprep$=sql_action$+" "+sproc_vw_name$+" "
+    gosub create_sproc_def
+
+	sproc_vw_name$="PORECEIVER_DET"
     sqlprep$=sql_action$+" "+sproc_vw_name$+" "
     gosub create_sproc_def
         
@@ -945,6 +955,30 @@ rem --- now add them back (i.e., drop, then add, in case anything has changed)
     sqlprep$=sqlprep$+"'"+sproc_path$+"PURCHASEORDER_DET.prc' '"+barista_cfg_path$+"barista.cfg' "
     sqlprep$=sqlprep$+"RESULT_SET "
     sqlprep$=sqlprep$+"{_begin_}{_end_} 'Purchase Order Detail'"
+
+    gosub create_sproc_def
+
+rem --- PORECEIVER_HDR
+    sproc_vw_name$="PORECEIVER_HDR"
+	sqlprep$="CREATE PROCEDURE PORECEIVER_HDR "
+    sqlprep$=sqlprep$+"(FIRM_ID CHAR(2) IN, PO_NO CHAR(7) IN, VEND_MASK CHAR(20) IN, DFLT_MSG CHAR(3) IN, LOT_SERIAL_LINES CHAR(1) IN,  "
+    sqlprep$=sqlprep$+"BARISTA_WD VARCHAR(50) IN)"  
+    sqlprep$=sqlprep$+"'"+sproc_path$+"PORECEIVER_HDR.prc' '"+barista_cfg_path$+"barista.cfg' "
+    sqlprep$=sqlprep$+"RESULT_SET "
+    sqlprep$=sqlprep$+"{_begin_}{_end_} 'PO Receiver Header'"
+
+    gosub create_sproc_def
+
+rem --- PORECEIVER_DET
+    sproc_vw_name$="PORECEIVER_DET"
+	sqlprep$="CREATE PROCEDURE PORECEIVER_DET "
+    sqlprep$=sqlprep$+"(FIRM_ID CHAR(2) IN, PO_NO CHAR(7) IN, VENDOR_ID CHAR(6) IN, IV_PRECISION CHAR(1) IN, PRT_VDR_ITEM CHAR(1) IN, "
+	sqlprep$=sqlprep$+"HDR_MSG_CODE CHAR(3) IN, HDR_SHIP_FROM CHAR(2) IN, QTY_MASK CHAR(20) IN, "
+	sqlprep$=sqlprep$+"NOF_PROMPT CHAR(50) IN, VEND_ITEM_PROMPT CHAR(50) IN, PROMISE_PROMPT CHAR(50) IN, NOT_B4_PROMPT CHAR(50) IN, "
+    sqlprep$=sqlprep$+"SHIPFROM_PROMPT CHAR(50) IN, ITEM_MASK CHAR(20) IN, LOT_SERIAL_LINES CHAR(1) IN, BARISTA_WD VARCHAR(50) IN)"	
+    sqlprep$=sqlprep$+"'"+sproc_path$+"PORECEIVER_DET.prc' '"+barista_cfg_path$+"barista.cfg' "
+    sqlprep$=sqlprep$+"RESULT_SET "
+    sqlprep$=sqlprep$+"{_begin_}{_end_} 'PO Receiver Detail'"
 
     gosub create_sproc_def
 
