@@ -7,3 +7,13 @@
 25.10 released 11/17/2025
 BBjBaristaAddonDemos2510_11-17-2025_1113.jar
 =======================================================================================================================================
+
+Revision: a7c0f67badd7b4ba53350c426adb337c6703cb36
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 11/18/2025 12:04:37 PM
+Message:
+ER 11110: Corrected typo syntax error introduced in v25.10.
+
+----
+Modified: ad/src/adc_addTemplates.aon
+=======================================================================================================================================
