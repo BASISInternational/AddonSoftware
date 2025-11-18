@@ -356,6 +356,28 @@ rem --- Duplicate Old PO
 		endif
 	endif
 
+[[POE_POHDR.AOPT-PREC]]
+	if callpoint!.getRecordStatus()="M" then
+		rem --- PO changes must be saved before on-demand PO print
+		msg_id$="PO_SAVE_REQUIRED"
+		gosub disp_message
+	else
+		vendor_id$=callpoint!.getColumnData("POE_POHDR.VENDOR_ID")
+		po_no$=callpoint!.getColumnData("POE_POHDR.PO_NO")
+
+		if cvs(vendor_id$,3)<>"" and cvs(po_no$,3)<>""
+			gosub queue_for_printing
+
+			dim dflt_data$[2,1]
+			dflt_data$[1,0]="PO_NO"
+			dflt_data$[1,1]=po_no$
+			dflt_data$[2,0]="VENDOR_ID"
+			dflt_data$[2,1]=vendor_id$
+
+			call stbl("+DIR_SYP")+"bam_run_prog.bbj","POR_PORECEIVER",stbl("+USER_ID"),"","",table_chans$[all],"",dflt_data$[all]
+		endif
+	endif
+
 [[POE_POHDR.AOPT-QPRT]]
 rem --- PO number and vendor ID required for printing PO
 
@@ -390,11 +412,13 @@ rem --- enable/disable buttons
 		callpoint!.setOptionEnabled("DPRT",1)
 		callpoint!.setOptionEnabled("DUPP",0)
 		callpoint!.setOptionEnabled("COPY",1)
+		callpoint!.setOptionEnabled("PREC",1)
 	else
 		callpoint!.setOptionEnabled("QPRT",0)
 		callpoint!.setOptionEnabled("DPRT",0)
 		callpoint!.setOptionEnabled("DUPP",1)
 		callpoint!.setOptionEnabled("COPY",0)
+		callpoint!.setOptionEnabled("PREC",0)
 	endif
 
 [[POE_POHDR.AP_TERMS_CODE.AVAL]]
