@@ -1,65 +1,9 @@
 =======================================================================================================================================
- Report Date:   2025-10-15
- Report Branch: AddonSoftware 25.10
- Last Release:  AddonSoftware 25.03
+ Report Date:   2025-11-18
+ Report Branch: AddonSoftware 25.11
+ Last Release:  AddonSoftware 25.10
 =======================================================================================================================================
 
-25.03 released 09/08/2025
-BBjBaristaAddonDemos2503_09-05-2025_0955.jar
-=======================================================================================================================================
-
-Revision: 8c272ec1a4f1e8638a71c9fc210d751735db5569
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 9/9/2025 9:59:39 AM
-Message:
-Corrected SYNTAX error in v26 auto-launch conversion program.
-----
-Modified: ad/src/adc_v2600conversion.aon
-=======================================================================================================================================
-
-Revision: a6950e54cb3053fc1c63f0ff701186383db40f25
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 9/10/2025 10:40:30 AM
-Message:
-Bug 11101: Added "Sales Order-to-Work Order Links" (OPE_CREATEWOS) and
-"Fulfillment Print Packing List" (OPR_PACKLIST) to the "Addon OP
-Additional (Hidden)" menu.
-----
-Modified: data/sync/adm_mnu_item~[01007514OP].xml
-Modified: data/sync/adm_mnu_trans~[01007514OP].xml
-=======================================================================================================================================
-
-Revision: 33107ba923862bc8272992e71a77d96a468902b3
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 9/29/2025 1:08:52 PM
-Message:
-Bug 11104: Added missing ENDIF statement from v24.00 changes for ER
-10513. Payment Selection Entry currently does not allow the Payment to
-exceed the Invoice Amt.
-----
-Modified: data/bar/ape_payselect.xml
-Modified: data/cdf/ape_payselect.cdf
-=======================================================================================================================================
-
-Revision: fc2402c5253b2609ccd86d0930ca00d18e1cea39
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 10/13/2025 4:32:44 PM
-Message:
-Bug 11112: Modified disableKitFields subroutine in ivm_itemwhse to NOT
-overwrite non-blank fields on the Stocking tab.
-----
-Modified: data/bar/ivm_itemwhse.xml
-Modified: data/cdf/ivm_itemwhse.cdf
-=======================================================================================================================================
-
-Revision: b5b060b54371ee67742a3b06f05ee57ecd61162e
-Author: Bill Halsted <bhalsted@basis.cloud>
-Date: 10/14/2025 11:17:29 AM
-Message:
-Bug 11112: Modified disableKitFields subroutine in ivm_itemwhse to
-initialize Stocking tab fields on for the AREC callpoint. Note: This
-replaces previous 2025-10-13 fix for Bug 11112.
-----
-Modified: data/bar/ivm_itemwhse.xml
-Modified: data/cdf/ivm_itemwhse.cdf
+25.10 released 11/17/2025
+BBjBaristaAddonDemos2510_11-17-2025_1113.jar
 =======================================================================================================================================
