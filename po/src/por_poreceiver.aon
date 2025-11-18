@@ -1,0 +1,427 @@
+rem --- Print PO Receiver
+rem --- Program por_poreceiver.aon
+
+
+rem --- AddonSoftware
+rem --- Copyright BASIS International Ltd.  All Rights Reserved.
+
+    seterr end_instantiate
+    use ::bbtranslator.bbj::BBTranslator
+    declare BBTranslator Translate!
+    rdTransSpaceKey$=stbl("+PROPS_NAME")+"_"+stbl("+USER_LOCALE")+"_BBTranslator"
+    Translate!=cast(BBTranslator,BBjAPI().getGroupNamespace().getValue(rdTransSpaceKey$,err=*next))
+    if Translate!=null()
+        Translate!=BBTranslator.getInstance(stbl("+PROPS_NAME"),stbl("+USER_LOCALE"),null(),stbl("+PROPS_PATH"))
+        BBjAPI().getGroupNamespace().setValue(rdTransSpaceKey$,Translate!)
+    endif
+
+end_instantiate:
+
+    seterr std_error
+    setesc std_error
+
+    use ::bbjasper.bbj::BBJasperReport
+    use ::bbjasper.bbj::BBJasperViewerWindow
+    use ::bbjasper.bbj::BBJasperViewerControl
+
+    use ::sys/prog/bao_option.bbj::Option
+    use ::ado_rptControl.src::ReportControl
+    use ::ado_func.src::func
+    use ::ado_util.src::util
+    use ::sys/prog/bao_utilities.bbj::BarUtils
+
+    declare BBJasperReport BBjReport!
+    
+    params! = new java.util.HashMap()
+        
+    ScreenSize!   = bbjAPI().getSysGui().getSystemMetrics().getScreenSize()
+    screen_width  = ScreenSize!.width - 200; rem keep it in the MDI w/ no scroll bars
+    screen_height = ScreenSize!.height - 100
+
+rem --- Retrieve the program path
+
+    pgmdir$=stbl("+DIR_PGM",err=*next)
+    sypdir$=stbl("+DIR_SYP",err=*next)
+
+rem --- Set document Directory
+
+    docdir$=util.resolvePathStbls(stbl("+DOC_DIR_PDF",err=*next))
+    mkdir docdir$,err=*next
+
+rem --- Retrieve sysinfo data
+
+    sysinfo_template$=stbl("+SYSINFO_TPL",err=*next)
+    dim sysinfo$:sysinfo_template$
+    sysinfo$=stbl("+SYSINFO",err=*next)
+    firm_id$=sysinfo.firm_id$
+
+    milestone=5
+    milestone=num(stbl("+MILESTONE",err=*next),err=*next)
+
+rem --- Get logo to go on form; start w/ company logo, fall back to default logo from config if no company logo specified
+
+    logo_filename$=""
+    logo_filename$=func.getCompanyLogo()
+    if logo_filename$=""
+        logo_file$=stbl("+CUST_IMAGES",err=*next)+stbl("+FORM_LOGO",err=*next)
+        if logo_file$<>""
+            logo_filename$=BBjAPI().getFileSystem().resolvePath(util.resolvePathStbls(logo_file$,err=*next))
+        endif
+    endif
+
+rem --- Set Report Name & Subreport directory
+
+    reportDir$ = stbl("+DIR_REPORTS",err=*next)   
+    temp = unt
+    open (temp)reportDir$
+    reportDir$ = fid(temp)(9)+"/"
+    close (temp)
+    reportBaseName$ = "POReceiverHdr"
+    filename$ = reportDir$ + reportBaseName$ + ".jasper"
+
+    declare BBJasperReport report!
+
+rem --- Open files
+
+	num_files=7
+	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+	open_tables$[1]="IVS_PARAMS",open_opts$[1]="OTA@"
+    open_tables$[2]="POS_PARAMS",open_opts$[2]="OTA@"
+    open_tables$[3]="APS_REPORT",open_opts$[3]="OTA@"
+    open_tables$[4]="POE_POHDR",open_opts$[4]="OTA@"
+    open_tables$[5]="POE_PODET",open_opts$[5]="OTA@"
+    open_tables$[6]="POT_POHDR_ARC",open_opts$[6]="OTA@"
+    open_tables$[7]="POT_PODET_ARC",open_opts$[7]="OTA@"
+    
+    gosub open_tables
+
+    ivs_params=num(open_chans$[1])
+    pos_params=num(open_chans$[2])
+    aps_report=num(open_chans$[3])
+    poePOHdr_dev=num(open_chans$[4])
+    poePODet_dev=num(open_chans$[5])
+    potPOHdrArc_dev=num(open_chans$[6])
+    potPODetArc_dev=num(open_chans$[7])
+
+rem --- Dimension string templates
+
+	dim ivs_params$:open_tpls$[1]
+	dim pos_params$:open_tpls$[2]
+	dim aps_report$:open_tpls$[3]
+    dim poePOHdr$:open_tpls$[4]
+    dim poePODet$:open_tpls$[5]
+    dim potPOHdrArc$:open_tpls$[6]
+    dim potPODetArc$:open_tpls$[7]
+
+rem --- Retrieve parameter records
+
+    ivs_params_key$=firm_id$+"IV00"
+    find record (ivs_params,key=ivs_params_key$,err=std_missing_params) ivs_params$
+
+    pos_params_key$=firm_id$+"PO00"
+    find record (pos_params,key=pos_params_key$,err=std_missing_params) pos_params$
+    
+    find record (aps_report,key=firm_id$+"AP02",err=std_missing_params) aps_report$
+
+	comp_addrLine_len = 40
+    comp$=aps_report.addr_line_1$+aps_report.addr_line_2$+aps_report.city$+aps_report.state_code$+aps_report.zip_code$    
+    call "adc_address.aon",comp$,30,3,9,comp_addrLine_len
+    comp$=pad(aps_report.name$,comp_addrLine_len)+comp$
+
+    call stbl("+DIR_SYP")+"bac_getmask.bbj","T",cvs(aps_report.phone_no$,2),"",phone_mask$
+    comp_phone$=cvs(aps_report.phone_no$,2)
+    comp_phone$=str(comp_phone$:phone_mask$,err=*next)
+    comp_fax$=cvs(aps_report.fax_no$,2)
+    if comp_fax$<>"" then comp_fax$=str(comp_fax$:phone_mask$,err=*next)
+
+rem --- Assign form input values to local variables
+
+    single_vendor$=""
+    vendor_id$=""
+    po_no$=""
+    receiver_no$=""
+    pomessage$=""
+    lot_serial_lines$=""
+ 
+    single_vendor$="Y"
+    vendor_id$=option!.getOptionData("VENDOR_ID")
+    po_no$=option!.getOptionData("PO_NO")
+    pomessage$=option!.getOptionData("MESSAGE_TEXT")
+    lot_serial_lines$=option!.getOptionData("LOT_SERIAL_LINES")
+
+rem --- Initializations
+
+    let defaultmsg$=pos_params.po_msg_code$   
+
+    call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","A","",m1$,0,m1
+    call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","U","",m2$,0,m2
+    call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","C","",m3$,0,m3
+    call stbl("+DIR_PGM")+"adc_getmask.aon","","IV","I","",ivIMask$,0,0
+    call stbl("+DIR_PGM")+"adc_getmask.aon","","AP","I","",vend_mask$,0,vendlen
+
+    ext_mask$ = m1$
+
+	rem --- Make the 'Patterns' used to mask in iReports from Addon masks
+	rem       examples:
+	rem          ##0.00;##0.00-   Includes negatives with minus at the end
+	rem          ##0.00;-##0.00   Includes negatives with minus at the front
+	rem          ##0.00;##0.00    Positives only
+
+	ext_mask_pattern$=fngetPattern$(ext_mask$)
+
+    emailFax! = BBjAPI().makeVector()
+    UpdateRecs!=bbjAPI().makeVector()
+
+rem --- Position files and print
+
+    if single_vendor$="Y" then
+        rem --- Process single PO for receiver document
+        gosub print_receiver_document
+    else
+        rem --- This shouldn't happen for receiver documents (on-demand only)
+        goto std_exit
+    endif
+
+rem --- All done
+
+    goto std_exit
+
+print_receiver_document: rem --- Print single PO receiver document
+
+    rem --- Build parameters for receiver sprocs (must match por_poprint pattern)
+    params!.put("BARISTA_WD",dir(""))
+    params!.put("LOGO_FILE",logo_filename$)
+    params!.put("FIRM_ID",firm_id$)
+    params!.put("PO_NO",po_no$)
+    params!.put("VENDOR_ID",vendor_id$)
+    params!.put("RECEIVER_NO",receiver_no$)
+    params!.put("MESSAGE",pomessage$)
+    params!.put("QTY_MASK",m2$)
+    params!.put("COST_MASK",m3$)
+    params!.put("ITEM_MASK",ivIMask$)
+    params!.put("VEND_MASK",str(vend_mask$))
+    params!.put("EXT_MASK",ext_mask$)
+    params!.put("EXT_MASK_PATTERN",ext_mask_pattern$)
+    params!.put("DFLT_MSG",defaultmsg$)
+    params!.put("AP_ADDRESS1",comp$((comp_addrLine_len*0)+1,comp_addrLine_len))
+    params!.put("AP_ADDRESS2",comp$((comp_addrLine_len*1)+1,comp_addrLine_len))
+    params!.put("AP_ADDRESS3",comp$((comp_addrLine_len*2)+1,comp_addrLine_len))
+    params!.put("AP_ADDRESS4",comp$((comp_addrLine_len*3)+1,comp_addrLine_len))
+    params!.put("AP_PHONE_NO",comp_phone$)
+    params!.put("AP_FAX_NO",comp_fax$)
+    params!.put("IV_PRECISION",ivs_params.precision$)
+    params!.put("PRT_VDR_ITEM",pos_params.prt_vdr_item$)
+    params!.put("NOF_PROMPT",Translate!.getTranslation("AON_NOT_ON_FILE"))
+    params!.put("VEND_ITEM_PROMPT",Translate!.getTranslation("AON_YOUR_ITEM_NUMBER_"))
+    params!.put("PROMISE_PROMPT",Translate!.getTranslation("AON_PROMISED_BY_"))
+    params!.put("NOT_B4_PROMPT",Translate!.getTranslation("AON_NOT_BEFORE_"))
+    params!.put("SHIPFROM_PROMPT",Translate!.getTranslation("AON_SHIP_FROM:_"))
+    params!.put("BANDED_ROWS","Y");rem --- controls whether or not detail portion of report is striped
+    params!.put("LOT_SERIAL_LINES",lot_serial_lines$)
+
+    rem --- Use receiver-specific sprocs (PORECEIVER_HDR and PORECEIVER_DET)
+    
+    locale$ = stbl("!LOCALE")
+    locale$ = stbl("+USER_LOCALE",err=*next)    
+
+    report! = BarUtils.getBBJasperReport(filename$)
+    report!.putParams(params!)
+    report!.setLocale(locale$)
+    report!.fill()
+
+    rem --- get a pdf path from +DOC_DIR_PDF
+    gosub doc_path
+
+    rem --- Preview/print the receiver document
+    rem --- Mimic por_poprint.aon pattern exactly
+    rem --- Get document path before creating viewer
+    repTitle$=Translate!.getTranslation("AON_PO_RECEIVER_DOCUMENT","PO Receiver Document")
+    
+    rem --- Export to PDF first (like por_poprint.aon does)
+    gosub exportDemandToPDF
+    
+    declare BBJasperViewerWindow demandViewerWindow!
+    declare BBjTopLevelWindow bbjWindowDemand!
+    
+    demandViewerWindow! = new BBJasperViewerWindow(report!,5,5,screen_width,screen_height,repTitle$,$00080093$)
+    
+    demandViewerControl! = demandViewerWindow!.getViewerControl()
+    demandViewerControl!.setGoogleDefaultDocument(repTitle$)
+    demandViewerControl!.setDefaultSaveFolder(rd_doc_path$)
+    demandViewerControl!.setDefaultSaveFile(repTitle$)
+
+    demandSaveMenuButton! = demandViewerControl!.getControl(BBJasperViewerControl.getSAVE_MENU_BUTTON_NAME())
+    demandSaveMenuButton!.setCallback(BBjMenuButton.ON_BUTTON_PUSH ,"OnDemandSaveMenuButton")
+
+    demandSavMenuItem! = demandViewerControl!.getControl(BBJasperViewerControl.getSAVE_MENU_ITEM_NAME())
+    demandSavMenuItem!.setCallback(BBjMenuItem.ON_POPUP_ITEM_SELECT,"OnDemandSaveMenuButton")
+
+    demandEmailToolButton! = demandViewerControl!.getControl(BBJasperViewerControl.getEMAIL_TOOL_BUTTON_NAME())
+    demandEmailToolButton!.setCallback(BBjMenuButton.ON_TOOL_BUTTON_PUSH ,"OnDemandEmailToolButton")
+    
+    demandViewerWindow!.setReleaseOnClose(0)
+    demandViewerWindow!.show(0)
+    
+    rem --- Set fit width AFTER show - critical timing for some environments
+    demandViewerControl!.setFitWidth()
+
+    rem --- Set up close callback
+    bbjWindowDemand! = demandViewerWindow!.getViewerWindow()
+    bbjWindowDemand!.setCallback(bbjWindowDemand!.ON_CLOSE,"close_win")
+
+    rem --- Event Control
+    process_events,err=*same
+
+    return
+
+close_win:rem --- Viewer Window Closed
+
+    rem --- Clean up resources
+    report!.destroy(err=*next)
+    report! = null()
+    demandViewerWindow!.destroy(err=*next)
+    demandViewerWindow! = null()
+    
+    if tcb(13) then exit
+    
+    release
+
+OnDemandSaveMenuButton:
+rem --- save and display confirmation dialog
+
+    show_save_dlg$="YES"
+ 
+exportDemandToPDF:
+rem --- exportToPDF and record in doc warehouse
+    rem --- Note: This is simplified for receiver documents - no doc archive needed
+
+    if rd_doc_path$<>""
+        rd_doc_ext$="PDF"
+        rep_title$=Translate!.getTranslation("AON_PO_RECEIVER_DOCUMENT","PO Receiver Document")
+        rd_source_id$="V"
+        rd_source_ref$=vendor_id$
+        rd_doc_keywords$="PO: "+po_no$+" Vendor: "+vendor_id$
+        report!.exportToPDF(BBjAPI().FALSE, rd_doc_path$+"POReceiver_"+po_no$+".pdf",err=*next)
+    endif
+
+    if show_save_dlg$="YES"
+        msg_id$="DOC_OUTPUT_COMP"
+        gosub disp_message
+        show_save_dlg$=""
+    endif
+    return    
+
+OnDemandEmailToolButton:rem --- Add document to fax/email queue
+    rem --- Note: This is simplified for receiver documents
+    
+    if rd_doc_path$<>""
+        call stbl("+DIR_SYP")+"bac_faxemail_jasper.bbj","","PDF",rd_table_chans$[all]
+    endif
+    return
+
+rem --- Functions
+
+    def fngetPattern$(q$)
+        q1$=""
+        for i=1 to len(q$)
+            if pos(q$(i,1)="0#.,-()")
+                q1$=q1$+q$(i,1)
+            endif
+        next i
+        return q1$
+    fnend
+
+rem --- Standard error handler
+
+std_error: rem --- Standard error handler (01Apr2006)
+
+    if tcb(19)>0
+        rem --- Escape handler
+        if and(chr(tcb(19)),$08$)=$08$
+            release
+        else
+            setesc std_error
+            return
+        endif
+    endif
+
+    if err=0   
+        rem --- Get tcb(12) and tcb(10) to send into bac_error
+        lock_byte=tcb(10)
+        lock_chan=tcb(12)  
+    endif
+
+	err_text$=""
+    if tcb(2) = 0 and tcb(5) then err_text$ = pgm(tcb(5), tcb(13), err=*next)
+	pgmdir$=stbl("+DIR_SYP",err=std_error_exit)
+	call pgmdir$+"bac_error.bbj",err=std_error_exit,pgm(-2),str(tcb(5):"00000"),str(err:"000"),err_text$,err_act$,lock_byte,lock_chan
+	if pos("EXIT"=err_act$) then goto std_error_exit
+	if pos("ESCAPE"=err_act$) then seterr 0;setesc 0
+	if pos("RETRY"=err_act$) then retry
+
+std_error_exit:
+
+	master_user$=cvs(stbl("+MASTER_USER",err=std_error_release),2)
+	sysinfo_template$=stbl("+SYSINFO_TPL",err=std_error_release)
+	dim sysinfo$:sysinfo_template$
+	sysinfo$=stbl("+SYSINFO",err=std_error_release)
+	if cvs(sysinfo.user_id$,2)=master_user$ then escape
+
+std_error_release:
+
+	status=999
+	if pgm(-1)<>pgm(-2) then exit
+	release
+
+std_missing_params: rem --- Missing Parameter Record
+
+	msg_id$="MISSING_PARAMS"
+	dim msg_tokens$[1]
+	msg_tokens$[1]=err_text$
+	call stbl("+DIR_SYP")+"bac_message.bbj",msg_id$,msg_tokens$[all],msg_opt$,rd_table_chans$[all]
+	goto std_error_release
+
+open_tables: rem --- Open Tables
+
+	call stbl("+DIR_SYP")+"bac_open_tables.bbj",
+:		open_beg,
+:		open_end,
+:		open_tables$[all],
+:		open_opts$[all],
+:		open_chans$[all],
+:		open_tpls$[all],
+:		rd_table_chans$[all],
+:		open_batch,
+:		open_status$
+
+	if open_status$<>"" then
+		msg_id$="ENTRY_OPEN_ERROR"
+		dim msg_tokens$[1]
+		msg_tokens$[1]=open_status$
+		call stbl("+DIR_SYP")+"bac_message.bbj",msg_id$,msg_tokens$[all],msg_opt$,rd_table_chans$[all]
+		goto std_error_release
+	endif
+
+	return
+
+doc_path:rem --- Get Document Path
+rem --- forcing a pdf save to this location for release 13.03
+rem --- eventually, want to make the save functionality mimic (as closely as possible) Barista
+rem --- so it can save based on user's doc group and doc settings
+
+    if rd_doc_path$="" then
+        rd_doc_path$=dsk("")+dir("")
+        rd_doc_path$=BBjAPI().getFileSystem().resolvePath(util.resolvePathStbls(stbl("+DOC_DIR_PDF",err=*next)),err=*next)+"/"
+        mkdir rd_doc_path$,err=*next
+    endif
+
+    return
+
+disp_message:rem --- Display Message Dialog
+
+    call stbl("+DIR_SYP")+"bac_message.bbj",msg_id$,msg_tokens$[all],msg_opt$,table_chans$[all]
+    return
+
+std_exit: rem --- Standard called program exit (01Mar2006)
+
+    exit

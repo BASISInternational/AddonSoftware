@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="POReceiverDet" language="groovy" pageWidth="554" pageHeight="320" columnWidth="554" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3a1417ac-a7c5-4038-9954-f50290583723">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="BASISDriver"/>
+	<style name="Striping">
+		<box>
+			<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT} % 2 == 0) && $P{BANDED_ROWS}.matches("Y")]]></conditionExpression>
+			<style mode="Opaque" backcolor="#EBF0FA" fill="Solid"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="FIRM_ID" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[01]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PO_NO" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[0000005]]></defaultValueExpression>
+	</parameter>
+	<parameter name="BARISTA_WD" class="java.lang.String"/>
+	<parameter name="BANDED_ROWS" class="java.lang.String"/>
+	<parameter name="IV_PRECISION" class="java.lang.String"/>
+	<parameter name="PRT_VDR_ITEM" class="java.lang.String">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="VENDOR_ID" class="java.lang.String"/>
+	<parameter name="HDR_MSG_CODE" class="java.lang.String"/>
+	<parameter name="HDR_SHIP_FROM" class="java.lang.String"/>
+	<parameter name="QTY_MASK" class="java.lang.String"/>
+	<parameter name="COST_MASK" class="java.lang.String"/>
+	<parameter name="EXT_MASK" class="java.lang.String"/>
+	<parameter name="NOF_PROMPT" class="java.lang.String"/>
+	<parameter name="VEND_ITEM_PROMPT" class="java.lang.String"/>
+	<parameter name="PROMISE_PROMPT" class="java.lang.String"/>
+	<parameter name="NOT_B4_PROMPT" class="java.lang.String"/>
+	<parameter name="SHIPFROM_PROMPT" class="java.lang.String"/>
+	<parameter name="ITEM_MASK" class="java.lang.String"/>
+	<parameter name="LOT_SERIAL_LINES" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[CALL PORECEIVER_DET ($P{FIRM_ID},$P{PO_NO},$P{VENDOR_ID},$P{IV_PRECISION},$P{PRT_VDR_ITEM},$P{HDR_MSG_CODE},$P{HDR_SHIP_FROM},$P{QTY_MASK},$P{NOF_PROMPT},$P{VEND_ITEM_PROMPT},$P{PROMISE_PROMPT},$P{NOT_B4_PROMPT},$P{SHIPFROM_PROMPT},$P{ITEM_MASK},$P{LOT_SERIAL_LINES},$P{BARISTA_WD})]]>
+	</queryString>
+	<field name="QTY_EXPECTED" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ITEM_ID_DESC_MSG" class="java.lang.String"/>
+	<field name="REQD_DATE" class="java.lang.String"/>
+	<field name="LOCATION" class="java.lang.String"/>
+	<field name="UNIT_MEASURE" class="java.lang.String"/>
+	<field name="ALL_CHECKBOX" class="java.lang.String"/>
+	<field name="QTY_RECEIVED" class="java.lang.String"/>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Prevent">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<frame>
+				<reportElement style="Striping" stretchType="RelativeToBandHeight" x="0" y="0" width="556" height="12" uuid="bc67fb47-de27-4c4b-84c3-c73abcc1a1d5">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D3D3D3"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="1" y="0" width="200" height="12" uuid="d6e7f8a9-b0c1-2345-defa-678901234567">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<bottomPen lineColor="#D3D3D3"/>
+					</box>
+					<textElement>
+						<font fontName="DejaVu Serif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ITEM_ID_DESC_MSG}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="201" y="0" width="80" height="12" uuid="e7f8a9b0-c1d2-3456-efab-789012345678">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Serif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{LOCATION}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="281" y="0" width="50" height="12" uuid="f8a9b0c1-d2e3-4567-fabc-890123456789">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Serif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{UNIT_MEASURE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="331" y="0" width="80" height="12" uuid="a9b0c1d2-e3f4-5678-abcd-901234567890">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="DejaVu Serif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{QTY_EXPECTED}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="411" y="0" width="50" height="12" uuid="b0c1d2e3-f4a5-6789-bcde-012345678901">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Serif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ALL_CHECKBOX}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="461" y="0" width="94" height="12" uuid="c1d2e3f4-a5b6-7890-cdef-123456789012">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right">
+						<font fontName="DejaVu Serif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{QTY_RECEIVED}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="2ba48488-2a05-4b8d-9bd1-cfcef497a73c">
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="201" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="d2e3f4a5-b6c7-8901-defa-234567890123">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="281" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="e3f4a5b6-c7d8-9012-efab-345678901234">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="330" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="f4a5b6c7-d8e9-0123-fabc-456789012345"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="411" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="a5b6c7d8-e9f0-1234-abcd-567890123456">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="461" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="b6c7d8e9-f0a1-2345-bcde-678901234567">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="555" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="ab01d757-264b-4711-be73-03beed39f3be">
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+				</line>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>
