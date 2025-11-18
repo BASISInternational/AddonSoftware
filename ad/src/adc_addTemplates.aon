@@ -156,7 +156,7 @@ rem --- Add missing table templates to Addon's files
                 wend
                 filePath$=table_path$
             else
-                filePath$=stbl(("+DIR_DAT")
+                filePath$=stbl("+DIR_DAT")
             endif
             gosub fix_path
             
