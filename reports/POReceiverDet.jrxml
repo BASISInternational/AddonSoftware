@@ -43,9 +43,8 @@
 	<parameter name="NOT_B4_PROMPT" class="java.lang.String"/>
 	<parameter name="SHIPFROM_PROMPT" class="java.lang.String"/>
 	<parameter name="ITEM_MASK" class="java.lang.String"/>
-	<parameter name="LOT_SERIAL_LINES" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[CALL PORECEIVER_DET ($P{FIRM_ID},$P{PO_NO},$P{VENDOR_ID},$P{IV_PRECISION},$P{PRT_VDR_ITEM},$P{HDR_MSG_CODE},$P{HDR_SHIP_FROM},$P{QTY_MASK},$P{NOF_PROMPT},$P{VEND_ITEM_PROMPT},$P{PROMISE_PROMPT},$P{NOT_B4_PROMPT},$P{SHIPFROM_PROMPT},$P{ITEM_MASK},$P{LOT_SERIAL_LINES},$P{BARISTA_WD})]]>
+		<![CDATA[CALL PORECEIVER_DET ($P{FIRM_ID},$P{PO_NO},$P{VENDOR_ID},$P{IV_PRECISION},$P{PRT_VDR_ITEM},$P{HDR_MSG_CODE},$P{HDR_SHIP_FROM},$P{QTY_MASK},$P{NOF_PROMPT},$P{VEND_ITEM_PROMPT},$P{PROMISE_PROMPT},$P{NOT_B4_PROMPT},$P{SHIPFROM_PROMPT},$P{ITEM_MASK},$P{BARISTA_WD})]]>
 	</queryString>
 	<field name="QTY_EXPECTED" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -150,24 +149,30 @@
 				<line>
 					<reportElement stretchType="RelativeToBandHeight" x="201" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="d2e3f4a5-b6c7-8901-defa-234567890123">
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<printWhenExpression><![CDATA[!$F{ITEM_ID_DESC_MSG}.contains(" #: ____")]]></printWhenExpression>
 					</reportElement>
 				</line>
 				<line>
 					<reportElement stretchType="RelativeToBandHeight" x="281" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="e3f4a5b6-c7d8-9012-efab-345678901234">
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<printWhenExpression><![CDATA[!$F{ITEM_ID_DESC_MSG}.contains(" #: ____")]]></printWhenExpression>
 					</reportElement>
 				</line>
 				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="330" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="f4a5b6c7-d8e9-0123-fabc-456789012345"/>
+					<reportElement stretchType="RelativeToBandHeight" x="330" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="f4a5b6c7-d8e9-0123-fabc-456789012345">
+						<printWhenExpression><![CDATA[!$F{ITEM_ID_DESC_MSG}.contains(" #: ____")]]></printWhenExpression>
+					</reportElement>
 				</line>
 				<line>
 					<reportElement stretchType="RelativeToBandHeight" x="411" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="a5b6c7d8-e9f0-1234-abcd-567890123456">
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<printWhenExpression><![CDATA[!$F{ITEM_ID_DESC_MSG}.contains(" #: ____")]]></printWhenExpression>
 					</reportElement>
 				</line>
 				<line>
 					<reportElement stretchType="RelativeToBandHeight" x="461" y="0" width="1" height="12" forecolor="#D3D3D3" uuid="b6c7d8e9-f0a1-2345-bcde-678901234567">
 						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<printWhenExpression><![CDATA[!$F{ITEM_ID_DESC_MSG}.contains(" #: ____")]]></printWhenExpression>
 					</reportElement>
 				</line>
 				<line>

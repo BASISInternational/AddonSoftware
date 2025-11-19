@@ -674,6 +674,7 @@ rem --- disable buttons
 	callpoint!.setOptionEnabled("DPRT",0)
 	callpoint!.setOptionEnabled("DUPP",0)
 	callpoint!.setOptionEnabled("COPY",0)
+	callpoint!.setOptionEnabled("PREC",0)
 
 [[POE_POHDR.BSHO]]
 rem print 'show';rem debug

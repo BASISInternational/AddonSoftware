@@ -36,7 +36,6 @@ rem --- get SPROC parameters
     po_no$=sp!.getParameter("PO_NO")
     vend_mask$=sp!.getParameter("VEND_MASK")
     dflt_msg$=sp!.getParameter("DFLT_MSG")
-    lot_serial_lines$=sp!.getParameter("LOT_SERIAL_LINES")
     barista_wd$=sp!.getParameter("BARISTA_WD")
 
     chdir barista_wd$
@@ -53,8 +52,7 @@ rem --- formatted date, vendor address, ship-to (warehouse) address, terms code 
     datatemplate$ = datatemplate$ + "ship_addr_line4:C(30),ship_addr_line5:C(30),ship_addr_line6:C(30),"
     datatemplate$ = datatemplate$ + "ship_addr_line7:C(30),"
     dataTemplate$ = dataTemplate$ + "drop_ship:C(1*),terms_desc:C(1*),ship_via:C(1*),fob:C(1*),agent_signature:C(1*),"
-    dataTemplate$ = dataTemplate$ + "ack_by:C(1*),freight_terms:C(1*),hdr_msg_code:C(1*),hdr_ship_from:C(1*),"
-    dataTemplate$ = dataTemplate$ + "lot_serial_lines:C(1*)"
+    dataTemplate$ = dataTemplate$ + "ack_by:C(1*),freight_terms:C(1*),hdr_msg_code:C(1*),hdr_ship_from:C(1*)"
 
     rs! = BBjAPI().createMemoryRecordSet(dataTemplate$)
 
@@ -177,7 +175,6 @@ all_done:
     data!.setFieldValue("freight_terms",poe_pohdr.po_frt_terms$)
     data!.setFieldValue("hdr_msg_code",hdr_msg_code$)
     data!.setFieldValue("hdr_ship_from",hdr_ship_from$)
-    data!.setFieldValue("lot_serial_lines",lot_serial_lines$)
 
     data!.setFieldValue("vend_addr_line1", vend_addr$((vend_addrLine_len*0)+1,vend_addrLine_len))
     data!.setFieldValue("vend_addr_line2", vend_addr$((vend_addrLine_len*1)+1,vend_addrLine_len))

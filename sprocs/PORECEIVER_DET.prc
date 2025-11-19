@@ -48,7 +48,6 @@ rem --- Get 'IN' SPROC parameters
     promise_prompt$=sp!.getParameter("PROMISE_PROMPT")
     not_b4_prompt$=sp!.getParameter("NOT_B4_PROMPT")
     shipfrom_prompt$=sp!.getParameter("SHIPFROM_PROMPT")
-    lot_serial_lines$=sp!.getParameter("LOT_SERIAL_LINES")
 	barista_wd$=sp!.getParameter("BARISTA_WD")
 
 	chdir barista_wd$
@@ -172,8 +171,8 @@ rem --- Main
             endif
             gosub add_to_recordset
 
-            rem --- Add lot/serial lines if enabled and item is lot/serial controlled
-            if lot_serial_lines$="Y" and pos(ivm_itemmast.lotser_flag$="LS") and ivm_itemmast.inventoried$="Y"
+            rem --- Add lot/serial lines for inventoried lotted/serialized items
+            if ivm_itemmast.inventoried$="Y" and pos(ivm_itemmast.lotser_flag$="LS") then
                 if ivm_itemmast.lotser_flag$="S"
                     rem --- Add as many lines as qty expected for serial items
                     for i=1 to qty
@@ -187,8 +186,13 @@ rem --- Main
                         gosub add_to_recordset
                     next i
                 else
-                    rem --- Add 3 lines for lot controlled items
-                    for i=1 to 3
+                    rem --- Add no more than 3 lines for lot controlled items
+                    if qty>3 then
+                        lots=3
+                    else
+                        lots=qty
+                    endif
+                    for i=1 to lots
                         item_id_desc_msg$="Lot #: _______________"
                         reqd_date$=""
                         location$=""
