@@ -60,7 +60,7 @@ rem --- Headings and print positions
         headings=headings+1
         orderHeading=headings
     endif
-    dim headings$[headings],o[13]
+    dim headings$[headings]
     width=132
     page=0
     l9=59
@@ -363,10 +363,6 @@ rem --- Get Vendor's Part #
     dim vpartnum$(20)
     i05_key$=poe12a.firm_id$+poe02a.vendor_id$+itemnum$
     find record (ivm05a_dev,key=i05_key$,dom=*next) ivm05a$
-
-rem --- Format common part of print line
-
-    dim pline$(132)
 
 rem --- Print Line Types 'M', 'O' & 'V'
 
