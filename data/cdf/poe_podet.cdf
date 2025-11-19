@@ -55,6 +55,7 @@ endif
 
 callpoint!.setOptionEnabled("DPRT",0)
 callpoint!.setOptionEnabled("QPRT",0)
+callpoint!.setOptionEnabled("PREC",0)
 
 rem ---Disable/enable the warehouse_id column
 if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" then

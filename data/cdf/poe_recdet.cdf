@@ -93,6 +93,9 @@ if cvs(callpoint!.getDevObject("dropship_whse"),2)<>"" then
 	endif
 endif
 
+rem --- Disable header buttons
+callpoint!.setOptionEnabled("PREC",0)
+
 [[POE_RECDET.AGCL]]
 rem print 'show';rem debug
 
