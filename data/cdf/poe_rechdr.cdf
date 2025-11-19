@@ -136,8 +136,10 @@ poe_rechdr_tamt!=callpoint!.getDevObject("poe_rechdr_tamt")
 poe_rechdr_tamt!.setValue(total_amt)
 
 rem --- check dtl_posted flag to see if dropship fields should be disabled
+gosub enable_dropship_fields
 
-gosub enable_dropship_fields 
+rem --- Enable header buttons
+callpoint!.setOptionEnabled("PREC",1)
 
 [[POE_RECHDR.AP_TERMS_CODE.AVAL]]
 rem --- Don't allow inactive code
@@ -228,6 +230,10 @@ rem --- remove software lock on batch, if batching
 		lock_disp$=""
 		call stbl("+DIR_SYP")+"bac_lock_record.bbj",lock_table$,lock_record$,lock_type$,lock_disp$,rd_table_chan,table_chans$[all],lock_status$
 	endif
+
+[[POE_RECHDR.BPFX]]
+rem --- Disable header buttons
+callpoint!.setOptionEnabled("PREC",0)
 
 [[POE_RECHDR.BSHO]]
 rem --- inits

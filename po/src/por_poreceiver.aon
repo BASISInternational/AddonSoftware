@@ -1,7 +1,6 @@
 rem --- Print PO Receiver
 rem --- Program por_poreceiver.aon
 
-
 rem --- AddonSoftware
 rem --- Copyright BASIS International Ltd.  All Rights Reserved.
 
@@ -83,15 +82,13 @@ rem --- Set Report Name & Subreport directory
 
 rem --- Open files
 
-	num_files=7
+	num_files=5
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVS_PARAMS",open_opts$[1]="OTA@"
     open_tables$[2]="POS_PARAMS",open_opts$[2]="OTA@"
     open_tables$[3]="APS_REPORT",open_opts$[3]="OTA@"
     open_tables$[4]="POE_POHDR",open_opts$[4]="OTA@"
     open_tables$[5]="POE_PODET",open_opts$[5]="OTA@"
-    open_tables$[6]="POT_POHDR_ARC",open_opts$[6]="OTA@"
-    open_tables$[7]="POT_PODET_ARC",open_opts$[7]="OTA@"
     
     gosub open_tables
 
@@ -100,8 +97,6 @@ rem --- Open files
     aps_report=num(open_chans$[3])
     poePOHdr_dev=num(open_chans$[4])
     poePODet_dev=num(open_chans$[5])
-    potPOHdrArc_dev=num(open_chans$[6])
-    potPODetArc_dev=num(open_chans$[7])
 
 rem --- Dimension string templates
 
@@ -110,8 +105,6 @@ rem --- Dimension string templates
 	dim aps_report$:open_tpls$[3]
     dim poePOHdr$:open_tpls$[4]
     dim poePODet$:open_tpls$[5]
-    dim potPOHdrArc$:open_tpls$[6]
-    dim potPODetArc$:open_tpls$[7]
 
 rem --- Retrieve parameter records
 
@@ -141,14 +134,12 @@ rem --- Assign form input values to local variables
     po_no$=""
     receiver_no$=""
     pomessage$=""
-    lot_serial_lines$=""
- 
+    
     single_vendor$="Y"
     vendor_id$=option!.getOptionData("VENDOR_ID")
     po_no$=option!.getOptionData("PO_NO")
     pomessage$=option!.getOptionData("MESSAGE_TEXT")
-    lot_serial_lines$=option!.getOptionData("LOT_SERIAL_LINES")
-
+    
 rem --- Initializations
 
     let defaultmsg$=pos_params.po_msg_code$   
@@ -217,8 +208,7 @@ print_receiver_document: rem --- Print single PO receiver document
     params!.put("NOT_B4_PROMPT",Translate!.getTranslation("AON_NOT_BEFORE_"))
     params!.put("SHIPFROM_PROMPT",Translate!.getTranslation("AON_SHIP_FROM:_"))
     params!.put("BANDED_ROWS","Y");rem --- controls whether or not detail portion of report is striped
-    params!.put("LOT_SERIAL_LINES",lot_serial_lines$)
-
+    
     rem --- Use receiver-specific sprocs (PORECEIVER_HDR and PORECEIVER_DET)
     
     locale$ = stbl("!LOCALE")

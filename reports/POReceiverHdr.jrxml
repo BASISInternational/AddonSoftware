@@ -38,9 +38,8 @@
 	<parameter name="BANDED_ROWS" class="java.lang.String"/>
 	<parameter name="ITEM_MASK" class="java.lang.String"/>
 	<parameter name="AP_FAX_NO" class="java.lang.String"/>
-	<parameter name="LOT_SERIAL_LINES" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[CALL PORECEIVER_HDR ($P{FIRM_ID} , $P{PO_NO}, $P{VEND_MASK}, $P{DFLT_MSG}, $P{LOT_SERIAL_LINES}, $P{BARISTA_WD})]]>
+		<![CDATA[CALL PORECEIVER_HDR ($P{FIRM_ID} , $P{PO_NO}, $P{VEND_MASK}, $P{DFLT_MSG}, $P{BARISTA_WD})]]>
 	</queryString>
 	<field name="ORD_DATE" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -984,9 +983,6 @@
 				<subreportParameter name="AP_FAX_NO">
 					<subreportParameterExpression><![CDATA[$P{AP_FAX_NO}]]></subreportParameterExpression>
 				</subreportParameter>
-				<subreportParameter name="LOT_SERIAL_LINES">
-					<subreportParameterExpression><![CDATA[$P{LOT_SERIAL_LINES}]]></subreportParameterExpression>
-				</subreportParameter>
 				<subreportParameter name="COST_MASK">
 					<subreportParameterExpression><![CDATA[$P{COST_MASK}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -1037,7 +1033,7 @@
 			<textField isBlankWhenNull="true">
 				<reportElement x="0" y="0" width="554" height="20" uuid="88a56e1f-abe3-4d98-89f2-38c5990039f4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="12" isBold="false"/>
+					<font fontName="DejaVu Serif" size="9" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{MESSAGE}]]></textFieldExpression>
 			</textField>
