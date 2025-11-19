@@ -36,7 +36,6 @@ rem --- Retrieve sysinfo data
 rem --- Initializations
 
         precision num(ivs01a.precision$)
-        dim o[14]
         dim description$(40)
         dim headings$[8],totals[4],receipt[4],vendor[4],report[4]
         dim line[4]
@@ -75,20 +74,6 @@ rem --- Background
 rem --- Print positions
 
         dim h1$(width),h2$(width),qh$(m2*4,"-")
-        o[14]=width-m1
-        o[13]=o[14]-m3
-        o[12]=o[13]-m2
-        o[11]=o[12]-m2
-        o[10]=o[11]-m2
-        o[9]=o[10]-m2
-        o[8]=o[9]-3
-        o[7]=o[8]-11
-        o[6]=o[7]-9
-        o[5]=o[6]-9
-        o[4]=o[5]-9
-        o[1]=4
-        o[2]=7
-        o[3]=10
 
 rem ***    qh$(fncenter(m2*4,10),10)=Translate!.getTranslation("AON__QUANTITY_")
 
@@ -613,29 +598,27 @@ rem --- Print totals
 
 print_totals:
 
-        if len(totals$)>o[6] totals$=totals$(1,o[6])
+    OutVect!.addItem(totals$)
+    blnk=fnblank(5)
+    OutVect!.addItem(str(totals[0]:m2$))
+    OutVect!.addItem(str(totals[1]:m2$))
+    OutVect!.addItem(str(totals[2]:m2$))
+    OutVect!.addItem(str(totals[3]:m2$))
+    blnk=fnblank(1)
+    OutVect!.addItem(str(totals[4]:m1$))
 
-            OutVect!.addItem(totals$)
-            blnk=fnblank(5)
-            OutVect!.addItem(str(totals[0]:m2$))
-            OutVect!.addItem(str(totals[1]:m2$))
-            OutVect!.addItem(str(totals[2]:m2$))
-            OutVect!.addItem(str(totals[3]:m2$))
-            blnk=fnblank(1)
-            OutVect!.addItem(str(totals[4]:m1$))
-
-            let l=l+1
-            return
+    let l=l+1
+    return
 
 rem --- Subroutine1
 
 set_variables:
 
-            receipt[all]=receipt[all]+line[all]
-            vendor[all]=vendor[all]+line[all]
-            report[all]=report[all]+line[all]
-            dom_flag=1
-            return
+    receipt[all]=receipt[all]+line[all]
+    vendor[all]=vendor[all]+line[all]
+    report[all]=report[all]+line[all]
+    dom_flag=1
+    return
 
 rem #include std_functions.src
 rem --- Standard AddonSoftware functions (01Mar2006)

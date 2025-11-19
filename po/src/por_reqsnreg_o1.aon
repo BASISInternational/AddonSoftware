@@ -33,7 +33,7 @@ rem --- Document initializations
 
 rem --- Initializations
 
-    dim headings$[5],o[14],vendor[1],req[1],report[1],totals[1]
+    dim headings$[5],vendor[1],req[1],report[1],totals[1]
     dim c0$(22),c1$(60),d0$(24),d1$(64),d[20],description$(40),r0$(8),r1$(30)
     dim w0$(18),w1$(48),w2$(32),w3$(22),w4$(40),w[12],y0$(4),y1$(32)
     dim h1$(132),h2$(132),h3$(132)
@@ -86,24 +86,6 @@ rem --- Document columns
     columns$[13,0]=Translate!.getTranslation("AON_SOURCE"),            columns$[13,1]="N",columns$[13,2]="10"
 
     call stbl("+DIR_PGM",err=*next)+"adc_docout_adj.aon",columns$[all]
-
-rem --- Print positions
-
-    o[0]=0
-    o[1]=4
-    o[2]=7
-    o[3]=10
-    o[4]=o[3]+itemlen+1
-    o[5]=o[4]+9
-    o[6]=o[5]+9
-    o[7]=o[6]+9
-    o[13]=width-6
-    o[12]=o[13]-m1
-    o[14]=o[3]+41
-    o[11]=o[12]-m3
-    o[10]=o[11]-m1
-    o[9]=o[10]-m3
-    o[8]=o[9]-m2
 
 rem --- Report headings
 

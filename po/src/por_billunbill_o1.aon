@@ -42,7 +42,7 @@ rem --- Init Data
 rem --- Headings and print positions
 
     headings=7
-    dim headings$[headings],o[14]
+    dim headings$[headings]
     width=132
     page=0
     l9=59
@@ -67,32 +67,6 @@ rem --- Headings and print positions
     columns$[11,0]=Translate!.getTranslation("AON_RECEIPT_VARIANCE"),          columns$[11,1]="N",columns$[11,2]="14",columns$[11,3]=m1$,columns$[11,10]="T"
 
     call stbl("+DIR_PGM",err=*next)+"adc_docout_adj.aon",columns$[all]
-
-positions: 
-
-    o[1]=o[0]+8
-    o[2]=o[1]+9
-    o[3]=o[2]+m1+1
-    o[4]=o[3]+9
-    o[5]=o[4]+9
-    o[6]=o[5]+m1+1
-    o[7]=o[6]+5
-    o[8]=o[7]+11
-    o[9]=o[8]+9
-    o[10]=o[9]+m1+1
-    o[11]=o[10]+m1+1
-
-    if o[11]+15>=width
-        o[11]=width-m1
-        o[10]=o[11]-m1
-        o[9]=o[10]-m1
-        o[7]=o[9]-9
-        o[7]=o[7]-9
-        o[6]=o[7]-3
-        o[5]=o[6]-m1
-        o[3]=o[5]-9
-        o[2]=o[3]-m1
-    endif
 
 rem --- Progress Bar
 
@@ -147,7 +121,7 @@ rem --- Sort by Alt Seq or Vendor Num?
         ponum$=pot04a.po_no$
         poamt=0
         poamt$=str(poamt)
-        dim pline$(132),orddate$(8),rcptdate$(8)
+        dim orddate$(8),rcptdate$(8)
         if pot04a.ord_date$<>fill(8) then orddate$=fndate$(pot04a.ord_date$)
         if pot04a.recpt_date$<>fill(8) then rcptdate$=fndate$(pot04a.recpt_date$)
         total_recs=total_recs+1
@@ -170,13 +144,7 @@ rem --- Sort by Alt Seq or Vendor Num?
 
         poamt$=str(poamt)
         poamt_totaled=poamt_totaled+1
-
-    rem --- Assign PLINE$ for vendor and PO
-
-        pline$(1)=ponum$
-        pline$(o[1]+1)=orddate$
-        pline$(o[2]+1)=poamt$
-        if poamt_totaled>1 dim pline$(132); poamt=0
+        if poamt_totaled>1 then poamt=0
 
     rem --- Process PO/Receiver
 
@@ -218,10 +186,7 @@ rem --- Sort by Alt Seq or Vendor Num?
         
             rcptamt$=str(rcptamt)
             if rcptamt=0 and pot04a.rec_complete$="Y" havedata=0
-            pline$(o[3]+1)=pot04a.receiver_no$
-            pline$(o[4]+1)=rcptdate$
-            pline$(o[5]+1)=rcptamt$
-            if havedata then gosub fillrestpline else break
+            if !havedata then break
 
         rem --- Get Invoice Data (via POT-35, Xref)
 
@@ -245,7 +210,6 @@ rem --- Sort by Alt Seq or Vendor Num?
                 endif
 
                 if level$="U"
-                    dim pline$(132); rem "Unbilled: only print if no pot-04
                     poamt_totaled=poamt_totaled-1
                     break
                 else
@@ -286,7 +250,6 @@ rem --- Sort by Alt Seq or Vendor Num?
 
                     rem --- Have gotten all data for this invoice
 
-                        gosub fillrestpline
                         gosub printline
                         previnv$=invnum$
 
@@ -299,7 +262,7 @@ rem --- Sort by Alt Seq or Vendor Num?
 
         rem --- Loop up for next PO/Receiver
 
-            if pline$<>fill(132) and level$<>"B" or (level$="B" and billed=1) gosub printline
+            gosub printline
             havedata=0
             read (pot14_dev,key=pot14a_key.firm_id$+pot14a_key.po_no$+pot14a_key.receiver_no$+$FF$,dom=*next)
         wend
@@ -398,7 +361,6 @@ printline: rem --- Test breaks
         gosub newvendor
     endif
 
-    gosub fillrestpline
     if l+2>l9 gosub report_heading
 
     if vendor$+ponum$<>prevvendpo$
@@ -420,7 +382,6 @@ printline: rem --- Test breaks
     OutVect!.addItem(variance$)
     l=l+1
     recs=recs+1
-    dim pline$(132)
     prevvendpo$=vendor$+ponum$
 
 rem --- Accumulate totals
@@ -429,15 +390,6 @@ rem --- Accumulate totals
     vendinvamt=vendinvamt+invamt,vendrcptamt_iv=vendrcptamt_iv+rcptamt_iv
     grandpoamt=grandpoamt+poamt,grandrcptamt=grandrcptamt+rcptamt
     grandinvamt=grandinvamt+invamt,grandrcptamt_iv=grandrcptamt_iv+rcptamt_iv
-
-    return
-
-fillrestpline: rem --- Complete filling print line
-
-    pline$(o[6]+1)=aptype$,pline$(o[7]+1)=invnum$,pline$(o[7]+1)=invdate$
-    pline$(o[9]+1)=invamt$,pline$(o[10]+1)=rcptamt_iv$
-    variance=rcptamt-rcptamt_iv,variance$=str(variance)
-    pline$(o[11]+1)=variance$
 
     return
 
