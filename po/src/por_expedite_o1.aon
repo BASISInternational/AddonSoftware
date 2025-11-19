@@ -40,7 +40,7 @@ rem --- Init Data
 rem --- Headings and print positions
 
     headings=5
-    dim headings$[headings],o[11]
+    dim headings$[headings]
     width=132
     page=0
     l9=59
@@ -69,29 +69,6 @@ rem    columns$[7,0]=Translate!.getTranslation("AON_QTY^IN_QA"),          column
     columns$[11,0]=Translate!.getTranslation("AON_EXTENSION"),         columns$[11,1]="N",columns$[11,2]=str(len(m1$)); rem ,  columns$[11,3]=m1$
 
     call stbl("+DIR_PGM",err=*next)+"adc_docout_adj.aon",columns$[all]
-
-positions: 
-
-    o[1]=o[0]+4
-    o[2]=o[1]+3
-    o[3]=o[2]+itemlen+1
-    o[4]=o[3]+28
-    o[5]=o[4]+3
-    o[6]=o[5]+9
-    o[7]=o[6]+m2+1
-    o[8]=o[7]+m2+1                       
-    o[9]=o[8]+m2+1
-    o[10]=o[9]+m2+1
-    o[11]=o[10]+m3+1
-
-    if o[11]+13>=width
-        o[11]=width-m1
-        o[10]=o[11]-m3
-        o[9]=o[10]-m2
-        o[8]=o[9]-m2
-        o[7]=o[8]-m2
-        o[6]=o[7]-m2
-    endif
 
 rem --- Get key templates
 
@@ -226,11 +203,6 @@ printdetail: rem --- Re-loop through detail & print whole PO
     brnch2: rem --- Get extension
 
         gosub calc_extension
-
-    rem --- Format common part of print line
-
-        dim pline$(132)
-        pline$(1)=poe12a.po_line_no$+" "+whse_detail$
 
     rem --- Print Line Types 'M', 'O' & 'V'
 
