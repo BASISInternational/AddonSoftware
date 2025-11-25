@@ -174,15 +174,15 @@ rem --- Loop thru recipient file (apm_vendmast or arm_custmast) and update adm_r
         admRptCtlRcp.print_yn$=print_yn$
         if fax_yn$="Y" then
             admRptCtlRcp.fax_yn$=fax_yn$
-            admRptCtlRcp.fax_subject$=admRptCtl.dflt_subject$
-            admRptCtlRcp.fax_message$=admRptCtl.dflt_message$
+            admRptCtlRcp.fax_subject$=""
+            admRptCtlRcp.fax_message$=""
             admRptCtlRcp.fax_to$=emailfax.fax_to$
             admRptCtlRcp.fax_nos$=emailfax.fax_nos$
         endif
         if email_yn$="Y" then
             admRptCtlRcp.email_yn$=email_yn$
-            admRptCtlRcp.email_subject$=admRptCtl.dflt_subject$
-            admRptCtlRcp.email_message$=admRptCtl.dflt_message$
+            admRptCtlRcp.email_subject$=""
+            admRptCtlRcp.email_message$=""
             admRptCtlRcp.email_from$=admEmailAcct.email_from$
             admRptCtlRcp.email_replyto$=admEmailAcct.email_replyto$
             admRptCtlRcp.email_to$=emailfax.email_to$
