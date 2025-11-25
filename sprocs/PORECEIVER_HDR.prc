@@ -11,15 +11,6 @@ rem ---    - PORECEIVER_HDR.prc / POReceiverHdr.jasper
 rem ---    - PORECEIVER_DET.prc / POReceiverDet.jasper
 rem
 rem ----------------------------------------------------------------------------
-rem goto wghTrace
-endtrace
-traceFile$="\temp\HDRtrace_"+date(0:"%Yz%Mz%Dz%Hz%mz%sz")+".txt"
-erase traceFile$,err=*next
-string traceFile$
-traceChan=unt
-open(traceChan)traceFile$
-settrace(traceChan,mode="UNTIMED")
-wghTrace:
 
     seterr sproc_error
 
