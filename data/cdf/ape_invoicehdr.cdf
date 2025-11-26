@@ -924,6 +924,17 @@ rem --- In lookup only show CREDITCARD_IDs that are active.
 	endif	
 	callpoint!.setStatus("ACTIVATE-ABORT")
 
+[[APE_INVOICEHDR.DISC_DATE.AVAL]]
+rem --- The Discount Date cannot be later than the Due Date.
+	disc_date$=callpoint!.getUserInput()
+	due_date$=callpoint!.getColumnData("APE_INVOICEHDR.INV_DUE_DATE")
+	if disc_date$>due_date$ then
+		msg_id$="AP_BAD_DISC_DATE"
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 [[APE_INVOICEHDR.INVOICE_AMT.AVAL]]
 callpoint!.setColumnData("APE_INVOICEHDR.NET_INV_AMT",
 :	callpoint!.getUserInput())
@@ -945,6 +956,13 @@ endif
 tmp_inv_date$=callpoint!.getUserInput()
 gosub calculate_due_and_discount
 callpoint!.setStatus("REFRESH")
+
+[[APE_INVOICEHDR.INV_DUE_DATE.AVAL]]
+rem --- If Due Date is changed to earlier than Discount Date , set Discount Date equal to Due Date.
+	due_date$=callpoint!.getUserInput()
+	if due_date$<callpoint!.getColumnData("APE_INVOICEHDR.DISC_DATE") then
+		callpoint!.setColumnData("APE_INVOICEHDR.DISC_DATE",due_date$,1)
+	endif
 
 [[APE_INVOICEHDR.NET_INV_AMT.AVAL]]
 rem re-calc discount amount based on net x disc %
@@ -1103,10 +1121,15 @@ rem ----------------------------------------------------------------------------
 	due_dt$=""
 	call stbl("+DIR_PGM")+"adc_duedate.aon",prox_days$,invdate$,num(apm10c.due_days$),due_dt$,status
 	callpoint!.setColumnData("APE_INVOICEHDR.INV_DUE_DATE",due_dt$)
-	due_dt$=""
-	call stbl("+DIR_PGM")+"adc_duedate.aon",prox_days$,invdate$,num(apm10c.disc_days$),due_dt$,status
-	callpoint!.setColumnData("APE_INVOICEHDR.DISC_DATE",due_dt$)
+
 	user_tpl.disc_pct$=apm10c.disc_percent$
+	if num(user_tpl.disc_pct$)=0 then
+		callpoint!.setColumnData("APE_INVOICEHDR.DISC_DATE",due_dt$)
+	else
+		disc_dt$=""
+		call stbl("+DIR_PGM")+"adc_duedate.aon",prox_days$,invdate$,num(apm10c.disc_days$),disc_dt$,status
+		callpoint!.setColumnData("APE_INVOICEHDR.DISC_DATE",disc_dt$)
+	endif
 	callpoint!.setStatus("REFRESH")
 return
 

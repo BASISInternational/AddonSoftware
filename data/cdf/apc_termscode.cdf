@@ -1,3 +1,11 @@
+[[APC_TERMSCODE.ADIS]]
+rem --- Disable Discount Days when Discount Percent is zero.
+	if num(callpoint!.getColumnData("APC_TERMSCODE.DISC_PERCENT"))=0 then
+		callpoint!.setColumnEnabled("APC_TERMSCODE.DISC_DAYS",0)
+	else
+		callpoint!.setColumnEnabled("APC_TERMSCODE.DISC_DAYS",1)
+	endif
+
 [[APC_TERMSCODE.BDEL]]
 rem --- When deleting the Terms Code, warn if there are any current/active transactions for the code, and disallow if there are any.
 	gosub check_active_code
@@ -85,6 +93,77 @@ rem --- When deactivating the Terms Code, warn if there are any current/active t
 		if found then
 			callpoint!.setStatus("ABORT")
 			break
+		endif
+	endif
+
+[[APC_TERMSCODE.DISC_DAYS.AVAL]]
+rem --- For Proxy terms, the Discount Days cannot be less than 1, nor greater than the Due Days.
+	if callpoint!.getColumnData("APC_TERMSCODE.PROX_OR_DAYS")="P" then
+		disc_days=num(callpoint!.getUserInput())
+		due_days=num(callpoint!.getColumnData("APC_TERMSCODE.DUE_DAYS"))
+		if disc_days<1 or disc_days>due_days then
+			msg_id$="AP_PROXY_DISC_DAYS"
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
+rem --- For Days terms, the Discount Days cannot be less than zero, nor greater than the Due Days.
+	if callpoint!.getColumnData("APC_TERMSCODE.PROX_OR_DAYS")="D" then
+		disc_days=num(callpoint!.getUserInput())
+		due_days=num(callpoint!.getColumnData("APC_TERMSCODE.DUE_DAYS"))
+		if disc_days<0 or disc_days>due_days then
+			msg_id$="AP_DAYS_DISC_DAYS"
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
+[[APC_TERMSCODE.DISC_PERCENT.AVAL]]
+rem --- Disable Discount Days when Discount Percent is zero, and set Discount Days equal to Due Days.
+	if num(callpoint!.getUserInput())=0 then
+		callpoint!.setColumnEnabled("APC_TERMSCODE.DISC_DAYS",0)
+		callpoint!.setColumnData("APC_TERMSCODE.DISC_DAYS",callpoint!.getColumnData("APC_TERMSCODE.DUE_DAYS"),1)
+	else
+		callpoint!.setColumnEnabled("APC_TERMSCODE.DISC_DAYS",1)
+	endif
+
+[[APC_TERMSCODE.DUE_DAYS.AVAL]]
+rem --- For Proxy terms, the Due Days cannot be less than 1, nor greater than 31.
+	if callpoint!.getColumnData("APC_TERMSCODE.PROX_OR_DAYS")="P" then
+		due_days=num(callpoint!.getUserInput())
+		if due_days<1 or due_days>31 then
+			msg_id$="AP_PROXY_DUE_DAYS"
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
+rem --- For Days terms, the Due Days cannot be less than zero.
+	if callpoint!.getColumnData("APC_TERMSCODE.PROX_OR_DAYS")="D" then
+		due_days=num(callpoint!.getUserInput())
+		if due_days<0 then
+			msg_id$="AP_DAYS_DUE_DAYS"
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
+rem --- When the Discount Percent is zero, set the Discount Days equal to the Due Days
+	if num(callpoint!.getColumnData("APC_TERMSCODE.DISC_PERCENT"))=0 then
+		callpoint!.setColumnData("APC_TERMSCODE.DISC_DAYS",callpoint!.getUserInput(),1)
+	else
+		rem --- When there is a Discount and Due Days is changed to less than Discount Days , set Discount Days equal to Due Days.
+		due_days=num(callpoint!.getUserInput())
+		if due_days<num(callpoint!.getColumnData("APC_TERMSCODE.DUE_DAYS")) then
+			disc_days=num(callpoint!.getColumnData("APC_TERMSCODE.DISC_DAYS"))
+			if due_days<disc_days then
+				callpoint!.setColumnData("APC_TERMSCODE.DISC_DAYS",str(due_days),1)
+			endif
 		endif
 	endif
 
