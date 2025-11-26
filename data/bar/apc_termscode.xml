@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.apc_termscode">DA1F21666C0444309C53A71F1FBA82F9</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.apc_termscode">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.apc_termscode">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.apc_termscode">20240531</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.apc_termscode">20240531</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.apc_termscode">180332</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.apc_termscode">20251126</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.apc_termscode">20251126</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.apc_termscode">132706</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.apc_termscode"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.apc_termscode">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.apc_termscode"></DD_ATTR_DKNM>
@@ -60,6 +60,10 @@
 	</ALIAS>
 	<ALIAS id="ddm_table_cpro">
 		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.apc_termscodeadis">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.apc_termscodeadis">APC_TERMSCODE   </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.apc_termscodeadis">ADIS</DD_ATTR_CPRO>
+		</RECORD>
 		<RECORD id="ddm_table_cpro.apc_termscodebdel">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.apc_termscodebdel">APC_TERMSCODE   </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.apc_termscodebdel">BDEL</DD_ATTR_CPRO>
@@ -516,7 +520,7 @@
 			<DD_ATTR_CTLY id="ddm_table_cols.apc_termscode005"></DD_ATTR_CTLY>
 			<DD_ATTR_CTLW id="ddm_table_cols.apc_termscode005"></DD_ATTR_CTLW>
 			<DD_ATTR_CTLH id="ddm_table_cols.apc_termscode005"></DD_ATTR_CTLH>
-			<DD_ATTR_DFLT id="ddm_table_cols.apc_termscode005"></DD_ATTR_DFLT>
+			<DD_ATTR_DFLT id="ddm_table_cols.apc_termscode005">D</DD_ATTR_DFLT>
 			<DD_ATTR_DRLE id="ddm_table_cols.apc_termscode005"></DD_ATTR_DRLE>
 			<DD_ATTR_GHDR id="ddm_table_cols.apc_termscode005">Additional</DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.apc_termscode005"></DD_ATTR_IDEF>
@@ -561,7 +565,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.apc_termscode006">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.apc_termscode006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.apc_termscode006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.apc_termscode006"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.apc_termscode006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.apc_termscode006"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.apc_termscode006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.apc_termscode006"></DD_ATTR_CTLY>
@@ -612,7 +616,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.apc_termscode007">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.apc_termscode007"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.apc_termscode007"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.apc_termscode007"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.apc_termscode007">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.apc_termscode007"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.apc_termscode007"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.apc_termscode007"></DD_ATTR_CTLY>
@@ -663,7 +667,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.apc_termscode008">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.apc_termscode008"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.apc_termscode008"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.apc_termscode008"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.apc_termscode008">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.apc_termscode008"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.apc_termscode008"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.apc_termscode008"></DD_ATTR_CTLY>
@@ -752,6 +756,21 @@
 	</ALIAS>
 	<ALIAS id="ddm_column_cpro">
 		<ID id="ddm_column_cpro">DDM_COLUMN_CPRO</ID>
+		<RECORD id="ddm_column_cpro.apc_termscodedisc_percentaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.apc_termscodedisc_percentaval">APC_TERMSCODE   </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.apc_termscodedisc_percentaval">DISC_PERCENT    </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.apc_termscodedisc_percentaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.apc_termscodedue_daysaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.apc_termscodedue_daysaval">APC_TERMSCODE   </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.apc_termscodedue_daysaval">DUE_DAYS        </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.apc_termscodedue_daysaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_column_cpro.apc_termscodedisc_daysaval">
+			<DD_TABLE_ALIAS id="ddm_column_cpro.apc_termscodedisc_daysaval">APC_TERMSCODE   </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_cpro.apc_termscodedisc_daysaval">DISC_DAYS       </DD_DVAR_NAME>
+			<DD_ATTR_CPRO id="ddm_column_cpro.apc_termscodedisc_daysaval">AVAL</DD_ATTR_CPRO>
+		</RECORD>
 		<RECORD id="ddm_column_cpro.apc_termscodecode_inactiveaval">
 			<DD_TABLE_ALIAS id="ddm_column_cpro.apc_termscodecode_inactiveaval">APC_TERMSCODE   </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_cpro.apc_termscodecode_inactiveaval">CODE_INACTIVE   </DD_DVAR_NAME>
@@ -779,6 +798,11 @@
 			<DD_TABLE_ALIAS id="ddm_column_opts.apc_termscoderecord_id_cr">APC_TERMSCODE   </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.apc_termscoderecord_id_cr">RECORD_ID_C     </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.apc_termscoderecord_id_cr">R</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.apc_termscodedisc_daysa">
+			<DD_TABLE_ALIAS id="ddm_column_opts.apc_termscodedisc_daysa">APC_TERMSCODE   </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.apc_termscodedisc_daysa">DISC_DAYS       </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.apc_termscodedisc_daysa">A</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">
