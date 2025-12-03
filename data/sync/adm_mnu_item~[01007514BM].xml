@@ -11,9 +11,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>BME_PRODUCT     </TABLE_ID>
-		<MENU_PROG>bme_aa.aon</MENU_PROG>
 		<HELP_TAG>Inventory_Production_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -67,9 +66,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>BMR_COSTING     </TABLE_ID>
-		<MENU_PROG>bmr_fa.aon</MENU_PROG>
 		<HELP_TAG>BOM_Costing_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -207,9 +205,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>BMR_MATERIALUSED</TABLE_ID>
-		<MENU_PROG>bmr_ba.aon</MENU_PROG>
 		<HELP_TAG>Material_Where_Used_Listing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -236,9 +233,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>BME_ORDER       </TABLE_ID>
-		<MENU_PROG>bme_ba.aon</MENU_PROG>
 		<HELP_TAG>Order_Production_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -294,7 +290,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>BMM_BILLMAST    </TABLE_ID>
 		<HELP_TAG>Bill_of_Materials_Masters</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -348,9 +344,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>BMR_DETAILLIST  </TABLE_ID>
-		<MENU_PROG>bmr_aa.aon</MENU_PROG>
 		<HELP_TAG>Bill_of_Materials_Detail_Listing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -377,9 +372,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>BMR_INDENTEDBILL</TABLE_ID>
-		<MENU_PROG>bmr_za.aon</MENU_PROG>
 		<HELP_TAG>Bill_of_Materials_Indented_Bills_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -488,7 +482,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>BMR_DTLEXCEPT   </TABLE_ID>
 		<HELP_TAG>Detail_Exception_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -516,7 +510,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>BMC_OPCODES     </TABLE_ID>
 		<HELP_TAG>Operation_Code_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -572,9 +566,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>BMR_PACKINGLIST </TABLE_ID>
-		<MENU_PROG>bmr_packinglist.aon</MENU_PROG>
 		<HELP_TAG>Packing_List</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -601,9 +594,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>BMR_OPLIST      </TABLE_ID>
-		<MENU_PROG>bmr_da.aon</MENU_PROG>
 		<HELP_TAG>Operations_Where_Used_Listing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
