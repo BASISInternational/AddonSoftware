@@ -12,7 +12,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFE_WOCLOSE     </TABLE_ID>
 		<HELP_TAG>Work_Order_Close_Data_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -39,9 +39,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFE_WOMASTR     </TABLE_ID>
-		<MENU_PROG>sfe_aa.aon</MENU_PROG>
 		<HELP_TAG>Work_Order_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -70,7 +69,7 @@
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>[+DIR_PGM]sfu_closerecwo.aon</MENU_PROG>
 		<HELP_TAG>Close_Recurring_Work_Orders</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -98,7 +97,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_WOTRANSHIST </TABLE_ID>
 		<HELP_TAG>Work_Order_Transaction_History_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -126,7 +125,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFC_OPRTNCOD    </TABLE_ID>
 		<HELP_TAG>Operation_Codes</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -153,9 +152,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_WORDDATE    </TABLE_ID>
-		<MENU_PROG>sfr_na.aon</MENU_PROG>
 		<HELP_TAG>Date_Analysis_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -182,9 +180,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_PRODEXCEP   </TABLE_ID>
-		<MENU_PROG>sfr_sa.aon</MENU_PROG>
 		<HELP_TAG>Production_Exception_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -212,7 +209,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFC_WOTYPECD    </TABLE_ID>
 		<HELP_TAG>Type_Codes</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -239,9 +236,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFE_DISPATCHINQ </TABLE_ID>
-		<MENU_PROG>sfe_ha.aon</MENU_PROG>
 		<HELP_TAG>Dispatch_Inquiry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -326,7 +322,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_CLSDWOVAR   </TABLE_ID>
 		<HELP_TAG>Closed_WO_Variance_Report_by_Period</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -380,9 +376,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_BOTNECKANA  </TABLE_ID>
-		<MENU_PROG>sfr_ta.aon</MENU_PROG>
 		<HELP_TAG>Bottleneck_Analysis_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -410,7 +405,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_CLSDRECWODET</TABLE_ID>
 		<HELP_TAG>Closed_Recurring_WO_Detail_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -493,9 +488,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_WORDJOBSTAT </TABLE_ID>
-		<MENU_PROG>sfr_va.aon</MENU_PROG>
 		<HELP_TAG>Job_Status_Summary</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -523,7 +517,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_PICKLIST    </TABLE_ID>
 		<HELP_TAG>Pick_List_Printing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -579,7 +573,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFE_WOMATISH    </TABLE_ID>
 		<HELP_TAG>Materials_Issues_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -606,9 +600,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_BRESCHWO    </TABLE_ID>
-		<MENU_PROG>sfr_ua.aon</MENU_PROG>
 		<HELP_TAG>Batch_Rescheduling_Of_Work_Orders</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -635,9 +628,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFM_CAL_COPY    </TABLE_ID>
-		<MENU_PROG>sfm_ea.aon</MENU_PROG>
 		<HELP_TAG>Copy_Shop_Floor_Calendar</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -693,7 +685,7 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFM_CAL_MAINT   </TABLE_ID>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -748,9 +740,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFE_WO_COST_ADJ </TABLE_ID>
-		<MENU_PROG>sfe_fa.aon</MENU_PROG>
 		<HELP_TAG>Cost_Adjustment_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -778,7 +769,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_CLSDWODET   </TABLE_ID>
 		<HELP_TAG>Closed_Work_Order_Detail_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -862,7 +853,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFE_WOMATHDR    </TABLE_ID>
 		<HELP_TAG>Materials_Commitment_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -890,7 +881,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFU_CREATEPOREQ </TABLE_ID>
 		<HELP_TAG>Create_Purchase_Requisitions</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -917,9 +908,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFE_LOADBAL     </TABLE_ID>
-		<MENU_PROG>sfm_ha.aon</MENU_PROG>
 		<HELP_TAG>Load_Balance_Inquiry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -974,9 +964,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFM_CAL_CREATE  </TABLE_ID>
-		<MENU_PROG>sfm_da.aon</MENU_PROG>
 		<HELP_TAG>Create_Shop_Floor_Calendar</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1004,7 +993,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_WOTRAV      </TABLE_ID>
 		<HELP_TAG>Traveler_Printing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1115,7 +1104,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_WOVARREP    </TABLE_ID>
 		<HELP_TAG>Cost_Variance_Analysis_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1170,7 +1159,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFE_WOCONVRN    </TABLE_ID>
 		<HELP_TAG>Conversion_Work_Order_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1224,9 +1213,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_WORDMAT     </TABLE_ID>
-		<MENU_PROG>sfr_ma.aon</MENU_PROG>
 		<HELP_TAG>Work_Order_Committed_Materials_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1364,7 +1352,7 @@
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>[+DIR_PGM]sfr_clsdworeg.aon</MENU_PROG>
 		<HELP_TAG>Closed_Work_Order_Summary_Register</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1475,7 +1463,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFM_EMPLMAST    </TABLE_ID>
 		<HELP_TAG>Employees</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1531,9 +1519,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_SHPFLRDSPTCH</TABLE_ID>
-		<MENU_PROG>sfr_pa.aon</MENU_PROG>
 		<HELP_TAG>Shop_Floor_Dispatch_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1561,7 +1548,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_WODETRPT    </TABLE_ID>
 		<HELP_TAG>Work_Order_Detail_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1669,9 +1656,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_LABEFFANAREP</TABLE_ID>
-		<MENU_PROG>sfr_fa.aon</MENU_PROG>
 		<HELP_TAG>Labor_Efficiency_Analysis_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1700,7 +1686,7 @@
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>[+DIR_PGM]sfe_timesheet.aon</MENU_PROG>
 		<HELP_TAG>Time_Sheet_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1728,7 +1714,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_WOHEADER    </TABLE_ID>
 		<HELP_TAG>Work_Order_Header_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1755,9 +1741,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SFR_CALENDAR    </TABLE_ID>
-		<MENU_PROG>sfr_qa.aon</MENU_PROG>
 		<HELP_TAG>Calendar_Print</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>

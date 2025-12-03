@@ -176,7 +176,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ADM_PROCBATCHMNT</TABLE_ID>
 		<HELP_TAG>Process_Batch_Control_Maintenance1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -973,12 +973,12 @@
 		<MENU_DESC>Create/Update SPROC Definitions</MENU_DESC>
 		<IMAGE>im_menui_update.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>A</OPT_TYPE>
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>[+DIR_PGM]adx_build_sproc.aon</MENU_PROG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1035,7 +1035,7 @@
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>ads_execsummary.aon</MENU_PROG>
 		<HELP_TAG>Executive_Summary</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1090,7 +1090,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ADM_RPTCTL_RCP  </TABLE_ID>
 		<HELP_TAG>Report_Control_Recipients1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1640,7 +1640,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ADC_STATECODE   </TABLE_ID>
 		<HELP_TAG>ad_administration_postal_state_codes                            </HELP_TAG>
-		<MULT_PROC>N</MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1996,7 +1996,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ADC_BANKACCTCODE</TABLE_ID>
 		<HELP_TAG>Bank_Account_Codes_GL1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -2460,7 +2460,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPC_MESSAGE     </TABLE_ID>
 		<HELP_TAG>Standard_Message_Header_Maintenance1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -2626,7 +2626,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ADX_SHIPTRACK   </TABLE_ID>
 		<HELP_TAG>Create_Shipment_Tracking_View</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -2846,7 +2846,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ADM_RPTCTL      </TABLE_ID>
 		<HELP_TAG>Report_Control_Documents2</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -3208,7 +3208,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ADM_AUDITCONTROL</TABLE_ID>
 		<HELP_TAG>GL_Posting_Control1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -3320,7 +3320,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ADM_PROCMASTER  </TABLE_ID>
 		<HELP_TAG>Process_Maintenance1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -3375,7 +3375,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ADC_BANKACCTCODE</TABLE_ID>
 		<HELP_TAG>Bank_Account_Codes</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
