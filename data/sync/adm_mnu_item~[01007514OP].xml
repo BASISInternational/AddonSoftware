@@ -7,12 +7,12 @@
 		<MENU_DESC>Tax Codes</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPC_TAXCODE     </TABLE_ID>
 		<HELP_TAG>Tax_Codes_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -40,7 +40,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPM_FRTTERMS    </TABLE_ID>
 		<HELP_TAG>Freight_Terms_Code_Maintenance1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -68,7 +68,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPS_MTDSLSMNT   </TABLE_ID>
 		<HELP_TAG>Month_to_Date_Sales_Totals1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -91,13 +91,12 @@
 		<MENU_DESC>Monthly Sales Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_MONTHSALES  </TABLE_ID>
-		<MENU_PROG>opr_ea.aon</MENU_PROG>
 		<HELP_TAG>Monthly_Sales_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -120,13 +119,12 @@
 		<MENU_DESC>Pricing Table</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>IVC_PRICCODE    </TABLE_ID>
-		<MENU_PROG>opm_ca.aon</MENU_PROG>
 		<HELP_TAG>Pricing_Table_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -149,13 +147,12 @@
 		<MENU_DESC>Price Quote Inquiry</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPE_PRICEQUOTE  </TABLE_ID>
-		<MENU_PROG>opm_pa.aon</MENU_PROG>
 		<HELP_TAG>Price_Quote_Inquiry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -259,12 +256,12 @@
 		<MENU_DESC>Invoice Edit Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_INVEDIT     </TABLE_ID>
 		<HELP_TAG>Invoice_Edit_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -319,7 +316,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_FILLMNTRPT  </TABLE_ID>
 		<HELP_TAG>op_operations_fulfillment_report                                </HELP_TAG>
-		<MULT_PROC>N</MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -342,12 +339,12 @@
 		<MENU_DESC>Salespersons</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ARC_SALECODE    </TABLE_ID>
 		<HELP_TAG>Salespersons_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -397,12 +394,12 @@
 		<MENU_DESC>Order Status Report By Item</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_ITEMSTATUS  </TABLE_ID>
 		<HELP_TAG>Order_Status_Report_By_Item</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -538,7 +535,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_HISTORY     </TABLE_ID>
 		<HELP_TAG>Invoice_History_Report2</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -593,7 +590,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPT_FILLMNTHDR  </TABLE_ID>
 		<HELP_TAG>op_operations_order_fulfillment                                 </HELP_TAG>
-		<MULT_PROC>N</MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -678,7 +675,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPC_PRICECDS    </TABLE_ID>
 		<HELP_TAG>Customer_Price_Code_Maintenance1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -701,12 +698,12 @@
 		<MENU_DESC>Sales Commission Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_SALESCOMM   </TABLE_ID>
 		<HELP_TAG>Sales_Commission_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -734,7 +731,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPT_SLSTAXTRANS </TABLE_ID>
 		<HELP_TAG>Sales_Tax_Transaction_History                                   </HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -817,7 +814,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_ORDCONF     </TABLE_ID>
 		<HELP_TAG>Print_Order_Acknowledgement                                     </HELP_TAG>
-		<MULT_PROC>N</MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -840,12 +837,12 @@
 		<MENU_DESC>Order Entry</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPE_ORDHDR      </TABLE_ID>
 		<HELP_TAG>Sales_Order_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -868,13 +865,12 @@
 		<MENU_DESC>Order Picking List</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_ODERPICKLST </TABLE_ID>
-		<MENU_PROG>opr_na.aon</MENU_PROG>
 		<HELP_TAG>Sales_Order_Picking_List</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -897,12 +893,12 @@
 		<MENU_DESC>Customer Job Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_CUSTJOBS    </TABLE_ID>
 		<HELP_TAG>Customer_Job_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -979,13 +975,12 @@
 		<MENU_DESC>Credit Review and Release</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPE_CREDREV     </TABLE_ID>
-		<MENU_PROG>opm_qa.aon</MENU_PROG>
 		<HELP_TAG>Credit_Review_and_Release</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1368,7 +1363,7 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_QUOTES      </TABLE_ID>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1395,9 +1390,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPC_DISCCODE    </TABLE_ID>
-		<MENU_PROG>opm_ia.aon</MENU_PROG>
 		<HELP_TAG>Sale_Discount_Code_Maintenance1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1448,12 +1442,12 @@
 		<MENU_DESC>Monthly Sales Register</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_SALESREGR   </TABLE_ID>
 		<HELP_TAG>Monthly_Sales_Register</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1476,12 +1470,12 @@
 		<MENU_DESC>Shipping Schedule Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_SHIPPINGR   </TABLE_ID>
 		<HELP_TAG>Shipping_Schedule_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1508,9 +1502,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPT_INVHDR      </TABLE_ID>
-		<MENU_PROG>opt_ta.aon</MENU_PROG>
 		<HELP_TAG>Invoice_History_Inquiry1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1643,13 +1636,12 @@
 		<MENU_DESC>Invoice Entry</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPE_INVHDR      </TABLE_ID>
-		<MENU_PROG>ope_ca.aon</MENU_PROG>
 		<HELP_TAG>Invoice_Entry1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1672,12 +1664,12 @@
 		<MENU_DESC>Invoice Printing</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_INVOICE     </TABLE_ID>
 		<HELP_TAG>Invoice_Printing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1700,12 +1692,12 @@
 		<MENU_DESC>Sales Tax Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_SALESTAX    </TABLE_ID>
 		<HELP_TAG>Sales_Tax_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1755,13 +1747,12 @@
 		<MENU_DESC>Commit and Release Future Orders</MENU_DESC>
 		<IMAGE>im_menui_update.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPU_COMMREL     </TABLE_ID>
-		<MENU_PROG>opu_ea.aon</MENU_PROG>
 		<HELP_TAG>Commit_and_Release_Future_Orders</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1839,12 +1830,12 @@
 		<MENU_DESC>Order Status Report By Customer</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_CUSTSTATUS  </TABLE_ID>
 		<HELP_TAG>Order_Status_Report_By_Customer</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1899,7 +1890,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPM_SHIPTRACK   </TABLE_ID>
 		<HELP_TAG>Shipment_Tracking</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1922,12 +1913,12 @@
 		<MENU_DESC>Contract Pricing</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>IVM_ITEMPRIC    </TABLE_ID>
 		<HELP_TAG>ContractPricing_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -2031,12 +2022,12 @@
 		<MENU_DESC>Line Codes</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPC_LINECODE    </TABLE_ID>
 		<HELP_TAG>Line_Code_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -2146,7 +2137,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPM_POINTOFSALE </TABLE_ID>
 		<HELP_TAG>Order_Invoice_Point_of_Sale</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -2197,12 +2188,12 @@
 		<MENU_DESC>Open Order Detail Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_OPNORDDETAIL</TABLE_ID>
 		<HELP_TAG>Open_Order_Detail_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -2225,12 +2216,12 @@
 		<MENU_DESC>Territory Codes</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ARC_TERRCODE    </TABLE_ID>
 		<HELP_TAG>Territory_Codes_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>

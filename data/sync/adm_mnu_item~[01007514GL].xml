@@ -7,12 +7,12 @@
 		<MENU_DESC>Cycle Codes</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLC_CYCLECODE   </TABLE_ID>
 		<HELP_TAG>Cycle_Code_Maintenance7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -63,12 +63,12 @@
 		<MENU_DESC>Transaction History Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLR_TRANSHISTORY</TABLE_ID>
 		<HELP_TAG>Transaction_History_Report7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -118,13 +118,13 @@
 		<MENU_DESC>Total/Report Cross Reference Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>A</OPT_TYPE>
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>[+DIR_PGM]glr_totalsreport.aon</MENU_PROG>
 		<HELP_TAG>Total_Report_Cross_Reference_Report7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -262,12 +262,12 @@
 		<MENU_DESC>Profit and Loss Statement</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLR_PROFITLOSS  </TABLE_ID>
 		<HELP_TAG>Profit_and_Loss_Statement</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -290,12 +290,12 @@
 		<MENU_DESC>Create Budget Revision</MENU_DESC>
 		<IMAGE>im_menui_update.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLU_CREATEBUDGET</TABLE_ID>
 		<HELP_TAG>Create_Budget_Revision</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -402,12 +402,12 @@
 		<MENU_DESC>General Ledger Trial Balance</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLR_TRIALBALANCE</TABLE_ID>
 		<HELP_TAG>General_Ledger_Trial_Balance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -514,13 +514,13 @@
 		<MENU_DESC>Acct/Report Cross Reference Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>A</OPT_TYPE>
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>[+DIR_PGM]glr_acctxref.aon</MENU_PROG>
 		<HELP_TAG>Acct_Report_Cross_Reference_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -543,12 +543,12 @@
 		<MENU_DESC>13 Period Financial Report Printing</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLR_13PERIOD    </TABLE_ID>
 		<HELP_TAG>13_Period_Financial_Report_Printing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -571,12 +571,12 @@
 		<MENU_DESC>Journal ID Codes</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLC_JOURNALCODE </TABLE_ID>
 		<HELP_TAG>Journal_ID_Codes</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -599,12 +599,12 @@
 		<MENU_DESC>Account Allocation Entry</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLE_ALLOCHDR    </TABLE_ID>
 		<HELP_TAG>Account_Allocation_Entry7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -627,12 +627,12 @@
 		<MENU_DESC>Copy Financial Reports</MENU_DESC>
 		<IMAGE>im_menui_utility.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLM_COPYFIN     </TABLE_ID>
 		<HELP_TAG>Copy_Financial_Reports</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -660,7 +660,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLM_ACCT        </TABLE_ID>
 		<HELP_TAG>Account_Master</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -712,12 +712,12 @@
 		<MENU_DESC>Bank Reconciliation</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLM_BANKMASTER  </TABLE_ID>
 		<HELP_TAG>Bank_Reconciliation</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -768,12 +768,12 @@
 		<MENU_DESC>Chart Of Accounts Listing</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLR_ACCTLIST    </TABLE_ID>
 		<HELP_TAG>Chart_of_Accounts_Listing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -796,13 +796,12 @@
 		<MENU_DESC>Budget Maintenance</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLM_BUDGETMAINT </TABLE_ID>
-		<MENU_PROG>glm_ea.aon</MENU_PROG>
 		<HELP_TAG>Budget_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -830,7 +829,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLE_RECJEHDR    </TABLE_ID>
 		<HELP_TAG>Recurring_Journal_Entry_Header7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -937,12 +936,12 @@
 		<MENU_DESC>13 Period Financial Report Printing</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLR_13PERIOD    </TABLE_ID>
 		<HELP_TAG>13_Period_Financial_Report_Printing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -994,12 +993,12 @@
 		<MENU_DESC>Consolidated Acct/Rpt Maintenance</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLM_COFINASSIGN </TABLE_ID>
 		<HELP_TAG>Consolidated_Acct_Rpt_Maintenance7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1022,12 +1021,12 @@
 		<MENU_DESC>Budget Revision Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLR_BUDGETREPORT</TABLE_ID>
 		<HELP_TAG>Budget_Revision</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1106,12 +1105,12 @@
 		<MENU_DESC>Balance Sheet</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLR_BALANCE     </TABLE_ID>
 		<HELP_TAG>Balance_Sheet</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1139,7 +1138,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLM_AUDITCONTROL</TABLE_ID>
 		<HELP_TAG>Posting_Control</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1162,12 +1161,12 @@
 		<MENU_DESC>Financial Report Printing</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLR_FINANCIALS  </TABLE_ID>
 		<HELP_TAG>Financial_Report_Printing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1190,12 +1189,12 @@
 		<MENU_DESC>Financial Report Printing</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLR_FINANCIALS  </TABLE_ID>
 		<HELP_TAG>Financial_Report_Printing1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1218,12 +1217,12 @@
 		<MENU_DESC>Account/Report Maintenance</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLM_FINASSIGN   </TABLE_ID>
 		<HELP_TAG>Account_Report_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1274,13 +1273,13 @@
 		<MENU_DESC>Consolidated Acct/Rpt Xref Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>A</OPT_TYPE>
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>[+DIR_PGM]glr_consacctxref.aon</MENU_PROG>
 		<HELP_TAG>Consolidated_Acct_Rpt_Xref_Report7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1331,12 +1330,12 @@
 		<MENU_DESC>Summary Activity Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLR_SUMMARY     </TABLE_ID>
 		<HELP_TAG>Summary_Activity_Report7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1364,7 +1363,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLM_BUDGETMASTER</TABLE_ID>
 		<HELP_TAG>Revision_Code_Maintenance7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1504,7 +1503,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLM_ACCTSUMHDR  </TABLE_ID>
 		<HELP_TAG>Account_Summary_Activity</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1532,7 +1531,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLM_FINHEADING  </TABLE_ID>
 		<HELP_TAG>Report_Heading7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1582,12 +1581,12 @@
 		<MENU_DESC>Journal Entry</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>GLE_JRNLHDR     </TABLE_ID>
 		<HELP_TAG>Journal_Entry7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>

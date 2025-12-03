@@ -92,12 +92,12 @@
 		<MENU_DESC>Accounts Payable Types</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APC_TYPECODE    </TABLE_ID>
 		<HELP_TAG>Accounts_Payable_Type_Code_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -120,12 +120,12 @@
 		<MENU_DESC>Vendor Comments Listing</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APR_COMMENTS    </TABLE_ID>
 		<HELP_TAG>Vendor_Comments_Listing7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -259,12 +259,12 @@
 		<MENU_DESC>Vendor Name & Address Listing</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APR_NAMEADDRESS </TABLE_ID>
 		<HELP_TAG>Vendor_Name_Address_Listing7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -287,12 +287,12 @@
 		<MENU_DESC>Monthly Check Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APR_CHECKREPORT </TABLE_ID>
 		<HELP_TAG>Monthly_Check_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -320,7 +320,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APM_CCVEND      </TABLE_ID>
 		<HELP_TAG>ap_operations_ap_credit_card_master                             </HELP_TAG>
-		<MULT_PROC>N</MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -349,7 +349,7 @@
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>[+DIR_PGM]apr_approvers.aon</MENU_PROG>
 		<HELP_TAG>User_Authorization_Listing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -372,12 +372,12 @@
 		<MENU_DESC>Invoice Entry</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APE_INVOICEHDR  </TABLE_ID>
 		<HELP_TAG>Invoice_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -400,12 +400,12 @@
 		<MENU_DESC>Purchase Journal</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APR_PURCHASES   </TABLE_ID>
 		<HELP_TAG>Purchase_Journal</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -428,12 +428,12 @@
 		<MENU_DESC>Vendor Detail Listing</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APR_DETAIL      </TABLE_ID>
 		<HELP_TAG>Vendor_Detail_Listing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -456,12 +456,12 @@
 		<MENU_DESC>Payment Groups</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APC_PAYMENTGROUP</TABLE_ID>
 		<HELP_TAG>Payment_Group_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -484,12 +484,12 @@
 		<MENU_DESC>Vendor Ledger Cards</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APR_LEDGERS     </TABLE_ID>
 		<HELP_TAG>Vendor_Ledger_Cards7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -512,12 +512,12 @@
 		<MENU_DESC>Recurring Invoice Entry</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APE_RECURRINGHDR</TABLE_ID>
 		<HELP_TAG>Recurring_Invoice_Entry7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -601,7 +601,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APT_INVHDR_ARC  </TABLE_ID>
 		<HELP_TAG>ap_operations_ap_archived_invoice_inquiry                       </HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -824,7 +824,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APT_INVOICEHDR  </TABLE_ID>
 		<HELP_TAG>apoperations_invoice_history_inquiry_htm</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -908,7 +908,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>IVC_BUYCODE     </TABLE_ID>
 		<HELP_TAG>Buyer_Code_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -960,12 +960,12 @@
 		<MENU_DESC>Vendors</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APM_VENDMAST    </TABLE_ID>
 		<HELP_TAG>Vendor_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -988,12 +988,12 @@
 		<MENU_DESC>Distribution Codes</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APC_DISTRIBUTION</TABLE_ID>
 		<HELP_TAG>Distribution_Code_Maintenance14</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1048,7 +1048,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APC_TERMSCODE   </TABLE_ID>
 		<HELP_TAG>Terms_Code_Maintenance7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1132,7 +1132,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APM_APPROVERS   </TABLE_ID>
 		<HELP_TAG>User_Authorization_Levels</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1211,12 +1211,12 @@
 		<MENU_DESC>Aging Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APR_AGINGREPORT </TABLE_ID>
 		<HELP_TAG>AP_Aging_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1350,12 +1350,12 @@
 		<MENU_DESC>Disbursements Journal</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APR_DISBURSEMNTS</TABLE_ID>
 		<HELP_TAG>Disbursements_Journal7</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1378,12 +1378,12 @@
 		<MENU_DESC>Vendor Label Printing</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APR_LABELS      </TABLE_ID>
 		<HELP_TAG>Vendor_Label_Printing</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1406,12 +1406,12 @@
 		<MENU_DESC>Cash Requirements Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>APR_CASHREQUIRE </TABLE_ID>
 		<HELP_TAG>Cash_Requirements_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>

@@ -64,13 +64,12 @@
 		<MENU_DESC>By Territory/Cust</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_CUSTTERR    </TABLE_ID>
-		<MENU_PROG>sar_ta.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_Territory_Customer</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -93,13 +92,12 @@
 		<MENU_DESC>By Product</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAM_ITEM        </TABLE_ID>
-		<MENU_PROG>sam_ga.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_Product</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -122,12 +120,12 @@
 		<MENU_DESC>By Customer Ship-To</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_CUSTSHIP    </TABLE_ID>
 		<HELP_TAG>Sales_Analysis_By_Customer_Ship_To1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -184,7 +182,7 @@
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>arr_graphicSalesReport.aon</MENU_PROG>
 		<HELP_TAG>saoperations_graphic_sales_report_by_salesperson_htm</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -207,13 +205,12 @@
 		<MENU_DESC>By Distribution Code</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAM_DISTCODE    </TABLE_ID>
-		<MENU_PROG>sam_ja.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_Distribution_Code</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -236,13 +233,12 @@
 		<MENU_DESC>By Stocking Vendor</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAM_VENDOR      </TABLE_ID>
-		<MENU_PROG>sam_ia.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_Stocking_Vendor</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -271,7 +267,7 @@
 		<TABLE_ID>                </TABLE_ID>
 		<MENU_PROG>arr_digitalDashboard.src</MENU_PROG>
 		<HELP_TAG>saoperations_sales_digital_dashboard_sa_htm</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -294,12 +290,12 @@
 		<MENU_DESC>By Distribution Code</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_DISTCODE    </TABLE_ID>
 		<HELP_TAG>Sales_Analysis_By_Distribution_Code1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -322,12 +318,12 @@
 		<MENU_DESC>By Product/Item/Cust</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_PRODITMCST  </TABLE_ID>
 		<HELP_TAG>Sales_Analysis_By_Product_Item_Customer1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -350,12 +346,12 @@
 		<MENU_DESC>By Product</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_ITEM        </TABLE_ID>
 		<HELP_TAG>Sales_Analysis_By_Product1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -378,12 +374,12 @@
 		<MENU_DESC>By Salesperson</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_SALESPSN    </TABLE_ID>
 		<HELP_TAG>Sales_Analysis_By_Salesperson1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -406,13 +402,12 @@
 		<MENU_DESC>By Product/Item/Cust</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAM_PRODITMCST  </TABLE_ID>
-		<MENU_PROG>sam_la.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_Product_Item_Customer</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -463,12 +458,12 @@
 		<MENU_DESC>By Customer</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_CUSTOMER    </TABLE_ID>
 		<HELP_TAG>Sales_Analysis_By_Customer1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -491,12 +486,12 @@
 		<MENU_DESC>By Customer Type</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_CUSTTYPE    </TABLE_ID>
 		<HELP_TAG>Sales_Analysis_By_Customer_Type1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -519,13 +514,12 @@
 		<MENU_DESC>By Salesperson</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAM_SALESPSN    </TABLE_ID>
-		<MENU_PROG>sam_ca.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_Salesperson</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -548,12 +542,12 @@
 		<MENU_DESC>By SIC</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_CUSTSIC     </TABLE_ID>
 		<HELP_TAG>Sales_Analysis_By_SIC1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -576,13 +570,12 @@
 		<MENU_DESC>By Non-Stock Item</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAM_NONSTOCK    </TABLE_ID>
-		<MENU_PROG>sam_ka.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_Non_Stock_Item</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -605,13 +598,12 @@
 		<MENU_DESC>By Territory</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAM_TERRITRY    </TABLE_ID>
-		<MENU_PROG>sam_ba.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_Territory</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -662,12 +654,12 @@
 		<MENU_DESC>By Warehouse</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_WAREHSE     </TABLE_ID>
 		<HELP_TAG>Sales_Analysis_By_Warehouse1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -690,12 +682,12 @@
 		<MENU_DESC>By Territory</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_TERRITORY   </TABLE_ID>
 		<HELP_TAG>Sales_Analysis_By_Territory1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -718,13 +710,12 @@
 		<MENU_DESC>By Customer Ship-To</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAM_CUSTSHIP    </TABLE_ID>
-		<MENU_PROG>sam_ea.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_Customer_Ship_To</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -747,13 +738,12 @@
 		<MENU_DESC>By Warehouse</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAM_WAREHSE     </TABLE_ID>
-		<MENU_PROG>sam_ha.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_Warehouse</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -776,13 +766,12 @@
 		<MENU_DESC>By Customer</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAM_CUSTOMER    </TABLE_ID>
-		<MENU_PROG>sam_aa.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_Customer</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -833,13 +822,12 @@
 		<MENU_DESC>By Customer Type</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAM_CUSTTYPE    </TABLE_ID>
-		<MENU_PROG>sam_da.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_Customer_Type</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -862,13 +850,12 @@
 		<MENU_DESC>By SIC</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAM_CUSTSIC     </TABLE_ID>
-		<MENU_PROG>sam_fa.aon</MENU_PROG>
 		<HELP_TAG>Sales_Analysis_By_SIC</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -891,12 +878,12 @@
 		<MENU_DESC>By Stocking Vendor</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_VENDOR      </TABLE_ID>
 		<HELP_TAG>Sales_Analysis_By_Stocking_Vendor1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -919,12 +906,12 @@
 		<MENU_DESC>By Non-Stock Item</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>SAR_NONSTOCK    </TABLE_ID>
 		<HELP_TAG>Sales_Analysis_By_Non_Stock_Item1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>

@@ -7,13 +7,12 @@
 		<MENU_DESC>Purchase Order Invoice Entry</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POE_INVHDR      </TABLE_ID>
-		<MENU_PROG>poe_ea.aon</MENU_PROG>
 		<HELP_TAG>Purchase_Order_Invoice_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -36,13 +35,12 @@
 		<MENU_DESC>PO Billed Unbilled Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_BILLUNBILL  </TABLE_ID>
-		<MENU_PROG>por_ta.aon</MENU_PROG>
 		<HELP_TAG>Billed_Unbilled_PO_Receipts_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -125,7 +123,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POM_CAL_MAINT   </TABLE_ID>
 		<HELP_TAG>Purchase_Calendar_Maintenance                                   </HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -204,13 +202,12 @@
 		<MENU_DESC>PO Cash Requirements Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_POCASHREQMT </TABLE_ID>
-		<MENU_PROG>por_ma.aon</MENU_PROG>
 		<HELP_TAG>PO_Cash_Requirements_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -233,13 +230,12 @@
 		<MENU_DESC>Print Purchase Calendar</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_CALENDAR    </TABLE_ID>
-		<MENU_PROG>por_ua.aon</MENU_PROG>
 		<HELP_TAG>Print_Purchase_Calendar</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -374,13 +370,12 @@
 		<MENU_DESC>PO Status Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_POSTATUS    </TABLE_ID>
-		<MENU_PROG>por_la.aon</MENU_PROG>
 		<HELP_TAG>Purchase_Order_Status_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -408,7 +403,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POC_MESSAGE     </TABLE_ID>
 		<HELP_TAG>Message_Code_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -431,13 +426,12 @@
 		<MENU_DESC>Replenishment Selection Options</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POE_REPLENSELECT</TABLE_ID>
-		<MENU_PROG>poe_fa.aon</MENU_PROG>
 		<HELP_TAG>Replenishment_Selection_Options</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -460,13 +454,12 @@
 		<MENU_DESC>PO Expediting Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_POEXPEDITE  </TABLE_ID>
-		<MENU_PROG>por_ka.aon</MENU_PROG>
 		<HELP_TAG>PO_Expediting_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -516,13 +509,12 @@
 		<MENU_DESC>Open Purchase Orders</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_OPENPO      </TABLE_ID>
-		<MENU_PROG>por_ia.aon</MENU_PROG>
 		<HELP_TAG>Open_Purchase_Orders_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -545,13 +537,12 @@
 		<MENU_DESC>PO Receipt Cost Variance</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_RECVARYCOST </TABLE_ID>
-		<MENU_PROG>por_oa.aon</MENU_PROG>
 		<HELP_TAG>PO_Receipt_Cost_Variance_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -579,7 +570,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POT_POHDR_ARC   </TABLE_ID>
 		<HELP_TAG>po_operations_archived_po_inquiry                               </HELP_TAG>
-		<MULT_PROC>N</MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -658,13 +649,12 @@
 		<MENU_DESC>Purchase Requisition Entry</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POE_REQHDR      </TABLE_ID>
-		<MENU_PROG>poe_aa.aon</MENU_PROG>
 		<HELP_TAG>Purchase_Requisition_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -692,7 +682,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POT_REQHDR_ARC  </TABLE_ID>
 		<HELP_TAG>po_operations_archived_purchase_requisition_inquiry             </HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -720,7 +710,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POE_ROGHDR      </TABLE_ID>
 		<HELP_TAG>PO_Return_Of_Goods_Entry                                        </HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -771,13 +761,12 @@
 		<MENU_DESC>Open PO Requisitions</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_OPENREQSN   </TABLE_ID>
-		<MENU_PROG>por_ga.aon</MENU_PROG>
 		<HELP_TAG>Open_PO_Requisitions</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -804,9 +793,8 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_HISTBYVEND  </TABLE_ID>
-		<MENU_PROG>por_pa.aon</MENU_PROG>
 		<HELP_TAG>PO_Receipt_History_By_Vendor_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -834,7 +822,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POT_INVHDR      </TABLE_ID>
 		<HELP_TAG>PO_Invoice_History_Inquiry1</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -886,13 +874,12 @@
 		<MENU_DESC>Purchase Order Line Codes</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POC_LINECODE    </TABLE_ID>
-		<MENU_PROG>ope_ca.aon</MENU_PROG>
 		<HELP_TAG>Purchase_Order_Line_Code_Maintenance</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -944,13 +931,12 @@
 		<MENU_DESC>Purchase Order Entry</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POE_POHDR       </TABLE_ID>
-		<MENU_PROG>poe_ba.aon</MENU_PROG>
 		<HELP_TAG>Purchase_Order_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -973,13 +959,12 @@
 		<MENU_DESC>Requisitions By Item</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_REQBYITEM   </TABLE_ID>
-		<MENU_PROG>por_ha.aon</MENU_PROG>
 		<HELP_TAG>Requisitions_By_Item_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1030,13 +1015,12 @@
 		<MENU_DESC>Purchase Order Receipt Entry</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POE_RECHDR      </TABLE_ID>
-		<MENU_PROG>poe_da.aon</MENU_PROG>
 		<HELP_TAG>Purchase_Order_Receipt_Entry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1059,13 +1043,12 @@
 		<MENU_DESC>Create Purchase Calendar</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POM_MAKECAL     </TABLE_ID>
-		<MENU_PROG>pom_aa.aon</MENU_PROG>
 		<HELP_TAG>Create_Purchase_Calendar</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1093,7 +1076,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POT_RECHDR      </TABLE_ID>
 		<HELP_TAG>PO_Receipt_History_Inquiry</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1116,13 +1099,12 @@
 		<MENU_DESC>PO Receipt History By Item</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_HISTBYITEM  </TABLE_ID>
-		<MENU_PROG>por_qa.aon</MENU_PROG>
 		<HELP_TAG>PO_Receipt_History_By_Item_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1172,13 +1154,12 @@
 		<MENU_DESC>Purchase Order Print</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_POPRINT     </TABLE_ID>
-		<MENU_PROG>por_ba.aon</MENU_PROG>
 		<HELP_TAG>Purchase_Order_Print</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1201,13 +1182,12 @@
 		<MENU_DESC>Purchase Orders By Item</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_POBYITEM    </TABLE_ID>
-		<MENU_PROG>por_ja.aon</MENU_PROG>
 		<HELP_TAG>Purchase_Orders_By_Item_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1259,13 +1239,12 @@
 		<MENU_DESC>Purchase Requisition Print</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_REQPRINT    </TABLE_ID>
-		<MENU_PROG>por_reqprint.aon</MENU_PROG>
 		<HELP_TAG>Purchase_Requisition_Print</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1374,7 +1353,7 @@
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POC_PURCHAGENTCD</TABLE_ID>
 		<HELP_TAG>pooperations_purchasing_agent_codes_htm</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
@@ -1397,13 +1376,12 @@
 		<MENU_DESC>PO Receipt Variance</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND>N</EXPAND>
+		<EXPAND> </EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>POR_RECVARY     </TABLE_ID>
-		<MENU_PROG>por_na.aon</MENU_PROG>
 		<HELP_TAG>PO_Receipt_Variance_Report</HELP_TAG>
-		<MULT_PROC> </MULT_PROC>
+		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
 		<NO_SDI> </NO_SDI>
 		<NO_MDI> </NO_MDI>
