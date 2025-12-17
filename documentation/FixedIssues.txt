@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-11-18
+ Report Date:   2025-12-17
  Report Branch: AddonSoftware 25.11
  Last Release:  AddonSoftware 25.10
 =======================================================================================================================================
@@ -13,7 +13,24 @@ Author: Bill Halsted <bhalsted@basis.cloud>
 Date: 11/18/2025 12:04:37 PM
 Message:
 ER 11110: Corrected typo syntax error introduced in v25.10.
-
 ----
 Modified: ad/src/adc_addTemplates.aon
+=======================================================================================================================================
+
+Revision: 6692aedebb2c36612bab9646cc51525250a8d146
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 12/17/2025 10:58:36 AM
+Message:
+Bug 11139: On the Work Order Close form enabled lot/serial option for
+lotted/serialized items. Eliminated the form freeze when reopening a
+previously closed WO. On the lot/serial grid eliminated the mismatched
+quantities warning when the grid initially launches.
+----
+Modified: data/bar/sfe_woclose.xml
+Modified: data/bar/sfe_wolotser.xml
+Modified: data/cdf/sfe_woclose.cdf
+Modified: data/cdf/sfe_wolotser.cdf
+Modified: data/sync/ads_messages~[01007514SF].xml
+Modified: prop/addon.properties
+Modified: prop/addon_en.properties
 =======================================================================================================================================
