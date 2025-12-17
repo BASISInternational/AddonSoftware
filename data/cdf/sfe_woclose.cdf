@@ -32,11 +32,12 @@ rem --- Work order scheduled to be closed?
 		if msg_opt$="Y" then
 			rem --- Reopen work order
 			remove(closedwo_dev,key=firm_id$+wo_location$+wo_no$,dom=*next)
-			callpoint!.setColumnData("SFE_WOCLOSE.CLS_INP_DATE","",1)
-			callpoint!.setColumnData("SFE_WOCLOSE.COMPLETE_FLG","N",1)
-			callpoint!.setColumnData("SFE_WOCLOSE.CLS_INP_QTY","0",1)
-			callpoint!.setColumnData("SFE_WOCLOSE.CLOSED_COST","0",1)
-			callpoint!.setStatus("REFRESH-SAVE")
+			sfe_woclose_dev=fnget_dev("SFE_WOCLOSE")
+			rec_data.complete_flg$="N"
+			rec_data.cls_inp_date$=""
+			rec_data.cls_inp_qty=0
+			rec_data.closed_cost=0
+			writerecord(sfe_woclose_dev)rec_data$
 			callpoint!.setDevObject("set_status_save",1)
 
 			rem --- Clear close entries for serial/lot numbers for this work order
@@ -54,6 +55,8 @@ rem --- Work order scheduled to be closed?
 					writerecord(wolotser_dev)wolotser$
 				wend
 			endif
+
+			callpoint!.setStatus("NEWREC")
 		endif
 	endif
 
@@ -424,7 +427,19 @@ rem --- Recalculate standards
 rem --- Lot/serial processing if needed
 	if callpoint!.getColumnData("SFE_WOCLOSE.WO_CATEGORY")="I" and 
 :	pos(callpoint!.getColumnData("SFE_WOCLOSE.LOTSER_FLAG")="LS") then
-		gosub do_wolotser
+		rem --- Launch WO lotser grid if it hasn't been launched yet
+		if callpoint!.getDevObject("wo_sch_qty")=null() or callpoint!.getDevObject("wo_close_qty")=null() or
+:		callpoint!.getDevObject("ls_sch_qty")=null() or callpoint!.getDevObject("ls_close_qty")=null() then
+			gosub do_wolotser
+		endif
+
+		rem --- Warn there are missing lot/serial numbers, so the register update cannot be run.
+		wo_close_qty=num(callpoint!.getDevObject("cls_inp_qty"))
+		ls_close_qty=callpoint!.getDevObject("ls_close_qty")
+		if ls_close_qty<>wo_close_qty then
+       			msg_id$="SF_MISSING_LOTSER_NO"
+        			gosub disp_message
+		endif 
 	endif
 
 [[SFE_WOCLOSE.BOVE]]
@@ -520,6 +535,7 @@ rem --- Get IV parameters
 	precision num(precision$)
 	cost_method$=ivs_params.cost_method$
 	callpoint!.setDevObject("cost_method",cost_method$)
+	callpoint!.setDevObject("ask_close_question","0")
 
 rem --- Additional file opens
 	num_files=4
@@ -590,6 +606,12 @@ rem --- Close this work order?
 				rem --- Done with this work order
 				callpoint!.setStatus("NEWREC")
 				break
+			endif
+
+			rem -- Enable lot/serial option for lotted/serialized items
+			if callpoint!.getColumnData("SFE_WOCLOSE.WO_CATEGORY")="I" and 
+:			pos(callpoint!.getColumnData("SFE_WOCLOSE.LOTSER_FLAG")="LS") then
+				callpoint!.setOptionEnabled("LSNO",1)
 			endif
 		endif
 	endif

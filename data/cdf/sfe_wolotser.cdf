@@ -20,12 +20,6 @@ rem --- Initialize complete flag as necessary
 	endif
 
 [[SFE_WOLOTSER.AGRN]]
-rem --- Validate lot/serial quantities the first time in the grid
-	if callpoint!.getDevObject("check_ls_qty") then
-		callpoint!.setDevObject("check_ls_qty",0)
-		gosub validate_ls_qty
-	endif
-
 rem --- Enable/disable additional options
 	gosub enable_options
 
@@ -202,7 +196,6 @@ rem --- Disable sch_prod_qty field if serialized
 
 rem --- Get how many lot/serial items need to be closed
 	gosub get_close_qty_needed
-	callpoint!.setDevObject("check_ls_qty",1)
 
 rem --- Enable/disable additional options
 	gosub enable_options
@@ -249,22 +242,6 @@ rem --- Validate this cls_inp_qty if changed
 
 		rem --- Enable/disable additional options
 		gosub enable_options
-
-		rem --- Validate this_cls_inp_qty
-		if this_cls_inp_qty+this_ls_cls_todt<this_ls_sch_qty then
-			msg_id$="SF_LS_CLS_LT_LS_SCH"
-			dim msg_tokens$[2]
-			msg_tokens$[1]=cvs(str(this_cls_inp_qty+this_ls_cls_todt:sf_units_mask$),3)
-			msg_tokens$[2]=cvs(str(this_ls_sch_qty:sf_units_mask$),3)
-			gosub disp_message
-		endif
-		if this_cls_inp_qty+this_ls_cls_todt>this_ls_sch_qty then
-			msg_id$="SF_LS_CLS_GT_LS_SCH"
-			dim msg_tokens$[2]
-			msg_tokens$[1]=cvs(str(this_cls_inp_qty+this_ls_cls_todt:sf_units_mask$),3)
-			msg_tokens$[2]=cvs(str(this_ls_sch_qty:sf_units_mask$),3)
-			gosub disp_message
-		endif
 	endif
 
 [[SFE_WOLOTSER.CLS_INP_QTY.BINP]]
@@ -279,11 +256,6 @@ rem --- Capture current lot/ser cls_inpt_qty so can make adjustments if it gets 
 		this_cls_inp_qty=this_ls_sch_qty-this_ls_cls_todt
 		callpoint!.setColumnData("SFE_WOLOTSER.CLS_INP_QTY",str(this_cls_inp_qty),1)
 		callpoint!.setStatus("MODIFIED")
-
-		rem --- Adjust how many lot/serial items have been closed
-		ls_close_qty=callpoint!.getDevObject("ls_close_qty")
-		ls_close_qty=ls_close_qty+(this_ls_sch_qty-this_ls_cls_todt)
-		callpoint!.setDevObject("ls_close_qty",ls_close_qty)
 
 		rem --- Update complete flag and closed cost
 		this_ls_sch_qty=num(callpoint!.getColumnData("SFE_WOLOTSER.SCH_PROD_QTY"))
@@ -332,6 +304,7 @@ rem --- Do not validate unless lotser_no has changed
 	lotser_no$=callpoint!.getUserInput()
 	prev_lotser_no$=callpoint!.getDevObject("prev_lotser_no")
 	if lotser_no$=prev_lotser_no$ then break
+	if cvs(prev_lotser_no$,2)="" and cvs(lotser_no$,2)<>"" then break; rem --- Barista can execute AVAL without executing BINP
 
 rem --- Verify lot/serial not currently in inventory
 	lsmaster_dev=fnget_dev("@IVM_LSMASTER")
@@ -434,10 +407,10 @@ rem --- Capture current lotser_no so can skip validation if it hasn't changed
 	callpoint!.setDevObject("prev_lotser_no",prev_lotser_no$)
 
 [[SFE_WOLOTSER.SCH_PROD_QTY.AVAL]]
-rem --- Validate this sch_prod_qty if changed
+rem --- Validate this sch_prod_qty if changed for lotser items
 	this_ls_sch_qty=num(callpoint!.getUserInput())
 	prev_ls_sch_qty=callpoint!.getDevObject("prev_ls_sch_qty")
-	if this_ls_sch_qty<>prev_ls_sch_qty then
+	if this_ls_sch_qty<>prev_ls_sch_qty  and callpoint!.getDevObject("lotser")="L" then
 		rem --- Adjust how many lot/serial items have been scheduled
 		ls_sch_qty=callpoint!.getDevObject("ls_sch_qty")
 		ls_sch_qty=ls_sch_qty+(this_ls_sch_qty-prev_ls_sch_qty)
@@ -448,17 +421,17 @@ rem --- Validate this sch_prod_qty if changed
 
 		rem --- Validate this_ls_sch_qty
 		wo_close_qty=num(callpoint!.getDevObject("cls_inp_qty"))
-		if this_ls_sch_qty<wo_close_qty then
+		if ls_sch_qty<wo_close_qty then
 			msg_id$="SF_LS_SCH_LT_WO_CLS"
 			dim msg_tokens$[2]
-			msg_tokens$[1]=cvs(str(this_ls_sch_qty:sf_units_mask$),3)
-			msg_tokens$[2]=cvs(str(ls_close_qty:sf_units_mask$),3)
+			msg_tokens$[1]=cvs(str(ls_sch_qty:sf_units_mask$),3)
+			msg_tokens$[2]=cvs(str(wo_close_qty:sf_units_mask$),3)
 			gosub disp_message
 		endif
 		if this_ls_sch_qty>wo_close_qty then
 			msg_id$="SF_LS_SCH_GT_WO_CLS"
 			dim msg_tokens$[2]
-			msg_tokens$[1]=cvs(str(this_ls_sch_qty:sf_units_mask$),3)
+			msg_tokens$[1]=cvs(str(ls_sch_qty:sf_units_mask$),3)
 			msg_tokens$[2]=cvs(str(wo_close_qty:sf_units_mask$),3)
 			gosub disp_message
 		endif
@@ -474,14 +447,10 @@ rem --- Initialize sch_prod_qty for lotted item
 		wo_close_qty=num(callpoint!.getDevObject("cls_inp_qty"))
 		if callpoint!.getDevObject("wolotser_action")="close" then
 			rem --- Only being used with sfe_woclose form
-			ls_close_qty=callpoint!.getDevObject("ls_close_qty")
-			callpoint!.setColumnData("SFE_WOLOTSER.SCH_PROD_QTY",str(wo_close_qty-ls_close_qty),1)
-			callpoint!.setStatus("MODIFIED")
 
-			rem --- Adjust how many lot/serial items have been scheduled
 			ls_sch_qty=callpoint!.getDevObject("ls_sch_qty")
-			ls_sch_qty=ls_sch_qty+(wo_close_qty-ls_close_qty)
-			callpoint!.setDevObject("ls_sch_qty",ls_sch_qty)
+			callpoint!.setColumnData("SFE_WOLOTSER.SCH_PROD_QTY",str(wo_close_qty-ls_sch_qty),1)
+			callpoint!.setStatus("MODIFIED")
 
 			rem --- Enable/disable additional options
 			gosub enable_options
