@@ -33,9 +33,6 @@
 
     <property name="doc.dir"          value="documentation"/>
 
-    <property name="images.dir"          value="${bbj.src.dir}/install/images"/>
-    <property name="templates.dir"       value="${bbj.src.dir}/install/templates"/>
-
     <property name="work.dir"   value="${base.build}/work"/>
 
     <property name="display" value=":99.0"/>
@@ -226,13 +223,6 @@
             <arg value="-addon"/>
         </java>
 
-        <!-- Addon Images -->
-        <copy preserveLastModified="true"
-              todir="${addon.bbj.dir}/images">
-              <fileset file="${images.dir}/AddonSoftware.xpm"/>
-              <fileset file="${images.dir}/Documentation.xpm"/>
-        </copy>
-
         <!-- Addon Docs -->
 
         <!-- The addon archive has a AddonHelp.jar placeholder file, delete it -->
@@ -314,65 +304,6 @@
 
     </target>
     <!-- End of copyPRbabs -->
-    <!-- ====================================== -->
-
-
-
-    <!-- ====================================== -->
-    <!-- copy Images -->
-    <target name="copyImages">
-
-        <copy preserveLastModified="true"
-              todir="${addon.dir}/unix/images">
-              <fileset file="${images.dir}/AddonSoftware.xpm"/>
-              <fileset file="${images.dir}/AddonDev.png"/>
-              <fileset file="${images.dir}/Documentation.xpm"/>
-        </copy>
-        <copy preserveLastModified="true"
-              todir="${addon.dir}/${port.MAC}/images">
-              <fileset file="${images.dir}/AddonDev.icns"/>
-              <fileset file="${images.dir}/AddonSoftware.icns"/>
-        </copy>
-        <copy preserveLastModified="true"
-              todir="${addon.dir}/${port.WIN}/images">
-              <fileset file="${images.dir}/AddonDev.ico"/>
-              <fileset file="${images.dir}/AddonSoftware.ico"/>
-              <fileset file="${images.dir}/Documentation.ico"/>
-        </copy>
-    </target>
-    <!-- End of copy Images -->
-    <!-- ====================================== -->
-
-
-
-    <!-- ====================================== -->
-    <!-- copy Scripts -->
-    <target name="copyScripts">
-        <!-- Generic Unix Scripts -->
-        <copy preserveLastModified="true"
-              todir="${addon.dir}/unix/bin">
-              <fileset file="${templates.dir}/addon"/>
-        </copy>
-        <copy preserveLastModified="true"
-              todir="${addon.dir}/unix/bin">
-              <fileset file="${templates.dir}/addondeveloper"/>
-        </copy>
-
-        <!-- Specific Unix Scripts -->
-
-        <!-- Mac Shortcuts -->
-        <copy preserveLastModified="true"
-              todir="${addon.dir}/${port.MAC}/apps">
-              <fileset dir="${templates.dir}/mac"
-                       includes="AddonSoftware.app/"/>
-        </copy>
-        <copy preserveLastModified="true"
-              todir="${addon.dir}/${port.MAC}/apps">
-              <fileset dir="${templates.dir}/mac"
-                       includes="AddonSoftwareDeveloper.app/"/>
-        </copy>
-    </target>
-    <!-- End of copyScripts -->
     <!-- ====================================== -->
 
 
@@ -775,8 +706,6 @@ ulimit -n 10000]]></replacevalue>
                      copyAddon,
                      copyPRbabs,
                      copyAddonSync,
-                     copyImages,
-                     copyScripts,
                      jar">
     </target>
     <!-- End of build Addon  -->
