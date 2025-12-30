@@ -134,7 +134,7 @@ print_head: rem --- Print
             xwk = fnblank(2)
         endif
       
-        OutVect!.addItem(bmm02a.bill_no$(1,p[0]))
+        OutVect!.addItem(bmm02a.bill_no$)
         OutVect!.addItem(d1$)
 		if cvs(bmm02a.effect_date$,3)=""
 			OutVect!.addItem("")
