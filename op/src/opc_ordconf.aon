@@ -178,10 +178,8 @@ rem --- Set Report Name & Subreport directory
     close (temp)
     reportBaseName$ = "OPOrderConfHdr"
     filename$ = reportDir$ + reportBaseName$ + ".jasper"
-rem wgh ... 10666 ...
     masterBaseName$ = "OPOrderConfMaster"
     master_filename$ = reportDir$ + masterBaseName$+".jasper"
-rem wgh ... 10666 ...
     printBaseName$ = "OPOrderConfPrint"
     print_filename$ = reportDir$ + printBaseName$+".jasper"    
 
