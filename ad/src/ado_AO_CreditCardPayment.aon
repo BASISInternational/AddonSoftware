@@ -306,19 +306,19 @@ close_error:rem --- Method error trap/handler (11Oct2017)
     throw "["+pgm(-2)+"] "+str(tcb(5))+": "+rd_err_text$,err_num
         methodend
 
-rem wgh ... 11078 ... testing
+rem --- method for testing
 method public Customer getCustomer()
 
     methodret #customer!
 methodend
 
-rem wgh ... 11078 ... testing
+rem --- method for testing
 method public CustomerCard getCustomerCard()
 
     methodret #customerCard!
 methodend
 
-rem wgh ... 11078 ... testing
+rem --- method for testing
 method public HashMap getGwConfig()
 
     methodret #gw_config!
