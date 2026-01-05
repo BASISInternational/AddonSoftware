@@ -477,7 +477,7 @@ rem --- New materials issues entry or no existing materials issues
 					findrecord(ivm_itemwhse_dev,key=firm_id$+sfe_womatisd.warehouse_id$+sfe_womatisd.item_id$,dom=*next)ivm_itemwhse$
 
 					if sfe_womastr.sch_prod_qty=0 then sfe_womastr.sch_prod_qty=1
-					sfe_womatisd.qty_issued=min(sfe_womatisd.qty_ordered-sfe_womatisd.tot_qty_iss,sfe_womatisd.qty_ordered*qty_to_issue/sfe_womastr.sch_prod_qty)
+					sfe_womatisd.qty_issued=qty_to_issue
 					sfe_womatisd.issue_cost=ivm_itemwhse.unit_cost
 
 					writerecord(sfe_womatisd_dev)sfe_womatisd$

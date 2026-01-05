@@ -255,6 +255,13 @@ update_warehouse_record: rem --- Update Item/Warehouse Information
     refs[0]=-(sfe25a.qty_issued)
     refs[1]=sfe25a.issue_cost
     gosub inventory_update
+    
+    rem --- Were more issued (uncommitted) than ordered (committed)
+    if sfe25a.qty_issued+sfe25a.tot_qty_iss>sfe25a.qty_ordered then
+        rem --- Adjust committed quantity for difference between ordered and issued quantities
+        overissued=sfe25a.qty_issued+sfe25a.tot_qty_iss-sfe25a.qty_ordered
+        gosub recommit_overissued
+    endif
     return                                                  
 
 update_lotser_record: rem --- Update Lot/Serial Information 
@@ -278,6 +285,12 @@ inventory_update: rem --- Perform Inventory Update
     call pgmdir$+"ivc_itemupdt.aon",action$,ivfiles[all],ivs01a$,items$[all],refs$[all],refs[all],table_chans$[all],status
     updated_unit_cost=refs[1]
     return                                                  
+
+recommit_overissued: rem --- Re-commit overissued quantity
+    items$[3]=ls_nbr$
+    refs[0]=overissued
+    call pgmdir$+"ivc_itemupdt.aon","CO",ivfiles[all],ivs01a$,items$[all],refs$[all],refs[all],table_chans$[all],status
+    return
 
 disp_message: rem --- Display Message Dialog
 
