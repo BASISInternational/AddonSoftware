@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2025-12-30
+ Report Date:   2026-01-05
  Report Branch: AddonSoftware 25.11
  Last Release:  AddonSoftware 25.10
 =======================================================================================================================================
@@ -44,3 +44,19 @@ Bug 11143: Use full size of bmm02a.bill_no$ in OutVect!
 Modified: bm/src/bmr_materialused_o1.aon
 =======================================================================================================================================
 
+Revision: cea5fdab43128ec5ee51bf51ebf4a83cf29d377a
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/5/2026 2:33:32 PM
+Message:
+Bug 11144: Modified SF Material Issues Entry and update to handle
+issuing more of an item than was ordered.
+----
+Modified: data/bar/sfe_womatish.xml
+Modified: data/bar/sfe_womatiso.xml
+Modified: data/cdf/sfe_womatish.cdf
+Modified: data/cdf/sfe_womatiso.cdf
+Modified: data/sync/ads_messages~[01007514AD].xml
+Modified: prop/addon.properties
+Modified: prop/addon_en.properties
+Modified: sf/src/sfu_womatissu.aon
+=======================================================================================================================================
