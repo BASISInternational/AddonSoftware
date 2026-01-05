@@ -1,61 +1,3 @@
-[[SFE_WOMATISO.BEND]]
-rem --- Clear qty_to_issue and girdOps! if did not push OK button, i.e. hit Cancel or Exit
-
-	if callpoint!.getDevObject("did_asva")<>"y" then
-		callpoint!.setDevObject("qty_to_issue",0)
-
-		selected_ops!=callpoint!.getDevObject("selected_ops")
-		iter!=selected_ops!.keySet().iterator()
-		while iter!.hasNext()
-			op_seq$=iter!.next()
-			selected_ops!.put(op_seq$,"")
-		wend
-		callpoint!.setDevObject("selected_ops",selected_ops!)
-	endif
-[[SFE_WOMATISO.ASVA]]
-rem --- Validate qty_to_issue
-
-	qty_to_issue=num(callpoint!.getColumnData("SFE_WOMATISO.QTY_TO_ISSUE"))
-	gosub validate_qty_to_issue
-	if !issue_qty_ok then
-		callpoint!.setFocus("SFE_WOMATISO.QTY_TO_ISSUE")
-		break
-	endif
-
-	callpoint!.setDevObject("did_asva","y")
-	callpoint!.setStatus("EXIT")
-[[SFE_WOMATISO.QTY_TO_ISSUE.AVAL]]
-rem --- Validate qty_to_issue
-
-	qty_to_issue=num(callpoint!.getUserInput())
-	gosub validate_qty_to_issue
-	if !issue_qty_ok then
-		break
-	endif
-
-	callpoint!.setDevObject("qty_to_issue",qty_to_issue)
-
-[[SFE_WOMATISO.AREC]]
-rem --- Intialize qty_remain and qty_to_issue fields
-
-	qty_remain=callpoint!.getDevObject("qty_remain")
-	callpoint!.setColumnData("<<DISPLAY>>.QTY_REMAIN",str(qty_remain),1)
-	callpoint!.setColumnData("SFE_WOMATISO.QTY_TO_ISSUE",str(qty_remain),1)
-	callpoint!.setDevObject("qty_to_issue",qty_remain)
-
-rem --- Set flag to capture when OK button is pushed
-
-	callpoint!.setDevObject("did_asva","n")
-[[SFE_WOMATISO.BSHO]]
-rem --- Initialize remaining quantity that can be issued
-
-	sfe_womastr_dev=fnget_dev("SFE_WOMASTR")
-	dim sfe_womastr$:fnget_tpl$("SFE_WOMASTR")
-
-	firm_loc_wo$=callpoint!.getDevObject("firm_loc_wo")
-	findrecord(sfe_womastr_dev,key=firm_loc_wo$,dom=*next)sfe_womastr$
-
-	callpoint!.setDevObject("qty_remain",sfe_womastr.sch_prod_qty-sfe_womastr.qty_cls_todt)
 [[SFE_WOMATISO.ACUS]]
 rem --- Process custom event
 
@@ -84,6 +26,98 @@ rem See basis docs notice() function, noticetpl() function, notify event, grid c
 			if notice.col=0 then gosub switch_value
 			break
 	swend
+
+[[SFE_WOMATISO.AREC]]
+rem --- Intialize qty_remain and qty_to_issue fields
+
+	qty_remain=callpoint!.getDevObject("qty_remain")
+	callpoint!.setColumnData("<<DISPLAY>>.QTY_REMAIN",str(qty_remain),1)
+	callpoint!.setColumnData("SFE_WOMATISO.QTY_TO_ISSUE",str(qty_remain),1)
+	callpoint!.setDevObject("qty_to_issue",qty_remain)
+
+rem --- Set flag to capture when OK button is pushed
+
+	callpoint!.setDevObject("did_asva","n")
+
+[[SFE_WOMATISO.ASVA]]
+rem --- Validate qty_to_issue
+
+	qty_to_issue=num(callpoint!.getColumnData("SFE_WOMATISO.QTY_TO_ISSUE"))
+	gosub validate_qty_to_issue
+	if !issue_qty_ok then
+		callpoint!.setFocus("SFE_WOMATISO.QTY_TO_ISSUE")
+		break
+	endif
+
+	callpoint!.setDevObject("did_asva","y")
+	callpoint!.setStatus("EXIT")
+
+[[SFE_WOMATISO.AWIN]]
+rem --- Add grid to form for selecting Operations
+
+	use java.util.Iterator
+	use java.util.HashMap
+	use ::ado_util.src::util
+
+	nxt_ctlID=num(stbl("+CUSTOM_CTL",err=std_error))
+	gridOps!=Form!.addGrid(nxt_ctlID,10,60,400,200); rem --- ID, x, y, width, height
+	callpoint!.setDevObject("gridOps",gridOps!)
+	callpoint!.setDevObject("ops_grid_id",str(nxt_ctlID))
+
+	gosub format_grid
+	gridOps!.setColumnStyle(0,SysGUI!.GRID_STYLE_UNCHECKED)
+	gridOps!.setColumnEditable(0,1)
+
+	rem --- HashMap to hold internal_seq_no for selected grid rows
+	selected_ops!=new HashMap()
+	callpoint!.setDevObject("selected_ops",selected_ops!)
+
+	gosub fill_grid
+	util.resizeWindow(Form!, SysGui!)
+
+	rem --- Set callbacks - processed in ACUS callpoint
+	gridOps!.setCallback(gridOps!.ON_GRID_KEY_PRESS,"custom_event")		
+	gridOps!.setCallback(gridOps!.ON_GRID_MOUSE_UP,"custom_event")
+
+[[SFE_WOMATISO.BEND]]
+rem --- Clear qty_to_issue and girdOps! if did not push OK button, i.e. hit Cancel or Exit
+
+	if callpoint!.getDevObject("did_asva")<>"y" then
+		msg_id$="AD_EXIT_WITHOUT_SAVE"
+		gosub disp_message
+		if msg_opt$="N" then
+			callpoint!.setStatus("ABORT")
+			break
+		else
+			rem --- Abandon changes
+			callpoint!.setDevObject("qty_to_issue",0)
+
+			selected_ops!=callpoint!.getDevObject("selected_ops")
+			iter!=selected_ops!.keySet().iterator()
+			while iter!.hasNext()
+				op_seq$=iter!.next()
+				selected_ops!.put(op_seq$,"")
+			wend
+			callpoint!.setDevObject("selected_ops",selected_ops!)
+		endif
+	endif
+
+[[SFE_WOMATISO.BSHO]]
+rem --- Initialize remaining quantity that can be issued
+
+	sfe_womastr_dev=fnget_dev("SFE_WOMASTR")
+	dim sfe_womastr$:fnget_tpl$("SFE_WOMASTR")
+
+	firm_loc_wo$=callpoint!.getDevObject("firm_loc_wo")
+	findrecord(sfe_womastr_dev,key=firm_loc_wo$,dom=*next)sfe_womastr$
+
+	callpoint!.setDevObject("qty_remain",sfe_womastr.sch_prod_qty-sfe_womastr.qty_cls_todt)
+
+[[SFE_WOMATISO.QTY_TO_ISSUE.AVAL]]
+rem --- Capture qty_to_issue
+	qty_to_issue=num(callpoint!.getUserInput())
+	callpoint!.setDevObject("qty_to_issue",qty_to_issue)
+
 [[SFE_WOMATISO.<CUSTOM>]]
 format_grid: rem --- Format grid
 
@@ -223,29 +257,6 @@ validate_qty_to_issue: rem --- Validate qty_to_issue
 	endif
 
 	return
-[[SFE_WOMATISO.AWIN]]
-rem --- Add grid to form for selecting Operations
 
-	use java.util.Iterator
-	use java.util.HashMap
-	use ::ado_util.src::util
 
-	nxt_ctlID=num(stbl("+CUSTOM_CTL",err=std_error))
-	gridOps!=Form!.addGrid(nxt_ctlID,10,60,400,200); rem --- ID, x, y, width, height
-	callpoint!.setDevObject("gridOps",gridOps!)
-	callpoint!.setDevObject("ops_grid_id",str(nxt_ctlID))
 
-	gosub format_grid
-	gridOps!.setColumnStyle(0,SysGUI!.GRID_STYLE_UNCHECKED)
-	gridOps!.setColumnEditable(0,1)
-
-	rem --- HashMap to hold internal_seq_no for selected grid rows
-	selected_ops!=new HashMap()
-	callpoint!.setDevObject("selected_ops",selected_ops!)
-
-	gosub fill_grid
-	util.resizeWindow(Form!, SysGui!)
-
-	rem --- Set callbacks - processed in ACUS callpoint
-	gridOps!.setCallback(gridOps!.ON_GRID_KEY_PRESS,"custom_event")		
-	gridOps!.setCallback(gridOps!.ON_GRID_MOUSE_UP,"custom_event")
