@@ -353,7 +353,11 @@ rem --- Set a flag for non-inventoried items
 
 rem --- No Serial/lot lookup for non-invent items
 	
-	if user_tpl.non_inventory then callpoint!.setOptionEnabled("LLOK", 0)
+	if user_tpl.non_inventory then
+		callpoint!.setOptionEnabled("LLOK", 0)
+	else
+		callpoint!.setOptionEnabled("LLOK", 1)
+	endif
 
 rem --- Create a HashMap so that we know what's been committed during this session
 
@@ -411,28 +415,28 @@ rem --- Validate open lot number
 	if got_rec$ = "N" then
 		msg_id$ = "IV_LOT_MUST_EXIST"
 		gosub disp_message
-		callpoint!.setStatus("ABORT")
+		callpoint!.setFocus(callpoint!.getValidationRow(),"OPE_ORDLSDET.LOTSER_NO",1)
 		break; rem --- exit callpoint
 	endif
 
 	if lsmast_tpl.closed_flag$ = "C" and ord_qty > 0 then
 		msg_id$ = "IV_SERLOT_CLOSED"
 		gosub disp_message
-		callpoint!.setStatus("ABORT")
+		callpoint!.setFocus(callpoint!.getValidationRow(),"OPE_ORDLSDET.LOTSER_NO",1)
 		break; rem --- exit callpoint
 	endif
 
 	if lsmast_tpl.qty_on_hand - lsmast_tpl.qty_commit <= 0 and ord_qty > 0 then
 		msg_id$="IV_LOT_NO_AVAIL"
 		gosub disp_message
-		callpoint!.setStatus("ABORT")
+		callpoint!.setFocus(callpoint!.getValidationRow(),"OPE_ORDLSDET.LOTSER_NO",1)
 		break; rem --- exit callpoint
 	endif
 
 	if lsmast_tpl.qty_on_hand > 0 and ord_qty < 0 and callpoint!.getDevObject("lotser_flag")="S" then
 		msg_id$="OP_LOT_RTN_AVAIL";rem --- cannot return serialized item that is still on hand
 		gosub disp_message
-		callpoint!.setStatus("ABORT")
+		callpoint!.setFocus(callpoint!.getValidationRow(),"OPE_ORDLSDET.LOTSER_NO",1)
 		break; rem --- exit callpoint
 	endif
 
