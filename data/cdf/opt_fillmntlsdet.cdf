@@ -308,7 +308,11 @@ rem --- Create a HashMap so that we know what's been committed during this sessi
 	callpoint!.setDevObject("committed_now", committedNow!)
 
 rem --- No Serial/lot lookup for non-inventory items
-	if callpoint!.getDevObject("non_inventory") then callpoint!.setOptionEnabled("LLOK", 0)
+	if callpoint!.getDevObject("non_inventory") then
+		callpoint!.setOptionEnabled("LLOK", 0)
+	else
+		callpoint!.setOptionEnabled("LLOK", 1)
+	endif
 
 [[OPT_FILLMNTLSDET.BWRI]]
 rem --- Initialize RTP modified fields for modified existing records
@@ -319,16 +323,13 @@ rem --- Initialize RTP modified fields for modified existing records
 	endif
 
 [[OPT_FILLMNTLSDET.LOTSER_NO.AVAL]]
-rem --- Skip if lotser_no not changed
- 	ls_no$=callpoint!.getUserInput()
-	if ls_no$=callpoint!.getColumnData("OPT_FILLMNTLSDET.LOTSER_NO") then break
-
 rem --- Get lot/serial record fields
 	wh$=callpoint!.getDevObject("wh")
 	item_id$=callpoint!.getDevObject("item_id")
 	item_ship_qty=num( callpoint!.getDevObject("item_ship_qty") )
 
 rem --- Non-inventoried items do not have to exist (but can't be blank)
+ 	ls_no$=callpoint!.getUserInput()
 	if callpoint!.getDevObject("non_inventory") then
 		if cvs(ls_no$,2)="" then
 			msg_id$ = "IV_SERLOT_BLANK"
@@ -348,28 +349,28 @@ rem --- Validate open lot number
 		if cvs(ivmLsMaster.lotser_no$,2)="" then
 			msg_id$ = "IV_LOT_MUST_EXIST"
 			gosub disp_message
-			callpoint!.setStatus("ABORT")
+			callpoint!.setFocus(callpoint!.getValidationRow(),"OPT_FILLMNTLSDET.LOTSER_NO",1)
 			break
 		endif
 
 		if ivmLsMaster.closed_flag$ = "C" and item_ship_qty > 0 then
 			msg_id$ = "IV_SERLOT_CLOSED"
 			gosub disp_message
-			callpoint!.setStatus("ABORT")
+			callpoint!.setFocus(callpoint!.getValidationRow(),"OPT_FILLMNTLSDET.LOTSER_NO",1)
 			break
 		endif
 
 		if ivmLsMaster.qty_on_hand - ivmLsMaster.qty_commit <= 0 and item_ship_qty > 0 then
 			msg_id$="IV_LOT_NO_AVAIL"
 			gosub disp_message
-			callpoint!.setStatus("ABORT")
+			callpoint!.setFocus(callpoint!.getValidationRow(),"OPT_FILLMNTLSDET.LOTSER_NO",1)
 			break
 		endif
 
 		if callpoint!.getDevObject("lotser_flag")="S" and ivmLsMaster.qty_on_hand > 0 and item_ship_qty < 0 then
 			msg_id$="OP_LOT_RTN_AVAIL";rem --- cannot return serialized item that is still on hand
 			gosub disp_message
-			callpoint!.setStatus("ABORT")
+			callpoint!.setFocus(callpoint!.getValidationRow(),"OPT_FILLMNTLSDET.LOTSER_NO",1)
 			break
 		endif
 	endif

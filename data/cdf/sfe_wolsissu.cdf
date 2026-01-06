@@ -274,7 +274,7 @@ rem --- Validate this lot/serial number and get data
 	if ivm_lsmaster.lotser_no$<>lotser_no$ then
 		msg_id$="IV_SERLOT_NOT_FOUND"
 		gosub disp_message
-		callpoint!.setStatus("ABORT")
+		callpoint!.setFocus(callpoint!.getValidationRow(),"SFE_WOLSISSU.LOTSER_NO",1)
 		break
 	endif
 
@@ -302,7 +302,7 @@ rem --- Can't return serialized item if it's already on hand.
 	if wolsissu_qty_issued<0 and callpoint!.getDevObject("lotser")="S" and ivm_lsmaster.qty_on_hand<>0 then
 		msg_id$="SF_SERIAL_ON_HAND"
 		gosub disp_message
-		callpoint!.setStatus("ABORT")
+		callpoint!.setFocus(callpoint!.getValidationRow(),"SFE_WOLSISSU.LOTSER_NO",1)
 		break
 	endif
 
@@ -310,7 +310,7 @@ rem --- Enough on hand?
 	if ivm_lsmaster.qty_on_hand<ivm_lsmaster.qty_commit or ivm_lsmaster.qty_on_hand=0 then
 		msg_id$="SF_QTY_NOT_AVAIL"
 		gosub disp_message
-		callpoint!.setStatus("ABORT")
+		callpoint!.setFocus(callpoint!.getValidationRow(),"SFE_WOLSISSU.LOTSER_NO",1)
 		break
 	endif
 
