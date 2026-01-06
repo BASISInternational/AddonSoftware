@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-01-05
+ Report Date:   2026-01-06
  Report Branch: AddonSoftware 25.11
  Last Release:  AddonSoftware 25.10
 =======================================================================================================================================
@@ -59,4 +59,19 @@ Modified: data/sync/ads_messages~[01007514AD].xml
 Modified: prop/addon.properties
 Modified: prop/addon_en.properties
 Modified: sf/src/sfu_womatissu.aon
+=======================================================================================================================================
+
+Revision: e932ef4b9f11858337f62975f63a8eb5bf542e99
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/6/2026 1:06:59 PM
+Message:
+Bug 11148: Allow using the Lot/Serial Lookup Button to get a valid
+lot/serial number after an invalid lot/serial number has been entered.
+----
+Modified: data/bar/ope_ordlsdet.xml
+Modified: data/bar/opt_fillmntlsdet.xml
+Modified: data/bar/sfe_wolsissu.xml
+Modified: data/cdf/ope_ordlsdet.cdf
+Modified: data/cdf/opt_fillmntlsdet.cdf
+Modified: data/cdf/sfe_wolsissu.cdf
 =======================================================================================================================================
