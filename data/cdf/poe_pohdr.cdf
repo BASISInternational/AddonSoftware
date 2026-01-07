@@ -843,7 +843,44 @@ rem --- store dtlGrid! and column for sales order line# reference listbutton (wi
 	callpoint!.setDevObject("so_seq_ref_col",13)
 
 [[POE_POHDR.CUSTOMER_ID.AVAL]]
-if callpoint!.getUserInput()<>callpoint!.getColumnData("POE_POHDR.CUSTOMER_ID") then
+rem --- Customer must have an open order with a dropship line
+ope_ordhdr_dev=fnget_dev("OPE_ORDHDR")
+dim ope_ordhdr$:fnget_tpl$("OPE_ORDHDR")
+ope_orddet_dev=fnget_dev("OPE_ORDDET")
+dim ope_orddet$:fnget_tpl$("OPE_ORDDET")
+
+have_dropship=0
+oe_ds_line_codes$=callpoint!.getDevObject("oe_ds_line_codes")
+customer_id$=callpoint!.getUserInput()
+trip_key$=firm_id$+"E"+"  "+customer_id$
+read(ope_ordhdr_dev,key=trip_key$,knum="AO_STAT_CUST_ORD",dom=*next)
+while 1
+	ope_ordhdr_key$=key(ope_ordhdr_dev,end=*break)
+	if pos(trip_key$=ope_ordhdr_key$)<>1 then break
+	readrecord(ope_ordhdr_dev,end=*next)ope_ordhdr$
+	if ope_ordhdr.invoice_type$="P" then continue
+
+	rem --- Customer has any open orders (not a quote). Does it have a dropship line?
+	read(ope_orddet_dev,key=ope_ordhdr_key$,knum="AO_STAT_CUST_ORD",dom=*next)
+	while 1
+		ope_orddet_key$=key(ope_orddet_dev,end=*break)
+		if pos(ope_ordhdr_key$=ope_orddet_key$)<>1 then break
+		readrecord(ope_orddet_dev,end=*next)ope_orddet$
+		if pos(ope_orddet.line_code$=oe_ds_line_codes$) then
+			rem --- Order has a dropship line
+			have_dropship=1
+		endif
+	wend
+	if have_dropship then break
+wend
+if !have_dropship then
+	msg_id$="PO_NO_SO_WITH_DS"
+	gosub disp_message
+	callpoint!.setStatus("ABORT")
+	break
+endif
+
+if customer_id$<>callpoint!.getColumnData("POE_POHDR.CUSTOMER_ID") then
 	rem --- if dropshipping, retrieve/display specified shipto address
 	callpoint!.setColumnData("POE_POHDR.ORDER_NO","",1)
 	callpoint!.setColumnData("POE_POHDR.SHIPTO_NO","",1)
@@ -1401,7 +1438,7 @@ rem --- read thru selected sales order and build list of lines for which line co
 	row=0
 	so_on_another_po=0
 	po_no$=callpoint!.getColumnData("POE_POHDR.PO_NO")
-	read (ope_orddet_dev,key=ope_ordhdr_key$,dom=*next)
+	read (ope_orddet_dev,key=ope_ordhdr_key$,knum="PRIMARY",dom=*next)
 	while 1
 		ope_orddet_key$=key(ope_orddet_dev,end=*break)
 		if pos(ope_ordhdr_key$=ope_orddet_key$)<>1 then break
