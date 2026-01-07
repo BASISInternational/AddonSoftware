@@ -56,7 +56,7 @@ rem --- Work order scheduled to be closed?
 				wend
 			endif
 
-			callpoint!.setStatus("NEWREC")
+			callpoint!.setStatus("RECORD:["+firm_id$+wo_location$+wo_no$+"]")
 		endif
 	endif
 
