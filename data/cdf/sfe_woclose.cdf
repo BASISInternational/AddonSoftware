@@ -428,8 +428,7 @@ rem --- Lot/serial processing if needed
 	if callpoint!.getColumnData("SFE_WOCLOSE.WO_CATEGORY")="I" and 
 :	pos(callpoint!.getColumnData("SFE_WOCLOSE.LOTSER_FLAG")="LS") then
 		rem --- Launch WO lotser grid if it hasn't been launched yet
-		if callpoint!.getDevObject("wo_sch_qty")=null() or callpoint!.getDevObject("wo_close_qty")=null() or
-:		callpoint!.getDevObject("ls_sch_qty")=null() or callpoint!.getDevObject("ls_close_qty")=null() then
+		if callpoint!.getDevObject("ls_close_qty")=null() then
 			gosub do_wolotser
 		endif
 
