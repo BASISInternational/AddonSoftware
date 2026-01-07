@@ -90,3 +90,15 @@ Modified: data/sync/ads_messages~[01007514PO].xml
 Modified: prop/addon.properties
 Modified: prop/addon_en.properties
 =======================================================================================================================================
+
+Revision: 9a3396fff7b1be812851e6bfdb33b348f1c3dc33
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/7/2026 12:37:41 PM
+Message:
+Bug 11146: Modified Work Order Close Data Entry to not launch the
+lot/serial grid when the form is closed if the lot/serial grid was
+previously used.
+----
+Modified: data/bar/sfe_woclose.xml
+Modified: data/cdf/sfe_woclose.cdf
+=======================================================================================================================================
