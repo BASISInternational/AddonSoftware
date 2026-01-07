@@ -486,7 +486,7 @@ ulimit -n 10000]]></replacevalue>
         <jar destfile="${work.dir}/installBBj.jar">
             <fileset dir="${work.dir}"
                      includes="BASISInstall.jar,
-                               BCIInstall.jar,
+                               BCI.jar,
                                cloud/basis/bci/,
                                install.xml,
                                lib/"/>
