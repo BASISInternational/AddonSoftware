@@ -102,3 +102,14 @@ previously used.
 Modified: data/bar/sfe_woclose.xml
 Modified: data/cdf/sfe_woclose.cdf
 =======================================================================================================================================
+
+Revision: 682270dcca50e015f0d95b02f90a2ca5017976c6
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/7/2026 2:36:55 PM
+Message:
+Bug 11150: When re-opening a closed work order, displayed the work order
+data rather than clearing the form.
+----
+Modified: data/bar/sfe_woclose.xml
+Modified: data/cdf/sfe_woclose.cdf
+=======================================================================================================================================
