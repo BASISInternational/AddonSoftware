@@ -120,6 +120,23 @@ rem --- Hold on to the Warehouse ID and Issued Date
 	callpoint!.setDevObject("warehouse_id",sfe_womastr.warehouse_id$)
 	callpoint!.setDevObject("issued_date",sysinfo.system_date$)
 
+[[SFE_WOMATISH.ASHO]]
+rem --- Set up a color to be used when not enough lot/serial item have been entered
+	dtlGrid!=util.getGrid(Form!)
+	callpoint!.setDevObject("dtlGrid",dtlGrid!)
+	plainFont!=dtlGrid!.getRowFont(0)
+	boldFont!=sysGUI!.makeFont(plainFont!.getName(),plainFont!.getSize(),3);rem bold italic
+	callpoint!.setDevObject("plainFont",plainFont!)
+	callpoint!.setDevObject("boldFont",boldFont!)
+
+	RGB$="255,0,0"
+	gosub get_RGB
+	callpoint!.setDevObject("redColor",BBjAPI().getSysGui().makeColor(R,G,B))
+
+	RGB$="0,0,0"
+	gosub get_RGB
+	callpoint!.setDevObject("blackColor",BBjAPI().getSysGui().makeColor(R,G,B))
+
 [[SFE_WOMATISH.BDEL]]
 rem --- Retain commitment on delete?
 
@@ -220,6 +237,47 @@ rem --- Suppress Barista's default delete message
 	callpoint!.setStatus("QUIET")
 
 [[SFE_WOMATISH.BEND]]
+rem --- Warn when number of entered lot/serial numbers doesn't match the quantity issued.
+	dtlGrid!=callpoint!.getDevObject("dtlGrid")
+	dtlVect!=cast(BBjVector, GridVect!.getItem(0))
+	rows=dtlGrid!.getNumRows()
+	if dtlVect!.size()>0 and rows>0 then
+		ivm_itemmast_dev=fnget_dev("IVM_ITEMMAST")
+		dim ivm_itemmast$:fnget_tpl$("IVM_ITEMMAST")
+		dim sfe_womatisd$:fnget_tpl$("SFE_WOMATISD")
+		for row=0 to rows-2
+			sfe_womatisd$=dtlVect!.getItem(row)
+			item_id$=sfe_womatisd.item_id$
+			findrecord(ivm_itemmast_dev,key=firm_id$+item_id$,dom=*next)ivm_itemmast$
+			if pos(ivm_itemmast.lotser_flag$="LS") and ivm_itemmast.inventoried$="Y" then
+				rem --- Must be an inventoried lotted/serialized item
+				sfe_wolsissu_dev=fnget_dev("SFE_WOLSISSU")
+				dim sfe_wolsissu$:fnget_tpl$("SFE_WOLSISSU")
+				tot_ls_qty_issued=0
+				firm_loc_wo$=callpoint!.getDevObject("firm_loc_wo")
+				firm_loc_wo_isn$=firm_loc_wo$+sfe_womatisd.internal_seq_no$
+				read(sfe_wolsissu_dev,key=firm_loc_wo_isn$,dom=*next)
+				while 1
+					sfe_wolsissu_key$=key(sfe_wolsissu_dev,end=*break)
+					if pos(firm_loc_wo_isn$=sfe_wolsissu_key$)<>1 then break
+					readrecord(sfe_wolsissu_dev)sfe_wolsissu$
+					tot_ls_qty_issued=tot_ls_qty_issued+sfe_wolsissu.qty_issued
+				wend
+
+				if tot_ls_qty_issued<>sfe_womatisd.qty_issued+sfe_womatisd.tot_qty_iss then
+					msg_id$="SF_SUM_LOTSER_BAD"
+					dim msg_tokens$[1]
+					msg_tokens$[1]=cvs(item_id$,2)
+					gosub disp_message
+					if msg_opt$="C" then
+						callpoint!.setStatus("ABORT")
+						break
+					endif
+				endif
+			endif
+		next row
+	endif
+
 rem --- Remove software lock on batch when batching
 	batch$=stbl("+BATCH_NO",err=*next)
 	if num(batch$)<>0
@@ -236,6 +294,7 @@ rem --- Initializations
 	use java.util.HashMap
 	use java.util.Iterator
 
+	use ::ado_util.src::util
 	use ::sfo_SfUtils.aon::SfUtils
 
 rem --- Open Files
@@ -553,6 +612,21 @@ verify_wo_status: rem -- Verify WO status
 			bad_wo=1
 		endif
 	endif
+
+	return
+
+rem ==========================================================================
+get_RGB: rem --- Parse Red, Green and Blue segments from RGB$ string
+	rem --- input: RGB$
+	rem --- output: R
+	rem --- output: G
+	rem --- output: B
+rem ==========================================================================
+	comma1=pos(","=RGB$,1,1)
+	comma2=pos(","=RGB$,1,2)
+	R=num(RGB$(1,comma1-1))
+	G=num(RGB$(comma1+1,comma2-comma1-1))
+	B=num(RGB$(comma2+1))
 
 	return
 
