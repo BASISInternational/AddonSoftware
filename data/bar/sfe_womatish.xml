@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.sfe_womatish">E0A09D272E974C7C4E80A365D2ACD7D4</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfe_womatish">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfe_womatish">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.sfe_womatish">20260101</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.sfe_womatish">20260101</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.sfe_womatish">122240</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.sfe_womatish">20260112</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.sfe_womatish">20260112</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.sfe_womatish">141608</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.sfe_womatish"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.sfe_womatish">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.sfe_womatish">BATCH_KEY</DD_ATTR_DKNM>
@@ -79,6 +79,10 @@
 		<RECORD id="ddm_table_cpro.sfe_womatisharnf">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.sfe_womatisharnf">SFE_WOMATISH    </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.sfe_womatisharnf">ARNF</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_table_cpro.sfe_womatishasho">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.sfe_womatishasho">SFE_WOMATISH    </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.sfe_womatishasho">ASHO</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_table_cpro.sfe_womatishbdel">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.sfe_womatishbdel">SFE_WOMATISH    </DD_TABLE_ALIAS>
