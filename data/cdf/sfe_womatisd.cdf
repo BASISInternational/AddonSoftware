@@ -7,6 +7,12 @@ rem --- Set precision
 rem --- set preset val for batch_no
 	callpoint!.setTableColumnAttribute("SFE_WOMATISD.BATCH_NO","PVAL",$22$+stbl("+BATCH_NO")+$22$)
 
+rem --- Get and hold on to column for qty_issued
+	dtlGrid!=callpoint!.getDevObject("dtlGrid")
+	issued_hdr$=callpoint!.getTableColumnAttribute("SFE_WOMATISD.QTY_ISSUED","LABS")
+	issued_col=util.getGridColumnNumber(dtlGrid!,issued_hdr$)
+	callpoint!.setDevObject("issued_col",issued_col)
+
 [[SFE_WOMATISD.AGDR]]
 rem --- Init WO Material Reference
 	sfe_womatdtl_dev=fnget_dev("SFE_WOMATDTL")
@@ -18,6 +24,10 @@ rem --- Init WO Material Reference
 
 rem --- Init DISPLAY columns
 	gosub init_display_cols
+
+rem --- Identify items where number of entered lot/serial numbers doesn't match the quantity issued.
+	qty_issued=num(callpoint!.getColumnData("SFE_WOMATISD.QTY_ISSUED"))
+	gosub check_lotserial_issued
 
 [[SFE_WOMATISD.AGRE]]
 rem --- Start lot/serial button disabled
@@ -489,6 +499,10 @@ rem --- Init DISPLAY columns
 	endif
 	gosub init_display_cols
 
+rem --- Identify items where number of entered lot/serial numbers doesn't match the quantity issued.
+	qty_issued=num(callpoint!.getColumnData("SFE_WOMATISD.QTY_ISSUED"))
+	gosub check_lotserial_issued
+
 [[SFE_WOMATISD.<CUSTOM>]]
 init_display_cols: rem --- Init DISPLAY columns
 	qty_ordered=num(callpoint!.getColumnData("SFE_WOMATISD.QTY_ORDERED"))
@@ -510,6 +524,40 @@ able_lot_button: rem --- Enable/disable Lot/Serial button
 		callpoint!.setOptionEnabled("LENT",1)
 	else
 		callpoint!.setOptionEnabled("LENT",0)
+	endif
+	return
+
+check_lotserial_issued: rem --- Identify items where number of entered lot/serial numbers doesn't match the quantity issued.
+	ivm_itemmast_dev=fnget_dev("IVM_ITEMMAST")
+	dim ivm_itemmast$:fnget_tpl$("IVM_ITEMMAST")
+	item_id$=callpoint!.getColumnData("SFE_WOMATISD.ITEM_ID")
+	findrecord(ivm_itemmast_dev,key=firm_id$+item_id$,dom=*next)ivm_itemmast$
+	if pos(ivm_itemmast.lotser_flag$="LS") and ivm_itemmast.inventoried$="Y" then
+		rem --- Must be an inventoried lotted/serialized item
+		sfe_wolsissu_dev=fnget_dev("SFE_WOLSISSU")
+		dim sfe_wolsissu$:fnget_tpl$("SFE_WOLSISSU")
+		tot_ls_qty_issued=0
+		firm_loc_wo$=callpoint!.getDevObject("firm_loc_wo")
+		firm_loc_wo_isn$=firm_loc_wo$+callpoint!.getColumnData("SFE_WOMATISD.INTERNAL_SEQ_NO")
+		read(sfe_wolsissu_dev,key=firm_loc_wo_isn$,dom=*next)
+		while 1
+			sfe_wolsissu_key$=key(sfe_wolsissu_dev,end=*break)
+			if pos(firm_loc_wo_isn$=sfe_wolsissu_key$)<>1 then break
+			readrecord(sfe_wolsissu_dev)sfe_wolsissu$
+			tot_ls_qty_issued=tot_ls_qty_issued+sfe_wolsissu.qty_issued
+		wend
+
+		dtlGrid!=callpoint!.getDevObject("dtlGrid")
+		curr_row=callpoint!.getValidationRow()
+		issued_col=callpoint!.getDevObject("issued_col")
+		if tot_ls_qty_issued<>qty_issued+num(callpoint!.getColumnData("SFE_WOMATISD.TOT_QTY_ISS")) then
+			rem --- Entered lot/serial numbers doesn't match the quantity issued
+			dtlGrid!.setCellFont(curr_row,issued_col,callpoint!.getDevObject("boldFont"))
+			dtlGrid!.setCellForeColor(curr_row,issued_col,callpoint!.getDevObject("redColor"))
+		else
+			dtlGrid!.setCellFont(curr_row,issued_col,callpoint!.getDevObject("plainFont"))
+			dtlGrid!.setCellForeColor(curr_row,issued_col,callpoint!.getDevObject("blackColor"))
+		endif
 	endif
 	return
 
