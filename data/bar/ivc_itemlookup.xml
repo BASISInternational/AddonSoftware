@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivc_itemlookup"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivc_itemlookup">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivc_itemlookup">20090320</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivc_itemlookup">20240429</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivc_itemlookup">20240429</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivc_itemlookup">091314</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivc_itemlookup">20260112</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivc_itemlookup">20260112</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivc_itemlookup">155346</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivc_itemlookup"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ivc_itemlookup">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivc_itemlookup"></DD_ATTR_DKNM>

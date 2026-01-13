@@ -199,11 +199,11 @@ rem ---  Set up grid
 	
 	attr_grid_col$[1,dvar_pos]="SEARCH_KEY"
 	attr_grid_col$[1,labs_pos]=Translate!.getTranslation("AON_SEARCH_KEY")
-	attr_grid_col$[1,ctlw_pos]="125"
+	attr_grid_col$[1,ctlw_pos]="150"
 
 	attr_grid_col$[2,dvar_pos]="ITEM_NO"
 	attr_grid_col$[2,labs_pos]=Translate!.getTranslation("AON_ITEM")
-	attr_grid_col$[2,ctlw_pos]="125"	
+	attr_grid_col$[2,ctlw_pos]="150"	
 
 	attr_grid_col$[3,dvar_pos]="DESC"
 	attr_grid_col$[3,labs_pos]=Translate!.getTranslation("AON_DESCRIPTION")

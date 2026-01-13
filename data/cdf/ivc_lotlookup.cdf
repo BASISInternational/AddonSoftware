@@ -126,11 +126,11 @@ rem ---  Set up grid
 	
 	attr_grid_col$[1,dvar_pos]="LOT NO"
 	attr_grid_col$[1,labs_pos]=Translate!.getTranslation("AON_LOT/SERIAL_NO")
-	attr_grid_col$[1,ctlw_pos]="125"
+	attr_grid_col$[1,ctlw_pos]="175"
 
 	attr_grid_col$[2,dvar_pos]="STATUS"
 	attr_grid_col$[2,labs_pos]=Translate!.getTranslation("AON_STATUS")
-	attr_grid_col$[2,ctlw_pos]="125"	
+	attr_grid_col$[2,ctlw_pos]="100"	
 	
 	for curr_attr=1 to def_grid_cols
 		attr_grid_col$[0,1] = attr_grid_col$[0,1] + 
