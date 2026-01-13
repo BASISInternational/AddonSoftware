@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-01-07
+ Report Date:   2026-01-12
  Report Branch: AddonSoftware 25.11
  Last Release:  AddonSoftware 25.10
 =======================================================================================================================================
@@ -112,4 +112,18 @@ data rather than clearing the form.
 ----
 Modified: data/bar/sfe_woclose.xml
 Modified: data/cdf/sfe_woclose.cdf
+=======================================================================================================================================
+
+Revision: 9c8e0637c1469745019e8115aec1ac3a21dfa0e7
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/12/2026 4:02:42 PM
+Message:
+Bug 11152: Increased the size of the lot/serial column in the Inventory
+Lot Lookup. Increased the size of the item column in the Inventory Item
+Lookup.
+----
+Modified: data/bar/ivc_itemlookup.xml
+Modified: data/bar/ivc_lotlookup.xml
+Modified: data/cdf/ivc_itemlookup.cdf
+Modified: data/cdf/ivc_lotlookup.cdf
 =======================================================================================================================================
