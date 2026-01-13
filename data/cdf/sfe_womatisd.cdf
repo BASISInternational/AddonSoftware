@@ -147,7 +147,6 @@ rem --- Item lotted/serialized and inventoried?
 			call stbl("+DIR_SYP")+"bam_run_prog.bbj","SFE_WOLSISSU",stbl("+USER_ID"),"MNT",firm_loc_wo_isn$,table_chans$[all],"",dflt_data$[all]
 
 			qty_issued=num(callpoint!.getDevObject("tot_ls_qty_issued"))
-			callpoint!.setColumnData("SFE_WOMATISD.QTY_ISSUED",str(qty_issued),1)
 			if qty_issued<>0 then
 				issue_cost=num(callpoint!.getDevObject("tot_ls_issue_cost"))/qty_issued
 				unit_cost=issue_cost
@@ -199,7 +198,6 @@ rem --- Lot/serial entry
 	qty_issued=num(callpoint!.getDevObject("tot_ls_qty_issued"))
 	if qty_issued<>num(callpoint!.getColumnData("SFE_WOMATISD.QTY_ISSUED")) then
 		rem --- Update detail row with new values
-		callpoint!.setColumnData("SFE_WOMATISD.QTY_ISSUED",str(qty_issued),1)
 		if qty_issued<>0 then
 			issue_cost=num(callpoint!.getDevObject("tot_ls_issue_cost"))/qty_issued
 			unit_cost=issue_cost
