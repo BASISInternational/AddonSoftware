@@ -1,15 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CustDetail_jobs" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="cd9f489b-2504-48c0-b387-b59f4cbdf520">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="CustDetail_jobs" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="cd9f489b-2504-48c0-b387-b59f4cbdf520">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<template><![CDATA["StyleTemplate.jrtx"]]></template>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="CUSTOMER_ID" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[select firm_id, customer_id, job_no, lien_no, retain_job, lien_date, fst_shp_date, lstinv_date, customer_name, addr_line_1, addr_line_2, city, state_code, zip_code, phone_no, phone_exten, contact_name, lien_amount, total_sales from opm_custjobs where firm_id = $P{FIRM_ID} and customer_id = $P{CUSTOMER_ID}]]>
-	</queryString>
+	<query language="sql"><![CDATA[select firm_id, customer_id, job_no, lien_no, retain_job, lien_date, fst_shp_date, lstinv_date, customer_name, addr_line_1, addr_line_2, city, state_code, zip_code, phone_no, phone_exten, contact_name, lien_amount, total_sales from opm_custjobs where firm_id = $P{FIRM_ID} and customer_id = $P{CUSTOMER_ID}]]></query>
 	<field name="FIRM_ID" class="java.lang.String"/>
 	<field name="CUSTOMER_ID" class="java.lang.String"/>
 	<field name="JOB_NO" class="java.lang.String"/>
@@ -30,178 +27,114 @@
 	<field name="LIEN_AMOUNT" class="java.math.BigDecimal"/>
 	<field name="TOTAL_SALES" class="java.math.BigDecimal"/>
 	<variable name="CT_ST_ZP" class="java.lang.String">
-		<variableExpression><![CDATA[$F{CITY}.trim()+"  "+$F{STATE_CODE}+"  "+$F{ZIP_CODE}]]></variableExpression>
+		<expression><![CDATA[$F{CITY}.trim()+"  "+$F{STATE_CODE}+"  "+$F{ZIP_CODE}]]></expression>
 	</variable>
 	<variable name="PHN" class="java.lang.String">
-		<variableExpression><![CDATA[$F{PHONE_NO}.substring(0,3)+"."+$F{PHONE_NO}.substring(3,6)+"."+$F{PHONE_NO}.substring(6)]]></variableExpression>
+		<expression><![CDATA[$F{PHONE_NO}.substring(0,3)+"."+$F{PHONE_NO}.substring(3,6)+"."+$F{PHONE_NO}.substring(6)]]></expression>
 	</variable>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band splitType="Stretch"/>
-	</columnHeader>
+	<background splitType="Stretch"/>
+	<title splitType="Stretch"/>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader splitType="Stretch"/>
 	<detail>
 		<band height="125" splitType="Stretch">
-			<textField>
-				<reportElement mode="Opaque" x="0" y="0" width="575" height="15" backcolor="#ECECEC" uuid="a669b8f7-4e58-461b-a2c3-f123420451ba"/>
-				<textElement verticalAlignment="Middle">
-					<paragraph leftIndent="3"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_JOB_NUMBER_MAINTENANCE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="28" width="100" height="13" uuid="4d15950d-c277-4502-8395-b14167642707"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_JOB_NO:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="41" width="100" height="13" uuid="c8870ae0-2338-4aae-bf94-e817c5d0c19f"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_JOB_NAME:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="54" width="100" height="13" uuid="2a0d70cb-046e-4db3-b5e9-738b53fd1620"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_ADDRESS:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="113" y="28" width="100" height="13" uuid="fdd20014-ec32-4f98-90c3-c7d715dd2a39"/>
-				<textFieldExpression><![CDATA[$F{JOB_NO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="113" y="41" width="213" height="13" uuid="b3fdf163-d717-49f0-ac27-76045ed64197"/>
-				<textFieldExpression><![CDATA[$F{CUSTOMER_NAME}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="113" y="54" width="213" height="13" uuid="42dd8822-a625-493e-bc9a-bd8ad91aec92"/>
-				<textFieldExpression><![CDATA[$F{ADDR_LINE_1}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="113" y="67" width="213" height="13" uuid="2f57f3d7-e71c-40ab-9dcc-8f4ebd5ea60c"/>
-				<textFieldExpression><![CDATA[$F{ADDR_LINE_2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="113" y="80" width="213" height="13" uuid="deabea8f-84ae-472c-8a6d-3f1c6902ff47"/>
-				<textFieldExpression><![CDATA[$V{CT_ST_ZP}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="93" width="100" height="13" uuid="9bf40e60-71bf-4d97-8a7a-bfe6edcfb2ee"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_CONTACT:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="106" width="100" height="13" uuid="8cc341b3-1b5e-4bf6-94a6-02bcb7839dbc"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_TELEPHONE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="113" y="106" width="66" height="13" uuid="6e855884-1afc-48a7-9010-38c8aa7c39fa"/>
-				<textFieldExpression><![CDATA[$V{PHN}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="113" y="93" width="100" height="13" uuid="5f262de0-3606-4f28-be47-ebad9dd72eb5"/>
-				<textFieldExpression><![CDATA[$F{CONTACT_NAME}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="326" y="15" width="208" height="13" uuid="28ad9fc2-1f1b-4cdc-9bd7-00c42522145d"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_PRELIMINARY_LIEN_INFORMATION}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="326" y="28" width="100" height="13" uuid="c0fdc690-2911-4e25-9e44-ea7dbd32f17d"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LIEN_DATE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="326" y="41" width="100" height="13" uuid="c1c16f7e-1b1f-4755-a531-36f64b8e8e6f"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LIEN_NO:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="326" y="54" width="100" height="13" uuid="38d4b266-529e-45bc-9d3f-ae5401316100"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_AMOUNT:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="315" y="67" width="111" height="13" uuid="1c39bbb5-4bfc-41bc-a9c1-08328826ede9"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_DATE_OF_FIRST_SHIPMENT:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="326" y="93" width="100" height="13" uuid="58c3f16b-7c73-400c-8423-ef4fa0bd28ed"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_TOTAL_SALES_TO_DATE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="326" y="80" width="100" height="13" uuid="f7b2c659-0d68-475c-8935-e87aabc643a8"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_DATE_LAST_INVOICED:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="179" y="106" width="24" height="13" uuid="ddf6114f-14bc-4843-8df4-0d8d35977540"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_EXT:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="250" y="106" width="36" height="13" uuid="d2577191-93ed-4ce3-99d0-954781bf3a3f"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_RETAIN:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="213" y="106" width="35" height="13" uuid="314c68cf-d6b7-44ee-aba5-933fae8dada8"/>
-				<textFieldExpression><![CDATA[$F{PHONE_EXTEN}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="286" y="106" width="19" height="13" uuid="751d85b8-2cb5-457a-bb2c-8c23c816c07d"/>
-				<textFieldExpression><![CDATA[$F{RETAIN_JOB}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="434" y="28" width="100" height="13" uuid="d3468325-dc35-4356-b3a9-eeb26b943200"/>
-				<textFieldExpression><![CDATA[$F{LIEN_DATE} == "        " ? "" :
-$F{LIEN_DATE}.substring(4,6)+"/"+$F{LIEN_DATE}.substring(6)+"/"+$F{LIEN_DATE}.substring(0,4)]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="434" y="41" width="100" height="13" uuid="ff5220d0-98fe-4e6e-92aa-4c4b9da1d92f"/>
-				<textFieldExpression><![CDATA[$F{LIEN_NO}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.00">
-				<reportElement x="434" y="54" width="58" height="13" uuid="027b31d9-0866-482a-8415-55caac63763e"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{LIEN_AMOUNT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="434" y="67" width="100" height="13" uuid="ce8d650b-9db1-4549-a498-30604a65283f"/>
-				<textFieldExpression><![CDATA[$F{FST_SHP_DATE} == "        " ? "" :
-$F{FST_SHP_DATE}.substring(4,6)+"/"+$F{FST_SHP_DATE}.substring(6)+"/"+$F{FST_SHP_DATE}.substring(0,4)]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.00">
-				<reportElement x="434" y="93" width="58" height="13" uuid="c7dbe8bc-fc85-43c3-8fb4-0e95fcc1fdb0"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{TOTAL_SALES}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="434" y="80" width="100" height="13" uuid="7269f5c4-411d-42df-a57e-196d7cb5c8b9"/>
-				<textFieldExpression><![CDATA[$F{LSTINV_DATE} == "" ? "" :
-$F{LSTINV_DATE}.substring(4,6)+"/"+$F{LSTINV_DATE}.substring(6)+"/"+$F{LSTINV_DATE}.substring(0,4)]]></textFieldExpression>
-			</textField>
+			<element kind="textField" uuid="a669b8f7-4e58-461b-a2c3-f123420451ba" mode="Opaque" x="0" y="0" width="575" height="15" backcolor="#ECECEC" vTextAlign="Middle">
+				<paragraph leftIndent="3"/>
+				<expression><![CDATA[$R{AON_JOB_NUMBER_MAINTENANCE}]]></expression>
+			</element>
+			<element kind="textField" uuid="4d15950d-c277-4502-8395-b14167642707" x="0" y="28" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_JOB_NO:}]]></expression>
+			</element>
+			<element kind="textField" uuid="c8870ae0-2338-4aae-bf94-e817c5d0c19f" x="0" y="41" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_JOB_NAME:}]]></expression>
+			</element>
+			<element kind="textField" uuid="2a0d70cb-046e-4db3-b5e9-738b53fd1620" x="0" y="54" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_ADDRESS:}]]></expression>
+			</element>
+			<element kind="textField" uuid="fdd20014-ec32-4f98-90c3-c7d715dd2a39" x="113" y="28" width="100" height="13">
+				<expression><![CDATA[$F{JOB_NO}]]></expression>
+			</element>
+			<element kind="textField" uuid="b3fdf163-d717-49f0-ac27-76045ed64197" x="113" y="41" width="213" height="13">
+				<expression><![CDATA[$F{CUSTOMER_NAME}]]></expression>
+			</element>
+			<element kind="textField" uuid="42dd8822-a625-493e-bc9a-bd8ad91aec92" x="113" y="54" width="213" height="13">
+				<expression><![CDATA[$F{ADDR_LINE_1}]]></expression>
+			</element>
+			<element kind="textField" uuid="2f57f3d7-e71c-40ab-9dcc-8f4ebd5ea60c" x="113" y="67" width="213" height="13">
+				<expression><![CDATA[$F{ADDR_LINE_2}]]></expression>
+			</element>
+			<element kind="textField" uuid="deabea8f-84ae-472c-8a6d-3f1c6902ff47" x="113" y="80" width="213" height="13">
+				<expression><![CDATA[$V{CT_ST_ZP}]]></expression>
+			</element>
+			<element kind="textField" uuid="9bf40e60-71bf-4d97-8a7a-bfe6edcfb2ee" x="0" y="93" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_CONTACT:}]]></expression>
+			</element>
+			<element kind="textField" uuid="8cc341b3-1b5e-4bf6-94a6-02bcb7839dbc" x="0" y="106" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_TELEPHONE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="6e855884-1afc-48a7-9010-38c8aa7c39fa" x="113" y="106" width="66" height="13">
+				<expression><![CDATA[$V{PHN}]]></expression>
+			</element>
+			<element kind="textField" uuid="5f262de0-3606-4f28-be47-ebad9dd72eb5" x="113" y="93" width="100" height="13">
+				<expression><![CDATA[$F{CONTACT_NAME}]]></expression>
+			</element>
+			<element kind="textField" uuid="28ad9fc2-1f1b-4cdc-9bd7-00c42522145d" x="326" y="15" width="208" height="13" bold="true">
+				<expression><![CDATA[$R{AON_PRELIMINARY_LIEN_INFORMATION}]]></expression>
+			</element>
+			<element kind="textField" uuid="c0fdc690-2911-4e25-9e44-ea7dbd32f17d" x="326" y="28" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LIEN_DATE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="c1c16f7e-1b1f-4755-a531-36f64b8e8e6f" x="326" y="41" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LIEN_NO:}]]></expression>
+			</element>
+			<element kind="textField" uuid="38d4b266-529e-45bc-9d3f-ae5401316100" x="326" y="54" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_AMOUNT:}]]></expression>
+			</element>
+			<element kind="textField" uuid="1c39bbb5-4bfc-41bc-a9c1-08328826ede9" x="315" y="67" width="111" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_DATE_OF_FIRST_SHIPMENT:}]]></expression>
+			</element>
+			<element kind="textField" uuid="58c3f16b-7c73-400c-8423-ef4fa0bd28ed" x="326" y="93" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_TOTAL_SALES_TO_DATE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="f7b2c659-0d68-475c-8935-e87aabc643a8" x="326" y="80" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_DATE_LAST_INVOICED:}]]></expression>
+			</element>
+			<element kind="textField" uuid="ddf6114f-14bc-4843-8df4-0d8d35977540" x="179" y="106" width="24" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_EXT:}]]></expression>
+			</element>
+			<element kind="textField" uuid="d2577191-93ed-4ce3-99d0-954781bf3a3f" x="250" y="106" width="36" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_RETAIN:}]]></expression>
+			</element>
+			<element kind="textField" uuid="314c68cf-d6b7-44ee-aba5-933fae8dada8" x="213" y="106" width="35" height="13">
+				<expression><![CDATA[$F{PHONE_EXTEN}]]></expression>
+			</element>
+			<element kind="textField" uuid="751d85b8-2cb5-457a-bb2c-8c23c816c07d" x="286" y="106" width="19" height="13">
+				<expression><![CDATA[$F{RETAIN_JOB}]]></expression>
+			</element>
+			<element kind="textField" uuid="d3468325-dc35-4356-b3a9-eeb26b943200" x="434" y="28" width="100" height="13">
+				<expression><![CDATA[$F{LIEN_DATE} == "        " ? "" :
+$F{LIEN_DATE}.substring(4,6)+"/"+$F{LIEN_DATE}.substring(6)+"/"+$F{LIEN_DATE}.substring(0,4)]]></expression>
+			</element>
+			<element kind="textField" uuid="ff5220d0-98fe-4e6e-92aa-4c4b9da1d92f" x="434" y="41" width="100" height="13">
+				<expression><![CDATA[$F{LIEN_NO}]]></expression>
+			</element>
+			<element kind="textField" uuid="027b31d9-0866-482a-8415-55caac63763e" x="434" y="54" width="58" height="13" pattern="#,##0.00" hTextAlign="Right">
+				<expression><![CDATA[$F{LIEN_AMOUNT}]]></expression>
+			</element>
+			<element kind="textField" uuid="ce8d650b-9db1-4549-a498-30604a65283f" x="434" y="67" width="100" height="13">
+				<expression><![CDATA[$F{FST_SHP_DATE} == "        " ? "" :
+$F{FST_SHP_DATE}.substring(4,6)+"/"+$F{FST_SHP_DATE}.substring(6)+"/"+$F{FST_SHP_DATE}.substring(0,4)]]></expression>
+			</element>
+			<element kind="textField" uuid="c7dbe8bc-fc85-43c3-8fb4-0e95fcc1fdb0" x="434" y="93" width="58" height="13" pattern="#,##0.00" hTextAlign="Right">
+				<expression><![CDATA[$F{TOTAL_SALES}]]></expression>
+			</element>
+			<element kind="textField" uuid="7269f5c4-411d-42df-a57e-196d7cb5c8b9" x="434" y="80" width="100" height="13">
+				<expression><![CDATA[$F{LSTINV_DATE} == "" ? "" :
+$F{LSTINV_DATE}.substring(4,6)+"/"+$F{LSTINV_DATE}.substring(6)+"/"+$F{LSTINV_DATE}.substring(0,4)]]></expression>
+			</element>
 		</band>
 	</detail>
-	<columnFooter>
-		<band splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band splitType="Stretch"/>
-	</summary>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter splitType="Stretch"/>
+	<summary splitType="Stretch"/>
 </jasperReport>

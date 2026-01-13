@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="report name" language="java" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="dae519a9-e1c8-4784-8dbf-6c7ddc60168d">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<template><![CDATA["StyleTemplate.jrtx"]]></template>
-	<subDataset name="New Dataset 1">
-		<queryString language="SQL">
-			<![CDATA[select * from art_invhdr]]>
-		</queryString>
+	<dataset name="New Dataset 1" uuid="b6b2a201-d742-49b4-b308-e0722fc5ea9d">
+		<query language="SQL"><![CDATA[select * from art_invhdr]]></query>
 		<field name="FIRM_ID" class="java.lang.String"/>
 		<field name="AR_TYPE" class="java.lang.String"/>
 		<field name="CUSTOMER_ID" class="java.lang.String"/>
@@ -25,14 +23,12 @@
 		<field name="DISC_DATE" class="java.lang.String"/>
 		<field name="INVOICE_AMT" class="java.math.BigDecimal"/>
 		<field name="DISC_ALLOWED" class="java.math.BigDecimal"/>
-	</subDataset>
+	</dataset>
 	<parameter name="FIRM_ID" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<parameter name="CUSTOMER_ID" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[select customer_id, ar_inv_no, ar_terms_code, invoice_type, invoice_date, inv_due_date, invoice_amt from art_invhdr where firm_id=$P{FIRM_ID} and customer_id=$P{CUSTOMER_ID}]]>
-	</queryString>
+	<query language="sql"><![CDATA[select customer_id, ar_inv_no, ar_terms_code, invoice_type, invoice_date, inv_due_date, invoice_amt from art_invhdr where firm_id=$P{FIRM_ID} and customer_id=$P{CUSTOMER_ID}]]></query>
 	<field name="CUSTOMER_ID" class="java.lang.String"/>
 	<field name="AR_INV_NO" class="java.lang.String"/>
 	<field name="AR_TERMS_CODE" class="java.lang.String"/>
@@ -40,137 +36,91 @@
 	<field name="INVOICE_DATE" class="java.lang.String"/>
 	<field name="INV_DUE_DATE" class="java.lang.String"/>
 	<field name="INVOICE_AMT" class="java.math.BigDecimal"/>
-	<variable name="balance" class="java.math.BigDecimal" calculation="Sum">
-		<variableExpression><![CDATA[$F{INVOICE_AMT}]]></variableExpression>
+	<variable name="balance" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[$F{INVOICE_AMT}]]></expression>
 	</variable>
-	<variable name="totDet" class="java.math.BigDecimal" resetType="None">
-		<variableExpression><![CDATA[$V{totDet}]]></variableExpression>
+	<variable name="totDet" resetType="None" class="java.math.BigDecimal">
+		<expression><![CDATA[$V{totDet}]]></expression>
 	</variable>
-	<background>
-		<band/>
-	</background>
-	<columnHeader>
-		<band height="31">
-			<textField>
-				<reportElement positionType="Float" mode="Opaque" x="0" y="1" width="575" height="15" backcolor="#ECECEC"/>
-				<textElement verticalAlignment="Middle">
-					<paragraph leftIndent="3"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_OPEN_INVOICES}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="16" width="47" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$R{AON_INVOICE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="85" y="16" width="47" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$R{AON_DATE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="164" y="16" width="47" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$R{AON_DUE_DATE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="250" y="16" width="35" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$R{AON_TERMS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="297" y="16" width="35" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$R{AON_TYPE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="340" y="16" width="60" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_AMOUNT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="429" y="16" width="60" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_APPLIED}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="515" y="16" width="60" height="13"/>
-				<textElement textAlignment="Right">
-					<paragraph rightIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_BALANCE}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background/>
+	<columnHeader height="31">
+		<element kind="textField" uuid="1a58748e-b36c-4722-aafd-787eda942c1e" positionType="Float" mode="Opaque" x="0" y="1" width="575" height="15" backcolor="#ECECEC" vTextAlign="Middle">
+			<paragraph leftIndent="3"/>
+			<expression><![CDATA[$R{AON_OPEN_INVOICES}]]></expression>
+		</element>
+		<element kind="textField" uuid="2573f1a9-313a-48e8-a4f0-288746cfa36d" x="3" y="16" width="47" height="13">
+			<expression><![CDATA[$R{AON_INVOICE}]]></expression>
+		</element>
+		<element kind="textField" uuid="549b1b30-2e57-47da-87c1-61369fb36bc5" x="85" y="16" width="47" height="13">
+			<expression><![CDATA[$R{AON_DATE}]]></expression>
+		</element>
+		<element kind="textField" uuid="3390e305-8373-4109-94f2-ec250fe5ef55" x="164" y="16" width="47" height="13">
+			<expression><![CDATA[$R{AON_DUE_DATE}]]></expression>
+		</element>
+		<element kind="textField" uuid="065252b8-60d9-43dd-85ea-f0ab23b1b70e" x="250" y="16" width="35" height="13">
+			<expression><![CDATA[$R{AON_TERMS}]]></expression>
+		</element>
+		<element kind="textField" uuid="90aab5e3-ca71-4a7b-a0cb-c3989dd2717f" x="297" y="16" width="35" height="13">
+			<expression><![CDATA[$R{AON_TYPE}]]></expression>
+		</element>
+		<element kind="textField" uuid="14caedcf-c4ac-4175-b8ad-9029cb82006d" x="340" y="16" width="60" height="13" hTextAlign="Right">
+			<expression><![CDATA[$R{AON_AMOUNT}]]></expression>
+		</element>
+		<element kind="textField" uuid="2c107b89-7209-4b2a-ac7c-d9d527e97c6e" x="429" y="16" width="60" height="13" hTextAlign="Right">
+			<expression><![CDATA[$R{AON_APPLIED}]]></expression>
+		</element>
+		<element kind="textField" uuid="9a0932df-777a-4f88-a843-8e666d8cc2da" x="515" y="16" width="60" height="13" hTextAlign="Right">
+			<paragraph rightIndent="2"/>
+			<expression><![CDATA[$R{AON_BALANCE}]]></expression>
+		</element>
 	</columnHeader>
 	<detail>
 		<band height="27">
-			<textField>
-				<reportElement x="3" y="1" width="80" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{AR_INV_NO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="85" y="1" width="70" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{INVOICE_DATE}.substring(4,6)+"/"+$F{INVOICE_DATE}.substring(6)+"/"+$F{INVOICE_DATE}.substring(0,4)]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="164" y="0" width="70" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{INV_DUE_DATE}.substring(4,6)+"/"+$F{INV_DUE_DATE}.substring(6)+"/"+$F{INV_DUE_DATE}.substring(0,4)]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="250" y="0" width="20" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{AR_TERMS_CODE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="297" y="0" width="29" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{INVOICE_TYPE}]]></textFieldExpression>
-			</textField>
-			<subreport isUsingCache="true">
-				<reportElement positionType="Float" x="0" y="14" width="575" height="10" isRemoveLineWhenBlank="true"/>
-				<subreportParameter name="INVOICE_AMT">
-					<subreportParameterExpression><![CDATA[$F{INVOICE_AMT}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="FIRM_ID">
-					<subreportParameterExpression><![CDATA[$P{FIRM_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CUSTOMER_ID">
-					<subreportParameterExpression><![CDATA[$P{CUSTOMER_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AR_INV_NO">
-					<subreportParameterExpression><![CDATA[$F{AR_INV_NO}]]></subreportParameterExpression>
-				</subreportParameter>
+			<element kind="textField" uuid="fed4c799-c9ec-467b-a658-7df550e0ac1f" x="3" y="1" width="80" height="13">
+				<expression><![CDATA[$F{AR_INV_NO}]]></expression>
+			</element>
+			<element kind="textField" uuid="26e8b9f6-dc63-40d3-ba68-0aadb7b9abe8" x="85" y="1" width="70" height="13">
+				<expression><![CDATA[$F{INVOICE_DATE}.substring(4,6)+"/"+$F{INVOICE_DATE}.substring(6)+"/"+$F{INVOICE_DATE}.substring(0,4)]]></expression>
+			</element>
+			<element kind="textField" uuid="ea7630a6-65b0-46c9-9fe6-9a3e1e2636cc" x="164" y="0" width="70" height="13">
+				<expression><![CDATA[$F{INV_DUE_DATE}.substring(4,6)+"/"+$F{INV_DUE_DATE}.substring(6)+"/"+$F{INV_DUE_DATE}.substring(0,4)]]></expression>
+			</element>
+			<element kind="textField" uuid="1eb14969-e233-45f9-b39f-430517f3ef50" x="250" y="0" width="20" height="13">
+				<expression><![CDATA[$F{AR_TERMS_CODE}]]></expression>
+			</element>
+			<element kind="textField" uuid="c43138e7-975c-4f94-a6e5-63f3fe5da968" x="297" y="0" width="29" height="13">
+				<expression><![CDATA[$F{INVOICE_TYPE}]]></expression>
+			</element>
+			<element kind="subreport" uuid="bea6104e-0063-4b1d-947e-60d61f74e904" positionType="Float" x="0" y="14" width="575" height="10" usingCache="true" removeLineWhenBlank="true">
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<returnValue subreportVariable="totAmt" toVariable="totDet" calculation="Sum"/>
-				<subreportExpression><![CDATA["CustDetail_invdet.jasper"]]></subreportExpression>
-			</subreport>
-			<textField pattern="#,##0.00">
-				<reportElement x="340" y="1" width="60" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{INVOICE_AMT}]]></textFieldExpression>
-			</textField>
+				<expression><![CDATA["CustDetail_invdet.jasper"]]></expression>
+				<returnValue toVariable="totDet" calculation="Sum" subreportVariable="totAmt"/>
+				<parameter name="INVOICE_AMT">
+					<expression><![CDATA[$F{INVOICE_AMT}]]></expression>
+				</parameter>
+				<parameter name="FIRM_ID">
+					<expression><![CDATA[$P{FIRM_ID}]]></expression>
+				</parameter>
+				<parameter name="CUSTOMER_ID">
+					<expression><![CDATA[$P{CUSTOMER_ID}]]></expression>
+				</parameter>
+				<parameter name="AR_INV_NO">
+					<expression><![CDATA[$F{AR_INV_NO}]]></expression>
+				</parameter>
+			</element>
+			<element kind="textField" uuid="9dde6964-4c11-4ea7-a891-b2dfab813e2b" x="340" y="1" width="60" height="13" pattern="#,##0.00" hTextAlign="Right">
+				<expression><![CDATA[$F{INVOICE_AMT}]]></expression>
+			</element>
 		</band>
 	</detail>
-	<columnFooter>
-		<band/>
-	</columnFooter>
-	<summary>
-		<band height="14">
-			<textField pattern="#,##0.00">
-				<reportElement x="515" y="0" width="60" height="13"/>
-				<textElement textAlignment="Right">
-					<paragraph rightIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{balance}.add( $V{totDet} )]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="150" y="1" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$R{AON_***_CUSTOMER_TOTAL:}]]></textFieldExpression>
-			</textField>
-		</band>
+	<columnFooter/>
+	<summary height="14">
+		<element kind="textField" uuid="17087c52-6626-47fc-9d1d-7525b075df14" x="515" y="0" width="60" height="13" pattern="#,##0.00" hTextAlign="Right">
+			<paragraph rightIndent="2"/>
+			<expression><![CDATA[$V{balance}.add( $V{totDet} )]]></expression>
+		</element>
+		<element kind="textField" uuid="567f6e71-6fc1-4218-bc9b-518bdc82c233" x="150" y="1" width="100" height="13">
+			<expression><![CDATA[$R{AON_***_CUSTOMER_TOTAL:}]]></expression>
+		</element>
 	</summary>
 </jasperReport>

@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="APChecks" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="6503a2e3-844c-4fcc-9be5-72abe9f5e267">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="APChecks" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="6503a2e3-844c-4fcc-9be5-72abe9f5e267">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="96"/>
@@ -24,10 +23,8 @@
 	<parameter name="LOGO_FILE" class="java.lang.String"/>
 	<parameter name="MAX_STUB_ROWS" class="java.lang.String"/>
 	<parameter name="ACH_PAYMENT" class="java.lang.String"/>
-	<parameter name="AP_MICR" class="java.lang.String" isForPrompting="false"/>
-	<queryString language="SQL">
-		<![CDATA[call APCHECKS_MAIN($P{FIRM_ID},$P{BARISTA_WD},$P{AP_TYPE},$P{ACH_PAYMENT})]]>
-	</queryString>
+	<parameter name="AP_MICR" forPrompting="false" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[call APCHECKS_MAIN($P{FIRM_ID},$P{BARISTA_WD},$P{AP_TYPE},$P{ACH_PAYMENT})]]></query>
 	<field name="FIRM_ID" class="java.lang.String"/>
 	<field name="AP_TYPE" class="java.lang.String"/>
 	<field name="CHECK_NUM" class="java.lang.String"/>
@@ -41,14 +38,14 @@
 	<field name="BNK_ACCT_CD" class="java.lang.String"/>
 	<field name="VENDOR_ACCT" class="java.lang.String"/>
 	<variable name="ORDER_OF_PARTS" class="java.lang.String">
-		<variableExpression><![CDATA[$P{TOP_PART}+$P{MIDDLE_PART}+$P{BOTTOM_PART}]]></variableExpression>
+		<expression><![CDATA[$P{TOP_PART}+$P{MIDDLE_PART}+$P{BOTTOM_PART}]]></expression>
 		<initialValueExpression><![CDATA[]]></initialValueExpression>
 	</variable>
-	<variable name="STUB_TYPE" class="java.lang.String" resetType="Page">
-		<variableExpression><![CDATA["V"]]></variableExpression>
+	<variable name="STUB_TYPE" resetType="Page" class="java.lang.String">
+		<expression><![CDATA["V"]]></expression>
 	</variable>
-	<group name="APType_CheckNo_ChkPageNum" isStartNewPage="true">
-		<groupExpression><![CDATA[$F{AP_TYPE}+$F{CHECK_NUM}+$F{APTYPE_VEND_PAGENUM}]]></groupExpression>
+	<group name="APType_CheckNo_ChkPageNum" startNewPage="true">
+		<expression><![CDATA[$F{AP_TYPE}+$F{CHECK_NUM}+$F{APTYPE_VEND_PAGENUM}]]></expression>
 		<groupHeader>
 			<band height="1"/>
 		</groupHeader>
@@ -56,503 +53,475 @@
 			<band/>
 		</groupFooter>
 	</group>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band splitType="Stretch"/>
-	</columnHeader>
+	<background splitType="Stretch"/>
+	<title splitType="Stretch"/>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader splitType="Stretch"/>
 	<detail>
 		<band height="263" splitType="Immediate">
-			<subreport runToBottom="false">
-				<reportElement positionType="Float" x="3" y="3" width="608" height="260" uuid="4e85b204-79bd-4dc6-b0d9-3e85a6816328">
-					<printWhenExpression><![CDATA[$P{TOP_PART}=="V" || $P{TOP_PART}=="A"]]></printWhenExpression>
-				</reportElement>
-				<subreportParameter name="STUB_AMT_MASK">
-					<subreportParameterExpression><![CDATA[$P{STUB_AMT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="STUB_TYPE">
-					<subreportParameterExpression><![CDATA[$P{TOP_PART}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDR3_STUB">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDR3_STUB}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CHECK_NUM">
-					<subreportParameterExpression><![CDATA[$F{CHECK_NUM}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="GL_ACCT_MASK">
-					<subreportParameterExpression><![CDATA[$P{GL_ACCT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS1_NAME">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS1_NAME}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS3">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS3}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VENDOR_ID">
-					<subreportParameterExpression><![CDATA[$F{VENDOR_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS2">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS2}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS4">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS4}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_NAME">
-					<subreportParameterExpression><![CDATA[$F{VEND_NAME}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR3">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR3}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="LOGO_FILE">
-					<subreportParameterExpression><![CDATA[$P{LOGO_FILE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BARISTA_WD">
-					<subreportParameterExpression><![CDATA[$P{BARISTA_WD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="MAX_STUB_ROWS">
-					<subreportParameterExpression><![CDATA[$P{MAX_STUB_ROWS}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CURR_PAGE">
-					<subreportParameterExpression><![CDATA[$F{APTYPE_VEND_PAGENUM}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="FIRM_ID">
-					<subreportParameterExpression><![CDATA[$F{FIRM_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_TYPE">
-					<subreportParameterExpression><![CDATA[$F{AP_TYPE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR1">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR1}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR2">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR2}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_MASK">
-					<subreportParameterExpression><![CDATA[$P{VEND_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="ACH_PAYMENT">
-					<subreportParameterExpression><![CDATA[$P{ACH_PAYMENT}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BNK_ACCT_CD">
-					<subreportParameterExpression><![CDATA[$F{BNK_ACCT_CD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_PHONE_NO">
-					<subreportParameterExpression><![CDATA[$P{AP_PHONE_NO}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VENDOR_ACCT">
-					<subreportParameterExpression><![CDATA[$F{VENDOR_ACCT}]]></subreportParameterExpression>
-				</subreportParameter>
+			<element kind="subreport" uuid="4e85b204-79bd-4dc6-b0d9-3e85a6816328" positionType="Float" x="3" y="3" width="608" height="260" runToBottom="false">
+				<printWhenExpression><![CDATA[$P{TOP_PART}=="V" || $P{TOP_PART}=="A"]]></printWhenExpression>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["APCheck-Stub.jasper"]]></subreportExpression>
-			</subreport>
-			<subreport>
-				<reportElement positionType="Float" x="3" y="3" width="608" height="260" uuid="851886da-da22-43ab-b379-277357ef59ed">
-					<printWhenExpression><![CDATA[$P{TOP_PART}=="C"]]></printWhenExpression>
-				</reportElement>
-				<subreportParameter name="CHECK_NUM">
-					<subreportParameterExpression><![CDATA[$F{CHECK_NUM}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="GL_ACCT_MASK">
-					<subreportParameterExpression><![CDATA[$P{GL_ACCT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS1_NAME">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS1_NAME}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS3">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS3}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VENDOR_ID">
-					<subreportParameterExpression><![CDATA[$F{VENDOR_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS2">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS2}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS4">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS4}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_NAME">
-					<subreportParameterExpression><![CDATA[$F{VEND_NAME}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR3">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR3}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="LOGO_FILE">
-					<subreportParameterExpression><![CDATA[$P{LOGO_FILE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BARISTA_WD">
-					<subreportParameterExpression><![CDATA[$P{BARISTA_WD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CURR_PAGE">
-					<subreportParameterExpression><![CDATA[$F{APTYPE_VEND_PAGENUM}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="FIRM_ID">
-					<subreportParameterExpression><![CDATA[$F{FIRM_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CHECK_AMT_MASK">
-					<subreportParameterExpression><![CDATA[$P{CHECK_AMT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR1">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR1}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_TYPE">
-					<subreportParameterExpression><![CDATA[$F{AP_TYPE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR2">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR2}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_MASK">
-					<subreportParameterExpression><![CDATA[$P{VEND_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR4">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR4}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="ACH_PAYMENT">
-					<subreportParameterExpression><![CDATA[$P{ACH_PAYMENT}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BNK_ACCT_CD">
-					<subreportParameterExpression><![CDATA[$F{BNK_ACCT_CD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_MICR">
-					<subreportParameterExpression><![CDATA[$P{AP_MICR}]]></subreportParameterExpression>
-				</subreportParameter>
+				<expression><![CDATA["APCheck-Stub.jasper"]]></expression>
+				<parameter name="STUB_AMT_MASK">
+					<expression><![CDATA[$P{STUB_AMT_MASK}]]></expression>
+				</parameter>
+				<parameter name="STUB_TYPE">
+					<expression><![CDATA[$P{TOP_PART}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDR3_STUB">
+					<expression><![CDATA[$P{AP_ADDR3_STUB}]]></expression>
+				</parameter>
+				<parameter name="CHECK_NUM">
+					<expression><![CDATA[$F{CHECK_NUM}]]></expression>
+				</parameter>
+				<parameter name="GL_ACCT_MASK">
+					<expression><![CDATA[$P{GL_ACCT_MASK}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS1_NAME">
+					<expression><![CDATA[$P{AP_ADDRESS1_NAME}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS3">
+					<expression><![CDATA[$P{AP_ADDRESS3}]]></expression>
+				</parameter>
+				<parameter name="VENDOR_ID">
+					<expression><![CDATA[$F{VENDOR_ID}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS2">
+					<expression><![CDATA[$P{AP_ADDRESS2}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS4">
+					<expression><![CDATA[$P{AP_ADDRESS4}]]></expression>
+				</parameter>
+				<parameter name="VEND_NAME">
+					<expression><![CDATA[$F{VEND_NAME}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR3">
+					<expression><![CDATA[$F{VEND_ADDR3}]]></expression>
+				</parameter>
+				<parameter name="LOGO_FILE">
+					<expression><![CDATA[$P{LOGO_FILE}]]></expression>
+				</parameter>
+				<parameter name="BARISTA_WD">
+					<expression><![CDATA[$P{BARISTA_WD}]]></expression>
+				</parameter>
+				<parameter name="MAX_STUB_ROWS">
+					<expression><![CDATA[$P{MAX_STUB_ROWS}]]></expression>
+				</parameter>
+				<parameter name="CURR_PAGE">
+					<expression><![CDATA[$F{APTYPE_VEND_PAGENUM}]]></expression>
+				</parameter>
+				<parameter name="FIRM_ID">
+					<expression><![CDATA[$F{FIRM_ID}]]></expression>
+				</parameter>
+				<parameter name="AP_TYPE">
+					<expression><![CDATA[$F{AP_TYPE}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR1">
+					<expression><![CDATA[$F{VEND_ADDR1}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR2">
+					<expression><![CDATA[$F{VEND_ADDR2}]]></expression>
+				</parameter>
+				<parameter name="VEND_MASK">
+					<expression><![CDATA[$P{VEND_MASK}]]></expression>
+				</parameter>
+				<parameter name="ACH_PAYMENT">
+					<expression><![CDATA[$P{ACH_PAYMENT}]]></expression>
+				</parameter>
+				<parameter name="BNK_ACCT_CD">
+					<expression><![CDATA[$F{BNK_ACCT_CD}]]></expression>
+				</parameter>
+				<parameter name="AP_PHONE_NO">
+					<expression><![CDATA[$P{AP_PHONE_NO}]]></expression>
+				</parameter>
+				<parameter name="VENDOR_ACCT">
+					<expression><![CDATA[$F{VENDOR_ACCT}]]></expression>
+				</parameter>
+			</element>
+			<element kind="subreport" uuid="851886da-da22-43ab-b379-277357ef59ed" positionType="Float" x="3" y="3" width="608" height="260">
+				<printWhenExpression><![CDATA[$P{TOP_PART}=="C"]]></printWhenExpression>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["APCheck-Check.jasper"]]></subreportExpression>
-			</subreport>
+				<expression><![CDATA["APCheck-Check.jasper"]]></expression>
+				<parameter name="CHECK_NUM">
+					<expression><![CDATA[$F{CHECK_NUM}]]></expression>
+				</parameter>
+				<parameter name="GL_ACCT_MASK">
+					<expression><![CDATA[$P{GL_ACCT_MASK}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS1_NAME">
+					<expression><![CDATA[$P{AP_ADDRESS1_NAME}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS3">
+					<expression><![CDATA[$P{AP_ADDRESS3}]]></expression>
+				</parameter>
+				<parameter name="VENDOR_ID">
+					<expression><![CDATA[$F{VENDOR_ID}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS2">
+					<expression><![CDATA[$P{AP_ADDRESS2}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS4">
+					<expression><![CDATA[$P{AP_ADDRESS4}]]></expression>
+				</parameter>
+				<parameter name="VEND_NAME">
+					<expression><![CDATA[$F{VEND_NAME}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR3">
+					<expression><![CDATA[$F{VEND_ADDR3}]]></expression>
+				</parameter>
+				<parameter name="LOGO_FILE">
+					<expression><![CDATA[$P{LOGO_FILE}]]></expression>
+				</parameter>
+				<parameter name="BARISTA_WD">
+					<expression><![CDATA[$P{BARISTA_WD}]]></expression>
+				</parameter>
+				<parameter name="CURR_PAGE">
+					<expression><![CDATA[$F{APTYPE_VEND_PAGENUM}]]></expression>
+				</parameter>
+				<parameter name="FIRM_ID">
+					<expression><![CDATA[$F{FIRM_ID}]]></expression>
+				</parameter>
+				<parameter name="CHECK_AMT_MASK">
+					<expression><![CDATA[$P{CHECK_AMT_MASK}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR1">
+					<expression><![CDATA[$F{VEND_ADDR1}]]></expression>
+				</parameter>
+				<parameter name="AP_TYPE">
+					<expression><![CDATA[$F{AP_TYPE}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR2">
+					<expression><![CDATA[$F{VEND_ADDR2}]]></expression>
+				</parameter>
+				<parameter name="VEND_MASK">
+					<expression><![CDATA[$P{VEND_MASK}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR4">
+					<expression><![CDATA[$F{VEND_ADDR4}]]></expression>
+				</parameter>
+				<parameter name="ACH_PAYMENT">
+					<expression><![CDATA[$P{ACH_PAYMENT}]]></expression>
+				</parameter>
+				<parameter name="BNK_ACCT_CD">
+					<expression><![CDATA[$F{BNK_ACCT_CD}]]></expression>
+				</parameter>
+				<parameter name="AP_MICR">
+					<expression><![CDATA[$P{AP_MICR}]]></expression>
+				</parameter>
+			</element>
 		</band>
 		<band height="263" splitType="Immediate">
-			<subreport runToBottom="false">
-				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="3" y="3" width="608" height="260" uuid="d664a9a5-1d90-4676-bfa5-93da20532150">
-					<printWhenExpression><![CDATA[$P{MIDDLE_PART}=="V" || $P{MIDDLE_PART}=="A"]]></printWhenExpression>
-				</reportElement>
-				<subreportParameter name="STUB_AMT_MASK">
-					<subreportParameterExpression><![CDATA[$P{STUB_AMT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="STUB_TYPE">
-					<subreportParameterExpression><![CDATA[$P{MIDDLE_PART}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDR3_STUB">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDR3_STUB}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CHECK_NUM">
-					<subreportParameterExpression><![CDATA[$F{CHECK_NUM}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="GL_ACCT_MASK">
-					<subreportParameterExpression><![CDATA[$P{GL_ACCT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS1_NAME">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS1_NAME}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS3">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS3}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VENDOR_ID">
-					<subreportParameterExpression><![CDATA[$F{VENDOR_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS2">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS2}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS4">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS4}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_NAME">
-					<subreportParameterExpression><![CDATA[$F{VEND_NAME}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR3">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR3}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="LOGO_FILE">
-					<subreportParameterExpression><![CDATA[$P{LOGO_FILE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BARISTA_WD">
-					<subreportParameterExpression><![CDATA[$P{BARISTA_WD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="MAX_STUB_ROWS">
-					<subreportParameterExpression><![CDATA[$P{MAX_STUB_ROWS}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CURR_PAGE">
-					<subreportParameterExpression><![CDATA[$F{APTYPE_VEND_PAGENUM}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="FIRM_ID">
-					<subreportParameterExpression><![CDATA[$F{FIRM_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_TYPE">
-					<subreportParameterExpression><![CDATA[$F{AP_TYPE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR1">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR1}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR2">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR2}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_MASK">
-					<subreportParameterExpression><![CDATA[$P{VEND_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="ACH_PAYMENT">
-					<subreportParameterExpression><![CDATA[$P{ACH_PAYMENT}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BNK_ACCT_CD">
-					<subreportParameterExpression><![CDATA[$F{BNK_ACCT_CD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_PHONE_NO">
-					<subreportParameterExpression><![CDATA[$P{AP_PHONE_NO}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VENDOR_ACCT">
-					<subreportParameterExpression><![CDATA[$F{VENDOR_ACCT}]]></subreportParameterExpression>
-				</subreportParameter>
+			<element kind="subreport" uuid="d664a9a5-1d90-4676-bfa5-93da20532150" positionType="Float" stretchType="ContainerHeight" x="3" y="3" width="608" height="260" runToBottom="false">
+				<printWhenExpression><![CDATA[$P{MIDDLE_PART}=="V" || $P{MIDDLE_PART}=="A"]]></printWhenExpression>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["APCheck-Stub.jasper"]]></subreportExpression>
-			</subreport>
-			<subreport>
-				<reportElement positionType="Float" x="3" y="3" width="608" height="260" uuid="18ce0e16-83e1-492a-8b6d-358a73815351">
-					<printWhenExpression><![CDATA[$P{MIDDLE_PART}=="C"]]></printWhenExpression>
-				</reportElement>
-				<subreportParameter name="CHECK_NUM">
-					<subreportParameterExpression><![CDATA[$F{CHECK_NUM}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="GL_ACCT_MASK">
-					<subreportParameterExpression><![CDATA[$P{GL_ACCT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS1_NAME">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS1_NAME}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS3">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS3}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VENDOR_ID">
-					<subreportParameterExpression><![CDATA[$F{VENDOR_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS2">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS2}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS4">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS4}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_NAME">
-					<subreportParameterExpression><![CDATA[$F{VEND_NAME}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR3">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR3}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="LOGO_FILE">
-					<subreportParameterExpression><![CDATA[$P{LOGO_FILE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BARISTA_WD">
-					<subreportParameterExpression><![CDATA[$P{BARISTA_WD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CURR_PAGE">
-					<subreportParameterExpression><![CDATA[$F{APTYPE_VEND_PAGENUM}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="FIRM_ID">
-					<subreportParameterExpression><![CDATA[$F{FIRM_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CHECK_AMT_MASK">
-					<subreportParameterExpression><![CDATA[$P{CHECK_AMT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR1">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR1}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_TYPE">
-					<subreportParameterExpression><![CDATA[$F{AP_TYPE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR2">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR2}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_MASK">
-					<subreportParameterExpression><![CDATA[$P{VEND_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR4">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR4}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="ACH_PAYMENT">
-					<subreportParameterExpression><![CDATA[$P{ACH_PAYMENT}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BNK_ACCT_CD">
-					<subreportParameterExpression><![CDATA[$F{BNK_ACCT_CD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_MICR">
-					<subreportParameterExpression><![CDATA[$P{AP_MICR}]]></subreportParameterExpression>
-				</subreportParameter>
+				<expression><![CDATA["APCheck-Stub.jasper"]]></expression>
+				<parameter name="STUB_AMT_MASK">
+					<expression><![CDATA[$P{STUB_AMT_MASK}]]></expression>
+				</parameter>
+				<parameter name="STUB_TYPE">
+					<expression><![CDATA[$P{MIDDLE_PART}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDR3_STUB">
+					<expression><![CDATA[$P{AP_ADDR3_STUB}]]></expression>
+				</parameter>
+				<parameter name="CHECK_NUM">
+					<expression><![CDATA[$F{CHECK_NUM}]]></expression>
+				</parameter>
+				<parameter name="GL_ACCT_MASK">
+					<expression><![CDATA[$P{GL_ACCT_MASK}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS1_NAME">
+					<expression><![CDATA[$P{AP_ADDRESS1_NAME}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS3">
+					<expression><![CDATA[$P{AP_ADDRESS3}]]></expression>
+				</parameter>
+				<parameter name="VENDOR_ID">
+					<expression><![CDATA[$F{VENDOR_ID}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS2">
+					<expression><![CDATA[$P{AP_ADDRESS2}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS4">
+					<expression><![CDATA[$P{AP_ADDRESS4}]]></expression>
+				</parameter>
+				<parameter name="VEND_NAME">
+					<expression><![CDATA[$F{VEND_NAME}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR3">
+					<expression><![CDATA[$F{VEND_ADDR3}]]></expression>
+				</parameter>
+				<parameter name="LOGO_FILE">
+					<expression><![CDATA[$P{LOGO_FILE}]]></expression>
+				</parameter>
+				<parameter name="BARISTA_WD">
+					<expression><![CDATA[$P{BARISTA_WD}]]></expression>
+				</parameter>
+				<parameter name="MAX_STUB_ROWS">
+					<expression><![CDATA[$P{MAX_STUB_ROWS}]]></expression>
+				</parameter>
+				<parameter name="CURR_PAGE">
+					<expression><![CDATA[$F{APTYPE_VEND_PAGENUM}]]></expression>
+				</parameter>
+				<parameter name="FIRM_ID">
+					<expression><![CDATA[$F{FIRM_ID}]]></expression>
+				</parameter>
+				<parameter name="AP_TYPE">
+					<expression><![CDATA[$F{AP_TYPE}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR1">
+					<expression><![CDATA[$F{VEND_ADDR1}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR2">
+					<expression><![CDATA[$F{VEND_ADDR2}]]></expression>
+				</parameter>
+				<parameter name="VEND_MASK">
+					<expression><![CDATA[$P{VEND_MASK}]]></expression>
+				</parameter>
+				<parameter name="ACH_PAYMENT">
+					<expression><![CDATA[$P{ACH_PAYMENT}]]></expression>
+				</parameter>
+				<parameter name="BNK_ACCT_CD">
+					<expression><![CDATA[$F{BNK_ACCT_CD}]]></expression>
+				</parameter>
+				<parameter name="AP_PHONE_NO">
+					<expression><![CDATA[$P{AP_PHONE_NO}]]></expression>
+				</parameter>
+				<parameter name="VENDOR_ACCT">
+					<expression><![CDATA[$F{VENDOR_ACCT}]]></expression>
+				</parameter>
+			</element>
+			<element kind="subreport" uuid="18ce0e16-83e1-492a-8b6d-358a73815351" positionType="Float" x="3" y="3" width="608" height="260">
+				<printWhenExpression><![CDATA[$P{MIDDLE_PART}=="C"]]></printWhenExpression>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["APCheck-Check.jasper"]]></subreportExpression>
-			</subreport>
+				<expression><![CDATA["APCheck-Check.jasper"]]></expression>
+				<parameter name="CHECK_NUM">
+					<expression><![CDATA[$F{CHECK_NUM}]]></expression>
+				</parameter>
+				<parameter name="GL_ACCT_MASK">
+					<expression><![CDATA[$P{GL_ACCT_MASK}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS1_NAME">
+					<expression><![CDATA[$P{AP_ADDRESS1_NAME}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS3">
+					<expression><![CDATA[$P{AP_ADDRESS3}]]></expression>
+				</parameter>
+				<parameter name="VENDOR_ID">
+					<expression><![CDATA[$F{VENDOR_ID}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS2">
+					<expression><![CDATA[$P{AP_ADDRESS2}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS4">
+					<expression><![CDATA[$P{AP_ADDRESS4}]]></expression>
+				</parameter>
+				<parameter name="VEND_NAME">
+					<expression><![CDATA[$F{VEND_NAME}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR3">
+					<expression><![CDATA[$F{VEND_ADDR3}]]></expression>
+				</parameter>
+				<parameter name="LOGO_FILE">
+					<expression><![CDATA[$P{LOGO_FILE}]]></expression>
+				</parameter>
+				<parameter name="BARISTA_WD">
+					<expression><![CDATA[$P{BARISTA_WD}]]></expression>
+				</parameter>
+				<parameter name="CURR_PAGE">
+					<expression><![CDATA[$F{APTYPE_VEND_PAGENUM}]]></expression>
+				</parameter>
+				<parameter name="FIRM_ID">
+					<expression><![CDATA[$F{FIRM_ID}]]></expression>
+				</parameter>
+				<parameter name="CHECK_AMT_MASK">
+					<expression><![CDATA[$P{CHECK_AMT_MASK}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR1">
+					<expression><![CDATA[$F{VEND_ADDR1}]]></expression>
+				</parameter>
+				<parameter name="AP_TYPE">
+					<expression><![CDATA[$F{AP_TYPE}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR2">
+					<expression><![CDATA[$F{VEND_ADDR2}]]></expression>
+				</parameter>
+				<parameter name="VEND_MASK">
+					<expression><![CDATA[$P{VEND_MASK}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR4">
+					<expression><![CDATA[$F{VEND_ADDR4}]]></expression>
+				</parameter>
+				<parameter name="ACH_PAYMENT">
+					<expression><![CDATA[$P{ACH_PAYMENT}]]></expression>
+				</parameter>
+				<parameter name="BNK_ACCT_CD">
+					<expression><![CDATA[$F{BNK_ACCT_CD}]]></expression>
+				</parameter>
+				<parameter name="AP_MICR">
+					<expression><![CDATA[$P{AP_MICR}]]></expression>
+				</parameter>
+			</element>
 		</band>
 		<band height="263" splitType="Immediate">
 			<printWhenExpression><![CDATA[!$P{BOTTOM_PART}.equals( "X")]]></printWhenExpression>
-			<subreport runToBottom="false">
-				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="3" y="3" width="608" height="260" uuid="1b639cd5-ac93-43fd-8dcf-b3587769d185">
-					<printWhenExpression><![CDATA[$P{BOTTOM_PART}=="V" || $P{BOTTOM_PART}=="A"]]></printWhenExpression>
-				</reportElement>
-				<subreportParameter name="STUB_AMT_MASK">
-					<subreportParameterExpression><![CDATA[$P{STUB_AMT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="STUB_TYPE">
-					<subreportParameterExpression><![CDATA[$P{BOTTOM_PART}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDR3_STUB">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDR3_STUB}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CHECK_NUM">
-					<subreportParameterExpression><![CDATA[$F{CHECK_NUM}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="GL_ACCT_MASK">
-					<subreportParameterExpression><![CDATA[$P{GL_ACCT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS1_NAME">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS1_NAME}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS3">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS3}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VENDOR_ID">
-					<subreportParameterExpression><![CDATA[$F{VENDOR_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS2">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS2}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS4">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS4}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_NAME">
-					<subreportParameterExpression><![CDATA[$F{VEND_NAME}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR3">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR3}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="LOGO_FILE">
-					<subreportParameterExpression><![CDATA[$P{LOGO_FILE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BARISTA_WD">
-					<subreportParameterExpression><![CDATA[$P{BARISTA_WD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="MAX_STUB_ROWS">
-					<subreportParameterExpression><![CDATA[$P{MAX_STUB_ROWS}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CURR_PAGE">
-					<subreportParameterExpression><![CDATA[$F{APTYPE_VEND_PAGENUM}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="FIRM_ID">
-					<subreportParameterExpression><![CDATA[$F{FIRM_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_TYPE">
-					<subreportParameterExpression><![CDATA[$F{AP_TYPE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR1">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR1}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR2">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR2}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_MASK">
-					<subreportParameterExpression><![CDATA[$P{VEND_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="ACH_PAYMENT">
-					<subreportParameterExpression><![CDATA[$P{ACH_PAYMENT}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BNK_ACCT_CD">
-					<subreportParameterExpression><![CDATA[$F{BNK_ACCT_CD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_PHONE_NO">
-					<subreportParameterExpression><![CDATA[$P{AP_PHONE_NO}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VENDOR_ACCT">
-					<subreportParameterExpression><![CDATA[$F{VENDOR_ACCT}]]></subreportParameterExpression>
-				</subreportParameter>
+			<element kind="subreport" uuid="1b639cd5-ac93-43fd-8dcf-b3587769d185" positionType="Float" stretchType="ContainerHeight" x="3" y="3" width="608" height="260" runToBottom="false">
+				<printWhenExpression><![CDATA[$P{BOTTOM_PART}=="V" || $P{BOTTOM_PART}=="A"]]></printWhenExpression>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["APCheck-Stub.jasper"]]></subreportExpression>
-			</subreport>
-			<subreport>
-				<reportElement positionType="Float" x="3" y="3" width="608" height="260" uuid="ecc13d01-487a-45c3-b659-881bdaf79335">
-					<printWhenExpression><![CDATA[$P{BOTTOM_PART}=="C"]]></printWhenExpression>
-				</reportElement>
-				<subreportParameter name="CHECK_NUM">
-					<subreportParameterExpression><![CDATA[$F{CHECK_NUM}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="GL_ACCT_MASK">
-					<subreportParameterExpression><![CDATA[$P{GL_ACCT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS1_NAME">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS1_NAME}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS3">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS3}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VENDOR_ID">
-					<subreportParameterExpression><![CDATA[$F{VENDOR_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS2">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS2}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_ADDRESS4">
-					<subreportParameterExpression><![CDATA[$P{AP_ADDRESS4}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_NAME">
-					<subreportParameterExpression><![CDATA[$F{VEND_NAME}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR3">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR3}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="LOGO_FILE">
-					<subreportParameterExpression><![CDATA[$P{LOGO_FILE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BARISTA_WD">
-					<subreportParameterExpression><![CDATA[$P{BARISTA_WD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CURR_PAGE">
-					<subreportParameterExpression><![CDATA[$F{APTYPE_VEND_PAGENUM}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="FIRM_ID">
-					<subreportParameterExpression><![CDATA[$F{FIRM_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CHECK_AMT_MASK">
-					<subreportParameterExpression><![CDATA[$P{CHECK_AMT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR1">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR1}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_TYPE">
-					<subreportParameterExpression><![CDATA[$F{AP_TYPE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR2">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR2}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_MASK">
-					<subreportParameterExpression><![CDATA[$P{VEND_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VEND_ADDR4">
-					<subreportParameterExpression><![CDATA[$F{VEND_ADDR4}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="ACH_PAYMENT">
-					<subreportParameterExpression><![CDATA[$P{ACH_PAYMENT}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BNK_ACCT_CD">
-					<subreportParameterExpression><![CDATA[$F{BNK_ACCT_CD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_MICR">
-					<subreportParameterExpression><![CDATA[$P{AP_MICR}]]></subreportParameterExpression>
-				</subreportParameter>
+				<expression><![CDATA["APCheck-Stub.jasper"]]></expression>
+				<parameter name="STUB_AMT_MASK">
+					<expression><![CDATA[$P{STUB_AMT_MASK}]]></expression>
+				</parameter>
+				<parameter name="STUB_TYPE">
+					<expression><![CDATA[$P{BOTTOM_PART}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDR3_STUB">
+					<expression><![CDATA[$P{AP_ADDR3_STUB}]]></expression>
+				</parameter>
+				<parameter name="CHECK_NUM">
+					<expression><![CDATA[$F{CHECK_NUM}]]></expression>
+				</parameter>
+				<parameter name="GL_ACCT_MASK">
+					<expression><![CDATA[$P{GL_ACCT_MASK}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS1_NAME">
+					<expression><![CDATA[$P{AP_ADDRESS1_NAME}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS3">
+					<expression><![CDATA[$P{AP_ADDRESS3}]]></expression>
+				</parameter>
+				<parameter name="VENDOR_ID">
+					<expression><![CDATA[$F{VENDOR_ID}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS2">
+					<expression><![CDATA[$P{AP_ADDRESS2}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS4">
+					<expression><![CDATA[$P{AP_ADDRESS4}]]></expression>
+				</parameter>
+				<parameter name="VEND_NAME">
+					<expression><![CDATA[$F{VEND_NAME}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR3">
+					<expression><![CDATA[$F{VEND_ADDR3}]]></expression>
+				</parameter>
+				<parameter name="LOGO_FILE">
+					<expression><![CDATA[$P{LOGO_FILE}]]></expression>
+				</parameter>
+				<parameter name="BARISTA_WD">
+					<expression><![CDATA[$P{BARISTA_WD}]]></expression>
+				</parameter>
+				<parameter name="MAX_STUB_ROWS">
+					<expression><![CDATA[$P{MAX_STUB_ROWS}]]></expression>
+				</parameter>
+				<parameter name="CURR_PAGE">
+					<expression><![CDATA[$F{APTYPE_VEND_PAGENUM}]]></expression>
+				</parameter>
+				<parameter name="FIRM_ID">
+					<expression><![CDATA[$F{FIRM_ID}]]></expression>
+				</parameter>
+				<parameter name="AP_TYPE">
+					<expression><![CDATA[$F{AP_TYPE}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR1">
+					<expression><![CDATA[$F{VEND_ADDR1}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR2">
+					<expression><![CDATA[$F{VEND_ADDR2}]]></expression>
+				</parameter>
+				<parameter name="VEND_MASK">
+					<expression><![CDATA[$P{VEND_MASK}]]></expression>
+				</parameter>
+				<parameter name="ACH_PAYMENT">
+					<expression><![CDATA[$P{ACH_PAYMENT}]]></expression>
+				</parameter>
+				<parameter name="BNK_ACCT_CD">
+					<expression><![CDATA[$F{BNK_ACCT_CD}]]></expression>
+				</parameter>
+				<parameter name="AP_PHONE_NO">
+					<expression><![CDATA[$P{AP_PHONE_NO}]]></expression>
+				</parameter>
+				<parameter name="VENDOR_ACCT">
+					<expression><![CDATA[$F{VENDOR_ACCT}]]></expression>
+				</parameter>
+			</element>
+			<element kind="subreport" uuid="ecc13d01-487a-45c3-b659-881bdaf79335" positionType="Float" x="3" y="3" width="608" height="260">
+				<printWhenExpression><![CDATA[$P{BOTTOM_PART}=="C"]]></printWhenExpression>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["APCheck-Check.jasper"]]></subreportExpression>
-			</subreport>
+				<expression><![CDATA["APCheck-Check.jasper"]]></expression>
+				<parameter name="CHECK_NUM">
+					<expression><![CDATA[$F{CHECK_NUM}]]></expression>
+				</parameter>
+				<parameter name="GL_ACCT_MASK">
+					<expression><![CDATA[$P{GL_ACCT_MASK}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS1_NAME">
+					<expression><![CDATA[$P{AP_ADDRESS1_NAME}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS3">
+					<expression><![CDATA[$P{AP_ADDRESS3}]]></expression>
+				</parameter>
+				<parameter name="VENDOR_ID">
+					<expression><![CDATA[$F{VENDOR_ID}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS2">
+					<expression><![CDATA[$P{AP_ADDRESS2}]]></expression>
+				</parameter>
+				<parameter name="AP_ADDRESS4">
+					<expression><![CDATA[$P{AP_ADDRESS4}]]></expression>
+				</parameter>
+				<parameter name="VEND_NAME">
+					<expression><![CDATA[$F{VEND_NAME}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR3">
+					<expression><![CDATA[$F{VEND_ADDR3}]]></expression>
+				</parameter>
+				<parameter name="LOGO_FILE">
+					<expression><![CDATA[$P{LOGO_FILE}]]></expression>
+				</parameter>
+				<parameter name="BARISTA_WD">
+					<expression><![CDATA[$P{BARISTA_WD}]]></expression>
+				</parameter>
+				<parameter name="CURR_PAGE">
+					<expression><![CDATA[$F{APTYPE_VEND_PAGENUM}]]></expression>
+				</parameter>
+				<parameter name="FIRM_ID">
+					<expression><![CDATA[$F{FIRM_ID}]]></expression>
+				</parameter>
+				<parameter name="CHECK_AMT_MASK">
+					<expression><![CDATA[$P{CHECK_AMT_MASK}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR1">
+					<expression><![CDATA[$F{VEND_ADDR1}]]></expression>
+				</parameter>
+				<parameter name="AP_TYPE">
+					<expression><![CDATA[$F{AP_TYPE}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR2">
+					<expression><![CDATA[$F{VEND_ADDR2}]]></expression>
+				</parameter>
+				<parameter name="VEND_MASK">
+					<expression><![CDATA[$P{VEND_MASK}]]></expression>
+				</parameter>
+				<parameter name="VEND_ADDR4">
+					<expression><![CDATA[$F{VEND_ADDR4}]]></expression>
+				</parameter>
+				<parameter name="ACH_PAYMENT">
+					<expression><![CDATA[$P{ACH_PAYMENT}]]></expression>
+				</parameter>
+				<parameter name="BNK_ACCT_CD">
+					<expression><![CDATA[$F{BNK_ACCT_CD}]]></expression>
+				</parameter>
+				<parameter name="AP_MICR">
+					<expression><![CDATA[$P{AP_MICR}]]></expression>
+				</parameter>
+			</element>
 		</band>
 	</detail>
-	<columnFooter>
-		<band splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="1" splitType="Stretch">
-			<break>
-				<reportElement x="0" y="0" width="100" height="1" uuid="81d7de92-3f9c-46db-ba09-408cf90ea5f5"/>
-			</break>
-		</band>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter height="1" splitType="Stretch">
+		<element kind="break" uuid="81d7de92-3f9c-46db-ba09-408cf90ea5f5" x="0" y="0" width="100" height="1"/>
 	</pageFooter>
-	<summary>
-		<band splitType="Stretch"/>
-	</summary>
+	<summary splitType="Stretch"/>
 </jasperReport>

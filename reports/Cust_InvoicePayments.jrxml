@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cust_InvoicePayments" pageWidth="595" pageHeight="800" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="addon" uuid="af3384f6-df08-4dae-956a-8f60de737f18">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="Cust_InvoicePayments" language="java" pageWidth="595" pageHeight="800" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="addon" uuid="af3384f6-df08-4dae-956a-8f60de737f18">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -20,9 +19,7 @@
 	<parameter name="AMT_MASK" class="java.lang.String"/>
 	<parameter name="CUST_MASK" class="java.lang.String"/>
 	<parameter name="CUST_SIZE" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[CALL CUST_INVOICEPAYMENTS($P{FIRM_ID},$P{STATEMENT_DATE},$P{CUSTOMER_ID},$P{AR_INV_NO},$P{AMT_MASK},$P{CUST_MASK},$P{CUST_SIZE},$P{BARISTA_WD})]]>
-	</queryString>
+	<query language="sql"><![CDATA[CALL CUST_INVOICEPAYMENTS($P{FIRM_ID},$P{STATEMENT_DATE},$P{CUSTOMER_ID},$P{AR_INV_NO},$P{AMT_MASK},$P{CUST_MASK},$P{CUST_SIZE},$P{BARISTA_WD})]]></query>
 	<field name="FIRM_ID" class="java.lang.String"/>
 	<field name="STATEMENT_DATE" class="java.lang.String"/>
 	<field name="CUSTOMER_ID" class="java.lang.String"/>
@@ -48,540 +45,296 @@
 	<field name="REMIT3" class="java.lang.String"/>
 	<field name="REMIT4" class="java.lang.String"/>
 	<field name="PAYMENT_URL" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="AR_FAX_NO" class="java.lang.String"/>
-	<variable name="totalPagesInReport" class="java.lang.Integer" incrementType="Page" calculation="Count">
-		<variableExpression><![CDATA[$V{totalPagesInReport}]]></variableExpression>
+	<variable name="totalPagesInReport" incrementType="Page" calculation="Count" class="java.lang.Integer">
+		<expression><![CDATA[$V{totalPagesInReport}]]></expression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
 	</variable>
-	<group name="INVOICE_HEADINGS" isStartNewPage="true" isResetPageNumber="true" isReprintHeaderOnEachPage="true" footerPosition="StackAtBottom" keepTogether="true">
-		<groupExpression><![CDATA[$F{CUSTOMER_ID}]]></groupExpression>
+	<group name="INVOICE_HEADINGS" footerPosition="StackAtBottom" keepTogether="true" startNewPage="true" resetPageNumber="true" reprintHeaderOnEachPage="true">
+		<expression><![CDATA[$F{CUSTOMER_ID}]]></expression>
 		<groupHeader>
 			<band height="54">
-				<rectangle radius="8">
-					<reportElement x="0" y="16" width="555" height="26" backcolor="#000000" uuid="59862c70-641b-41c7-9b4b-3ed19ac4e3eb"/>
-					<graphicElement>
-						<pen lineWidth="1.0"/>
-					</graphicElement>
-				</rectangle>
-				<rectangle radius="0">
-					<reportElement x="0" y="34" width="555" height="20" backcolor="#000000" uuid="bde434a1-da29-43fb-acda-55b422a5a407"/>
-					<graphicElement>
-						<pen lineWidth="1.0"/>
-					</graphicElement>
-				</rectangle>
-				<textField>
-					<reportElement x="0" y="8" width="108" height="26" forecolor="#FFFFFF" uuid="2373dc60-7fd0-4093-a5a7-8d707fe299e3">
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font fontName="SansSerif" size="15" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$R{AON_INVOICE}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="0" y="26" width="108" height="26" forecolor="#FFFFFF" uuid="cc2e40f5-a75c-4690-b503-03015cb8e8ea">
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-						<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font fontName="SansSerif" size="15" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$R{AON_DATE}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="108" y="8" width="108" height="26" forecolor="#FFFFFF" uuid="d3804e46-e827-4ffb-be66-51ce16e2840c">
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font fontName="SansSerif" size="15" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$R{AON_INVOICE}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="108" y="26" width="102" height="26" forecolor="#FFFFFF" uuid="b221c0a7-c93d-4d80-90a1-0a308d195801">
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font fontName="SansSerif" size="15" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$R{AON_NUMBER}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="216" y="8" width="112" height="26" forecolor="#FFFFFF" uuid="521c6883-524a-45ac-a107-23a3ab5d31e8">
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font fontName="SansSerif" size="15" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$R{AON_INVOICE}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="217" y="28" width="112" height="26" forecolor="#FFFFFF" uuid="7a520e3b-a6c6-4e06-b27d-2a55d641a314">
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font fontName="SansSerif" size="15" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$R{AON_TOTAL}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="348" y="8" width="72" height="44" forecolor="#FFFFFF" uuid="59f5ca63-0a6a-4f9d-bb81-5d0b06193041">
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font fontName="SansSerif" size="15" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$R{AON_PAYMENTS}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="441" y="8" width="112" height="44" forecolor="#FFFFFF" uuid="8a20eb7c-2335-41d1-8533-fcc90d49e08f">
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
+				<element kind="rectangle" uuid="59862c70-641b-41c7-9b4b-3ed19ac4e3eb" x="0" y="16" width="555" height="26" backcolor="#000000" radius="8">
+					<pen lineWidth="1.0"/>
+				</element>
+				<element kind="rectangle" uuid="bde434a1-da29-43fb-acda-55b422a5a407" x="0" y="34" width="555" height="20" backcolor="#000000" radius="0">
+					<pen lineWidth="1.0"/>
+				</element>
+				<element kind="textField" uuid="2373dc60-7fd0-4093-a5a7-8d707fe299e3" x="0" y="8" width="108" height="26" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
+					<expression><![CDATA[$R{AON_INVOICE}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</element>
+				<element kind="textField" uuid="cc2e40f5-a75c-4690-b503-03015cb8e8ea" x="0" y="26" width="108" height="26" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
+					<expression><![CDATA[$R{AON_DATE}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</element>
+				<element kind="textField" uuid="d3804e46-e827-4ffb-be66-51ce16e2840c" x="108" y="8" width="108" height="26" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
+					<expression><![CDATA[$R{AON_INVOICE}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</element>
+				<element kind="textField" uuid="b221c0a7-c93d-4d80-90a1-0a308d195801" x="108" y="26" width="102" height="26" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
+					<expression><![CDATA[$R{AON_NUMBER}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</element>
+				<element kind="textField" uuid="521c6883-524a-45ac-a107-23a3ab5d31e8" x="216" y="8" width="112" height="26" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
+					<expression><![CDATA[$R{AON_INVOICE}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</element>
+				<element kind="textField" uuid="7a520e3b-a6c6-4e06-b27d-2a55d641a314" x="217" y="28" width="112" height="26" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
+					<expression><![CDATA[$R{AON_TOTAL}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</element>
+				<element kind="textField" uuid="59f5ca63-0a6a-4f9d-bb81-5d0b06193041" x="348" y="8" width="72" height="44" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
+					<expression><![CDATA[$R{AON_PAYMENTS}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</element>
+				<element kind="textField" uuid="8a20eb7c-2335-41d1-8533-fcc90d49e08f" x="441" y="8" width="112" height="44" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
+					<expression><![CDATA[$R{AON_BALANCE}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<box rightPadding="0"/>
-					<textElement textAlignment="Center" verticalAlignment="Bottom">
-						<font fontName="SansSerif" size="15" isBold="true"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$R{AON_BALANCE}]]></textFieldExpression>
-				</textField>
+				</element>
 			</band>
 		</groupHeader>
 	</group>
-	<background>
-		<band/>
-	</background>
-	<title>
-		<band/>
-	</title>
-	<pageHeader>
-		<band height="201">
-			<rectangle radius="2">
-				<reportElement x="0" y="0" width="555" height="200" backcolor="#FAFAFA" uuid="726bdbae-a678-4fa8-bebb-a98e6a0bde9b"/>
-			</rectangle>
-			<staticText>
-				<reportElement x="3" y="7" width="550" height="39" forecolor="#CCCCCC" uuid="99df2355-41ab-4cad-b7cc-8b94fb8ed162"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Serif" size="30" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Invoice Payments]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="2" y="5" width="550" height="39" forecolor="#000000" uuid="a0315dba-364a-4ff6-96b8-33b763a76488"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Serif" size="30" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Invoice Payments]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="420" y="5" width="130" height="39" forecolor="#404040" uuid="63478c90-875f-4b75-8b9b-2074d36afe0e">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="13"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{STATEMENT_DATE}]]></textFieldExpression>
-			</textField>
-			<rectangle radius="4">
-				<reportElement mode="Opaque" x="310" y="45" width="230" height="147" forecolor="#000000" backcolor="#FFFFFF" uuid="caa3cce7-4e81-4615-813f-bf92433f1bde"/>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</rectangle>
-			<textField>
-				<reportElement x="320" y="44" width="214" height="20" uuid="de92fdf4-3ee4-41b1-a6ff-763ea840ee3d"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
-					<font fontName="Serif" size="11" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AR_ADDRESS1}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="320" y="64" width="214" height="16" uuid="5f722716-063e-4d3a-aea1-ed055492c989"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
-					<font fontName="Serif" size="11" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AR_ADDRESS2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="320" y="80" width="214" height="16" uuid="0c452908-7e52-4bbc-80c7-c07a03af1dc7"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
-					<font fontName="Serif" size="11" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AR_ADDRESS3}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="320" y="96" width="214" height="16" uuid="8fa74b6f-9694-4f4d-9e7f-17df36f33cab"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
-					<font fontName="Serif" size="11" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AR_ADDRESS4}]]></textFieldExpression>
-			</textField>
-			<image scaleImage="RetainShape" hAlign="Center">
-				<reportElement x="467" y="118" width="70" height="69" uuid="6350f371-095d-4356-990f-0c631454a5d9">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<printWhenExpression><![CDATA[!$P{LOGO_FILE}.isEmpty()]]></printWhenExpression>
-				</reportElement>
-				<imageExpression><![CDATA[$P{LOGO_FILE}]]></imageExpression>
-			</image>
-			<textField>
-				<reportElement x="320" y="179" width="34" height="13" uuid="069ed696-c48e-40f6-87cc-d50607eec240">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<printWhenExpression><![CDATA[!$F{AR_FAX_NO}.isEmpty()]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Serif"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_PHONE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="358" y="166" width="111" height="13" uuid="5ef7664e-355e-49c7-b791-e618429c2b47">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
-					<font fontName="Serif"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AR_FAX_NO}]]></textFieldExpression>
-			</textField>
-			<rectangle radius="4">
-				<reportElement x="15" y="45" width="230" height="147" backcolor="#FFFFFF" uuid="b0071958-6ec6-46e8-bb45-377a3b220e60"/>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle radius="4">
-				<reportElement mode="Opaque" x="15" y="45" width="230" height="23" backcolor="#EBF0FA" uuid="aaf701b5-58e8-406d-87d3-1eb05489b08f"/>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</rectangle>
-			<textField>
-				<reportElement x="25" y="72" width="216" height="20" uuid="d10486b4-a98d-4bfd-96a2-1cd3b09f8d33"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Serif" size="15" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{CUST_NAME}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="25" y="91" width="216" height="16" uuid="e0556709-9275-45bb-8804-6b79b814a3d2"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Serif" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{ADDRESS1}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="25" y="107" width="216" height="16" isRemoveLineWhenBlank="true" uuid="1d9c1cdb-d392-4208-b3c5-65f627e41111"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Serif" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{ADDRESS2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Transparent" x="25" y="44" width="107" height="24" forecolor="#000000" backcolor="#FFFFFF" uuid="e91bb068-a9b7-49a4-b72f-d2d35b982338"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="16" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_CUSTOMER:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Transparent" x="138" y="44" width="107" height="24" forecolor="#000000" backcolor="#FFFFFF" uuid="2b317f55-ae05-4b46-85b3-2c3d2dbc28e0"/>
-				<box rightPadding="5"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="16" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{CUSTOMER_ID}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="25" y="123" width="216" height="16" uuid="9c23211a-5da0-4af1-a3e5-f4d320e02cac"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Serif" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{ADDRESS3}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="25" y="139" width="216" height="16" uuid="7145fa73-4a01-4d8d-8d49-b8649468d0a4"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Serif" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{ADDRESS4}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="25" y="155" width="216" height="16" uuid="08e7a8e4-54f7-45e0-a6cb-58326362c566"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Serif" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{ADDRESS5}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="25" y="171" width="216" height="16" uuid="79a2efdc-30fb-40c5-8e99-746233ed21d4"/>
-				<textElement>
-					<font fontName="Serif" size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{ADDRESS6}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="320" y="166" width="34" height="13" uuid="47d76201-6f04-4e02-a18e-70ecd0ac5b41">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<printWhenExpression><![CDATA[new Boolean (!$F{AR_PHONE_NO}.isEmpty())]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Serif"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_PHONE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="358" y="179" width="111" height="13" uuid="86546858-3c65-4cee-bc51-bf3d60e55cb6">
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
-					<font fontName="Serif"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AR_PHONE_NO}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background/>
+	<title/>
+	<pageHeader height="201">
+		<element kind="rectangle" uuid="726bdbae-a678-4fa8-bebb-a98e6a0bde9b" x="0" y="0" width="555" height="200" backcolor="#FAFAFA" radius="2"/>
+		<element kind="staticText" uuid="99df2355-41ab-4cad-b7cc-8b94fb8ed162" x="3" y="7" width="550" height="39" forecolor="#CCCCCC" fontName="Serif" fontSize="30.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Invoice Payments]]></text>
+		</element>
+		<element kind="staticText" uuid="a0315dba-364a-4ff6-96b8-33b763a76488" x="2" y="5" width="550" height="39" forecolor="#000000" fontName="Serif" fontSize="30.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Invoice Payments]]></text>
+		</element>
+		<element kind="textField" uuid="63478c90-875f-4b75-8b9b-2074d36afe0e" x="420" y="5" width="130" height="39" forecolor="#404040" fontName="SansSerif" fontSize="13.0" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA[$F{STATEMENT_DATE}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="rectangle" uuid="caa3cce7-4e81-4615-813f-bf92433f1bde" mode="Opaque" x="310" y="45" width="230" height="147" forecolor="#000000" backcolor="#FFFFFF" radius="4">
+			<pen lineColor="#C0C0C0"/>
+		</element>
+		<element kind="textField" uuid="de92fdf4-3ee4-41b1-a6ff-763ea840ee3d" x="320" y="44" width="214" height="20" markup="none" fontName="Serif" fontSize="11.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$F{AR_ADDRESS1}]]></expression>
+		</element>
+		<element kind="textField" uuid="5f722716-063e-4d3a-aea1-ed055492c989" x="320" y="64" width="214" height="16" markup="none" fontName="Serif" fontSize="11.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$F{AR_ADDRESS2}]]></expression>
+		</element>
+		<element kind="textField" uuid="0c452908-7e52-4bbc-80c7-c07a03af1dc7" x="320" y="80" width="214" height="16" markup="none" fontName="Serif" fontSize="11.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$F{AR_ADDRESS3}]]></expression>
+		</element>
+		<element kind="textField" uuid="8fa74b6f-9694-4f4d-9e7f-17df36f33cab" x="320" y="96" width="214" height="16" markup="none" fontName="Serif" fontSize="11.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$F{AR_ADDRESS4}]]></expression>
+		</element>
+		<element kind="image" uuid="6350f371-095d-4356-990f-0c631454a5d9" x="467" y="118" width="70" height="69" scaleImage="RetainShape" hImageAlign="Center">
+			<printWhenExpression><![CDATA[!$P{LOGO_FILE}.isEmpty()]]></printWhenExpression>
+			<expression><![CDATA[$P{LOGO_FILE}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+		</element>
+		<element kind="textField" uuid="069ed696-c48e-40f6-87cc-d50607eec240" x="320" y="179" width="34" height="13" fontName="Serif" hTextAlign="Right" vTextAlign="Middle">
+			<printWhenExpression><![CDATA[!$F{AR_FAX_NO}.isEmpty()]]></printWhenExpression>
+			<expression><![CDATA[$R{AON_PHONE:}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+		</element>
+		<element kind="textField" uuid="5ef7664e-355e-49c7-b791-e618429c2b47" x="358" y="166" width="111" height="13" markup="none" fontName="Serif" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$F{AR_FAX_NO}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		</element>
+		<element kind="rectangle" uuid="b0071958-6ec6-46e8-bb45-377a3b220e60" x="15" y="45" width="230" height="147" backcolor="#FFFFFF" radius="4">
+			<pen lineColor="#C0C0C0"/>
+		</element>
+		<element kind="rectangle" uuid="aaf701b5-58e8-406d-87d3-1eb05489b08f" mode="Opaque" x="15" y="45" width="230" height="23" backcolor="#EBF0FA" radius="4">
+			<pen lineColor="#C0C0C0"/>
+		</element>
+		<element kind="textField" uuid="d10486b4-a98d-4bfd-96a2-1cd3b09f8d33" x="25" y="72" width="216" height="20" fontName="Serif" fontSize="15.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$F{CUST_NAME}]]></expression>
+		</element>
+		<element kind="textField" uuid="e0556709-9275-45bb-8804-6b79b814a3d2" x="25" y="91" width="216" height="16" fontName="Serif" fontSize="12.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$F{ADDRESS1}]]></expression>
+		</element>
+		<element kind="textField" uuid="1d9c1cdb-d392-4208-b3c5-65f627e41111" x="25" y="107" width="216" height="16" fontName="Serif" fontSize="12.0" blankWhenNull="true" removeLineWhenBlank="true" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$F{ADDRESS2}]]></expression>
+		</element>
+		<element kind="textField" uuid="e91bb068-a9b7-49a4-b72f-d2d35b982338" mode="Transparent" x="25" y="44" width="107" height="24" forecolor="#000000" backcolor="#FFFFFF" fontName="SansSerif" fontSize="16.0" bold="true" hTextAlign="Justified" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_CUSTOMER:}]]></expression>
+		</element>
+		<element kind="textField" uuid="2b317f55-ae05-4b46-85b3-2c3d2dbc28e0" mode="Transparent" x="138" y="44" width="107" height="24" forecolor="#000000" backcolor="#FFFFFF" fontName="SansSerif" fontSize="16.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA[$F{CUSTOMER_ID}]]></expression>
+			<box rightPadding="5"/>
+		</element>
+		<element kind="textField" uuid="9c23211a-5da0-4af1-a3e5-f4d320e02cac" x="25" y="123" width="216" height="16" fontName="Serif" fontSize="12.0" blankWhenNull="true" bold="true" vTextAlign="Middle">
+			<expression><![CDATA[$F{ADDRESS3}]]></expression>
+		</element>
+		<element kind="textField" uuid="7145fa73-4a01-4d8d-8d49-b8649468d0a4" x="25" y="139" width="216" height="16" fontName="Serif" fontSize="12.0" blankWhenNull="true" bold="true" vTextAlign="Middle">
+			<expression><![CDATA[$F{ADDRESS4}]]></expression>
+		</element>
+		<element kind="textField" uuid="08e7a8e4-54f7-45e0-a6cb-58326362c566" x="25" y="155" width="216" height="16" fontName="Serif" fontSize="12.0" blankWhenNull="true" bold="true" vTextAlign="Middle">
+			<expression><![CDATA[$F{ADDRESS5}]]></expression>
+		</element>
+		<element kind="textField" uuid="79a2efdc-30fb-40c5-8e99-746233ed21d4" x="25" y="171" width="216" height="16" fontName="Serif" fontSize="12.0" blankWhenNull="true" bold="true">
+			<expression><![CDATA[$F{ADDRESS6}]]></expression>
+		</element>
+		<element kind="textField" uuid="47d76201-6f04-4e02-a18e-70ecd0ac5b41" x="320" y="166" width="34" height="13" fontName="Serif" hTextAlign="Right" vTextAlign="Middle">
+			<printWhenExpression><![CDATA[new Boolean (!$F{AR_PHONE_NO}.isEmpty())]]></printWhenExpression>
+			<expression><![CDATA[$R{AON_PHONE:}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+		</element>
+		<element kind="textField" uuid="86546858-3c65-4cee-bc51-bf3d60e55cb6" x="358" y="179" width="111" height="13" markup="none" fontName="Serif" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$F{AR_PHONE_NO}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		</element>
 	</pageHeader>
-	<columnHeader>
-		<band/>
-	</columnHeader>
+	<columnHeader/>
 	<detail>
 		<band height="21">
-			<rectangle>
-				<reportElement mode="Transparent" x="0" y="0" width="555" height="20" uuid="eec235f1-4be0-47c8-a83c-2442bb380680">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<graphicElement>
-					<pen lineColor="#808080"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
-				<reportElement mode="Opaque" x="0" y="0" width="555" height="20" backcolor="#EBF0FA" uuid="ef32950f-4cef-4e92-80d5-7db690836d2f">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
-				</reportElement>
-				<graphicElement>
-					<pen lineWidth="0.0"/>
-				</graphicElement>
-			</rectangle>
-			<line>
-				<reportElement x="107" y="0" width="1" height="20" forecolor="#B4BEC8" uuid="2cf696a4-ef57-4a1e-8bb4-1cabcd0f7a19">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-			</line>
-			<line>
-				<reportElement x="216" y="0" width="1" height="20" forecolor="#B4BEC8" uuid="5a527d44-11b4-48fd-9a23-eb4fbd8e73f2">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-			</line>
-			<line>
-				<reportElement x="327" y="0" width="1" height="20" forecolor="#B4BEC8" uuid="3da7d063-8244-4c27-8148-79778a236fd3">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-			</line>
-			<line>
-				<reportElement x="440" y="0" width="1" height="20" forecolor="#B4BEC8" uuid="b042c5ca-95e3-4fc4-b2a0-146aac7a7f25">
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-			</line>
-			<textField textAdjust="StretchHeight">
-				<reportElement x="0" y="2" width="106" height="17" uuid="838a1b10-12c4-4849-b0c2-f7fb70771f8d">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center">
-					<font fontName="SansSerif" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{INVOICE_DATE}]]></textFieldExpression>
-			</textField>
-			<textField textAdjust="StretchHeight">
-				<reportElement x="110" y="2" width="105" height="17" uuid="82bdc772-8d91-4fc9-bc59-61962e5936ea">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Center">
-					<font fontName="SansSerif" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AR_INV_NO}]]></textFieldExpression>
-			</textField>
-			<textField textAdjust="StretchHeight" pattern="">
-				<reportElement x="216" y="2" width="105" height="17" uuid="8cfe33e0-c15c-401b-9d7c-b7ba28dd8930">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font fontName="SansSerif" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{INVOICE_AMT}]]></textFieldExpression>
-			</textField>
-			<textField textAdjust="StretchHeight" pattern="">
-				<reportElement x="328" y="2" width="105" height="17" uuid="9e5f695f-ede2-46be-9377-8d198fd8697d">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font fontName="SansSerif" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TRANS_AMT}]]></textFieldExpression>
-			</textField>
-			<textField textAdjust="StretchHeight" pattern="">
-				<reportElement x="440" y="2" width="108" height="17" uuid="ae6915d3-fffd-478a-b641-76734fde64fa">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font fontName="SansSerif" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{INVBALANCE}]]></textFieldExpression>
-			</textField>
+			<element kind="rectangle" uuid="eec235f1-4be0-47c8-a83c-2442bb380680" mode="Transparent" x="0" y="0" width="555" height="20">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<pen lineColor="#808080"/>
+			</element>
+			<element kind="rectangle" uuid="ef32950f-4cef-4e92-80d5-7db690836d2f" mode="Opaque" x="0" y="0" width="555" height="20" backcolor="#EBF0FA">
+				<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<pen lineWidth="0.0"/>
+			</element>
+			<element kind="line" uuid="2cf696a4-ef57-4a1e-8bb4-1cabcd0f7a19" x="107" y="0" width="1" height="20" forecolor="#B4BEC8">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			</element>
+			<element kind="line" uuid="5a527d44-11b4-48fd-9a23-eb4fbd8e73f2" x="216" y="0" width="1" height="20" forecolor="#B4BEC8">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			</element>
+			<element kind="line" uuid="3da7d063-8244-4c27-8148-79778a236fd3" x="327" y="0" width="1" height="20" forecolor="#B4BEC8">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			</element>
+			<element kind="line" uuid="b042c5ca-95e3-4fc4-b2a0-146aac7a7f25" x="440" y="0" width="1" height="20" forecolor="#B4BEC8">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			</element>
+			<element kind="textField" uuid="838a1b10-12c4-4849-b0c2-f7fb70771f8d" x="0" y="2" width="106" height="17" fontName="SansSerif" fontSize="12.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA[$F{INVOICE_DATE}]]></expression>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			</element>
+			<element kind="textField" uuid="82bdc772-8d91-4fc9-bc59-61962e5936ea" x="110" y="2" width="105" height="17" fontName="SansSerif" fontSize="12.0" textAdjust="StretchHeight" hTextAlign="Center">
+				<expression><![CDATA[$F{AR_INV_NO}]]></expression>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			</element>
+			<element kind="textField" uuid="8cfe33e0-c15c-401b-9d7c-b7ba28dd8930" x="216" y="2" width="105" height="17" fontName="SansSerif" fontSize="12.0" textAdjust="StretchHeight" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{INVOICE_AMT}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			</element>
+			<element kind="textField" uuid="9e5f695f-ede2-46be-9377-8d198fd8697d" x="328" y="2" width="105" height="17" fontName="SansSerif" fontSize="12.0" textAdjust="StretchHeight" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{TRANS_AMT}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			</element>
+			<element kind="textField" uuid="ae6915d3-fffd-478a-b641-76734fde64fa" x="440" y="2" width="108" height="17" fontName="SansSerif" fontSize="12.0" textAdjust="StretchHeight" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{INVBALANCE}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			</element>
 		</band>
 		<band height="35">
-			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<subreport>
-				<reportElement x="0" y="1" width="555" height="30" uuid="43f934a1-7a51-4333-a475-12fc2842a663">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-				</reportElement>
-				<subreportParameter name="FIRM_ID">
-					<subreportParameterExpression><![CDATA[$P{FIRM_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="CUSTOMER_ID">
-					<subreportParameterExpression><![CDATA[$P{CUSTOMER_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AR_INV_NO">
-					<subreportParameterExpression><![CDATA[$P{AR_INV_NO}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AMT_MASK">
-					<subreportParameterExpression><![CDATA[$P{AMT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BARISTA_WD">
-					<subreportParameterExpression><![CDATA[$P{BARISTA_WD}]]></subreportParameterExpression>
-				</subreportParameter>
+			<element kind="subreport" uuid="43f934a1-7a51-4333-a475-12fc2842a663" x="0" y="1" width="555" height="30">
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["Cust_InvoicePaymentsDet.jasper"]]></subreportExpression>
-			</subreport>
+				<expression><![CDATA["Cust_InvoicePaymentsDet.jasper"]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				<parameter name="FIRM_ID">
+					<expression><![CDATA[$P{FIRM_ID}]]></expression>
+				</parameter>
+				<parameter name="CUSTOMER_ID">
+					<expression><![CDATA[$P{CUSTOMER_ID}]]></expression>
+				</parameter>
+				<parameter name="AR_INV_NO">
+					<expression><![CDATA[$P{AR_INV_NO}]]></expression>
+				</parameter>
+				<parameter name="AMT_MASK">
+					<expression><![CDATA[$P{AMT_MASK}]]></expression>
+				</parameter>
+				<parameter name="BARISTA_WD">
+					<expression><![CDATA[$P{BARISTA_WD}]]></expression>
+				</parameter>
+			</element>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</band>
 	</detail>
-	<columnFooter>
-		<band/>
-	</columnFooter>
-	<pageFooter>
-		<band height="75">
+	<columnFooter/>
+	<pageFooter height="75">
+		<element kind="textField" uuid="a57d8a3e-b717-4cae-86c9-178184f636ea" key="textField" x="195" y="15" width="360" height="15" forecolor="#646464" backcolor="#FFFFFF" fontName="Serif" fontSize="8.0" pattern="" blankWhenNull="false" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_GENERATED_ON}+" " + new SimpleDateFormat("EEEE, MMM dd, yyyy").format(new java.util.Date())]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement key="textField" x="195" y="15" width="360" height="15" forecolor="#646464" backcolor="#FFFFFF" uuid="a57d8a3e-b717-4cae-86c9-178184f636ea">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-				</reportElement>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Serif" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_GENERATED_ON}+" " + new SimpleDateFormat("EEEE, MMM dd, yyyy").format(new java.util.Date())]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Page" isBlankWhenNull="true">
-				<reportElement x="390" y="30" width="150" height="15" forecolor="#646464" uuid="972fdf15-b89f-4509-bff9-88b7dccf39ba">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Bottom">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_PAGE}+" "+$V{totalPagesInReport}+" of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="540" y="30" width="15" height="15" forecolor="#646464" uuid="cff7d247-4d4b-4549-98d3-c67b24011710">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Bottom">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$V{totalPagesInReport}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="70" y="15" width="200" height="15" uuid="7f6bb0ff-e57f-439b-9f8b-b6553c5d0aa4">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement>
-					<font fontName="Serif" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{REMIT1}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="70" y="30" width="200" height="15" uuid="ef9f717a-7203-4d76-acd4-50370efecec4">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement>
-					<font fontName="Serif" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{REMIT2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="70" y="45" width="200" height="15" uuid="0db6d3f9-56bd-457f-a9c8-cd8abfe7bc58">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement>
-					<font fontName="Serif" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{REMIT3}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="70" y="60" width="200" height="15" uuid="5077eeab-878d-4237-8def-2ea799363531">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement>
-					<font fontName="Serif" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{REMIT4}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="15" width="70" height="13" uuid="e9959e01-9722-4175-94ff-b6da0fcfb805">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Serif" size="9"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_PLEASE_REMIT_TO:}]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement key="textField" isPrintRepeatedValues="false" x="0" y="0" width="555" height="13" forecolor="#000000" backcolor="#FFFFFF" uuid="e4458151-e28e-4d7f-ac82-21cb9f51c8f5">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<printWhenExpression><![CDATA[$F{PAYMENT_URL}.trim().length()>0]]></printWhenExpression>
-				</reportElement>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_PAY_ONLINE}+" "+$F{PAYMENT_URL}]]></textFieldExpression>
-			</textField>
-		</band>
+			<box>
+				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="972fdf15-b89f-4509-bff9-88b7dccf39ba" x="390" y="30" width="150" height="15" forecolor="#646464" fontSize="8.0" evaluationTime="Page" blankWhenNull="true" hTextAlign="Right" vTextAlign="Bottom">
+			<expression><![CDATA[$R{AON_PAGE}+" "+$V{totalPagesInReport}+" of"]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+		</element>
+		<element kind="textField" uuid="cff7d247-4d4b-4549-98d3-c67b24011710" x="540" y="30" width="15" height="15" forecolor="#646464" fontSize="8.0" evaluationTime="Report" hTextAlign="Right" vTextAlign="Bottom">
+			<expression><![CDATA[$V{totalPagesInReport}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+		</element>
+		<element kind="textField" uuid="7f6bb0ff-e57f-439b-9f8b-b6553c5d0aa4" x="70" y="15" width="200" height="15" fontName="Serif" fontSize="9.0">
+			<expression><![CDATA[$F{REMIT1}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="ef9f717a-7203-4d76-acd4-50370efecec4" x="70" y="30" width="200" height="15" fontName="Serif" fontSize="9.0">
+			<expression><![CDATA[$F{REMIT2}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="0db6d3f9-56bd-457f-a9c8-cd8abfe7bc58" x="70" y="45" width="200" height="15" fontName="Serif" fontSize="9.0">
+			<expression><![CDATA[$F{REMIT3}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="5077eeab-878d-4237-8def-2ea799363531" x="70" y="60" width="200" height="15" fontName="Serif" fontSize="9.0">
+			<expression><![CDATA[$F{REMIT4}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="e9959e01-9722-4175-94ff-b6da0fcfb805" x="0" y="15" width="70" height="13" fontName="Serif" fontSize="9.0" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_PLEASE_REMIT_TO:}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+		</element>
+		<element kind="textField" uuid="e4458151-e28e-4d7f-ac82-21cb9f51c8f5" key="textField" x="0" y="0" width="555" height="13" forecolor="#000000" backcolor="#FFFFFF" fontName="SansSerif" fontSize="8.0" pattern="" blankWhenNull="false" printRepeatedValues="false" hTextAlign="Center" vTextAlign="Middle">
+			<printWhenExpression><![CDATA[$F{PAYMENT_URL}.trim().length()>0]]></printWhenExpression>
+			<expression><![CDATA[$R{AON_PAY_ONLINE}+" "+$F{PAYMENT_URL}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<box>
+				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
 	</pageFooter>
 </jasperReport>

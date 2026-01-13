@@ -1,52 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
-<!-- 2017-08-23T18:03:08 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="a9437e78-2586-4f8a-b9a4-d8e763228a8c">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="report name" language="java" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="a9437e78-2586-4f8a-b9a4-d8e763228a8c">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<template><![CDATA["StyleTemplate.jrtx"]]></template>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="VENDOR_ID" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[SELECT * FROM APM_VENDMAST WHERE APM_VENDMAST.FIRM_ID = $P{FIRM_ID} AND APM_VENDMAST.VENDOR_ID = $P{VENDOR_ID}]]>
-	</queryString>
+	<query language="sql"><![CDATA[SELECT * FROM APM_VENDMAST WHERE APM_VENDMAST.FIRM_ID = $P{FIRM_ID} AND APM_VENDMAST.VENDOR_ID = $P{VENDOR_ID}]]></query>
 	<field name="FIRM_ID" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="VENDOR_ID" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="MEMO_1024" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
-	<background>
-		<band/>
-	</background>
-	<columnHeader>
-		<band height="16">
-			<textField>
-				<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="570" height="15" backcolor="#ECECEC" uuid="91987bab-680d-46f0-867b-e4290ea70ae5"/>
-				<box>
-					<pen lineWidth="0.0"/>
-					<topPen lineWidth="0.0"/>
-					<leftPen lineWidth="0.0"/>
-					<bottomPen lineWidth="0.0"/>
-					<rightPen lineWidth="0.0"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<paragraph leftIndent="3"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_COMMENTS}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background/>
+	<columnHeader height="16">
+		<element kind="textField" uuid="91987bab-680d-46f0-867b-e4290ea70ae5" positionType="Float" mode="Opaque" x="0" y="0" width="570" height="15" backcolor="#ECECEC" vTextAlign="Middle">
+			<paragraph leftIndent="3"/>
+			<expression><![CDATA[$R{AON_COMMENTS}]]></expression>
+			<box>
+				<pen lineWidth="0.0"/>
+				<topPen lineWidth="0.0"/>
+				<leftPen lineWidth="0.0"/>
+				<bottomPen lineWidth="0.0"/>
+				<rightPen lineWidth="0.0"/>
+			</box>
+		</element>
 	</columnHeader>
 	<detail>
 		<band height="16">
-			<textField isStretchWithOverflow="true">
-				<reportElement mode="Transparent" x="5" y="0" width="570" height="13" uuid="80974230-677d-45cc-9606-bef0c166bb81">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
+			<element kind="textField" uuid="80974230-677d-45cc-9606-bef0c166bb81" mode="Transparent" x="5" y="0" width="570" height="13" textAdjust="StretchHeight">
+				<expression><![CDATA[$F{MEMO_1024}]]></expression>
+				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				<box>
 					<pen lineWidth="0.0"/>
 					<topPen lineWidth="0.0"/>
@@ -54,8 +42,7 @@
 					<bottomPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
 				</box>
-				<textFieldExpression><![CDATA[$F{MEMO_1024}]]></textFieldExpression>
-			</textField>
+			</element>
 		</band>
 	</detail>
 </jasperReport>

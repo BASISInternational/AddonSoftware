@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SFHardCopyFGLS" language="groovy" pageWidth="772" pageHeight="592" orientation="Landscape" columnWidth="752" leftMargin="0" rightMargin="0" topMargin="3" bottomMargin="0" resourceBundle="addon" uuid="392c6a5d-9a4e-456c-8fd6-dfcc7bcc0969">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="SFHardCopyFGLS" language="groovy" pageWidth="772" pageHeight="592" orientation="Landscape" columnWidth="752" leftMargin="0" rightMargin="0" topMargin="3" bottomMargin="0" resourceBundle="addon" uuid="392c6a5d-9a4e-456c-8fd6-dfcc7bcc0969">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -11,9 +11,7 @@
 	<parameter name="MASKS" class="java.lang.String"/>
 	<parameter name="MAST_CLS_INP_QTY_STR" class="java.lang.String"/>
 	<parameter name="PRINT_COSTS" class="java.lang.String"/>
-	<queryString language="SQL">
-		<![CDATA[call sfhardcopyfgls($P{FIRM_ID},$P{WO_LOCATION},$P{WO_NO},$P{BARISTA_WD},$P{MASKS},$P{MAST_CLS_INP_QTY_STR},$P{PRINT_COSTS})]]>
-	</queryString>
+	<query language="SQL"><![CDATA[call sfhardcopyfgls($P{FIRM_ID},$P{WO_LOCATION},$P{WO_NO},$P{BARISTA_WD},$P{MASKS},$P{MAST_CLS_INP_QTY_STR},$P{PRINT_COSTS})]]></query>
 	<field name="LOTSERIAL" class="java.lang.String"/>
 	<field name="COMMENT" class="java.lang.String"/>
 	<field name="CLOSED_YN" class="java.lang.String"/>
@@ -22,142 +20,71 @@
 	<field name="CLOSED_QTY" class="java.lang.String"/>
 	<field name="CURR_CLSD_QTY" class="java.lang.String"/>
 	<field name="UNIT_COST" class="java.lang.String"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="39" splitType="Stretch">
-			<textField>
-				<reportElement uuid="09fb96b1-e657-4aed-b6c3-d643793cd938" mode="Opaque" x="0" y="0" width="740" height="15" backcolor="#C3C3C3"/>
-				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" "+$R{AON_SERIAL_OR_LOT_NUMBER_DETAIL}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="f3942634-a3be-4542-979f-8c230f481d09" x="4" y="26" width="85" height="13"/>
-				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_SERIAL_OR_LOT_#}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="c0ba7369-5d98-4053-be53-576a33ec1ea0" x="133" y="26" width="162" height="13"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_COMMENT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="c2e14024-0bbe-4798-aec2-e073986dc17b" x="309" y="26" width="25" height="13"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_CLSD}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="0d879e1a-4d98-4786-b6e1-05abbc58fda1" x="338" y="13" width="44" height="26"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_CLOSED_DATE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="a525c3d1-0125-4eff-a7cb-a46ca3a66b86" x="425" y="13" width="60" height="26"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_SCHED'D_PROD_QTY}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="1c7c1a32-0941-438f-848e-5122efa18b71" x="496" y="13" width="60" height="26"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_CLOSED_QTY}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="17fae725-8859-49d3-8079-b11e6d34b507" x="569" y="13" width="60" height="26"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_CURRENT_CLOSE_QTY}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="d7092f30-ccbd-416c-af01-2f97bd9dcfa2" x="646" y="26" width="60" height="13"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_UNIT_COST}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background splitType="Stretch"/>
+	<title splitType="Stretch"/>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="39" splitType="Stretch">
+		<element kind="textField" uuid="09fb96b1-e657-4aed-b6c3-d643793cd938" mode="Opaque" x="0" y="0" width="740" height="15" backcolor="#C3C3C3" bold="true" vTextAlign="Middle">
+			<expression><![CDATA[" "+$R{AON_SERIAL_OR_LOT_NUMBER_DETAIL}]]></expression>
+		</element>
+		<element kind="textField" uuid="f3942634-a3be-4542-979f-8c230f481d09" x="4" y="26" width="85" height="13" bold="true" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_SERIAL_OR_LOT_#}]]></expression>
+		</element>
+		<element kind="textField" uuid="c0ba7369-5d98-4053-be53-576a33ec1ea0" x="133" y="26" width="162" height="13" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_COMMENT}]]></expression>
+		</element>
+		<element kind="textField" uuid="c2e14024-0bbe-4798-aec2-e073986dc17b" x="309" y="26" width="25" height="13" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_CLSD}]]></expression>
+		</element>
+		<element kind="textField" uuid="0d879e1a-4d98-4786-b6e1-05abbc58fda1" x="338" y="13" width="44" height="26" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_CLOSED_DATE}]]></expression>
+		</element>
+		<element kind="textField" uuid="a525c3d1-0125-4eff-a7cb-a46ca3a66b86" x="425" y="13" width="60" height="26" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_SCHED'D_PROD_QTY}]]></expression>
+		</element>
+		<element kind="textField" uuid="1c7c1a32-0941-438f-848e-5122efa18b71" x="496" y="13" width="60" height="26" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_CLOSED_QTY}]]></expression>
+		</element>
+		<element kind="textField" uuid="17fae725-8859-49d3-8079-b11e6d34b507" x="569" y="13" width="60" height="26" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_CURRENT_CLOSE_QTY}]]></expression>
+		</element>
+		<element kind="textField" uuid="d7092f30-ccbd-416c-af01-2f97bd9dcfa2" x="646" y="26" width="60" height="13" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_UNIT_COST}]]></expression>
+		</element>
 	</columnHeader>
 	<detail>
 		<band height="11" splitType="Stretch">
-			<textField>
-				<reportElement uuid="eaaf14c7-e802-4037-903d-bbb9bb33ebd0" mode="Opaque" x="4" y="0" width="733" height="11" forecolor="#FFFFFF" backcolor="#F0F0F0">
-					<printWhenExpression><![CDATA[new Boolean( $V{PAGE_COUNT}.intValue() % 2 == 0)]]></printWhenExpression>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="8191dbd2-8f26-4616-9a9f-33de78d2bf94" x="4" y="0" width="122" height="11"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{LOTSERIAL}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="68619fba-8e79-47ad-a4f6-a95c7c24dbd1" x="133" y="0" width="162" height="11"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{COMMENT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="cbf7e5d6-7c76-4f47-99f6-911105541eb8" x="309" y="0" width="25" height="11"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression><![CDATA[$F{CLOSED_YN}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="a5d876c4-27df-428a-a872-6d1f68db36a4" x="338" y="0" width="44" height="11"/>
-				<textElement textAlignment="Left"/>
-				<textFieldExpression><![CDATA[$F{CLOSED_DATE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="b82a1486-1608-4c61-a426-059ee7569099" x="425" y="0" width="60" height="11"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{SCHED_PROD_QTY}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="f0eb2d69-33a0-44dd-b02c-3895f3457742" x="496" y="0" width="60" height="11"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{CLOSED_QTY}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="ac5b0f01-3266-4224-96d7-15155ebb39f2" x="569" y="0" width="60" height="11"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{CURR_CLSD_QTY}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="9c80efb5-1405-4d65-af2f-a5ceb6963b7e" x="646" y="0" width="60" height="11"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{UNIT_COST}]]></textFieldExpression>
-			</textField>
+			<element kind="textField" uuid="eaaf14c7-e802-4037-903d-bbb9bb33ebd0" mode="Opaque" x="4" y="0" width="733" height="11" forecolor="#FFFFFF" backcolor="#F0F0F0" bold="true" vTextAlign="Middle">
+				<printWhenExpression><![CDATA[new Boolean( $V{PAGE_COUNT}.intValue() % 2 == 0)]]></printWhenExpression>
+				<expression><![CDATA[" "]]></expression>
+			</element>
+			<element kind="textField" uuid="8191dbd2-8f26-4616-9a9f-33de78d2bf94" x="4" y="0" width="122" height="11">
+				<expression><![CDATA[$F{LOTSERIAL}]]></expression>
+			</element>
+			<element kind="textField" uuid="68619fba-8e79-47ad-a4f6-a95c7c24dbd1" x="133" y="0" width="162" height="11">
+				<expression><![CDATA[$F{COMMENT}]]></expression>
+			</element>
+			<element kind="textField" uuid="cbf7e5d6-7c76-4f47-99f6-911105541eb8" x="309" y="0" width="25" height="11" hTextAlign="Center">
+				<expression><![CDATA[$F{CLOSED_YN}]]></expression>
+			</element>
+			<element kind="textField" uuid="a5d876c4-27df-428a-a872-6d1f68db36a4" x="338" y="0" width="44" height="11" hTextAlign="Left">
+				<expression><![CDATA[$F{CLOSED_DATE}]]></expression>
+			</element>
+			<element kind="textField" uuid="b82a1486-1608-4c61-a426-059ee7569099" x="425" y="0" width="60" height="11" hTextAlign="Right">
+				<expression><![CDATA[$F{SCHED_PROD_QTY}]]></expression>
+			</element>
+			<element kind="textField" uuid="f0eb2d69-33a0-44dd-b02c-3895f3457742" x="496" y="0" width="60" height="11" hTextAlign="Right">
+				<expression><![CDATA[$F{CLOSED_QTY}]]></expression>
+			</element>
+			<element kind="textField" uuid="ac5b0f01-3266-4224-96d7-15155ebb39f2" x="569" y="0" width="60" height="11" hTextAlign="Right">
+				<expression><![CDATA[$F{CURR_CLSD_QTY}]]></expression>
+			</element>
+			<element kind="textField" uuid="9c80efb5-1405-4d65-af2f-a5ceb6963b7e" x="646" y="0" width="60" height="11" hTextAlign="Right">
+				<expression><![CDATA[$F{UNIT_COST}]]></expression>
+			</element>
 		</band>
 	</detail>
-	<columnFooter>
-		<band splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band splitType="Stretch"/>
-	</summary>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter splitType="Stretch"/>
+	<summary splitType="Stretch"/>
 </jasperReport>

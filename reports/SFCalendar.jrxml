@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Shop Floor Calendar" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="addon">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="Shop Floor Calendar" language="java" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="addon" uuid="ffed5870-c21d-42c8-bae3-41a5aef37fd5">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -13,107 +13,105 @@
 	<parameter name="BARISTA_WD" class="java.lang.String"/>
 	<parameter name="OP_CODE" class="java.lang.String"/>
 	<parameter name="OP_CODE_DESC" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[CALL SFCALENDAR($P{FIRM_ID}, $P{OP_CODE}, $P{BEGINNING_YEAR}, $P{BEGINNING_MONTH}, $P{ENDING_YEAR}, $P{ENDING_MONTH}, $P{BARISTA_WD})]]>
-	</queryString>
+	<query language="sql"><![CDATA[CALL SFCALENDAR($P{FIRM_ID}, $P{OP_CODE}, $P{BEGINNING_YEAR}, $P{BEGINNING_MONTH}, $P{ENDING_YEAR}, $P{ENDING_MONTH}, $P{BARISTA_WD})]]></query>
 	<field name="YEAR" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="MONTH" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_01" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_02" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_03" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_04" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_05" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_06" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_07" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_08" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_09" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_10" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_11" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_12" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_13" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_14" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_15" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_16" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_17" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_18" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_19" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_20" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_21" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_22" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_23" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_24" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_25" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_26" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_27" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_28" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_29" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_30" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_31" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="DAY_STATUS_32" class="java.lang.String"/>
 	<field name="DAY_STATUS_33" class="java.lang.String"/>
@@ -175,604 +173,346 @@
 	<field name="DAY_HRS_40" class="java.lang.String"/>
 	<field name="DAY_HRS_41" class="java.lang.String"/>
 	<field name="DAY_HRS_42" class="java.lang.String"/>
-	<group name="PERIOD" isStartNewPage="true">
-		<groupExpression><![CDATA[$F{MONTH}]]></groupExpression>
+	<group name="PERIOD" startNewPage="true">
+		<expression><![CDATA[$F{MONTH}]]></expression>
 		<groupHeader>
 			<band height="5"/>
 		</groupHeader>
 	</group>
-	<background>
-		<band/>
-	</background>
-	<pageHeader>
-		<band height="46">
-			<textField evaluationTime="Report" isBlankWhenNull="false">
-				<reportElement key="textField-1" x="0" y="18" width="129" height="9" forecolor="#000000"/>
-				<textElement>
-					<font fontName="SansSerif" size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Recs Reported: "+$V{REPORT_COUNT}.toString()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement key="staticText-2" x="0" y="0" width="129" height="9" forecolor="#000000" backcolor="#FFFFFF"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Left">
-					<font fontName="SansSerif" size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_BARISTA_APPLICATION_FRAMEWORK}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="false">
-				<reportElement key="textField-2" x="440" y="0" width="115" height="9"/>
-				<textElement textAlignment="Right">
-					<font fontName="SansSerif" size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Document ID: "+$P{DOC_NO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement key="staticText-1" x="0" y="9" width="129" height="9" forecolor="#000000" backcolor="#FFFFFF"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Left">
-					<font fontName="SansSerif" size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_SHOP_FLOOR_CALENDAR}]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement key="textField-4" x="477" y="18" width="77" height="10" forecolor="#000000" backcolor="#FFFFFF"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement textAlignment="Right">
-					<font fontName="SansSerif" size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="false">
-				<reportElement key="textField-3" x="440" y="9" width="115" height="9"/>
-				<textElement textAlignment="Right">
-					<font fontName="SansSerif" size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Date: "+$P{DATE_REP}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="147" y="9" width="261" height="20"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{OP_CODE} + " " + $P{OP_CODE_DESC}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background/>
+	<pageHeader height="46">
+		<element kind="textField" uuid="fdc3bf67-dbec-4f8e-ac04-79d8036ffaa4" key="textField-1" x="0" y="18" width="129" height="9" forecolor="#000000" fontName="SansSerif" fontSize="7.0" evaluationTime="Report" blankWhenNull="false">
+			<expression><![CDATA["Recs Reported: "+$V{REPORT_COUNT}.toString()]]></expression>
+		</element>
+		<element kind="textField" uuid="364225fc-d1ba-4677-a42d-3e2ea1ee1c32" key="staticText-2" x="0" y="0" width="129" height="9" forecolor="#000000" backcolor="#FFFFFF" fontName="SansSerif" fontSize="7.0" hTextAlign="Left">
+			<expression><![CDATA[$R{AON_BARISTA_APPLICATION_FRAMEWORK}]]></expression>
+			<box>
+				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.0" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="9bcdf31f-207b-4ba1-a836-5fef40741d6e" key="textField-2" x="440" y="0" width="115" height="9" fontName="SansSerif" fontSize="7.0" blankWhenNull="false" hTextAlign="Right">
+			<expression><![CDATA["Document ID: "+$P{DOC_NO}]]></expression>
+		</element>
+		<element kind="textField" uuid="7cdda7fc-da0d-4c3c-9cdd-58f4a4e05e1e" key="staticText-1" x="0" y="9" width="129" height="9" forecolor="#000000" backcolor="#FFFFFF" fontName="SansSerif" fontSize="7.0" hTextAlign="Left">
+			<expression><![CDATA[$R{AON_SHOP_FLOOR_CALENDAR}]]></expression>
+			<box>
+				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.0" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="14c9b9ef-ce3c-4fe9-992b-cf6d9361e852" key="textField-4" x="477" y="18" width="77" height="10" forecolor="#000000" backcolor="#FFFFFF" fontName="SansSerif" fontSize="7.0" pattern="" blankWhenNull="false" hTextAlign="Right">
+			<expression><![CDATA["Page " + $V{PAGE_NUMBER}]]></expression>
+			<box>
+				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.0" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="e8b0cf2f-e454-49bc-9366-2e319a46c9a1" key="textField-3" x="440" y="9" width="115" height="9" fontName="SansSerif" fontSize="7.0" blankWhenNull="false" hTextAlign="Right">
+			<expression><![CDATA["Date: "+$P{DATE_REP}]]></expression>
+		</element>
+		<element kind="textField" uuid="a120a139-2a5b-4f4a-8cb1-d4f8371a5bd5" x="147" y="9" width="261" height="20" fontSize="14.0" bold="true" hTextAlign="Center">
+			<expression><![CDATA[$P{OP_CODE} + " " + $P{OP_CODE_DESC}]]></expression>
+		</element>
 	</pageHeader>
-	<columnHeader>
-		<band height="68">
-			<textField>
-				<reportElement x="197" y="0" width="162" height="30"/>
-				<textElement textAlignment="Center">
-					<font size="14" isBold="true" isUnderline="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{MONTH}+"  "+$F{YEAR}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="48" width="70" height="20"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DAY_NAME_1}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="48" width="70" height="20"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DAY_NAME_2}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="168" y="48" width="70" height="20"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DAY_NAME_3}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="48" width="70" height="20"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DAY_NAME_4}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="48" width="70" height="20"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DAY_NAME_5}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="393" y="48" width="70" height="20"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DAY_NAME_6}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="48" width="70" height="20"/>
-				<textElement textAlignment="Center">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DAY_NAME_7}]]></textFieldExpression>
-			</textField>
-		</band>
+	<columnHeader height="68">
+		<element kind="textField" uuid="3bedc007-0ac4-4903-9621-39420d3a50d4" x="197" y="0" width="162" height="30" fontSize="14.0" underline="true" bold="true" hTextAlign="Center">
+			<expression><![CDATA[$F{MONTH}+"  "+$F{YEAR}]]></expression>
+		</element>
+		<element kind="textField" uuid="62fedf35-7cc3-48c3-bb1c-4a4f5a1c48f1" x="18" y="48" width="70" height="20" fontSize="12.0" hTextAlign="Center">
+			<expression><![CDATA[$F{DAY_NAME_1}]]></expression>
+		</element>
+		<element kind="textField" uuid="123ff8d1-154f-479b-9dbc-fb8323089bec" x="93" y="48" width="70" height="20" fontSize="12.0" hTextAlign="Center">
+			<expression><![CDATA[$F{DAY_NAME_2}]]></expression>
+		</element>
+		<element kind="textField" uuid="d46304c8-9052-400b-b8e3-1bb308aacbec" x="168" y="48" width="70" height="20" fontSize="12.0" hTextAlign="Center">
+			<expression><![CDATA[$F{DAY_NAME_3}]]></expression>
+		</element>
+		<element kind="textField" uuid="db06acf7-ee50-49a0-90c3-fbac92b94bdd" x="243" y="48" width="70" height="20" fontSize="12.0" hTextAlign="Center">
+			<expression><![CDATA[$F{DAY_NAME_4}]]></expression>
+		</element>
+		<element kind="textField" uuid="f5e139bb-88a9-4d1b-84f7-013011c7dda9" x="318" y="48" width="70" height="20" fontSize="12.0" hTextAlign="Center">
+			<expression><![CDATA[$F{DAY_NAME_5}]]></expression>
+		</element>
+		<element kind="textField" uuid="3f18f197-0bee-43d8-8fa5-6833b781567e" x="393" y="48" width="70" height="20" fontSize="12.0" hTextAlign="Center">
+			<expression><![CDATA[$F{DAY_NAME_6}]]></expression>
+		</element>
+		<element kind="textField" uuid="e34bf1be-9bcf-4df8-bc32-cfcf1eaf1f19" x="468" y="48" width="70" height="20" fontSize="12.0" hTextAlign="Center">
+			<expression><![CDATA[$F{DAY_NAME_7}]]></expression>
+		</element>
 	</columnHeader>
 	<detail>
 		<band height="367">
-			<rectangle>
-				<reportElement mode="Transparent" x="15" y="0" width="525" height="360"/>
-			</rectangle>
-			<line>
-				<reportElement x="90" y="1" width="1" height="359"/>
-			</line>
-			<line>
-				<reportElement x="165" y="1" width="1" height="359"/>
-			</line>
-			<line>
-				<reportElement x="240" y="1" width="1" height="359"/>
-			</line>
-			<line>
-				<reportElement x="315" y="1" width="1" height="359"/>
-			</line>
-			<line>
-				<reportElement x="390" y="1" width="1" height="359"/>
-			</line>
-			<line>
-				<reportElement x="465" y="1" width="1" height="359"/>
-			</line>
-			<line>
-				<reportElement x="15" y="60" width="525" height="1"/>
-			</line>
-			<line>
-				<reportElement x="15" y="120" width="525" height="1"/>
-			</line>
-			<line>
-				<reportElement x="15" y="180" width="525" height="1"/>
-			</line>
-			<line>
-				<reportElement x="15" y="240" width="525" height="1"/>
-			</line>
-			<line>
-				<reportElement x="15" y="300" width="525" height="1"/>
-			</line>
-			<textField>
-				<reportElement x="18" y="1" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_01}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="1" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_02}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="168" y="1" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_03}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="1" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_04}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="1" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_05}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="393" y="1" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_06}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="1" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_07}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="61" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_08}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="61" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_09}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="168" y="61" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_10}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="61" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_11}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="61" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_12}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="393" y="61" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_13}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="61" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_14}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="121" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_15}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="121" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_16}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="168" y="121" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_17}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="121" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_18}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="121" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_19}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="393" y="121" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_20}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="121" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_21}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="181" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_22}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="181" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_23}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="168" y="181" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_24}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="181" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_25}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="181" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_26}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="393" y="181" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_27}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="181" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_28}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="241" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_29}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="241" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_30}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="168" y="241" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_31}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="241" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_32}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="241" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_33}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="393" y="241" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_34}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="241" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_35}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="301" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_36}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="301" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_37}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="168" y="301" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_38}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="301" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_39}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="301" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_40}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="393" y="301" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_41}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="301" width="70" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{DAY_STATUS_42}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="40" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_01}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="40" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_02}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="169" y="40" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_03}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="40" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_04}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="40" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_05}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="394" y="40" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_06}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="40" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_07}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="100" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_08}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="100" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_09}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="169" y="100" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_10}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="100" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_11}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="100" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_12}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="394" y="100" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_13}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="100" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_14}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="160" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_15}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="160" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_16}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="169" y="160" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_17}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="160" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_18}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="160" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_19}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="394" y="160" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_20}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="160" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_21}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="220" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_22}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="220" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_23}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="169" y="220" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_24}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="220" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_25}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="220" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_26}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="394" y="220" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_27}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="220" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_28}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="280" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_29}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="280" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_30}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="169" y="280" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_31}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="280" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_32}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="280" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_33}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="394" y="280" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_34}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="280" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_35}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="18" y="340" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_36}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="93" y="340" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_37}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="169" y="340" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_38}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="243" y="340" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_39}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="318" y="340" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_40}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="394" y="340" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_41}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="468" y="340" width="70" height="20"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{DAY_HRS_42}]]></textFieldExpression>
-			</textField>
+			<element kind="rectangle" uuid="0b893feb-7b2b-4ccc-a2f5-b07831a753a3" mode="Transparent" x="15" y="0" width="525" height="360"/>
+			<element kind="line" uuid="96f31a7d-df9b-463a-a9a9-5b8a2aa15996" x="90" y="1" width="1" height="359"/>
+			<element kind="line" uuid="9a614fe2-f669-4dc4-827a-25b73c6a75c0" x="165" y="1" width="1" height="359"/>
+			<element kind="line" uuid="d2b8e166-7fa5-4c40-917f-27fe4e28c076" x="240" y="1" width="1" height="359"/>
+			<element kind="line" uuid="b89a33d9-76b0-4b41-9301-1e8f3a50fc39" x="315" y="1" width="1" height="359"/>
+			<element kind="line" uuid="563f6a09-34ba-4ed3-915a-705cae609af6" x="390" y="1" width="1" height="359"/>
+			<element kind="line" uuid="17cfeb10-95cd-4a3a-826d-c5de41931720" x="465" y="1" width="1" height="359"/>
+			<element kind="line" uuid="4977a6b9-f627-4201-b7ec-479f5eb14fab" x="15" y="60" width="525" height="1"/>
+			<element kind="line" uuid="16645815-f9a1-490a-a6b0-b022fe273583" x="15" y="120" width="525" height="1"/>
+			<element kind="line" uuid="0b3b575c-9ca0-4ac1-b792-3463cdfff028" x="15" y="180" width="525" height="1"/>
+			<element kind="line" uuid="93730a56-3b32-4bcc-a5fa-6ca362ad44f9" x="15" y="240" width="525" height="1"/>
+			<element kind="line" uuid="ac470442-4421-4744-805e-bc5f1d92e654" x="15" y="300" width="525" height="1"/>
+			<element kind="textField" uuid="92462405-627a-4be8-b895-5bceebbf4607" x="18" y="1" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_01}]]></expression>
+			</element>
+			<element kind="textField" uuid="b8296323-a449-4064-8a6f-b2b797141706" x="93" y="1" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_02}]]></expression>
+			</element>
+			<element kind="textField" uuid="e028e258-d027-4caf-938b-310530607804" x="168" y="1" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_03}]]></expression>
+			</element>
+			<element kind="textField" uuid="092bb2d9-ccb4-443b-98b6-0fc46da930c4" x="243" y="1" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_04}]]></expression>
+			</element>
+			<element kind="textField" uuid="877c9b07-9b05-412d-a803-0286edefa125" x="318" y="1" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_05}]]></expression>
+			</element>
+			<element kind="textField" uuid="52dc419a-3f37-4899-ab89-e4c504b4d068" x="393" y="1" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_06}]]></expression>
+			</element>
+			<element kind="textField" uuid="91206302-0db2-4299-9309-2f81938ced15" x="468" y="1" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_07}]]></expression>
+			</element>
+			<element kind="textField" uuid="ad2096f9-cc24-42b6-ab08-68a8e980a9a5" x="18" y="61" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_08}]]></expression>
+			</element>
+			<element kind="textField" uuid="54243c84-0ad2-4707-b670-74eecfdd0d06" x="93" y="61" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_09}]]></expression>
+			</element>
+			<element kind="textField" uuid="3eb5a34e-c9c1-4884-b938-79e9098f2ae4" x="168" y="61" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_10}]]></expression>
+			</element>
+			<element kind="textField" uuid="eea9339d-134d-45ec-8146-02d6ceb92029" x="243" y="61" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_11}]]></expression>
+			</element>
+			<element kind="textField" uuid="54099af4-3b5a-4dcd-8852-6313a541953e" x="318" y="61" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_12}]]></expression>
+			</element>
+			<element kind="textField" uuid="4e52f683-20ec-4273-beaf-361037533ab3" x="393" y="61" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_13}]]></expression>
+			</element>
+			<element kind="textField" uuid="3c456777-5324-4b4e-9ba8-86ac213c0ef9" x="468" y="61" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_14}]]></expression>
+			</element>
+			<element kind="textField" uuid="2f2faf33-8c59-45b7-85fb-4ad071619f63" x="18" y="121" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_15}]]></expression>
+			</element>
+			<element kind="textField" uuid="a15539c9-516e-415a-93a6-35981bccedbb" x="93" y="121" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_16}]]></expression>
+			</element>
+			<element kind="textField" uuid="9d01740a-6a24-4ae4-a1e4-95c7f56803a7" x="168" y="121" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_17}]]></expression>
+			</element>
+			<element kind="textField" uuid="0651238f-bb99-4108-a943-3042ce11f462" x="243" y="121" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_18}]]></expression>
+			</element>
+			<element kind="textField" uuid="547ef410-40aa-473a-8604-31119ed609fb" x="318" y="121" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_19}]]></expression>
+			</element>
+			<element kind="textField" uuid="7e21138a-d402-4d00-83da-fd884d4bd834" x="393" y="121" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_20}]]></expression>
+			</element>
+			<element kind="textField" uuid="5617fa90-b7b8-4e4c-b277-fca1581f465f" x="468" y="121" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_21}]]></expression>
+			</element>
+			<element kind="textField" uuid="e1ed8bc5-cc23-47da-a500-b4b37995e07c" x="18" y="181" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_22}]]></expression>
+			</element>
+			<element kind="textField" uuid="52b25cae-1591-42c1-983c-f0eae637b92d" x="93" y="181" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_23}]]></expression>
+			</element>
+			<element kind="textField" uuid="c66d2099-f1a0-4c08-8f03-51ca49569a98" x="168" y="181" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_24}]]></expression>
+			</element>
+			<element kind="textField" uuid="88522f1e-ecef-4338-b2a4-53938e9881ef" x="243" y="181" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_25}]]></expression>
+			</element>
+			<element kind="textField" uuid="f51c63b4-3614-4282-bdcb-959cd7d28a89" x="318" y="181" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_26}]]></expression>
+			</element>
+			<element kind="textField" uuid="49a0290f-a7d4-42a0-aa6d-dcb7efe38c64" x="393" y="181" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_27}]]></expression>
+			</element>
+			<element kind="textField" uuid="6a04fbd2-9a95-4953-ae17-bce0cd59b7f1" x="468" y="181" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_28}]]></expression>
+			</element>
+			<element kind="textField" uuid="0bc67cb2-da54-4a2f-8973-197ef93e384c" x="18" y="241" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_29}]]></expression>
+			</element>
+			<element kind="textField" uuid="12cbc54f-80ef-4a2c-9426-aafae7a96193" x="93" y="241" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_30}]]></expression>
+			</element>
+			<element kind="textField" uuid="47e87f67-cf25-4ba7-98ce-12d7e493efe1" x="168" y="241" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_31}]]></expression>
+			</element>
+			<element kind="textField" uuid="1910fc98-5a6e-4124-8297-8f9d57b1e992" x="243" y="241" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_32}]]></expression>
+			</element>
+			<element kind="textField" uuid="f359f6d0-d3f9-431d-bb34-e3c2c6c3239a" x="318" y="241" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_33}]]></expression>
+			</element>
+			<element kind="textField" uuid="67c1f65e-855e-4abe-805c-68c6178b1bb3" x="393" y="241" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_34}]]></expression>
+			</element>
+			<element kind="textField" uuid="95c5b0b4-8d2a-4f00-b38b-f5d87b19a882" x="468" y="241" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_35}]]></expression>
+			</element>
+			<element kind="textField" uuid="82b28e94-c577-4ec9-bb48-323582b55098" x="18" y="301" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_36}]]></expression>
+			</element>
+			<element kind="textField" uuid="4dbb461a-602b-42d5-929c-1dba6587ae2c" x="93" y="301" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_37}]]></expression>
+			</element>
+			<element kind="textField" uuid="faee4c50-5921-4420-a4bb-0e4dc8447399" x="168" y="301" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_38}]]></expression>
+			</element>
+			<element kind="textField" uuid="9a3e2b39-b4ff-4061-941a-323bbc78fd1d" x="243" y="301" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_39}]]></expression>
+			</element>
+			<element kind="textField" uuid="6f01a8ef-fe78-4fb0-bcd4-a922866742e9" x="318" y="301" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_40}]]></expression>
+			</element>
+			<element kind="textField" uuid="5fa11183-ea9d-4408-8446-2d699724ec9d" x="393" y="301" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_41}]]></expression>
+			</element>
+			<element kind="textField" uuid="5131eb95-d549-4fa8-8712-f60a3b8e93b5" x="468" y="301" width="70" height="20">
+				<expression><![CDATA[$F{DAY_STATUS_42}]]></expression>
+			</element>
+			<element kind="textField" uuid="1504e0fd-50e7-4fb6-b643-24b6572f8418" x="18" y="40" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_01}]]></expression>
+			</element>
+			<element kind="textField" uuid="feaf4f8c-698c-42cd-946e-5c42efb3da7a" x="93" y="40" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_02}]]></expression>
+			</element>
+			<element kind="textField" uuid="27d7a892-96aa-4e53-9045-71b14d57166d" x="169" y="40" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_03}]]></expression>
+			</element>
+			<element kind="textField" uuid="4d77cf95-4b44-4521-a7dc-aa2553a084f2" x="243" y="40" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_04}]]></expression>
+			</element>
+			<element kind="textField" uuid="85131d63-86eb-43bc-8ecc-c6da947fc809" x="318" y="40" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_05}]]></expression>
+			</element>
+			<element kind="textField" uuid="5f7ed399-fde6-4d46-a7bf-9334d5b4ad36" x="394" y="40" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_06}]]></expression>
+			</element>
+			<element kind="textField" uuid="e79f7cdf-89c5-4acc-b73c-e1816f8bda2a" x="468" y="40" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_07}]]></expression>
+			</element>
+			<element kind="textField" uuid="5d5e72ab-863a-43fa-b10f-eb5eb3aaf979" x="18" y="100" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_08}]]></expression>
+			</element>
+			<element kind="textField" uuid="bd74dcc6-e33e-49dc-9402-f6079e93ad7c" x="93" y="100" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_09}]]></expression>
+			</element>
+			<element kind="textField" uuid="4ef21e22-1908-4c95-91cd-2702ef2b2065" x="169" y="100" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_10}]]></expression>
+			</element>
+			<element kind="textField" uuid="62e01e63-348b-4471-af0f-06a442872510" x="243" y="100" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_11}]]></expression>
+			</element>
+			<element kind="textField" uuid="a540466d-6505-44fc-a2f5-926057227cf0" x="318" y="100" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_12}]]></expression>
+			</element>
+			<element kind="textField" uuid="710f2f57-b44f-4763-80e7-482be931aaf4" x="394" y="100" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_13}]]></expression>
+			</element>
+			<element kind="textField" uuid="7d642962-e297-4df3-9bb4-5ed289d59e0e" x="468" y="100" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_14}]]></expression>
+			</element>
+			<element kind="textField" uuid="a50db5db-436d-4afa-ae8a-e830de4ebcd4" x="18" y="160" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_15}]]></expression>
+			</element>
+			<element kind="textField" uuid="6fd0c1c1-b0c2-42bb-b73a-d29c8e79fe29" x="93" y="160" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_16}]]></expression>
+			</element>
+			<element kind="textField" uuid="d0f48d90-9974-4ac1-b3e8-aed49b7e20b8" x="169" y="160" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_17}]]></expression>
+			</element>
+			<element kind="textField" uuid="3cc37cfe-db9c-4fe9-a02c-3f34a950658f" x="243" y="160" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_18}]]></expression>
+			</element>
+			<element kind="textField" uuid="92bc6e81-ec78-4124-8dbb-51e8f5c5d2cb" x="318" y="160" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_19}]]></expression>
+			</element>
+			<element kind="textField" uuid="506e346c-2169-480c-b225-c42a914af03b" x="394" y="160" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_20}]]></expression>
+			</element>
+			<element kind="textField" uuid="5049ad99-f935-4564-a756-aa0dd881e448" x="468" y="160" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_21}]]></expression>
+			</element>
+			<element kind="textField" uuid="2162e599-bc8e-4e4b-8756-c5dcf9d2fb5c" x="18" y="220" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_22}]]></expression>
+			</element>
+			<element kind="textField" uuid="451aa45a-3bd0-402e-980c-0d51f37c73c7" x="93" y="220" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_23}]]></expression>
+			</element>
+			<element kind="textField" uuid="fbef19bb-4ae1-4011-8240-70a5c7ccef18" x="169" y="220" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_24}]]></expression>
+			</element>
+			<element kind="textField" uuid="648f7322-0da9-4e79-b27f-20d69bd504dd" x="243" y="220" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_25}]]></expression>
+			</element>
+			<element kind="textField" uuid="d3f721e5-7ce4-42a7-9d47-4baa53ff4425" x="318" y="220" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_26}]]></expression>
+			</element>
+			<element kind="textField" uuid="87d2de0b-ab3f-49bc-9b25-111cccb81975" x="394" y="220" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_27}]]></expression>
+			</element>
+			<element kind="textField" uuid="b78b09a6-0296-4742-b8aa-7cd876c28be3" x="468" y="220" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_28}]]></expression>
+			</element>
+			<element kind="textField" uuid="09d5f734-ff41-4611-8ab0-eace4763ba4a" x="18" y="280" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_29}]]></expression>
+			</element>
+			<element kind="textField" uuid="28c43be7-ff3b-45ff-b8a2-cc0f20f5a97c" x="93" y="280" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_30}]]></expression>
+			</element>
+			<element kind="textField" uuid="cf38d99b-5543-4ff8-ae23-39f9657a83a8" x="169" y="280" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_31}]]></expression>
+			</element>
+			<element kind="textField" uuid="e79a3eb2-7262-4e40-a1c2-cbd245d9ed36" x="243" y="280" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_32}]]></expression>
+			</element>
+			<element kind="textField" uuid="d019d8b7-baa7-4126-9224-d2cded8f0e0a" x="318" y="280" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_33}]]></expression>
+			</element>
+			<element kind="textField" uuid="7c709224-5ee0-4756-850b-d62a05ad13fe" x="394" y="280" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_34}]]></expression>
+			</element>
+			<element kind="textField" uuid="19a9bdd2-13dc-47e3-b7fa-781398f743c1" x="468" y="280" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_35}]]></expression>
+			</element>
+			<element kind="textField" uuid="6f31b724-e569-4735-a456-26c1683ba887" x="18" y="340" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_36}]]></expression>
+			</element>
+			<element kind="textField" uuid="702c45bd-e850-43d4-90eb-ef759cfbd58f" x="93" y="340" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_37}]]></expression>
+			</element>
+			<element kind="textField" uuid="2bdbe125-b77b-47ad-8183-31b859baf237" x="169" y="340" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_38}]]></expression>
+			</element>
+			<element kind="textField" uuid="190680a0-7064-4415-bf04-060423229907" x="243" y="340" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_39}]]></expression>
+			</element>
+			<element kind="textField" uuid="eee30f27-821f-4d17-b5e7-c953bc759567" x="318" y="340" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_40}]]></expression>
+			</element>
+			<element kind="textField" uuid="56e4e3f3-752c-4488-b5bf-36c166885e3c" x="394" y="340" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_41}]]></expression>
+			</element>
+			<element kind="textField" uuid="dee35c30-1063-4fcf-b31f-346f1e72a218" x="468" y="340" width="70" height="20" hTextAlign="Right">
+				<expression><![CDATA[$F{DAY_HRS_42}]]></expression>
+			</element>
 		</band>
 	</detail>
 </jasperReport>

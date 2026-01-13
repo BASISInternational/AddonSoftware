@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ItemDetail_vend" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="ItemDetail_vend" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="069a6a5b-1f21-4f35-b4b9-be56240bcf13">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -8,11 +8,9 @@
 	<parameter name="ITEM_ID" class="java.lang.String"/>
 	<parameter name="VEND_PATTERN" class="java.lang.String"/>
 	<parameter name="VEND_REPLACE" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[select vendor_id, prisec_flag, last_po_date, vendor_item, break_qty_01, break_qty_02, break_qty_03, unit_cost_01, unit_cost_02, unit_cost_03, last_po_cost, last_po_lead, lead_time, apm_vendmast.vendor_name AS vend_name from ivm_itemvend
+	<query language="sql"><![CDATA[select vendor_id, prisec_flag, last_po_date, vendor_item, break_qty_01, break_qty_02, break_qty_03, unit_cost_01, unit_cost_02, unit_cost_03, last_po_cost, last_po_lead, lead_time, apm_vendmast.vendor_name AS vend_name from ivm_itemvend
 left join apm_vendmast on apm_vendmast.firm_id = $P{FIRM_ID} and apm_vendmast.vendor_id = ivm_itemvend.vendor_id
-where $P{FIRM_ID} = ivm_itemvend.firm_id AND $P{ITEM_ID} = ivm_itemvend.item_id order by firm_id, item_id, vendor_id]]>
-	</queryString>
+where $P{FIRM_ID} = ivm_itemvend.firm_id AND $P{ITEM_ID} = ivm_itemvend.item_id order by firm_id, item_id, vendor_id]]></query>
 	<field name="VENDOR_ID" class="java.lang.String"/>
 	<field name="PRISEC_FLAG" class="java.lang.String"/>
 	<field name="LAST_PO_DATE" class="java.lang.String"/>
@@ -27,172 +25,100 @@ where $P{FIRM_ID} = ivm_itemvend.firm_id AND $P{ITEM_ID} = ivm_itemvend.item_id 
 	<field name="LAST_PO_LEAD" class="java.math.BigDecimal"/>
 	<field name="LEAD_TIME" class="java.math.BigDecimal"/>
 	<field name="VEND_NAME" class="java.lang.String"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band splitType="Stretch"/>
-	</columnHeader>
+	<background splitType="Stretch"/>
+	<title splitType="Stretch"/>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader splitType="Stretch"/>
 	<detail>
 		<band height="195" splitType="Stretch">
-			<textField>
-				<reportElement mode="Opaque" x="0" y="0" width="572" height="13" backcolor="#ECECEC"/>
-				<textElement verticalAlignment="Middle">
-					<paragraph leftIndent="3"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Vendor "+$F{VENDOR_ID}.replaceAll($P{VEND_PATTERN},$P{VEND_REPLACE})+" "+$F{VEND_NAME}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="23" width="119" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_PRIMARY/SECONDARY:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="36" width="119" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_VENDOR'S_ITEM_NUMBER:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="49" width="119" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LEAD_TIME:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="130" y="23" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{PRISEC_FLAG}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="130" y="36" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{VENDOR_ITEM}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="130" y="49" width="44" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{LEAD_TIME}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Opaque" x="0" y="74" width="572" height="13" backcolor="#ECECEC"/>
-				<textElement verticalAlignment="Middle">
-					<paragraph leftIndent="3"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_QUANTITY_DISCOUNTS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="97" width="100" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LEVEL_1_QUANTITY:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="110" width="100" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LEVEL_2_QUANTITY:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="123" width="100" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LEVEL_3_QUANTITY:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="273" y="97" width="100" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LEVEL_1_COST:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="273" y="110" width="100" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LEVEL_2_COST:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="273" y="123" width="100" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LEVEL_3_COST:}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.000">
-				<reportElement x="110" y="97" width="60" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{BREAK_QTY_01}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.000">
-				<reportElement x="110" y="110" width="60" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{BREAK_QTY_02}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.000">
-				<reportElement x="110" y="123" width="60" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{BREAK_QTY_03}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.0000">
-				<reportElement x="386" y="97" width="60" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{UNIT_COST_01}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.0000">
-				<reportElement x="386" y="110" width="60" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{UNIT_COST_02}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.0000">
-				<reportElement x="386" y="123" width="60" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{UNIT_COST_03}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Opaque" x="0" y="147" width="572" height="13" backcolor="#ECECEC"/>
-				<textElement verticalAlignment="Middle">
-					<paragraph leftIndent="3"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_LAST_PURCHASE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="171" width="100" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_DATE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="303" y="171" width="60" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{LAST_PO_LEAD}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="110" y="171" width="64" height="13">
-					<printWhenExpression><![CDATA[new Boolean (!$F{LAST_PO_DATE}.trim().isEmpty())]]></printWhenExpression>
-				</reportElement>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{LAST_PO_DATE}.substring(4,6)+"/"+$F{LAST_PO_DATE}.substring(6)+"/"+$F{LAST_PO_DATE}.substring(0,4)]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="192" y="171" width="100" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LEAD_TIME:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="373" y="171" width="73" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_COST:}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.0000">
-				<reportElement x="457" y="171" width="60" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{LAST_PO_COST}]]></textFieldExpression>
-			</textField>
+			<element kind="textField" uuid="3e047e12-3044-4cac-9d4b-9c6e740d70d3" mode="Opaque" x="0" y="0" width="572" height="13" backcolor="#ECECEC" vTextAlign="Middle">
+				<paragraph leftIndent="3"/>
+				<expression><![CDATA["Vendor "+$F{VENDOR_ID}.replaceAll($P{VEND_PATTERN},$P{VEND_REPLACE})+" "+$F{VEND_NAME}]]></expression>
+			</element>
+			<element kind="textField" uuid="cb5aa728-3eee-4c57-9a71-70907688439e" x="0" y="23" width="119" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_PRIMARY/SECONDARY:}]]></expression>
+			</element>
+			<element kind="textField" uuid="7629b6d8-cf4b-47ee-abbb-29168e094b4a" x="0" y="36" width="119" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_VENDOR'S_ITEM_NUMBER:}]]></expression>
+			</element>
+			<element kind="textField" uuid="40250411-35f1-4982-80fc-3a6ef878e6ef" x="0" y="49" width="119" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LEAD_TIME:}]]></expression>
+			</element>
+			<element kind="textField" uuid="595e2b33-aa69-4ecd-9e9b-2583e2abe955" x="130" y="23" width="100" height="13">
+				<expression><![CDATA[$F{PRISEC_FLAG}]]></expression>
+			</element>
+			<element kind="textField" uuid="60f7df6c-57b5-400c-8bd7-ba708570cd92" x="130" y="36" width="100" height="13">
+				<expression><![CDATA[$F{VENDOR_ITEM}]]></expression>
+			</element>
+			<element kind="textField" uuid="e87a506a-ba2e-4cb9-80c1-18247eace2eb" x="130" y="49" width="44" height="13" hTextAlign="Right">
+				<expression><![CDATA[$F{LEAD_TIME}]]></expression>
+			</element>
+			<element kind="textField" uuid="6a6b8bb0-6abd-4158-82c0-a0ade7afa3f7" mode="Opaque" x="0" y="74" width="572" height="13" backcolor="#ECECEC" vTextAlign="Middle">
+				<paragraph leftIndent="3"/>
+				<expression><![CDATA[$R{AON_QUANTITY_DISCOUNTS}]]></expression>
+			</element>
+			<element kind="textField" uuid="068d6f28-3790-4d48-907c-b45e508aefdc" x="0" y="97" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LEVEL_1_QUANTITY:}]]></expression>
+			</element>
+			<element kind="textField" uuid="2bada12b-d9ea-405f-a83e-fe7b25cf1d68" x="0" y="110" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LEVEL_2_QUANTITY:}]]></expression>
+			</element>
+			<element kind="textField" uuid="8ed0d5b0-82f8-4949-8887-b44bf36dea4c" x="0" y="123" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LEVEL_3_QUANTITY:}]]></expression>
+			</element>
+			<element kind="textField" uuid="7e84f663-d42f-4791-9f81-e89b99f2605c" x="273" y="97" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LEVEL_1_COST:}]]></expression>
+			</element>
+			<element kind="textField" uuid="bc79fe06-0813-45e6-93e4-8b8bc5d80111" x="273" y="110" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LEVEL_2_COST:}]]></expression>
+			</element>
+			<element kind="textField" uuid="d78f9423-2146-49d5-807c-1ad4f5ebd736" x="273" y="123" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LEVEL_3_COST:}]]></expression>
+			</element>
+			<element kind="textField" uuid="5c9d2aca-433b-401c-9871-fd2bb5c97abc" x="110" y="97" width="60" height="13" pattern="#,##0.000" hTextAlign="Right">
+				<expression><![CDATA[$F{BREAK_QTY_01}]]></expression>
+			</element>
+			<element kind="textField" uuid="cdeb597a-0011-496c-94b1-930745f7c73e" x="110" y="110" width="60" height="13" pattern="#,##0.000" hTextAlign="Right">
+				<expression><![CDATA[$F{BREAK_QTY_02}]]></expression>
+			</element>
+			<element kind="textField" uuid="c5f74263-8326-434e-9efd-6ab3cebd6237" x="110" y="123" width="60" height="13" pattern="#,##0.000" hTextAlign="Right">
+				<expression><![CDATA[$F{BREAK_QTY_03}]]></expression>
+			</element>
+			<element kind="textField" uuid="598096b9-08fe-454d-b914-680850f4a998" x="386" y="97" width="60" height="13" pattern="#,##0.0000" hTextAlign="Right">
+				<expression><![CDATA[$F{UNIT_COST_01}]]></expression>
+			</element>
+			<element kind="textField" uuid="61941b80-fcae-4fb2-b9f7-187c44339a44" x="386" y="110" width="60" height="13" pattern="#,##0.0000" hTextAlign="Right">
+				<expression><![CDATA[$F{UNIT_COST_02}]]></expression>
+			</element>
+			<element kind="textField" uuid="d7682c16-b742-4215-9f7d-d9773015346a" x="386" y="123" width="60" height="13" pattern="#,##0.0000" hTextAlign="Right">
+				<expression><![CDATA[$F{UNIT_COST_03}]]></expression>
+			</element>
+			<element kind="textField" uuid="9e3dbb01-d5e1-453e-bef4-305813bc4e19" mode="Opaque" x="0" y="147" width="572" height="13" backcolor="#ECECEC" vTextAlign="Middle">
+				<paragraph leftIndent="3"/>
+				<expression><![CDATA[$R{AON_LAST_PURCHASE}]]></expression>
+			</element>
+			<element kind="textField" uuid="74048c92-f19d-44ac-8968-253aaa9106da" x="0" y="171" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_DATE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="cd6f04cd-d7c0-4fe3-b777-86897d643886" x="303" y="171" width="60" height="13" hTextAlign="Right">
+				<expression><![CDATA[$F{LAST_PO_LEAD}]]></expression>
+			</element>
+			<element kind="textField" uuid="9d532669-fbf5-4125-aaa5-4a3a7ed2c61c" x="110" y="171" width="64" height="13">
+				<printWhenExpression><![CDATA[new Boolean (!$F{LAST_PO_DATE}.trim().isEmpty())]]></printWhenExpression>
+				<expression><![CDATA[$F{LAST_PO_DATE}.substring(4,6)+"/"+$F{LAST_PO_DATE}.substring(6)+"/"+$F{LAST_PO_DATE}.substring(0,4)]]></expression>
+			</element>
+			<element kind="textField" uuid="7e9201d8-061a-45d8-8169-40c1d0970b19" x="192" y="171" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LEAD_TIME:}]]></expression>
+			</element>
+			<element kind="textField" uuid="1cf431a7-98c4-4b97-9bd9-a3327c1b23bf" x="373" y="171" width="73" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_COST:}]]></expression>
+			</element>
+			<element kind="textField" uuid="e5987eb9-97a7-4ee8-90ef-27e152b584f1" x="457" y="171" width="60" height="13" pattern="#,##0.0000">
+				<expression><![CDATA[$F{LAST_PO_COST}]]></expression>
+			</element>
 		</band>
 	</detail>
-	<columnFooter>
-		<band splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band splitType="Stretch"/>
-	</summary>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter splitType="Stretch"/>
+	<summary splitType="Stretch"/>
 </jasperReport>

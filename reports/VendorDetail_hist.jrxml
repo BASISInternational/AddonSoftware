@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VendorDetail_hist" language="groovy" pageWidth="572" pageHeight="792" columnWidth="572" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="VendorDetail_hist" language="groovy" pageWidth="572" pageHeight="792" columnWidth="572" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="1ed45fd0-8808-492e-b94d-4ff8caedee9b">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -13,339 +13,242 @@
 	</parameter>
 	<parameter name="MASKS" class="java.lang.String"/>
 	<parameter name="BARISTA_WD" class="java.lang.String"/>
-	<queryString language="SQL">
-		<![CDATA[call vendordetail_hist($P{FIRM_ID},$P{VENDOR_ID},$P{BARISTA_WD},$P{MASKS})]]>
-	</queryString>
+	<query language="SQL"><![CDATA[call vendordetail_hist($P{FIRM_ID},$P{VENDOR_ID},$P{BARISTA_WD},$P{MASKS})]]></query>
 	<field name="FIRM_ID" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="AP_TYPE" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="AP_DIST_CODE" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="PAYMENT_GRP" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="AP_TERMS_CODE" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="LSTINV_DATE" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="LSTPAY_DATE" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="GL_ACCOUNT" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="OPEN_INVS" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="OPEN_RET" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="YTD_PURCH" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="PYR_PURCH" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="NYR_PURCH" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="YTD_DISCS" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="PRI_YR_DISCS" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="NYR_DISC" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="YTD_PAYMENTS" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="PYR_PAYMENTS" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="NYR_PAYMENTS" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="CUR_CAL_PMTS" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="PRI_CAL_PMT" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="NXT_CYR_PMTS" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="AP_TYPE_DESC" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="AP_DIST_CODE_DESC" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="PAYMENT_GRP_DESC" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="TERMS_CODE_DESC" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="GL_ACCT_DESC" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
-	<background>
-		<band/>
-	</background>
+	<background/>
 	<detail>
 		<band height="156">
-			<textField>
-				<reportElement x="89" y="19" width="22" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{AP_TYPE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="348" y="19" width="22" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{PAYMENT_GRP}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="89" y="32" width="22" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{AP_DIST_CODE}+" "]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="348" y="32" width="22" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{AP_TERMS_CODE}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="false">
-				<reportElement x="89" y="45" width="50" height="13">
-					<printWhenExpression><![CDATA[new Boolean(!$F{GL_ACCOUNT}.isEmpty())]]></printWhenExpression>
-				</reportElement>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{GL_ACCOUNT}.substring(0,3)+"-"+$F{GL_ACCOUNT}.substring(3,6)]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="89" y="58" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{OPEN_INVS}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="348" y="57" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{LSTINV_DATE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="348" y="70" width="110" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{LSTPAY_DATE}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="89" y="102" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{YTD_PURCH}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="89" y="115" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{PYR_PURCH}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="89" y="128" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{NYR_PURCH}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="189" y="102" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{YTD_DISCS}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="189" y="115" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{PRI_YR_DISCS}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="189" y="128" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{NYR_DISC}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="290" y="102" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{YTD_PAYMENTS}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="290" y="115" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{PYR_PAYMENTS}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="290" y="128" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{NYR_PAYMENTS}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="390" y="102" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{CUR_CAL_PMTS}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="390" y="115" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{PRI_CAL_PMT}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="390" y="128" width="80" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{NXT_CYR_PMTS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="19" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_AP_TYPE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="58" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_OPEN_INVOICES:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="32" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_DISTRIBUTION:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="44" width="75" height="13">
-					<printWhenExpression><![CDATA[new Boolean(!$F{GL_ACCOUNT}.isEmpty())]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_GL_ACCOUNT:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="261" y="58" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LAST_INVOICE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="261" y="71" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LAST_PAYMENT:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="262" y="19" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_PAYMENT_GROUP:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="262" y="32" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_TERMS_CODE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="94" y="89" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_PURCHASES}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="194" y="89" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_DISCOUNTS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="295" y="89" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_PAYMENTS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="395" y="89" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_CALENDAR_YEAR}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="102" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_CURRENT_YTD:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="115" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_PRIOR_YEAR:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="128" width="75" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_NEXT_YEAR:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="139" y="45" width="123" height="13">
-					<printWhenExpression><![CDATA[new Boolean(!$F{GL_ACCOUNT}.isEmpty())]]></printWhenExpression>
-				</reportElement>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{GL_ACCT_DESC}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="70" width="75" height="13">
-					<printWhenExpression><![CDATA[new Boolean($P{RETENTION}.equals( "Y" ))]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_OPEN_RETENTION:}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="89" y="70" width="80" height="13">
-					<printWhenExpression><![CDATA[new Boolean($P{RETENTION}.equals( "Y" ))]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{OPEN_RET}]]></textFieldExpression>
-			</textField>
-			<subreport>
-				<reportElement positionType="Float" x="0" y="141" width="201" height="11"/>
-				<subreportParameter name="FIRM_ID">
-					<subreportParameterExpression><![CDATA[$P{FIRM_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AP_TYPE">
-					<subreportParameterExpression><![CDATA[$F{AP_TYPE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="RETENTION">
-					<subreportParameterExpression><![CDATA[$P{RETENTION}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VENDOR_ID">
-					<subreportParameterExpression><![CDATA[$P{VENDOR_ID}]]></subreportParameterExpression>
-				</subreportParameter>
+			<element kind="textField" uuid="61c317f7-d2aa-4fe1-a09a-dbab43602d7e" x="89" y="19" width="22" height="13">
+				<expression><![CDATA[$F{AP_TYPE}]]></expression>
+			</element>
+			<element kind="textField" uuid="5882e8ac-4e98-4f8b-adfd-a6f9c1c3da46" x="348" y="19" width="22" height="13">
+				<expression><![CDATA[$F{PAYMENT_GRP}]]></expression>
+			</element>
+			<element kind="textField" uuid="bb11ef1b-4407-486e-bef5-bd39d75ee29b" x="89" y="32" width="22" height="13">
+				<expression><![CDATA[$F{AP_DIST_CODE}+" "]]></expression>
+			</element>
+			<element kind="textField" uuid="4da9f487-c31c-49ee-b5ac-7f950f883451" x="348" y="32" width="22" height="13">
+				<expression><![CDATA[$F{AP_TERMS_CODE}]]></expression>
+			</element>
+			<element kind="textField" uuid="00e00de3-654a-4a14-98cd-10624599aca3" x="89" y="45" width="50" height="13" blankWhenNull="false">
+				<printWhenExpression><![CDATA[new Boolean(!$F{GL_ACCOUNT}.isEmpty())]]></printWhenExpression>
+				<expression><![CDATA[$F{GL_ACCOUNT}.substring(0,3)+"-"+$F{GL_ACCOUNT}.substring(3,6)]]></expression>
+			</element>
+			<element kind="textField" uuid="65b9ed95-3326-45cb-8cf2-d55c8c2e1ed7" x="89" y="58" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{OPEN_INVS}]]></expression>
+			</element>
+			<element kind="textField" uuid="d55f4923-31ab-497c-8a93-0d2d87547bed" x="348" y="57" width="100" height="13" pattern="">
+				<expression><![CDATA[$F{LSTINV_DATE}]]></expression>
+			</element>
+			<element kind="textField" uuid="859e5ef4-094c-4fbf-9fd9-039f555f3bbf" x="348" y="70" width="110" height="13">
+				<expression><![CDATA[$F{LSTPAY_DATE}]]></expression>
+			</element>
+			<element kind="textField" uuid="deef8bde-0300-43eb-90ec-8aebb6efe2a3" x="89" y="102" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{YTD_PURCH}]]></expression>
+			</element>
+			<element kind="textField" uuid="4cdf16bf-d37d-4e08-bbb9-dcdc40db0bfb" x="89" y="115" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{PYR_PURCH}]]></expression>
+			</element>
+			<element kind="textField" uuid="1f9fc24f-b1e5-4574-9062-426f3ffbdb8c" x="89" y="128" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{NYR_PURCH}]]></expression>
+			</element>
+			<element kind="textField" uuid="c027fde1-4fbb-4a2b-81b2-5a7817ed7814" x="189" y="102" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{YTD_DISCS}]]></expression>
+			</element>
+			<element kind="textField" uuid="363bb08f-90e2-4b37-9b5d-acbb6c0c30fd" x="189" y="115" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{PRI_YR_DISCS}]]></expression>
+			</element>
+			<element kind="textField" uuid="31bcd871-86b5-4c77-bcbb-54df36737431" x="189" y="128" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{NYR_DISC}]]></expression>
+			</element>
+			<element kind="textField" uuid="3df58d0f-4f3c-4665-8e60-8dd1d40813d5" x="290" y="102" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{YTD_PAYMENTS}]]></expression>
+			</element>
+			<element kind="textField" uuid="ef5d8933-2905-4377-9ac0-0a54c090fe14" x="290" y="115" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{PYR_PAYMENTS}]]></expression>
+			</element>
+			<element kind="textField" uuid="b78ad91b-1fc3-40dc-b28c-2ea5de424986" x="290" y="128" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{NYR_PAYMENTS}]]></expression>
+			</element>
+			<element kind="textField" uuid="5969945b-a97d-409b-bef1-542b49168316" x="390" y="102" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{CUR_CAL_PMTS}]]></expression>
+			</element>
+			<element kind="textField" uuid="28b67e60-098a-47b5-a499-a559080f01dd" x="390" y="115" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{PRI_CAL_PMT}]]></expression>
+			</element>
+			<element kind="textField" uuid="e49b4edf-c0eb-4c2f-9d84-7350e0428e04" x="390" y="128" width="80" height="13" pattern="" hTextAlign="Right">
+				<expression><![CDATA[$F{NXT_CYR_PMTS}]]></expression>
+			</element>
+			<element kind="textField" uuid="3d7418e0-aa64-4743-911d-718b6097033e" x="3" y="19" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_AP_TYPE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="7a63e739-ad4a-4ca2-9497-42c0704a7a4d" x="3" y="58" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_OPEN_INVOICES:}]]></expression>
+			</element>
+			<element kind="textField" uuid="a7e60ea0-5f59-4050-af6a-26044b901f11" x="3" y="32" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_DISTRIBUTION:}]]></expression>
+			</element>
+			<element kind="textField" uuid="afbbf5dd-5f2b-48f4-aa50-7f92908943d1" x="3" y="44" width="75" height="13" hTextAlign="Right">
+				<printWhenExpression><![CDATA[new Boolean(!$F{GL_ACCOUNT}.isEmpty())]]></printWhenExpression>
+				<expression><![CDATA[$R{AON_GL_ACCOUNT:}]]></expression>
+			</element>
+			<element kind="textField" uuid="710ea993-be52-47bd-9d37-34aca1f037df" x="261" y="58" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LAST_INVOICE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="3b5fedba-f204-4649-83e2-c2dda1bec77e" x="261" y="71" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LAST_PAYMENT:}]]></expression>
+			</element>
+			<element kind="textField" uuid="8044d61d-5b2b-4551-86de-1e702f7f273f" x="262" y="19" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_PAYMENT_GROUP:}]]></expression>
+			</element>
+			<element kind="textField" uuid="6f3e24e5-fbe4-4fff-a961-9e79e803e4c7" x="262" y="32" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_TERMS_CODE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="9c9293d6-d9dc-4c1e-b397-f297cdb5794d" x="94" y="89" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_PURCHASES}]]></expression>
+			</element>
+			<element kind="textField" uuid="31d0b1c3-992b-49ff-8424-ede0d333b94c" x="194" y="89" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_DISCOUNTS}]]></expression>
+			</element>
+			<element kind="textField" uuid="c52f6c6f-1b53-4288-b75a-31a4f4dad9bc" x="295" y="89" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_PAYMENTS}]]></expression>
+			</element>
+			<element kind="textField" uuid="b01d8d66-ac53-444a-9e34-f7698544524e" x="395" y="89" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_CALENDAR_YEAR}]]></expression>
+			</element>
+			<element kind="textField" uuid="2be9da93-89ba-4e41-a95e-8ddb0de22bc3" x="3" y="102" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_CURRENT_YTD:}]]></expression>
+			</element>
+			<element kind="textField" uuid="e0cfaa60-f7cd-4202-909e-3c8afbfbff5f" x="3" y="115" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_PRIOR_YEAR:}]]></expression>
+			</element>
+			<element kind="textField" uuid="033295b4-931d-4878-b3c1-2f8d896d0896" x="3" y="128" width="75" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_NEXT_YEAR:}]]></expression>
+			</element>
+			<element kind="textField" uuid="97686215-1ae7-4ff9-9be4-1d3b7626080e" x="139" y="45" width="123" height="13">
+				<printWhenExpression><![CDATA[new Boolean(!$F{GL_ACCOUNT}.isEmpty())]]></printWhenExpression>
+				<expression><![CDATA[$F{GL_ACCT_DESC}]]></expression>
+			</element>
+			<element kind="textField" uuid="4a54d930-4cec-42b0-b5a5-e3cbe22130c8" x="3" y="70" width="75" height="13" hTextAlign="Right">
+				<printWhenExpression><![CDATA[new Boolean($P{RETENTION}.equals( "Y" ))]]></printWhenExpression>
+				<expression><![CDATA[$R{AON_OPEN_RETENTION:}]]></expression>
+			</element>
+			<element kind="textField" uuid="a2e32888-1ea8-4e2d-a15b-aafabf6fc7be" x="89" y="70" width="80" height="13" pattern="" hTextAlign="Right">
+				<printWhenExpression><![CDATA[new Boolean($P{RETENTION}.equals( "Y" ))]]></printWhenExpression>
+				<expression><![CDATA[$F{OPEN_RET}]]></expression>
+			</element>
+			<element kind="subreport" uuid="9b7ce744-03b4-4eb3-961c-4bc0894b1bfc" positionType="Float" x="0" y="141" width="201" height="11">
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["VendorDetail_invhdr.jasper"]]></subreportExpression>
-			</subreport>
-			<textField>
-				<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="570" height="15" backcolor="#ECECEC"/>
-				<textElement verticalAlignment="Middle">
-					<paragraph leftIndent="3"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_VENDOR_DETAIL_INFORMATION}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="114" y="19" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{AP_TYPE_DESC}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="114" y="32" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{AP_DIST_CODE_DESC}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="372" y="19" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{PAYMENT_GRP_DESC}+" "]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="370" y="32" width="100" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{TERMS_CODE_DESC}]]></textFieldExpression>
-			</textField>
+				<expression><![CDATA["VendorDetail_invhdr.jasper"]]></expression>
+				<parameter name="FIRM_ID">
+					<expression><![CDATA[$P{FIRM_ID}]]></expression>
+				</parameter>
+				<parameter name="AP_TYPE">
+					<expression><![CDATA[$F{AP_TYPE}]]></expression>
+				</parameter>
+				<parameter name="RETENTION">
+					<expression><![CDATA[$P{RETENTION}]]></expression>
+				</parameter>
+				<parameter name="VENDOR_ID">
+					<expression><![CDATA[$P{VENDOR_ID}]]></expression>
+				</parameter>
+			</element>
+			<element kind="textField" uuid="9cb4bfb0-3f4e-43cb-bbae-5ede5eb2a0ed" positionType="Float" mode="Opaque" x="0" y="0" width="570" height="15" backcolor="#ECECEC" vTextAlign="Middle">
+				<paragraph leftIndent="3"/>
+				<expression><![CDATA[$R{AON_VENDOR_DETAIL_INFORMATION}]]></expression>
+			</element>
+			<element kind="textField" uuid="24294dd6-d397-418e-b233-cd3e325e9ce8" x="114" y="19" width="100" height="13">
+				<expression><![CDATA[$F{AP_TYPE_DESC}]]></expression>
+			</element>
+			<element kind="textField" uuid="9a3cf6e0-4159-40fc-9a79-0eb4c2fead71" x="114" y="32" width="100" height="13">
+				<expression><![CDATA[$F{AP_DIST_CODE_DESC}]]></expression>
+			</element>
+			<element kind="textField" uuid="e25db651-d34e-4779-b7ae-8e16eede5582" x="372" y="19" width="100" height="13">
+				<expression><![CDATA[$F{PAYMENT_GRP_DESC}+" "]]></expression>
+			</element>
+			<element kind="textField" uuid="c0daf7d2-68b1-44e1-8385-5acdbff574f8" x="370" y="32" width="100" height="13">
+				<expression><![CDATA[$F{TERMS_CODE_DESC}]]></expression>
+			</element>
 		</band>
 	</detail>
 </jasperReport>

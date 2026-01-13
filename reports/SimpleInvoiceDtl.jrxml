@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SimpleInvoiceDtl" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="b87e9e94-d7bd-4136-94f1-bf75da8d1f09">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="SimpleInvoiceDtl" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="b87e9e94-d7bd-4136-94f1-bf75da8d1f09">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -10,9 +9,7 @@
 	<parameter name="BARISTA_WD" class="java.lang.String"/>
 	<parameter name="UNIT_MASK" class="java.lang.String"/>
 	<parameter name="ARCHIVED" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[CALL SIMPLE_INVOICE_DTL($P{FIRM_ID},$P{AR_INV_NO},$P{AMT_MASK},$P{UNIT_MASK},$P{ARCHIVED},$P{BARISTA_WD})]]>
-	</queryString>
+	<query language="sql"><![CDATA[CALL SIMPLE_INVOICE_DTL($P{FIRM_ID},$P{AR_INV_NO},$P{AMT_MASK},$P{UNIT_MASK},$P{ARCHIVED},$P{BARISTA_WD})]]></query>
 	<field name="UNITS" class="java.lang.String"/>
 	<field name="UNIT_PRICE" class="java.lang.String"/>
 	<field name="EXT_PRICE" class="java.lang.String"/>
@@ -20,126 +17,61 @@
 	<field name="TOT_PRICE" class="java.lang.String"/>
 	<field name="TRNS_DATE" class="java.lang.String"/>
 	<variable name="TOT_PRICE" class="java.lang.String">
-		<variableExpression><![CDATA[$F{TOT_PRICE}]]></variableExpression>
+		<expression><![CDATA[$F{TOT_PRICE}]]></expression>
 	</variable>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<columnHeader>
-		<band height="29" splitType="Stretch">
-			<rectangle radius="8">
-				<reportElement x="0" y="0" width="555" height="26" backcolor="#000000" uuid="265d0069-00ec-403e-8493-92a3b08c597a"/>
-				<graphicElement>
-					<pen lineWidth="1.0"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle radius="0">
-				<reportElement x="0" y="8" width="555" height="20" backcolor="#000000" uuid="7490c59a-16eb-447f-bf16-38a0981f2984"/>
-				<graphicElement>
-					<pen lineWidth="1.0"/>
-				</graphicElement>
-			</rectangle>
-			<textField>
-				<reportElement x="0" y="0" width="92" height="26" forecolor="#FFFFFF" uuid="43a85aa0-e6bd-4baf-933a-c6b3d3ca9e5a"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="15" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_SHIP_DATE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="384" y="0" width="79" height="26" forecolor="#FFFFFF" uuid="b5533228-b3b1-443d-8adc-264f3e1bdcf1"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="15" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_PRICE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="463" y="0" width="92" height="26" forecolor="#FFFFFF" uuid="95b5dc8a-1ec3-4f65-b010-5563cc2a2785"/>
-				<box rightPadding="0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="15" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_EXTENSION}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="92" y="0" width="56" height="26" forecolor="#FFFFFF" uuid="cb1c7b14-7033-44ca-93d7-fd444f157dd2"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="15" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_MEMO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="325" y="0" width="59" height="26" forecolor="#FFFFFF" uuid="a6b7663a-5954-4ba5-b12f-dd66e63c30ad"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="15" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_QTY}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background splitType="Stretch"/>
+	<columnHeader height="29" splitType="Stretch">
+		<element kind="rectangle" uuid="265d0069-00ec-403e-8493-92a3b08c597a" x="0" y="0" width="555" height="26" backcolor="#000000" radius="8">
+			<pen lineWidth="1.0"/>
+		</element>
+		<element kind="rectangle" uuid="7490c59a-16eb-447f-bf16-38a0981f2984" x="0" y="8" width="555" height="20" backcolor="#000000" radius="0">
+			<pen lineWidth="1.0"/>
+		</element>
+		<element kind="textField" uuid="43a85aa0-e6bd-4baf-933a-c6b3d3ca9e5a" x="0" y="0" width="92" height="26" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_SHIP_DATE}]]></expression>
+		</element>
+		<element kind="textField" uuid="b5533228-b3b1-443d-8adc-264f3e1bdcf1" x="384" y="0" width="79" height="26" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_PRICE}]]></expression>
+		</element>
+		<element kind="textField" uuid="95b5dc8a-1ec3-4f65-b010-5563cc2a2785" x="463" y="0" width="92" height="26" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_EXTENSION}]]></expression>
+			<box rightPadding="0"/>
+		</element>
+		<element kind="textField" uuid="cb1c7b14-7033-44ca-93d7-fd444f157dd2" x="92" y="0" width="56" height="26" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_MEMO}]]></expression>
+		</element>
+		<element kind="textField" uuid="a6b7663a-5954-4ba5-b12f-dd66e63c30ad" x="325" y="0" width="59" height="26" forecolor="#FFFFFF" fontName="SansSerif" fontSize="15.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_QTY}]]></expression>
+		</element>
 	</columnHeader>
 	<detail>
 		<band height="21" splitType="Stretch">
-			<rectangle>
-				<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="555" height="21" backcolor="#EBF0FA" uuid="611bd75b-55c8-4fd6-a3c6-83ef99a78bf7">
-					<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
-				</reportElement>
-				<graphicElement>
-					<pen lineWidth="0.0"/>
-				</graphicElement>
-			</rectangle>
-			<line>
-				<reportElement stretchType="RelativeToTallestObject" x="92" y="0" width="1" height="21" forecolor="#B4BEC8" uuid="1e4b25b7-d0d2-4ce7-9df5-c4ed5abb63c9"/>
-			</line>
-			<line>
-				<reportElement stretchType="RelativeToTallestObject" x="325" y="0" width="1" height="21" forecolor="#B4BEC8" uuid="de37e807-5b19-45f9-b006-d2a6cd05d180"/>
-			</line>
-			<line>
-				<reportElement stretchType="RelativeToTallestObject" x="384" y="0" width="1" height="21" forecolor="#B4BEC8" uuid="bc690e97-c54a-4f54-8b36-ef85d49a94f4"/>
-			</line>
-			<line>
-				<reportElement stretchType="RelativeToTallestObject" x="463" y="0" width="1" height="21" forecolor="#B4BEC8" uuid="1c3bad00-2347-438b-bb02-07194e31c6af"/>
-			</line>
-			<textField textAdjust="StretchHeight">
-				<reportElement x="95" y="1" width="230" height="20" uuid="2908451f-d5f1-4238-b85b-23834892f1e5"/>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{MEMO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="326" y="1" width="56" height="20" uuid="98eeeaf5-78a3-466c-8816-11fbf3db0120"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{UNITS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="385" y="1" width="76" height="20" uuid="f1b7adc5-0f0a-4570-aa89-b1bb72a8fc02"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{UNIT_PRICE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="464" y="1" width="88" height="20" uuid="dfa68f4e-d48d-4063-a823-28269495b55f"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{EXT_PRICE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="0" y="1" width="93" height="20" uuid="8cfc4ebc-3a5a-4e36-bb3f-6ce78000bd9f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{TRNS_DATE}]]></textFieldExpression>
-			</textField>
-			<rectangle>
-				<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="0" y="0" width="555" height="21" uuid="69a8db1c-b3dc-403f-a2c5-f7a34d0a79ea"/>
-				<graphicElement>
-					<pen lineWidth="1.0" lineColor="#808080"/>
-				</graphicElement>
-			</rectangle>
+			<element kind="rectangle" uuid="611bd75b-55c8-4fd6-a3c6-83ef99a78bf7" stretchType="ElementGroupHeight" mode="Opaque" x="0" y="0" width="555" height="21" backcolor="#EBF0FA">
+				<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
+				<pen lineWidth="0.0"/>
+			</element>
+			<element kind="line" uuid="1e4b25b7-d0d2-4ce7-9df5-c4ed5abb63c9" stretchType="ElementGroupHeight" x="92" y="0" width="1" height="21" forecolor="#B4BEC8"/>
+			<element kind="line" uuid="de37e807-5b19-45f9-b006-d2a6cd05d180" stretchType="ElementGroupHeight" x="325" y="0" width="1" height="21" forecolor="#B4BEC8"/>
+			<element kind="line" uuid="bc690e97-c54a-4f54-8b36-ef85d49a94f4" stretchType="ElementGroupHeight" x="384" y="0" width="1" height="21" forecolor="#B4BEC8"/>
+			<element kind="line" uuid="1c3bad00-2347-438b-bb02-07194e31c6af" stretchType="ElementGroupHeight" x="463" y="0" width="1" height="21" forecolor="#B4BEC8"/>
+			<element kind="textField" uuid="2908451f-d5f1-4238-b85b-23834892f1e5" x="95" y="1" width="230" height="20" fontSize="12.0" textAdjust="StretchHeight" vTextAlign="Middle">
+				<expression><![CDATA[$F{MEMO}]]></expression>
+			</element>
+			<element kind="textField" uuid="98eeeaf5-78a3-466c-8816-11fbf3db0120" x="326" y="1" width="56" height="20" fontSize="12.0" hTextAlign="Right" vTextAlign="Middle">
+				<expression><![CDATA[$F{UNITS}]]></expression>
+			</element>
+			<element kind="textField" uuid="f1b7adc5-0f0a-4570-aa89-b1bb72a8fc02" x="385" y="1" width="76" height="20" fontSize="12.0" hTextAlign="Right" vTextAlign="Middle">
+				<expression><![CDATA[$F{UNIT_PRICE}]]></expression>
+			</element>
+			<element kind="textField" uuid="dfa68f4e-d48d-4063-a823-28269495b55f" x="464" y="1" width="88" height="20" fontSize="12.0" hTextAlign="Right" vTextAlign="Middle">
+				<expression><![CDATA[$F{EXT_PRICE}]]></expression>
+			</element>
+			<element kind="textField" uuid="8cfc4ebc-3a5a-4e36-bb3f-6ce78000bd9f" x="0" y="1" width="93" height="20" fontSize="12.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{TRNS_DATE}]]></expression>
+			</element>
+			<element kind="rectangle" uuid="69a8db1c-b3dc-403f-a2c5-f7a34d0a79ea" stretchType="ElementGroupHeight" mode="Transparent" x="0" y="0" width="555" height="21">
+				<pen lineWidth="1.0" lineColor="#808080"/>
+			</element>
 		</band>
 	</detail>
 </jasperReport>

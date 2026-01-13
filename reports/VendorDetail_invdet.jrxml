@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="0a10a086-8b63-4e8a-bf07-c6f323dc3bfe">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="report name" language="java" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="0a10a086-8b63-4e8a-bf07-c6f323dc3bfe">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -9,138 +8,108 @@
 	<parameter name="VENDOR_ID" class="java.lang.String"/>
 	<parameter name="AP_INV_NO" class="java.lang.String"/>
 	<parameter name="RETENTION" class="java.lang.String"/>
-	<parameter name="INVOICE_AMT" class="java.math.BigDecimal" isForPrompting="false"/>
-	<parameter name="DISCOUNT_AMT" class="java.math.BigDecimal" isForPrompting="false"/>
-	<parameter name="RETENTION_AMT" class="java.math.BigDecimal" isForPrompting="false"/>
+	<parameter name="INVOICE_AMT" forPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="DISCOUNT_AMT" forPrompting="false" class="java.math.BigDecimal"/>
+	<parameter name="RETENTION_AMT" forPrompting="false" class="java.math.BigDecimal"/>
 	<parameter name="AP_TYPE" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[select * from apt_invoicedet where firm_id=$P{FIRM_ID} and ap_type=$P{AP_TYPE} and vendor_id=$P{VENDOR_ID} and ap_inv_no=$P{AP_INV_NO}]]>
-	</queryString>
+	<query language="sql"><![CDATA[select * from apt_invoicedet where firm_id=$P{FIRM_ID} and ap_type=$P{AP_TYPE} and vendor_id=$P{VENDOR_ID} and ap_inv_no=$P{AP_INV_NO}]]></query>
 	<field name="FIRM_ID" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="AP_TYPE" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="VENDOR_ID" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="AP_INV_NO" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="SEQUENCE_NO" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="TRANS_TYPE" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="TRANS_REF" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="TRANS_DATE" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="TRANS_AMT" class="java.math.BigDecimal">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="TRANS_DISC" class="java.math.BigDecimal">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="TRANS_RET" class="java.math.BigDecimal">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
-	<variable name="totAmt" class="java.math.BigDecimal" calculation="Sum">
-		<variableExpression><![CDATA[$F{TRANS_AMT}]]></variableExpression>
+	<variable name="totAmt" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[$F{TRANS_AMT}]]></expression>
 		<initialValueExpression><![CDATA[]]></initialValueExpression>
 	</variable>
 	<variable name="orig_inv_amt" class="java.math.BigDecimal">
-		<variableExpression><![CDATA[$P{INVOICE_AMT}]]></variableExpression>
+		<expression><![CDATA[$P{INVOICE_AMT}]]></expression>
 	</variable>
 	<variable name="orig_disc_amt" class="java.math.BigDecimal">
-		<variableExpression><![CDATA[$P{DISCOUNT_AMT}]]></variableExpression>
+		<expression><![CDATA[$P{DISCOUNT_AMT}]]></expression>
 	</variable>
 	<variable name="orig_ret_amt" class="java.math.BigDecimal">
-		<variableExpression><![CDATA[$P{RETENTION_AMT}]]></variableExpression>
+		<expression><![CDATA[$P{RETENTION_AMT}]]></expression>
 	</variable>
-	<variable name="totDisc" class="java.math.BigDecimal" calculation="Sum">
-		<variableExpression><![CDATA[$F{TRANS_DISC}]]></variableExpression>
+	<variable name="totDisc" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[$F{TRANS_DISC}]]></expression>
 	</variable>
-	<variable name="totRet" class="java.math.BigDecimal" calculation="Sum">
-		<variableExpression><![CDATA[$F{TRANS_RET}]]></variableExpression>
+	<variable name="totRet" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[$F{TRANS_RET}]]></expression>
 	</variable>
-	<background>
-		<band/>
-	</background>
+	<background/>
 	<detail>
 		<band height="14">
-			<textField>
-				<reportElement x="3" y="0" width="19" height="13" uuid="516bffa7-8831-47e2-a539-5d8e0ae7faaf"/>
-				<textFieldExpression><![CDATA[$F{TRANS_TYPE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="22" y="0" width="60" height="13" uuid="9c097695-7648-440d-b78c-705eecd22272"/>
-				<textFieldExpression><![CDATA[$F{TRANS_REF}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="103" y="0" width="70" height="13" uuid="8e475865-a76f-469e-929d-b17664be2da5">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$F{TRANS_DATE}.substring(4,6)+"/"+$F{TRANS_DATE}.substring(6)+"/"+$F{TRANS_DATE}.substring(0,4)]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.00">
-				<reportElement x="299" y="0" width="60" height="13" uuid="7b36ecbf-f9d3-4619-8e0d-e3d15f0d0d66">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{TRANS_AMT}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.00">
-				<reportElement x="381" y="0" width="60" height="13" uuid="b2ad96a4-f9dc-43f6-a3e3-6ceb153c3239">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{TRANS_DISC}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.00">
-				<reportElement x="455" y="0" width="60" height="13" uuid="80b3884e-38f2-40d3-8cd1-2851c1e4469f">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<printWhenExpression><![CDATA[new Boolean($P{RETENTION}.equals( "Y" ))]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{TRANS_RET}]]></textFieldExpression>
-			</textField>
+			<element kind="textField" uuid="516bffa7-8831-47e2-a539-5d8e0ae7faaf" x="3" y="0" width="19" height="13">
+				<expression><![CDATA[$F{TRANS_TYPE}]]></expression>
+			</element>
+			<element kind="textField" uuid="9c097695-7648-440d-b78c-705eecd22272" x="22" y="0" width="60" height="13">
+				<expression><![CDATA[$F{TRANS_REF}]]></expression>
+			</element>
+			<element kind="textField" uuid="8e475865-a76f-469e-929d-b17664be2da5" x="103" y="0" width="70" height="13">
+				<expression><![CDATA[$F{TRANS_DATE}.substring(4,6)+"/"+$F{TRANS_DATE}.substring(6)+"/"+$F{TRANS_DATE}.substring(0,4)]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			</element>
+			<element kind="textField" uuid="7b36ecbf-f9d3-4619-8e0d-e3d15f0d0d66" x="299" y="0" width="60" height="13" pattern="#,##0.00" hTextAlign="Right">
+				<expression><![CDATA[$F{TRANS_AMT}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			</element>
+			<element kind="textField" uuid="b2ad96a4-f9dc-43f6-a3e3-6ceb153c3239" x="381" y="0" width="60" height="13" pattern="#,##0.00" hTextAlign="Right">
+				<expression><![CDATA[$F{TRANS_DISC}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			</element>
+			<element kind="textField" uuid="80b3884e-38f2-40d3-8cd1-2851c1e4469f" x="455" y="0" width="60" height="13" pattern="#,##0.00" hTextAlign="Right">
+				<printWhenExpression><![CDATA[new Boolean($P{RETENTION}.equals( "Y" ))]]></printWhenExpression>
+				<expression><![CDATA[$F{TRANS_RET}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			</element>
 		</band>
 	</detail>
-	<summary>
-		<band height="18">
-			<textField pattern="#,##0.00">
-				<reportElement x="299" y="0" width="60" height="13" uuid="dd632bb1-8fd0-4ad7-8409-bb91e1e0a665">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$V{orig_inv_amt}.add( $V{totAmt} )]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="254" y="0" width="33" height="13" uuid="005fcdbb-f2d1-4e07-8070-69d3896da0ec">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$R{AON_TOTAL}]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.00">
-				<reportElement x="381" y="0" width="60" height="13" uuid="4dcb6cb3-048c-4876-aeee-e49b6fdc31eb">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$V{orig_disc_amt}.add( $V{totDisc} )]]></textFieldExpression>
-			</textField>
-			<textField pattern="#,##0.00">
-				<reportElement x="455" y="0" width="60" height="13" uuid="f24156b0-88f9-478c-a182-22f41b65127c">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<printWhenExpression><![CDATA[new Boolean($P{RETENTION}.equals( "Y" ))]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$V{orig_ret_amt}.add( $V{totRet} )]]></textFieldExpression>
-			</textField>
-		</band>
+	<summary height="18">
+		<element kind="textField" uuid="dd632bb1-8fd0-4ad7-8409-bb91e1e0a665" x="299" y="0" width="60" height="13" pattern="#,##0.00" hTextAlign="Right">
+			<expression><![CDATA[$V{orig_inv_amt}.add( $V{totAmt} )]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="textField" uuid="005fcdbb-f2d1-4e07-8070-69d3896da0ec" x="254" y="0" width="33" height="13">
+			<expression><![CDATA[$R{AON_TOTAL}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="textField" uuid="4dcb6cb3-048c-4876-aeee-e49b6fdc31eb" x="381" y="0" width="60" height="13" pattern="#,##0.00" hTextAlign="Right">
+			<expression><![CDATA[$V{orig_disc_amt}.add( $V{totDisc} )]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="textField" uuid="f24156b0-88f9-478c-a182-22f41b65127c" x="455" y="0" width="60" height="13" pattern="#,##0.00" hTextAlign="Right">
+			<printWhenExpression><![CDATA[new Boolean($P{RETENTION}.equals( "Y" ))]]></printWhenExpression>
+			<expression><![CDATA[$V{orig_ret_amt}.add( $V{totRet} )]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
 	</summary>
 </jasperReport>

@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SFHardCopyMatStd" language="groovy" pageWidth="772" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="0" rightMargin="0" topMargin="3" bottomMargin="0" resourceBundle="addon" uuid="0eab1522-d956-4521-8e4b-8fe3ccedac21">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="SFHardCopyMatStd" language="groovy" pageWidth="772" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="0" rightMargin="0" topMargin="3" bottomMargin="0" resourceBundle="addon" uuid="0eab1522-d956-4521-8e4b-8fe3ccedac21">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="20"/>
 	<property name="ireport.y" value="0"/>
@@ -14,9 +13,7 @@
 	<parameter name="ITEM_LEN_PARAM" class="java.lang.String"/>
 	<parameter name="PRINT_COSTS" class="java.lang.String"/>
 	<parameter name="WARN_MATERIAL_TRANS" class="java.lang.String"/>
-	<queryString language="SQL">
-		<![CDATA[call sfhardcopymatstd($P{FIRM_ID},$P{WO_LOCATION},$P{WO_NO},$P{BARISTA_WD},$P{MASKS},$P{REPORT_TYPE},$P{ITEM_LEN_PARAM},$P{PRINT_COSTS})]]>
-	</queryString>
+	<query language="SQL"><![CDATA[call sfhardcopymatstd($P{FIRM_ID},$P{WO_LOCATION},$P{WO_NO},$P{BARISTA_WD},$P{MASKS},$P{REPORT_TYPE},$P{ITEM_LEN_PARAM},$P{PRINT_COSTS})]]></query>
 	<field name="REF_NO" class="java.lang.String"/>
 	<field name="ITEM" class="java.lang.String"/>
 	<field name="COMMENT" class="java.lang.String"/>
@@ -34,307 +31,172 @@
 	<field name="THIS_IS_TOTAL_LINE" class="java.lang.String"/>
 	<field name="UNIT_MEASURE" class="java.lang.String"/>
 	<variable name="COST_EA_BIGDEC" class="java.math.BigDecimal">
-		<variableExpression><![CDATA[$F{THIS_IS_TOTAL_LINE}=="Y" ? new java.math.BigDecimal($F{COST_EA_RAW}):0]]></variableExpression>
+		<expression><![CDATA[$F{THIS_IS_TOTAL_LINE}=="Y" ? new java.math.BigDecimal($F{COST_EA_RAW}):0]]></expression>
 	</variable>
 	<variable name="COST_TOT_BIGDEC" class="java.math.BigDecimal">
-		<variableExpression><![CDATA[$F{THIS_IS_TOTAL_LINE}=="Y" ? new java.math.BigDecimal($F{COST_TOT_RAW}):0]]></variableExpression>
+		<expression><![CDATA[$F{THIS_IS_TOTAL_LINE}=="Y" ? new java.math.BigDecimal($F{COST_TOT_RAW}):0]]></expression>
 	</variable>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="26" splitType="Stretch">
+	<background splitType="Stretch"/>
+	<title splitType="Stretch"/>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="26" splitType="Stretch">
+		<element kind="textField" uuid="beb6a115-7336-476c-9df2-80e705f6febc" mode="Opaque" x="0" y="0" width="740" height="13" backcolor="#C3C3C3" bold="true" vTextAlign="Middle">
+			<expression><![CDATA[" "+$R{AON_MATERIAL_STANDARDS}]]></expression>
+		</element>
+		<element kind="textField" uuid="2392c104-3434-4d51-a3c9-7ee0a5a39f06" mode="Opaque" x="155" y="0" width="350" height="13" backcolor="#C3C3C3" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<printWhenExpression><![CDATA[$P{WARN_MATERIAL_TRANS}.equals("Y")]]></printWhenExpression>
+			<expression><![CDATA["*** "+$R{AON_WARNING}+": "+$R{AON_NON-UPDATED_TRANS}+" ***"]]></expression>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+		</element>
+		<element kind="textField" uuid="a81c04cb-0aac-41bb-8d8a-7eca24bc35bd" mode="Opaque" x="509" y="0" width="110" height="13" backcolor="#D7D7D7" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_EACH}]]></expression>
+		</element>
+		<element kind="textField" uuid="dd6b81d7-bd0c-4dce-9cf8-bcee445ad3eb" mode="Opaque" x="626" y="0" width="114" height="13" backcolor="#D7D7D7" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_TOTAL}]]></expression>
+		</element>
+		<element kind="textField" uuid="28dec26f-af01-49ee-a529-133caa46784e" x="4" y="13" width="39" height="13" markup="none" bold="true" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_MAT_REF}]]></expression>
+		</element>
+		<element kind="textField" uuid="75ffd902-fd80-4ddd-ab71-d7a6a483aff4" x="43" y="13" width="100" height="13" bold="true" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_MATERIALS}]]></expression>
+		</element>
+		<element kind="textField" uuid="246e02e3-3b76-449e-8488-40e4657b9dbb" x="297" y="13" width="30" height="13" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_OP_REF}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		</element>
+		<element kind="textField" uuid="f4276851-9db5-482e-8f7c-34db408198f1" x="327" y="13" width="43" height="13" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_SCRAP}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		</element>
+		<element kind="textField" uuid="b8cec5b1-5e52-409f-8de0-ed85db96a745" x="370" y="13" width="43" height="13" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_DIVISOR}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		</element>
+		<element kind="textField" uuid="c8d0181c-afed-4c5c-a715-5b12815dd24b" x="413" y="13" width="43" height="13" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_FACTOR}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		</element>
+		<element kind="textField" uuid="0fec1c49-57aa-433d-b327-1cdb240aa56b" x="456" y="13" width="55" height="13" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_QTY_REQ}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		</element>
+		<element kind="textField" uuid="604cb1a0-875c-438d-86a7-82a8773ba18c" x="511" y="13" width="55" height="13" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_UNITS}]]></expression>
+		</element>
+		<element kind="textField" uuid="2f48e5b5-07aa-4def-b4a0-d775aab2cb72" x="568" y="13" width="50" height="13" printWhenDetailOverflows="true" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_COST}]]></expression>
+		</element>
+		<element kind="textField" uuid="e223b42e-c2ed-4d37-b541-f3466ba852ee" x="628" y="13" width="55" height="13" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_UNITS}]]></expression>
+		</element>
+		<element kind="textField" uuid="10ed8b80-36fe-4edc-84bc-05cd4574d9bd" x="685" y="13" width="50" height="13" printWhenDetailOverflows="true" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_COST}]]></expression>
+		</element>
+		<element kind="textField" uuid="2dbc2508-7f36-4cd3-a11c-ce2b20ded9c4" x="252" y="13" width="45" height="13" bold="true" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_UM}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-			<textField>
-				<reportElement mode="Opaque" x="0" y="0" width="740" height="13" backcolor="#C3C3C3" uuid="beb6a115-7336-476c-9df2-80e705f6febc"/>
-				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" "+$R{AON_MATERIAL_STANDARDS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Opaque" x="155" y="0" width="350" height="13" backcolor="#C3C3C3" uuid="2392c104-3434-4d51-a3c9-7ee0a5a39f06">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<printWhenExpression><![CDATA[$P{WARN_MATERIAL_TRANS}.equals("Y")]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA["*** "+$R{AON_WARNING}+": "+$R{AON_NON-UPDATED_TRANS}+" ***"]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Opaque" x="509" y="0" width="110" height="13" backcolor="#D7D7D7" uuid="a81c04cb-0aac-41bb-8d8a-7eca24bc35bd"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_EACH}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Opaque" x="626" y="0" width="114" height="13" backcolor="#D7D7D7" uuid="dd6b81d7-bd0c-4dce-9cf8-bcee445ad3eb"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_TOTAL}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="4" y="13" width="39" height="13" uuid="28dec26f-af01-49ee-a529-133caa46784e"/>
-				<textElement verticalAlignment="Middle" markup="none">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_MAT_REF}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="43" y="13" width="100" height="13" uuid="75ffd902-fd80-4ddd-ab71-d7a6a483aff4"/>
-				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_MATERIALS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="297" y="13" width="30" height="13" uuid="246e02e3-3b76-449e-8488-40e4657b9dbb">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_OP_REF}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="327" y="13" width="43" height="13" uuid="f4276851-9db5-482e-8f7c-34db408198f1">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_SCRAP}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="370" y="13" width="43" height="13" uuid="b8cec5b1-5e52-409f-8de0-ed85db96a745">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_DIVISOR}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="413" y="13" width="43" height="13" uuid="c8d0181c-afed-4c5c-a715-5b12815dd24b">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_FACTOR}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="456" y="13" width="55" height="13" uuid="0fec1c49-57aa-433d-b327-1cdb240aa56b">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_QTY_REQ}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="511" y="13" width="55" height="13" uuid="604cb1a0-875c-438d-86a7-82a8773ba18c"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_UNITS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="568" y="13" width="50" height="13" isPrintWhenDetailOverflows="true" uuid="2f48e5b5-07aa-4def-b4a0-d775aab2cb72">
-					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_COST}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="628" y="13" width="55" height="13" uuid="e223b42e-c2ed-4d37-b541-f3466ba852ee"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_UNITS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="685" y="13" width="50" height="13" isPrintWhenDetailOverflows="true" uuid="10ed8b80-36fe-4edc-84bc-05cd4574d9bd">
-					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_COST}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="252" y="13" width="45" height="13" uuid="2dbc2508-7f36-4cd3-a11c-ce2b20ded9c4">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_UM}]]></textFieldExpression>
-			</textField>
-		</band>
+			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+		</element>
+		<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 	</columnHeader>
 	<detail>
 		<band height="11" splitType="Stretch">
-			<textField>
-				<reportElement mode="Opaque" x="4" y="0" width="733" height="11" forecolor="#FFFFFF" backcolor="#F0F0F0" uuid="ce58f2d0-c638-486f-b2cd-2fa1b8e4bd55">
-					<printWhenExpression><![CDATA[new Boolean( $V{PAGE_COUNT}.intValue() % 2 == 0)]]></printWhenExpression>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
-			</textField>
-			<frame>
-				<reportElement x="0" y="0" width="740" height="11" uuid="b6bfa6f6-ec45-4163-8803-6d4051117b26">
-					<printWhenExpression><![CDATA[$F{THIS_IS_TOTAL_LINE}!="Y"]]></printWhenExpression>
-				</reportElement>
-				<textField>
-					<reportElement x="4" y="0" width="39" height="11" uuid="889904f1-5ce2-4c3a-b9d6-0a40e0d9eaa7"/>
-					<textFieldExpression><![CDATA[$F{REF_NO}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="43" y="0" width="209" height="11" uuid="21b02d7f-f7df-4658-b005-ff661a8fe0bd">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textFieldExpression><![CDATA[$F{ITEM}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="297" y="0" width="30" height="11" uuid="9a1432d6-da09-45e9-a825-3880010f789f">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Left"/>
-					<textFieldExpression><![CDATA[$F{OP_SEQ}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="327" y="0" width="43" height="11" uuid="eb379979-aa03-4f3e-97cb-5547b8655dc0">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{SCRAP}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="370" y="0" width="43" height="11" uuid="bd4746f6-658d-4a3d-ab63-9200ae493c5c">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{DIVISOR}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="413" y="0" width="43" height="11" uuid="b324ba2a-1862-4ee8-9879-37295dfd4771">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{FACTOR}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="456" y="0" width="55" height="11" uuid="9f2d7c57-e140-4b47-81a3-ab406cb70052">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{QTY_REQ}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="511" y="0" width="55" height="11" uuid="964e5025-040e-4456-b1b1-5a07b86e9713"/>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{UNITS_EA}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="568" y="0" width="50" height="11" uuid="d3248acd-2029-41e6-a736-63e96e74b7a1">
-						<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-					</reportElement>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{COST_EA}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="628" y="0" width="55" height="11" uuid="e71645c6-463d-44ee-9e0a-59e559b101a0"/>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{UNITS_TOT}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="685" y="0" width="50" height="11" uuid="1a7a643a-9160-4910-98a4-ffcc5f2d7a86">
-						<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-					</reportElement>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{COST_TOT}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="252" y="0" width="45" height="11" uuid="7c1f8a17-960a-4391-a432-4ed3f1d4e719">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<textFieldExpression><![CDATA[$F{UNIT_MEASURE}]]></textFieldExpression>
-				</textField>
-			</frame>
-			<frame>
-				<reportElement x="0" y="0" width="740" height="11" uuid="e563b84f-2340-430f-99a1-49b130990859">
-					<printWhenExpression><![CDATA[$F{THIS_IS_TOTAL_LINE}!="Y" && $F{COMMENT} !=""]]></printWhenExpression>
-				</reportElement>
-				<textField textAdjust="StretchHeight">
-					<reportElement x="52" y="0" width="477" height="11" uuid="0d88ef85-e958-462f-9236-22cda775a39f"/>
-					<textFieldExpression><![CDATA[$F{COMMENT}]]></textFieldExpression>
-				</textField>
-			</frame>
-			<frame>
-				<reportElement x="0" y="0" width="740" height="11" uuid="e8138507-ae89-4286-8312-ede66b948416">
-					<printWhenExpression><![CDATA[$F{THIS_IS_TOTAL_LINE}=="Y"]]></printWhenExpression>
-				</reportElement>
-				<textField>
-					<reportElement x="568" y="0" width="50" height="11" uuid="43056b03-b4b6-468b-bb22-b9c99316c03b">
-						<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-					</reportElement>
+			<element kind="textField" uuid="ce58f2d0-c638-486f-b2cd-2fa1b8e4bd55" mode="Opaque" x="4" y="0" width="733" height="11" forecolor="#FFFFFF" backcolor="#F0F0F0" bold="true" vTextAlign="Middle">
+				<printWhenExpression><![CDATA[new Boolean( $V{PAGE_COUNT}.intValue() % 2 == 0)]]></printWhenExpression>
+				<expression><![CDATA[" "]]></expression>
+			</element>
+			<element kind="frame" uuid="b6bfa6f6-ec45-4163-8803-6d4051117b26" x="0" y="0" width="740" height="11">
+				<printWhenExpression><![CDATA[$F{THIS_IS_TOTAL_LINE}!="Y"]]></printWhenExpression>
+				<element kind="textField" uuid="889904f1-5ce2-4c3a-b9d6-0a40e0d9eaa7" x="4" y="0" width="39" height="11">
+					<expression><![CDATA[$F{REF_NO}]]></expression>
+				</element>
+				<element kind="textField" uuid="21b02d7f-f7df-4658-b005-ff661a8fe0bd" x="43" y="0" width="209" height="11">
+					<expression><![CDATA[$F{ITEM}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="9a1432d6-da09-45e9-a825-3880010f789f" x="297" y="0" width="30" height="11" hTextAlign="Left">
+					<expression><![CDATA[$F{OP_SEQ}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="eb379979-aa03-4f3e-97cb-5547b8655dc0" x="327" y="0" width="43" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{SCRAP}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="bd4746f6-658d-4a3d-ab63-9200ae493c5c" x="370" y="0" width="43" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{DIVISOR}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="b324ba2a-1862-4ee8-9879-37295dfd4771" x="413" y="0" width="43" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{FACTOR}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="9f2d7c57-e140-4b47-81a3-ab406cb70052" x="456" y="0" width="55" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{QTY_REQ}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="964e5025-040e-4456-b1b1-5a07b86e9713" x="511" y="0" width="55" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{UNITS_EA}]]></expression>
+				</element>
+				<element kind="textField" uuid="d3248acd-2029-41e6-a736-63e96e74b7a1" x="568" y="0" width="50" height="11" hTextAlign="Right">
+					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+					<expression><![CDATA[$F{COST_EA}]]></expression>
+				</element>
+				<element kind="textField" uuid="e71645c6-463d-44ee-9e0a-59e559b101a0" x="628" y="0" width="55" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{UNITS_TOT}]]></expression>
+				</element>
+				<element kind="textField" uuid="1a7a643a-9160-4910-98a4-ffcc5f2d7a86" x="685" y="0" width="50" height="11" hTextAlign="Right">
+					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+					<expression><![CDATA[$F{COST_TOT}]]></expression>
+				</element>
+				<element kind="textField" uuid="7c1f8a17-960a-4391-a432-4ed3f1d4e719" x="252" y="0" width="45" height="11">
+					<expression><![CDATA[$F{UNIT_MEASURE}]]></expression>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</element>
+			</element>
+			<element kind="frame" uuid="e563b84f-2340-430f-99a1-49b130990859" x="0" y="0" width="740" height="11">
+				<printWhenExpression><![CDATA[$F{THIS_IS_TOTAL_LINE}!="Y" && $F{COMMENT} !=""]]></printWhenExpression>
+				<element kind="textField" uuid="0d88ef85-e958-462f-9236-22cda775a39f" x="52" y="0" width="477" height="11" textAdjust="StretchHeight">
+					<expression><![CDATA[$F{COMMENT}]]></expression>
+				</element>
+			</element>
+			<element kind="frame" uuid="e8138507-ae89-4286-8312-ede66b948416" x="0" y="0" width="740" height="11">
+				<printWhenExpression><![CDATA[$F{THIS_IS_TOTAL_LINE}=="Y"]]></printWhenExpression>
+				<element kind="textField" uuid="43056b03-b4b6-468b-bb22-b9c99316c03b" x="568" y="0" width="50" height="11" hTextAlign="Right">
+					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+					<expression><![CDATA[$F{COST_EA}]]></expression>
 					<box>
 						<topPen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{COST_EA}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="685" y="0" width="50" height="11" uuid="7d45ffa8-ad67-47f8-9c67-db04ba9aff7c">
-						<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-					</reportElement>
+				</element>
+				<element kind="textField" uuid="7d45ffa8-ad67-47f8-9c67-db04ba9aff7c" x="685" y="0" width="50" height="11" hTextAlign="Right">
+					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+					<expression><![CDATA[$F{COST_TOT}]]></expression>
 					<box>
 						<topPen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{COST_TOT}]]></textFieldExpression>
-				</textField>
-			</frame>
+				</element>
+			</element>
 		</band>
 	</detail>
-	<columnFooter>
-		<band splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band splitType="Stretch"/>
-	</summary>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter splitType="Stretch"/>
+	<summary splitType="Stretch"/>
 </jasperReport>
