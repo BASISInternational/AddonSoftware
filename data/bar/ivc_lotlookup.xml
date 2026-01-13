@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivc_lotlookup"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivc_lotlookup">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivc_lotlookup">20081125</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivc_lotlookup">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivc_lotlookup">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivc_lotlookup">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivc_lotlookup">20260112</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivc_lotlookup">20260112</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivc_lotlookup">153130</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivc_lotlookup"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ivc_lotlookup">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ivc_lotlookup">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivc_lotlookup"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ivc_lotlookup"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ivc_lotlookup">S</DD_ATTR_FTYP>
@@ -205,7 +205,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivc_lotlookup002">20081125</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivc_lotlookup002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivc_lotlookup002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivc_lotlookup002">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivc_lotlookup002">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivc_lotlookup002">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivc_lotlookup002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivc_lotlookup002"></DD_ATTR_CTLY>
@@ -307,7 +307,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivc_lotlookup004">20081125</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivc_lotlookup004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivc_lotlookup004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivc_lotlookup004">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivc_lotlookup004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivc_lotlookup004">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivc_lotlookup004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivc_lotlookup004"></DD_ATTR_CTLY>
