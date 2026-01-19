@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-01-12
+ Report Date:   2026-01-19
  Report Branch: AddonSoftware 25.11
  Last Release:  AddonSoftware 25.10
 =======================================================================================================================================
@@ -126,4 +126,19 @@ Modified: data/bar/ivc_itemlookup.xml
 Modified: data/bar/ivc_lotlookup.xml
 Modified: data/cdf/ivc_itemlookup.cdf
 Modified: data/cdf/ivc_lotlookup.cdf
+=======================================================================================================================================
+
+Revision: 810b0f8f64ebad59ded1b55245dcfd20aaab3c53
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/19/2026 3:06:16 PM
+Message:
+Bug 11154: Modified Materials Issues Entry to warn when in Edit mode and
+leaving a record if the number of entered lot/serial numbers doesn't
+match the quantity issued for that record; and to only enable the
+Lot/Serial Entry button when in Edit mode.
+----
+Modified: data/bar/sfe_womatisd.xml
+Modified: data/bar/sfe_womatish.xml
+Modified: data/cdf/sfe_womatisd.cdf
+Modified: data/cdf/sfe_womatish.cdf
 =======================================================================================================================================
