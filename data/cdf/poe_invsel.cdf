@@ -243,6 +243,53 @@ rem --- A blank receiver means all receivers for this PO
 
 gosub accum_receiver_tot; rem accumulate total for po/receiver# entered
 
+rem --- Warn if the GL period for the Receipt Date is after the GL period for the Accounting Date
+	receiver_no$=callpoint!.getUserInput()        
+	gl$=callpoint!.getDevObject("gl_int")
+	if gl$="Y" then
+		acctdate$=callpoint!.getHeaderColumnData("POE_INVHDR.ACCT_DATE")
+		call stbl("+DIR_PGM")+"adc_fiscalperyr.aon",firm_id$,acctdate$,acctPer$,acctYr$,table_chans$[all],status
+	
+		dtlVect!=cast(BBjVector, GridVect!.getItem(0))
+		rows=dtlVect!.size()
+		if rows>0 then
+			dim poe_invsel$:fnget_tpl$("POE_INVSEL")
+			pot_rechdr_dev=fnget_dev("POT_RECHDR")
+			dim pot_rechdr$:fnget_tpl$("POT_RECHDR")
+			for row=0 to rows-1
+				poe_invsel$=dtlVect!.getItem(row)
+				po_no$=poe_invsel.po_no$
+				receiver_no$=cvs(poe_invsel.receiver_no$,2)
+				read(pot_rechdr_dev,key=firm_id$+po_no$+receiver_no$,knum="PRIMARY",dom=*next)pot_rechdr$
+				while 1
+					if receiver_no$="" then
+						rem --- NOTE: A blank receiver means all receivers for the PO
+						pot_rechdr_key$=key(pot_rechdr_dev,end=*break)
+						if pos(firm_id$=pot_rechdr_key$)<>1 then break
+						readrecord(pot_rechdr_dev)pot_rechdr$
+						tmp_receiver_no$=pot04a$.receiver_no$
+					else
+						tmp_receiver_no$=receiver_no$
+					endif
+
+					recpt_date$=pot_rechdr.recpt_date$
+					call pgmdir$+"adc_fiscalperyr.aon",firm_id$,recpt_date$,recptPer$,recptYr$,table_chans$[all],status
+					if recptYr$+recptPer$>acctYr$+acctPer$ then
+						msg_id$="PO_WARN_RECEIPT_DATE"
+						dim msg_tokens$[4]
+						msg_tokens$[1]=fndate$(acctdate$)
+						msg_tokens$[2]=fndate$(recpt_date$)
+						msg_tokens$[3]=po_no$
+						msg_tokens$[4]=tmp_receiver_no$
+						gosub disp_message
+					endif
+
+					if receiver_no$<>"" then break
+				wend
+			next row
+		endif
+	endif
+
 [[POE_INVSEL.RECEIVER_NO.AVEC]]
 gosub calc_grid_tots
 gosub disp_totals

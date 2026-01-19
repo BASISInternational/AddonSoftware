@@ -526,6 +526,37 @@ l2000: rem --- Read next PO record
     if cvs(poe15a.po_no$,3)="" goto l2100
     if cvs(poe15a.receiver_no$,3)="" gosub l6500
 
+rem --- Warn if the GL period for a Receipt Date is after the GL period for the Accounting Date
+    if gl$="Y" then
+		acctdate$=poe05a.acct_date$        
+        call pgmdir$+"adc_fiscalperyr.aon",firm_id$,acctdate$,acctPer$,acctYr$,table_chans$[all],status
+
+        po_no$=poe15a.po_no$
+		receiver_no$=cvs(poe15a.receiver_no$,2)
+		read(pot04_dev,key=firm_id$+po_no$+receiver_no$,knum="PRIMARY",dom=*next)pot04a$
+		while 1
+			if receiver_no$="" then
+				rem --- NOTE: A blank receiver means all receivers for the PO
+				pot_rechdr_key$=key(pot04_dev,end=*break)
+				if pos(firm_id$=pot_rechdr_key$)<>1 then break
+				readrecord(pot04_dev)pot04a$
+                tmp_receiver_no$=pot04a$.receiver_no$
+            else
+                tmp_receiver_no$=receiver_no$
+			endif
+
+			recpt_date$=pot04a.recpt_date$
+			call pgmdir$+"adc_fiscalperyr.aon",firm_id$,recpt_date$,recptPer$,recptYr$,table_chans$[all],status
+			if recptYr$+recptPer$>acctYr$+acctPer$ then
+                outVect!.addItem("---> WARNING: The Accounting Date "+fndate$(acctdate$)+" GL Period is prior to the Received Date "+fndate$(recpt_date$)+
+:               " GL Period for Purchase Order "+po_no$+" Receiver "+tmp_receiver_no$+".")
+                xvk=fnblank(columns-1)
+			endif
+
+			if receiver_no$<>"" then break
+		wend
+    endif
+
 l2100: rem --- Read history header and original terms
 
     iter! = receiverMap!.keySet().iterator()
