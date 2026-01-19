@@ -237,7 +237,20 @@ rem --- Suppress Barista's default delete message
 	callpoint!.setStatus("QUIET")
 
 [[SFE_WOMATISH.BEND]]
-rem --- Warn when number of entered lot/serial numbers doesn't match the quantity issued.
+rem --- Remove software lock on batch when batching
+	batch$=stbl("+BATCH_NO",err=*next)
+	if num(batch$)<>0
+		lock_table$="ADM_PROCBATCHES"
+		lock_record$=firm_id$+stbl("+PROCESS_ID")+batch$
+		lock_type$="X"
+		lock_status$=""
+		lock_disp$=""
+		call stbl("+DIR_SYP")+"bac_lock_record.bbj",lock_table$,lock_record$,lock_type$,lock_disp$,rd_table_chan,table_chans$[all],lock_status$
+	endif
+
+[[SFE_WOMATISH.BREX]]
+rem --- When in Edit mode, warn if number of entered lot/serial numbers doesn't match the quantity issued.
+if callpoint!.isEditMode() then
 	dtlGrid!=callpoint!.getDevObject("dtlGrid")
 	dtlVect!=cast(BBjVector, GridVect!.getItem(0))
 	rows=dtlGrid!.getNumRows()
@@ -277,17 +290,7 @@ rem --- Warn when number of entered lot/serial numbers doesn't match the quantit
 			endif
 		next row
 	endif
-
-rem --- Remove software lock on batch when batching
-	batch$=stbl("+BATCH_NO",err=*next)
-	if num(batch$)<>0
-		lock_table$="ADM_PROCBATCHES"
-		lock_record$=firm_id$+stbl("+PROCESS_ID")+batch$
-		lock_type$="X"
-		lock_status$=""
-		lock_disp$=""
-		call stbl("+DIR_SYP")+"bac_lock_record.bbj",lock_table$,lock_record$,lock_type$,lock_disp$,rd_table_chan,table_chans$[all],lock_status$
-	endif
+endif
 
 [[SFE_WOMATISH.BSHO]]
 rem --- Initializations
