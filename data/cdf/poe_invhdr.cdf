@@ -20,15 +20,58 @@ endif
 
 [[POE_INVHDR.ACCT_DATE.AVAL]]
 rem make sure accting date is in an appropriate GL period
+acctdate$=callpoint!.getUserInput()        
 gl$=callpoint!.getDevObject("gl_int")
-acctgdate$=callpoint!.getUserInput()        
-if gl$="Y" 
-	call stbl("+DIR_PGM")+"glc_datecheck.aon",acctgdate$,"Y",per$,yr$,status
+if gl$="Y" then
+	call stbl("+DIR_PGM")+"glc_datecheck.aon",acctdate$,"Y",acctPer$,acctYr$,status
 	if status>99
 		callpoint!.setStatus("ABORT")
+		break
 	else
-		callpoint!.setDevObject("gl_year",yr$)
-		callpoint!.setDevObject("gl_per",per$)
+		callpoint!.setDevObject("gl_year",acctYr$)
+		callpoint!.setDevObject("gl_per",acctPer$)
+	endif
+endif
+
+rem --- Warn if the GL period for a Receipt Date is after the GL period for the Accounting Date
+if gl$="Y" then
+	dtlVect!=cast(BBjVector, GridVect!.getItem(0))
+	rows=dtlVect!.size()
+	if rows>0 then
+		dim poe_invsel$:fnget_tpl$("POE_INVSEL")
+		pot_rechdr_dev=fnget_dev("POT_RECHDR")
+		dim pot_rechdr$:fnget_tpl$("POT_RECHDR")
+		for row=0 to rows-1
+			poe_invsel$=dtlVect!.getItem(row)
+			po_no$=poe_invsel.po_no$
+			receiver_no$=cvs(poe_invsel.receiver_no$,2)
+			read(pot_rechdr_dev,key=firm_id$+po_no$+receiver_no$,knum="PRIMARY",dom=*next)pot_rechdr$
+			while 1
+				if receiver_no$="" then
+					rem --- NOTE: A blank receiver means all receivers for the PO
+					pot_rechdr_key$=key(pot_rechdr_dev,end=*break)
+					if pos(firm_id$=pot_rechdr_key$)<>1 then break
+					readrecord(pot_rechdr_dev)pot_rechdr$
+						tmp_receiver_no$=pot04a$.receiver_no$
+					else
+						tmp_receiver_no$=receiver_no$
+				endif
+
+				recpt_date$=pot_rechdr.recpt_date$
+				call pgmdir$+"adc_fiscalperyr.aon",firm_id$,recpt_date$,recptPer$,recptYr$,table_chans$[all],status
+				if recptYr$+recptPer$>acctYr$+acctPer$ then
+					msg_id$="PO_WARN_RECEIPT_DATE"
+					dim msg_tokens$[4]
+					msg_tokens$[1]=fndate$(acctdate$)
+					msg_tokens$[2]=fndate$(recpt_date$)
+					msg_tokens$[3]=po_no$
+					msg_tokens$[4]=tmp_receiver_no$
+					gosub disp_message
+				endif
+
+				if receiver_no$<>"" then break
+			wend
+		next row
 	endif
 endif
 
@@ -444,7 +487,7 @@ callpoint!.setOptionEnabled("INVB",0)
 
 [[POE_INVHDR.BTBL]]
 rem --- Open/Lock files
-files=23,begfile=1,endfile=files
+files=24,begfile=1,endfile=files
 dim files$[files],options$[files],chans$[files],templates$[files]
 
 files$[1]="APC_DISTRIBUTION",options$[1]="OTA"
@@ -470,6 +513,7 @@ files$[20]="APE_INVOICEHDR",options$[20]="OTA"
 files$[21]="APE_CHECKS",options$[21]="OTA"
 files$[22]="APE_MANCHECKDET",options$[22]="OTA"
 files$[23]="APC_PAYMENTGROUP",options$[23]="OTA"
+files$[24]="POE_RECHDR",options$[24]="OTA"
 
 call stbl("+DIR_SYP")+"bac_open_tables.bbj",
 :	begfile,
@@ -599,9 +643,9 @@ endif
 rem --- re-check acct date
 gl$=callpoint!.getDevObject("gl_int")
 status=0
-acctgdate$=callpoint!.getColumnData("POE_INVHDR.ACCT_DATE")  
+acctdate$=callpoint!.getColumnData("POE_INVHDR.ACCT_DATE")  
 if gl$="Y" 
-	call stbl("+DIR_PGM")+"glc_datecheck.aon",acctgdate$,"Y",per$,yr$,status
+	call stbl("+DIR_PGM")+"glc_datecheck.aon",acctdate$,"Y",per$,yr$,status
 	if status>99
 		callpoint!.setStatus("ABORT")
 	endif
