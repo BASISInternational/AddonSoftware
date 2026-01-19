@@ -39,6 +39,10 @@ rem --- Do not commit if row has been deleted (uncommit happens in BDEL)
 		break
 	endif
 
+rem --- Identify items where number of entered lot/serial numbers doesn't match the quantity issued.
+	qty_issued=num(callpoint!.getColumnData("SFE_WOMATISD.QTY_ISSUED"))
+	gosub check_lotserial_issued
+
 rem --- Init things for later
 	warehouse_id$=callpoint!.getColumnData("SFE_WOMATISD.WAREHOUSE_ID")
 	item_id$=callpoint!.getColumnData("SFE_WOMATISD.ITEM_ID")
@@ -195,11 +199,11 @@ rem --- Lot/serial entry
 
 	call stbl("+DIR_SYP")+"bam_run_prog.bbj","SFE_WOLSISSU",stbl("+USER_ID"),proc_mode$,firm_loc_wo_isn$,table_chans$[all],"",dflt_data$[all]
 
-	qty_issued=num(callpoint!.getDevObject("tot_ls_qty_issued"))
-	if qty_issued<>num(callpoint!.getColumnData("SFE_WOMATISD.QTY_ISSUED")) then
+	tot_ls_qty_issued=num(callpoint!.getDevObject("tot_ls_qty_issued"))
+	if tot_ls_qty_issued<>num(callpoint!.getColumnData("SFE_WOMATISD.QTY_ISSUED")) then
 		rem --- Update detail row with new values
-		if qty_issued<>0 then
-			issue_cost=num(callpoint!.getDevObject("tot_ls_issue_cost"))/qty_issued
+		if tot_ls_qty_issued<>0 then
+			issue_cost=num(callpoint!.getDevObject("tot_ls_issue_cost"))/tot_ls_qty_issued
 			unit_cost=issue_cost
 			callpoint!.setColumnData("SFE_WOMATISD.UNIT_COST",str(unit_cost),0)
 			callpoint!.setColumnData("SFE_WOMATISD.ISSUE_COST",str(issue_cost),1)
@@ -518,7 +522,7 @@ able_lot_button: rem --- Enable/disable Lot/Serial button
 	item_id$=callpoint!.getColumnData("SFE_WOMATISD.ITEM_ID")
 	findrecord(ivm_itemmast_dev,key=firm_id$+item_id$,dom=*next)ivm_itemmast$
 	callpoint!.setDevObject("lotser",ivm_itemmast.lotser_flag$)
-	if pos(ivm_itemmast.lotser_flag$="LS") and ivm_itemmast.inventoried$="Y" then 
+	if pos(ivm_itemmast.lotser_flag$="LS") and ivm_itemmast.inventoried$="Y" and callpoint!.isEditMode() then 
 		callpoint!.setOptionEnabled("LENT",1)
 	else
 		callpoint!.setOptionEnabled("LENT",0)
