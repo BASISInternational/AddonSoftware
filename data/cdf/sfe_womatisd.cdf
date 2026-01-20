@@ -199,6 +199,9 @@ rem --- Lot/serial entry
 
 	call stbl("+DIR_SYP")+"bam_run_prog.bbj","SFE_WOLSISSU",stbl("+USER_ID"),proc_mode$,firm_loc_wo_isn$,table_chans$[all],"",dflt_data$[all]
 
+	dtlGrid!=callpoint!.getDevObject("dtlGrid")
+	curr_row=callpoint!.getValidationRow()
+	issued_col=callpoint!.getDevObject("issued_col")
 	tot_ls_qty_issued=num(callpoint!.getDevObject("tot_ls_qty_issued"))
 	if tot_ls_qty_issued<>num(callpoint!.getColumnData("SFE_WOMATISD.QTY_ISSUED")) then
 		rem --- Update detail row with new values
@@ -211,10 +214,19 @@ rem --- Lot/serial entry
 
 		rem --- Force writing record with new values
 		callpoint!.setStatus("MODIFIED")
+
+		rem --- Show that entered lot/serial numbers doesn't match the quantity issued
+		dtlGrid!.setCellFont(curr_row,issued_col,callpoint!.getDevObject("boldFont"))
+		dtlGrid!.setCellForeColor(curr_row,issued_col,callpoint!.getDevObject("redColor"))
+	else
+		rem --- Show that entered lot/serial numbers match the quantity issued
+		dtlGrid!.setCellFont(curr_row,issued_col,callpoint!.getDevObject("plainFont"))
+		dtlGrid!.setCellForeColor(curr_row,issued_col,callpoint!.getDevObject("blackColor"))
 	endif
 
 	rem --- Reset focus on detail row where lot/serial lookup was executed
 	sysgui!.setContext(grid_ctx)
+	callpoint!.setFocus(curr_row,"SFE_WOMATISD.QTY_ISSUED")
 
 [[SFE_WOMATISD.AUDE]]
 rem --- Make sure undeleted row gets written to file
