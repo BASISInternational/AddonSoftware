@@ -145,6 +145,14 @@ rem --- Enable/disable additional options
 	gosub enable_options
 
 [[SFE_WOLOTSER.BDEL]]
+rem --- D0 NOT allow deleting a lot/serial number if the QTY_CLS_TODT isn't zero.
+	if num(callpoint!.getColumnData("SFE_WOLOTSER.QTY_CLS_TODT"))<>0 then
+		msg_id$="SF_LS_CANNOT_DELETE"
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Adjust how many lot/serial items have been scheduled
 	ls_sch_qty=callpoint!.getDevObject("ls_sch_qty")
 	ls_sch_qty=ls_sch_qty-num(callpoint!.getColumnData("SFE_WOLOTSER.SCH_PROD_QTY"))
@@ -306,6 +314,15 @@ rem --- Do not validate unless lotser_no has changed
 	if lotser_no$=prev_lotser_no$ then break
 	if cvs(prev_lotser_no$,2)="" and cvs(lotser_no$,2)<>"" then break; rem --- Barista can execute AVAL without executing BINP
 
+rem --- Cannot change lot/serial number if the QTY_CLS_TODT isn't zero.
+	if num(callpoint!.getColumnData("SFE_WOLOTSER.QTY_CLS_TODT"))<>0 and lotser_no$<>prev_lotser_no$ then
+		callpoint!.setColumnData("SFE_WOLOTSER.LOTSER_NO",prev_lotser_no$,1)
+		msg_id$="SF_LS_CANNOT_CHANGE"
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Verify lot/serial not currently in inventory
 	lsmaster_dev=fnget_dev("@IVM_LSMASTER")
 	dim lsmaster$:fnget_tpl$("@IVM_LSMASTER")
@@ -407,6 +424,15 @@ rem --- Capture current lotser_no so can skip validation if it hasn't changed
 	callpoint!.setDevObject("prev_lotser_no",prev_lotser_no$)
 
 [[SFE_WOLOTSER.SCH_PROD_QTY.AVAL]]
+rem --- SCH_PROD_QTY can't be less than QTY_CLS_TODT
+	if num(callpoint!.getUserInput())<num(callpoint!.getColumnData("SFE_WOLOTSER.QTY_CLS_TODT"))
+		callpoint!.setColumnData("SFE_WOLOTSER.SCH_PROD_QTY",str(callpoint!.getDevObject("prev_ls_sch_qty")),1)
+		msg_id$="SF_LS_SCH_PROD_QTY"
+		gosub disp_message
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
 rem --- Validate this sch_prod_qty if changed for lotser items
 	this_ls_sch_qty=num(callpoint!.getUserInput())
 	prev_ls_sch_qty=callpoint!.getDevObject("prev_ls_sch_qty")
