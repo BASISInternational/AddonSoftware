@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-01-19
+ Report Date:   2026-01-20
  Report Branch: AddonSoftware 25.11
  Last Release:  AddonSoftware 25.10
 =======================================================================================================================================
@@ -141,4 +141,19 @@ Modified: data/bar/sfe_womatisd.xml
 Modified: data/bar/sfe_womatish.xml
 Modified: data/cdf/sfe_womatisd.cdf
 Modified: data/cdf/sfe_womatish.cdf
+=======================================================================================================================================
+
+Revision: b8fbd3f15c693ce1e73a91e006c44ff096524f13
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/20/2026 4:20:46 PM
+Message:
+Bug 11153: Modified the lot/serial entry grid for Work Order Close Data
+Entry to NOT allow deleting a lot/serial number if the QTY_CLS_TODT
+isn't zero.
+----
+Modified: data/bar/sfe_wolotser.xml
+Modified: data/cdf/sfe_wolotser.cdf
+Modified: data/sync/ads_messages~[01007514SF].xml
+Modified: prop/addon.properties
+Modified: prop/addon_en.properties
 =======================================================================================================================================
