@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OPPackListHdr" language="groovy" pageWidth="612" pageHeight="792" columnWidth="570" leftMargin="22" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="addon" uuid="b146e7c7-7794-48d0-bad4-a5da78d1668b">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="OPPackListHdr" language="groovy" pageWidth="612" pageHeight="792" columnWidth="570" leftMargin="22" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="addon" uuid="b146e7c7-7794-48d0-bad4-a5da78d1668b">
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="1095"/>
 	<property name="ireport.y" value="1831"/>
@@ -26,9 +25,7 @@
 	<parameter name="AR_FAX_NO" class="java.lang.String"/>
 	<parameter name="DOC_NO" class="java.lang.String"/>
 	<parameter name="DATE_REP" class="java.lang.String"/>
-	<queryString language="SQL">
-		<![CDATA[]]>
-	</queryString>
+	<query language="SQL"><![CDATA[]]></query>
 	<field name="ORDER_DATE" class="java.lang.String"/>
 	<field name="BILL_ADDR_LINE1" class="java.lang.String"/>
 	<field name="BILL_ADDR_LINE2" class="java.lang.String"/>
@@ -52,9 +49,9 @@
 	<field name="TERMS_CODE" class="java.lang.String"/>
 	<field name="TERMS_DESC" class="java.lang.String"/>
 	<field name="INV_STD_MESSAGE" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
-	<group name="PackList" isReprintHeaderOnEachPage="true" footerPosition="ForceAtBottom" keepTogether="true" preventOrphanFooter="true"/>
+	<group name="PackList" footerPosition="ForceAtBottom" keepTogether="true" preventOrphanFooter="true" reprintHeaderOnEachPage="true"/>
 	<detail>
 		<band height="246"/>
 	</detail>

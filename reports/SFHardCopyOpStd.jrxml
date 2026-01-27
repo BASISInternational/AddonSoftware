@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SFHardCopyOpStd" language="groovy" pageWidth="772" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="0" rightMargin="0" topMargin="3" bottomMargin="0" resourceBundle="addon" uuid="27bbd285-8e80-48d4-a91c-bd4b66ef9173">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="SFHardCopyOpStd" language="groovy" pageWidth="772" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="0" rightMargin="0" topMargin="3" bottomMargin="0" resourceBundle="addon" uuid="27bbd285-8e80-48d4-a91c-bd4b66ef9173">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -13,9 +12,7 @@
 	<parameter name="REPORT_TYPE" class="java.lang.String"/>
 	<parameter name="PRINT_COSTS" class="java.lang.String"/>
 	<parameter name="WARN_OPERATION_TRANS" class="java.lang.String"/>
-	<queryString language="SQL">
-		<![CDATA[call sfhardcopyopstd($P{FIRM_ID},$P{WO_LOCATION},$P{WO_NO},$P{BARISTA_WD},$P{MASKS},$P{REPORT_TYPE},$P{PRINT_COSTS})]]>
-	</queryString>
+	<query language="SQL"><![CDATA[call sfhardcopyopstd($P{FIRM_ID},$P{WO_LOCATION},$P{WO_NO},$P{BARISTA_WD},$P{MASKS},$P{REPORT_TYPE},$P{PRINT_COSTS})]]></query>
 	<field name="REF_NO" class="java.lang.String"/>
 	<field name="OP_CODE" class="java.lang.String"/>
 	<field name="CODE_DESC" class="java.lang.String"/>
@@ -34,302 +31,171 @@
 	<field name="COST_TOT_RAW" class="java.lang.String"/>
 	<field name="THIS_IS_TOTAL_LINE" class="java.lang.String"/>
 	<variable name="COST_EA_BIGDEC" class="java.math.BigDecimal">
-		<variableExpression><![CDATA[$F{THIS_IS_TOTAL_LINE}=="Y" ? new java.math.BigDecimal($F{COST_EA_RAW}):0]]></variableExpression>
+		<expression><![CDATA[$F{THIS_IS_TOTAL_LINE}=="Y" ? new java.math.BigDecimal($F{COST_EA_RAW}):0]]></expression>
 	</variable>
 	<variable name="COST_TOT_BIGDEC" class="java.math.BigDecimal">
-		<variableExpression><![CDATA[$F{THIS_IS_TOTAL_LINE}=="Y" ? new java.math.BigDecimal($F{COST_TOT_RAW}):0]]></variableExpression>
+		<expression><![CDATA[$F{THIS_IS_TOTAL_LINE}=="Y" ? new java.math.BigDecimal($F{COST_TOT_RAW}):0]]></expression>
 	</variable>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="26" splitType="Stretch">
-			<textField>
-				<reportElement mode="Opaque" x="0" y="0" width="740" height="13" backcolor="#C3C3C3" uuid="b99a0e65-8641-4eb3-ae9a-b3f02d4c6237"/>
-				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" "+$R{AON_OPERATION_STANDARDS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Opaque" x="155" y="0" width="350" height="13" backcolor="#C3C3C3" uuid="986148e1-ea6b-44bd-b0ed-be96f81fe7a4">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<printWhenExpression><![CDATA[$P{WARN_OPERATION_TRANS}.equals("Y")]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA["*** "+$R{AON_WARNING}+": "+$R{AON_NON-UPDATED_TRANS}+" ***"]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Opaque" x="509" y="0" width="110" height="13" backcolor="#D7D7D7" uuid="fd04c804-cf6b-4bdb-8fd1-8d3284bc4da0"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_EACH}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement mode="Opaque" x="626" y="0" width="114" height="13" backcolor="#D7D7D7" uuid="83bd615a-543c-4dff-90c1-53dc371eb202"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_TOTAL}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="4" y="13" width="30" height="13" uuid="ff2d4cb8-553d-4717-b9a0-48a8d26e877d"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Op Ref"]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="40" y="13" width="100" height="13" uuid="aa986650-af50-44d7-a7ac-239747bd8bbf"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_OPERATIONS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="224" y="13" width="43" height="13" uuid="af9b340d-7ff3-4aa1-b3f9-38599418a9cd"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_DATE_REQ}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="267" y="13" width="40" height="13" uuid="15a8ef92-bb80-49f4-8d0c-0625b40afab7"/>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_SETUP}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="309" y="13" width="37" height="13" uuid="ae97c701-0ba1-4343-926e-e78cd05ecba7"/>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_HOURS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="348" y="13" width="52" height="13" uuid="784d1e30-fda8-4650-b4b1-5ede6c71c7d5"/>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_PC/HR}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="402" y="13" width="49" height="13" uuid="d95c8aae-4200-449a-bf75-116d8236ce11">
-					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_DIRECT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="453" y="13" width="52" height="13" uuid="ebafa7e4-86a4-4dba-81af-7f31ca169bdd">
-					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_OV'HD}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="511" y="13" width="55" height="13" uuid="e85ef9bd-d3a9-4661-a730-e369f4334061"/>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_UNITS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="568" y="13" width="50" height="13" isPrintWhenDetailOverflows="true" uuid="a0ff03d3-6af2-45e0-9c4c-2e50d27ce513">
-					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_COST}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="628" y="13" width="55" height="13" uuid="864fea8c-b43f-44b5-9fee-3fdc0c92d27c"/>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_UNITS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="685" y="13" width="50" height="13" isPrintWhenDetailOverflows="true" uuid="1b69d844-56ed-427f-93a3-ce4829ee74d0">
-					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font isBold="true"/>
-					<paragraph rightIndent="4"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_COST}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background splitType="Stretch"/>
+	<title splitType="Stretch"/>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="26" splitType="Stretch">
+		<element kind="textField" uuid="b99a0e65-8641-4eb3-ae9a-b3f02d4c6237" mode="Opaque" x="0" y="0" width="740" height="13" backcolor="#C3C3C3" bold="true" vTextAlign="Middle">
+			<expression><![CDATA[" "+$R{AON_OPERATION_STANDARDS}]]></expression>
+		</element>
+		<element kind="textField" uuid="986148e1-ea6b-44bd-b0ed-be96f81fe7a4" mode="Opaque" x="155" y="0" width="350" height="13" backcolor="#C3C3C3" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<printWhenExpression><![CDATA[$P{WARN_OPERATION_TRANS}.equals("Y")]]></printWhenExpression>
+			<expression><![CDATA["*** "+$R{AON_WARNING}+": "+$R{AON_NON-UPDATED_TRANS}+" ***"]]></expression>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+		</element>
+		<element kind="textField" uuid="fd04c804-cf6b-4bdb-8fd1-8d3284bc4da0" mode="Opaque" x="509" y="0" width="110" height="13" backcolor="#D7D7D7" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_EACH}]]></expression>
+		</element>
+		<element kind="textField" uuid="83bd615a-543c-4dff-90c1-53dc371eb202" mode="Opaque" x="626" y="0" width="114" height="13" backcolor="#D7D7D7" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_TOTAL}]]></expression>
+		</element>
+		<element kind="textField" uuid="ff2d4cb8-553d-4717-b9a0-48a8d26e877d" x="4" y="13" width="30" height="13" bold="true">
+			<expression><![CDATA["Op Ref"]]></expression>
+		</element>
+		<element kind="textField" uuid="aa986650-af50-44d7-a7ac-239747bd8bbf" x="40" y="13" width="100" height="13" bold="true">
+			<expression><![CDATA[$R{AON_OPERATIONS}]]></expression>
+		</element>
+		<element kind="textField" uuid="af9b340d-7ff3-4aa1-b3f9-38599418a9cd" x="224" y="13" width="43" height="13" bold="true">
+			<expression><![CDATA[$R{AON_DATE_REQ}]]></expression>
+		</element>
+		<element kind="textField" uuid="15a8ef92-bb80-49f4-8d0c-0625b40afab7" x="267" y="13" width="40" height="13" bold="true" hTextAlign="Right">
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_SETUP}]]></expression>
+		</element>
+		<element kind="textField" uuid="ae97c701-0ba1-4343-926e-e78cd05ecba7" x="309" y="13" width="37" height="13" bold="true" hTextAlign="Right">
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_HOURS}]]></expression>
+		</element>
+		<element kind="textField" uuid="784d1e30-fda8-4650-b4b1-5ede6c71c7d5" x="348" y="13" width="52" height="13" bold="true" hTextAlign="Right">
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_PC/HR}]]></expression>
+		</element>
+		<element kind="textField" uuid="d95c8aae-4200-449a-bf75-116d8236ce11" x="402" y="13" width="49" height="13" bold="true" hTextAlign="Right">
+			<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_DIRECT}]]></expression>
+		</element>
+		<element kind="textField" uuid="ebafa7e4-86a4-4dba-81af-7f31ca169bdd" x="453" y="13" width="52" height="13" bold="true" hTextAlign="Right">
+			<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_OV'HD}]]></expression>
+		</element>
+		<element kind="textField" uuid="e85ef9bd-d3a9-4661-a730-e369f4334061" x="511" y="13" width="55" height="13" bold="true" hTextAlign="Right">
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_UNITS}]]></expression>
+		</element>
+		<element kind="textField" uuid="a0ff03d3-6af2-45e0-9c4c-2e50d27ce513" x="568" y="13" width="50" height="13" printWhenDetailOverflows="true" bold="true" hTextAlign="Right">
+			<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_COST}]]></expression>
+		</element>
+		<element kind="textField" uuid="864fea8c-b43f-44b5-9fee-3fdc0c92d27c" x="628" y="13" width="55" height="13" bold="true" hTextAlign="Right">
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_UNITS}]]></expression>
+		</element>
+		<element kind="textField" uuid="1b69d844-56ed-427f-93a3-ce4829ee74d0" x="685" y="13" width="50" height="13" printWhenDetailOverflows="true" bold="true" hTextAlign="Right">
+			<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+			<paragraph rightIndent="4"/>
+			<expression><![CDATA[$R{AON_COST}]]></expression>
+		</element>
 	</columnHeader>
 	<detail>
 		<band height="11" splitType="Stretch">
-			<textField>
-				<reportElement mode="Opaque" x="4" y="0" width="733" height="11" forecolor="#FFFFFF" backcolor="#F0F0F0" uuid="c89c0a0c-daa0-4782-8a35-fbc9a999378f">
-					<printWhenExpression><![CDATA[new Boolean( $V{PAGE_COUNT}.intValue() % 2 == 0)]]></printWhenExpression>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[" "]]></textFieldExpression>
-			</textField>
-			<frame>
-				<reportElement x="0" y="0" width="740" height="11" uuid="c5241b6e-43ce-4770-81c8-d91d86abb979">
-					<printWhenExpression><![CDATA[$F{THIS_IS_TOTAL_LINE} != "Y"]]></printWhenExpression>
-				</reportElement>
-				<textField>
-					<reportElement x="4" y="0" width="33" height="11" uuid="f459ac6a-63c7-4207-b43a-a14998249f50"/>
-					<textFieldExpression><![CDATA[$F{REF_NO}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="40" y="0" width="25" height="11" uuid="12046e67-9d70-49fd-8600-45b5d943725b"/>
-					<textFieldExpression><![CDATA[$F{OP_CODE}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="66" y="0" width="154" height="11" uuid="a5fac7a0-8766-47e7-8768-2ade1ad82ce4"/>
-					<textFieldExpression><![CDATA[$F{CODE_DESC}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="224" y="0" width="43" height="11" uuid="de073f85-316f-4f10-b8d7-f2bd6fbc00bb"/>
-					<textFieldExpression><![CDATA[$F{REQ_DATE}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="267" y="0" width="40" height="11" uuid="248298b3-0ae2-4d6c-a01a-6feb939629d3"/>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{SETUP}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="309" y="0" width="37" height="11" uuid="2165548f-4d4c-4801-8023-bd8be4e0c4ae"/>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{HOURS}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="348" y="0" width="52" height="11" uuid="de38964c-f763-43ad-9d69-a09b913a6280"/>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{PC_HR}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="402" y="0" width="49" height="11" uuid="7594081e-5a2e-46a2-80ac-aad770db8c69">
-						<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-					</reportElement>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{DIRECT}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="453" y="0" width="52" height="11" uuid="929fbdc2-54db-4fe8-b9b3-0a0145dd17a5">
-						<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-					</reportElement>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{OVHD}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="511" y="0" width="55" height="11" uuid="04a71738-dba6-4623-8e77-65dd7f8d6396"/>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{UNITS_EA}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="568" y="0" width="50" height="11" uuid="c0616dcb-a325-4ba3-a13c-01a9b3d43325">
-						<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-					</reportElement>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{COST_EA}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="628" y="0" width="55" height="11" uuid="61eae737-e9ea-4b67-bfb0-c7b4d405f141"/>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{UNITS_TOT}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="685" y="0" width="50" height="11" uuid="af2cbcbe-b47b-4cbf-b347-2d531ab23f52">
-						<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-					</reportElement>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{COST_TOT}]]></textFieldExpression>
-				</textField>
-			</frame>
-			<frame>
-				<reportElement x="0" y="0" width="740" height="11" uuid="ce672dc3-b44e-410c-b793-171026a60441">
-					<printWhenExpression><![CDATA[$F{THIS_IS_TOTAL_LINE} != "Y" && $F{COMMENTS} != ""]]></printWhenExpression>
-				</reportElement>
-				<textField textAdjust="StretchHeight">
-					<reportElement x="52" y="0" width="500" height="11" uuid="a09f2abd-215e-428e-ae45-3607b313a5c1"/>
-					<textFieldExpression><![CDATA[$F{COMMENTS}]]></textFieldExpression>
-				</textField>
-			</frame>
-			<frame>
-				<reportElement x="0" y="0" width="740" height="11" uuid="bb5d6b0c-8de8-460a-9b2a-c7c530e19f37">
-					<printWhenExpression><![CDATA[$F{THIS_IS_TOTAL_LINE} == "Y"]]></printWhenExpression>
-				</reportElement>
-				<textField>
-					<reportElement x="511" y="0" width="55" height="11" uuid="a1b7549e-253f-4a38-a041-6ba496779066"/>
+			<element kind="textField" uuid="c89c0a0c-daa0-4782-8a35-fbc9a999378f" mode="Opaque" x="4" y="0" width="733" height="11" forecolor="#FFFFFF" backcolor="#F0F0F0" bold="true" vTextAlign="Middle">
+				<printWhenExpression><![CDATA[new Boolean( $V{PAGE_COUNT}.intValue() % 2 == 0)]]></printWhenExpression>
+				<expression><![CDATA[" "]]></expression>
+			</element>
+			<element kind="frame" uuid="c5241b6e-43ce-4770-81c8-d91d86abb979" x="0" y="0" width="740" height="11">
+				<printWhenExpression><![CDATA[$F{THIS_IS_TOTAL_LINE} != "Y"]]></printWhenExpression>
+				<element kind="textField" uuid="f459ac6a-63c7-4207-b43a-a14998249f50" x="4" y="0" width="33" height="11">
+					<expression><![CDATA[$F{REF_NO}]]></expression>
+				</element>
+				<element kind="textField" uuid="12046e67-9d70-49fd-8600-45b5d943725b" x="40" y="0" width="25" height="11">
+					<expression><![CDATA[$F{OP_CODE}]]></expression>
+				</element>
+				<element kind="textField" uuid="a5fac7a0-8766-47e7-8768-2ade1ad82ce4" x="66" y="0" width="154" height="11">
+					<expression><![CDATA[$F{CODE_DESC}]]></expression>
+				</element>
+				<element kind="textField" uuid="de073f85-316f-4f10-b8d7-f2bd6fbc00bb" x="224" y="0" width="43" height="11">
+					<expression><![CDATA[$F{REQ_DATE}]]></expression>
+				</element>
+				<element kind="textField" uuid="248298b3-0ae2-4d6c-a01a-6feb939629d3" x="267" y="0" width="40" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{SETUP}]]></expression>
+				</element>
+				<element kind="textField" uuid="2165548f-4d4c-4801-8023-bd8be4e0c4ae" x="309" y="0" width="37" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{HOURS}]]></expression>
+				</element>
+				<element kind="textField" uuid="de38964c-f763-43ad-9d69-a09b913a6280" x="348" y="0" width="52" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{PC_HR}]]></expression>
+				</element>
+				<element kind="textField" uuid="7594081e-5a2e-46a2-80ac-aad770db8c69" x="402" y="0" width="49" height="11" hTextAlign="Right">
+					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+					<expression><![CDATA[$F{DIRECT}]]></expression>
+				</element>
+				<element kind="textField" uuid="929fbdc2-54db-4fe8-b9b3-0a0145dd17a5" x="453" y="0" width="52" height="11" hTextAlign="Right">
+					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+					<expression><![CDATA[$F{OVHD}]]></expression>
+				</element>
+				<element kind="textField" uuid="04a71738-dba6-4623-8e77-65dd7f8d6396" x="511" y="0" width="55" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{UNITS_EA}]]></expression>
+				</element>
+				<element kind="textField" uuid="c0616dcb-a325-4ba3-a13c-01a9b3d43325" x="568" y="0" width="50" height="11" hTextAlign="Right">
+					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+					<expression><![CDATA[$F{COST_EA}]]></expression>
+				</element>
+				<element kind="textField" uuid="61eae737-e9ea-4b67-bfb0-c7b4d405f141" x="628" y="0" width="55" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{UNITS_TOT}]]></expression>
+				</element>
+				<element kind="textField" uuid="af2cbcbe-b47b-4cbf-b347-2d531ab23f52" x="685" y="0" width="50" height="11" hTextAlign="Right">
+					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+					<expression><![CDATA[$F{COST_TOT}]]></expression>
+				</element>
+			</element>
+			<element kind="frame" uuid="ce672dc3-b44e-410c-b793-171026a60441" x="0" y="0" width="740" height="11">
+				<printWhenExpression><![CDATA[$F{THIS_IS_TOTAL_LINE} != "Y" && $F{COMMENTS} != ""]]></printWhenExpression>
+				<element kind="textField" uuid="a09f2abd-215e-428e-ae45-3607b313a5c1" x="52" y="0" width="500" height="11" textAdjust="StretchHeight">
+					<expression><![CDATA[$F{COMMENTS}]]></expression>
+				</element>
+			</element>
+			<element kind="frame" uuid="bb5d6b0c-8de8-460a-9b2a-c7c530e19f37" x="0" y="0" width="740" height="11">
+				<printWhenExpression><![CDATA[$F{THIS_IS_TOTAL_LINE} == "Y"]]></printWhenExpression>
+				<element kind="textField" uuid="a1b7549e-253f-4a38-a041-6ba496779066" x="511" y="0" width="55" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{UNITS_EA}]]></expression>
 					<box>
 						<topPen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{UNITS_EA}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="568" y="0" width="50" height="11" uuid="cf86a474-4a0a-4479-85e1-d76f1f23d47d">
-						<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-					</reportElement>
+				</element>
+				<element kind="textField" uuid="cf86a474-4a0a-4479-85e1-d76f1f23d47d" x="568" y="0" width="50" height="11" hTextAlign="Right">
+					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+					<expression><![CDATA[$F{COST_EA}]]></expression>
 					<box>
 						<topPen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{COST_EA}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="628" y="0" width="55" height="11" uuid="7c1ca4df-152c-4988-ba09-29778f3435a0"/>
+				</element>
+				<element kind="textField" uuid="7c1ca4df-152c-4988-ba09-29778f3435a0" x="628" y="0" width="55" height="11" hTextAlign="Right">
+					<expression><![CDATA[$F{UNITS_TOT}]]></expression>
 					<box>
 						<topPen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{UNITS_TOT}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="685" y="0" width="50" height="11" uuid="9ec4e987-62a9-461b-ad6d-29076a028472">
-						<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
-					</reportElement>
+				</element>
+				<element kind="textField" uuid="9ec4e987-62a9-461b-ad6d-29076a028472" x="685" y="0" width="50" height="11" hTextAlign="Right">
+					<printWhenExpression><![CDATA[$P{PRINT_COSTS} == "Y"]]></printWhenExpression>
+					<expression><![CDATA[$F{COST_TOT}]]></expression>
 					<box>
 						<topPen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Right"/>
-					<textFieldExpression><![CDATA[$F{COST_TOT}]]></textFieldExpression>
-				</textField>
-			</frame>
+				</element>
+			</element>
 		</band>
 	</detail>
-	<columnFooter>
-		<band splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band splitType="Stretch"/>
-	</summary>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter splitType="Stretch"/>
+	<summary splitType="Stretch"/>
 </jasperReport>

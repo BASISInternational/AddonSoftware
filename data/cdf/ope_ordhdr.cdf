@@ -658,6 +658,41 @@ rem --- Handle abort from new Change Order/Quote Customer form
 		break
 	endif
 
+rem --- Can't change Sale to a POS Default Quote Customer
+	if invoice_type$="S" then
+		quoteCustomer=0
+		newCustomerId$=callpoint!.getDevObject("newCustomerId")
+		opmPointOfSale_dev=fnget_dev("OPM_POINTOFSALE")
+		dim opmPointOfSale$:fnget_tpl$("OPM_POINTOFSALE")
+		read(opmPointOfSale_dev,key=firm_id$,dom=*next)
+		while 1
+			opmPointOfSale_key$=key(opmPointOfSale_dev,end=*break)
+			if pos(firm_id$=opmPointOfSale_key$)<>1 then break
+			readrecord(opmPointOfSale_dev)opmPointOfSale$
+			if newCustomerId$=opmPointOfSale.quote_cust_id$ then
+				msg_id$="OP_CASH_TO_QUOTE"
+				gosub disp_message
+				quoteCustomer=1
+				break
+			endif
+		wend
+		if quoteCustomer then
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
+rem --- Can't change Quote to the Default Cash Customer
+	if invoice_type$="P" then
+		newCustomerId$=callpoint!.getDevObject("newCustomerId")
+		if user_tpl.cash_sale$="Y" and user_tpl.cash_cust$=newCustomerId$ then
+			msg_id$="OP_QUOTE_TO_CASH"
+			gosub disp_message
+			callpoint!.setStatus("ABORT")
+			break
+		endif
+	endif
+
 rem --- Save modified records before updating current order for the new customer
 	if pos("M"=callpoint!.getRecordStatus())
 		rem --- Add Barista soft lock for this record if not already in edit mode
@@ -2883,20 +2918,38 @@ rem --- Initialize RTP modified fields for modified existing records
 
 [[OPE_ORDHDR.CUSTOMER_ID.AINP]]
 rem --- If cash customer, get correct customer number
-
+	callpoint!.setDevObject("defaultCustomer","")
 	if user_tpl.cash_sale$="Y" and cvs(callpoint!.getUserInput(),1+2+4)="C" then
-		callpoint!.setColumnData("OPE_ORDHDR.CUSTOMER_ID", user_tpl.cash_cust$)
+		callpoint!.setDevObject("defaultCustomer","C")
+		callpoint!.setColumnData("OPE_ORDHDR.CUSTOMER_ID", user_tpl.cash_cust$,1)
 		callpoint!.setColumnData("OPE_ORDHDR.CASH_SALE", "Y")
-		callpoint!.setStatus("REFRESH")
+	endif
+
+rem --- Get requested Quote customer
+	if cvs(callpoint!.getUserInput(),1+2+4)="Q" then
+		opmPointOfSale_dev=fnget_dev("OPM_POINTOFSALE")
+		dim opmPointOfSale$:fnget_tpl$("OPM_POINTOFSALE")
+		station$ = "DEFAULT"
+		station$ = stbl("OPE_DEF_STATION", err=*next)
+		find record (opmPointOfSale_dev, key=firm_id$+pad(station$, 16), dom=*next)opmPointOfSale$
+		if cvs(opmPointOfSale.quote_cust_id$,2)<>"" then
+			callpoint!.setDevObject("defaultCustomer","Q")
+			callpoint!.setColumnData("OPE_ORDHDR.CUSTOMER_ID",opmPointOfSale.quote_cust_id$,1)
+		else
+			rem --- POS Default Quote Customer not setup
+			callpoint!.setUserInput("")
+			callpoint!.setStatus("ABORT")
+			break
+		endif
 	endif
 
 rem --- Disable Backordered button
 	callpoint!.setOptionEnabled("BACK",0)
 
 [[OPE_ORDHDR.CUSTOMER_ID.AVAL]]
+rem --- Customer Inactive Feature
 	cust_id$ = callpoint!.getUserInput()
 
-	rem "Customer Inactive Feature"
 	arm01_dev=fnget_dev("ARM_CUSTMAST")
 	arm01_tpl$=fnget_tpl$("ARM_CUSTMAST")
 	dim arm01a$:arm01_tpl$
@@ -2943,9 +2996,86 @@ rem --- The cash customer?
 		callpoint!.setColumnData("OPE_ORDHDR.CASH_SALE", "N")
 	endif
 
+rem --- Is this new Order for a Sale or Quote?
+	sale_or_quote$=""
+	orderType_label!=callpoint!.getDevObject("orderType_label")
+	defaultCustomer$=callpoint!.getDevObject("defaultCustomer")
+	if defaultCustomer$="" then
+		if user_tpl.cash_sale$="Y" and cust_id$ = user_tpl.cash_cust$ then
+			rem --- This is the Default Cash Customer so this Order is for a Sale
+			sale_or_quote$="S"
+			defaultCustomer$="C"
+			callpoint!.setDevObject("defaultCustomer",defaultCustomer$)
+		else
+			rem --- Is this a POS Default Quote Customer?
+			opmPointOfSale_dev=fnget_dev("OPM_POINTOFSALE")
+			dim opmPointOfSale$:fnget_tpl$("OPM_POINTOFSALE")
+			read(opmPointOfSale_dev,key=firm_id$,dom=*next)
+			while 1
+				opmPointOfSale_key$=key(opmPointOfSale_dev,end=*break)
+				if pos(firm_id$=opmPointOfSale_key$)<>1 then break
+				readrecord(opmPointOfSale_dev)opmPointOfSale$
+				if cust_id$=opmPointOfSale.quote_cust_id$ then
+					rem --- This is a POS Default Quote Customer, so this Order is for a Quote
+					sale_or_quote$="Q"
+					defaultCustomer$="Q"
+					callpoint!.setDevObject("defaultCustomer",defaultCustomer$)
+					break
+				endif
+			wend
+
+			if sale_or_quote$="" then
+				rem --- Defaulting Orders to Quotes?
+				station$ = "DEFAULT"
+				station$ = stbl("OPE_DEF_STATION", err=*next)
+				redim opmPointOfSale$
+				find record (opmPointOfSale_dev, key=firm_id$+pad(station$, 16), dom=*next)opmPointOfSale$
+				if opmPointOfSale.default_to_quote then
+					rem --- Orders are defaulting to Quotes 
+					sale_or_quote$="Q"
+				else
+					rem --- This Order isn't for a Quote, so it must be for a Sale.
+					sale_or_quote$="S"
+				endif
+			endif
+		endif
+	else
+		if defaultCustomer$="C" then
+			rem --- This is the Default Cash Customer so this Order is for a Sale
+			sale_or_quote$="S"
+		endif
+		if defaultCustomer$="Q" then
+		rem --- This is the POS Default Quote Customer so this Order is for a Quote
+			sale_or_quote$="Q"
+		endif
+	endif
+
+	if sale_or_quote$="S" then
+		rem --- This Order is for a Sale
+		orderType_label!.setText("Sale")
+		orderType_label!.setForeColor(callpoint!.getDevObject("colorGreen"))
+		orderType_label!.setVisible(1)
+	endif
+
+	if sale_or_quote$="Q" then
+		rem --- This Order is for a Quote
+		callpoint!.setDevObject("create_quote","P")
+		orderType_label!.setText("Quote")
+ 		orderType_label!.setForeColor(BBjColor.RED)
+		orderType_label!.setVisible(1)
+
+		rem --- Enable expire date and disable order acknowledgements
+		callpoint!.setColumnEnabled("OPE_ORDHDR.EXPIRE_DATE", 1)
+		callpoint!.setOptionEnabled("OACK",0)
+
+		rem --- Set Invoice Type in OrderHelper object
+		ordHelp! = cast(OrderHelper, callpoint!.getDevObject("order_helper_object"))
+		ordHelp!.setInv_type("P")
+	endif
+
 rem --- Show customer data
 
-	if callpoint!.getColumnData("OPE_ORDHDR.CASH_SALE") <> "Y" then 
+	if callpoint!.getColumnData("OPE_ORDHDR.CASH_SALE")<>"Y" and defaultCustomer$<>"Q" then 
 		gosub display_aging
 		gosub check_credit
 
@@ -3395,11 +3525,10 @@ rem --- Existing record
 
 		cust_id$   = callpoint!.getColumnData("OPE_ORDHDR.CUSTOMER_ID")
 		order_no$  = callpoint!.getColumnData("OPE_ORDHDR.ORDER_NO")
-		callpoint!.setColumnData("OPE_ORDHDR.INVOICE_TYPE",str(callpoint!.getDevObject("create_quote")),1)
 		rem --- Set dflt invoice type in OrderHelper object
 
 		ordHelp! = cast(OrderHelper, callpoint!.getDevObject("order_helper_object"))
-		ordHelp!.setInv_type("S")
+		ordHelp!.setInv_type(str(callpoint!.getDevObject("create_quote")))
 
 		arm02_dev=fnget_dev("ARM_CUSTDET")
 		dim arm02a$:fnget_tpl$("ARM_CUSTDET")
@@ -4187,6 +4316,22 @@ rem ==========================================================================
 		gosub disp_message
 		create_quote$=msg_opt$
 		callpoint!.setDevObject("create_quote",create_quote$)
+
+		rem --- Can't do Quote for Default Cash Customer
+		if create_quote$="P" and callpoint!.getDevObject("defaultCustomer")="C" then
+			msg_id$="OP_CASH_NOT_QUOTE"
+			gosub disp_message
+			copy_ok$="N"
+			return
+		endif
+
+		rem --- Can't do Sale for POS Default Quote Customer
+		if create_quote$="S" and callpoint!.getDevObject("defaultCustomer")="Q" then
+			msg_id$="OP_QUOTE_NOT_SALE"
+			gosub disp_message
+			copy_ok$="N"
+			return
+		endif
 
 		if line_sign=1 then 
 			msg_id$ = "OP_REPRICE_ORD"

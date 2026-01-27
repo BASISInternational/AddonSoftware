@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="APChecks-Stub" language="groovy" pageWidth="612" pageHeight="258" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="2f85780c-d2bf-44ac-bacb-d99ce871b0e1">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="APChecks-Stub" language="groovy" pageWidth="612" pageHeight="258" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="2f85780c-d2bf-44ac-bacb-d99ce871b0e1">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -30,9 +29,7 @@
 	<parameter name="MAX_STUB_ROWS" class="java.lang.String"/>
 	<parameter name="BNK_ACCT_CD" class="java.lang.String"/>
 	<parameter name="VENDOR_ACCT" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[call APCHECKS_STUB($P{FIRM_ID},$P{BARISTA_WD},$P{BNK_ACCT_CD},$P{CHECK_NUM},$P{CURR_PAGE},$P{AP_TYPE},$P{VENDOR_ID},$P{STUB_TYPE},$P{AP_ADDRESS1_NAME},$P{AP_ADDRESS2},$P{AP_ADDRESS3},$P{AP_ADDRESS4},$P{AP_ADDR3_STUB},$P{LOGO_FILE},$P{VEND_NAME},$P{VEND_ADDR1},$P{VEND_ADDR2},$P{VEND_ADDR3},$P{VEND_MASK},$P{GL_ACCT_MASK},$P{STUB_AMT_MASK},$P{MAX_STUB_ROWS})]]>
-	</queryString>
+	<query language="sql"><![CDATA[call APCHECKS_STUB($P{FIRM_ID},$P{BARISTA_WD},$P{BNK_ACCT_CD},$P{CHECK_NUM},$P{CURR_PAGE},$P{AP_TYPE},$P{VENDOR_ID},$P{STUB_TYPE},$P{AP_ADDRESS1_NAME},$P{AP_ADDRESS2},$P{AP_ADDRESS3},$P{AP_ADDRESS4},$P{AP_ADDR3_STUB},$P{LOGO_FILE},$P{VEND_NAME},$P{VEND_ADDR1},$P{VEND_ADDR2},$P{VEND_ADDR3},$P{VEND_MASK},$P{GL_ACCT_MASK},$P{STUB_AMT_MASK},$P{MAX_STUB_ROWS})]]></query>
 	<field name="CHECK_DATE" class="java.lang.String"/>
 	<field name="INVOICE_NUMBER" class="java.lang.String"/>
 	<field name="INVOICE_DATE" class="java.lang.String"/>
@@ -43,375 +40,208 @@
 	<field name="DISCOUNT_AMT_TOT" class="java.lang.String"/>
 	<field name="AMOUNT_PAID_TOT" class="java.lang.String"/>
 	<field name="MEMO_GLDIST" class="java.lang.String"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<pageHeader>
-		<band height="31" splitType="Stretch">
-			<rectangle radius="2">
-				<reportElement x="7" y="5" width="590" height="24" backcolor="#FAFAFA" uuid="12d122bc-17ef-4cdf-a25c-89f842c28658"/>
-			</rectangle>
-			<rectangle radius="4">
-				<reportElement mode="Opaque" x="10" y="8" width="230" height="18" forecolor="#000000" backcolor="#FFFFFF" uuid="b9f45737-9824-4a57-a2ae-b327395eb6d5"/>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</rectangle>
-			<textField>
-				<reportElement x="47" y="12" width="168" height="9" uuid="4efcc208-bc30-4e1b-b30e-dab73322195e"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
-					<font fontName="Serif" size="7" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{AP_ADDRESS1_NAME}]]></textFieldExpression>
-			</textField>
-			<image scaleImage="RetainShape" hAlign="Center">
-				<reportElement x="15" y="11" width="26" height="12" uuid="33608d0b-0065-42eb-8593-5ce488990e08">
-					<printWhenExpression><![CDATA[!$P{LOGO_FILE}.isEmpty()]]></printWhenExpression>
-				</reportElement>
-				<imageExpression><![CDATA[$P{LOGO_FILE}]]></imageExpression>
-			</image>
-			<rectangle radius="4">
-				<reportElement mode="Opaque" x="256" y="8" width="334" height="18" backcolor="#EBF0FA" uuid="9526c113-5148-4632-a241-629c4c92db7a"/>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</rectangle>
-			<textField>
-				<reportElement mode="Transparent" x="262" y="12" width="38" height="10" forecolor="#000000" backcolor="#FFFFFF" uuid="6701f6ec-096f-4ae2-8a04-55593812a0b7"/>
-				<box rightPadding="5"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Serif" size="7" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{VENDOR_ID}]]></textFieldExpression>
-			</textField>
-			<textField isBlankWhenNull="true">
-				<reportElement x="307" y="12" width="134" height="10" uuid="ca44c976-33f4-48a4-8dc2-1ea8cd9016a3"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Serif" size="7" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{VEND_NAME}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="449" y="12" width="57" height="10" forecolor="#000000" uuid="c2309a0a-b57d-4ca5-ae5c-7a3fae3e55ec"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="Serif" size="7" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{CHECK_DATE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="512" y="12" width="70" height="10" uuid="89bd72eb-3b07-4888-9926-5dcc0f68ad61"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Serif" size="7" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{CHECK_NUM}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background splitType="Stretch"/>
+	<pageHeader height="31" splitType="Stretch">
+		<element kind="rectangle" uuid="12d122bc-17ef-4cdf-a25c-89f842c28658" x="7" y="5" width="590" height="24" backcolor="#FAFAFA" radius="2"/>
+		<element kind="rectangle" uuid="b9f45737-9824-4a57-a2ae-b327395eb6d5" mode="Opaque" x="10" y="8" width="230" height="18" forecolor="#000000" backcolor="#FFFFFF" radius="4">
+			<pen lineColor="#C0C0C0"/>
+		</element>
+		<element kind="textField" uuid="4efcc208-bc30-4e1b-b30e-dab73322195e" x="47" y="12" width="168" height="9" markup="none" fontName="Serif" fontSize="7.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$P{AP_ADDRESS1_NAME}]]></expression>
+		</element>
+		<element kind="image" uuid="33608d0b-0065-42eb-8593-5ce488990e08" x="15" y="11" width="26" height="12" scaleImage="RetainShape" hImageAlign="Center">
+			<printWhenExpression><![CDATA[!$P{LOGO_FILE}.isEmpty()]]></printWhenExpression>
+			<expression><![CDATA[$P{LOGO_FILE}]]></expression>
+		</element>
+		<element kind="rectangle" uuid="9526c113-5148-4632-a241-629c4c92db7a" mode="Opaque" x="256" y="8" width="334" height="18" backcolor="#EBF0FA" radius="4">
+			<pen lineColor="#C0C0C0"/>
+		</element>
+		<element kind="textField" uuid="6701f6ec-096f-4ae2-8a04-55593812a0b7" mode="Transparent" x="262" y="12" width="38" height="10" forecolor="#000000" backcolor="#FFFFFF" fontName="Serif" fontSize="7.0" bold="false" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$P{VENDOR_ID}]]></expression>
+			<box rightPadding="5"/>
+		</element>
+		<element kind="textField" uuid="ca44c976-33f4-48a4-8dc2-1ea8cd9016a3" x="307" y="12" width="134" height="10" fontName="Serif" fontSize="7.0" blankWhenNull="true" bold="false" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$P{VEND_NAME}]]></expression>
+		</element>
+		<element kind="textField" uuid="c2309a0a-b57d-4ca5-ae5c-7a3fae3e55ec" x="449" y="12" width="57" height="10" forecolor="#000000" fontName="Serif" fontSize="7.0" bold="false" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$F{CHECK_DATE}]]></expression>
+		</element>
+		<element kind="textField" uuid="89bd72eb-3b07-4888-9926-5dcc0f68ad61" x="512" y="12" width="70" height="10" fontName="Serif" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$P{CHECK_NUM}]]></expression>
+		</element>
 	</pageHeader>
-	<columnHeader>
-		<band height="13" splitType="Stretch">
-			<rectangle radius="4">
-				<reportElement x="7" y="0" width="590" height="13" backcolor="#000000" uuid="3d23857f-6298-4f9e-b083-fa42eea97f6a"/>
-				<graphicElement>
-					<pen lineWidth="1.0"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle radius="0">
-				<reportElement x="7" y="10" width="590" height="3" backcolor="#000000" uuid="d730b154-94ad-489b-a49e-412f4b793f0f"/>
-				<graphicElement>
-					<pen lineWidth="1.0"/>
-				</graphicElement>
-			</rectangle>
-			<textField>
-				<reportElement x="7" y="0" width="60" height="13" forecolor="#FFFFFF" uuid="d57d39f6-4afb-499c-85d5-4d92d0e27d76">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="8" isBold="true"/>
-					<paragraph rightIndent="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_INVOICE_DATE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="68" y="0" width="100" height="13" forecolor="#FFFFFF" uuid="6086a316-2166-4ec0-a64f-edc18fb25a9a">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="8" isBold="true"/>
-					<paragraph leftIndent="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_INVOICE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="168" y="0" width="95" height="13" forecolor="#FFFFFF" uuid="3f90d635-7250-4ddb-886d-5c76d0e77e59"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="8" isBold="true"/>
-					<paragraph rightIndent="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_INVOICE_AMOUNT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="263" y="0" width="95" height="13" forecolor="#FFFFFF" uuid="5291af15-62e0-4624-bf09-c342d0a79a45"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="8" isBold="true"/>
-					<paragraph rightIndent="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_DISCOUNT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="357" y="0" width="95" height="13" forecolor="#FFFFFF" uuid="d767b12e-f76b-4744-b9e9-ab9b41c595e9"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="8" isBold="true"/>
-					<paragraph rightIndent="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_AMOUNT_PAID}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="452" y="0" width="144" height="13" forecolor="#FFFFFF" uuid="85996ffe-7f16-42da-9ee7-73bce9e309d5"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="8" isBold="true"/>
-					<paragraph leftIndent="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_MEMO/DISTRIBUTION}]]></textFieldExpression>
-			</textField>
-		</band>
+	<columnHeader height="13" splitType="Stretch">
+		<element kind="rectangle" uuid="3d23857f-6298-4f9e-b083-fa42eea97f6a" x="7" y="0" width="590" height="13" backcolor="#000000" radius="4">
+			<pen lineWidth="1.0"/>
+		</element>
+		<element kind="rectangle" uuid="d730b154-94ad-489b-a49e-412f4b793f0f" x="7" y="10" width="590" height="3" backcolor="#000000" radius="0">
+			<pen lineWidth="1.0"/>
+		</element>
+		<element kind="textField" uuid="d57d39f6-4afb-499c-85d5-4d92d0e27d76" x="7" y="0" width="60" height="13" forecolor="#FFFFFF" fontName="SansSerif" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="8"/>
+			<expression><![CDATA[$R{AON_INVOICE_DATE}]]></expression>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="6086a316-2166-4ec0-a64f-edc18fb25a9a" x="68" y="0" width="100" height="13" forecolor="#FFFFFF" fontName="SansSerif" fontSize="8.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<paragraph leftIndent="8"/>
+			<expression><![CDATA[$R{AON_INVOICE}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="3f90d635-7250-4ddb-886d-5c76d0e77e59" x="168" y="0" width="95" height="13" forecolor="#FFFFFF" fontName="SansSerif" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="8"/>
+			<expression><![CDATA[$R{AON_INVOICE_AMOUNT}]]></expression>
+		</element>
+		<element kind="textField" uuid="5291af15-62e0-4624-bf09-c342d0a79a45" x="263" y="0" width="95" height="13" forecolor="#FFFFFF" fontName="SansSerif" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="8"/>
+			<expression><![CDATA[$R{AON_DISCOUNT}]]></expression>
+		</element>
+		<element kind="textField" uuid="d767b12e-f76b-4744-b9e9-ab9b41c595e9" x="357" y="0" width="95" height="13" forecolor="#FFFFFF" fontName="SansSerif" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="8"/>
+			<expression><![CDATA[$R{AON_AMOUNT_PAID}]]></expression>
+		</element>
+		<element kind="textField" uuid="85996ffe-7f16-42da-9ee7-73bce9e309d5" x="452" y="0" width="144" height="13" forecolor="#FFFFFF" fontName="SansSerif" fontSize="8.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<paragraph leftIndent="10"/>
+			<expression><![CDATA[$R{AON_MEMO/DISTRIBUTION}]]></expression>
+		</element>
 	</columnHeader>
 	<detail>
 		<band height="13">
 			<printWhenExpression><![CDATA[$V{PAGE_COUNT}.intValue() <= new Integer($P{MAX_STUB_ROWS}).intValue()]]></printWhenExpression>
-			<rectangle>
-				<reportElement mode="Opaque" x="7" y="0" width="590" height="13" backcolor="#FAFAFA" uuid="ea129229-322d-4bdb-9e67-685247d338de">
-					<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0 )]]></printWhenExpression>
-				</reportElement>
-				<graphicElement>
-					<pen lineWidth="0.0"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
-				<reportElement mode="Transparent" x="7" y="0" width="590" height="13" uuid="15817ec5-b440-42ae-94f1-a8c49438273f"/>
-				<graphicElement>
-					<pen lineWidth="0.75" lineColor="#000000"/>
-				</graphicElement>
-			</rectangle>
-			<textField>
-				<reportElement x="7" y="0" width="60" height="13" uuid="a1baa5de-d77e-4e37-a3d4-39cabffe5784">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
+			<element kind="rectangle" uuid="ea129229-322d-4bdb-9e67-685247d338de" mode="Opaque" x="7" y="0" width="590" height="13" backcolor="#FAFAFA">
+				<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0 )]]></printWhenExpression>
+				<pen lineWidth="0.0"/>
+			</element>
+			<element kind="rectangle" uuid="15817ec5-b440-42ae-94f1-a8c49438273f" mode="Transparent" x="7" y="0" width="590" height="13">
+				<pen lineWidth="0.75" lineColor="#000000"/>
+			</element>
+			<element kind="textField" uuid="a1baa5de-d77e-4e37-a3d4-39cabffe5784" x="7" y="0" width="60" height="13" fontSize="8.0" hTextAlign="Right" vTextAlign="Middle">
+				<paragraph rightIndent="8"/>
+				<expression><![CDATA[$F{INVOICE_DATE}]]></expression>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				<box leftPadding="8">
 					<leftPen lineWidth="0.75"/>
 					<rightPen lineWidth="0.75"/>
 				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="8"/>
-					<paragraph rightIndent="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{INVOICE_DATE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="68" y="0" width="100" height="13" uuid="83f48b67-1c22-4254-9957-91a8699d62fc">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
+			</element>
+			<element kind="textField" uuid="83f48b67-1c22-4254-9957-91a8699d62fc" x="68" y="0" width="100" height="13" fontName="SansSerif" fontSize="8.0" hTextAlign="Left" vTextAlign="Middle">
+				<paragraph leftIndent="8"/>
+				<expression><![CDATA[$F{INVOICE_NUMBER}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				<box leftPadding="0" rightPadding="2">
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.75"/>
 				</box>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="8"/>
-					<paragraph leftIndent="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{INVOICE_NUMBER}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="168" y="0" width="95" height="13" uuid="f58fe703-754a-42ce-a239-f51edf6337ba"/>
+			</element>
+			<element kind="textField" uuid="f58fe703-754a-42ce-a239-f51edf6337ba" x="168" y="0" width="95" height="13" fontName="SansSerif" fontSize="8.0" hTextAlign="Right" vTextAlign="Middle">
+				<paragraph rightIndent="6"/>
+				<expression><![CDATA[$F{INVOICE_AMT}]]></expression>
 				<box rightPadding="4">
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.75"/>
 				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="8"/>
-					<paragraph rightIndent="6"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{INVOICE_AMT}]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement mode="Transparent" x="263" y="0" width="95" height="13" forecolor="#000000" backcolor="#FFFFFF" uuid="c605ebfb-36b1-4f18-b811-adad2372206c"/>
+			</element>
+			<element kind="textField" uuid="c605ebfb-36b1-4f18-b811-adad2372206c" mode="Transparent" x="263" y="0" width="95" height="13" forecolor="#000000" backcolor="#FFFFFF" rotation="None" markup="none" fontName="SansSerif" fontSize="8.0" pdfEncoding="Cp1252" pattern="" blankWhenNull="false" pdfEmbedded="false" underline="false" strikeThrough="false" bold="false" italic="false" hTextAlign="Right" vTextAlign="Middle">
+				<paragraph lineSpacing="Single" rightIndent="6"/>
+				<expression><![CDATA[$F{DISCOUNT_AMT}]]></expression>
 				<box>
 					<rightPen lineWidth="0.75"/>
 				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" markup="none">
-					<font fontName="SansSerif" size="8" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
-					<paragraph lineSpacing="Single" rightIndent="6"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DISCOUNT_AMT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="357" y="0" width="95" height="13" uuid="c35043ee-7b70-4966-9724-281209cf4ab5"/>
+			</element>
+			<element kind="textField" uuid="c35043ee-7b70-4966-9724-281209cf4ab5" x="357" y="0" width="95" height="13" fontSize="8.0" hTextAlign="Right" vTextAlign="Middle">
+				<paragraph rightIndent="6"/>
+				<expression><![CDATA[$F{AMOUNT_PAID}]]></expression>
 				<box>
 					<rightPen lineWidth="0.75"/>
 				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="8"/>
-					<paragraph rightIndent="6"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AMOUNT_PAID}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="452" y="0" width="144" height="13" uuid="5f2055eb-addc-4609-b520-01d795956e7d">
-					<printWhenExpression><![CDATA[!$F{MEMO_GLDIST}.startsWith("** Continued **")]]></printWhenExpression>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-					<paragraph leftIndent="6"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{MEMO_GLDIST}]]></textFieldExpression>
-			</textField>
+			</element>
+			<element kind="textField" uuid="5f2055eb-addc-4609-b520-01d795956e7d" x="452" y="0" width="144" height="13" fontSize="8.0" vTextAlign="Middle">
+				<printWhenExpression><![CDATA[!$F{MEMO_GLDIST}.startsWith("** Continued **")]]></printWhenExpression>
+				<paragraph leftIndent="6"/>
+				<expression><![CDATA[$F{MEMO_GLDIST}]]></expression>
+			</element>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="28" splitType="Stretch">
+	<columnFooter height="28" splitType="Stretch">
+		<element kind="rectangle" uuid="81c1b86c-e5f9-4f81-bff0-7c440b2d3e00" positionType="FixRelativeToBottom" x="7" y="0" width="590" height="13" backcolor="#EBF0FA" radius="2">
+			<pen lineWidth="1.0"/>
+		</element>
+		<element kind="textField" uuid="4a1d3498-8f13-441d-bca7-11e880614977" x="102" y="1" width="65" height="11" forecolor="#000000" fontName="SansSerif" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="6"/>
+			<expression><![CDATA[$R{AON_TOTALS}]]></expression>
+		</element>
+		<element kind="rectangle" uuid="1b8e76a6-62a0-46e1-8e64-fdd2caea8264" x="7" y="12" width="590" height="5" backcolor="#000000" radius="0">
+			<pen lineWidth="1.0"/>
+		</element>
+		<element kind="rectangle" uuid="03dff6c6-f02b-4ff0-9e9b-c4745bb19e5b" positionType="FixRelativeToBottom" mode="Opaque" x="7" y="14" width="590" height="13" backcolor="#000000" radius="4">
+			<pen lineWidth="1.0"/>
+		</element>
+		<element kind="textField" uuid="606b6ece-1b28-48a7-ae45-6d27aaf607be" x="522" y="14" width="68" height="13" forecolor="#FFFFFF" fontName="SansSerif" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Top">
+			<printWhenExpression><![CDATA[$P{STUB_TYPE}=="V"]]></printWhenExpression>
+			<expression><![CDATA[$R{AON_VENDOR_COPY}]]></expression>
+		</element>
+		<element kind="textField" uuid="5d65551e-69c2-4f6b-8bcb-81a59399f02f" x="522" y="14" width="68" height="13" forecolor="#FFFFFF" fontName="SansSerif" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Top">
+			<printWhenExpression><![CDATA[$P{STUB_TYPE}=="A"]]></printWhenExpression>
+			<expression><![CDATA[$R{AON_ACCOUNTING_COPY}]]></expression>
+		</element>
+		<element kind="textField" uuid="7a4460e4-fcd3-418f-b535-e7dd2af2ef43" x="459" y="0" width="100" height="13" fontSize="8.0">
+			<expression><![CDATA[$F{MEMO_GLDIST}]]></expression>
+		</element>
+		<element kind="textField" uuid="13fc749c-52c5-4ca7-8e48-e2eb6c1c8a5f" x="168" y="0" width="95" height="13" fontSize="8.0" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="6"/>
+			<expression><![CDATA[$F{INVOICE_AMT_TOT}]]></expression>
+			<box>
+				<leftPen lineWidth="0.75"/>
+				<rightPen lineWidth="0.75"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="5a21a48a-dae1-4afb-92e8-767bc9bd2ef5" x="263" y="0" width="95" height="13" fontSize="8.0" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="6"/>
+			<expression><![CDATA[$F{DISCOUNT_AMT_TOT}]]></expression>
+			<box>
+				<rightPen lineWidth="0.75"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="e3c0b0f8-0858-499f-8764-381d9c9b6789" x="357" y="0" width="95" height="13" fontSize="8.0" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="6"/>
+			<expression><![CDATA[$F{AMOUNT_PAID_TOT}]]></expression>
+			<box>
+				<rightPen lineWidth="0.75"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="04a0d948-2ef5-4d8c-bd21-82c0679ca111" x="220" y="14" width="50" height="13" forecolor="#FFFFFF" fontSize="8.0" bold="true" hTextAlign="Right">
+			<printWhenExpression><![CDATA[!$P{AP_PHONE_NO}.isEmpty()]]></printWhenExpression>
+			<expression><![CDATA[$R{AON_PHONE}+": "]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<rectangle radius="2">
-				<reportElement positionType="FixRelativeToBottom" x="7" y="0" width="590" height="13" backcolor="#EBF0FA" uuid="81c1b86c-e5f9-4f81-bff0-7c440b2d3e00"/>
-				<graphicElement>
-					<pen lineWidth="1.0"/>
-				</graphicElement>
-			</rectangle>
-			<textField>
-				<reportElement x="102" y="1" width="65" height="11" forecolor="#000000" uuid="4a1d3498-8f13-441d-bca7-11e880614977"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="8" isBold="true"/>
-					<paragraph rightIndent="6"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_TOTALS}]]></textFieldExpression>
-			</textField>
-			<rectangle radius="0">
-				<reportElement x="7" y="12" width="590" height="5" backcolor="#000000" uuid="1b8e76a6-62a0-46e1-8e64-fdd2caea8264"/>
-				<graphicElement>
-					<pen lineWidth="1.0"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle radius="4">
-				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="7" y="14" width="590" height="13" backcolor="#000000" uuid="03dff6c6-f02b-4ff0-9e9b-c4745bb19e5b"/>
-				<graphicElement>
-					<pen lineWidth="1.0"/>
-				</graphicElement>
-			</rectangle>
-			<textField>
-				<reportElement x="522" y="14" width="68" height="13" forecolor="#FFFFFF" uuid="606b6ece-1b28-48a7-ae45-6d27aaf607be">
-					<printWhenExpression><![CDATA[$P{STUB_TYPE}=="V"]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Top">
-					<font fontName="SansSerif" size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_VENDOR_COPY}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="522" y="14" width="68" height="13" forecolor="#FFFFFF" uuid="5d65551e-69c2-4f6b-8bcb-81a59399f02f">
-					<printWhenExpression><![CDATA[$P{STUB_TYPE}=="A"]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Top">
-					<font fontName="SansSerif" size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_ACCOUNTING_COPY}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="459" y="0" width="100" height="13" uuid="7a4460e4-fcd3-418f-b535-e7dd2af2ef43"/>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{MEMO_GLDIST}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="168" y="0" width="95" height="13" uuid="13fc749c-52c5-4ca7-8e48-e2eb6c1c8a5f"/>
-				<box>
-					<leftPen lineWidth="0.75"/>
-					<rightPen lineWidth="0.75"/>
-				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="8"/>
-					<paragraph rightIndent="6"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{INVOICE_AMT_TOT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="263" y="0" width="95" height="13" uuid="5a21a48a-dae1-4afb-92e8-767bc9bd2ef5"/>
-				<box>
-					<rightPen lineWidth="0.75"/>
-				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="8"/>
-					<paragraph rightIndent="6"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DISCOUNT_AMT_TOT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="357" y="0" width="95" height="13" uuid="e3c0b0f8-0858-499f-8764-381d9c9b6789"/>
-				<box>
-					<rightPen lineWidth="0.75"/>
-				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="8"/>
-					<paragraph rightIndent="6"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{AMOUNT_PAID_TOT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="220" y="14" width="50" height="13" forecolor="#FFFFFF" uuid="04a0d948-2ef5-4d8c-bd21-82c0679ca111">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<printWhenExpression><![CDATA[!$P{AP_PHONE_NO}.isEmpty()]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_PHONE}+": "]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="275" y="14" width="100" height="13" forecolor="#FFFFFF" uuid="822b1f1e-e198-42ec-b28d-7ec90188ca29">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<printWhenExpression><![CDATA[!$P{AP_PHONE_NO}.isEmpty()]]></printWhenExpression>
-				</reportElement>
-				<textElement>
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{AP_PHONE_NO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="5" y="14" width="50" height="13" forecolor="#FFFFFF" uuid="00e23167-caaa-4947-bcc4-8366a8ec2a07">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<printWhenExpression><![CDATA[!$P{VENDOR_ACCT}.isEmpty()]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_ACCOUNT}+": "]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="60" y="14" width="100" height="13" forecolor="#FFFFFF" uuid="b95c0937-5eda-4a90-98db-0b83f7a8ac33">
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					<property name="com.jaspersoft.studio.unit.height" value="px"/>
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<printWhenExpression><![CDATA[!$P{VENDOR_ACCT}.isEmpty()]]></printWhenExpression>
-				</reportElement>
-				<textElement>
-					<font size="8" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{VENDOR_ACCT}]]></textFieldExpression>
-			</textField>
-		</band>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="textField" uuid="822b1f1e-e198-42ec-b28d-7ec90188ca29" x="275" y="14" width="100" height="13" forecolor="#FFFFFF" fontSize="8.0" bold="true">
+			<printWhenExpression><![CDATA[!$P{AP_PHONE_NO}.isEmpty()]]></printWhenExpression>
+			<expression><![CDATA[$P{AP_PHONE_NO}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="textField" uuid="00e23167-caaa-4947-bcc4-8366a8ec2a07" x="5" y="14" width="50" height="13" forecolor="#FFFFFF" fontSize="8.0" bold="true" hTextAlign="Right">
+			<printWhenExpression><![CDATA[!$P{VENDOR_ACCT}.isEmpty()]]></printWhenExpression>
+			<expression><![CDATA[$R{AON_ACCOUNT}+": "]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="textField" uuid="b95c0937-5eda-4a90-98db-0b83f7a8ac33" x="60" y="14" width="100" height="13" forecolor="#FFFFFF" fontSize="8.0" bold="true">
+			<printWhenExpression><![CDATA[!$P{VENDOR_ACCT}.isEmpty()]]></printWhenExpression>
+			<expression><![CDATA[$P{VENDOR_ACCT}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
 	</columnFooter>
-	<pageFooter>
-		<band splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band splitType="Stretch"/>
-	</summary>
+	<pageFooter splitType="Stretch"/>
+	<summary splitType="Stretch"/>
 </jasperReport>

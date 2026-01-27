@@ -1,64 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BOMComments" language="groovy" pageWidth="772" pageHeight="612" orientation="Landscape" columnWidth="772" leftMargin="0" rightMargin="0" topMargin="3" bottomMargin="0" resourceBundle="addon" uuid="8a9cd728-6879-47da-838f-83be7d7fa676">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="BOMComments" language="groovy" pageWidth="772" pageHeight="612" orientation="Landscape" columnWidth="772" leftMargin="0" rightMargin="0" topMargin="3" bottomMargin="0" resourceBundle="addon" uuid="8a9cd728-6879-47da-838f-83be7d7fa676">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<template><![CDATA["StyleTemplate.jrtx"]]></template>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="BILL_NO" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[select firm_id, bill_no, memo_1024 from bmm_billmast
-where firm_id = $P{FIRM_ID} and bill_no = $P{BILL_NO}]]>
-	</queryString>
+	<query language="sql"><![CDATA[select firm_id, bill_no, memo_1024 from bmm_billmast
+where firm_id = $P{FIRM_ID} and bill_no = $P{BILL_NO}]]></query>
 	<field name="FIRM_ID" class="java.lang.String"/>
 	<field name="BILL_NO" class="java.lang.String"/>
 	<field name="MEMO_1024" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band height="13" splitType="Stretch">
-			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<textField>
-				<reportElement mode="Opaque" x="0" y="0" width="745" height="13" backcolor="#C3C3C3" uuid="2ed2303f-1de7-4216-b235-5daf2ce0dd20">
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					<property name="com.jaspersoft.studio.unit.y" value="px"/>
-				</reportElement>
-				<box leftPadding="5"/>
-				<textElement verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$R{AON_COMMENTS}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background splitType="Stretch"/>
+	<title splitType="Stretch"/>
+	<pageHeader height="13" splitType="Stretch">
+		<element kind="textField" uuid="2ed2303f-1de7-4216-b235-5daf2ce0dd20" mode="Opaque" x="0" y="0" width="745" height="13" backcolor="#C3C3C3" vTextAlign="Middle">
+			<expression><![CDATA[$R{AON_COMMENTS}]]></expression>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<box leftPadding="5"/>
+		</element>
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
 	</pageHeader>
-	<columnHeader>
-		<band splitType="Stretch">
-			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-		</band>
+	<columnHeader splitType="Stretch">
+		<property name="com.jaspersoft.studio.unit.height" value="px"/>
 	</columnHeader>
 	<detail>
 		<band height="13" splitType="Stretch">
-			<textField textAdjust="StretchHeight">
-				<reportElement x="20" y="0" width="710" height="13" uuid="c5ad98be-4aef-49f3-b41a-f7323a7bf714">
-					<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					<property name="com.jaspersoft.studio.unit.width" value="px"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$F{MEMO_1024}]]></textFieldExpression>
-			</textField>
+			<element kind="textField" uuid="c5ad98be-4aef-49f3-b41a-f7323a7bf714" x="20" y="0" width="710" height="13" textAdjust="StretchHeight">
+				<expression><![CDATA[$F{MEMO_1024}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			</element>
 		</band>
 	</detail>
-	<columnFooter>
-		<band splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band splitType="Stretch"/>
-	</summary>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter splitType="Stretch"/>
+	<summary splitType="Stretch"/>
 </jasperReport>

@@ -1,31 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OPPickListDet" language="groovy" pageWidth="554" pageHeight="320" columnWidth="554" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="a46c6452-81bd-4023-bafb-8f0488b8a578">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="OPPickListDet" language="groovy" pageWidth="554" pageHeight="320" columnWidth="554" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="a46c6452-81bd-4023-bafb-8f0488b8a578">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="184"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="805"/>
-	<style name="Style1" hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu Sans" fontSize="9">
-		<conditionalStyle>
+	<style name="Style1" hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu Sans" fontSize="9.0">
+		<conditionalStyle hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu Sans" fontSize="9.0">
 			<conditionExpression><![CDATA[($F{PICK_FLAG}=="N" || $F{PICK_FLAG}=="") && $P{REPRINT_REVISED}!=""]]></conditionExpression>
-			<style hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu Sans" fontSize="9"/>
 		</conditionalStyle>
-		<conditionalStyle>
+		<conditionalStyle hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu Sans" fontSize="9.0" italic="true">
 			<conditionExpression><![CDATA[$F{PICK_FLAG}=="M" && $P{REPRINT_REVISED}!="" && ($F{LINE_TYPE}=="M" || $F{LINE_TYPE}=="O" || $F{ORDER_QTY_RAW}!="0")]]></conditionExpression>
-			<style hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu Sans" fontSize="9" isItalic="true"/>
 		</conditionalStyle>
-		<conditionalStyle>
+		<conditionalStyle hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu Sans" fontSize="9.0" italic="true" strikeThrough="true">
 			<conditionExpression><![CDATA[$F{PICK_FLAG}=="M" && $P{REPRINT_REVISED}!="" && $F{LINE_TYPE}!="M" && $F{LINE_TYPE}!="O" && $F{ORDER_QTY_RAW}=="0"]]></conditionExpression>
-			<style hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu Sans" fontSize="9" isItalic="true" isStrikeThrough="true"/>
 		</conditionalStyle>
-		<conditionalStyle>
+		<conditionalStyle forecolor="#9C9A9A" hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu Sans" fontSize="9.0">
 			<conditionExpression><![CDATA[$F{PICK_FLAG}=="Y" && $P{REPRINT_REVISED}!="" && ($F{LINE_TYPE}=="M" || $F{LINE_TYPE}=="O" || $F{ORDER_QTY_RAW}!="0")]]></conditionExpression>
-			<style forecolor="#9C9A9A" hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu Sans" fontSize="9"/>
 		</conditionalStyle>
-		<conditionalStyle>
+		<conditionalStyle forecolor="#827F7F" hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu Sans" fontSize="9.0" strikeThrough="true">
 			<conditionExpression><![CDATA[$F{PICK_FLAG}=="Y" && $P{REPRINT_REVISED}!="" && $F{LINE_TYPE}!="M" && $F{LINE_TYPE}!="O" && $F{ORDER_QTY_RAW}=="0"]]></conditionExpression>
-			<style forecolor="#827F7F" hTextAlign="Center" vTextAlign="Middle" fontName="DejaVu Sans" fontSize="9" isStrikeThrough="true"/>
 		</conditionalStyle>
 	</style>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
@@ -40,7 +34,7 @@
 	<parameter name="PRINT_PRICES" class="java.lang.String"/>
 	<parameter name="MULT_WH" class="java.lang.String"/>
 	<parameter name="BARISTA_WD" class="java.lang.String"/>
-	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+	<parameter name="SUBREPORT_DIR" forPrompting="false" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Dev_aon\\aon\\reports\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="QTY_MASK_PATTERN" class="java.lang.String"/>
@@ -48,9 +42,7 @@
 	<parameter name="ITEM_MASK" class="java.lang.String"/>
 	<parameter name="REPRINT_REVISED" class="java.lang.String"/>
 	<parameter name="BARCODE" class="java.lang.String"/>
-	<queryString language="SQL">
-		<![CDATA[call OPPICKLIST_DET($P{FIRM_ID},$P{AR_TYPE},$P{CUSTOMER_ID},$P{ORDER_NO},$P{AR_INV_NO},$P{BARCODE},$P{QTY_MASK},$P{PRICE_MASK},$P{SELECTED_WHSE},$P{PICK_OR_QUOTE},$P{PRINT_PRICES},$P{MULT_WH},$P{WO_INFO_LABELS},$P{ITEM_MASK},$P{BARISTA_WD})]]>
-	</queryString>
+	<query language="SQL"><![CDATA[call OPPICKLIST_DET($P{FIRM_ID},$P{AR_TYPE},$P{CUSTOMER_ID},$P{ORDER_NO},$P{AR_INV_NO},$P{BARCODE},$P{QTY_MASK},$P{PRICE_MASK},$P{SELECTED_WHSE},$P{PICK_OR_QUOTE},$P{PRINT_PRICES},$P{MULT_WH},$P{WO_INFO_LABELS},$P{ITEM_MASK},$P{BARISTA_WD})]]></query>
 	<field name="ORDER_QTY_RAW" class="java.lang.String"/>
 	<field name="ORDER_QTY_MASKED" class="java.lang.String"/>
 	<field name="ITEM_ID" class="java.lang.String"/>
@@ -59,24 +51,24 @@
 	<field name="PRICE_MASKED" class="java.lang.String"/>
 	<field name="INTERNAL_SEQ_NO" class="java.lang.String"/>
 	<field name="LOTSER_FLAG" class="java.lang.String">
-		<fieldDescription><![CDATA[Item is flagged as Lotted/Serialized]]></fieldDescription>
+		<description><![CDATA[Item is flagged as Lotted/Serialized]]></description>
 	</field>
 	<field name="LINETYPE_ALLOWS_LS" class="java.lang.String">
-		<fieldDescription><![CDATA[Line Type is P or S so may have Lot/SerNum]]></fieldDescription>
+		<description><![CDATA[Line Type is P or S so may have Lot/SerNum]]></description>
 	</field>
 	<field name="SHIP_QTY" class="java.lang.String"/>
 	<field name="WHSE" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="LOCATION" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="WHSE_MESSAGE" class="java.lang.String"/>
 	<field name="WHSE_MSG_SFX" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="SHIP_QTY_RAW" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="WO_INFO1" class="java.lang.String"/>
 	<field name="WO_INFO2" class="java.lang.String"/>
@@ -84,262 +76,185 @@
 	<field name="PICK_FLAG" class="java.lang.String"/>
 	<field name="LINE_TYPE" class="java.lang.String"/>
 	<variable name="PRICE_BigDec" class="java.math.BigDecimal">
-		<variableExpression><![CDATA[$F{PRICE_RAW} == "" ? 0 : new java.math.BigDecimal($F{PRICE_RAW})]]></variableExpression>
+		<expression><![CDATA[$F{PRICE_RAW} == "" ? 0 : new java.math.BigDecimal($F{PRICE_RAW})]]></expression>
 	</variable>
-	<variable name="TOT_PRICE_BigDec_OUT" class="java.math.BigDecimal" calculation="Sum">
-		<variableExpression><![CDATA[$V{PRICE_BigDec}]]></variableExpression>
+	<variable name="TOT_PRICE_BigDec_OUT" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[$V{PRICE_BigDec}]]></expression>
 	</variable>
 	<variable name="WHSE_MESSAGE_OUT" class="java.lang.String">
-		<variableExpression><![CDATA[$F{WHSE_MESSAGE}]]></variableExpression>
+		<expression><![CDATA[$F{WHSE_MESSAGE}]]></expression>
 	</variable>
 	<variable name="WHSE_MSG_SFX_OUT" class="java.lang.String">
-		<variableExpression><![CDATA[$F{WHSE_MSG_SFX}]]></variableExpression>
+		<expression><![CDATA[$F{WHSE_MSG_SFX}]]></expression>
 	</variable>
 	<group name="LINE_ITEM">
-		<groupExpression><![CDATA[$F{INTERNAL_SEQ_NO}]]></groupExpression>
+		<expression><![CDATA[$F{INTERNAL_SEQ_NO}]]></expression>
 		<groupFooter>
 			<band height="15" splitType="Stretch">
-				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				<printWhenExpression><![CDATA[($F{LOTSER_FLAG}=="L" || $F{LOTSER_FLAG}=="S")
 && $F{LINETYPE_ALLOWS_LS} == "Y" && $P{PICK_OR_QUOTE} == "S"]]></printWhenExpression>
-				<subreport>
-					<reportElement positionType="Float" x="0" y="0" width="555" height="15" uuid="e9cee1ae-3667-42b1-8bd9-d60c7e75243c">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[($F{LOTSER_FLAG}=="L" || $F{LOTSER_FLAG}=="S")
+				<element kind="subreport" uuid="e9cee1ae-3667-42b1-8bd9-d60c7e75243c" positionType="Float" x="0" y="0" width="555" height="15">
+					<printWhenExpression><![CDATA[($F{LOTSER_FLAG}=="L" || $F{LOTSER_FLAG}=="S")
 && $F{LINETYPE_ALLOWS_LS} == "Y" && $P{PICK_OR_QUOTE} == "S" && $F{ORDER_QTY_RAW}!="O"]]></printWhenExpression>
-					</reportElement>
-					<subreportParameter name="FIRM_ID">
-						<subreportParameterExpression><![CDATA[$P{FIRM_ID}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="AR_TYPE">
-						<subreportParameterExpression><![CDATA[$P{AR_TYPE}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="CUSTOMER_ID">
-						<subreportParameterExpression><![CDATA[$P{CUSTOMER_ID}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="ORDER_NO">
-						<subreportParameterExpression><![CDATA[$P{ORDER_NO}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="AR_INV_NO">
-						<subreportParameterExpression><![CDATA[$P{AR_INV_NO}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="QTY_MASK">
-						<subreportParameterExpression><![CDATA[$P{QTY_MASK}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="BARISTA_WD">
-						<subreportParameterExpression><![CDATA[$P{BARISTA_WD}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="OPE11_QTY_SHIPPED">
-						<subreportParameterExpression><![CDATA[$F{SHIP_QTY_RAW}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="ITEM_ID">
-						<subreportParameterExpression><![CDATA[$F{ITEM_ID}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="INTERNAL_SEQ_NO">
-						<subreportParameterExpression><![CDATA[$F{INTERNAL_SEQ_NO}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="QTY_MASK_PATTERN">
-						<subreportParameterExpression><![CDATA[$P{QTY_MASK_PATTERN}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="SHADE_BACKCOLOR">
-						<subreportParameterExpression><![CDATA[new Boolean( $V{PAGE_COUNT}.intValue()  % 2 == 0)]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="LOTSER_FLAG">
-						<subreportParameterExpression><![CDATA[$F{LOTSER_FLAG}]]></subreportParameterExpression>
-					</subreportParameter>
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					<subreportExpression><![CDATA["OPPickListDet-LotSer.jasper"]]></subreportExpression>
-				</subreport>
+					<expression><![CDATA["OPPickListDet-LotSer.jasper"]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<parameter name="FIRM_ID">
+						<expression><![CDATA[$P{FIRM_ID}]]></expression>
+					</parameter>
+					<parameter name="AR_TYPE">
+						<expression><![CDATA[$P{AR_TYPE}]]></expression>
+					</parameter>
+					<parameter name="CUSTOMER_ID">
+						<expression><![CDATA[$P{CUSTOMER_ID}]]></expression>
+					</parameter>
+					<parameter name="ORDER_NO">
+						<expression><![CDATA[$P{ORDER_NO}]]></expression>
+					</parameter>
+					<parameter name="AR_INV_NO">
+						<expression><![CDATA[$P{AR_INV_NO}]]></expression>
+					</parameter>
+					<parameter name="QTY_MASK">
+						<expression><![CDATA[$P{QTY_MASK}]]></expression>
+					</parameter>
+					<parameter name="BARISTA_WD">
+						<expression><![CDATA[$P{BARISTA_WD}]]></expression>
+					</parameter>
+					<parameter name="OPE11_QTY_SHIPPED">
+						<expression><![CDATA[$F{SHIP_QTY_RAW}]]></expression>
+					</parameter>
+					<parameter name="ITEM_ID">
+						<expression><![CDATA[$F{ITEM_ID}]]></expression>
+					</parameter>
+					<parameter name="INTERNAL_SEQ_NO">
+						<expression><![CDATA[$F{INTERNAL_SEQ_NO}]]></expression>
+					</parameter>
+					<parameter name="QTY_MASK_PATTERN">
+						<expression><![CDATA[$P{QTY_MASK_PATTERN}]]></expression>
+					</parameter>
+					<parameter name="SHADE_BACKCOLOR">
+						<expression><![CDATA[new Boolean( $V{PAGE_COUNT}.intValue()  % 2 == 0)]]></expression>
+					</parameter>
+					<parameter name="LOTSER_FLAG">
+						<expression><![CDATA[$F{LOTSER_FLAG}]]></expression>
+					</parameter>
+				</element>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			</band>
 		</groupFooter>
 	</group>
 	<group name="Group1">
-		<groupExpression><![CDATA[$P{REPRINT_REVISED}=="" && $F{WO_INFO1}=="" && ($F{ITEM_ID}!="" || $F{ITEM_DESC}!="")]]></groupExpression>
+		<expression><![CDATA[$P{REPRINT_REVISED}=="" && $F{WO_INFO1}=="" && ($F{ITEM_ID}!="" || $F{ITEM_DESC}!="")]]></expression>
 		<groupHeader>
 			<band height="13" splitType="Prevent">
-				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				<printWhenExpression><![CDATA[$P{REPRINT_REVISED}=="" && $F{WO_INFO1}=="" && ($F{ITEM_ID}!="" || $F{ITEM_DESC}!="")]]></printWhenExpression>
-				<rectangle>
-					<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="555" height="13" backcolor="#EBF0FA" uuid="3256f66d-b32f-4074-8b64-1fee056e1b20">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)  && $F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</rectangle>
-				<rectangle>
-					<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="13" uuid="524d5982-0fc3-46b5-ac6d-c1adaad1d595">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</rectangle>
-				<textField>
-					<reportElement x="0" y="0" width="45" height="12" uuid="f74188b0-0a1e-42a2-baf6-4679d25964ef">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Sans" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{UM_SOLD}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="45" y="0" width="45" height="12" uuid="98d29c70-c7e5-4189-bb3e-36402a88c3f1">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph rightIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{ORDER_QTY_MASKED}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="90" y="0" width="45" height="12" uuid="169157d9-1218-4d38-b0f4-edbff25bdc97">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{SHIP_QTY}]]></textFieldExpression>
-				</textField>
-				<textField textAdjust="StretchHeight">
-					<reportElement x="175" y="0" width="198" height="12" uuid="6126e8a4-eeb4-4fbe-a313-af5045812d43">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph leftIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{ITEM_DESC}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="375" y="0" width="22" height="12" uuid="bf3328e0-2678-42e7-9f98-97fbb4b3e1ed">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{WHSE}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="393" y="0" width="66" height="12" uuid="43808887-6118-4671-9357-405057c021a8">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{LOCATION}=="AON_DROPSHIP" ? str($F{LOCATION}):$F{LOCATION}]]></textFieldExpression>
-				</textField>
-				<textField pattern="">
-					<reportElement x="457" y="0" width="49" height="12" uuid="0ab2e67d-3dff-499e-ac1d-005c0de545c5">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph rightIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{PRICE_MASKED}]]></textFieldExpression>
-				</textField>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="45" y="0" width="1" height="13" uuid="f4a8aaf3-28c8-438c-94dc-20e306262c1e">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="90" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="18d9ab65-6c7e-4ef5-96da-cc5ae2ebdf96">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="135" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="8e6f1e50-a5d3-493e-9d06-36c3fedc7b86">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="175" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="6b99b610-23c6-4748-97ac-376f01099fbb">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="373" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="baaa1d3b-9fb6-4aba-a6fc-17b132f20039">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="395" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="0cb7687d-b71e-43c2-a428-e95f2a0b9f99">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="457" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="907619e9-59bf-41a5-a650-769ab00aec3d">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y" && $F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="505" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="cbbaed19-20d1-4a51-aa16-f3619551552f">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
+				<element kind="rectangle" uuid="3256f66d-b32f-4074-8b64-1fee056e1b20" stretchType="ContainerHeight" mode="Opaque" x="0" y="0" width="555" height="13" backcolor="#EBF0FA">
+					<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)  && $F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="rectangle" uuid="524d5982-0fc3-46b5-ac6d-c1adaad1d595" stretchType="ContainerHeight" mode="Transparent" x="0" y="0" width="555" height="13">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="textField" uuid="f74188b0-0a1e-42a2-baf6-4679d25964ef" x="0" y="0" width="45" height="12" fontName="DejaVu Sans" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+					<expression><![CDATA[$F{UM_SOLD}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="98d29c70-c7e5-4189-bb3e-36402a88c3f1" x="45" y="0" width="45" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Right" vTextAlign="Middle">
+					<paragraph rightIndent="3"/>
+					<expression><![CDATA[$F{ORDER_QTY_MASKED}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="169157d9-1218-4d38-b0f4-edbff25bdc97" x="90" y="0" width="45" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+					<expression><![CDATA[$F{SHIP_QTY}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="6126e8a4-eeb4-4fbe-a313-af5045812d43" x="175" y="0" width="198" height="12" fontName="DejaVu Serif" fontSize="9.0" textAdjust="StretchHeight" vTextAlign="Middle">
+					<paragraph leftIndent="3"/>
+					<expression><![CDATA[$F{ITEM_DESC}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="bf3328e0-2678-42e7-9f98-97fbb4b3e1ed" x="375" y="0" width="22" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+					<expression><![CDATA[$F{WHSE}]]></expression>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="43808887-6118-4671-9357-405057c021a8" x="393" y="0" width="66" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+					<expression><![CDATA[$F{LOCATION}=="AON_DROPSHIP" ? str($F{LOCATION}):$F{LOCATION}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="0ab2e67d-3dff-499e-ac1d-005c0de545c5" x="457" y="0" width="49" height="12" fontName="DejaVu Serif" fontSize="9.0" pattern="" hTextAlign="Right" vTextAlign="Middle">
+					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+					<paragraph rightIndent="3"/>
+					<expression><![CDATA[$F{PRICE_MASKED}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</element>
+				<element kind="line" uuid="f4a8aaf3-28c8-438c-94dc-20e306262c1e" stretchType="ContainerHeight" x="45" y="0" width="1" height="13">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="18d9ab65-6c7e-4ef5-96da-cc5ae2ebdf96" stretchType="ContainerHeight" x="90" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="8e6f1e50-a5d3-493e-9d06-36c3fedc7b86" stretchType="ContainerHeight" x="135" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="6b99b610-23c6-4748-97ac-376f01099fbb" stretchType="ContainerHeight" x="175" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="baaa1d3b-9fb6-4aba-a6fc-17b132f20039" stretchType="ContainerHeight" x="373" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="0cb7687d-b71e-43c2-a428-e95f2a0b9f99" stretchType="ContainerHeight" x="395" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="907619e9-59bf-41a5-a650-769ab00aec3d" stretchType="ContainerHeight" x="457" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y" && $F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="cbbaed19-20d1-4a51-aa16-f3619551552f" stretchType="ContainerHeight" x="505" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -349,226 +264,137 @@
 		</groupFooter>
 	</group>
 	<group name="Group2">
-		<groupExpression><![CDATA[$P{REPRINT_REVISED}=="" && $F{WO_INFO1}!=""]]></groupExpression>
+		<expression><![CDATA[$P{REPRINT_REVISED}=="" && $F{WO_INFO1}!=""]]></expression>
 		<groupHeader>
 			<band height="37" splitType="Prevent">
-				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				<printWhenExpression><![CDATA[$P{REPRINT_REVISED}=="" && $F{WO_INFO1}!=""]]></printWhenExpression>
-				<rectangle>
-					<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="555" height="37" backcolor="#EBF0FA" uuid="7ea2d0ac-db0a-4b54-8f2c-fbd5f8af5041">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</rectangle>
-				<rectangle>
-					<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="37" uuid="f62e7209-5238-4b99-b7eb-30a85eb320ac">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</rectangle>
-				<textField>
-					<reportElement x="0" y="0" width="45" height="12" uuid="13ebb67d-7377-49bd-91d7-7658bda7ad56">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Sans" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{UM_SOLD}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="45" y="0" width="45" height="12" uuid="477d66fe-80c5-4ea3-b75d-2f1431703526">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph rightIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{ORDER_QTY_MASKED}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="90" y="0" width="45" height="12" uuid="8932fb7e-bf99-4a19-b0c7-d814a716c343">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{SHIP_QTY}]]></textFieldExpression>
-				</textField>
-				<textField textAdjust="StretchHeight">
-					<reportElement x="175" y="0" width="198" height="12" uuid="616028e0-6365-4d1b-a5e1-025810da12de">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph leftIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{ITEM_DESC}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="375" y="0" width="22" height="12" uuid="57c2b1e2-49c5-4fc5-a069-518f3a6b2bfa">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{WHSE}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="393" y="0" width="66" height="12" uuid="78dac6b0-f763-4e0f-9877-f8f455925c2d">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{LOCATION}=="AON_DROPSHIP" ? str($F{LOCATION}):$F{LOCATION}]]></textFieldExpression>
-				</textField>
-				<textField pattern="">
-					<reportElement x="457" y="0" width="49" height="12" uuid="30b56067-bd6a-477c-9064-534faf9380a5">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph rightIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{PRICE_MASKED}]]></textFieldExpression>
-				</textField>
-				<line>
-					<reportElement positionType="FixRelativeToBottom" x="175" y="12" width="198" height="1" isPrintWhenDetailOverflows="true" uuid="444e4094-294d-47f3-8dd1-9980d64cc98b">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<textField isBlankWhenNull="false">
-					<reportElement positionType="Float" x="175" y="13" width="198" height="12" uuid="b9909303-b781-4dae-b138-18782c9c6564">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph leftIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{WO_INFO1}]]></textFieldExpression>
-				</textField>
-				<textField isBlankWhenNull="false">
-					<reportElement positionType="Float" x="175" y="25" width="198" height="12" uuid="055661c0-81c0-4130-9ba5-950f0179aa8c">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph leftIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{WO_INFO2}]]></textFieldExpression>
-				</textField>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="45" y="0" width="1" height="37" uuid="f00bee57-32b9-4edd-b6d4-fdb2186d1d10">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="90" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="19438494-d725-49e2-8cb8-b65cb06f87ee">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="135" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="ca32e5a2-bbce-4632-a950-dc7dfbd800f9">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="175" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="f96c5cb6-17a1-4d0d-8298-82f81c3b01a6">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="373" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="b7599313-078b-47be-8c65-c0de2b513382">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="395" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="e1cc3865-19d7-4c3f-ab02-e18661fb2789">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="457" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="ca696f62-da5e-4f22-b96c-3473ed2f4161">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="505" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="69b6f0c6-3674-4c08-baeb-28b2a5c95f45">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
+				<element kind="rectangle" uuid="7ea2d0ac-db0a-4b54-8f2c-fbd5f8af5041" stretchType="ContainerHeight" mode="Opaque" x="0" y="0" width="555" height="37" backcolor="#EBF0FA">
+					<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="rectangle" uuid="f62e7209-5238-4b99-b7eb-30a85eb320ac" stretchType="ContainerHeight" mode="Transparent" x="0" y="0" width="555" height="37">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="textField" uuid="13ebb67d-7377-49bd-91d7-7658bda7ad56" x="0" y="0" width="45" height="12" fontName="DejaVu Sans" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+					<expression><![CDATA[$F{UM_SOLD}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="477d66fe-80c5-4ea3-b75d-2f1431703526" x="45" y="0" width="45" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Right" vTextAlign="Middle">
+					<paragraph rightIndent="3"/>
+					<expression><![CDATA[$F{ORDER_QTY_MASKED}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="8932fb7e-bf99-4a19-b0c7-d814a716c343" x="90" y="0" width="45" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+					<expression><![CDATA[$F{SHIP_QTY}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="616028e0-6365-4d1b-a5e1-025810da12de" x="175" y="0" width="198" height="12" fontName="DejaVu Serif" fontSize="9.0" textAdjust="StretchHeight" vTextAlign="Middle">
+					<paragraph leftIndent="3"/>
+					<expression><![CDATA[$F{ITEM_DESC}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="57c2b1e2-49c5-4fc5-a069-518f3a6b2bfa" x="375" y="0" width="22" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+					<expression><![CDATA[$F{WHSE}]]></expression>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="78dac6b0-f763-4e0f-9877-f8f455925c2d" x="393" y="0" width="66" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+					<expression><![CDATA[$F{LOCATION}=="AON_DROPSHIP" ? str($F{LOCATION}):$F{LOCATION}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="30b56067-bd6a-477c-9064-534faf9380a5" x="457" y="0" width="49" height="12" fontName="DejaVu Serif" fontSize="9.0" pattern="" hTextAlign="Right" vTextAlign="Middle">
+					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+					<paragraph rightIndent="3"/>
+					<expression><![CDATA[$F{PRICE_MASKED}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</element>
+				<element kind="line" uuid="444e4094-294d-47f3-8dd1-9980d64cc98b" positionType="FixRelativeToBottom" x="175" y="12" width="198" height="1" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="textField" uuid="b9909303-b781-4dae-b138-18782c9c6564" positionType="Float" x="175" y="13" width="198" height="12" fontName="DejaVu Serif" fontSize="9.0" blankWhenNull="false" vTextAlign="Middle">
+					<paragraph leftIndent="3"/>
+					<expression><![CDATA[$F{WO_INFO1}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="055661c0-81c0-4130-9ba5-950f0179aa8c" positionType="Float" x="175" y="25" width="198" height="12" fontName="DejaVu Serif" fontSize="9.0" blankWhenNull="false" vTextAlign="Middle">
+					<paragraph leftIndent="3"/>
+					<expression><![CDATA[$F{WO_INFO2}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="line" uuid="f00bee57-32b9-4edd-b6d4-fdb2186d1d10" stretchType="ContainerHeight" x="45" y="0" width="1" height="37">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="19438494-d725-49e2-8cb8-b65cb06f87ee" stretchType="ContainerHeight" x="90" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="ca32e5a2-bbce-4632-a950-dc7dfbd800f9" stretchType="ContainerHeight" x="135" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="f96c5cb6-17a1-4d0d-8298-82f81c3b01a6" stretchType="ContainerHeight" x="175" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="b7599313-078b-47be-8c65-c0de2b513382" stretchType="ContainerHeight" x="373" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="e1cc3865-19d7-4c3f-ab02-e18661fb2789" stretchType="ContainerHeight" x="395" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="ca696f62-da5e-4f22-b96c-3473ed2f4161" stretchType="ContainerHeight" x="457" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="69b6f0c6-3674-4c08-baeb-28b2a5c95f45" stretchType="ContainerHeight" x="505" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -578,212 +404,128 @@
 		</groupFooter>
 	</group>
 	<group name="Group3">
-		<groupExpression><![CDATA[$P{REPRINT_REVISED}!="" && $F{WO_INFO1}=="" && ($F{ITEM_ID}!="" || $F{ITEM_DESC}!="")]]></groupExpression>
+		<expression><![CDATA[$P{REPRINT_REVISED}!="" && $F{WO_INFO1}=="" && ($F{ITEM_ID}!="" || $F{ITEM_DESC}!="")]]></expression>
 		<groupHeader>
 			<band height="13">
-				<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				<printWhenExpression><![CDATA[$P{REPRINT_REVISED}!="" && $F{WO_INFO1}=="" && ($F{ITEM_ID}!="" || $F{ITEM_DESC}!="")]]></printWhenExpression>
-				<rectangle>
-					<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="555" height="13" backcolor="#EBF0FA" uuid="c2f620bd-6f9c-43e5-8028-28d47bac224b">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)  && $F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</rectangle>
-				<rectangle>
-					<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="13" uuid="341f7182-1696-4c4a-8b64-0404220b9be2">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</rectangle>
-				<textField>
-					<reportElement style="Style1" x="0" y="0" width="20" height="12" uuid="e1502b99-ca3f-4288-9e60-ff1be3b06f53">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-						<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Sans" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{PICK_FLAG}=="M" ? "M" : $F{PICK_FLAG}=="Y" ? "R" : "N"]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement style="Style1" x="20" y="0" width="25" height="12" uuid="8f88b505-d7f8-4266-b9ec-d425a8d5f468">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Sans" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{UM_SOLD}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement style="Style1" x="45" y="0" width="45" height="12" uuid="da56cc58-07ad-4a09-b58f-b778cc0d9389">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph rightIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{ORDER_QTY_MASKED}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement style="Style1" x="90" y="0" width="45" height="12" uuid="62aa306f-5291-411f-af60-68bc87d13293">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{SHIP_QTY}]]></textFieldExpression>
-				</textField>
-				<textField textAdjust="StretchHeight">
-					<reportElement style="Style1" x="175" y="0" width="198" height="12" uuid="dc10fadf-d6da-4d70-ad4c-6795347edad7">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Left" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph leftIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{ITEM_DESC}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement style="Style1" x="375" y="0" width="22" height="12" uuid="897e4014-a5a1-4133-bcf4-f5ffaabc144b">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{WHSE}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement style="Style1" x="393" y="0" width="66" height="12" uuid="0e602738-51f6-4e62-92ba-f37dee71d8c5">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{LOCATION}=="AON_DROPSHIP" ? str($F{LOCATION}):$F{LOCATION}]]></textFieldExpression>
-				</textField>
-				<textField pattern="">
-					<reportElement style="Style1" x="457" y="0" width="49" height="12" uuid="459182ac-6d6e-4184-bd04-d62f114a368d">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph rightIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{PRICE_MASKED}]]></textFieldExpression>
-				</textField>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="20" y="0" width="1" height="13" uuid="2f77204f-0c12-4688-a429-13d6aea0193a">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="45" y="0" width="1" height="13" uuid="77c8f5b9-a54c-4b75-b936-f5ed1eb8d663">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="90" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="7bf9b3d3-9084-4932-a1d5-8abb11ae19f0">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="135" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="02bd1492-7c55-4e53-88aa-190cef706cd0">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="175" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="eb516ba1-2433-48e5-b948-7441b240b696">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="373" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="fe9de730-5c2e-475b-995b-42cb3114cdf1">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="395" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="2b4c4a9d-152a-4537-a5dd-f1706142b40e">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="457" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="2a4dcee8-9e4c-46b4-8255-7be9ae3cbbe7">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y" && $F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="505" y="0" width="1" height="13" isPrintWhenDetailOverflows="true" uuid="ecdc61e5-72c6-4a78-915d-333fdb27f7fe">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
+				<element kind="rectangle" uuid="c2f620bd-6f9c-43e5-8028-28d47bac224b" stretchType="ContainerHeight" mode="Opaque" x="0" y="0" width="555" height="13" backcolor="#EBF0FA">
+					<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)  && $F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="rectangle" uuid="341f7182-1696-4c4a-8b64-0404220b9be2" stretchType="ContainerHeight" mode="Transparent" x="0" y="0" width="555" height="13">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="textField" uuid="e1502b99-ca3f-4288-9e60-ff1be3b06f53" x="0" y="0" width="20" height="12" fontName="DejaVu Sans" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle" style="Style1">
+					<expression><![CDATA[$F{PICK_FLAG}=="M" ? "M" : $F{PICK_FLAG}=="Y" ? "R" : "N"]]></expression>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</element>
+				<element kind="textField" uuid="8f88b505-d7f8-4266-b9ec-d425a8d5f468" x="20" y="0" width="25" height="12" fontName="DejaVu Sans" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle" style="Style1">
+					<expression><![CDATA[$F{UM_SOLD}]]></expression>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</element>
+				<element kind="textField" uuid="da56cc58-07ad-4a09-b58f-b778cc0d9389" x="45" y="0" width="45" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Right" vTextAlign="Middle" style="Style1">
+					<paragraph rightIndent="3"/>
+					<expression><![CDATA[$F{ORDER_QTY_MASKED}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="62aa306f-5291-411f-af60-68bc87d13293" x="90" y="0" width="45" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle" style="Style1">
+					<expression><![CDATA[$F{SHIP_QTY}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="dc10fadf-d6da-4d70-ad4c-6795347edad7" x="175" y="0" width="198" height="12" fontName="DejaVu Serif" fontSize="9.0" textAdjust="StretchHeight" hTextAlign="Left" vTextAlign="Middle" style="Style1">
+					<paragraph leftIndent="3"/>
+					<expression><![CDATA[$F{ITEM_DESC}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="897e4014-a5a1-4133-bcf4-f5ffaabc144b" x="375" y="0" width="22" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle" style="Style1">
+					<expression><![CDATA[$F{WHSE}]]></expression>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="0e602738-51f6-4e62-92ba-f37dee71d8c5" x="393" y="0" width="66" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle" style="Style1">
+					<expression><![CDATA[$F{LOCATION}=="AON_DROPSHIP" ? str($F{LOCATION}):$F{LOCATION}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="459182ac-6d6e-4184-bd04-d62f114a368d" x="457" y="0" width="49" height="12" fontName="DejaVu Serif" fontSize="9.0" pattern="" hTextAlign="Right" vTextAlign="Middle" style="Style1">
+					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+					<paragraph rightIndent="3"/>
+					<expression><![CDATA[$F{PRICE_MASKED}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</element>
+				<element kind="line" uuid="2f77204f-0c12-4688-a429-13d6aea0193a" stretchType="ContainerHeight" x="20" y="0" width="1" height="13">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="77c8f5b9-a54c-4b75-b936-f5ed1eb8d663" stretchType="ContainerHeight" x="45" y="0" width="1" height="13">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="7bf9b3d3-9084-4932-a1d5-8abb11ae19f0" stretchType="ContainerHeight" x="90" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="02bd1492-7c55-4e53-88aa-190cef706cd0" stretchType="ContainerHeight" x="135" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="eb516ba1-2433-48e5-b948-7441b240b696" stretchType="ContainerHeight" x="175" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="fe9de730-5c2e-475b-995b-42cb3114cdf1" stretchType="ContainerHeight" x="373" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="2b4c4a9d-152a-4537-a5dd-f1706142b40e" stretchType="ContainerHeight" x="395" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="2a4dcee8-9e4c-46b4-8255-7be9ae3cbbe7" stretchType="ContainerHeight" x="457" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y" && $F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="ecdc61e5-72c6-4a78-915d-333fdb27f7fe" stretchType="ContainerHeight" x="505" y="0" width="1" height="13" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$F{WO_INFO1}==""]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -793,249 +535,151 @@
 		</groupFooter>
 	</group>
 	<group name="Group4">
-		<groupExpression><![CDATA[$P{REPRINT_REVISED}!="" && $F{WO_INFO1}!=""]]></groupExpression>
+		<expression><![CDATA[$P{REPRINT_REVISED}!="" && $F{WO_INFO1}!=""]]></expression>
 		<groupHeader>
 			<band height="37">
-				<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				<printWhenExpression><![CDATA[$P{REPRINT_REVISED}!="" && $F{WO_INFO1}!=""]]></printWhenExpression>
-				<rectangle>
-					<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="555" height="37" backcolor="#EBF0FA" uuid="a8cfd3d1-eaa6-4e8d-a12b-9b2acefaed17">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</rectangle>
-				<rectangle>
-					<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="37" uuid="6fcaa6df-591d-48f3-80ed-68a4884ec733">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</rectangle>
-				<textField>
-					<reportElement style="Style1" x="0" y="0" width="20" height="12" uuid="8d8e1a54-90c9-400f-916d-03f3a4d52445">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-						<property name="com.jaspersoft.studio.unit.y" value="px"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Sans" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{PICK_FLAG}=="M" ? "M" : $F{PICK_FLAG}=="Y" ? "R" : "N"]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement style="Style1" x="20" y="0" width="25" height="12" uuid="18ae20f9-274f-4f6d-85d8-49fd322ecabb">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Sans" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{UM_SOLD}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement style="Style1" x="45" y="0" width="45" height="12" uuid="6b00b57f-4bac-4cc5-8277-d9580c078e5a">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph rightIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{ORDER_QTY_MASKED}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement style="Style1" x="90" y="0" width="45" height="12" uuid="1be08e8d-c97b-4787-9029-0202634c3db3">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{SHIP_QTY}]]></textFieldExpression>
-				</textField>
-				<textField textAdjust="StretchHeight">
-					<reportElement style="Style1" x="175" y="0" width="198" height="12" uuid="d1f0028a-9f5e-4d23-9ae9-ab4149a13bd0">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Left" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph leftIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{ITEM_DESC}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement style="Style1" x="375" y="0" width="22" height="12" uuid="4d83c12d-5679-4bb5-91cb-131cabda3b77">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{WHSE}]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement style="Style1" x="393" y="0" width="66" height="12" uuid="aac80a54-a839-4610-a00f-4f3d3a0a93a1">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{LOCATION}=="AON_DROPSHIP" ? str($F{LOCATION}):$F{LOCATION}]]></textFieldExpression>
-				</textField>
-				<textField pattern="">
-					<reportElement style="Style1" x="457" y="0" width="49" height="12" uuid="93d33b46-a632-4b9f-9901-d654a309de7f">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
-					</reportElement>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph rightIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{PRICE_MASKED}]]></textFieldExpression>
-				</textField>
-				<line>
-					<reportElement positionType="FixRelativeToBottom" x="175" y="12" width="198" height="1" isPrintWhenDetailOverflows="true" uuid="92363dda-23b5-4602-9e94-4ba9c4150c13">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<textField isBlankWhenNull="false">
-					<reportElement style="Style1" positionType="Float" x="175" y="13" width="198" height="12" uuid="83cbbd0c-3690-42c8-901c-5ef318abd36b">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Left" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph leftIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{WO_INFO1}]]></textFieldExpression>
-				</textField>
-				<textField isBlankWhenNull="false">
-					<reportElement style="Style1" positionType="Float" x="175" y="25" width="198" height="12" uuid="93f4dd8e-5522-4f88-ab91-505b48c56ba8">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<textElement textAlignment="Left" verticalAlignment="Middle">
-						<font fontName="DejaVu Serif" size="9"/>
-						<paragraph leftIndent="3"/>
-					</textElement>
-					<textFieldExpression><![CDATA[$F{WO_INFO2}]]></textFieldExpression>
-				</textField>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="20" y="0" width="1" height="37" uuid="d41658cc-e804-4a46-9a5d-6a939a1a634c">
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="px"/>
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="45" y="0" width="1" height="37" uuid="efd28685-543e-42d2-81b5-896871c9578d">
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="90" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="2f3c4ec8-5488-4bd2-8eaa-25fec612a7b5">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="135" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="84f6fb40-f595-456e-8f24-8ac2b903aaa2">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="175" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="1d2c7a01-cd2c-417f-acd1-fab89dc4e859">
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="373" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="ab8a89e9-2fe6-4a48-bfa0-68794a478242">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="395" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="7b944f5d-a7e7-4277-93d4-a23f9d1923ab">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="457" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="c061b836-449b-4d06-ac0b-c282ddfdc1be">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-						<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
-				<line>
-					<reportElement stretchType="RelativeToBandHeight" x="505" y="0" width="1" height="37" isPrintWhenDetailOverflows="true" uuid="087e2d14-3751-4fcd-b027-ee9b172675a3">
-						<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					</reportElement>
-					<graphicElement>
-						<pen lineColor="#C0C0C0"/>
-					</graphicElement>
-				</line>
+				<element kind="rectangle" uuid="a8cfd3d1-eaa6-4e8d-a12b-9b2acefaed17" stretchType="ContainerHeight" mode="Opaque" x="0" y="0" width="555" height="37" backcolor="#EBF0FA">
+					<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="rectangle" uuid="6fcaa6df-591d-48f3-80ed-68a4884ec733" stretchType="ContainerHeight" mode="Transparent" x="0" y="0" width="555" height="37">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="textField" uuid="8d8e1a54-90c9-400f-916d-03f3a4d52445" x="0" y="0" width="20" height="12" fontName="DejaVu Sans" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle" style="Style1">
+					<expression><![CDATA[$F{PICK_FLAG}=="M" ? "M" : $F{PICK_FLAG}=="Y" ? "R" : "N"]]></expression>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</element>
+				<element kind="textField" uuid="18ae20f9-274f-4f6d-85d8-49fd322ecabb" x="20" y="0" width="25" height="12" fontName="DejaVu Sans" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle" style="Style1">
+					<expression><![CDATA[$F{UM_SOLD}]]></expression>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</element>
+				<element kind="textField" uuid="6b00b57f-4bac-4cc5-8277-d9580c078e5a" x="45" y="0" width="45" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Right" vTextAlign="Middle" style="Style1">
+					<paragraph rightIndent="3"/>
+					<expression><![CDATA[$F{ORDER_QTY_MASKED}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="1be08e8d-c97b-4787-9029-0202634c3db3" x="90" y="0" width="45" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle" style="Style1">
+					<expression><![CDATA[$F{SHIP_QTY}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="d1f0028a-9f5e-4d23-9ae9-ab4149a13bd0" x="175" y="0" width="198" height="12" fontName="DejaVu Serif" fontSize="9.0" textAdjust="StretchHeight" hTextAlign="Left" vTextAlign="Middle" style="Style1">
+					<paragraph leftIndent="3"/>
+					<expression><![CDATA[$F{ITEM_DESC}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="4d83c12d-5679-4bb5-91cb-131cabda3b77" x="375" y="0" width="22" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle" style="Style1">
+					<expression><![CDATA[$F{WHSE}]]></expression>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="aac80a54-a839-4610-a00f-4f3d3a0a93a1" x="393" y="0" width="66" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle" style="Style1">
+					<expression><![CDATA[$F{LOCATION}=="AON_DROPSHIP" ? str($F{LOCATION}):$F{LOCATION}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="93d33b46-a632-4b9f-9901-d654a309de7f" x="457" y="0" width="49" height="12" fontName="DejaVu Serif" fontSize="9.0" pattern="" hTextAlign="Right" vTextAlign="Middle" style="Style1">
+					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+					<paragraph rightIndent="3"/>
+					<expression><![CDATA[$F{PRICE_MASKED}]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</element>
+				<element kind="line" uuid="92363dda-23b5-4602-9e94-4ba9c4150c13" positionType="FixRelativeToBottom" x="175" y="12" width="198" height="1" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="textField" uuid="83cbbd0c-3690-42c8-901c-5ef318abd36b" positionType="Float" x="175" y="13" width="198" height="12" fontName="DejaVu Serif" fontSize="9.0" blankWhenNull="false" hTextAlign="Left" vTextAlign="Middle" style="Style1">
+					<paragraph leftIndent="3"/>
+					<expression><![CDATA[$F{WO_INFO1}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="textField" uuid="93f4dd8e-5522-4f88-ab91-505b48c56ba8" positionType="Float" x="175" y="25" width="198" height="12" fontName="DejaVu Serif" fontSize="9.0" blankWhenNull="false" hTextAlign="Left" vTextAlign="Middle" style="Style1">
+					<paragraph leftIndent="3"/>
+					<expression><![CDATA[$F{WO_INFO2}]]></expression>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</element>
+				<element kind="line" uuid="d41658cc-e804-4a46-9a5d-6a939a1a634c" stretchType="ContainerHeight" x="20" y="0" width="1" height="37">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="efd28685-543e-42d2-81b5-896871c9578d" stretchType="ContainerHeight" x="45" y="0" width="1" height="37">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="2f3c4ec8-5488-4bd2-8eaa-25fec612a7b5" stretchType="ContainerHeight" x="90" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="84f6fb40-f595-456e-8f24-8ac2b903aaa2" stretchType="ContainerHeight" x="135" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="1d2c7a01-cd2c-417f-acd1-fab89dc4e859" stretchType="ContainerHeight" x="175" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="ab8a89e9-2fe6-4a48-bfa0-68794a478242" stretchType="ContainerHeight" x="373" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="7b944f5d-a7e7-4277-93d4-a23f9d1923ab" stretchType="ContainerHeight" x="395" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="c061b836-449b-4d06-ac0b-c282ddfdc1be" stretchType="ContainerHeight" x="457" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="line" uuid="087e2d14-3751-4fcd-b027-ee9b172675a3" stretchType="ContainerHeight" x="505" y="0" width="1" height="37" printWhenDetailOverflows="true">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -1044,13 +688,11 @@
 			</band>
 		</groupFooter>
 	</group>
-	<columnHeader>
-		<band splitType="Stretch"/>
-	</columnHeader>
+	<columnHeader splitType="Stretch"/>
 	<detail>
 		<band splitType="Prevent">
-			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<printWhenExpression><![CDATA[$F{WHSE_MESSAGE}==""]]></printWhenExpression>
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 		</band>
 	</detail>
 </jasperReport>

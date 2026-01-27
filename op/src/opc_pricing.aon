@@ -158,13 +158,41 @@ rem --- Get Item Class
 
     mark_up_cost: rem --- Mark-Up From Cost
 
+        rem --- Get Pricing Adjustment Base for Markup From Cost
+        switch (BBjAPI().TRUE)
+            case ivm10e.pricing_adj_base$="U"; rem --- Unit Cost
+                pricing_adj_base=ivm02a.unit_cost
+                break
+            case ivm10e.pricing_adj_base$="L"; rem --- Landed Cost
+                pricing_adj_base=ivm02a.landed_cost
+                break
+            case ivm10e.pricing_adj_base$="P"; rem --- Last Purchase Cost
+                pricing_adj_base=ivm02a.last_po_cost
+                break
+            case ivm10e.pricing_adj_base$="M"; rem --- Manual Price Table Cost
+                pricing_adj_base=ivm02a.price_table_cost
+                break
+            case ivm10e.pricing_adj_base$="A"; rem --- Average Cost
+                pricing_adj_base=ivm02a.avg_cost
+                break
+             case ivm10e.pricing_adj_base$="S"; rem --- Standard Cost
+                pricing_adj_base=ivm02a.std_cost
+                break
+            case ivm10e.pricing_adj_base$="R"; rem --- Replacement
+                pricing_adj_base=ivm02a.rep_cost
+                break
+           case default
+                pricing_adj_base=price
+                break
+        swend       
+        
         if ivm10e.pricing_basis$="P" then
-            price = round(ivm02a.unit_cost + ivm02a.unit_cost * (perc / 100), 2)
+            price = round(pricing_adj_base + pricing_adj_base * (perc / 100), 2)
             if ivm02a.cur_price = 0 then break
             disc = round(100 - 100 * (price / ivm02a.cur_price), 2)
             break
         else
-            price = round(ivm02a.unit_cost + amt, 2)
+            price = round(pricing_adj_base + amt, 2)
             if ivm02a.cur_price = 0 then break
             disc = round(100 - 100 * (price / ivm02a.cur_price), 2)
             break
@@ -172,14 +200,42 @@ rem --- Get Item Class
 
     margin_over_cost: rem --- Margin Over Cost
 
+        rem --- Get Pricing Adjustment Base for Margin Over Cost
+        switch (BBjAPI().TRUE)
+            case ivm10e.pricing_adj_base$="U"; rem --- Unit Cost
+                pricing_adj_base=ivm02a.unit_cost
+                break
+            case ivm10e.pricing_adj_base$="L"; rem --- Landed Cost
+                pricing_adj_base=ivm02a.landed_cost
+                break
+            case ivm10e.pricing_adj_base$="P"; rem --- Last Purchase Cost
+                pricing_adj_base=ivm02a.last_po_cost
+                break
+            case ivm10e.pricing_adj_base$="M"; rem --- Manual Price Table Cost
+                pricing_adj_base=ivm02a.price_table_cost
+                break
+            case ivm10e.pricing_adj_base$="A"; rem --- Average Cost
+                pricing_adj_base=ivm02a.avg_cost
+                break
+             case ivm10e.pricing_adj_base$="S"; rem --- Standard Cost
+                pricing_adj_base=ivm02a.std_cost
+                break
+            case ivm10e.pricing_adj_base$="R"; rem --- Replacement
+                pricing_adj_base=ivm02a.rep_cost
+                break
+           case default
+                pricing_adj_base=price
+                break
+        swend       
+
         if ivm10e.pricing_basis$="P" then
             if perc >= 100 then break; rem --- No such thing as 100% margin unless cost=0
-            price = round(ivm02a.unit_cost * 100 / (100 - perc), 2)
+            price = round(pricing_adj_base * 100 / (100 - perc), 2)
             if ivm02a.cur_price = 0 then break
             disc = round(100 - 100 * (price / ivm02a.cur_price), 2)
             break
         else
-            price = round(ivm02a.unit_cost + amt, 2)
+            price = round(pricing_adj_base + amt, 2)
             if ivm02a.cur_price = 0 then break
             disc = round(100 - 100 * (price / ivm02a.cur_price), 2)
             break
@@ -187,12 +243,28 @@ rem --- Get Item Class
 
     mark_down_list_price: rem --- Mark-Down List Price
 
+        rem --- Get Pricing Adjustment Base for Markdown From List
+        switch (BBjAPI().TRUE)
+            case ivm10e.pricing_adj_base$="C"; rem --- Current Price
+                pricing_adj_base=ivm02a.cur_price
+                break
+            case ivm10e.pricing_adj_base$="P"; rem --- Prior Price
+                pricing_adj_base=ivm02a.pri_price
+                break
+            case ivm10e.pricing_adj_base$="M"; rem --- MSRP
+                pricing_adj_base=ivm01a.msrp
+                break
+           case default
+                pricing_adj_base=price
+                break
+        swend       
+
         if ivm10e.pricing_basis$="P" then
-            price = round(ivm02a.cur_price - ivm02a.cur_price * (perc / 100), 2)
+            price = round(pricing_adj_base - pricing_adj_base * (perc / 100), 2)
             disc = perc
             break
         else
-            price = round(ivm02a.cur_price - amt, 2)
+            price = round(pricing_adj_base - amt, 2)
             if ivm02a.cur_price = 0 then break
             disc = round(100 - 100 * (price / ivm02a.cur_price), 2)
             break

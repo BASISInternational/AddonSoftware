@@ -499,6 +499,10 @@ rem --- Set default costs from unit cost
 			callpoint!.setColumnData("IVM_ITEMWHSE.LAST_PO_COST",unit_cost$,1)
 		endif
 
+		if num( callpoint!.getColumnData("IVM_ITEMWHSE.PRICE_TABLE_COST") ) = 0 then
+			callpoint!.setColumnData("IVM_ITEMWHSE.PRICE_TABLE_COST",unit_cost$,1)
+		endif
+
 		if num( callpoint!.getColumnData("IVM_ITEMWHSE.AVG_COST") ) = 0 or callpoint!.getDevObject(cost_method$)="A" then
 			callpoint!.setColumnData("IVM_ITEMWHSE.AVG_COST",unit_cost$,1)
 		endif

@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OPInvoiceDet" language="groovy" pageWidth="554" pageHeight="320" columnWidth="554" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a46c6452-81bd-4023-bafb-8f0488b8a578">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="OPInvoiceDet" language="groovy" pageWidth="554" pageHeight="320" columnWidth="554" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a46c6452-81bd-4023-bafb-8f0488b8a578">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -14,16 +13,14 @@
 	<parameter name="AMT_MASK" class="java.lang.String"/>
 	<parameter name="EXT_MASK" class="java.lang.String"/>
 	<parameter name="BARISTA_WD" class="java.lang.String"/>
-	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+	<parameter name="SUBREPORT_DIR" forPrompting="false" class="java.lang.String">
 		<defaultValueExpression><![CDATA["C:\\Dev_aon\\aon\\reports\\"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="AR_INV_NO" class="java.lang.String"/>
 	<parameter name="ITEM_MASK" class="java.lang.String"/>
 	<parameter name="REPORT_TYPE" class="java.lang.String"/>
 	<parameter name="EXPLODE_PRICED_KIT" class="java.lang.String"/>
-	<queryString language="SQL">
-		<![CDATA[call OPInvoice_Det($P{FIRM_ID},$P{AR_TYPE},$P{CUSTOMER_ID},$P{ORDER_NO},$P{AR_INV_NO},$P{QTY_MASK},$P{AMT_MASK},$P{PRICE_MASK},$P{EXT_MASK},$P{ITEM_MASK},$P{BARISTA_WD},$P{REPORT_TYPE})]]>
-	</queryString>
+	<query language="SQL"><![CDATA[call OPInvoice_Det($P{FIRM_ID},$P{AR_TYPE},$P{CUSTOMER_ID},$P{ORDER_NO},$P{AR_INV_NO},$P{QTY_MASK},$P{AMT_MASK},$P{PRICE_MASK},$P{EXT_MASK},$P{ITEM_MASK},$P{BARISTA_WD},$P{REPORT_TYPE})]]></query>
 	<field name="ORDER_QTY_MASKED" class="java.lang.String"/>
 	<field name="SHIP_QTY_MASKED" class="java.lang.String"/>
 	<field name="BACKORD_QTY_MASKED" class="java.lang.String"/>
@@ -36,292 +33,215 @@
 	<field name="EXTENDED_MASKED" class="java.lang.String"/>
 	<field name="INTERNAL_SEQ_NO" class="java.lang.String"/>
 	<field name="LOTSER_FLAG" class="java.lang.String">
-		<fieldDescription><![CDATA[Item is flagged as Lotted/Serialized]]></fieldDescription>
+		<description><![CDATA[Item is flagged as Lotted/Serialized]]></description>
 	</field>
 	<field name="LINETYPE_ALLOWS_LS" class="java.lang.String">
-		<fieldDescription><![CDATA[Line Type is P or S so may have Lot/SerNum]]></fieldDescription>
+		<description><![CDATA[Line Type is P or S so may have Lot/SerNum]]></description>
 	</field>
 	<field name="SHIP_QTY" class="java.lang.String"/>
 	<field name="KIT" class="java.lang.String"/>
 	<field name="PRICED_KIT" class="java.lang.String"/>
 	<variable name="EXTENDED_BigDec" class="java.math.BigDecimal">
-		<variableExpression><![CDATA[$F{EXTENDED_RAW} == "" ? 0 : new java.math.BigDecimal($F{EXTENDED_RAW})]]></variableExpression>
+		<expression><![CDATA[$F{EXTENDED_RAW} == "" ? 0 : new java.math.BigDecimal($F{EXTENDED_RAW})]]></expression>
 		<initialValueExpression><![CDATA[]]></initialValueExpression>
 	</variable>
 	<group name="LINE_ITEM">
-		<groupExpression><![CDATA[$F{INTERNAL_SEQ_NO}]]></groupExpression>
+		<expression><![CDATA[$F{INTERNAL_SEQ_NO}]]></expression>
 		<groupFooter>
 			<band height="15" splitType="Stretch">
-				<subreport>
-					<reportElement x="0" y="0" width="555" height="15" isRemoveLineWhenBlank="true" uuid="8c3bdbc6-c025-4818-96eb-9a460c53d528">
-						<printWhenExpression><![CDATA[($F{LOTSER_FLAG}=="L" || $F{LOTSER_FLAG}=="S")
+				<element kind="subreport" uuid="8c3bdbc6-c025-4818-96eb-9a460c53d528" x="0" y="0" width="555" height="15" removeLineWhenBlank="true">
+					<printWhenExpression><![CDATA[($F{LOTSER_FLAG}=="L" || $F{LOTSER_FLAG}=="S")
  && $F{LINETYPE_ALLOWS_LS} == "Y"]]></printWhenExpression>
-					</reportElement>
-					<subreportParameter name="QTY_MASK">
-						<subreportParameterExpression><![CDATA[$P{QTY_MASK}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="OPE11_QTY_SHIPPED">
-						<subreportParameterExpression><![CDATA[$F{SHIP_QTY}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="BARISTA_WD">
-						<subreportParameterExpression><![CDATA[$P{BARISTA_WD}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="AR_TYPE">
-						<subreportParameterExpression><![CDATA[$P{AR_TYPE}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="ORDER_NO">
-						<subreportParameterExpression><![CDATA[$P{ORDER_NO}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="AR_INV_NO">
-						<subreportParameterExpression><![CDATA[$P{AR_INV_NO}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="FIRM_ID">
-						<subreportParameterExpression><![CDATA[$P{FIRM_ID}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="CUSTOMER_ID">
-						<subreportParameterExpression><![CDATA[$P{CUSTOMER_ID}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="ITEM_ID">
-						<subreportParameterExpression><![CDATA[$F{ITEM_ID}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="INTERNAL_SEQ_NO">
-						<subreportParameterExpression><![CDATA[$F{INTERNAL_SEQ_NO}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="QTY_MASK_PATTERN">
-						<subreportParameterExpression><![CDATA[$P{QTY_MASK_PATTERN}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="REPORT_TYPE">
-						<subreportParameterExpression><![CDATA[$P{REPORT_TYPE}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="SHADE_BACKCOLOR">
-						<subreportParameterExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="LOTSER_FLAG">
-						<subreportParameterExpression><![CDATA[$F{LOTSER_FLAG}]]></subreportParameterExpression>
-					</subreportParameter>
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					<subreportExpression><![CDATA["OPInvoiceDet-LotSer.jasper"]]></subreportExpression>
-				</subreport>
-				<subreport>
-					<reportElement x="0" y="0" width="555" height="15" isRemoveLineWhenBlank="true" uuid="762ba89a-795a-473a-a8f9-d2cdd75a7a63">
-						<property name="com.jaspersoft.studio.unit.x" value="px"/>
-						<property name="com.jaspersoft.studio.unit.y" value="px"/>
-						<property name="com.jaspersoft.studio.unit.height" value="px"/>
-						<property name="com.jaspersoft.studio.unit.width" value="px"/>
-						<printWhenExpression><![CDATA[$F{KIT}=="Y" && ($F{PRICED_KIT}!="Y" || ($F{PRICED_KIT}=="Y" && $P{EXPLODE_PRICED_KIT}=="Y"))]]></printWhenExpression>
-					</reportElement>
-					<subreportParameter name="AR_TYPE">
-						<subreportParameterExpression><![CDATA[$P{AR_TYPE}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="CUSTOMER_ID">
-						<subreportParameterExpression><![CDATA[$P{CUSTOMER_ID}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="ORDER_NO">
-						<subreportParameterExpression><![CDATA[$P{ORDER_NO}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="QTY_MASK">
-						<subreportParameterExpression><![CDATA[$P{QTY_MASK}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="QTY_MASK_PATTERN">
-						<subreportParameterExpression><![CDATA[$P{QTY_MASK_PATTERN}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="PRICE_MASK">
-						<subreportParameterExpression><![CDATA[$P{PRICE_MASK}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="AMT_MASK">
-						<subreportParameterExpression><![CDATA[$P{AMT_MASK}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="EXT_MASK">
-						<subreportParameterExpression><![CDATA[$P{EXT_MASK}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="BARISTA_WD">
-						<subreportParameterExpression><![CDATA[$P{BARISTA_WD}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="AR_INV_NO">
-						<subreportParameterExpression><![CDATA[$P{AR_INV_NO}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="ITEM_MASK">
-						<subreportParameterExpression><![CDATA[$P{ITEM_MASK}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="REPORT_TYPE">
-						<subreportParameterExpression><![CDATA[$P{REPORT_TYPE}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="FIRM_ID">
-						<subreportParameterExpression><![CDATA[$P{FIRM_ID}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="SHADE_BACKCOLOR">
-						<subreportParameterExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="INTERNAL_SEQ_NO">
-						<subreportParameterExpression><![CDATA[$F{INTERNAL_SEQ_NO}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="PRICED_KIT">
-						<subreportParameterExpression><![CDATA[$F{PRICED_KIT}]]></subreportParameterExpression>
-					</subreportParameter>
-					<subreportParameter name="EXPLODE_PRICED_KIT">
-						<subreportParameterExpression><![CDATA[$P{EXPLODE_PRICED_KIT}]]></subreportParameterExpression>
-					</subreportParameter>
+					<expression><![CDATA["OPInvoiceDet-LotSer.jasper"]]></expression>
+					<parameter name="QTY_MASK">
+						<expression><![CDATA[$P{QTY_MASK}]]></expression>
+					</parameter>
+					<parameter name="OPE11_QTY_SHIPPED">
+						<expression><![CDATA[$F{SHIP_QTY}]]></expression>
+					</parameter>
+					<parameter name="BARISTA_WD">
+						<expression><![CDATA[$P{BARISTA_WD}]]></expression>
+					</parameter>
+					<parameter name="AR_TYPE">
+						<expression><![CDATA[$P{AR_TYPE}]]></expression>
+					</parameter>
+					<parameter name="ORDER_NO">
+						<expression><![CDATA[$P{ORDER_NO}]]></expression>
+					</parameter>
+					<parameter name="AR_INV_NO">
+						<expression><![CDATA[$P{AR_INV_NO}]]></expression>
+					</parameter>
+					<parameter name="FIRM_ID">
+						<expression><![CDATA[$P{FIRM_ID}]]></expression>
+					</parameter>
+					<parameter name="CUSTOMER_ID">
+						<expression><![CDATA[$P{CUSTOMER_ID}]]></expression>
+					</parameter>
+					<parameter name="ITEM_ID">
+						<expression><![CDATA[$F{ITEM_ID}]]></expression>
+					</parameter>
+					<parameter name="INTERNAL_SEQ_NO">
+						<expression><![CDATA[$F{INTERNAL_SEQ_NO}]]></expression>
+					</parameter>
+					<parameter name="QTY_MASK_PATTERN">
+						<expression><![CDATA[$P{QTY_MASK_PATTERN}]]></expression>
+					</parameter>
+					<parameter name="REPORT_TYPE">
+						<expression><![CDATA[$P{REPORT_TYPE}]]></expression>
+					</parameter>
+					<parameter name="SHADE_BACKCOLOR">
+						<expression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></expression>
+					</parameter>
+					<parameter name="LOTSER_FLAG">
+						<expression><![CDATA[$F{LOTSER_FLAG}]]></expression>
+					</parameter>
+				</element>
+				<element kind="subreport" uuid="762ba89a-795a-473a-a8f9-d2cdd75a7a63" x="0" y="0" width="555" height="15" removeLineWhenBlank="true">
+					<printWhenExpression><![CDATA[$F{KIT}=="Y" && ($F{PRICED_KIT}!="Y" || ($F{PRICED_KIT}=="Y" && $P{EXPLODE_PRICED_KIT}=="Y"))]]></printWhenExpression>
 					<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					<subreportExpression><![CDATA["OPInvoiceDet-KitComp.jasper"]]></subreportExpression>
-				</subreport>
+					<expression><![CDATA["OPInvoiceDet-KitComp.jasper"]]></expression>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<parameter name="AR_TYPE">
+						<expression><![CDATA[$P{AR_TYPE}]]></expression>
+					</parameter>
+					<parameter name="CUSTOMER_ID">
+						<expression><![CDATA[$P{CUSTOMER_ID}]]></expression>
+					</parameter>
+					<parameter name="ORDER_NO">
+						<expression><![CDATA[$P{ORDER_NO}]]></expression>
+					</parameter>
+					<parameter name="QTY_MASK">
+						<expression><![CDATA[$P{QTY_MASK}]]></expression>
+					</parameter>
+					<parameter name="QTY_MASK_PATTERN">
+						<expression><![CDATA[$P{QTY_MASK_PATTERN}]]></expression>
+					</parameter>
+					<parameter name="PRICE_MASK">
+						<expression><![CDATA[$P{PRICE_MASK}]]></expression>
+					</parameter>
+					<parameter name="AMT_MASK">
+						<expression><![CDATA[$P{AMT_MASK}]]></expression>
+					</parameter>
+					<parameter name="EXT_MASK">
+						<expression><![CDATA[$P{EXT_MASK}]]></expression>
+					</parameter>
+					<parameter name="BARISTA_WD">
+						<expression><![CDATA[$P{BARISTA_WD}]]></expression>
+					</parameter>
+					<parameter name="AR_INV_NO">
+						<expression><![CDATA[$P{AR_INV_NO}]]></expression>
+					</parameter>
+					<parameter name="ITEM_MASK">
+						<expression><![CDATA[$P{ITEM_MASK}]]></expression>
+					</parameter>
+					<parameter name="REPORT_TYPE">
+						<expression><![CDATA[$P{REPORT_TYPE}]]></expression>
+					</parameter>
+					<parameter name="FIRM_ID">
+						<expression><![CDATA[$P{FIRM_ID}]]></expression>
+					</parameter>
+					<parameter name="SHADE_BACKCOLOR">
+						<expression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></expression>
+					</parameter>
+					<parameter name="INTERNAL_SEQ_NO">
+						<expression><![CDATA[$F{INTERNAL_SEQ_NO}]]></expression>
+					</parameter>
+					<parameter name="PRICED_KIT">
+						<expression><![CDATA[$F{PRICED_KIT}]]></expression>
+					</parameter>
+					<parameter name="EXPLODE_PRICED_KIT">
+						<expression><![CDATA[$P{EXPLODE_PRICED_KIT}]]></expression>
+					</parameter>
+				</element>
 			</band>
 		</groupFooter>
 	</group>
-	<columnHeader>
-		<band splitType="Stretch"/>
-	</columnHeader>
+	<columnHeader splitType="Stretch"/>
 	<detail>
 		<band height="13" splitType="Prevent">
+			<element kind="rectangle" uuid="626ec31b-09bc-48f4-9589-72823189b525" stretchType="ContainerHeight" mode="Opaque" x="0" y="0" width="555" height="13" backcolor="#EBF0FA" removeLineWhenBlank="true">
+				<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				<pen lineColor="#C0C0C0"/>
+			</element>
+			<element kind="rectangle" uuid="b1116a26-2602-425e-9572-ce7122f89812" stretchType="ContainerHeight" mode="Transparent" x="0" y="0" width="555" height="13" removeLineWhenBlank="true">
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				<pen lineColor="#C0C0C0"/>
+			</element>
+			<element kind="textField" uuid="98d29c70-c7e5-4189-bb3e-36402a88c3f1" x="1" y="0" width="54" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Right" vTextAlign="Middle">
+				<paragraph rightIndent="2"/>
+				<expression><![CDATA[$F{ORDER_QTY_MASKED}]]></expression>
+				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+			</element>
+			<element kind="textField" uuid="38e5a190-7bac-4798-a763-d4c94818d674" x="57" y="0" width="54" height="12" fontName="DejaVu Serif" fontSize="9.0" pattern="" hTextAlign="Right" vTextAlign="Middle">
+				<paragraph rightIndent="2"/>
+				<expression><![CDATA[$F{SHIP_QTY_MASKED}]]></expression>
+				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			</element>
+			<element kind="textField" uuid="33322784-2b92-46b5-b60c-5ab20b8e761b" x="113" y="0" width="54" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Right" vTextAlign="Middle">
+				<paragraph rightIndent="2"/>
+				<expression><![CDATA[$F{BACKORD_QTY_MASKED}]]></expression>
+				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			</element>
+			<element kind="textField" uuid="c0cbc277-7b10-4c8c-a02f-2d5b393581f6" x="376" y="0" width="45" height="12" fontName="DejaVu Serif" fontSize="9.0" hTextAlign="Center" vTextAlign="Middle">
+				<paragraph leftIndent="2"/>
+				<expression><![CDATA[$F{UM}]]></expression>
+				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			</element>
+			<element kind="textField" uuid="fd47875b-62b2-4740-a635-a0d0127fe1fb" x="423" y="0" width="55" height="12" fontName="DejaVu Serif" fontSize="9.0" pattern="" hTextAlign="Right" vTextAlign="Middle">
+				<paragraph rightIndent="2"/>
+				<expression><![CDATA[$F{PRICE_MASKED}]]></expression>
+				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			</element>
+			<element kind="textField" uuid="b25b194d-d0cd-4cb1-aae9-5ee3dafcc976" x="478" y="0" width="75" height="12" fontName="DejaVu Serif" fontSize="9.0" pattern="" hTextAlign="Right" vTextAlign="Middle">
+				<paragraph rightIndent="2"/>
+				<expression><![CDATA[$F{EXTENDED_MASKED}]]></expression>
+				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			</element>
+			<element kind="textField" uuid="b9da765f-f80c-497f-91ff-a1c840042b80" x="169" y="0" width="205" height="12" fontName="DejaVu Serif" fontSize="9.0" textAdjust="StretchHeight" removeLineWhenBlank="true" vTextAlign="Middle">
+				<paragraph leftIndent="2"/>
+				<expression><![CDATA[$F{ITEM_DESC}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+			</element>
+			<element kind="line" uuid="6284367a-502d-49fc-811c-7cc72929952d" stretchType="ContainerHeight" x="0" y="0" width="1" height="13" removeLineWhenBlank="true" printWhenDetailOverflows="true">
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				<pen lineColor="#C0C0C0"/>
+			</element>
+			<element kind="line" uuid="c04a8c3a-33e9-4e9a-b857-4032f3fc3f5c" stretchType="ContainerHeight" x="56" y="0" width="1" height="13" removeLineWhenBlank="true" printWhenDetailOverflows="true">
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<pen lineColor="#C0C0C0"/>
+			</element>
+			<element kind="line" uuid="4969eec7-b7af-4858-8274-8959e5e55eb5" stretchType="ContainerHeight" x="112" y="0" width="1" height="13" removeLineWhenBlank="true" printWhenDetailOverflows="true">
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<pen lineColor="#C0C0C0"/>
+			</element>
+			<element kind="line" uuid="65ca3ebe-1866-4bd5-b871-8c069c9d3fe2" stretchType="ContainerHeight" x="168" y="0" width="1" height="13" removeLineWhenBlank="true" printWhenDetailOverflows="true">
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<pen lineColor="#C0C0C0"/>
+			</element>
+			<element kind="line" uuid="a561641f-9fe0-4365-b71a-5a83ab99ec5d" stretchType="ContainerHeight" x="375" y="0" width="1" height="13" removeLineWhenBlank="true" printWhenDetailOverflows="true">
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<pen lineColor="#C0C0C0"/>
+			</element>
+			<element kind="line" uuid="9ac34d2b-a7a1-4768-ae29-12cba66ae0a8" stretchType="ContainerHeight" x="422" y="0" width="1" height="13" removeLineWhenBlank="true" printWhenDetailOverflows="true">
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<pen lineColor="#C0C0C0"/>
+			</element>
+			<element kind="line" uuid="6f7b4aff-b78a-4599-8971-f4ef065949f2" stretchType="ContainerHeight" x="477" y="0" width="1" height="13" removeLineWhenBlank="true" printWhenDetailOverflows="true">
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<pen lineColor="#C0C0C0"/>
+			</element>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
-			<rectangle>
-				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="555" height="13" isRemoveLineWhenBlank="true" backcolor="#EBF0FA" uuid="626ec31b-09bc-48f4-9589-72823189b525">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
-				</reportElement>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
-				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="555" height="13" isRemoveLineWhenBlank="true" uuid="b1116a26-2602-425e-9572-ce7122f89812">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</rectangle>
-			<textField>
-				<reportElement x="1" y="0" width="54" height="12" uuid="98d29c70-c7e5-4189-bb3e-36402a88c3f1">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="9"/>
-					<paragraph rightIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{ORDER_QTY_MASKED}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="57" y="0" width="54" height="12" uuid="38e5a190-7bac-4798-a763-d4c94818d674">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="9"/>
-					<paragraph rightIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{SHIP_QTY_MASKED}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="113" y="0" width="54" height="12" uuid="33322784-2b92-46b5-b60c-5ab20b8e761b">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="9"/>
-					<paragraph rightIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{BACKORD_QTY_MASKED}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="376" y="0" width="45" height="12" uuid="c0cbc277-7b10-4c8c-a02f-2d5b393581f6">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="9"/>
-					<paragraph leftIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{UM}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="423" y="0" width="55" height="12" uuid="fd47875b-62b2-4740-a635-a0d0127fe1fb">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="9"/>
-					<paragraph rightIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{PRICE_MASKED}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="478" y="0" width="75" height="12" uuid="b25b194d-d0cd-4cb1-aae9-5ee3dafcc976">
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="9"/>
-					<paragraph rightIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{EXTENDED_MASKED}]]></textFieldExpression>
-			</textField>
-			<textField textAdjust="StretchHeight">
-				<reportElement x="169" y="0" width="205" height="12" isRemoveLineWhenBlank="true" uuid="b9da765f-f80c-497f-91ff-a1c840042b80">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="9"/>
-					<paragraph leftIndent="2"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{ITEM_DESC}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="1" height="13" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="6284367a-502d-49fc-811c-7cc72929952d">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</line>
-			<line>
-				<reportElement stretchType="RelativeToBandHeight" x="56" y="0" width="1" height="13" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="c04a8c3a-33e9-4e9a-b857-4032f3fc3f5c">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</line>
-			<line>
-				<reportElement stretchType="RelativeToBandHeight" x="112" y="0" width="1" height="13" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="4969eec7-b7af-4858-8274-8959e5e55eb5">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</line>
-			<line>
-				<reportElement stretchType="RelativeToBandHeight" x="168" y="0" width="1" height="13" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="65ca3ebe-1866-4bd5-b871-8c069c9d3fe2">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</line>
-			<line>
-				<reportElement stretchType="RelativeToBandHeight" x="375" y="0" width="1" height="13" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="a561641f-9fe0-4365-b71a-5a83ab99ec5d">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</line>
-			<line>
-				<reportElement stretchType="RelativeToBandHeight" x="422" y="0" width="1" height="13" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="9ac34d2b-a7a1-4768-ae29-12cba66ae0a8">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</line>
-			<line>
-				<reportElement stretchType="RelativeToBandHeight" x="477" y="0" width="1" height="13" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="6f7b4aff-b78a-4599-8971-f4ef065949f2">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<graphicElement>
-					<pen lineColor="#C0C0C0"/>
-				</graphicElement>
-			</line>
 		</band>
 	</detail>
 </jasperReport>

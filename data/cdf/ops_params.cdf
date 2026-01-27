@@ -86,16 +86,17 @@ rem --- Are Bill Of Materials and Shop Floor installed?
 
 rem --- Open files
 
-	num_files=3
-	if bm_sf$="Y" then num_files=5
+	num_files=4
+	if bm_sf$="Y" then num_files=6
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="GLS_PARAMS",open_opts$[1]="OTA"
 	open_tables$[2]="ARS_PARAMS",open_opts$[2]="OTA"
+	open_tables$[3]="OPC_LINECODE",open_opts$[3]="OTA"
+	open_tables$[4]="OPM_POINTOFSALE",open_opts$[4]="OTA"
 	if bm_sf$="Y" then
-		open_tables$[3]="SFS_PARAMS",open_opts$[3]="OTA"
-		open_tables$[4]="SFC_WOTYPECD",open_opts$[4]="OTA"
+		open_tables$[5]="SFS_PARAMS",open_opts$[5]="OTA"
+		open_tables$[6]="SFC_WOTYPECD",open_opts$[6]="OTA"
 	endif
-	open_tables$[5]="OPC_LINECODE",open_opts$[5]="OTA"
 
 	gosub open_tables
 
@@ -140,8 +141,8 @@ rem --- Check if SF is interfacing with OP
 
 	sf_interface$="N"
 	if bm_sf$="Y" then
-		sfs01_dev=num(open_chans$[3])
-		dim sfs01a$:open_tpls$[3]
+		sfs01_dev=num(open_chans$[5])
+		dim sfs01a$:open_tpls$[5]
 		findrecord(sfs01_dev,key=firm_id$+"SF00",dom=*endif)sfs01a$
 		sf_interface$=sfs01a.ar_interface$
 	endif
@@ -189,6 +190,29 @@ rem --- TAX_SVC_CD_SRC is required when using a sales tax service
 		gosub disp_message
 
 		callpoint!.setFocus("OPS_PARAMS.TAX_SVC_CD_SRC")
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+[[OPS_PARAMS.CUSTOMER_ID.AVAL]]
+rem --- Do not allow a POS default Quote customer to be used for the default Cash customer
+	quoteCustomer=0
+	customer_id$=callpoint!.getUserInput()
+	opmPointOfSale_dev=fnget_dev("OPM_POINTOFSALE")
+	dim opmPointOfSale$:fnget_tpl$("OPM_POINTOFSALE")
+	read(opmPointOfSale_dev,key=firm_id$,dom=*next)
+	while 1
+		opmPointOfSale_key$=key(opmPointOfSale_dev,end=*break)
+		if pos(firm_id$=opmPointOfSale_key$)<>1 then break
+		readrecord(opmPointOfSale_dev)opmPointOfSale$
+		if customer_id$=opmPointOfSale.quote_cust_id$ then
+			quoteCustomer=1
+			break
+		endif
+	wend
+	if quoteCustomer then
+		msg_id$="OP_QUOTE_CUST_CANNOT"
+		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break
 	endif

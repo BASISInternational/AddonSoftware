@@ -1,51 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ItemDetail_syn" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="ItemDetail_syn" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="9a937e08-11c2-4232-bbf7-c998460ad974">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<template><![CDATA["StyleTemplate.jrtx"]]></template>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="ITEM_ID" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[select item_synonym from ivm_itemsyn where firm_id = $P{FIRM_ID} and item_id = $P{ITEM_ID}]]>
-	</queryString>
+	<query language="sql"><![CDATA[select item_synonym from ivm_itemsyn where firm_id = $P{FIRM_ID} and item_id = $P{ITEM_ID}]]></query>
 	<field name="ITEM_SYNONYM" class="java.lang.String"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band height="22" splitType="Stretch">
-			<textField>
-				<reportElement mode="Opaque" x="0" y="0" width="572" height="13" backcolor="#ECECEC"/>
-				<textElement verticalAlignment="Middle">
-					<paragraph leftIndent="3"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_ITEM_SYNONYMS}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background splitType="Stretch"/>
+	<title splitType="Stretch"/>
+	<pageHeader height="22" splitType="Stretch">
+		<element kind="textField" uuid="a65406c8-1e64-43c0-ba86-53d755fdbff5" mode="Opaque" x="0" y="0" width="572" height="13" backcolor="#ECECEC" vTextAlign="Middle">
+			<paragraph leftIndent="3"/>
+			<expression><![CDATA[$R{AON_ITEM_SYNONYMS}]]></expression>
+		</element>
 	</pageHeader>
-	<columnHeader>
-		<band splitType="Stretch"/>
-	</columnHeader>
+	<columnHeader splitType="Stretch"/>
 	<detail>
 		<band height="16" splitType="Stretch">
-			<textField>
-				<reportElement x="3" y="0" width="158" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{ITEM_SYNONYM}]]></textFieldExpression>
-			</textField>
+			<element kind="textField" uuid="b7ee09b7-2e59-458e-9a30-77dc34f5704b" x="3" y="0" width="158" height="13">
+				<expression><![CDATA[$F{ITEM_SYNONYM}]]></expression>
+			</element>
 		</band>
 	</detail>
-	<columnFooter>
-		<band splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band splitType="Stretch"/>
-	</summary>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter splitType="Stretch"/>
+	<summary splitType="Stretch"/>
 </jasperReport>

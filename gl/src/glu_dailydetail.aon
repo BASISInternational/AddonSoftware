@@ -163,6 +163,7 @@ rem          if gls01a.retain_det$<>"Y" goto remove_detail
           glt06a.dealer_num_01=glt04a.dealer_num_01
           glt06a.dealer_num_02=glt04a.dealer_num_02
           glt06a.dealer_num_03=glt04a.dealer_num_03
+          glt06a.updt_timestamp=date(0:"%Y%Mz%Dz %Hz:%mz:%sz")
           glt06_key$=glt06a.firm_id$+glt06a.gl_account$+glt06a.posting_year$+
 :                    glt06a.posting_per$+glt06a.trns_date$+glt06a.journal_id$+glt06a.gl_adt_no$+$FFFFFFFFFF$
 

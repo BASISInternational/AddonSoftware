@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
-<!-- 2019-10-23T10:56:04 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="POReplenishment_product" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="750" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="8deec5e7-4376-405a-a12a-ef1561d782f9">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="POReplenishment_product" language="java" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="750" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="8deec5e7-4376-405a-a12a-ef1561d782f9">
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="BARISTA_WD" class="java.lang.String"/>
@@ -20,11 +18,9 @@
 	<parameter name="WHSE_DETAIL" class="java.lang.String"/>
 	<parameter name="SUGG_ITEMSONLY" class="java.lang.String"/>
 	<parameter name="UNITS_MASK_PATTERN" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[CALL POREPLENISHMENT_PRODUCT ($P{FIRM_ID}, $P{BUYER_CODE}, $P{VENDOR_ID}, $P{BARISTA_WD}, 
+	<query language="sql"><![CDATA[CALL POREPLENISHMENT_PRODUCT ($P{FIRM_ID}, $P{BUYER_CODE}, $P{VENDOR_ID}, $P{BARISTA_WD}, 
 	$P{SUGG_ITEMSONLY}
-)]]>
-	</queryString>
+)]]></query>
 	<field name="PRODUCT_TYPE" class="java.lang.String"/>
 	<field name="PRODUCT" class="java.lang.String"/>
 	<field name="HAVE_ITEMS" class="java.lang.String"/>
@@ -40,149 +36,115 @@
 	<variable name="PRODUCT_TOTAL_EXTENSION" class="java.math.BigDecimal">
 		<initialValueExpression><![CDATA[BigDecimal.valueOf(0)]]></initialValueExpression>
 	</variable>
-	<variable name="VENDOR_TOTAL_SUGGESTED_ORDER_QTY" class="java.math.BigDecimal" calculation="Sum">
-		<variableExpression><![CDATA[new java.math.BigDecimal($F{PROD_TOT_SUGG_ORDER_QTY})]]></variableExpression>
+	<variable name="VENDOR_TOTAL_SUGGESTED_ORDER_QTY" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[new java.math.BigDecimal($F{PROD_TOT_SUGG_ORDER_QTY})]]></expression>
 		<initialValueExpression><![CDATA[BigDecimal.valueOf(0)]]></initialValueExpression>
 	</variable>
-	<variable name="VENDOR_TOTAL_TOTAL_WEIGHT" class="java.math.BigDecimal" calculation="Sum">
-		<variableExpression><![CDATA[new java.math.BigDecimal($F{PROD_TOT_TOTAL_WEIGHT})]]></variableExpression>
+	<variable name="VENDOR_TOTAL_TOTAL_WEIGHT" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[new java.math.BigDecimal($F{PROD_TOT_TOTAL_WEIGHT})]]></expression>
 		<initialValueExpression><![CDATA[BigDecimal.valueOf(0)]]></initialValueExpression>
 	</variable>
-	<variable name="VENDOR_TOTAL_EXTENSION" class="java.math.BigDecimal" calculation="Sum">
-		<variableExpression><![CDATA[new java.math.BigDecimal($F{PROD_TOT_EXTENDED_AMT})]]></variableExpression>
+	<variable name="VENDOR_TOTAL_EXTENSION" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[new java.math.BigDecimal($F{PROD_TOT_EXTENDED_AMT})]]></expression>
 		<initialValueExpression><![CDATA[BigDecimal.valueOf(0)]]></initialValueExpression>
 	</variable>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
+	<background splitType="Stretch"/>
 	<detail>
 		<band height="9">
+			<element kind="textField" uuid="86945799-830a-4aab-a80d-cd1b6b0c916d" x="0" y="0" width="30" height="9" fontSize="7.0" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_PRODUCT}+":"]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+			</element>
+			<element kind="textField" uuid="ab2db29f-e149-4c27-a023-b1eb69321ea0" x="33" y="0" width="100" height="9" fontSize="7.0">
+				<expression><![CDATA[$F{PRODUCT}]]></expression>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			</element>
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-			<textField>
-				<reportElement x="0" y="0" width="30" height="9" uuid="86945799-830a-4aab-a80d-cd1b6b0c916d">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_PRODUCT}+":"]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="33" y="0" width="100" height="9" uuid="ab2db29f-e149-4c27-a023-b1eb69321ea0">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement>
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{PRODUCT}]]></textFieldExpression>
-			</textField>
 		</band>
 		<band height="18" splitType="Stretch">
-			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<printWhenExpression><![CDATA[$F{HAVE_ITEMS}.equals( "Y" )]]></printWhenExpression>
-			<subreport isUsingCache="true">
-				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="750" height="18" uuid="7d83662f-1a6c-49c8-a350-e5adb6c5a618">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-				</reportElement>
-				<subreportParameter name="FIRM_ID">
-					<subreportParameterExpression><![CDATA[$P{FIRM_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BUYER_CODE">
-					<subreportParameterExpression><![CDATA[$P{BUYER_CODE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="VENDOR_ID">
-					<subreportParameterExpression><![CDATA[$P{VENDOR_ID}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="PRODUCT_TYPE">
-					<subreportParameterExpression><![CDATA[$F{PRODUCT_TYPE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="BARISTA_WD">
-					<subreportParameterExpression><![CDATA[$P{BARISTA_WD}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="ITEM_LEN">
-					<subreportParameterExpression><![CDATA[$P{ITEM_LEN}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="AMOUNT_MASK">
-					<subreportParameterExpression><![CDATA[$P{AMOUNT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="COST_MASK">
-					<subreportParameterExpression><![CDATA[$P{COST_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="ITEM_MASK">
-					<subreportParameterExpression><![CDATA[$P{ITEM_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="UNITS_MASK">
-					<subreportParameterExpression><![CDATA[$P{UNITS_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="WEIGHT_MASK">
-					<subreportParameterExpression><![CDATA[$P{WEIGHT_MASK}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="REVIEW_DATE">
-					<subreportParameterExpression><![CDATA[$P{REVIEW_DATE}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="WHSE_DETAIL">
-					<subreportParameterExpression><![CDATA[$P{WHSE_DETAIL}]]></subreportParameterExpression>
-				</subreportParameter>
-				<subreportParameter name="SUGG_ITEMSONLY">
-					<subreportParameterExpression><![CDATA[$P{SUGG_ITEMSONLY}]]></subreportParameterExpression>
-				</subreportParameter>
+			<element kind="subreport" uuid="7d83662f-1a6c-49c8-a350-e5adb6c5a618" stretchType="ElementGroupHeight" x="0" y="0" width="750" height="18" usingCache="true">
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<returnValue subreportVariable="PRODUCT_TOTAL_SUGGESTED_ORDER_QTY" toVariable="PRODUCT_TOTAL_SUGGESTED_ORDER_QTY"/>
-				<returnValue subreportVariable="PRODUCT_TOTAL_TOTAL_WEIGHT" toVariable="PRODUCT_TOTAL_TOTAL_WEIGHT"/>
-				<returnValue subreportVariable="PRODUCT_TOTAL_EXTENSION" toVariable="PRODUCT_TOTAL_EXTENSION"/>
-				<subreportExpression><![CDATA["POReplenishment_item.jasper"]]></subreportExpression>
-			</subreport>
+				<expression><![CDATA["POReplenishment_item.jasper"]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				<returnValue toVariable="PRODUCT_TOTAL_SUGGESTED_ORDER_QTY" subreportVariable="PRODUCT_TOTAL_SUGGESTED_ORDER_QTY"/>
+				<returnValue toVariable="PRODUCT_TOTAL_TOTAL_WEIGHT" subreportVariable="PRODUCT_TOTAL_TOTAL_WEIGHT"/>
+				<returnValue toVariable="PRODUCT_TOTAL_EXTENSION" subreportVariable="PRODUCT_TOTAL_EXTENSION"/>
+				<parameter name="FIRM_ID">
+					<expression><![CDATA[$P{FIRM_ID}]]></expression>
+				</parameter>
+				<parameter name="BUYER_CODE">
+					<expression><![CDATA[$P{BUYER_CODE}]]></expression>
+				</parameter>
+				<parameter name="VENDOR_ID">
+					<expression><![CDATA[$P{VENDOR_ID}]]></expression>
+				</parameter>
+				<parameter name="PRODUCT_TYPE">
+					<expression><![CDATA[$F{PRODUCT_TYPE}]]></expression>
+				</parameter>
+				<parameter name="BARISTA_WD">
+					<expression><![CDATA[$P{BARISTA_WD}]]></expression>
+				</parameter>
+				<parameter name="ITEM_LEN">
+					<expression><![CDATA[$P{ITEM_LEN}]]></expression>
+				</parameter>
+				<parameter name="AMOUNT_MASK">
+					<expression><![CDATA[$P{AMOUNT_MASK}]]></expression>
+				</parameter>
+				<parameter name="COST_MASK">
+					<expression><![CDATA[$P{COST_MASK}]]></expression>
+				</parameter>
+				<parameter name="ITEM_MASK">
+					<expression><![CDATA[$P{ITEM_MASK}]]></expression>
+				</parameter>
+				<parameter name="UNITS_MASK">
+					<expression><![CDATA[$P{UNITS_MASK}]]></expression>
+				</parameter>
+				<parameter name="WEIGHT_MASK">
+					<expression><![CDATA[$P{WEIGHT_MASK}]]></expression>
+				</parameter>
+				<parameter name="REVIEW_DATE">
+					<expression><![CDATA[$P{REVIEW_DATE}]]></expression>
+				</parameter>
+				<parameter name="WHSE_DETAIL">
+					<expression><![CDATA[$P{WHSE_DETAIL}]]></expression>
+				</parameter>
+				<parameter name="SUGG_ITEMSONLY">
+					<expression><![CDATA[$P{SUGG_ITEMSONLY}]]></expression>
+				</parameter>
+			</element>
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 		</band>
 		<band height="18">
-			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-			<textField>
-				<reportElement x="485" y="9" width="100" height="9" uuid="a27197a3-27d7-4766-b65f-3e36c60b62d3">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_TOTAL_FOR_PRODUCT_TYPE_}+$F{PRODUCT_TYPE}.trim()]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="585" y="9" width="55" height="9" uuid="bf759762-3134-4813-81e4-8f804a8f1e64">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{HAVE_ITEMS}.equals( "Y" ) ? $V{PRODUCT_TOTAL_SUGGESTED_ORDER_QTY} : new BigDecimal($F{PROD_TOT_SUGG_ORDER_QTY})]]></textFieldExpression>
+			<element kind="textField" uuid="a27197a3-27d7-4766-b65f-3e36c60b62d3" x="485" y="9" width="100" height="9" fontSize="7.0" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_TOTAL_FOR_PRODUCT_TYPE_}+$F{PRODUCT_TYPE}.trim()]]></expression>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			</element>
+			<element kind="textField" uuid="bf759762-3134-4813-81e4-8f804a8f1e64" x="585" y="9" width="55" height="9" fontSize="7.0" hTextAlign="Right">
+				<expression><![CDATA[$F{HAVE_ITEMS}.equals( "Y" ) ? $V{PRODUCT_TOTAL_SUGGESTED_ORDER_QTY} : new BigDecimal($F{PROD_TOT_SUGG_ORDER_QTY})]]></expression>
 				<patternExpression><![CDATA[$P{UNITS_MASK_PATTERN}]]></patternExpression>
-			</textField>
-			<textField>
-				<reportElement x="640" y="9" width="55" height="9" uuid="1cbfc2af-e3b2-44a5-a241-3c4e09088922">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{HAVE_ITEMS}.equals( "Y" ) ? $V{PRODUCT_TOTAL_TOTAL_WEIGHT} : new BigDecimal($F{PROD_TOT_TOTAL_WEIGHT})]]></textFieldExpression>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			</element>
+			<element kind="textField" uuid="1cbfc2af-e3b2-44a5-a241-3c4e09088922" x="640" y="9" width="55" height="9" fontSize="7.0" hTextAlign="Right">
+				<expression><![CDATA[$F{HAVE_ITEMS}.equals( "Y" ) ? $V{PRODUCT_TOTAL_TOTAL_WEIGHT} : new BigDecimal($F{PROD_TOT_TOTAL_WEIGHT})]]></expression>
 				<patternExpression><![CDATA[$P{WEIGHT_MASK_PATTERN}]]></patternExpression>
-			</textField>
-			<textField evaluationTime="Band">
-				<reportElement x="695" y="9" width="55" height="9" uuid="718a9e76-a2b2-4f1a-8337-94d8e21d44c2">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right">
-					<font size="7"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{HAVE_ITEMS}.equals( "Y" ) ? $V{PRODUCT_TOTAL_EXTENSION} : new BigDecimal($F{PROD_TOT_EXTENDED_AMT})]]></textFieldExpression>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			</element>
+			<element kind="textField" uuid="718a9e76-a2b2-4f1a-8337-94d8e21d44c2" x="695" y="9" width="55" height="9" fontSize="7.0" evaluationTime="Band" hTextAlign="Right">
+				<expression><![CDATA[$F{HAVE_ITEMS}.equals( "Y" ) ? $V{PRODUCT_TOTAL_EXTENSION} : new BigDecimal($F{PROD_TOT_EXTENDED_AMT})]]></expression>
 				<patternExpression><![CDATA[$P{AMOUNT_MASK_PATTERN}]]></patternExpression>
-			</textField>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			</element>
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 		</band>
 	</detail>
 </jasperReport>

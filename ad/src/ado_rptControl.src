@@ -225,8 +225,16 @@ class public ReportControl
         #docQueue!.setEmailTo(#AdmRptctlRcp!.getFieldAsString("EMAIL_TO"))
         #docQueue!.setEmailCC(#AdmRptctlRcp!.getFieldAsString("EMAIL_CC"))
         #docQueue!.setEmailBCC(#AdmRptctlRcp!.getFieldAsString("EMAIL_BCC"))
-        #docQueue!.setSubject(#AdmRptctlRcp!.getFieldAsString("EMAIL_SUBJECT"))
-        #docQueue!.setMessage(#AdmRptctlRcp!.getFieldAsString("EMAIL_MESSAGE"))
+        if cvs(#AdmRptctlRcp!.getFieldAsString("EMAIL_SUBJECT"),2)<>"" then
+            #docQueue!.setSubject(#AdmRptctlRcp!.getFieldAsString("EMAIL_SUBJECT"))
+        else
+            #docQueue!.setSubject(#AdmRptctl!.getFieldAsString("DFLT_SUBJECT"))
+        endif
+        if cvs(#AdmRptctlRcp!.getFieldAsString("EMAIL_MESSAGE"),3)<>$0A$ then
+            #docQueue!.setMessage(#AdmRptctlRcp!.getFieldAsString("EMAIL_MESSAGE"))
+        else
+            #docQueue!.setMessage(#AdmRptctl!.getFieldAsString("DFLT_MESSAGE"))
+        endif
         #docQueue!.createProcess()
         proc_key$=#docQueue!.getFirmID()+#docQueue!.getProcessID()
         #docQueue!.checkStatus(proc_key$)
@@ -252,8 +260,16 @@ class public ReportControl
         #docQueue!.setFaxFromName(#AdmRptctlRcp!.getFieldAsString("FROM_NAME"))
         #docQueue!.setFaxToOrganization(#AdmRptctlRcp!.getFieldAsString("RECIPIENT_NAME"))
         #docQueue!.setFaxToName(#AdmRptctlRcp!.getFieldAsString("FAX_TO"))
-        #docQueue!.setSubject(#AdmRptctlRcp!.getFieldAsString("FAX_SUBJECT"))
-        #docQueue!.setMessage(#AdmRptctlRcp!.getFieldAsString("FAX_MESSAGE"))
+        if cvs(#AdmRptctlRcp!.getFieldAsString("FAX_SUBJECT"),2)<>"" then
+            #docQueue!.setSubject(#AdmRptctlRcp!.getFieldAsString("FAX_SUBJECT"))
+        else
+            #docQueue!.setSubject(#AdmRptctl!.getFieldAsString("DFLT_SUBJECT"))
+        endif
+        if cvs(#AdmRptctlRcp!.getFieldAsString("FAX_MESSAGE"),3)<>$0A$ then
+            #docQueue!.setMessage(#AdmRptctlRcp!.getFieldAsString("FAX_MESSAGE"))
+        else
+            #docQueue!.setMessage(#AdmRptctl!.getFieldAsString("DFLT_MESSAGE"))
+        endif
         #docQueue!.createProcess()
         proc_key$=#docQueue!.getFirmID()+#docQueue!.getProcessID()
         #docQueue!.checkStatus(proc_key$)

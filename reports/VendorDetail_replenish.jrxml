@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
-<!-- 2019-04-29T08:39:50 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="a448737b-e8f7-40f8-9b52-945897c22a9d">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="report name" language="java" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="a448737b-e8f7-40f8-9b52-945897c22a9d">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -12,14 +10,12 @@
 	<parameter name="VENDOR_ID" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<queryString>
-		<![CDATA[SELECT * FROM APM_VENDREPL WHERE FIRM_ID = $P{FIRM_ID} AND VENDOR_ID = $P{VENDOR_ID}]]>
-	</queryString>
+	<query language="sql"><![CDATA[SELECT * FROM APM_VENDREPL WHERE FIRM_ID = $P{FIRM_ID} AND VENDOR_ID = $P{VENDOR_ID}]]></query>
 	<field name="FIRM_ID" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="VENDOR_ID" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="BUYER_CODE" class="java.lang.String"/>
 	<field name="PURCH_ADDR" class="java.lang.String"/>
@@ -37,172 +33,105 @@
 	<field name="NYR_REC_AMT" class="java.math.BigDecimal"/>
 	<field name="NYR_REC_LBS" class="java.math.BigDecimal"/>
 	<field name="NYR_REC_UNIT" class="java.math.BigDecimal"/>
-	<background>
-		<band/>
-	</background>
-	<columnHeader>
-		<band height="21">
-			<textField>
-				<reportElement positionType="Float" mode="Opaque" x="0" y="1" width="570" height="15" backcolor="#ECECEC" uuid="a2f9fd01-3614-4701-b3c2-659d0058694a"/>
-				<textElement verticalAlignment="Middle">
-					<paragraph leftIndent="3"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_VENDOR_REPLENISHMENT_INFORMATION}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background/>
+	<columnHeader height="21">
+		<element kind="textField" uuid="a2f9fd01-3614-4701-b3c2-659d0058694a" positionType="Float" mode="Opaque" x="0" y="1" width="570" height="15" backcolor="#ECECEC" vTextAlign="Middle">
+			<paragraph leftIndent="3"/>
+			<expression><![CDATA[$R{AON_VENDOR_REPLENISHMENT_INFORMATION}]]></expression>
+		</element>
 	</columnHeader>
 	<detail>
 		<band height="82">
-			<textField>
-				<reportElement x="105" y="1" width="23" height="13" uuid="97536ae4-e05a-4a70-a4a0-3347ba44bf61"/>
-				<textFieldExpression><![CDATA[$F{BUYER_CODE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="105" y="14" width="69" height="13" uuid="d80fa511-09c3-44f5-92ab-7aafd78bd162">
-					<printWhenExpression><![CDATA[new Boolean (!$F{PRI_REV_DATE}.trim().isEmpty())]]></printWhenExpression>
-				</reportElement>
-				<textFieldExpression><![CDATA[$F{PRI_REV_DATE}.substring(4,6)+"/"+$F{PRI_REV_DATE}.substring(6)+"/"+$F{PRI_REV_DATE}.substring(0,4)]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="105" y="28" width="69" height="13" uuid="626a51e5-076b-4462-b02f-6761dc03e510">
-					<printWhenExpression><![CDATA[new Boolean (!$F{NXT_REV_DATE}.trim().isEmpty())]]></printWhenExpression>
-				</reportElement>
-				<textFieldExpression><![CDATA[$F{NXT_REV_DATE}.substring(4,6)+"/"+$F{NXT_REV_DATE}.substring(6)+"/"+$F{NXT_REV_DATE}.substring(0,4)]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="105" y="41" width="69" height="13" uuid="b6df6674-4763-4b92-8e1a-11363b1b0bd5">
-					<printWhenExpression><![CDATA[new Boolean (!$F{LSTREC_DATE}.trim().isEmpty())]]></printWhenExpression>
-				</reportElement>
-				<textFieldExpression><![CDATA[$F{LSTREC_DATE}.substring(4,6)+"/"+$F{LSTREC_DATE}.substring(6)+"/"+$F{LSTREC_DATE}.substring(0,4)]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="41" width="93" height="13" uuid="422f9d46-aa05-493e-91a9-7ede605d92d3"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_LAST_RECEIPT_DATE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="28" width="93" height="13" uuid="d07abe78-922c-426b-bd4f-13f7591f4a95"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_NEXT_REVIEW_DATE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="1" width="93" height="13" uuid="8348175b-a340-4658-8791-e99133b3ac1a"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_BUYER_CODE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="14" width="93" height="13" uuid="a356afa3-c8cf-499d-82b3-0b2f579b804b"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_PRIOR_REVIEW_DATE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="290" y="1" width="37" height="13" uuid="90f5578e-69b6-4a92-92a7-eba00ee83d24"/>
-				<textFieldExpression><![CDATA[$F{PURCH_ADDR}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="174" y="1" width="100" height="13" uuid="fd9735cd-ef78-42a9-b76a-237598243fbb"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_PURCHASE_ADDRESS:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="385" y="0" width="68" height="13" uuid="aa3fa3c9-54a5-4309-a0f0-591a1f23cf85"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_TARGET_TYPE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="174" y="27" width="50" height="14" uuid="eb8dccb9-8aa7-4867-a8f9-df87baef889f"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_AMOUNT:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="174" y="41" width="50" height="13" uuid="6d3e4d53-aa22-47ab-b6ef-9dbc0cbc389c"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_POUNDS:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="174" y="54" width="50" height="13" uuid="b8dc6559-a0b9-4e45-a145-b13ce1c1b7c5"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_UNITS:}]]></textFieldExpression>
-			</textField>
-			<textField pattern="&apos;$&apos; ###,##0.00;&apos;$&apos; ###,##0.00-">
-				<reportElement x="237" y="28" width="73" height="13" uuid="ef341089-9841-4c3b-92b8-3f4d3294ea0a"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{PUR_TARG_AMT}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0.00;###0.00-">
-				<reportElement x="237" y="41" width="73" height="13" uuid="941d0809-937b-4a2e-b888-1284df1e91e9"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{PUR_TARG_LBS}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0.00;###0.00-">
-				<reportElement x="237" y="54" width="73" height="13" uuid="13b557e8-469e-4303-9d65-e8df129be79e"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{PUR_TGT_UNIT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="211" y="13" width="63" height="15" uuid="e52a01a0-21c8-4d58-98b6-43368beae7b5"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_YTD_TARGET}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="340" y="14" width="73" height="13" uuid="9faafca8-2eaa-4fd7-a604-30a6ef838381"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_YTD_RECEIPTS}]]></textFieldExpression>
-			</textField>
-			<textField pattern="&apos;$&apos; ###,##0.00;&apos;$&apos; ###,##0.00-">
-				<reportElement x="340" y="28" width="73" height="13" uuid="2ccc58d1-6f08-42f1-b736-0a84cd2ccf5d"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{YTD_REC_AMT}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0.00;###0.00-">
-				<reportElement x="340" y="41" width="73" height="13" uuid="11bd3918-ad7c-4104-bc4c-abe7937ebbe0"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{YTD_REC_LBS}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0.00;###0.00-">
-				<reportElement x="340" y="54" width="73" height="13" uuid="617ffeeb-8e0c-4ebe-b38a-823d8aee8e38"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{YTD_REC_UNTS}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0.00;###0.00-">
-				<reportElement x="455" y="54" width="73" height="13" uuid="eb75f7aa-377a-46e9-a6bc-dd73565ac274"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{NYR_REC_UNIT}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0.00;###0.00-">
-				<reportElement x="455" y="41" width="73" height="13" uuid="2e56707b-fc80-480f-a387-d4ba65eb5a75"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{NYR_REC_LBS}]]></textFieldExpression>
-			</textField>
-			<textField pattern="&apos;$&apos; ###,##0.00;&apos;$&apos; ###,##0.00-">
-				<reportElement x="455" y="28" width="73" height="13" uuid="cbc85ceb-838e-4fbd-a168-6daa001c576f"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{NYR_REC_AMT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="455" y="14" width="73" height="13" uuid="3ae82296-a066-46bf-893f-e08d3b653a78"/>
-				<textElement textAlignment="Right">
-					<font isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_NYTD_RECEIPTS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="54" width="93" height="13" uuid="9c92e948-46aa-4a74-b205-a97ecc3c5570"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_REVIEW_DAYS:}]]></textFieldExpression>
-			</textField>
-			<textField pattern="###0">
-				<reportElement x="105" y="54" width="69" height="13" uuid="1269cbb0-fb77-4e59-86b5-3ccaab4ecdc0"/>
-				<textFieldExpression><![CDATA[$F{REV_DAYS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="465" y="1" width="63" height="13" uuid="b2f0ca72-e353-4abb-b10f-fbd11533e55a"/>
-				<textFieldExpression><![CDATA[$F{PUR_TGT_TYPE}]]></textFieldExpression>
-			</textField>
+			<element kind="textField" uuid="97536ae4-e05a-4a70-a4a0-3347ba44bf61" x="105" y="1" width="23" height="13">
+				<expression><![CDATA[$F{BUYER_CODE}]]></expression>
+			</element>
+			<element kind="textField" uuid="d80fa511-09c3-44f5-92ab-7aafd78bd162" x="105" y="14" width="69" height="13">
+				<printWhenExpression><![CDATA[new Boolean (!$F{PRI_REV_DATE}.trim().isEmpty())]]></printWhenExpression>
+				<expression><![CDATA[$F{PRI_REV_DATE}.substring(4,6)+"/"+$F{PRI_REV_DATE}.substring(6)+"/"+$F{PRI_REV_DATE}.substring(0,4)]]></expression>
+			</element>
+			<element kind="textField" uuid="626a51e5-076b-4462-b02f-6761dc03e510" x="105" y="28" width="69" height="13">
+				<printWhenExpression><![CDATA[new Boolean (!$F{NXT_REV_DATE}.trim().isEmpty())]]></printWhenExpression>
+				<expression><![CDATA[$F{NXT_REV_DATE}.substring(4,6)+"/"+$F{NXT_REV_DATE}.substring(6)+"/"+$F{NXT_REV_DATE}.substring(0,4)]]></expression>
+			</element>
+			<element kind="textField" uuid="b6df6674-4763-4b92-8e1a-11363b1b0bd5" x="105" y="41" width="69" height="13">
+				<printWhenExpression><![CDATA[new Boolean (!$F{LSTREC_DATE}.trim().isEmpty())]]></printWhenExpression>
+				<expression><![CDATA[$F{LSTREC_DATE}.substring(4,6)+"/"+$F{LSTREC_DATE}.substring(6)+"/"+$F{LSTREC_DATE}.substring(0,4)]]></expression>
+			</element>
+			<element kind="textField" uuid="422f9d46-aa05-493e-91a9-7ede605d92d3" x="3" y="41" width="93" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_LAST_RECEIPT_DATE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="d07abe78-922c-426b-bd4f-13f7591f4a95" x="3" y="28" width="93" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_NEXT_REVIEW_DATE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="8348175b-a340-4658-8791-e99133b3ac1a" x="3" y="1" width="93" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_BUYER_CODE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="a356afa3-c8cf-499d-82b3-0b2f579b804b" x="3" y="14" width="93" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_PRIOR_REVIEW_DATE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="90f5578e-69b6-4a92-92a7-eba00ee83d24" x="290" y="1" width="37" height="13">
+				<expression><![CDATA[$F{PURCH_ADDR}]]></expression>
+			</element>
+			<element kind="textField" uuid="fd9735cd-ef78-42a9-b76a-237598243fbb" x="174" y="1" width="100" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_PURCHASE_ADDRESS:}]]></expression>
+			</element>
+			<element kind="textField" uuid="aa3fa3c9-54a5-4309-a0f0-591a1f23cf85" x="385" y="0" width="68" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_TARGET_TYPE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="eb8dccb9-8aa7-4867-a8f9-df87baef889f" x="174" y="27" width="50" height="14" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_AMOUNT:}]]></expression>
+			</element>
+			<element kind="textField" uuid="6d3e4d53-aa22-47ab-b6ef-9dbc0cbc389c" x="174" y="41" width="50" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_POUNDS:}]]></expression>
+			</element>
+			<element kind="textField" uuid="b8dc6559-a0b9-4e45-a145-b13ce1c1b7c5" x="174" y="54" width="50" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_UNITS:}]]></expression>
+			</element>
+			<element kind="textField" uuid="ef341089-9841-4c3b-92b8-3f4d3294ea0a" x="237" y="28" width="73" height="13" pattern="'$' ###,##0.00;'$' ###,##0.00-" hTextAlign="Right">
+				<expression><![CDATA[$F{PUR_TARG_AMT}]]></expression>
+			</element>
+			<element kind="textField" uuid="941d0809-937b-4a2e-b888-1284df1e91e9" x="237" y="41" width="73" height="13" pattern="###0.00;###0.00-" hTextAlign="Right">
+				<expression><![CDATA[$F{PUR_TARG_LBS}]]></expression>
+			</element>
+			<element kind="textField" uuid="13b557e8-469e-4303-9d65-e8df129be79e" x="237" y="54" width="73" height="13" pattern="###0.00;###0.00-" hTextAlign="Right">
+				<expression><![CDATA[$F{PUR_TGT_UNIT}]]></expression>
+			</element>
+			<element kind="textField" uuid="e52a01a0-21c8-4d58-98b6-43368beae7b5" x="211" y="13" width="63" height="15" bold="false" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_YTD_TARGET}]]></expression>
+			</element>
+			<element kind="textField" uuid="9faafca8-2eaa-4fd7-a604-30a6ef838381" x="340" y="14" width="73" height="13" bold="false" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_YTD_RECEIPTS}]]></expression>
+			</element>
+			<element kind="textField" uuid="2ccc58d1-6f08-42f1-b736-0a84cd2ccf5d" x="340" y="28" width="73" height="13" pattern="'$' ###,##0.00;'$' ###,##0.00-" hTextAlign="Right">
+				<expression><![CDATA[$F{YTD_REC_AMT}]]></expression>
+			</element>
+			<element kind="textField" uuid="11bd3918-ad7c-4104-bc4c-abe7937ebbe0" x="340" y="41" width="73" height="13" pattern="###0.00;###0.00-" hTextAlign="Right">
+				<expression><![CDATA[$F{YTD_REC_LBS}]]></expression>
+			</element>
+			<element kind="textField" uuid="617ffeeb-8e0c-4ebe-b38a-823d8aee8e38" x="340" y="54" width="73" height="13" pattern="###0.00;###0.00-" hTextAlign="Right">
+				<expression><![CDATA[$F{YTD_REC_UNTS}]]></expression>
+			</element>
+			<element kind="textField" uuid="eb75f7aa-377a-46e9-a6bc-dd73565ac274" x="455" y="54" width="73" height="13" pattern="###0.00;###0.00-" hTextAlign="Right">
+				<expression><![CDATA[$F{NYR_REC_UNIT}]]></expression>
+			</element>
+			<element kind="textField" uuid="2e56707b-fc80-480f-a387-d4ba65eb5a75" x="455" y="41" width="73" height="13" pattern="###0.00;###0.00-" hTextAlign="Right">
+				<expression><![CDATA[$F{NYR_REC_LBS}]]></expression>
+			</element>
+			<element kind="textField" uuid="cbc85ceb-838e-4fbd-a168-6daa001c576f" x="455" y="28" width="73" height="13" pattern="'$' ###,##0.00;'$' ###,##0.00-" hTextAlign="Right">
+				<expression><![CDATA[$F{NYR_REC_AMT}]]></expression>
+			</element>
+			<element kind="textField" uuid="3ae82296-a066-46bf-893f-e08d3b653a78" x="455" y="14" width="73" height="13" bold="false" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_NYTD_RECEIPTS}]]></expression>
+			</element>
+			<element kind="textField" uuid="9c92e948-46aa-4a74-b205-a97ecc3c5570" x="3" y="54" width="93" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_REVIEW_DAYS:}]]></expression>
+			</element>
+			<element kind="textField" uuid="1269cbb0-fb77-4e59-86b5-3ccaab4ecdc0" x="105" y="54" width="69" height="13" pattern="###0">
+				<expression><![CDATA[$F{REV_DAYS}]]></expression>
+			</element>
+			<element kind="textField" uuid="b2f0ca72-e353-4abb-b10f-fbd11533e55a" x="465" y="1" width="63" height="13">
+				<expression><![CDATA[$F{PUR_TGT_TYPE}]]></expression>
+			</element>
 		</band>
 	</detail>
 </jasperReport>

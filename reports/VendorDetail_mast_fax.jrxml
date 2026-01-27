@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="report name" language="java" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="a7d9c360-75aa-4345-ab5e-970cce31be02">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -10,86 +10,57 @@
 	<parameter name="VENDOR_ID" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
-	<queryString>
-		<![CDATA[SELECT * FROM APM_EMAILFAX WHERE APM_EMAILFAX.FIRM_ID = $P{FIRM_ID} AND APM_EMAILFAX.VENDOR_ID = $P{VENDOR_ID}]]>
-	</queryString>
+	<query language="sql"><![CDATA[SELECT * FROM APM_EMAILFAX WHERE APM_EMAILFAX.FIRM_ID = $P{FIRM_ID} AND APM_EMAILFAX.VENDOR_ID = $P{VENDOR_ID}]]></query>
 	<field name="FIRM_ID" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="VENDOR_ID" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
+		<description><![CDATA[]]></description>
 	</field>
 	<field name="EMAIL_TO" class="java.lang.String"/>
 	<field name="EMAIL_CC" class="java.lang.String"/>
 	<field name="FAX_TO" class="java.lang.String"/>
 	<field name="FAX_NOS" class="java.lang.String"/>
 	<field name="WEB_PAGE" class="java.lang.String"/>
-	<background>
-		<band/>
-	</background>
-	<columnHeader>
-		<band height="21">
-			<textField>
-				<reportElement positionType="Float" mode="Opaque" x="0" y="1" width="570" height="15" backcolor="#ECECEC"/>
-				<textElement verticalAlignment="Middle">
-					<paragraph leftIndent="3"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_MASTER_FAX_INFORMATION}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background/>
+	<columnHeader height="21">
+		<element kind="textField" uuid="d180c086-770d-4d49-b3dd-a4958ce60747" positionType="Float" mode="Opaque" x="0" y="1" width="570" height="15" backcolor="#ECECEC" vTextAlign="Middle">
+			<paragraph leftIndent="3"/>
+			<expression><![CDATA[$R{AON_MASTER_FAX_INFORMATION}]]></expression>
+		</element>
 	</columnHeader>
 	<detail>
 		<band height="71">
-			<textField>
-				<reportElement x="86" y="1" width="418" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{EMAIL_TO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="86" y="14" width="417" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{EMAIL_CC}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="86" y="28" width="417" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{FAX_TO}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="86" y="41" width="417" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{FAX_NOS}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="41" width="69" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_FAX_NUMBERS:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="28" width="69" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_FAX_TO:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="1" width="69" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_EMAIL_TO:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="14" width="69" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_EMAIL_CC::}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="86" y="54" width="417" height="13"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{WEB_PAGE}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="54" width="69" height="13"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_WEB_PAGE:}]]></textFieldExpression>
-			</textField>
+			<element kind="textField" uuid="5685c00f-da4a-4db0-8be3-74a528cb33ce" x="86" y="1" width="418" height="13">
+				<expression><![CDATA[$F{EMAIL_TO}]]></expression>
+			</element>
+			<element kind="textField" uuid="6d6f113f-2568-4944-8370-fad9d315dc4c" x="86" y="14" width="417" height="13">
+				<expression><![CDATA[$F{EMAIL_CC}]]></expression>
+			</element>
+			<element kind="textField" uuid="0cbace06-a4ee-4fa5-a91e-3bf57da8a3bf" x="86" y="28" width="417" height="13">
+				<expression><![CDATA[$F{FAX_TO}]]></expression>
+			</element>
+			<element kind="textField" uuid="ba9a62b2-1560-4aff-8e8c-370fe539edd2" x="86" y="41" width="417" height="13">
+				<expression><![CDATA[$F{FAX_NOS}]]></expression>
+			</element>
+			<element kind="textField" uuid="2306cd5b-fa9b-40cc-a795-8650060f0876" x="3" y="41" width="69" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_FAX_NUMBERS:}]]></expression>
+			</element>
+			<element kind="textField" uuid="08ccb943-6b2d-48eb-be26-3efaf2c7c4d6" x="3" y="28" width="69" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_FAX_TO:}]]></expression>
+			</element>
+			<element kind="textField" uuid="c6aa35f4-f962-4271-8e34-cf8fa3bd8915" x="3" y="1" width="69" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_EMAIL_TO:}]]></expression>
+			</element>
+			<element kind="textField" uuid="261f34ef-2940-4c32-a2b8-99cfef37f79b" x="3" y="14" width="69" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_EMAIL_CC::}]]></expression>
+			</element>
+			<element kind="textField" uuid="9fb03156-8288-44da-abcf-3deaf48a7700" x="86" y="54" width="417" height="13">
+				<expression><![CDATA[$F{WEB_PAGE}]]></expression>
+			</element>
+			<element kind="textField" uuid="6be0b25b-594b-4879-b0b2-450873ca2646" x="3" y="54" width="69" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_WEB_PAGE:}]]></expression>
+			</element>
 		</band>
 	</detail>
 </jasperReport>

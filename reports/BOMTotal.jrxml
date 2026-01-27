@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BOMTotal" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="63ab53fc-3836-4fcf-9373-d38b75521dca">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="BOMTotal" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="63ab53fc-3836-4fcf-9373-d38b75521dca">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -22,96 +22,56 @@
 	<parameter name="IV_PRECISION" class="java.lang.String"/>
 	<parameter name="BARISTA_WD" class="java.lang.String"/>
 	<parameter name="MASKS" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[call BOMTOTAL($P{FIRM_ID},$P{BILL_NO},$P{TOT_MAT_COST},$P{TOT_DIR_COST},$P{TOT_OH_COST},$P{TOT_SUB_COST},$P{BM_PRECISION},$P{IV_PRECISION},$P{BARISTA_WD},$P{MASKS})
-]]>
-	</queryString>
+	<query language="sql"><![CDATA[call BOMTOTAL($P{FIRM_ID},$P{BILL_NO},$P{TOT_MAT_COST},$P{TOT_DIR_COST},$P{TOT_OH_COST},$P{TOT_SUB_COST},$P{BM_PRECISION},$P{IV_PRECISION},$P{BARISTA_WD},$P{MASKS})]]></query>
 	<field name="TOT_MAT_COST" class="java.lang.String"/>
 	<field name="TOT_DIR_COST" class="java.lang.String"/>
 	<field name="TOT_OH_COST" class="java.lang.String"/>
 	<field name="TOT_SUB_COST" class="java.lang.String"/>
 	<field name="TOTAL_COST" class="java.lang.String"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band height="22" splitType="Prevent">
-			<textField>
-				<reportElement positionType="Float" mode="Opaque" x="0" y="9" width="572" height="13" backcolor="#ECECEC" uuid="388af92d-2f0a-4376-a4a0-b824b0887a9c"/>
-				<textFieldExpression><![CDATA[$R{AON_TOTAL_INFORMATION}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background splitType="Stretch"/>
+	<title splitType="Stretch"/>
+	<pageHeader height="22" splitType="Prevent">
+		<element kind="textField" uuid="388af92d-2f0a-4376-a4a0-b824b0887a9c" positionType="Float" mode="Opaque" x="0" y="9" width="572" height="13" backcolor="#ECECEC">
+			<expression><![CDATA[$R{AON_TOTAL_INFORMATION}]]></expression>
+		</element>
 	</pageHeader>
-	<columnHeader>
-		<band splitType="Stretch"/>
-	</columnHeader>
+	<columnHeader splitType="Stretch"/>
 	<detail>
 		<band splitType="Stretch"/>
 	</detail>
-	<columnFooter>
-		<band splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="97" splitType="Stretch">
-			<textField>
-				<reportElement x="112" y="14" width="100" height="13" uuid="4be82710-0c8e-4df0-a122-04089da2c7b1"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_MATERIAL:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="112" y="27" width="100" height="13" uuid="a779680e-c69a-41cd-960f-d461633cc081"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_DIRECT_LABOR:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="112" y="40" width="100" height="13" uuid="be6fec3b-0a20-4da0-94e6-0221fbc7d1d4"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_OVERHEAD:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="112" y="53" width="100" height="13" uuid="da883644-6627-47d1-99c1-62e048bfda3c"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_SUBCONTRACT:}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement x="229" y="66" width="100" height="1" uuid="45c9497a-eac7-4091-9cfd-c75a90eb349d"/>
-			</line>
-			<textField>
-				<reportElement x="112" y="67" width="100" height="13" uuid="2163c9fd-e778-418b-87b4-d8d2a7845d5e"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_TOTAL:}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="229" y="14" width="100" height="13" uuid="52189ceb-9097-48ba-b3ec-c3a732b5b0b2"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{TOT_MAT_COST}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="229" y="27" width="100" height="13" uuid="e35101b5-3075-4967-8ca0-80321f9f7c6d"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{TOT_DIR_COST}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="229" y="40" width="100" height="13" uuid="42435737-9e7a-4c07-a68a-8e88eceb00cd"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{TOT_OH_COST}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="229" y="53" width="100" height="13" uuid="65cc8d9e-4839-4a43-9e88-75ecf0595892"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{TOT_SUB_COST}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="229" y="67" width="100" height="13" uuid="7f5b07ca-fb7b-4918-bab7-da9d7f65d65b"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$F{TOTAL_COST}]]></textFieldExpression>
-			</textField>
-		</band>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter splitType="Stretch"/>
+	<summary height="97" splitType="Stretch">
+		<element kind="textField" uuid="4be82710-0c8e-4df0-a122-04089da2c7b1" x="112" y="14" width="100" height="13" hTextAlign="Right">
+			<expression><![CDATA[$R{AON_MATERIAL:}]]></expression>
+		</element>
+		<element kind="textField" uuid="a779680e-c69a-41cd-960f-d461633cc081" x="112" y="27" width="100" height="13" hTextAlign="Right">
+			<expression><![CDATA[$R{AON_DIRECT_LABOR:}]]></expression>
+		</element>
+		<element kind="textField" uuid="be6fec3b-0a20-4da0-94e6-0221fbc7d1d4" x="112" y="40" width="100" height="13" hTextAlign="Right">
+			<expression><![CDATA[$R{AON_OVERHEAD:}]]></expression>
+		</element>
+		<element kind="textField" uuid="da883644-6627-47d1-99c1-62e048bfda3c" x="112" y="53" width="100" height="13" hTextAlign="Right">
+			<expression><![CDATA[$R{AON_SUBCONTRACT:}]]></expression>
+		</element>
+		<element kind="line" uuid="45c9497a-eac7-4091-9cfd-c75a90eb349d" x="229" y="66" width="100" height="1"/>
+		<element kind="textField" uuid="2163c9fd-e778-418b-87b4-d8d2a7845d5e" x="112" y="67" width="100" height="13" hTextAlign="Right">
+			<expression><![CDATA[$R{AON_TOTAL:}]]></expression>
+		</element>
+		<element kind="textField" uuid="52189ceb-9097-48ba-b3ec-c3a732b5b0b2" x="229" y="14" width="100" height="13" pattern="" hTextAlign="Right">
+			<expression><![CDATA[$F{TOT_MAT_COST}]]></expression>
+		</element>
+		<element kind="textField" uuid="e35101b5-3075-4967-8ca0-80321f9f7c6d" x="229" y="27" width="100" height="13" pattern="" hTextAlign="Right">
+			<expression><![CDATA[$F{TOT_DIR_COST}]]></expression>
+		</element>
+		<element kind="textField" uuid="42435737-9e7a-4c07-a68a-8e88eceb00cd" x="229" y="40" width="100" height="13" pattern="" hTextAlign="Right">
+			<expression><![CDATA[$F{TOT_OH_COST}]]></expression>
+		</element>
+		<element kind="textField" uuid="65cc8d9e-4839-4a43-9e88-75ecf0595892" x="229" y="53" width="100" height="13" pattern="" hTextAlign="Right">
+			<expression><![CDATA[$F{TOT_SUB_COST}]]></expression>
+		</element>
+		<element kind="textField" uuid="7f5b07ca-fb7b-4918-bab7-da9d7f65d65b" x="229" y="67" width="100" height="13" pattern="" hTextAlign="Right">
+			<expression><![CDATA[$F{TOTAL_COST}]]></expression>
+		</element>
 	</summary>
 </jasperReport>

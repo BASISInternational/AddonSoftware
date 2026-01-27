@@ -85,6 +85,11 @@ rem --- Validate email address
 		break
 	endif
 
+[[ADM_RPTCTL_RCP.EMAIL_MESSAGE.BINP]]
+rem --- Advise user to leave blank to use DFLT_MESSAGE from ADM_RPTCTL
+	msg_id$="AD_RPTCTL_DFLT_MESSA"
+	gosub disp_message
+
 [[ADM_RPTCTL_RCP.EMAIL_REPLYTO.AVAL]]
 rem --- Validate email address
 	email$=callpoint!.getUserInput()
@@ -92,6 +97,11 @@ rem --- Validate email address
 		callpoint!.setStatus("ABORT")
 		break
 	endif
+
+[[ADM_RPTCTL_RCP.EMAIL_SUBJECT.BINP]]
+rem --- Advise user to leave blank to use DFLT_SUBJECT from ADM_RPTCTL
+	msg_id$="AD_RPTCTL_DFLT_SUBJE"
+	gosub disp_message
 
 [[ADM_RPTCTL_RCP.EMAIL_TO.AVAL]]
 rem --- Validate email address
@@ -107,6 +117,16 @@ rem --- if selecting email checkbox, get 'from' defaults from email account and 
 	if callpoint!.getUserInput()="Y" and callpoint!.getColumnData("ADM_RPTCTL_RCP.EMAIL_YN")<>"Y"
 		gosub set_defaults
 	endif
+
+[[ADM_RPTCTL_RCP.FAX_MESSAGE.BINP]]
+rem --- Advise user to leave blank to use DFLT_MESSAGE from ADM_RPTCTL
+	msg_id$="AD_RPTCTL_DFLT_MESSA"
+	gosub disp_message
+
+[[ADM_RPTCTL_RCP.FAX_SUBJECT.BINP]]
+rem --- Advise user to leave blank to use DFLT_SUBJECT from ADM_RPTCTL
+	msg_id$="AD_RPTCTL_DFLT_SUBJE"
+	gosub disp_message
 
 [[ADM_RPTCTL_RCP.FAX_YN.AVAL]]
 rem --- if selecting fax checkbox, set 'to' defaults from customer or vendor
@@ -181,10 +201,6 @@ rem --- note: if cust is specified, vendor will be blank and vice versa
 rem --- set email or fax defaults depending on which box was checked
 
 	if pos("EMAIL_YN"=callpoint!.getCallpointEvent())
-
-		callpoint!.setColumnData("ADM_RPTCTL_RCP.EMAIL_SUBJECT",adm_rptctl.dflt_subject$,1)
-		callpoint!.setColumnData("ADM_RPTCTL_RCP.EMAIL_MESSAGE",adm_rptctl.dflt_message$,1)
-
 		if cvs(adm_rptctl.email_account$,3)<>""
 			callpoint!.setColumnData("ADM_RPTCTL_RCP.EMAIL_FROM",adm_email_acct.email_from$,1)
 			callpoint!.setColumnData("ADM_RPTCTL_RCP.EMAIL_REPLYTO",adm_email_acct.email_replyto$,1)
@@ -204,10 +220,6 @@ rem --- set email or fax defaults depending on which box was checked
 	endif
 
 	if pos("FAX_YN"=callpoint!.getCallpointEvent())
-
-		callpoint!.setColumnData("ADM_RPTCTL_RCP.FAX_SUBJECT",adm_rptctl.dflt_subject$,1)
-		callpoint!.setColumnData("ADM_RPTCTL_RCP.FAX_MESSAGE",adm_rptctl.dflt_message$,1)
-
 		if cvs(cust_id$,3)<>""
 			callpoint!.setColumnData("ADM_RPTCTL_RCP.FAX_TO",arm_emailfax.fax_to$,1)
 			callpoint!.setColumnData("ADM_RPTCTL_RCP.FAX_NOS",arm_emailfax.fax_nos$,1)

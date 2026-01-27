@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ItemDetail_gl" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="97125e14-71f6-4826-a317-3fd2c93d1c3b">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="ItemDetail_gl" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="97125e14-71f6-4826-a317-3fd2c93d1c3b">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -11,9 +10,7 @@
 	<parameter name="ITEM_ID" class="java.lang.String"/>
 	<parameter name="GL_MASK" class="java.lang.String"/>
 	<parameter name="GL_LEN" class="java.lang.String"/>
-	<queryString>
-		<![CDATA[CALL GLACCTLIST($P{FIRM_ID},$P{ITEM_ID},$P{GL_MASK},$P{GL_LEN})]]>
-	</queryString>
+	<query language="sql"><![CDATA[CALL GLACCTLIST($P{FIRM_ID},$P{ITEM_ID},$P{GL_MASK},$P{GL_LEN})]]></query>
 	<field name="GL_INV_ACCT" class="java.lang.String"/>
 	<field name="GL_COGS_ACCT" class="java.lang.String"/>
 	<field name="GL_PUR_ACCT" class="java.lang.String"/>
@@ -26,115 +23,74 @@
 	<field name="PPV_DESC" class="java.lang.String"/>
 	<field name="IVADJ_DESC" class="java.lang.String"/>
 	<field name="COGSADJ_DESC" class="java.lang.String"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
-	<title>
-		<band splitType="Stretch"/>
-	</title>
-	<pageHeader>
-		<band splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="3" splitType="Stretch">
-			<textField>
-				<reportElement mode="Opaque" x="0" y="-13" width="572" height="13" backcolor="#ECECEC" uuid="fc997562-b0f4-4e1c-a108-a3a85bb19283"/>
-				<textElement verticalAlignment="Middle">
-					<paragraph leftIndent="3"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_GENERAL_LEDGER_ACCOUNTS}]]></textFieldExpression>
-			</textField>
-		</band>
+	<background splitType="Stretch"/>
+	<title splitType="Stretch"/>
+	<pageHeader splitType="Stretch"/>
+	<columnHeader height="3" splitType="Stretch">
+		<element kind="textField" uuid="fc997562-b0f4-4e1c-a108-a3a85bb19283" mode="Opaque" x="0" y="-13" width="572" height="13" backcolor="#ECECEC" vTextAlign="Middle">
+			<paragraph leftIndent="3"/>
+			<expression><![CDATA[$R{AON_GENERAL_LEDGER_ACCOUNTS}]]></expression>
+		</element>
 	</columnHeader>
 	<detail>
 		<band height="97" splitType="Stretch">
-			<textField>
-				<reportElement x="3" y="12" width="110" height="13" uuid="163e842b-b165-4bee-8c06-a756c1a9a56d"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_INVENTORY:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="25" width="110" height="13" uuid="7912e814-f968-4dd2-a924-e318e9bd2a34"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_COST_OF_GOODS_SOLD:}]]></textFieldExpression>
-			</textField>
-			<textField pattern="" isBlankWhenNull="false">
-				<reportElement x="125" y="12" width="100" height="13" uuid="760d21ae-9918-491f-ada3-9bfdb8edb917"/>
-				<textFieldExpression><![CDATA[$F{GL_INV_ACCT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="236" y="12" width="172" height="13" uuid="9cc4fdd8-6418-41f6-8566-88736285d7a7"/>
-				<textFieldExpression><![CDATA[$F{INV_DESC}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="125" y="25" width="100" height="13" uuid="102646e7-8a53-4809-9a9b-adf11744922d"/>
-				<textFieldExpression><![CDATA[$F{GL_COGS_ACCT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="236" y="25" width="172" height="13" uuid="247f3adf-5632-4571-b5e2-96186a43392f"/>
-				<textFieldExpression><![CDATA[$F{COGS_DESC}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="38" width="110" height="13" uuid="47ab2a2d-79a4-436f-8eb8-5777b69a0053"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_PURCHASES:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="51" width="110" height="13" uuid="30b40e21-5a2a-445a-9dd6-1fb7f74ad660"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_PURCH_PRICE_VARIANCE:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="64" width="110" height="13" uuid="184fd2c0-8851-424a-bcc8-ac215c25ee04"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_INVENTORY_ADJUSTMENT:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="3" y="77" width="110" height="13" uuid="f2322d1f-a518-486c-b632-a7a06ca40c1d"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression><![CDATA[$R{AON_COGS_ADJUSTMENT:}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="125" y="38" width="100" height="13" uuid="c7458375-1a80-4421-81e3-42852182f772"/>
-				<textFieldExpression><![CDATA[$F{GL_PUR_ACCT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="125" y="51" width="100" height="13" uuid="9e9c2ae8-56d9-4f86-9564-a21f64e15438"/>
-				<textFieldExpression><![CDATA[$F{GL_PPV_ACCT}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="125" y="64" width="100" height="13" uuid="e7d863d3-b037-4d35-8eb9-2e449e06deba"/>
-				<textFieldExpression><![CDATA[$F{GL_INV_ADJ}]]></textFieldExpression>
-			</textField>
-			<textField pattern="">
-				<reportElement x="125" y="77" width="100" height="13" uuid="29b94856-367d-4e08-a1ee-b8961e56a69f"/>
-				<textFieldExpression><![CDATA[$F{GL_COGS_ADJ}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="236" y="38" width="172" height="13" uuid="3e48ffd4-e434-46a9-8eb7-fa5878837efa"/>
-				<textFieldExpression><![CDATA[$F{PUR_DESC}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="236" y="51" width="172" height="13" uuid="c4ffb0a3-ea6b-4e47-bb51-5e0b9f27e9ee"/>
-				<textFieldExpression><![CDATA[$F{PPV_DESC}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="236" y="64" width="172" height="13" uuid="0f0a0ab9-980a-46de-a1d1-8efad909ac86"/>
-				<textFieldExpression><![CDATA[$F{IVADJ_DESC}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="236" y="77" width="172" height="13" uuid="da4cab26-2b7d-4c5a-8938-26cda31e48dc"/>
-				<textFieldExpression><![CDATA[$F{COGSADJ_DESC}]]></textFieldExpression>
-			</textField>
+			<element kind="textField" uuid="163e842b-b165-4bee-8c06-a756c1a9a56d" x="3" y="12" width="110" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_INVENTORY:}]]></expression>
+			</element>
+			<element kind="textField" uuid="7912e814-f968-4dd2-a924-e318e9bd2a34" x="3" y="25" width="110" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_COST_OF_GOODS_SOLD:}]]></expression>
+			</element>
+			<element kind="textField" uuid="760d21ae-9918-491f-ada3-9bfdb8edb917" x="125" y="12" width="100" height="13" pattern="" blankWhenNull="false">
+				<expression><![CDATA[$F{GL_INV_ACCT}]]></expression>
+			</element>
+			<element kind="textField" uuid="9cc4fdd8-6418-41f6-8566-88736285d7a7" x="236" y="12" width="172" height="13">
+				<expression><![CDATA[$F{INV_DESC}]]></expression>
+			</element>
+			<element kind="textField" uuid="102646e7-8a53-4809-9a9b-adf11744922d" x="125" y="25" width="100" height="13">
+				<expression><![CDATA[$F{GL_COGS_ACCT}]]></expression>
+			</element>
+			<element kind="textField" uuid="247f3adf-5632-4571-b5e2-96186a43392f" x="236" y="25" width="172" height="13">
+				<expression><![CDATA[$F{COGS_DESC}]]></expression>
+			</element>
+			<element kind="textField" uuid="47ab2a2d-79a4-436f-8eb8-5777b69a0053" x="3" y="38" width="110" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_PURCHASES:}]]></expression>
+			</element>
+			<element kind="textField" uuid="30b40e21-5a2a-445a-9dd6-1fb7f74ad660" x="3" y="51" width="110" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_PURCH_PRICE_VARIANCE:}]]></expression>
+			</element>
+			<element kind="textField" uuid="184fd2c0-8851-424a-bcc8-ac215c25ee04" x="3" y="64" width="110" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_INVENTORY_ADJUSTMENT:}]]></expression>
+			</element>
+			<element kind="textField" uuid="f2322d1f-a518-486c-b632-a7a06ca40c1d" x="3" y="77" width="110" height="13" hTextAlign="Right">
+				<expression><![CDATA[$R{AON_COGS_ADJUSTMENT:}]]></expression>
+			</element>
+			<element kind="textField" uuid="c7458375-1a80-4421-81e3-42852182f772" x="125" y="38" width="100" height="13">
+				<expression><![CDATA[$F{GL_PUR_ACCT}]]></expression>
+			</element>
+			<element kind="textField" uuid="9e9c2ae8-56d9-4f86-9564-a21f64e15438" x="125" y="51" width="100" height="13">
+				<expression><![CDATA[$F{GL_PPV_ACCT}]]></expression>
+			</element>
+			<element kind="textField" uuid="e7d863d3-b037-4d35-8eb9-2e449e06deba" x="125" y="64" width="100" height="13">
+				<expression><![CDATA[$F{GL_INV_ADJ}]]></expression>
+			</element>
+			<element kind="textField" uuid="29b94856-367d-4e08-a1ee-b8961e56a69f" x="125" y="77" width="100" height="13" pattern="">
+				<expression><![CDATA[$F{GL_COGS_ADJ}]]></expression>
+			</element>
+			<element kind="textField" uuid="3e48ffd4-e434-46a9-8eb7-fa5878837efa" x="236" y="38" width="172" height="13">
+				<expression><![CDATA[$F{PUR_DESC}]]></expression>
+			</element>
+			<element kind="textField" uuid="c4ffb0a3-ea6b-4e47-bb51-5e0b9f27e9ee" x="236" y="51" width="172" height="13">
+				<expression><![CDATA[$F{PPV_DESC}]]></expression>
+			</element>
+			<element kind="textField" uuid="0f0a0ab9-980a-46de-a1d1-8efad909ac86" x="236" y="64" width="172" height="13">
+				<expression><![CDATA[$F{IVADJ_DESC}]]></expression>
+			</element>
+			<element kind="textField" uuid="da4cab26-2b7d-4c5a-8938-26cda31e48dc" x="236" y="77" width="172" height="13">
+				<expression><![CDATA[$F{COGSADJ_DESC}]]></expression>
+			</element>
 		</band>
 	</detail>
-	<columnFooter>
-		<band splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band splitType="Stretch"/>
-	</summary>
+	<columnFooter splitType="Stretch"/>
+	<pageFooter splitType="Stretch"/>
+	<summary splitType="Stretch"/>
 </jasperReport>

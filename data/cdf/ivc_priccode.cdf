@@ -10,13 +10,26 @@ rem --- Enable/disable break_disc_nn and break_amt_nn fields base on pricing_bas
 		endif
 	next x
 
+rem --- Initialize PRICING_ADJ_BASE ListButton
+	gosub initPricingAdjBase
+
 [[IVC_PRICCODE.AREC]]
 rem --- Default pricing_basis is P, so disable break_amt_nn fields
 	for x=0 to 10
 		callpoint!.setColumnEnabled("IVC_PRICCODE.BREAK_AMT_"+str(x,"00"),0)
 	next x
 
+rem --- Clear PRICING_ADJ_BASE ListButton
+	pickList!=callpoint!.getControl("IVC_PRICCODE.PRICING_ADJ_BASE")
+	pickList!.removeAllItems()
+	pickList!.selectIndex(0)
+	callpoint!.setStatus("REFRESH")
+
 [[IVC_PRICCODE.BSHO]]
+rem --- Init
+use ::ado_func.src::func
+
+rem --- Open/Lock files
 num_files=4
 dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 open_tables$[1]="ARS_PARAMS",open_opts$[1]="OTA"
@@ -119,6 +132,10 @@ rem --- Don't allow inactive code
 		break
 	endif
 
+[[IVC_PRICCODE.IV_PRICE_MTH.AVAL]]
+rem --- Initialize PRICING_ADJ_BASE ListButton
+	gosub initPricingAdjBase
+
 [[IVC_PRICCODE.PRICING_BASIS.AVAL]]
 rem --- Enable/disable break_disc_nn and break_amt_nn fields base on pricing_basis
 	for x=0 to 10
@@ -168,6 +185,49 @@ remove_process_bar: rem -- remove process bar
 	rdFuncSpace!.setValue("+build_task","OFF")
 return
 
+initPricingAdjBase: rem --- Initialize PRICING_ADJ_BASE ListButton based on entered IV_PRICE_MTH
+	iv_price_mtn$=callpoint!.getColumnData("IVC_PRICCODE.IV_PRICE_MTH")
+	codeVect!=BBjAPI().makeVector()
+	descVect!=BBjAPI().makeVector()
+
+	rem --- PRICING_ADJ_BASE ListButton based on Markdown From List
+	if iv_price_mtn$="L" then
+		codeVect!.add("C")
+		descVect!.add("Current Price")
+		codeVect!.add("P")
+		descVect!.add("Prior Price")
+		codeVect!.add("M")
+		descVect!.add("MSRP")
+	endif
+
+	rem --- PRICING_ADJ_BASE ListButton based on Markup From Cost or Margin Over Cost
+	if pos(iv_price_mtn$="CM") then
+		codeVect!.add("U")
+		descVect!.add("Unit Cost")
+		codeVect!.add("L")
+		descVect!.add("Landed Cost")
+		codeVect!.add("P")
+		descVect!.add("Last Purchase Cost")
+		codeVect!.add("M")
+		descVect!.add("Manual Price Table Cost")
+		codeVect!.add("A")
+		descVect!.add("Average Cost")
+		codeVect!.add("S")
+		descVect!.add("Standard Cost")
+		codeVect!.add("R")
+		descVect!.add("Replacement Cos")
+	endif
+
+	rem --- Load the PRICING_ADJ_BASE ListButton
+	ldat$=func.buildListButtonList(descVect!,codeVect!)
+	callpoint!.setTableColumnAttribute("IVC_PRICCODE.PRICING_ADJ_BASE","LDAT",ldat$)
+	pickList!=callpoint!.getControl("IVC_PRICCODE.PRICING_ADJ_BASE")
+	pickList!.removeAllItems()
+	pickList!.insertItems(0,descVect!)
+	pickList!.selectIndex(0)
+	callpoint!.setStatus("REFRESH")
+
+	return
 #include [+ADDON_LIB]std_missing_params.aon
 
 

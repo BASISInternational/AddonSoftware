@@ -788,14 +788,11 @@ rem --- Add ARS_CC_CUSTPMT Report Control Recipients record for this customer if
 			admRptCtlRcp.email_yn$="Y"
 			admRptCtlRcp.email_to$=callpoint!.getColumnData("ARM_CUSTMAST.PAY_AUTH_EMAIL")
 
-			rem --- Use Report Control default subject and message
+			rem --- If available, use Report Control email account's from and reply-to
 			admRptCtl_dev=fnget_dev("ADM_RPTCTL")
 			dim admRptCtl$:fnget_tpl$("ADM_RPTCTL")
 			findrecord(admRptCtl_dev,key=firm_id$+admRptCtlRcp.dd_table_alias$,dom=*endif)admRptCtl$
-			admRptCtlRcp.email_subject$=admRptCtl.dflt_subject$
-			admRptCtlRcp.email_message$=admRptCtl.dflt_message$
 
-			rem --- If available, use Report Control email account's from and reply-to
 			admEmailAcct_dev=fnget_dev("ADM_EMAIL_ACCT")
 			dim admEmailAcct$:fnget_tpl$("ADM_EMAIL_ACCT")
 			findrecord(admEmailAcct_dev,key=firm_id$+admRptCtl.email_account$,dom=*next)admEmailAcct$

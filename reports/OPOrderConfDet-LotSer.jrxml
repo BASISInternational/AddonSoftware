@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OPOrderConfDet-LotSer" language="groovy" pageWidth="554" pageHeight="320" columnWidth="553" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="5654915b-0242-4539-a635-0644956d0748">
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="OPOrderConfDet-LotSer" language="groovy" pageWidth="554" pageHeight="320" columnWidth="553" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="5654915b-0242-4539-a635-0644956d0748">
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -16,100 +15,60 @@
 	<parameter name="LOTSER_FLAG" class="java.lang.String"/>
 	<parameter name="BARISTA_WD" class="java.lang.String"/>
 	<parameter name="ITEM_ID" class="java.lang.String">
-		<parameterDescription><![CDATA[Item:]]></parameterDescription>
+		<description><![CDATA[Item:]]></description>
 	</parameter>
 	<parameter name="AR_INV_NO" class="java.lang.String"/>
 	<parameter name="REPORT_TYPE" class="java.lang.String"/>
-	<queryString language="SQL">
-		<![CDATA[call OPORDERCONF_DET_LOTSER($P{FIRM_ID},$P{AR_TYPE},$P{CUSTOMER_ID},$P{ORDER_NO},$P{AR_INV_NO},$P{INTERNAL_SEQ_NO},$P{OPE11_QTY_SHIPPED},$P{QTY_MASK},$P{LOTSER_FLAG},$P{BARISTA_WD},$P{REPORT_TYPE})]]>
-	</queryString>
+	<query language="SQL"><![CDATA[call OPORDERCONF_DET_LOTSER($P{FIRM_ID},$P{AR_TYPE},$P{CUSTOMER_ID},$P{ORDER_NO},$P{AR_INV_NO},$P{INTERNAL_SEQ_NO},$P{OPE11_QTY_SHIPPED},$P{QTY_MASK},$P{LOTSER_FLAG},$P{BARISTA_WD},$P{REPORT_TYPE})]]></query>
 	<field name="LOTSER_NO" class="java.lang.String">
-		<fieldDescription><![CDATA[Lot/Serial Number]]></fieldDescription>
+		<description><![CDATA[Lot/Serial Number]]></description>
 	</field>
 	<field name="QTY_SHIPPED_RAW" class="java.lang.String">
-		<fieldDescription><![CDATA[Lot/Ser Quantity Shipped]]></fieldDescription>
+		<description><![CDATA[Lot/Ser Quantity Shipped]]></description>
 	</field>
 	<variable name="QTY_SHIPPED_BigDec" class="java.math.BigDecimal">
-		<variableExpression><![CDATA[new java.math.BigDecimal($F{QTY_SHIPPED_RAW})]]></variableExpression>
+		<expression><![CDATA[new java.math.BigDecimal($F{QTY_SHIPPED_RAW})]]></expression>
 	</variable>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
+	<background splitType="Stretch"/>
 	<detail>
 		<band height="14">
-			<rectangle>
-				<reportElement mode="Opaque" x="0" y="0" width="555" height="14" backcolor="#FFFFFF" uuid="d5d33e2e-afce-4ed6-9f72-2388712bfb81"/>
-				<graphicElement>
-					<pen lineWidth="1.0" lineColor="#C0C0C0"/>
-				</graphicElement>
-			</rectangle>
-			<rectangle>
-				<reportElement mode="Opaque" x="183" y="1" width="213" height="12" backcolor="#FAFAFA" uuid="69876ad0-c7ca-49a5-8f2c-110c7ce65daf">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<graphicElement>
-					<pen lineWidth="1.0" lineColor="#FFFFFF"/>
-				</graphicElement>
-			</rectangle>
-			<textField>
-				<reportElement x="183" y="0" width="20" height="12" uuid="54b51076-5982-496b-87bc-101927de7b4c">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<printWhenExpression><![CDATA[$P{LOTSER_FLAG} == "L"]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="7" isBold="true"/>
-					<paragraph rightIndent="1"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_LOT:}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="184" y="0" width="20" height="12" uuid="1b58072d-2fb7-42c2-8394-a10f9ba8f735">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<printWhenExpression><![CDATA[$P{LOTSER_FLAG} == "S"]]></printWhenExpression>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="7" isBold="true"/>
-					<paragraph rightIndent="1"/>
-				</textElement>
+			<element kind="rectangle" uuid="d5d33e2e-afce-4ed6-9f72-2388712bfb81" mode="Opaque" x="0" y="0" width="555" height="14" backcolor="#FFFFFF">
+				<pen lineWidth="1.0" lineColor="#C0C0C0"/>
+			</element>
+			<element kind="rectangle" uuid="69876ad0-c7ca-49a5-8f2c-110c7ce65daf" mode="Opaque" x="183" y="1" width="213" height="12" backcolor="#FAFAFA">
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+			</element>
+			<element kind="textField" uuid="54b51076-5982-496b-87bc-101927de7b4c" x="183" y="0" width="20" height="12" fontName="DejaVu Sans" fontSize="7.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+				<printWhenExpression><![CDATA[$P{LOTSER_FLAG} == "L"]]></printWhenExpression>
+				<paragraph rightIndent="1"/>
+				<expression><![CDATA[$R{AON_LOT:}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			</element>
+			<element kind="staticText" uuid="1b58072d-2fb7-42c2-8394-a10f9ba8f735" x="184" y="0" width="20" height="12" fontName="DejaVu Sans" fontSize="7.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+				<printWhenExpression><![CDATA[$P{LOTSER_FLAG} == "S"]]></printWhenExpression>
+				<paragraph rightIndent="1"/>
 				<text><![CDATA[S/N:]]></text>
-			</staticText>
-			<textField textAdjust="StretchHeight">
-				<reportElement x="205" y="0" width="103" height="12" uuid="54884e6a-f8f2-447f-9feb-efa7a401508a">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="8"/>
-					<paragraph leftIndent="3"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{LOTSER_NO}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement x="183" y="0" width="1" height="14" isPrintWhenDetailOverflows="true" uuid="2b15a356-bfc5-43c8-9738-54c6023d1a13">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<graphicElement>
-					<pen lineWidth="1.0" lineColor="#C0C0C0"/>
-				</graphicElement>
-			</line>
-			<textField>
-				<reportElement x="133" y="0" width="50" height="12" uuid="93e4ac29-c830-4019-a5ba-138de504d439">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement verticalAlignment="Bottom">
-					<font fontName="DejaVu Serif" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{ITEM_ID}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="99" y="0" width="33" height="12" uuid="76e859c8-7546-4d29-93d1-2440564dc685">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="DejaVu Sans" size="7" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$R{AON_ITEM:}]]></textFieldExpression>
-			</textField>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			</element>
+			<element kind="textField" uuid="54884e6a-f8f2-447f-9feb-efa7a401508a" x="205" y="0" width="103" height="12" fontName="DejaVu Serif" fontSize="8.0" textAdjust="StretchHeight" vTextAlign="Middle">
+				<paragraph leftIndent="3"/>
+				<expression><![CDATA[$F{LOTSER_NO}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			</element>
+			<element kind="line" uuid="2b15a356-bfc5-43c8-9738-54c6023d1a13" x="183" y="0" width="1" height="14" printWhenDetailOverflows="true">
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<pen lineWidth="1.0" lineColor="#C0C0C0"/>
+			</element>
+			<element kind="textField" uuid="93e4ac29-c830-4019-a5ba-138de504d439" x="133" y="0" width="50" height="12" fontName="DejaVu Serif" fontSize="8.0" vTextAlign="Bottom">
+				<expression><![CDATA[$P{ITEM_ID}]]></expression>
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			</element>
+			<element kind="textField" uuid="76e859c8-7546-4d29-93d1-2440564dc685" x="99" y="0" width="33" height="12" fontName="DejaVu Sans" fontSize="7.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+				<expression><![CDATA[$R{AON_ITEM:}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			</element>
 		</band>
 	</detail>
 </jasperReport>

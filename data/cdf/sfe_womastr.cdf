@@ -95,7 +95,11 @@ rem --- Disable/enable based on status of closed/open
 			callpoint!.setColumnEnabled("<<DISPLAY>>.ITEM_ID",1)
 		endif
 		callpoint!.setColumnEnabled("SFE_WOMASTR.PRIORITY",1)
-		callpoint!.setColumnEnabled("SFE_WOMASTR.SCH_PROD_QTY",1)
+		if callpoint!.getColumnData("SFE_WOMASTR.WO_STATUS")="P" and callpoint!.getDevObject("edit_prod_qty")="Y" then
+			callpoint!.setColumnEnabled("SFE_WOMASTR.SCH_PROD_QTY",1)
+		else
+			callpoint!.setColumnEnabled("SFE_WOMASTR.SCH_PROD_QTY",0)
+		endif
 		callpoint!.setColumnEnabled("SFE_WOMASTR.UNIT_MEASURE",1)
 		callpoint!.setColumnEnabled("SFE_WOMASTR.WO_TYPE",1)
 		callpoint!.setColumnEnabled("SFE_WOMASTR.WO_STATUS",1)
@@ -271,7 +275,7 @@ rem --- Disable qty/yield if data exists in sfe_womatl (sfe-22)
 		while 1
 			read record (sfe_womatl_dev,end=*break)sfe_womatl$
 			if sfe_womatl$.firm_id$+sfe_womatl.wo_location$+sfe_womatl.wo_no$=firm_id$+loc$+wo_no$
-				callpoint!.setColumnEnabled("SFE_WOMASTR.SCH_PROD_QTY",0)
+				if callpoint!.getDevObject("edit_prod_qty")<>"Y" then callpoint!.setColumnEnabled("SFE_WOMASTR.SCH_PROD_QTY",0)
 				callpoint!.setColumnEnabled("SFE_WOMASTR.EST_YIELD",0)
 				rem - this gets to be annoying - callpoint!.setMessage("SF_MATS_EXIST")
 			endif
@@ -375,6 +379,8 @@ rem --- Open tables
 	sfs_params=num(open_chans$[2])
 	dim sfs_params$:open_tpls$[2]
 	read record (sfs_params,key=firm_id$+"SF00",dom=std_missing_params) sfs_params$
+	callpoint!.setDevObject("edit_planned_wo",sfs_params.edit_planned_wo$)
+	callpoint!.setDevObject("edit_prod_qty",sfs_params.edit_prod_qty$)
 
 	rem --- Get end date of previous SF period
 	gls_calendar=num(open_chans$[12])
@@ -910,7 +916,7 @@ rem --- Disable Scheduled Quantity and Yield if Inventory Item
 	type$=callpoint!.getColumnData("SFE_WOMASTR.WO_TYPE")
 	readrecord(typecode_dev,key=firm_id$+"A"+type$)typecode$
 	if typecode.wo_category$="I"
-		callpoint!.setColumnEnabled("SFE_WOMASTR.SCH_PROD_QTY",0)
+		if callpoint!.getDevObject("edit_prod_qty")<>"Y" then callpoint!.setColumnEnabled("SFE_WOMASTR.SCH_PROD_QTY",0)
 		callpoint!.setColumnEnabled("SFE_WOMASTR.EST_YIELD",0)
 	endif
 
@@ -1080,6 +1086,56 @@ rem --- enable Release/Commit
 	if callpoint!.getColumnData("SFE_WOMASTR.WO_STATUS")<>"C"
 		callpoint!.setOptionEnabled("RELS",1)
 		callpoint!.setOptionEnabled("SCHD",1)
+	endif
+
+rem --- Adjust requirements for new scheduled production quantity
+	if num(callpoint!.getColumnData("SFE_WOMASTR.SCH_PROD_QTY"))<>num(callpoint!.getDevObject("previous_sch_prod_qty")) then
+		prod_qty_ratio=num(callpoint!.getColumnData("SFE_WOMASTR.SCH_PROD_QTY"))/num(callpoint!.getDevObject("previous_sch_prod_qty"))
+		wo_location$=callpoint!.getColumnData("SFE_WOMASTR.WO_LOCATION")
+		wo_no$=callpoint!.getColumnData("SFE_WOMASTR.WO_NO")
+		trip_key$=firm_id$+wo_location$+wo_no$
+
+		rem --- Adjust material requirements
+		sfe_womatl_dev=fnget_dev("SFE_WOMATL")
+		dim sfe_womatl$:fnget_tpl$("SFE_WOMATL")
+		read(sfe_womatl_dev,key=trip_key$,dom=*next)
+		while 1
+			sfe_womatl_key$=key(sfe_womatl_dev,end=*break)
+			if pos(trip_key$=sfe_womatl_key$)<>1 then break
+			extractrecord(sfe_womatl_dev)sfe_womatl$
+			sfe_womatl.total_units=prod_qty_ratio*sfe_womatl.total_units
+			precision 2
+			sfe_womatl.total_cost=prod_qty_ratio*sfe_womatl.total_cost
+			precision num(callpoint!.getDevObject("iv_precision"))
+			writerecord(sfe_womatl_dev)sfe_womatl$
+		wend
+
+		rem --- Adjust operations requirements
+		sfe_wooprtn_dev=fnget_dev("SFE_WOOPRTN")
+		dim sfe_wooprtn$:fnget_tpl$("SFE_WOOPRTN")
+		read(sfe_wooprtn_dev,key=trip_key$,dom=*next)
+		while 1
+			sfe_wooprtn_key$=key(sfe_wooprtn_dev,end=*break)
+			if pos(trip_key$=sfe_wooprtn_key$)<>1 then break
+			extractrecord(sfe_wooprtn_dev)sfe_wooprtn$
+			sfe_wooprtn.total_time=prod_qty_ratio*sfe_wooprtn.total_time
+			writerecord(sfe_wooprtn_dev)sfe_wooprtn$
+		wend
+
+		rem --- Adjust subcontract requirements
+		sfe_wosubcnt_dev=fnget_dev("SFE_WOSUBCNT")
+		dim sfe_wosubcnt$:fnget_tpl$("SFE_WOSUBCNT")
+		read(sfe_wosubcnt_dev,key=trip_key$,dom=*next)
+		while 1
+			sfe_wosubcnt_key$=key(sfe_wosubcnt_dev,end=*break)
+			if pos(trip_key$=sfe_wosubcnt_key$)<>1 then break
+			extractrecord(sfe_wosubcnt_dev)sfe_wosubcnt$
+			sfe_wosubcnt.total_units=prod_qty_ratio*sfe_wosubcnt.total_units
+			precision 2
+			sfe_wosubcnt.total_cost=prod_qty_ratio*sfe_wosubcnt.total_cost
+			precision num(callpoint!.getDevObject("iv_precision"))
+			writerecord(sfe_wosubcnt_dev)sfe_wosubcnt$
+		wend
 	endif
 
 [[SFE_WOMASTR.BDEL]]
@@ -1708,10 +1764,11 @@ rem --- Enable Copy Button
 
 rem --- Informational warning for category N WO's - requirements may need to be adjusted if qty/yield is changed
 
-	if callpoint!.getColumnData("SFE_WOMASTR.WO_STATUS")<>"C" and callpoint!.getColumnData("SFE_WOMASTR.WO_CATEGORY")="N"
+	if callpoint!.getColumnData("SFE_WOMASTR.WO_STATUS")<>"C" and callpoint!.getColumnData("SFE_WOMASTR.WO_CATEGORY")="N" or
+:	callpoint!.getDevObject("edit_prod_qty")="Y" then 
 		if callpoint!.getRecordMode()="C" and callpoint!.getColumnUndoData("SFE_WOMASTR.SCH_PROD_QTY")<>callpoint!.getUserInput()
+			callpoint!.setDevObject("previous_sch_prod_qty",callpoint!.getColumnUndoData("SFE_WOMASTR.SCH_PROD_QTY"))
 			callpoint!.setMessage("SF_ADJ_REQS")
-		endif
 	endif
 
 [[SFE_WOMASTR.WAREHOUSE_ID.AVAL]]
