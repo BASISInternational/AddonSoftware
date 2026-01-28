@@ -1074,7 +1074,8 @@ rem --- Print a counter Picking Slip
 	read record (arm02_dev,key=firm_id$+customer_id$+"  ",dom=*next) arm02a$
 
 	rem --- No need to check credit first
-	if user_tpl.credit_installed$ <> "Y" or 
+	if (user_tpl.credit_installed$="Y" and callpoint!.getColumnData("OPE_ORDHDR.CREDIT_FLAG")="R") or 
+: 		user_tpl.credit_installed$ <> "Y" or 
 :		user_tpl.pick_hold$ = "Y"         or
 :		callpoint!.getColumnData("OPE_ORDHDR.INVOICE_TYPE") = "P" or
 :		arm02a.cred_hold$="E"
@@ -2383,7 +2384,8 @@ rem --- Credit action
 
 	rem --- Header record will exist if at least one detail line has been entered.
 	if GridVect!.getItem(0).size()>0 then
-		if ordHelp!.calcOverCreditLimit() and callpoint!.getDevObject("credit_action_done") <> "Y" then
+		if callpoint!.getColumnData("OPE_ORDHDR.CREDIT_FLAG")<>"R" and
+: 		ordHelp!.calcOverCreditLimit() and callpoint!.getDevObject("credit_action_done") <> "Y" then
 			callpoint!.setDevObject("cred_action_from_print_now","")
 			gosub do_credit_action
 			if action$<>"D" then callpoint!.setStatus("SAVE")
