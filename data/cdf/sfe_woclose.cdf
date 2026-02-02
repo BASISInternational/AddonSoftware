@@ -79,7 +79,7 @@ rem --- Check work order status
 		gosub disp_message
 
 		rem --- Done with this work order
-		callpoint!.setStatus("ABORT")
+		callpoint!.setStatus("ABORT-NEWREC")
 		break
 	endif
 
@@ -204,6 +204,35 @@ rem -- Disable lot/serial option if not lotted/serialized, and scheduled for clo
 		endif
 	else
 		callpoint!.setOptionEnabled("LSNO",0)
+	endif
+
+rem --- Close this work order?
+	ask_close_question=num(callpoint!.getDevObject("ask_close_question"))
+	if ask_close_question and callpoint!.getColumnData("SFE_WOCLOSE.COMPLETE_FLG")<>"Y" then
+		rem --- Work order scheduled to be closed?
+		closedwo_dev=fnget_dev("1SFE_CLOSEDWO")
+		wo_location$=callpoint!.getColumnData("SFE_WOCLOSE.WO_LOCATION")
+		wo_no$=callpoint!.getColumnData("SFE_WOCLOSE.WO_NO")
+		closedwo_found=0
+		findrecord(closedwo_dev,key=firm_id$+wo_location$+wo_no$,dom=*next);closedwo_found=1
+		if !closedwo_found then
+			callpoint!.setDevObject("ask_close_question","0")
+			msg_id$="SF_CLOSE_WO"
+			gosub disp_message
+			if msg_opt$="N" then
+				rem --- Done with this work order
+				callpoint!.setStatus("NEWREC")
+				break
+			else
+				callpoint!.setStatus("EDITON")
+			endif
+
+			rem -- Enable lot/serial option for lotted/serialized items
+			if callpoint!.getColumnData("SFE_WOCLOSE.WO_CATEGORY")="I" and 
+:			pos(callpoint!.getColumnData("SFE_WOCLOSE.LOTSER_FLAG")="LS") then
+				callpoint!.setOptionEnabled("LSNO",1)
+			endif
+		endif
 	endif
 
 [[SFE_WOCLOSE.AOPT-LSNO]]
@@ -588,33 +617,6 @@ rem --- Verify date when GL installed
 	endif
 
 [[SFE_WOCLOSE.CLS_INP_DATE.BINP]]
-rem --- Close this work order?
-	ask_close_question=num(callpoint!.getDevObject("ask_close_question"))
-	if ask_close_question and callpoint!.getColumnData("SFE_WOCLOSE.COMPLETE_FLG")<>"Y" then
-		rem --- Work order scheduled to be closed?
-		closedwo_dev=fnget_dev("1SFE_CLOSEDWO")
-		wo_location$=callpoint!.getColumnData("SFE_WOCLOSE.WO_LOCATION")
-		wo_no$=callpoint!.getColumnData("SFE_WOCLOSE.WO_NO")
-		closedwo_found=0
-		findrecord(closedwo_dev,key=firm_id$+wo_location$+wo_no$,dom=*next);closedwo_found=1
-		if !closedwo_found then
-			callpoint!.setDevObject("ask_close_question","0")
-			msg_id$="SF_CLOSE_WO"
-			gosub disp_message
-			if msg_opt$="N" then
-				rem --- Done with this work order
-				callpoint!.setStatus("NEWREC")
-				break
-			endif
-
-			rem -- Enable lot/serial option for lotted/serialized items
-			if callpoint!.getColumnData("SFE_WOCLOSE.WO_CATEGORY")="I" and 
-:			pos(callpoint!.getColumnData("SFE_WOCLOSE.LOTSER_FLAG")="LS") then
-				callpoint!.setOptionEnabled("LSNO",1)
-			endif
-		endif
-	endif
-
 rem --- Initialize input close date
 	if cvs(callpoint!.getColumnData("SFE_WOCLOSE.CLS_INP_DATE"),2)="" then
 		callpoint!.setColumnData("SFE_WOCLOSE.CLS_INP_DATE",sysinfo.system_date$,1)
