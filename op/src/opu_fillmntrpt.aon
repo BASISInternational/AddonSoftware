@@ -107,6 +107,7 @@ rem --- Invoice packed and shipped orders
 
         rem --- Replace opt_invdet opt-11 records
         skipNewOpe21Records$=""
+        total_sales=0
         optInvDet_trip$=optInvHdr_key$
         read (optInvDet_dev, key=optInvDet_trip$,knum="AO_STAT_CUST_ORD",dom=*next)
         while 1
@@ -134,11 +135,11 @@ rem --- Invoice packed and shipped orders
                     break
                 wend
                 rem --- Make sure this detail line is pickable
+                optInvDet.qty_shipped=optFillmntDet.qty_shipped
                 if optFillmntDet.qty_shipped>0 then
                     read record (opcLineCode_dev, key=firm_id$+optInvDet.line_code$, dom=*next)opcLineCode$
                     if pos(opcLineCode.line_type$="MO")=0 and opcLineCode.dropship$<>"Y" then 
-                        optInvDet.qty_shipped=optFillmntDet.qty_picked
-                        if optInvDet.qty_shipped<=optInvDet.qty_ordered then optInvDet.qty_backord=optInvDet.qty_ordered-optInvDet.qty_shipped
+                        if optInvDet.qty_shipped<=optInvDet.qty_ordered then optInvDet.qty_backord=optInvDet.qty_ordered-optFillmntDet.qty_picked
                     endif
                 endif
         
@@ -148,6 +149,8 @@ rem --- Invoice packed and shipped orders
                 optInvDet.mod_time$=date(0:"%Hz%mz")
                 optInvDet$=field(optInvDet$)
                 writerecord(optInvDet_dev)optInvDet$
+                
+                total_sales=total_sales+optInvDet.qty_shipped*optInvDet.unit_price
             endif
             optInvDet_primary$=optInvDet.firm_id$+optInvDet.ar_type$+optInvDet.customer_id$+optInvDet.order_no$+old_inv_no$+optInvDet.internal_seq_no$
             remove(optInvDet_dev,key=optInvDet_primary$)
@@ -266,6 +269,7 @@ rem --- Invoice packed and shipped orders
                 freight_amt=freight_amt+optCartHdr.freight_amt
             wend
             optInvHdr.freight_amt=freight_amt
+            optInvHdr.total_sales=total_sales
         
             optInvHdr.ar_inv_no$=inv_no$
             optInvHdr.ordinv_flag$="I"
