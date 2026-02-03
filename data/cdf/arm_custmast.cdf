@@ -65,7 +65,7 @@ rem --- Draw attention when pay_auth_email doesn't match ARS_CC_CUSTPMT Report C
 	admRptCtlRcp_dev=fnget_dev("ADM_RPTCTL_RCP")
 	dim admRptCtlRcp$:fnget_tpl$("ADM_RPTCTL_RCP")
 	admRptCtlRcp.dd_table_alias$="ARS_CC_CUSTPMT"
-	findrecord(admRptCtlRcp_dev,key=firm_id$+admRptCtlRcp.dd_table_alias$+customer_id$+admRptCtlRcp.vendor_id$,dom=*next)admRptCtlRcp$
+	findrecord(admRptCtlRcp_dev,key=firm_id$+admRptCtlRcp.dd_table_alias$+customer_id$+admRptCtlRcp.vendor_id$,knum="PRIMARY",dom=*next)admRptCtlRcp$
 	if cvs(admRptCtlRcp.customer_id$,3)<>"" then
 		email_to$=admRptCtlRcp.email_to$
 	else
@@ -777,7 +777,7 @@ rem --- Add ARS_CC_CUSTPMT Report Control Recipients record for this customer if
 		admRptCtlRcp_dev=fnget_dev("ADM_RPTCTL_RCP")
 		dim admRptCtlRcp$:fnget_tpl$("ADM_RPTCTL_RCP")
 		admRptCtlRcp.dd_table_alias$="ARS_CC_CUSTPMT"
-		findrecord(admRptCtlRcp_dev,key=firm_id$+admRptCtlRcp.dd_table_alias$+customer_id$+admRptCtlRcp.vendor_id$,dom=*next)admRptCtlRcp$
+		findrecord(admRptCtlRcp_dev,key=firm_id$+admRptCtlRcp.dd_table_alias$+customer_id$+admRptCtlRcp.vendor_id$,knum="PRIMARY",dom=*next)admRptCtlRcp$
 
 		if cvs(admRptCtlRcp.customer_id$,3)="" then
 			rem --- Add ARS_CC_CUSTPMT record for this customer
