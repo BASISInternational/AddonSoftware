@@ -10534,11 +10534,11 @@
 		<DD_TABLE_COL>PO_NO           </DD_TABLE_COL>
 		<COLUMN_HDR>PO No</COLUMN_HDR>
 		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_PROG>[+DIR_PGM]pof_podetail.aon</COLUMN_PROG>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
 		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -10642,8 +10642,8 @@
 		<SEQUENCE_NO>009</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>ITEM_DESC       </DD_TABLE_COL>
+		<DD_TABLE_ALIAS>POT_PODET_ARC   </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>ORDER_MEMO      </DD_TABLE_COL>
 		<COLUMN_HDR>Description</COLUMN_HDR>
 		<COLUMN_CASE>N</COLUMN_CASE>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
