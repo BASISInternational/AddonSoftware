@@ -195,7 +195,7 @@ rem --- Set callbacks - processed in ACUS callpoint
 
 [[OPM_SHIPTRACK.BSHO]]
 rem --- Open files
-	num_files=6
+	num_files=7
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="OPT_SHIPTRACK",open_opts$[1]="OTA"
 	open_tables$[2]="OPT_INVHDR",open_opts$[2]="OTA@"
@@ -203,6 +203,7 @@ rem --- Open files
 	open_tables$[4]="ARM_CUSTSHIP",open_opts$[4]="OTA@"
 	open_tables$[5]="OPE_ORDSHIP",open_opts$[5]="OTA@"
 	open_tables$[6]="ARC_CARRIERCODE",open_opts$[6]="OTA@"
+	open_tables$[7]="ARC_SCACCODE",open_opts$[7]="OTA"
 
 	gosub open_tables
 
@@ -311,19 +312,19 @@ rem ==========================================================================
 	attr_inv_col$[column_no,fnstr_pos("DVAR",attr_def_col_str$[0,0],5)]="TRACKING_NO"
 	attr_inv_col$[column_no,fnstr_pos("LABS",attr_def_col_str$[0,0],5)]=Translate!.getTranslation("AON_TRACKING_NUM")
 	attr_inv_col$[column_no,fnstr_pos("DTYP",attr_def_col_str$[0,0],5)]="C"
-	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="325"
+	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="330"
 
 	column_no = column_no +1
 	attr_inv_col$[column_no,fnstr_pos("DVAR",attr_def_col_str$[0,0],5)]="VOID_FLAG"
 	attr_inv_col$[column_no,fnstr_pos("LABS",attr_def_col_str$[0,0],5)]=Translate!.getTranslation("AON_VOID?")
 	attr_inv_col$[column_no,fnstr_pos("DTYP",attr_def_col_str$[0,0],5)]="C"
-	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="40"
+	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="10"
 
 	column_no = column_no +1
 	attr_inv_col$[column_no,fnstr_pos("DVAR",attr_def_col_str$[0,0],5)]="WEIGHT"
 	attr_inv_col$[column_no,fnstr_pos("LABS",attr_def_col_str$[0,0],5)]=Translate!.getTranslation("AON_WEIGHT")
 	attr_inv_col$[column_no,fnstr_pos("DTYP",attr_def_col_str$[0,0],5)]="N"
-	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="60"
+	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="30"
 	attr_inv_col$[column_no,fnstr_pos("MSKO",attr_def_col_str$[0,0],5)]="###0.00"
 
 	column_no = column_no +1
@@ -331,7 +332,7 @@ rem ==========================================================================
 	attr_inv_col$[column_no,fnstr_pos("LABS",attr_def_col_str$[0,0],5)]=Translate!.getTranslation("AON_ACTUAL")+" "+
 :		Translate!.getTranslation("AON_FREIGHT_AMT")
 	attr_inv_col$[column_no,fnstr_pos("DTYP",attr_def_col_str$[0,0],5)]="N"
-	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="105"
+	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="60"
 	attr_inv_col$[column_no,fnstr_pos("MSKO",attr_def_col_str$[0,0],5)]=ar_a_mask$
 
 	column_no = column_no +1
@@ -339,7 +340,7 @@ rem ==========================================================================
 	attr_inv_col$[column_no,fnstr_pos("LABS",attr_def_col_str$[0,0],5)]=Translate!.getTranslation("AON_CUSTOMER")+" "+
 :		Translate!.getTranslation("AON_FREIGHT_AMT")
 	attr_inv_col$[column_no,fnstr_pos("DTYP",attr_def_col_str$[0,0],5)]="N"
-	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="105"
+	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="60"
 	attr_inv_col$[column_no,fnstr_pos("MSKO",attr_def_col_str$[0,0],5)]=ar_a_mask$
 
 	column_no = column_no +1
@@ -347,20 +348,20 @@ rem ==========================================================================
 	attr_inv_col$[column_no,fnstr_pos("LABS",attr_def_col_str$[0,0],5)]=Translate!.getTranslation("AON_SHIP")+" "+
 :		Translate!.getTranslation("AON_DATE")
 	attr_inv_col$[column_no,fnstr_pos("DTYP",attr_def_col_str$[0,0],5)]="C"
-	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="80"
+	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="50"
 	attr_inv_col$[column_no,fnstr_pos("STYP",attr_def_col_str$[0,0],5)]="1"
 
 	column_no = column_no +1
 	attr_inv_col$[column_no,fnstr_pos("DVAR",attr_def_col_str$[0,0],5)]="CARRIER_CODE"
 	attr_inv_col$[column_no,fnstr_pos("LABS",attr_def_col_str$[0,0],5)]=Translate!.getTranslation("AON_CARRIER_SERVICE_CODE")
 	attr_inv_col$[column_no,fnstr_pos("DTYP",attr_def_col_str$[0,0],5)]="C"
-	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="95"
+	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="200"
 
 	column_no = column_no +1
 	attr_inv_col$[column_no,fnstr_pos("DVAR",attr_def_col_str$[0,0],5)]="SCAC_CODE"
 	attr_inv_col$[column_no,fnstr_pos("LABS",attr_def_col_str$[0,0],5)]=Translate!.getTranslation("AON_SCAC_CODE")
 	attr_inv_col$[column_no,fnstr_pos("DTYP",attr_def_col_str$[0,0],5)]="C"
-	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="85"
+	attr_inv_col$[column_no,fnstr_pos("CTLW",attr_def_col_str$[0,0],5)]="200"
 
 	for curr_attr=1 to def_inv_cols
 		attr_inv_col$[0,1] = attr_inv_col$[0,1] + 
@@ -452,6 +453,10 @@ rem ==========================================================================
 rem ==========================================================================
 getTrackingInfo: rem --- Get Tracking information for this order
 rem ==========================================================================
+	arcCarrierCode_dev=fnget_dev("@ARC_CARRIERCODE")
+	dim arcCarrierCode$:fnget_tpl$("@ARC_CARRIERCODE")
+	arcScacCode_dev=fnget_dev("ARC_SCACCODE")
+	dim arcScacCode$:fnget_tpl$("ARC_SCACCODE")
 
 	ar_type$=optInvHdr.ar_type$
 	callpoint!.setDevObject("ar_type",ar_type$)
@@ -477,8 +482,22 @@ rem ==========================================================================
 		gridRowVect!.addItem(optShipTrack.act_freight_amt)
 		gridRowVect!.addItem(optShipTrack.cust_freight_amt)
 		gridRowVect!.addItem(date(jul(optShipTrack.create_date$,"%Yd%Mz%Dz"):stbl("+DATE_GRID")))
-		gridRowVect!.addItem(optShipTrack.carrier_code$)
-		gridRowVect!.addItem(optShipTrack.scac_code$)
+
+		carrier_code$=cvs(optShipTrack.carrier_code$,2)
+		redim arcCarrierCode$
+		readrecord(arcCarrierCode_dev,key=firm_id$+optShipTrack.carrier_code$,dom=*next)arcCarrierCode$
+		if cvs(arcCarrierCode.carrier_name$,2)<>"" then
+			carrier_code$=carrier_code$+" - "+cvs(arcCarrierCode.carrier_name$,2)
+		endif
+		gridRowVect!.addItem(carrier_code$)
+
+		scac_code$=cvs(optShipTrack.scac_code$,2)
+		redim arcScacCode$
+		readrecord(arcScacCode_dev,key=firm_id$+optShipTrack.scac_code$,dom=*next)arcScacCode$
+		if cvs(arcScacCode.carrier_name$,2)<>"" then
+			scac_code$=scac_code$+" - "+cvs(arcScacCode.carrier_name$,2)
+		endif
+		gridRowVect!.addItem(scac_code$)
 	wend
 	callpoint!.setDevObject("gridRowVect",gridRowVect!)
 

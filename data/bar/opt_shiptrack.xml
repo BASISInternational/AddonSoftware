@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.opt_shiptrack"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opt_shiptrack">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opt_shiptrack">20180403</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.opt_shiptrack">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.opt_shiptrack">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opt_shiptrack">142910</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.opt_shiptrack">20260209</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.opt_shiptrack">20260209</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.opt_shiptrack">141626</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opt_shiptrack"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.opt_shiptrack">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.opt_shiptrack">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opt_shiptrack">PRIMARY</DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.opt_shiptrack"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.opt_shiptrack">G</DD_ATTR_FTYP>
@@ -912,7 +912,7 @@
 			<DD_ATTR_CTLC id="ddm_table_cols.opt_shiptrack010">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.opt_shiptrack010"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.opt_shiptrack010"></DD_ATTR_RKEY>
-			<DD_ATTR_BTNS id="ddm_table_cols.opt_shiptrack010"></DD_ATTR_BTNS>
+			<DD_ATTR_BTNS id="ddm_table_cols.opt_shiptrack010">C</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.opt_shiptrack011">
 			<DD_TABLE_ALIAS id="ddm_table_cols.opt_shiptrack011">OPT_SHIPTRACK   </DD_TABLE_ALIAS>
@@ -1032,7 +1032,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opt_shiptrack013">20180710</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opt_shiptrack013"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opt_shiptrack013"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opt_shiptrack013">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opt_shiptrack013">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opt_shiptrack013">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opt_shiptrack013"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opt_shiptrack013"></DD_ATTR_CTLY>
@@ -1098,10 +1098,15 @@
 			<DD_DVAR_NAME id="ddm_column_opts.opt_shiptrackvoid_flagc">VOID_FLAG       </DD_DVAR_NAME>
 			<DD_ATTR_OPTS id="ddm_column_opts.opt_shiptrackvoid_flagc">C</DD_ATTR_OPTS>
 		</RECORD>
-		<RECORD id="ddm_column_opts.opt_shiptrackcreate_datec">
-			<DD_TABLE_ALIAS id="ddm_column_opts.opt_shiptrackcreate_datec">OPT_SHIPTRACK   </DD_TABLE_ALIAS>
-			<DD_DVAR_NAME id="ddm_column_opts.opt_shiptrackcreate_datec">CREATE_DATE     </DD_DVAR_NAME>
-			<DD_ATTR_OPTS id="ddm_column_opts.opt_shiptrackcreate_datec">C</DD_ATTR_OPTS>
+		<RECORD id="ddm_column_opts.opt_shiptrackscac_codev">
+			<DD_TABLE_ALIAS id="ddm_column_opts.opt_shiptrackscac_codev">OPT_SHIPTRACK   </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.opt_shiptrackscac_codev">SCAC_CODE       </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.opt_shiptrackscac_codev">V</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_column_opts.opt_shiptrackcarrier_codev">
+			<DD_TABLE_ALIAS id="ddm_column_opts.opt_shiptrackcarrier_codev">OPT_SHIPTRACK   </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.opt_shiptrackcarrier_codev">CARRIER_CODE    </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.opt_shiptrackcarrier_codev">V</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_elements">
