@@ -1,4 +1,4 @@
-<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
 <jasperReport name="OPInvoiceShipTrack" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="d0f2d81a-f232-44c4-9e01-14fc226174e5">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
@@ -17,18 +17,18 @@
 	</field>
 	<background splitType="Stretch"/>
 	<columnHeader height="15">
-		<element kind="rectangle" uuid="c7c6e0aa-b0fb-4c1b-af8f-42aead274148" x="14" y="0" width="530" height="15" radius="4">
-			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+		<element kind="rectangle" uuid="c7c6e0aa-b0fb-4c1b-af8f-42aead274148" x="0" y="0" width="555" height="15" radius="4">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<pen lineColor="#C0C0C0"/>
 		</element>
-		<element kind="textField" uuid="1a8752c2-9219-4000-bdd0-7de17b94908d" mode="Opaque" x="14" y="13" width="530" height="2">
-			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		<element kind="textField" uuid="1a8752c2-9219-4000-bdd0-7de17b94908d" mode="Opaque" x="0" y="13" width="555" height="2">
 			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<box>
 				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#C0C0C0"/>
 				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#C0C0C0"/>
@@ -36,51 +36,51 @@
 				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#C0C0C0"/>
 			</box>
 		</element>
-		<element kind="textField" uuid="6d777125-b831-4506-94a9-c4eee8dd3405" x="14" y="0" width="325" height="15" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="textField" uuid="6d777125-b831-4506-94a9-c4eee8dd3405" x="0" y="0" width="265" height="15" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$R{AON_SHIP_TRACK_NUM}]]></expression>
-			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="textField" uuid="aa99b6fc-0831-45eb-b9ac-847d33dc1778" x="339" y="0" width="130" height="15" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="textField" uuid="aa99b6fc-0831-45eb-b9ac-847d33dc1778" x="265" y="0" width="145" height="15" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$R{AON_CARRIER_SERVICE_CODE}]]></expression>
 			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="textField" uuid="632db266-dd6e-4329-8066-27465516ec00" x="469" y="0" width="75" height="15" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="textField" uuid="632db266-dd6e-4329-8066-27465516ec00" x="410" y="0" width="145" height="15" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$R{AON_SCAC_CODE}]]></expression>
 			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="line" uuid="5dbf92fc-416f-4a76-b7c1-cbce16e7f7e9" x="339" y="0" width="1" height="15">
-			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		<element kind="line" uuid="5dbf92fc-416f-4a76-b7c1-cbce16e7f7e9" x="265" y="0" width="1" height="15">
 			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			<pen lineColor="#C0C0C0"/>
 		</element>
-		<element kind="line" uuid="4de0a772-a6dd-4ce7-bf31-e5e75418296c" x="469" y="0" width="1" height="15">
-			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		<element kind="line" uuid="4de0a772-a6dd-4ce7-bf31-e5e75418296c" x="410" y="0" width="1" height="15">
 			<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			<pen lineColor="#C0C0C0"/>
 		</element>
 		<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 	</columnHeader>
 	<detail>
 		<band height="15" splitType="Stretch">
-			<element kind="textField" uuid="c7d43017-c0df-4f9c-be3a-6c7c65e1b657" x="14" y="0" width="325" height="15" fontName="DejaVu Sans" fontSize="9.0" vTextAlign="Middle">
+			<element kind="textField" uuid="c7d43017-c0df-4f9c-be3a-6c7c65e1b657" x="0" y="0" width="265" height="15" fontName="DejaVu Sans" fontSize="8.0" textAdjust="ScaleFont" vTextAlign="Middle">
 				<paragraph leftIndent="2"/>
 				<expression><![CDATA[$F{TRACKING_NO}]]></expression>
-				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#C0C0C0"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#C0C0C0"/>
@@ -88,13 +88,13 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#C0C0C0"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="588f0daa-1525-42f6-a847-f19730dca812" x="339" y="0" width="130" height="15" fontSize="9.0" vTextAlign="Middle">
+			<element kind="textField" uuid="588f0daa-1525-42f6-a847-f19730dca812" x="265" y="0" width="145" height="15" fontSize="8.0" textAdjust="ScaleFont" vTextAlign="Middle">
 				<paragraph leftIndent="2"/>
 				<expression><![CDATA[$F{CARRIER_CODE}]]></expression>
-				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#C0C0C0"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#C0C0C0"/>
@@ -102,13 +102,13 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#C0C0C0"/>
 				</box>
 			</element>
-			<element kind="textField" uuid="022fff54-5209-4e1d-9d1e-5b67ab58689f" x="469" y="0" width="75" height="15" fontSize="9.0" vTextAlign="Middle">
+			<element kind="textField" uuid="022fff54-5209-4e1d-9d1e-5b67ab58689f" x="410" y="0" width="145" height="15" fontSize="8.0" textAdjust="ScaleFont" vTextAlign="Middle">
 				<paragraph leftIndent="2"/>
 				<expression><![CDATA[$F{SCAC_CODE}]]></expression>
-				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#C0C0C0"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#C0C0C0"/>

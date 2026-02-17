@@ -61,10 +61,12 @@ rem --- create the in memory recordset for return
 rem --- Open Files    
 rem --- Note 'files' and 'channels[]' are used in close loop, so don't re-use
 
-    files=1,begfile=1,endfile=files
+    files=3,begfile=1,endfile=files
     dim files$[files],options$[files],ids$[files],templates$[files],channels[files]    
 
-    files$[1]="opt_shiptrack",      ids$[1]="OPT_SHIPTRACK"
+    files$[1]="opt_shiptrack",     ids$[1]="OPT_SHIPTRACK"
+    files$[2]="arc_carriercode",   ids$[2]="ARC_CARRIERCODE"
+    files$[3]="arc_scaccode",      ids$[3]="ARC_SCACCODE"
 	
 	call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],ids$[all],templates$[all],channels[all],batch,status
 
@@ -77,8 +79,12 @@ rem --- Note 'files' and 'channels[]' are used in close loop, so don't re-use
 	files_opened = files; rem used in loop to close files
 
     optShipTrack_dev = channels[1]
+    arcCarrierCode_dev = channels[2]
+    arcScacCode_dev = channels[3]
     
     dim optShipTrack$:templates$[1]
+    dim arcCarrierCode$:templates$[2]
+    dim arcScacCode$:templates$[3]
 
 rem --- Get shipment tracking information for this order
 
@@ -106,9 +112,23 @@ rem --- Process through SQL results
         if read_tpl.void_flag$="Y" then
             trackingNos!.remove(read_tpl.tracking_no$)
         else
+            redim arcCarrierCode$
+            carrier_code$=cvs(read_tpl.carrier_code$,2)
+            readrecord(arcCarrierCode_dev,key=firm_id$+read_tpl.carrier_code$,dom=*next)arcCarrierCode$
+            if cvs(arcCarrierCode.carrier_name$,2)<>"" then
+                carrier_code$=carrier_code$+" - "+cvs(arcCarrierCode.carrier_name$,2)
+            endif
+
+            redim arcScacCode$
+            scac_code$=cvs(read_tpl.scac_code$,2)         
+            readrecord(arcScacCode_dev,key=firm_id$+read_tpl.scac_code$,dom=*next)arcScacCode$
+            if cvs(arcScacCode.carrier_name$,2)<>"" then
+                scac_code$=scac_code$+" - "+cvs(arcScacCode.carrier_name$,2)
+            endif
+
             trackingVec!=BBjAPI().makeVector()
-            trackingVec!.addItem(read_tpl.carrier_code$)
-            trackingVec!.addItem(read_tpl.scac_code$)
+            trackingVec!.addItem(carrier_code$)
+            trackingVec!.addItem(scac_code$)
             trackingNos!.put(read_tpl.tracking_no$,trackingVec!)
         endif
 
