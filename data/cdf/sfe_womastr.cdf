@@ -1089,7 +1089,8 @@ rem --- enable Release/Commit
 	endif
 
 rem --- Adjust requirements for new scheduled production quantity
-	if num(callpoint!.getColumnData("SFE_WOMASTR.SCH_PROD_QTY"))<>num(callpoint!.getDevObject("previous_sch_prod_qty")) then
+	if callpoint!.getDevObject("previous_sch_prod_qty")<>null() and
+: 	num(callpoint!.getColumnData("SFE_WOMASTR.SCH_PROD_QTY"))<>num(callpoint!.getDevObject("previous_sch_prod_qty")) then
 		prod_qty_ratio=num(callpoint!.getColumnData("SFE_WOMASTR.SCH_PROD_QTY"))/num(callpoint!.getDevObject("previous_sch_prod_qty"))
 		wo_location$=callpoint!.getColumnData("SFE_WOMASTR.WO_LOCATION")
 		wo_no$=callpoint!.getColumnData("SFE_WOMASTR.WO_NO")
