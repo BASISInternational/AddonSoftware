@@ -868,6 +868,11 @@ rem --- set defaults
 	callpoint!.setDevObject("prod_qty","1")
 	callpoint!.setDevObject("wo_est_yield","100")
 
+rem --- Initialize WO creation info
+	callpoint!.setColumnData("SFE_WOMASTR.CREATED_USER",sysinfo.user_id$)
+	callpoint!.setColumnData("SFE_WOMASTR.CREATED_DATE",date(0:"%Yd%Mz%Dz"))
+	callpoint!.setColumnData("SFE_WOMASTR.CREATED_TIME",date(0:"%Hz%mz"))
+
 rem --- enable all enterable fields
 
 	callpoint!.setColumnEnabled("SFE_WOMASTR.ITEM_ID",1)
