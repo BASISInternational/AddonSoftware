@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.sfe_woclose">FF7A0932600DAAA0B007689A4A08435B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfe_woclose">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfe_woclose">20120924</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.sfe_woclose">20260218</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.sfe_woclose">20260218</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.sfe_woclose">134424</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.sfe_woclose">20260223</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.sfe_woclose">20260223</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.sfe_woclose">131244</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.sfe_woclose">SFE_WOMASTR     </DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.sfe_woclose">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.sfe_woclose"></DD_ATTR_DKNM>
@@ -85,6 +85,10 @@
 		<RECORD id="ddm_table_cpro.sfe_wocloseasva">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.sfe_wocloseasva">SFE_WOCLOSE     </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.sfe_wocloseasva">ASVA</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_table_cpro.sfe_wocloseawri">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.sfe_wocloseawri">SFE_WOCLOSE     </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.sfe_wocloseawri">AWRI</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_table_cpro.sfe_woclosebove">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.sfe_woclosebove">SFE_WOCLOSE     </DD_TABLE_ALIAS>
@@ -2974,19 +2978,19 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.sfe_woclose039"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.sfe_woclose039"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.sfe_woclose039"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.sfe_woclose039"></DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.sfe_woclose039">47</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.sfe_woclose039"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.sfe_woclose039">CREATED_USER</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.sfe_woclose039"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.sfe_woclose039"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.sfe_woclose039">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.sfe_woclose039">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.sfe_woclose039"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.sfe_woclose039"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sfe_woclose039"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.sfe_woclose039">3029</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.sfe_woclose039">dis_created_user</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.sfe_woclose039">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sfe_woclose039"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.sfe_woclose039"></DD_ATTR_RKEY>
-			<DD_ATTR_BTNS id="ddm_table_cols.sfe_woclose039"></DD_ATTR_BTNS>
+			<DD_ATTR_RKEY id="ddm_table_cols.sfe_woclose039">N</DD_ATTR_RKEY>
+			<DD_ATTR_BTNS id="ddm_table_cols.sfe_woclose039">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.sfe_woclose040">
 			<DD_TABLE_ALIAS id="ddm_table_cols.sfe_woclose040">SFE_WOCLOSE     </DD_TABLE_ALIAS>
@@ -3025,19 +3029,19 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.sfe_woclose040"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.sfe_woclose040"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.sfe_woclose040"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.sfe_woclose040"></DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.sfe_woclose040">48</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.sfe_woclose040"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.sfe_woclose040">CREATED_DATE</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.sfe_woclose040"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.sfe_woclose040"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.sfe_woclose040">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.sfe_woclose040">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.sfe_woclose040"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.sfe_woclose040"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sfe_woclose040"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.sfe_woclose040">3030</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.sfe_woclose040">ind_created_date</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.sfe_woclose040">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sfe_woclose040"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.sfe_woclose040"></DD_ATTR_RKEY>
-			<DD_ATTR_BTNS id="ddm_table_cols.sfe_woclose040"></DD_ATTR_BTNS>
+			<DD_ATTR_RKEY id="ddm_table_cols.sfe_woclose040">N</DD_ATTR_RKEY>
+			<DD_ATTR_BTNS id="ddm_table_cols.sfe_woclose040">C</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.sfe_woclose041">
 			<DD_TABLE_ALIAS id="ddm_table_cols.sfe_woclose041">SFE_WOCLOSE     </DD_TABLE_ALIAS>
@@ -3076,18 +3080,18 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.sfe_woclose041"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.sfe_woclose041"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.sfe_woclose041"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.sfe_woclose041"></DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.sfe_woclose041">49</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.sfe_woclose041"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.sfe_woclose041">CREATED_TIME</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.sfe_woclose041"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.sfe_woclose041"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.sfe_woclose041">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.sfe_woclose041">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.sfe_woclose041"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.sfe_woclose041"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.sfe_woclose041"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.sfe_woclose041">3031</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.sfe_woclose041">ine_created_time</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.sfe_woclose041">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.sfe_woclose041"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.sfe_woclose041"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.sfe_woclose041">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.sfe_woclose041"></DD_ATTR_BTNS>
 		</RECORD>
 	</ALIAS>

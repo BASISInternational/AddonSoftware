@@ -1,6 +1,10 @@
 [[SFE_WOCLOSE.ADIS]]
 rem --- Need to ask about closing this work order
-	callpoint!.setDevObject("ask_close_question","1")
+	if callpoint!.getDevObject("ask_close_question")<>"2" then
+		callpoint!.setDevObject("ask_close_question","1")
+	endif
+	callpoint!.setDevObject("do_editon",0)
+	callpoint!.setDevObject("ls_close_qty",null())
 
 rem --- Initialize complete flag as necessary
 	complete_flg$=callpoint!.getColumnData("SFE_WOCLOSE.COMPLETE_FLG")
@@ -216,21 +220,26 @@ rem --- Close this work order?
 		closedwo_found=0
 		findrecord(closedwo_dev,key=firm_id$+wo_location$+wo_no$,dom=*next);closedwo_found=1
 		if !closedwo_found then
-			callpoint!.setDevObject("ask_close_question","0")
-			msg_id$="SF_CLOSE_WO"
-			gosub disp_message
-			if msg_opt$="N" then
-				rem --- Done with this work order
-				callpoint!.setStatus("NEWREC")
-				break
+			if ask_close_question=2 then
+				callpoint!.setDevObject("ask_close_question","0")
 			else
-				callpoint!.setStatus("EDITON")
-			endif
+				msg_id$="SF_CLOSE_WO"
+				gosub disp_message
+				if msg_opt$="N" then
+					rem --- Done with this work order
+					callpoint!.setDevObject("ask_close_question","0")
+					callpoint!.setStatus("NEWREC")
+					break
+				else
+					callpoint!.setStatus("EDITON")
+					callpoint!.setDevObject("ask_close_question","2")
 
-			rem -- Enable lot/serial option for lotted/serialized items
-			if callpoint!.getColumnData("SFE_WOCLOSE.WO_CATEGORY")="I" and 
-:			pos(callpoint!.getColumnData("SFE_WOCLOSE.LOTSER_FLAG")="LS") then
-				callpoint!.setOptionEnabled("LSNO",1)
+					rem -- Enable lot/serial option for lotted/serialized items
+					if callpoint!.getColumnData("SFE_WOCLOSE.WO_CATEGORY")="I" and 
+:					pos(callpoint!.getColumnData("SFE_WOCLOSE.LOTSER_FLAG")="LS") then
+						callpoint!.setOptionEnabled("LSNO",1)
+					endif
+				endif
 			endif
 		endif
 	endif
@@ -459,6 +468,8 @@ rem --- Lot/serial processing if needed
 		rem --- Launch WO lotser grid if it hasn't been launched yet
 		if callpoint!.getDevObject("ls_close_qty")=null() then
 			gosub do_wolotser
+
+			callpoint!.setDevObject("do_editon",1)
 		endif
 
 		rem --- Warn there are missing lot/serial numbers, so the register update cannot be run.
@@ -468,6 +479,12 @@ rem --- Lot/serial processing if needed
        			msg_id$="SF_MISSING_LOTSER_NO"
         			gosub disp_message
 		endif 
+	endif
+
+[[SFE_WOCLOSE.AWRI]]
+rem --- Start Edit Mode if Lot/Serial grid was auto-launched for a Save
+	if callpoint!.getDevObject("do_editon")<>null() and callpoint!.getDevObject("do_editon")=1 then 
+		callpoint!.setStatus("ACTIVATE-EDITON")
 	endif
 
 [[SFE_WOCLOSE.BOVE]]
