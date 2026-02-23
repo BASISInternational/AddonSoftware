@@ -991,7 +991,15 @@ if cvs(callpoint!.getRawUserInput(),3)<>""
 	dim poe_pohdr$:fnget_tpl$("POE_POHDR")
 	read record (poe_pohdr_dev,key=firm_id$+find_po$,dom=*next)poe_pohdr$
 	if poe_pohdr.firm_id$<>firm_id$ or  poe_pohdr.po_no$<>find_po$
-		msg_id$="PO_INVAL_PO"
+		rem --- Is this an archived historical PO?
+		pot_pohdr_dev = fnget_dev("POT_POHDR_ARC")
+		dim pot_pohdr$:fnget_tpl$("POT_POHDR_ARC")
+		read record (pot_pohdr_dev,key=firm_id$+find_po$,dom=*next)pot_pohdr$
+		if pot_pohdr.firm_id$=firm_id$ and pot_pohdr.po_no$=find_po$ then
+			msg_id$="PO_USE_ARC_PO"
+		else
+			msg_id$="PO_INVAL_PO"
+		endif
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break
