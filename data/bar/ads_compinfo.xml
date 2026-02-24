@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ads_compinfo">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ads_compinfo">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ads_compinfo">AD </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ads_compinfo">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ads_compinfo">25.0</ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ads_compinfo"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ads_compinfo">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ads_compinfo">20110118</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ads_compinfo">20240203</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ads_compinfo">20240201</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ads_compinfo">122138</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ads_compinfo">20260224</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ads_compinfo">20260224</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ads_compinfo">143634</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ads_compinfo"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ads_compinfo">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ads_compinfo"></DD_ATTR_DKNM>
@@ -49,13 +49,13 @@
 			<DD_ATTR_RSET id="ddm_tables.ads_compinfo"></DD_ATTR_RSET>
 			<DD_ATTR_IGNR id="ddm_tables.ads_compinfo"></DD_ATTR_IGNR>
 			<DD_ATTR_RPOS id="ddm_tables.ads_compinfo"></DD_ATTR_RPOS>
-			<DD_ATTR_XPOS id="ddm_tables.ads_compinfo"></DD_ATTR_XPOS>
-			<DD_ATTR_YPOS id="ddm_tables.ads_compinfo"></DD_ATTR_YPOS>
-			<DD_ATTR_FWID id="ddm_tables.ads_compinfo"></DD_ATTR_FWID>
-			<DD_ATTR_FHGT id="ddm_tables.ads_compinfo"></DD_ATTR_FHGT>
-			<DD_ATTR_PADW id="ddm_tables.ads_compinfo"></DD_ATTR_PADW>
-			<DD_ATTR_PADH id="ddm_tables.ads_compinfo"></DD_ATTR_PADH>
-			<DD_ATTR_PADG id="ddm_tables.ads_compinfo"></DD_ATTR_PADG>
+			<DD_ATTR_XPOS id="ddm_tables.ads_compinfo">0</DD_ATTR_XPOS>
+			<DD_ATTR_YPOS id="ddm_tables.ads_compinfo">0</DD_ATTR_YPOS>
+			<DD_ATTR_FWID id="ddm_tables.ads_compinfo">0</DD_ATTR_FWID>
+			<DD_ATTR_FHGT id="ddm_tables.ads_compinfo">0</DD_ATTR_FHGT>
+			<DD_ATTR_PADW id="ddm_tables.ads_compinfo">0</DD_ATTR_PADW>
+			<DD_ATTR_PADH id="ddm_tables.ads_compinfo">0</DD_ATTR_PADH>
+			<DD_ATTR_PADG id="ddm_tables.ads_compinfo">0</DD_ATTR_PADG>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_cpro">
@@ -101,7 +101,7 @@
 		<RECORD id="ddm_table_tpls.ads_compinfo">
 			<DD_TABLE_ALIAS id="ddm_table_tpls.ads_compinfo">ADS_COMPINFO    </DD_TABLE_ALIAS>
 			<DD_FILE_NAME id="ddm_table_tpls.ads_compinfo">ads_compinfo</DD_FILE_NAME>
-			<DD_TABLE_TPL id="ddm_table_tpls.ads_compinfo">firm_id:c(2),firm_name:c(40),addr_line_1:c(30),addr_line_2:c(30),addr_line_3:c(30),city:c(30),state_code:c(2),country_id:c(2),postal_code:c(9),phone_no:c(20),fax_no:c(20),own_tax_id:c(20),email_account:c(10),logo_file:c(255)</DD_TABLE_TPL>
+			<DD_TABLE_TPL id="ddm_table_tpls.ads_compinfo">firm_id:c(2),firm_name:c(40),addr_line_1:c(30),addr_line_2:c(30),addr_line_3:c(30),city:c(30),state_code:c(2),country_id:c(2),postal_code:c(9),phone_no:c(20),fax_no:c(20),own_tax_id:c(20),email_account:c(10),logo_file:c(255),language_id:c(3)</DD_TABLE_TPL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_ref">
@@ -117,6 +117,12 @@
 			<DD_TABLE_COL id="ddm_table_ref.ads_compinfoemail_accountadm_email_acct">EMAIL_ACCOUNT   </DD_TABLE_COL>
 			<REF_TABLE_ALIAS id="ddm_table_ref.ads_compinfoemail_accountadm_email_acct">ADM_EMAIL_ACCT  </REF_TABLE_ALIAS>
 			<TABLE_REF_NAME id="ddm_table_ref.ads_compinfoemail_accountadm_email_acct">FK_ADS_COMPINFO_EMAIL_ACCOUNT_ADM_EMAIL_ACCT                                                                                                                                                                                                                   </TABLE_REF_NAME>
+		</RECORD>
+		<RECORD id="ddm_table_ref.ads_compinfostate_codeadc_statecode">
+			<DD_TABLE_ALIAS id="ddm_table_ref.ads_compinfostate_codeadc_statecode">ADS_COMPINFO    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.ads_compinfostate_codeadc_statecode">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.ads_compinfostate_codeadc_statecode">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.ads_compinfostate_codeadc_statecode">FK_ADS_COMPINFO_STATE_CODE_ADC_STATECODE                                                                                                                                                                                                                       </TABLE_REF_NAME>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_refcol">
@@ -147,6 +153,24 @@
 			<REF_KEY_SEGMENT id="ddm_table_refcol.ads_compinfoemail_accountadm_email_acct0002">02</REF_KEY_SEGMENT>
 			<REF_KEY_COLUMN id="ddm_table_refcol.ads_compinfoemail_accountadm_email_acct0002">EMAIL_ACCOUNT   </REF_KEY_COLUMN>
 			<FK_TABLE_COL id="ddm_table_refcol.ads_compinfoemail_accountadm_email_acct0002">EMAIL_ACCOUNT   </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0001">ADS_COMPINFO    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0001">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0001">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0002">ADS_COMPINFO    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0002">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0002">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0002">STATE_CODE      </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0002">STATE_CODE      </FK_TABLE_COL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_keys">
@@ -528,11 +552,11 @@
 			<DD_ATTR_FTSR id="ddm_table_cols.ads_compinfo007"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ads_compinfo007"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ads_compinfo007">3006</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.ads_compinfo007">ine_state_code</DD_ATTR_CTLN>
+			<DD_ATTR_CTLN id="ddm_table_cols.ads_compinfo007">dis_state_code</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ads_compinfo007">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ads_compinfo007"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ads_compinfo007">N</DD_ATTR_RKEY>
-			<DD_ATTR_BTNS id="ddm_table_cols.ads_compinfo007"></DD_ATTR_BTNS>
+			<DD_ATTR_BTNS id="ddm_table_cols.ads_compinfo007">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ads_compinfo008">
 			<DD_TABLE_ALIAS id="ddm_table_cols.ads_compinfo008">ADS_COMPINFO    </DD_TABLE_ALIAS>
@@ -673,14 +697,14 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ads_compinfo010"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ads_compinfo010"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ads_compinfo010"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ads_compinfo010">10</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ads_compinfo010">11</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ads_compinfo010"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ads_compinfo010">PHONE_NO</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ads_compinfo010"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.ads_compinfo010"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.ads_compinfo010"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ads_compinfo010"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.ads_compinfo010">3009</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.ads_compinfo010">3010</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ads_compinfo010">ine_phone_no</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ads_compinfo010">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ads_compinfo010"></DD_ATTR_RADG>
@@ -724,14 +748,14 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ads_compinfo011"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ads_compinfo011"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ads_compinfo011"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ads_compinfo011">11</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ads_compinfo011">12</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ads_compinfo011"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ads_compinfo011">FAX_NO</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ads_compinfo011"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.ads_compinfo011"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.ads_compinfo011"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ads_compinfo011"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.ads_compinfo011">3010</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.ads_compinfo011">3011</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ads_compinfo011">ine_fax_no</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ads_compinfo011">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ads_compinfo011"></DD_ATTR_RADG>
@@ -775,14 +799,14 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ads_compinfo012"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ads_compinfo012"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ads_compinfo012"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ads_compinfo012">12</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ads_compinfo012">13</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ads_compinfo012"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ads_compinfo012">OWN_TAX_ID</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ads_compinfo012"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.ads_compinfo012"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.ads_compinfo012"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ads_compinfo012"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.ads_compinfo012">3011</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.ads_compinfo012">3012</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ads_compinfo012">ine_own_tax_id</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ads_compinfo012">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ads_compinfo012"></DD_ATTR_RADG>
@@ -826,14 +850,14 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ads_compinfo013"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ads_compinfo013"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ads_compinfo013"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ads_compinfo013">13</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ads_compinfo013">14</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ads_compinfo013"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ads_compinfo013">EMAIL_ACCOUNT</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ads_compinfo013"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.ads_compinfo013"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.ads_compinfo013"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ads_compinfo013"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.ads_compinfo013">3012</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.ads_compinfo013">3013</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ads_compinfo013">dis_email_account</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ads_compinfo013">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ads_compinfo013"></DD_ATTR_RADG>
@@ -877,19 +901,70 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.ads_compinfo014"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.ads_compinfo014"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.ads_compinfo014"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.ads_compinfo014">14</DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.ads_compinfo014">15</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.ads_compinfo014"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.ads_compinfo014">LOGO_FILE</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.ads_compinfo014"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.ads_compinfo014"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.ads_compinfo014"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ads_compinfo014"></DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.ads_compinfo014">3013</DD_ATTR_CTLI>
+			<DD_ATTR_CTLI id="ddm_table_cols.ads_compinfo014">3014</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ads_compinfo014">ine_logo_file</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ads_compinfo014">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ads_compinfo014"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ads_compinfo014">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ads_compinfo014">F</DD_ATTR_BTNS>
+		</RECORD>
+		<RECORD id="ddm_table_cols.ads_compinfo015">
+			<DD_TABLE_ALIAS id="ddm_table_cols.ads_compinfo015">ADS_COMPINFO    </DD_TABLE_ALIAS>
+			<DD_SEQUENCE id="ddm_table_cols.ads_compinfo015">015</DD_SEQUENCE>
+			<DD_DATA_NAME id="ddm_table_cols.ads_compinfo015">LANGUAGE_ID     </DD_DATA_NAME>
+			<DD_DVAR_NAME id="ddm_table_cols.ads_compinfo015">LANGUAGE_ID     </DD_DVAR_NAME>
+			<DD_COL_REPEATS id="ddm_table_cols.ads_compinfo015">0</DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ads_compinfo015">0</DD_COL_OCCURS>
+			<DD_FIELD_DELIM id="ddm_table_cols.ads_compinfo015">N</DD_FIELD_DELIM>
+			<DD_DELIM_CHAR id="ddm_table_cols.ads_compinfo015"></DD_DELIM_CHAR>
+			<DD_SYSTEM_REC id="ddm_table_cols.ads_compinfo015"></DD_SYSTEM_REC>
+			<DD_SYSTEM_ID id="ddm_table_cols.ads_compinfo015"></DD_SYSTEM_ID>
+			<DD_MASK_TYPE id="ddm_table_cols.ads_compinfo015"></DD_MASK_TYPE>
+			<DD_CREATE_DATE id="ddm_table_cols.ads_compinfo015">20260224</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_table_cols.ads_compinfo015">20260224</DD_LSTREV_DATE>
+			<DD_ATTR_ABLC id="ddm_table_cols.ads_compinfo015"></DD_ATTR_ABLC>
+			<DD_ATTR_ABLV id="ddm_table_cols.ads_compinfo015"></DD_ATTR_ABLV>
+			<DD_ATTR_CPGM id="ddm_table_cols.ads_compinfo015"></DD_ATTR_CPGM>
+			<DD_ATTR_COLW id="ddm_table_cols.ads_compinfo015">0</DD_ATTR_COLW>
+			<DD_ATTR_CTLX id="ddm_table_cols.ads_compinfo015"></DD_ATTR_CTLX>
+			<DD_ATTR_CTLY id="ddm_table_cols.ads_compinfo015"></DD_ATTR_CTLY>
+			<DD_ATTR_CTLW id="ddm_table_cols.ads_compinfo015"></DD_ATTR_CTLW>
+			<DD_ATTR_CTLH id="ddm_table_cols.ads_compinfo015"></DD_ATTR_CTLH>
+			<DD_ATTR_DFLT id="ddm_table_cols.ads_compinfo015"></DD_ATTR_DFLT>
+			<DD_ATTR_DRLE id="ddm_table_cols.ads_compinfo015"></DD_ATTR_DRLE>
+			<DD_ATTR_GHDR id="ddm_table_cols.ads_compinfo015"></DD_ATTR_GHDR>
+			<DD_ATTR_IDEF id="ddm_table_cols.ads_compinfo015"></DD_ATTR_IDEF>
+			<DD_ATTR_LABL id="ddm_table_cols.ads_compinfo015"></DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_table_cols.ads_compinfo015"></DD_ATTR_LABS>
+			<DD_ATTR_MLAN id="ddm_table_cols.ads_compinfo015">N</DD_ATTR_MLAN>
+			<DD_ATTR_MINL id="ddm_table_cols.ads_compinfo015"></DD_ATTR_MINL>
+			<DD_ATTR_MAXL id="ddm_table_cols.ads_compinfo015"></DD_ATTR_MAXL>
+			<DD_ATTR_MINV id="ddm_table_cols.ads_compinfo015"></DD_ATTR_MINV>
+			<DD_ATTR_MAXV id="ddm_table_cols.ads_compinfo015"></DD_ATTR_MAXV>
+			<DD_ATTR_PROM id="ddm_table_cols.ads_compinfo015"></DD_ATTR_PROM>
+			<DD_ATTR_PVAL id="ddm_table_cols.ads_compinfo015"></DD_ATTR_PVAL>
+			<DD_ATTR_SLEV id="ddm_table_cols.ads_compinfo015"></DD_ATTR_SLEV>
+			<DD_ATTR_TABG id="ddm_table_cols.ads_compinfo015"></DD_ATTR_TABG>
+			<DD_ATTR_TIND id="ddm_table_cols.ads_compinfo015">10</DD_ATTR_TIND>
+			<DD_ATTR_HELP id="ddm_table_cols.ads_compinfo015"></DD_ATTR_HELP>
+			<SQL_COLUMN_NAME id="ddm_table_cols.ads_compinfo015">LANGUAGE_ID</SQL_COLUMN_NAME>
+			<DD_ATTR_FONT id="ddm_table_cols.ads_compinfo015"></DD_ATTR_FONT>
+			<DD_ATTR_STYL id="ddm_table_cols.ads_compinfo015"></DD_ATTR_STYL>
+			<DD_ATTR_FTSR id="ddm_table_cols.ads_compinfo015">N</DD_ATTR_FTSR>
+			<DD_ATTR_CWID id="ddm_table_cols.ads_compinfo015">0</DD_ATTR_CWID>
+			<DD_ATTR_CTLI id="ddm_table_cols.ads_compinfo015">3009</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.ads_compinfo015">dis_language_id</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.ads_compinfo015">0</DD_ATTR_CTLC>
+			<DD_ATTR_RADG id="ddm_table_cols.ads_compinfo015"></DD_ATTR_RADG>
+			<DD_ATTR_RKEY id="ddm_table_cols.ads_compinfo015">N</DD_ATTR_RKEY>
+			<DD_ATTR_BTNS id="ddm_table_cols.ads_compinfo015">F</DD_ATTR_BTNS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_cpro">
@@ -1595,6 +1670,58 @@
 			<DD_ATTR_OEMD id="ddm_elements.logo_file"></DD_ATTR_OEMD>
 			<DD_ATTR_Y2KW id="ddm_elements.logo_file"></DD_ATTR_Y2KW>
 			<DD_ATTR_CASB id="ddm_elements.logo_file"></DD_ATTR_CASB>
+		</RECORD>
+		<RECORD id="ddm_elements.language_id">
+			<DD_DATA_NAME id="ddm_elements.language_id">LANGUAGE_ID     </DD_DATA_NAME>
+			<DD_DESCRIPTION id="ddm_elements.language_id">Language ID</DD_DESCRIPTION>
+			<DD_DATA_TYPE id="ddm_elements.language_id">C</DD_DATA_TYPE>
+			<DD_DATA_LENGTH id="ddm_elements.language_id">3</DD_DATA_LENGTH>
+			<DD_MASK_TYPE id="ddm_elements.language_id"></DD_MASK_TYPE>
+			<DD_SYSTEM_REC id="ddm_elements.language_id">Y</DD_SYSTEM_REC>
+			<ASC_COMP_ID id="ddm_elements.language_id">01007514</ASC_COMP_ID>
+			<ASC_PROD_ID id="ddm_elements.language_id">ADB</ASC_PROD_ID>
+			<LOCALIZATION_EX id="ddm_elements.language_id"></LOCALIZATION_EX>
+			<DD_CREATE_DATE id="ddm_elements.language_id">20060508</DD_CREATE_DATE>
+			<DD_LSTREV_DATE id="ddm_elements.language_id">20080110</DD_LSTREV_DATE>
+			<DD_AUTO_COMP id="ddm_elements.language_id">Y</DD_AUTO_COMP>
+			<DD_ATTR_BLNK id="ddm_elements.language_id"></DD_ATTR_BLNK>
+			<DD_ATTR_CDAT id="ddm_elements.language_id"></DD_ATTR_CDAT>
+			<DD_ATTR_CTLW id="ddm_elements.language_id"></DD_ATTR_CTLW>
+			<DD_ATTR_CTLH id="ddm_elements.language_id"></DD_ATTR_CTLH>
+			<DD_ATTR_CTYP id="ddm_elements.language_id">E</DD_ATTR_CTYP>
+			<DD_ATTR_DCOL id="ddm_elements.language_id">LANGUAGE_DESC</DD_ATTR_DCOL>
+			<DD_ATTR_DCOM id="ddm_elements.language_id"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.language_id"></DD_ATTR_DEXP>
+			<DD_ATTR_DFLT id="ddm_elements.language_id"></DD_ATTR_DFLT>
+			<DD_ATTR_DKNM id="ddm_elements.language_id"></DD_ATTR_DKNM>
+			<DD_ATTR_DKEY id="ddm_elements.language_id"></DD_ATTR_DKEY>
+			<DD_ATTR_DTAB id="ddm_elements.language_id">ADC_LANGUAGE    </DD_ATTR_DTAB>
+			<DD_ATTR_DINQ id="ddm_elements.language_id"></DD_ATTR_DINQ>
+			<DD_ATTR_ENCR id="ddm_elements.language_id"></DD_ATTR_ENCR>
+			<DD_ATTR_IDEF id="ddm_elements.language_id"></DD_ATTR_IDEF>
+			<DD_ATTR_LABL id="ddm_elements.language_id">Language ID</DD_ATTR_LABL>
+			<DD_ATTR_LABS id="ddm_elements.language_id">Lang ID</DD_ATTR_LABS>
+			<DD_ATTR_LDIS id="ddm_elements.language_id"></DD_ATTR_LDIS>
+			<DD_ATTR_MAXL id="ddm_elements.language_id"></DD_ATTR_MAXL>
+			<DD_ATTR_MAXR id="ddm_elements.language_id"></DD_ATTR_MAXR>
+			<DD_ATTR_MAXV id="ddm_elements.language_id"></DD_ATTR_MAXV>
+			<DD_ATTR_MINL id="ddm_elements.language_id">1</DD_ATTR_MINL>
+			<DD_ATTR_MINV id="ddm_elements.language_id"></DD_ATTR_MINV>
+			<DD_ATTR_MSKI id="ddm_elements.language_id">AAA</DD_ATTR_MSKI>
+			<DD_ATTR_MSKO id="ddm_elements.language_id"></DD_ATTR_MSKO>
+			<DD_ATTR_PADC id="ddm_elements.language_id">20</DD_ATTR_PADC>
+			<DD_ATTR_PADJ id="ddm_elements.language_id">L</DD_ATTR_PADJ>
+			<DD_ATTR_PREC id="ddm_elements.language_id">0</DD_ATTR_PREC>
+			<DD_ATTR_PROM id="ddm_elements.language_id"></DD_ATTR_PROM>
+			<DD_ATTR_PVAL id="ddm_elements.language_id"></DD_ATTR_PVAL>
+			<DD_ATTR_SDLG id="ddm_elements.language_id"></DD_ATTR_SDLG>
+			<DD_ATTR_SLEV id="ddm_elements.language_id"></DD_ATTR_SLEV>
+			<DD_ATTR_STYP id="ddm_elements.language_id"></DD_ATTR_STYP>
+			<DD_ATTR_STEP id="ddm_elements.language_id"></DD_ATTR_STEP>
+			<DD_ATTR_FLPT id="ddm_elements.language_id"></DD_ATTR_FLPT>
+			<DD_ATTR_OEMD id="ddm_elements.language_id"></DD_ATTR_OEMD>
+			<DD_ATTR_Y2KW id="ddm_elements.language_id"></DD_ATTR_Y2KW>
+			<DD_ATTR_CASB id="ddm_elements.language_id"></DD_ATTR_CASB>
 		</RECORD>
 	</ALIAS>
 </ADS_COMPINFO>

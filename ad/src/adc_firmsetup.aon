@@ -56,6 +56,7 @@ rem --- Initializations
     stateCode$=formData!.getProperty("STATE_CODE")
     zipCode$=formData!.getProperty("ZIP_CODE")
     countryId$=formData!.getProperty("CNTRY_ID")
+    languageId$=formData!.getProperty("LANGUAGE_ID")
     phoneNo$=formData!.getProperty("PHONE_NO")
     federalId$=formData!.getProperty("FEDERAL_ID")
     installType$=formData!.getProperty("INSTALL_TYPE")
@@ -520,6 +521,7 @@ rem --- Process requiredFiles!
                     record.city$=city$
                     record.state_code$=stateCode$
                     record.country_id$=countryId$
+                    record.language_id$=languageId$
                     record.postal_code$=zipCode$
                     record.phone_no$=phoneNo$
                     record.own_tax_id$=federalId$
