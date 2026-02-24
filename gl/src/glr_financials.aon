@@ -161,7 +161,8 @@ rem --- Read next Financial Report Detail (glm-22) record
 
             if line_type$="T" continue
 
-rem no longer need actual print positions (bug 8704); a[n,3]=num(field(glm22a$,"gl_rpt_col_"+str(n+1:"00")))
+            a[n,3]=num(field(glm22a$,"gl_rpt_col_"+str(n+1:"00")))
+            if a[n,3]>0 then a[n,3]=1
 
         rem --- Assign array indices from A[column,type]
 
