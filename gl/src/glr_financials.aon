@@ -161,8 +161,12 @@ rem --- Read next Financial Report Detail (glm-22) record
 
             if line_type$="T" continue
 
-            a[n,3]=num(field(glm22a$,"gl_rpt_col_"+str(n+1:"00")))
-            if a[n,3]>0 then a[n,3]=1
+            if cvs(col_hdg$[n+1],2)="" then
+                a[n,3]=0
+            else
+                a[n,3]=num(field(glm22a$,"gl_rpt_col_"+str(n+1:"00")))
+                if a[n,3]>0 then a[n,3]=1
+            endif
 
         rem --- Assign array indices from A[column,type]
 
@@ -442,7 +446,7 @@ report_heading: rem --- Report Heading
             if cvs(col_hdg$[z],2)=""
                 columns$[z,0]=""
                 columns$[z,1]="C"
-                columns$[z,2]="2"
+                columns$[z,2]="6"
                 columns$[z,3]=""
             endif
         next z

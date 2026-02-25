@@ -1,20 +1,18 @@
-[[GLM_FINCOLUMNS.<CUSTOM>]]
-validate_chars: rem --- Verify only valid characters entered
-	bad_char=0
-	pos=len(chars$)
-	while pos
-		if pos(chars$(pos,1)=validChars$)=0 then break
-		pos=pos-1
-	wend
-	if pos
-		msg_id$="AD_INVALID_CHAR"
-		dim msg_tokens$[2]
-		msg_tokens$[1]=chars$(pos,1)
-		msg_tokens$[2]=validChars$
-		gosub disp_message
-		bad_char=1
+[[GLM_FINCOLUMNS.AGDR]]
+rem --- Disable all the other cells if the PER_TYPE_CDE is blank
+	per_type_cde$=cvs(callpoint!.getUserInput(),2)
+	if per_type_cde$="X" or cvs(per_type_cde$,2)="" then
+		rem --- Disable and clear cells
+		status=0
+		row=callpoint!.getValidationRow()
+		callpoint!.setColumnEnabled(row,"GLM_FINCOLUMNS.ACTBUD",status)
+		callpoint!.setColumnEnabled(row,"GLM_FINCOLUMNS.AMT_OR_UNITS",status)
+		callpoint!.setColumnEnabled(row,"GLM_FINCOLUMNS.HEADING",status)
+		callpoint!.setColumnEnabled(row,"GLM_FINCOLUMNS.HEAD_ALIGNMENT",status)
+		callpoint!.setColumnEnabled(row,"GLM_FINCOLUMNS.HEAD_SPAN_COLS",status)
+		callpoint!.setColumnEnabled(row,"GLM_FINCOLUMNS.RATIOPCT",status)
 	endif
-	return
+
 [[GLM_FINCOLUMNS.HEAD_ALIGNMENT.AVAL]]
 rem --- Verify only valid characters used
 	chars$=callpoint!.getUserInput()
@@ -59,6 +57,7 @@ rem --- Verify valid alignment entered
 		callpoint!.setStatus("ABORT")
 		break
 	endif
+
 [[GLM_FINCOLUMNS.HEAD_SPAN_COLS.AVAL]]
 rem --- Verify only valid characters used
 	chars$=callpoint!.getUserInput()
@@ -108,3 +107,48 @@ rem --- Verify valid number of columns entered
 		callpoint!.setStatus("ABORT")
 		break
 	endif
+
+[[GLM_FINCOLUMNS.PER_TYPE_CDE.AVAL]]
+rem --- Disable all the other cells if the PER_TYPE_CDE is blank
+	per_type_cde$=cvs(callpoint!.getUserInput(),2)
+	if per_type_cde$="X" or cvs(per_type_cde$,2)="" then
+		rem --- Disable and clear cells
+		status=0
+		callpoint!.setColumnData("GLM_FINCOLUMNS.ACTBUD","",1)
+		callpoint!.setColumnData("GLM_FINCOLUMNS.AMT_OR_UNITS","",1)
+		callpoint!.setColumnData("GLM_FINCOLUMNS.HEADING","",1)
+		callpoint!.setColumnData("GLM_FINCOLUMNS.HEAD_ALIGNMENT","",1)
+		callpoint!.setColumnData("GLM_FINCOLUMNS.HEAD_SPAN_COLS","1",1)
+		callpoint!.setColumnData("GLM_FINCOLUMNS.RATIOPCT","",1)
+	else
+		rem --- Enable cells
+		status=1
+	endif
+	row=callpoint!.getValidationRow()
+	callpoint!.setColumnEnabled(row,"GLM_FINCOLUMNS.ACTBUD",status)
+	callpoint!.setColumnEnabled(row,"GLM_FINCOLUMNS.AMT_OR_UNITS",status)
+	callpoint!.setColumnEnabled(row,"GLM_FINCOLUMNS.HEADING",status)
+	callpoint!.setColumnEnabled(row,"GLM_FINCOLUMNS.HEAD_ALIGNMENT",status)
+	callpoint!.setColumnEnabled(row,"GLM_FINCOLUMNS.HEAD_SPAN_COLS",status)
+	callpoint!.setColumnEnabled(row,"GLM_FINCOLUMNS.RATIOPCT",status)
+
+[[GLM_FINCOLUMNS.<CUSTOM>]]
+validate_chars: rem --- Verify only valid characters entered
+	bad_char=0
+	pos=len(chars$)
+	while pos
+		if pos(chars$(pos,1)=validChars$)=0 then break
+		pos=pos-1
+	wend
+	if pos
+		msg_id$="AD_INVALID_CHAR"
+		dim msg_tokens$[2]
+		msg_tokens$[1]=chars$(pos,1)
+		msg_tokens$[2]=validChars$
+		gosub disp_message
+		bad_char=1
+	endif
+	return
+
+
+
