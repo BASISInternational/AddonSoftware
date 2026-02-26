@@ -53,11 +53,11 @@ rem --- Z: 0=Amount/1=Units
 
     dim s[mx,my,mz],t[mx,my,mz]
 
-rem --- A[column,type]: Column=report column
+rem --- a[column,type]: Column=report column
 rem ---               : Type=0 for period
 rem ---               :      1 for actual/budget/variance
 rem ---               :      2 for amounts or units
-rem ---               :      3 for default position
+rem ---               :      3 for print (no=0, yes>0)
 
     dim a[colmax-1,3]
     dim colinfo$((colmax+1)*mc)
@@ -84,7 +84,7 @@ rem --- Get Report Columns (glm-32) information for this report
             value=pos(glm32a.amt_or_units$="AU")
             if value=0 value=1
             a[col,2]=value-1
-            a[col,3]=num(glm32a.sequence_no$)
+            a[col,3]=0
         endif
         
         col=col+1
@@ -150,17 +150,19 @@ rem --- Read next Financial Report Detail (glm-22) record
 
         rem --- Accumulate detail for this line
 
-        rem --- A[column,type]: Column=report column
+        rem --- a[column,type]: Column=report column
         rem ---               : Type=0 for period
         rem ---               :      1 for actual/budget/variance
         rem ---               :      2 for amounts or units
-        rem ---               :      3 for default position
+        rem ---               :      3 for print (no=0, yes>0)
 
         for n=0 to 7
         rem --- Totals line?
 
             if line_type$="T" continue
 
+        rem --- Print column detail for this line? (no=0, yes>0)
+        
             if cvs(col_hdg$[n+1],2)="" then
                 a[n,3]=0
             else
@@ -168,7 +170,7 @@ rem --- Read next Financial Report Detail (glm-22) record
                 if a[n,3]>0 then a[n,3]=1
             endif
 
-        rem --- Assign array indices from A[column,type]
+        rem --- Assign array indices from a[column,type]
 
             x=a[n,0]
             y=a[n,1]
