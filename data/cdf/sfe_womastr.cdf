@@ -105,10 +105,14 @@ rem --- Disable/enable based on status of closed/open
 		callpoint!.setColumnEnabled("SFE_WOMASTR.WO_STATUS",1)
 	endif
 
-rem --- Disable Options (buttons) for a Closed Work Order
+rem --- Disable Options (buttons) for a Closed or Quote Work Order
 
-	if callpoint!.getColumnData("SFE_WOMASTR.WO_STATUS")="C"
-		callpoint!.setOptionEnabled("SCHD",0)
+	if pos(callpoint!.getColumnData("SFE_WOMASTR.WO_STATUS")="CQ") then
+		if callpoint!.getColumnData("SFE_WOMASTR.WO_STATUS")="C" then
+			callpoint!.setOptionEnabled("SCHD",0)
+		else
+			callpoint!.setOptionEnabled("SCHD",1)
+		endif
 		callpoint!.setOptionEnabled("RELS",0)
 	else
 		callpoint!.setOptionEnabled("SCHD",1)
@@ -698,6 +702,15 @@ rem --- should only be enabled if on an inventory type WO, if item is lotted/ser
 [[SFE_WOMASTR.AOPT-RELS]]
 rem --- Release/Commit the Work Order
 
+	rem --- Warn this Work Order has already been released
+	wo_stat$=callpoint!.getColumnData("SFE_WOMASTR.WO_STATUS")
+	if wo_stat$="O" then
+		msg_id$="SF_WO_IS_OPEN"
+		gosub disp_message
+			if msg_opt$="C" then break
+		endif
+	endif
+
 	rem --- Add Barista soft lock for this record if not already in edit mode
 	if !callpoint!.isEditMode() then
 		rem --- Is there an existing soft lock?
@@ -1089,8 +1102,8 @@ rem --- disable Copy function if closed or not an N category
 rem --- enable Release/Commit
 
 	if callpoint!.getColumnData("SFE_WOMASTR.WO_STATUS")<>"C"
-		callpoint!.setOptionEnabled("RELS",1)
 		callpoint!.setOptionEnabled("SCHD",1)
+		if callpoint!.getColumnData("SFE_WOMASTR.WO_STATUS")<>"Q" then callpoint!.setOptionEnabled("RELS",1)
 	endif
 
 rem --- Adjust requirements for new scheduled production quantity

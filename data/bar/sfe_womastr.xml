@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.sfe_womastr">FF7A0932600DAAA0B007689A4A08435B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfe_womastr">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfe_womastr">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.sfe_womastr">20260218</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.sfe_womastr">20260218</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.sfe_womastr">141704</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.sfe_womastr">20260304</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.sfe_womastr">20260304</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.sfe_womastr">135632</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.sfe_womastr"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.sfe_womastr">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.sfe_womastr"></DD_ATTR_DKNM>
@@ -308,6 +308,12 @@
 	</ALIAS>
 	<ALIAS id="ddm_table_ref">
 		<ID id="ddm_table_ref">DDM_TABLE_REF</ID>
+		<RECORD id="ddm_table_ref.sfe_womastrcreated_useradm_user">
+			<DD_TABLE_ALIAS id="ddm_table_ref.sfe_womastrcreated_useradm_user">SFE_WOMASTR     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.sfe_womastrcreated_useradm_user">CREATED_USER    </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.sfe_womastrcreated_useradm_user">ADM_USER        </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.sfe_womastrcreated_useradm_user">FK_SFE_WOMASTR_CREATED_USER_ADM_USER                                                                                                                                                                                                                           </TABLE_REF_NAME>
+		</RECORD>
 		<RECORD id="ddm_table_ref.sfe_womastrcustomer_idarm_custmast">
 			<DD_TABLE_ALIAS id="ddm_table_ref.sfe_womastrcustomer_idarm_custmast">SFE_WOMASTR     </DD_TABLE_ALIAS>
 			<DD_TABLE_COL id="ddm_table_ref.sfe_womastrcustomer_idarm_custmast">CUSTOMER_ID     </DD_TABLE_COL>
@@ -335,6 +341,15 @@
 	</ALIAS>
 	<ALIAS id="ddm_table_refcol">
 		<ID id="ddm_table_refcol">DDM_TABLE_REFCOL</ID>
+		<RECORD id="ddm_table_refcol.sfe_womastrcreated_useradm_user0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.sfe_womastrcreated_useradm_user0001">SFE_WOMASTR     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.sfe_womastrcreated_useradm_user0001">CREATED_USER    </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.sfe_womastrcreated_useradm_user0001">ADM_USER        </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.sfe_womastrcreated_useradm_user0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.sfe_womastrcreated_useradm_user0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.sfe_womastrcreated_useradm_user0001">USER_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.sfe_womastrcreated_useradm_user0001">CREATED_USER    </FK_TABLE_COL>
+		</RECORD>
 		<RECORD id="ddm_table_refcol.sfe_womastrcustomer_idarm_custmast0001">
 			<DD_TABLE_ALIAS id="ddm_table_refcol.sfe_womastrcustomer_idarm_custmast0001">SFE_WOMASTR     </DD_TABLE_ALIAS>
 			<DD_TABLE_COL id="ddm_table_refcol.sfe_womastrcustomer_idarm_custmast0001">CUSTOMER_ID     </DD_TABLE_COL>

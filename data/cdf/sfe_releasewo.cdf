@@ -1,9 +1,18 @@
 [[SFE_RELEASEWO.ARAR]]
 rem --- Set defaults
 
-	if callpoint!.getDevObject("wo_status")="O"
-		callpoint!.setColumnData("SFE_RELEASEWO.RELEASE","Y",1)
-		callpoint!.setColumnEnabled("SFE_RELEASEWO.RELEASE",0)
+	if callpoint!.getDevObject("allow_release")="N" then
+		rem --- Fields aleady disabled
+		callpoint!.setColumnData("SFE_RELEASEWO.RELEASE","N")
+		callpoint!.setColumnData("SFE_RELEASEWO.PRINT_TRAVEL","N")
+		callpoint!.setColumnData("SFE_RELEASEWO.PRINT_PICK","N")
+	else
+		if callpoint!.getDevObject("wo_status")="O" then
+			callpoint!.setColumnEnabled("SFE_RELEASEWO.RELEASE",0)
+			callpoint!.setColumnData("SFE_RELEASEWO.RELEASE","N")
+			callpoint!.setColumnData("SFE_RELEASEWO.PRINT_TRAVEL","N")
+			callpoint!.setColumnData("SFE_RELEASEWO.PRINT_PICK","N")
+		endif
 	endif
 
 [[SFE_RELEASEWO.ASHO]]
@@ -277,14 +286,6 @@ rem =====================================================
 		if cvs(ivm_itemwhse.item_id$,3)="" 
 			at_whse$=" - Not at warehouse!"
 			callpoint!.setDevObject("allow_release","N")
-			callpoint!.setColumnEnabled("SFE_RELEASEWO.RELEASE",0)
-			callpoint!.setColumnEnabled("SFE_RELEASEWO.PRINT_TRAVEL",0)
-			callpoint!.setColumnEnabled("SFE_RELEASEWO.PRINT_PICK",0)
-		else
-			at_whse$=""
-			callpoint!.setColumnEnabled("SFE_RELEASEWO.RELEASE",1)
-			callpoint!.setColumnEnabled("SFE_RELEASEWO.PRINT_TRAVEL",1)
-			callpoint!.setColumnEnabled("SFE_RELEASEWO.PRINT_PICK",1)
 		endif
 		dim ivm_itemmast$:fattr(ivm_itemmast$)
 		read record (ivm01_dev,key=firm_id$+sfe_womatl.item_id$,dom=*next)ivm_itemmast$
@@ -325,7 +326,6 @@ rem =====================================================
 		callpoint!.setColumnEnabled("SFE_RELEASEWO.PRINT_TRAVEL",1)
 		callpoint!.setColumnEnabled("SFE_RELEASEWO.PRINT_PICK",1)
 	endif
-
 
 	return
 
