@@ -33,19 +33,6 @@ rem --- Existing materials issues?
 	find(sfe_wotrans_dev,key=sfe_wotrans_key$,dom=*next); wotrans=1
 	callpoint!.setDevObject("wotrans",wotrans)
 
-	if !wotrans then
-		rem --- Materials already commited?
-		wocommit=0
-		sfe_wocommit_dev=fnget_dev("SFE_WOCOMMIT")
-		sfe_wocommit_key$=firm_id$+callpoint!.getColumnData("SFE_WOMATISH.WO_LOCATION")+callpoint!.getColumnData("SFE_WOMATISH.WO_NO")
-		find(sfe_wocommit_dev,key=sfe_wocommit_key$,dom=*next); wocommit=1
-
-		if wocommit then
-			msg_id$="WO_PICKLIST_NOT_DONE"
-			gosub disp_message
-		endif
-	endif
-
 rem --- Warn if WO is being closed complete
 	wo_location$=callpoint!.getColumnData("SFE_WOMATISH.WO_LOCATION")
 	wo_no$=callpoint!.getColumnData("SFE_WOMATISH.WO_NO")
