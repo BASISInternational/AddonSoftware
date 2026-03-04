@@ -62,7 +62,7 @@ rem --- Retrieve the program path
 rem --- Open Files    
 rem --- Note 'files' and 'channels[]' are used in close loop, so don't re-use
 
-    files=7,begfile=1,endfile=files
+    files=8,begfile=1,endfile=files
     dim files$[files],options$[files],ids$[files],templates$[files],channels[files]    
 
     files$[1]="poe-12",ids$[1]="POE_PODET"
@@ -72,6 +72,7 @@ rem --- Note 'files' and 'channels[]' are used in close loop, so don't re-use
     files$[5]="ivm-05",ids$[5]="IVM_ITEMVEND"
     files$[6]="apm-05",ids$[6]="APM_VENDADDR"
     files$[7]="ivm-02",ids$[7]="IVM_ITEMWHSE"
+    files$[8]="poe-14",ids$[8]="POE_RECDET"
 
 	call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],ids$[all],templates$[all],channels[all],batch,status
 
@@ -90,6 +91,7 @@ rem --- Note 'files' and 'channels[]' are used in close loop, so don't re-use
     ivm_itemvend=channels[5]
     apm_vendaddr=channels[6]
     ivm_itemwhse=channels[7]
+    poe_recdet=channels[8]
     
     dim poe_podet$:templates$[1]
     dim poc_message$:templates$[2]
@@ -98,7 +100,24 @@ rem --- Note 'files' and 'channels[]' are used in close loop, so don't re-use
     dim ivm_itemvend$:templates$[5]
     dim apm_vendaddr$:templates$[6]
     dim ivm_itemwhse$:templates$[7]
+    dim poe_recdet$:templates$[8]
 	
+rem --- Pre-compute unprocessed receipt quantities from POE_RECDET
+rem --- Records still in POE_RECDET have not been through Receipt Register Update
+
+    declare java.util.HashMap recdetQtyMap!
+    recdetQtyMap! = new java.util.HashMap()
+
+    read (poe_recdet,key=firm_id$+po_no$,knum="PO_RECVR",dom=*next)
+    while 1
+        readrecord (poe_recdet,end=*break) poe_recdet$
+        if poe_recdet.firm_id$<>firm_id$ or poe_recdet.po_no$<>po_no$ then break
+        isqn$ = poe_recdet.internal_seq_no$
+        prev = 0
+        if recdetQtyMap!.containsKey(isqn$) then prev = recdetQtyMap!.get(isqn$)
+        recdetQtyMap!.put(isqn$, prev + poe_recdet.qty_received)
+    wend
+
 rem --- Main
 
     read (poe_podet,key=firm_id$+po_no$,knum="DISPLAY_KEY",dom=*next)
@@ -112,8 +131,10 @@ rem --- Main
         memo_1024$=poe_podet.memo_1024$
         if len(memo_1024$) and memo_1024$(len(memo_1024$))=$0A$ then memo_1024$=memo_1024$(1,len(memo_1024$)-1); rem --- trim trailing newline
 
-        rem --- Calculate qty expected (ordered - received)
+        rem --- Calculate qty expected (ordered - received - unprocessed receipts)
         qty=poe_podet.qty_ordered-poe_podet.qty_received
+        isqn$ = poe_podet.internal_seq_no$
+        if recdetQtyMap!.containsKey(isqn$) then qty = qty - recdetQtyMap!.get(isqn$)
         
         rem --- Skip lines where qty expected <= 0 (fully received)
         find record (poc_linecode,key=firm_id$+poe_podet.po_line_code$,dom=*next) poc_linecode$
