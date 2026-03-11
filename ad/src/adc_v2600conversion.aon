@@ -120,8 +120,80 @@ rem --- Initialize data file changes implemented during minor releases of v25
         endif
     endif
 
+rem --- For version 26.00, initialize new fields in AP tables/files
+    this_module$="AP"
+    if installMap!.get(this_module$)="Y" then
+        rem --- Increment progress meter
+        meter_text$=this_module$+" "+Translate!.getTranslation("AON_INSTALLED","Installed")+", "+
+:           Translate!.getTranslation("AON_DO_DATA_CONV","Doing data conversion for")+" "+this_module$
+        meter_proc_recs=meter_proc_recs+1
+        meter_action$="MTR-LST"
+        gosub disp_meter
+        print(log_dev)meter_text$
+
+        rem --- Initialize new RECURRING_WINDOW in APS_PARAMS
+        task$="2600_ap_aps_params"
+        if convCtrl!.getProperty(task$)<>"Completed" then
+            rem --- Open File(s)
+            num_files=1
+            dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+            open_tables$[1]="APS_PARAMS",   open_opts$[1]="OTA"
+    
+            gosub open_tables
+
+            apsParams_dev=num(open_chans$[1])
+            dim apsParams$:open_tpls$[1]
+
+            read(apsParams_dev,key="",dom=*next)
+            while 1
+                readrecord(apsParams_dev,end=*break)apsParams$
+
+                rem --- Initialize RECURRING_WINDOW
+                if apsParams.recurring_window=null() or apsParams.recurring_window=0 then
+                    rem --- Set PRICING_ADJ_BASE to 30 days
+                    apsParams.recurring_window=30
+                endif
+                
+                apsParams$=field(apsParams$)
+                writerecord(apsParams_dev)apsParams$
+            wend
+            
+            rem --- close files opened for this conversion
+            num_files=1
+            dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+            open_tables$[1]="APS_PARAMS", open_opts$[1]="C"
+            gosub open_tables
+           
+            write(convCtrlFileChan)task$+"=Completed"
+
+            rem --- This task$ conversion completed successfully
+            rem --- Increment progress meter
+            meter_text$=Translate!.getTranslation("AON_DATA_CONV","Data conversion")+" "+
+:                       Translate!.getTranslation("AON_COMPLETED_FOR","completed for")+": "+task$
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+        else
+            rem --- Increment progress meter
+            meter_text$=Translate!.getTranslation("AON_CONV_PREVIOUSLY","Conversion previously completed for")+" "+task$
+            meter_proc_recs=meter_proc_recs+1
+            meter_action$="MTR-LST"
+            gosub disp_meter
+            print(log_dev)meter_text$
+        endif
+    else
+        rem --- Increment progress meter
+        meter_text$=this_module$+" "+Translate!.getTranslation("AON_NOT","Not")+" "+Translate!.getTranslation("AON_INSTALLED","Installed")+", "+
+:           Translate!.getTranslation("AON_SKIP","SKIP")+" "+Translate!.getTranslation("AON_DO_DATA_CONV","Doing data conversion for")+" "+this_module$
+        meter_proc_recs=meter_proc_recs+1
+        meter_action$="MTR-LST"
+        gosub disp_meter
+        print(log_dev)meter_text$
+    endif
+
 rem --- For version 26.00, initialize new fields in IV tables/files
-   this_module$="IV"
+    this_module$="IV"
     if installMap!.get(this_module$)="Y" then
         rem --- Increment progress meter
         meter_text$=this_module$+" "+Translate!.getTranslation("AON_INSTALLED","Installed")+", "+
