@@ -407,6 +407,7 @@ rem --- Update firm ZZ records in "required" data files
             key$=key(demoFile_dev,err=*break)
             if len(key$)>=2 and key$(1,2)="ZZ"
                 readrecord(demoFile_dev,key=key$)record$
+                record$ = field(record$)
                 writerecord(thisFile_dev)record$
             else
                 read(thisFile_dev,end=*break)
