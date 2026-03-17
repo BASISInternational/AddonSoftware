@@ -1,10 +1,82 @@
 =======================================================================================================================================
-Report Branch: AddonSoftware Development Build
+ Report Date:   2026-03-04
+ Report Branch: AddonSoftware 26.00
+ Last Release:  AddonSoftware 25.12
 =======================================================================================================================================
-Development builds are generated daily.
 
-AddonSoftware Co-op Developers can access code changes and bug fixes for the Development Builds via Git.
+25.11 released 01/26/2026
+BBjBaristaAddonDemos2512_??-??-2026_????.jar
+=======================================================================================================================================
 
-Information about code changes and bug fixes for RELEASE builds can be found at:
+Revision: 82c54f1ee07eeb81348019bad6721a1a71237c2c
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 1/28/2026 1:54:49 PM
+Message:
+Bug 11158: Modified Order Entry to NOT launch the Credit Action form
+unless the Order is on Hold.
+----
+Modified: data/bar/ope_ordhdr.xml
+Modified: data/cdf/ope_ordhdr.cdf
+=======================================================================================================================================
 
-https://bugs.basis.cloud
+Revision: d931d8c41796183767aaf304b075764e69858c8a
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 2/2/2026 10:34:44 AM
+Message:
+Bug 11162: Modified Order Fulfillment (opu_fillmntpt.aon) to recalculate
+for backordered items the opt_invdet EXT_PRICE based on the resulting
+QTY_SHIPPED, and update TOTAL_SALES in opt_invhdr accordingly.
+----
+Modified: op/src/opu_fillmntrpt.aon
+=======================================================================================================================================
+
+Revision: 6f17474f57529826a2dccb05c9aabde1eb740f91
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 2/23/2026 2:20:49 PM
+Message:
+Bug 11176: Updated the AO_SfUtils close() method to include the channels
+for tables SFE_TIMEDATEDET, SFE_TIMEEMPLDET and SFE_WOCLOSE.
+----
+Modified: sf/src/sfo_AO_SfUtils.aon
+=======================================================================================================================================
+
+Revision: ca090c34af05a6c8cd40a1ee3ee55c7e2fe89ed2
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 2/24/2026 11:10:32 AM
+Message:
+Bug 11180: Modified Financial Reports to NOT print data where the
+Financial Report Master has the Col# (1-8) set to a zero value.
+----
+Modified: gl/src/glr_financials.aon
+=======================================================================================================================================
+
+Revision: 269912ae0aaa14d0cb2c17bb74bb3a8a3a698757
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 3/3/2026 10:35:06 AM
+Message:
+Bug 11182: Corrected the year in the Fiscal Calendar period end date for
+February when a new calendar is created.
+----
+Modified: gl/src/glu_periodend.aon
+=======================================================================================================================================
+
+Revision: f1dee5ed8cb98e5b2fbb672f351692c3e4091491
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 3/3/2026 12:27:30 PM
+Message:
+Bug 11183: Restored the original Qty Iss calculation before it was
+changed in v25.11 for Bug 11144.
+----
+Modified: data/bar/sfe_womatish.xml
+Modified: data/cdf/sfe_womatish.cdf
+=======================================================================================================================================
+
+Revision: 877374e0678ab432446a0fa4bde0d6b116c52777
+Author: Ricky <rgonzales@basis.cloud>
+Date:   Wed Mar 4 10:58:29 2026 -0700
+Message:
+Bug 11171: unprocessed receipts in qty expected
+PO Receiver qty expected now includes unprocessed receipts from POE_RECDET.
+----
+Modified: a/sprocs/PORECEIVER_DET.prc
+=======================================================================================================================================
