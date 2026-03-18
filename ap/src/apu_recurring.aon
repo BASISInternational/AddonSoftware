@@ -70,102 +70,128 @@ rem --- Start progress meter and position header file
 rem --- Read next Recurring Invoice Header (ape-03) record
 
     while moreheaders
-          read record (ape03_dev,end=*break) ape03a$
-          if ape03a.firm_id$<>firm_id$ break
-          call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
+        read record (ape03_dev,end=*break) ape03a$
+        if ape03a.firm_id$<>firm_id$ break
+        if ape03a.repeat_count<1 then
+            continue
+        endif
+        call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
 
-          rem --- Retrieve terms code for this invoice
+        rem --- Retrieve terms code for this invoice
 
-          dim apm10c$:fattr(apm10c$)
-          apm10c.firm_id$=ape03a.firm_id$
-          apm10c.record_id_c$="C"
-          apm10c.terms_codeap$=ape03a.ap_terms_code$
-          apm10c.code_desc$=nf$
-          k$=apm10c.firm_id$+apm10c.record_id_c$+apm10c.terms_codeap$
-          find record (apm10c_dev,key=k$,dom=*next) apm10c$
+        dim apm10c$:fattr(apm10c$)
+        apm10c.firm_id$=ape03a.firm_id$
+        apm10c.record_id_c$="C"
+        apm10c.terms_codeap$=ape03a.ap_terms_code$
+        apm10c.code_desc$=nf$
+        k$=apm10c.firm_id$+apm10c.record_id_c$+apm10c.terms_codeap$
+        find record (apm10c_dev,key=k$,dom=*next) apm10c$
 
-          rem --- Recalculate dates for this recurring invoice
+        rem --- Sequencial Invoice
+       
+        while moreinvoices
+            rem --- Check if Still have Repeats
+            if ape03a.repeat_count<1 then
+                break
+            endif
 
-          wrong=1
-          calculating=1
-          d=num(ape03a.invoice_date$(7,2))
-          while calculating
-                while wrong
-                      x=jul(year,month,d,err=*break)
-                      invoice_date$=date(x:"%Yl%Mz%Dz")
-                      wrong=0
-                wend
-                if wrong=0 break
-                d=d-1
-                if d<=0 then d=31
-          wend
-          ape03a.invoice_date$=invoice_date$
-          ape03a.accting_date$=invoice_date$
-          call pgmdir$+"adc_duedate.aon",apm10c.prox_or_days$,ape03a.invoice_date$,
-:                                        apm10c.due_days,inv_due_date$,status
-          ape03a.inv_due_date$=inv_due_date$
-          call pgmdir$+"adc_duedate.aon",apm10c.prox_or_days$,ape03a.invoice_date$,
-:                                        apm10c.disc_days,disc_date$,status
-          ape03a.disc_date$=disc_date$
+            rem --- Recalculate dates for this recurring invoice
 
-          rem --- Generate unique invoice number for this recurring invoice
+            last_temp=num(ape03a.last_issued_date$,err=*next)
+            if last_temp<>0 then
+                rem "Calculate Next Invoice Date"
+                test_date$=ape03a.last_issued_date$
+                orig_date$=ape03a.invoice_date$
+                test_interval$=ape03a.repeat_interval$
+                gosub increment_date
+                ape03a.next_issued_date$=result_date$
+                rem "Calculate Next Accounting Date"
+                if num(ape03a.accting_date$,err=*endif)=0 then
+                    ape03a.accting_date$=ape03a.invoice_date$
+                endif
+                if num(ape03a.last_accting_dat$,err=*endif)=0 then
+                    ape03a.last_accting_dat$=ape03a.accting_date$
+                endif
+                test_date$=ape03a.last_accting_dat$
+                orig_date$=ape03a.invoice_date$
+                test_interval$=ape03a.repeat_interval$
+                gosub increment_date
+                ape03a.next_accting_dat$=result_date$
+            else
+                rem "First time no Last Time use Invoice for first Issue Date"
+                ape03a.next_issued_date$=ape03a.invoice_date$
+                ape03a.next_accting_dat$=ape03a.accting_date$
+            endif
+          
+            rem --- Date Range
+            if ape03a.next_issued_date$>end_date$ then
+                break
+            endif
+      
+            rem --- Recalculate dates for this recurring invoice
+      
+            call pgmdir$+"adc_duedate.aon",apm10c.prox_or_days$,ape03a.next_issued_date$, apm10c.due_days,inv_due_date$,status
+            call pgmdir$+"adc_duedate.aon",apm10c.prox_or_days$,ape03a.next_issued_date$, apm10c_disc_days,disc_date$,status
+      
+            rem --- Generate unique invoice number for this recurring invoice
 
-          wrong=1
-          calculating=1
-          d=num(ape03a.invoice_date$(7,2))+1
-          invoice$=""
-          while calculating
+            wrong=1
+            calculating=1
+            year=num(ape03a.next_issued_date$(1,4))
+            month=num(ape03a.next_issued_date$(5,2))
+            d=num(ape03a.next_issued_date$(7,2))+1
+            invoice$=""
+            while calculating
                 while wrong        
-                      d=d-1
-                      if d<=0 then d=31
-                      x=jul(year,month,d,err=*continue)
-                      wrong=0
+                    d=d-1
+                    x=jul(year,month,d,err=*continue)
+                    wrong=0
                 wend
                 x$=str(x:"0000000")
                 invoice$=ape03a.ap_inv_no$(1,6)+x$(4)
                 k$=ape03a.firm_id$+ape03a.ap_type$+ape03a.vendor_id$+invoice$
                 find record (apt01_dev,key=k$,dom=*break)
                 wrong=1
-          wend 
+            wend 
 
-          rem --- Copy the invoice header to the entry file and write the record
+            rem --- Copy the invoice header to the entry file and write the record
 
-          dim ape01a$:ape01_tpl$
-          ape01a.firm_id$=ape03a.firm_id$
-          ape01a.ap_type$=ape03a.ap_type$
-          ape01a.vendor_id$=ape03a.vendor_id$
-          ape01a.ap_inv_no$=invoice$
-          ape01a.sequence_00$=ape03a.sequence_00$
-          ape01a.ap_dist_code$=ape03a.ap_dist_code$
-          ape01a.payment_grp$=ape03a.payment_grp$
-          ape01a.ap_terms_code$=ape03a.ap_terms_code$
-          ape01a.invoice_date$=ape03a.invoice_date$
-          ape01a.accting_date$=ape03a.accting_date$
-          ape01a.inv_due_date$=ape03a.inv_due_date$
-          ape01a.disc_date$=ape03a.disc_date$
-          ape01a.reference$=ape03a.reference$
-          ape01a.ap_inv_memo$=ape03a.ap_inv_memo$
-          ape01a.memo_1024$=ape03a.memo_1024$
-          ape01a.hold_flag$=ape03a.hold_flag$
-          ape01a.invoice_type$=ape03a.invoice_type$
-          ape01a.invoice_amt=ape03a.invoice_amt
-          ape01a.discount_amt=ape03a.discount_amt
-          ape01a.retention=ape03a.retention
-          ape01a.net_inv_amt=ape03a.net_inv_amt
+            dim ape01a$:ape01_tpl$
+            ape01a.firm_id$=ape03a.firm_id$
+            ape01a.ap_type$=ape03a.ap_type$
+            ape01a.vendor_id$=ape03a.vendor_id$
+            ape01a.ap_inv_no$=invoice$
+            ape01a.sequence_00$=ape03a.sequence_00$
+            ape01a.ap_dist_code$=ape03a.ap_dist_code$
+            ape01a.payment_grp$=ape03a.payment_grp$
+            ape01a.ap_terms_code$=ape03a.ap_terms_code$
+            ape01a.invoice_date$=ape03a.next_issued_date$
+            ape01a.accting_date$=ape03a.next_accting_dat$
+            ape01a.inv_due_date$=inv_due_date$
+            ape01a.disc_date$=disc_date$
+            ape01a.reference$=ape03a.reference$
+            ape01a.ap_inv_memo$=ape03a.ap_inv_memo$
+            ape01a.memo_1024$=ape03a.memo_1024$
+            ape01a.hold_flag$=ape03a.hold_flag$
+            ape01a.invoice_type$=ape03a.invoice_type$
+            ape01a.invoice_amt=ape03a.invoice_amt
+            ape01a.discount_amt=ape03a.discount_amt
+            ape01a.retention=ape03a.retention
+            ape01a.net_inv_amt=ape03a.net_inv_amt
 
-          ape01a.batch_no$=batch_no$
-          extract record (ape01_dev,key=ape01a.firm_id$+ape01a.ap_type$+ape01a.vendor_id$+ape01a.ap_inv_no$,dom=*next)xwk$;rem Advisory Locking
+            ape01a.batch_no$=batch_no$
+            extract record (ape01_dev,key=ape01a.firm_id$+ape01a.ap_type$+ape01a.vendor_id$+ape01a.ap_inv_no$,dom=*next)xwk$;rem Advisory Locking
 
-          rem --- Position the Recurring Invoice Detail (ape-13) file
+            rem --- Position the Recurring Invoice Detail (ape-13) file
 
-          invoice$=ape03a.firm_id$+ape03a.ap_type$+ape03a.vendor_id$+
+            invoice$=ape03a.firm_id$+ape03a.ap_type$+ape03a.vendor_id$+
 :                  ape03a.ap_inv_no$
           read (ape13_dev,key=invoice$,dom=*next)
 
-          rem --- Read the next Recurring Invoice Detail (ape-13) record and
-          rem --- copy it to the entry file
+            rem --- Read the next Recurring Invoice Detail (ape-13) record and
+            rem --- copy it to the entry file
 
-          while moredetail
+            while moredetail
                 k$=key(ape13_dev,end=*break)
                 if pos(invoice$=k$)<>1 break
                 read record (ape13_dev) ape13a$
@@ -183,21 +209,25 @@ rem --- Read next Recurring Invoice Header (ape-03) record
                 extract record (ape11_dev,key=ape11a.firm_id$+ape11a.ap_type$+ape11a.vendor_id$+ape11a.ap_inv_no$+ape11a.sequence_no$,dom=*next)xwk$;rem Advisory Locking
                 ape11a$=field(ape11a$)
                 write record (ape11_dev) ape11a$
-          wend
+            wend
           
-          ape01a$=field(ape01a$)
-          write record (ape01_dev) ape01a$
-          rem --- Loop back for next Recurring Invoice Header
+            ape01a$=field(ape01a$)
+            write record (ape01_dev) ape01a$
+            rem --- Loop Back for Next Invoices if within Period
+        wend
+        rem --- Loop back for next Recurring Invoice Header
 
     wend
 
+rem wgh ... 8987
 rem --- All done
 
     rem --- Clear trans for this firm/process/batch from glw-11 work file since they should never be updated to glt-04 (gle_dailydetail)
-    if gl$="Y"
-        rec_pfx$=firm_id$+process_id$+batch_no$
-        call stbl("+DIR_PGM")+"adc_clearpartial.aon","N",glw11_dev,rec_pfx$,status
-    endif    
+rem "Batch coming from Called Program"
+rem    if gl$="Y"
+rem        rec_pfx$=firm_id$+process_id$+batch_no$
+rem        call stbl("+DIR_PGM")+"adc_clearpartial.aon","N",glw11_dev,rec_pfx$,status
+rem    endif    
 
     goto std_exit
 

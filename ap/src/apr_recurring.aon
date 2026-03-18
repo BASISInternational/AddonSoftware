@@ -48,6 +48,7 @@ rem --- Open/Lock files
         files$[8]="apt-01",ids$[8]="APT_INVOICEHDR"
         files$[9]="apc_distribution",ids$[9]=files$[9];rem "apm-10B
         files$[10]="apc_termscode",ids$[10]=files$[10];rem "apm-10C
+        files$[11]="ddm_element_ldat.dat",ids$[11]=files$[11]
         options$[3]="L"
         options$[5]="L"
     call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
@@ -63,6 +64,7 @@ rem --- Open/Lock files
         apt01_dev=channels[8]
         apm10b_dev=channels[9]
         apm10c_dev=channels[10]
+        ddm_element_ldat=channels[11]
     
 
 rem --- Dimension string templates
@@ -72,17 +74,14 @@ rem --- Dimension string templates
 :       ape13a$:templates$[5],apm01a$:templates$[6],
 :       apm10a$:templates$[7],apt01a$:templates$[8],apm10b$:templates$[9],
 :       apm10c$:templates$[10]
-
+dim ddm_element_ldat$:templates$[11]
 rem --- store ape01/11 templates for update
 
         ape01_tpl$=templates$[2],ape11_tpl$=templates$[4]
 
 rem --- Assign form input values to local variables
 
-        month$=Option!.getOptionData(Translate!.getTranslation("AON_MONTH"))
-        year$=Option!.getOptionData(Translate!.getTranslation("AON_YEAR"))
-        month=num(month$)
-        year=num(year$)
+        end_date$=Option!.getOptionData("APR_RECURRING.NEXT_ISSUED_DATE")
         doComments$=option!.getOptionData("PICK_CHECK")
 
 rem --- Retrieve parameter records
@@ -127,6 +126,7 @@ rem --- Initializations
         lines=maxlines+1
         moreheaders=1
         moredetail=1
+        moreinvoices=1
         ac$=Translate!.getTranslation("AON_ACCOUNT")
         ds$=Translate!.getTranslation("AON_DESCRIPTION")
         amt$=Translate!.getTranslation("AON_AMOUNT")
@@ -141,30 +141,31 @@ rem --- Initializations
         if multitypes then headings$[2]="[HEADER]"
         h2$=""
         h3$=Translate!.getTranslation("AON_DISCOUNT")
-        if retention 
+        if retention then
            h2$=h3$+"/"
            h3$=Translate!.getTranslation("AON_RETENTION")
         endif
         recs=0
 
 rem --column heading 
-        dim columns$[13,10]
-        columns=13
+        dim columns$[14,10]
+        columns=14
 
         columns$[0,0]=Translate!.getTranslation("AON_VENDOR"),          columns$[0,1]="C",columns$[0,2]="8"
         columns$[1,0]=Translate!.getTranslation("AON_NAME"),            columns$[1,1]="C",columns$[1,2]="20"
-        columns$[2,0]=Translate!.getTranslation("AON_INVOICE"),         columns$[2,1]="C",columns$[2,2]="20"
-        columns$[3,0]="DC",              columns$[3,1]="C",columns$[3,2]="10"
+        columns$[2,0]=Translate!.getTranslation("AON_INVOICE"),         columns$[2,1]="C",columns$[2,2]="15"
+        columns$[3,0]="DC",              columns$[3,1]="C",columns$[3,2]="4"
         columns$[4,0]="PG",              columns$[4,1]="C",columns$[4,2]="4"
         columns$[5,0]="TC",              columns$[5,1]="C",columns$[5,2]="4"
         columns$[6,0]="HD",              columns$[6,1]="C",columns$[6,2]="4"
         columns$[7,0]=Translate!.getTranslation("AON_INVOICE_DT"),    columns$[7,1]="C",columns$[7,2]="8"
-        columns$[8,0]=Translate!.getTranslation("AON_DUE_DT"),        columns$[8,1]="C",columns$[8,2]="8"
-        columns$[9,0]=Translate!.getTranslation("AON_ACCT_DT"),       columns$[9,1]="C",columns$[9,2]="8"
-        columns$[10,0]=Translate!.getTranslation("AON_DISC_DT"),      columns$[10,1]="C",columns$[10,2]="8"
-        columns$[11,0]=Translate!.getTranslation("AON_REFERENCE/MEMO"),      columns$[11,1]="C",columns$[11,2]="15"
-        columns$[12,0]=Translate!.getTranslation("AON_INVOICE_AMT"), columns$[12,1]="N",columns$[12,2]="10",columns$[12,3]=m1$,columns$[12,10]="T"
-        columns$[13,0]=Translate!.getTranslation("AON_DISCOUNT_AMT"),columns$[13,1]="N",columns$[13,2]="8",columns$[13,3]=m1$,columns$[13,10]="T"
+        columns$[8,0]=Translate!.getTranslation("AON_ACCT_DT"),        columns$[8,1]="C",columns$[8,2]="8"
+        columns$[9,0]="Orig Dt",         columns$[9,1]="C",columns$[9,2]="8"
+        columns$[10,0]="Last Dt",        columns$[10,1]="C",columns$[10,2]="8"
+        columns$[11,0]="Interval",       columns$[11,1]="C",columns$[11,2]="10"
+        columns$[12,0]=Translate!.getTranslation("AON_REFERENCE/MEMO"), columns$[12,1]="C",columns$[12,2]="15"
+        columns$[13,0]=Translate!.getTranslation("AON_INVOICE_AMT"),    columns$[13,1]="N",columns$[13,2]="10",columns$[13,3]=m1$,columns$[13,10]="T"
+        columns$[14,0]=Translate!.getTranslation("AON_DISCOUNT_AMT"),   columns$[14,1]="N",columns$[14,2]="8", columns$[14,3]=m1$,columns$[14,10]="T"
 
         call stbl("+DIR_PGM",err=*next)+"adc_docout_adj.aon",columns$[all]
 
@@ -191,8 +192,7 @@ rem --- Define invoice print and header positions
 
 rem --- Update report heading with month and year
 
-        x=jul(year,month,1)
-        headings$[1]=headings$[1]+Translate!.getTranslation("AON__FOR_")+date(x:"%Ms")+" "+date(x:"%Yl")
+        headings$[1]=headings$[1]+Translate!.getTranslation("AON__FOR_")+fndate$(sysinfo.system_date$)
 
 rem --- Define GL print and header positions
 
@@ -219,7 +219,7 @@ rem --- Additional file opens
 
 rem --- Clear trans for this firm/process/batch from glw-11 work file (if not batching, batch_no$ is zero, and will clear all recs this firm/process)
 
-        if gl$="Y"
+        if gl$="Y" then
             rec_pfx$=firm_id$+process_id$+batch_no$
             call stbl("+DIR_PGM")+"adc_clearpartial.aon","N",glw11_dev,rec_pfx$,status
         endif    
@@ -236,14 +236,15 @@ rem --- Open printer, start progress meter and position header file
 rem --- Read next Recurring Invoice Header (ape-03) record
 
     while moreheaders
-          read record (ape03_dev,end=*break) ape03a$
+      read record (ape03_dev,end=*break) ape03a$
           if ape03a.firm_id$<>firm_id$ break
+          if ape03a.repeat_count<1 then continue
           recs=recs+1
           call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
 
           rem --- Level breaks
 
-          if ape03a.ap_type$<>lasttype$ gosub type_break
+          if ape03a.ap_type$<>lasttype$ gosub ap_type_break
           if ape03a.vendor_id$<>lastvendor$ gosub vendor_break
 
           rem --- Retrieve vendor name
@@ -271,38 +272,57 @@ rem --- Read next Recurring Invoice Header (ape-03) record
           find record (apm10c_dev,key=k$,dom=*next) apm10c$
           errors=errors+(pos(nf$=apm10c.code_desc$)=1)
 
+        rem --- Sequencial Invoice
+
+        while moreinvoices
+        rem --- Check if Still have Repeats
+        if ape03a.repeat_count<1 then
+            break
+        endif
+
+        last_temp=num(ape03a.last_issued_date$,err=*next)
+        if last_temp<>0 then
+            rem "Calculate Next Invoice Date"
+            test_date$=ape03a.last_issued_date$
+            orig_date$=ape03a.invoice_date$
+            test_interval$=ape03a.repeat_interval$
+            gosub increment_date
+            ape03a.next_issued_date$=result_date$
+            rem "Calculate Next Accounting Date"
+            if num(ape03a.accting_date$,err=*endif)=0 then
+            ape03a.accting_date$=ape03a.invoice_date$
+            endif
+            if num(ape03a.last_accting_dat$,err=*endif)=0 then
+            ape03a.last_accting_dat$=ape03a.accting_date$
+            endif
+            test_date$=ape03a.last_accting_dat$
+            orig_date$=ape03a.invoice_date$
+            test_interval$=ape03a.repeat_interval$
+            gosub increment_date
+            ape03a.next_accting_dat$=result_date$
+        else
+            rem "First time no Last Time use Invoice for first Issue Date"
+            ape03a.next_issued_date$=ape03a.invoice_date$
+            ape03a.next_accting_dat$=ape03a.accting_date$
+        endif
+
+        rem --- Date Range
+        if ape03a.next_issued_date$>end_date$ then
+            break
+        endif
+
           rem --- Recalculate dates for this recurring invoice
 
-          wrong=1
-          calculating=1
-          d=num(ape03a.invoice_date$(7,2))
-          while calculating
-                while wrong
-                      if (month=4 or month=6 or month=9 or month=11) and d>30 d=30
-                      if month=2 and d>29 d=29
-                      if month=2 and (int(month/4)<>month/4) and d>28 d=28
-                      x=jul(year,month,d,err=*break)
-                      invoice_date$=date(x:"%Yl%Mz%Dz")
-                      wrong=0
-                wend
-                if wrong=0 break
-                d=d-1
-                if d<=0 then d=31
-          wend
-          ape03a.invoice_date$=invoice_date$
-          ape03a.accting_date$=invoice_date$
-          call pgmdir$+"adc_duedate.aon",apm10c.prox_or_days$,ape03a.invoice_date$,
-:                                        apm10c.due_days,inv_due_date$,status
-          ape03a.inv_due_date$=inv_due_date$
-          call pgmdir$+"adc_duedate.aon",apm10c.prox_or_days$,ape03a.invoice_date$,
-:                                        apm10c.disc_days,disc_date$,status
-          ape03a.disc_date$=disc_date$
-
+          call pgmdir$+"adc_duedate.aon",apm10c.prox_or_days$,ape03a.next_issued_date$, apm10c.due_days,inv_due_date$,status
+          call pgmdir$+"adc_duedate.aon",apm10c.prox_or_days$,ape03a.next_issued_date$, apm10c_disc_days,disc_date$,status
+          
           rem --- Generate unique invoice number for this recurring invoice
 
           wrong=1
           calculating=1
-          d=num(ape03a.invoice_date$(7,2))+1
+          year=num(ape03a.next_issued_date$(1,4))
+          month=num(ape03a.next_issued_date$(5,2))
+          d=num(ape03a.next_issued_date$(7,2))+1
           invoice$=""
           while calculating
                 while wrong        
@@ -336,9 +356,9 @@ rem --- Read next Recurring Invoice Header (ape-03) record
                       k$=apm10b.firm_id$+apm10b.record_id_b$+apm10b.ap_dist_code$
                       find record (apm10b_dev,key=k$,dom=*break) apm10b$
                       account$=apm10b.gl_ap_acct$
-                      gldate$=ape03a.accting_date$
+                      gldate$=ape03a.next_accting_dat$
                       ref1$=vendorref$
-                      ref2$=ape03a.ap_inv_no$
+                      ref2$=invoice$
                       ref3$=""
                       memo$=name$
                       if multitypes ref3$=Translate!.getTranslation("AON_AP_TYPE_")+ape03a.ap_type$
@@ -359,19 +379,26 @@ rem --- Read next Recurring Invoice Header (ape-03) record
  
           rem --- Print invoice header
 
-          if lines+3>maxlines 
           invdate$=""
           duedate$=""
           acctdate$=""
           discdate$=""
           retention$=""
+          last_issued_date$=""
+          next_issued_date$=""
           if retention retention$=str(ape03a.retention:m1$)
-          if cvs(ape03a.invoice_date$,2)<>"" invdate$=fndate$(ape03a.invoice_date$)
-          if cvs(ape03a.inv_due_date$,2)<>"" duedate$=fndate$(ape03a.inv_due_date$)
-          if cvs(ape03a.accting_date$,2)<>"" acctdate$=fndate$(ape03a.accting_date$)
-          if cvs(ape03a.disc_date$,2)<>"" discdate$=fndate$(ape03a.disc_date$)
+          if cvs(ape03a.next_issued_date$,2)<>"" invdate$=fndate$(ape03a.next_issued_date$)
+          if cvs(inv_due_date$,2)<>"" duedate$=fndate$(inv_due_date$)
+          if cvs(ape03a.next_accting_dat$,2)<>"" acctdate$=fndate$(next_accting_dat$)
+          if cvs(disc_date$,2)<>"" discdate$=fndate$(disc_date$)
+      if cvs(ape03a.invoice_date$,2)<>"" then
+         next_issued_date$=fndate$(ape03a.invoice_date$)
+      endif
+      if cvs(ape03a.last_issued_date$,2)<>"" then
+         last_issued_date$=fndate$(ape03a.last_issued_date$)
+      endif
           
-          xwk=fnblank(14)
+          xwk=fnblank(15)
           OutVect!.addItem(vendor$)
           OutVect!.addItem(name$)
           OutVect!.addItem(ape03a.ap_inv_no$)
@@ -380,9 +407,12 @@ rem --- Read next Recurring Invoice Header (ape-03) record
           OutVect!.addItem(ape03a.ap_terms_code$)
           OutVect!.addItem(ape03a.hold_flag$)
           OutVect!.addItem(invdate$)
-          OutVect!.addItem(duedate$)
           OutVect!.addItem(acctdate$)
-          OutVect!.addItem(discdate$)
+          OutVect!.addItem(orig_issued_date$)
+          OutVect!.addItem(last_issued_date$)
+          redim ddm_element_ldat$
+          read record(ddm_element_ldat,knum="LIST_CODE",key=pad("REPEAT_INTERVAL",16)+pad(ape03a.repeat_interval$,3),dom=*next)ddm_element_ldat$
+          OutVect!.addItem(cvs(ddm_element_ldat.dd_attr_ldat_ds$,3))
           OutVect!.addItem(ape03a.reference$+" "+ape03a.ap_inv_memo$)
           OutVect!.addItem(ape03a.invoice_amt$)
           OutVect!.addItem(ape03a.discount_amt$)
@@ -403,15 +433,17 @@ rem --- Read next Recurring Invoice Header (ape-03) record
           xwk=fnblank(2)
           OutVect!.addItem(ac$)
           OutVect!.addItem(ds$)
-          xwk=fnblank(10)
+          xwk=fnblank(8)
+          OutVect!.addItem(amt$+$00$+"R")
+          xwk=fnblank(2)
     
-          if gl$="Y" call pgmdir$+"glc_datecheck.aon",ape03a.accting_date$,"N",period$,year$,glstatus
-          if glstatus call pgmdir$+"glc_datewarn.aon",printer_dev,ape03a.accting_date$,glstatus,lines,errors,status
+          if gl$="Y" call pgmdir$+"glc_datecheck.aon",ape03a.next_accting_dat$,"N",period$,year$,glstatus
+          if glstatus call pgmdir$+"glc_datewarn.aon",printer_dev,ape03a.next_accting_dat$,glstatus,lines,errors,status
 
           if stbl("+DTWARN_MSG",err=*endif)<>""
               xwk=fnblank(1)
               OutVect!.addItem(stbl("+DTWARN_MSG"))
-              xwk=fnblank(12)
+              xwk=fnblank(13)
           endif
           
           rem --- Accumulate totals
@@ -456,18 +488,12 @@ rem --- Read next Recurring Invoice Header (ape-03) record
                 
                 rem --- Print the detail line
 
-                if gllines=0 gosub account_heading
-                if lines+1>maxlines
-
-                   gosub account_heading
-                endif
-
                  xwk=fnblank(2)
                  OutVect!.addItem(glacct$)
                  OutVect!.addItem(description$)
                  xwk=fnblank(8)
-                 OutVect!.addItem(ape13a.gl_post_amt$)
-                 xwk=fnblank(1)
+                 OutVect!.addItem(fnmask$(ape13a.gl_post_amt$,m1$)+$00$+"R")
+                 xwk=fnblank(2)
                  lines=lines+1
                  gllines=gllines+1
                  total=total+ape13a.gl_post_amt
@@ -476,7 +502,7 @@ rem --- Read next Recurring Invoice Header (ape-03) record
 
                 while cashbasis=0
                       account$=ape13a.gl_account$
-                      gldate$=ape03a.accting_date$
+                      gldate$=ape03a.next_accting_dat$
                       ref3$=Translate!.getTranslation("AON_LINE_")+ape13a.sequence_no$
                       amount=ape13a.gl_post_amt
                       units=ape13a.units
@@ -486,19 +512,22 @@ rem --- Read next Recurring Invoice Header (ape-03) record
 
           wend
 
+          rem --- rotate dates
+          ape03a.last_issued_date$=ape03a.next_issued_date$
+          ape03a.last_accting_dat$=ape03a.next_accting_dat$
+          ape03a.repeat_count=ape03a.repeat_count-1
+
+          
           rem --- Check for out of balance condition
 
-              if gllines=0 continue
-              if total=ape03a.invoice_amt continue
-              difference=ape03a.invoice_amt-total
-              if lines+2>maxlines
-              gosub account_heading
-          endif
+            if gllines=0 continue
+            if total=ape03a.invoice_amt continue
+            difference=ape03a.invoice_amt-total
 
-            xwk=fnblank(14)
+            xwk=fnblank(15)
             OutVect!.addItem("")
             OutVect!.addItem(Translate!.getTranslation("AON_WARNING:_THIS_TRANSACTION_IS_OUT_OF_BALANCE_BY_")+str(difference:m1$))
-            xwk=fnblank(12)
+            xwk=fnblank(15)
 
 
           rem --- Loop back for next Recurring Invoice Header
@@ -514,7 +543,7 @@ rem --- All done
         endif
 
         done=1
-        gosub type_break
+        gosub ap_type_break
         aptype$=""
         total$=Translate!.getTranslation("AON_TOTALS_FOR_REPORT")
         for x=0 to 2
@@ -524,57 +553,43 @@ rem --- All done
 
 rem --- Any errors encountered?
 
-    while errors
-          if lines+2>maxlines 
-            xwk=fnblank(14)
+        while errors
+            xwk=fnblank(15)
             OutVect!.addItem("")
             OutVect!.addItem(Translate!.getTranslation("AON_WARNING:_THIS_REGISTER_IS_OUT_OF_BALANCE_OR_MISSING_INFORMATION"))
-            xwk=fnblank(12)
+            xwk=fnblank(13)
             lines=lines+2
-          endif  
-          break
-    wend
+            break
+        wend
 
 rem --- Destroy the progress meter and run the next overlay
 
         call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,0,status
 
         update$=pgmdir$+"apu_recurring.aon"
-        if errors
-        gosub Display_Message
-        if special_flag$<>"Y" then update$=""
-    endif
+        if errors then
+            gosub Display_Message
+            if special_flag$<>"Y" then update$=""
+        endif
 
         overlay$=update$
         if gl$="Y" overlay$=pgmdir$+"glr_recap.aon"
-        out_action$="PRT-PDF"
+        out_action$="FORMAT-PRT-PDF"
         next_overlay$=overlay$
         goto std_exit
 
-    if cvs(aptype$,2)<>""
-       OutVect!.addItem(fncenter(aptype$,width),aptype$)
-       lines=lines+1
-       lines=lines+3
-
-account_heading: rem --- Account subheading
-
-    if lines+3>maxlines 
-    lines=lines+2
-    return
-
 print_total: rem --- Print totals
 
-    if lines+3>maxlines 
-        TotVect!.addItem(str(OutVect!.size()/(columns+1))) 
-        xwk=fnblank(9)
-        OutVect!.addItem(total$)
-        xwk=fnblank(2)
-        OutVect!.addItem(str(pt[0]))
-        OutVect!.addItem(str(pt[1]))
-        lines=lines+3
+    TotVect!.addItem(str(OutVect!.size()/(columns+1))) 
+    xwk=fnblank(10)
+    OutVect!.addItem(total$)
+    xwk=fnblank(2)
+    OutVect!.addItem(str(pt[0]))
+    OutVect!.addItem(str(pt[1]))
+    lines=lines+3
     return
 
-type_break: rem --- AP Type break
+ap_type_break: rem --- AP Type break
 
     while lasttype$<>""
           gosub vendor_break
@@ -613,7 +628,7 @@ vendor_break: rem --- Vendor break
           for x=0 to 2
               pt[x]=vt[x]
           next x
-          gosub print_total
+          if printed then gosub print_total
           break
     wend
     if done return
@@ -629,10 +644,49 @@ glrecap: rem --- Standard GL Recap Routine
     return
 
 Display_Message: rem --- Display Message Routine
-
     msg_id$="AON_REG_ERRS"
     gosub disp_message
     if pos("PASSVALID"=msg_opt$)<>0 special_flag$="Y"
+    return
+    
+increment_date: rem --- Date Incrementer
+    rem "Calculate Next Invoice Date"
+    result_date$=""
+    year=num(test_date$(1,4))
+    month=num(test_date$(5,2))
+    d=num(test_date$(7,2))
+    x=jul(year,month,d,err=*return)
+    if pos("D"=test_interval$)=1 then
+       x=x+num(test_interval$(2))
+       result_date$=date(x:"%Yl%Mz%Dz")
+    endif
+    if pos("W"=test_interval$)=1 then
+       x=x+7*num(test_interval$(2))
+       result_date$=date(x:"%Yl%Mz%Dz")
+    endif
+    if pos("M"=test_interval$)=1 then
+       rem "Use Invoice Date for Base Day of Month"
+       d=num(orig_date$(7,2))
+       month=month+num(test_interval$(2))
+       if month>12 then 
+           month=month-12
+           year=year+1
+       endif
+       if (month=4 or month=6 or month=9 or month=11) and d>30 then
+          d=30
+       endif
+       if month=2 and d>28 then
+          rem "See if a leap year"
+          temp=0
+          temp=jul(year,month,29,err=*next)
+          if temp>0 then
+             d=29
+          else
+             d=28
+          endif
+       endif
+       result_date$=date(jul(year,month,d,err=*return):"%Yl%Mz%Dz")
+    endif
     return
 
 rem --- Functions
