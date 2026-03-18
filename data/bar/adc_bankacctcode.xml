@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.adc_bankacctcode">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.adc_bankacctcode">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.adc_bankacctcode">AD </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.adc_bankacctcode">25.0</ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.adc_bankacctcode">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.adc_bankacctcode"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.adc_bankacctcode">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.adc_bankacctcode">20190220</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.adc_bankacctcode">20250225</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.adc_bankacctcode">20250225</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.adc_bankacctcode">161342</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.adc_bankacctcode">20260318</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.adc_bankacctcode">20260318</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.adc_bankacctcode">152852</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.adc_bankacctcode"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.adc_bankacctcode">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.adc_bankacctcode">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.adc_bankacctcode"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.adc_bankacctcode"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.adc_bankacctcode">T</DD_ATTR_FTYP>
@@ -572,7 +572,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adc_bankacctcode008">20190220</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adc_bankacctcode008"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adc_bankacctcode008"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode008">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode008">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adc_bankacctcode008">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adc_bankacctcode008"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adc_bankacctcode008"></DD_ATTR_CTLY>
@@ -623,7 +623,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adc_bankacctcode009">20190220</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adc_bankacctcode009"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adc_bankacctcode009"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode009">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode009">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adc_bankacctcode009">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adc_bankacctcode009"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adc_bankacctcode009"></DD_ATTR_CTLY>
@@ -674,7 +674,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adc_bankacctcode010">20190220</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adc_bankacctcode010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adc_bankacctcode010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode010">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adc_bankacctcode010">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adc_bankacctcode010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adc_bankacctcode010"></DD_ATTR_CTLY>
@@ -776,7 +776,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adc_bankacctcode012">20221007</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adc_bankacctcode012">ADC_BANKACCTCODE.BNK_ACCT_NO</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adc_bankacctcode012">!</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode012">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode012">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adc_bankacctcode012">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adc_bankacctcode012"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adc_bankacctcode012"></DD_ATTR_CTLY>
@@ -827,7 +827,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adc_bankacctcode013">20221007</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adc_bankacctcode013">ADC_BANKACCTCODE.MICR_PRINT</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adc_bankacctcode013">Y</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode013">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode013">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adc_bankacctcode013">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adc_bankacctcode013"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adc_bankacctcode013"></DD_ATTR_CTLY>
@@ -878,7 +878,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adc_bankacctcode014">20231023</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adc_bankacctcode014"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adc_bankacctcode014"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode014">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode014">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adc_bankacctcode014">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adc_bankacctcode014"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adc_bankacctcode014"></DD_ATTR_CTLY>
@@ -929,7 +929,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.adc_bankacctcode015">20250225</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.adc_bankacctcode015"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.adc_bankacctcode015"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode015">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.adc_bankacctcode015">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.adc_bankacctcode015">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.adc_bankacctcode015"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.adc_bankacctcode015"></DD_ATTR_CTLY>

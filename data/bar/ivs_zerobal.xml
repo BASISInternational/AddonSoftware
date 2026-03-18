@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ivs_zerobal"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ivs_zerobal">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ivs_zerobal">AD </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ivs_zerobal">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ivs_zerobal">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ivs_zerobal">682F7B228F6D1B72C9F4CF7170F8218E</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivs_zerobal">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivs_zerobal">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivs_zerobal">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivs_zerobal">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivs_zerobal">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivs_zerobal">20260318</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivs_zerobal">20260318</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivs_zerobal">152856</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivs_zerobal"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ivs_zerobal"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivs_zerobal"></DD_ATTR_DKNM>

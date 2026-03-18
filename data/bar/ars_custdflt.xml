@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ars_custdflt"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ars_custdflt">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ars_custdflt">AD </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ars_custdflt">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ars_custdflt">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ars_custdflt">62C308ED65D45D3C87F70E435530644B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ars_custdflt">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ars_custdflt">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ars_custdflt">20250901</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ars_custdflt">20250901</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ars_custdflt">125958</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ars_custdflt">20260318</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ars_custdflt">20260318</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ars_custdflt">152854</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ars_custdflt"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ars_custdflt">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ars_custdflt">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ars_custdflt"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ars_custdflt"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ars_custdflt">T</DD_ATTR_FTYP>
@@ -122,6 +122,12 @@
 			<REF_TABLE_ALIAS id="ddm_table_ref.ars_custdfltdisc_codeopc_disccode">OPC_DISCCODE    </REF_TABLE_ALIAS>
 			<TABLE_REF_NAME id="ddm_table_ref.ars_custdfltdisc_codeopc_disccode">FK_ARS_CUSTDFLT_DISC_CODE_OPC_DISCCODE                                                                                                                                                                                                                         </TABLE_REF_NAME>
 		</RECORD>
+		<RECORD id="ddm_table_ref.ars_custdfltlabel_codearc_labelcode">
+			<DD_TABLE_ALIAS id="ddm_table_ref.ars_custdfltlabel_codearc_labelcode">ARS_CUSTDFLT    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.ars_custdfltlabel_codearc_labelcode">LABEL_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.ars_custdfltlabel_codearc_labelcode">ARC_LABELCODE   </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.ars_custdfltlabel_codearc_labelcode">FK_ARS_CUSTDFLT_LABEL_CODE_ARC_LABELCODE                                                                                                                                                                                                                       </TABLE_REF_NAME>
+		</RECORD>
 		<RECORD id="ddm_table_ref.ars_custdfltmessage_codeopc_message">
 			<DD_TABLE_ALIAS id="ddm_table_ref.ars_custdfltmessage_codeopc_message">ARS_CUSTDFLT    </DD_TABLE_ALIAS>
 			<DD_TABLE_COL id="ddm_table_ref.ars_custdfltmessage_codeopc_message">MESSAGE_CODE    </DD_TABLE_COL>
@@ -178,6 +184,24 @@
 			<REF_KEY_SEGMENT id="ddm_table_refcol.ars_custdfltdisc_codeopc_disccode0002">02</REF_KEY_SEGMENT>
 			<REF_KEY_COLUMN id="ddm_table_refcol.ars_custdfltdisc_codeopc_disccode0002">DISC_CODE       </REF_KEY_COLUMN>
 			<FK_TABLE_COL id="ddm_table_refcol.ars_custdfltdisc_codeopc_disccode0002">DISC_CODE       </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0001">ARS_CUSTDFLT    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0001">LABEL_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0001">ARC_LABELCODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0002">ARS_CUSTDFLT    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0002">LABEL_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0002">ARC_LABELCODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0002">LABEL_CODE      </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.ars_custdfltlabel_codearc_labelcode0002">LABEL_CODE      </FK_TABLE_COL>
 		</RECORD>
 		<RECORD id="ddm_table_refcol.ars_custdfltmessage_codeopc_message0001">
 			<DD_TABLE_ALIAS id="ddm_table_refcol.ars_custdfltmessage_codeopc_message0001">ARS_CUSTDFLT    </DD_TABLE_ALIAS>
@@ -393,7 +417,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ars_custdflt003">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ars_custdflt003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ars_custdflt003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt003">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt003">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ars_custdflt003"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ars_custdflt003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ars_custdflt003"></DD_ATTR_CTLY>
@@ -444,7 +468,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ars_custdflt004">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ars_custdflt004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ars_custdflt004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt004">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ars_custdflt004"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ars_custdflt004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ars_custdflt004"></DD_ATTR_CTLY>
@@ -495,7 +519,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ars_custdflt005">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ars_custdflt005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ars_custdflt005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt005">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt005">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ars_custdflt005"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ars_custdflt005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ars_custdflt005"></DD_ATTR_CTLY>
@@ -546,7 +570,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ars_custdflt006">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ars_custdflt006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ars_custdflt006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt006">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ars_custdflt006"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ars_custdflt006">+35</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ars_custdflt006">-10</DD_ATTR_CTLY>
@@ -597,7 +621,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ars_custdflt007">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ars_custdflt007"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ars_custdflt007"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt007">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt007">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ars_custdflt007"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ars_custdflt007"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ars_custdflt007"></DD_ATTR_CTLY>
@@ -648,7 +672,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ars_custdflt008">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ars_custdflt008"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ars_custdflt008"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt008">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt008">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ars_custdflt008"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ars_custdflt008"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ars_custdflt008"></DD_ATTR_CTLY>
@@ -750,7 +774,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ars_custdflt010">20150824</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ars_custdflt010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ars_custdflt010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt010">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ars_custdflt010">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ars_custdflt010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ars_custdflt010"></DD_ATTR_CTLY>
@@ -801,7 +825,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ars_custdflt011">20150824</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ars_custdflt011"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ars_custdflt011"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt011">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt011">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ars_custdflt011">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ars_custdflt011"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ars_custdflt011"></DD_ATTR_CTLY>
@@ -852,7 +876,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ars_custdflt012">20150824</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ars_custdflt012"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ars_custdflt012"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt012">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt012">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ars_custdflt012">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ars_custdflt012"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ars_custdflt012"></DD_ATTR_CTLY>
@@ -903,7 +927,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ars_custdflt013">20150824</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ars_custdflt013"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ars_custdflt013"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt013">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt013">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ars_custdflt013">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ars_custdflt013"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ars_custdflt013"></DD_ATTR_CTLY>
@@ -1005,7 +1029,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ars_custdflt015">20150824</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ars_custdflt015"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ars_custdflt015"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt015">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ars_custdflt015">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ars_custdflt015">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ars_custdflt015"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ars_custdflt015"></DD_ATTR_CTLY>

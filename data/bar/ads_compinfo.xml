@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ads_compinfo">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ads_compinfo">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ads_compinfo">AD </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ads_compinfo">25.0</ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ads_compinfo">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ads_compinfo"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ads_compinfo">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ads_compinfo">20110118</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ads_compinfo">20260224</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ads_compinfo">20260224</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ads_compinfo">143634</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ads_compinfo">20260318</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ads_compinfo">20260318</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ads_compinfo">152852</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ads_compinfo"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ads_compinfo">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ads_compinfo">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ads_compinfo"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ads_compinfo"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ads_compinfo">T</DD_ATTR_FTYP>
@@ -118,6 +118,12 @@
 			<REF_TABLE_ALIAS id="ddm_table_ref.ads_compinfoemail_accountadm_email_acct">ADM_EMAIL_ACCT  </REF_TABLE_ALIAS>
 			<TABLE_REF_NAME id="ddm_table_ref.ads_compinfoemail_accountadm_email_acct">FK_ADS_COMPINFO_EMAIL_ACCOUNT_ADM_EMAIL_ACCT                                                                                                                                                                                                                   </TABLE_REF_NAME>
 		</RECORD>
+		<RECORD id="ddm_table_ref.ads_compinfolanguage_idadc_language">
+			<DD_TABLE_ALIAS id="ddm_table_ref.ads_compinfolanguage_idadc_language">ADS_COMPINFO    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.ads_compinfolanguage_idadc_language">LANGUAGE_ID     </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.ads_compinfolanguage_idadc_language">ADC_LANGUAGE    </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.ads_compinfolanguage_idadc_language">FK_ADS_COMPINFO_LANGUAGE_ID_ADC_LANGUAGE                                                                                                                                                                                                                       </TABLE_REF_NAME>
+		</RECORD>
 		<RECORD id="ddm_table_ref.ads_compinfostate_codeadc_statecode">
 			<DD_TABLE_ALIAS id="ddm_table_ref.ads_compinfostate_codeadc_statecode">ADS_COMPINFO    </DD_TABLE_ALIAS>
 			<DD_TABLE_COL id="ddm_table_ref.ads_compinfostate_codeadc_statecode">STATE_CODE      </DD_TABLE_COL>
@@ -153,6 +159,15 @@
 			<REF_KEY_SEGMENT id="ddm_table_refcol.ads_compinfoemail_accountadm_email_acct0002">02</REF_KEY_SEGMENT>
 			<REF_KEY_COLUMN id="ddm_table_refcol.ads_compinfoemail_accountadm_email_acct0002">EMAIL_ACCOUNT   </REF_KEY_COLUMN>
 			<FK_TABLE_COL id="ddm_table_refcol.ads_compinfoemail_accountadm_email_acct0002">EMAIL_ACCOUNT   </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.ads_compinfolanguage_idadc_language0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.ads_compinfolanguage_idadc_language0001">ADS_COMPINFO    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.ads_compinfolanguage_idadc_language0001">LANGUAGE_ID     </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.ads_compinfolanguage_idadc_language0001">ADC_LANGUAGE    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.ads_compinfolanguage_idadc_language0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.ads_compinfolanguage_idadc_language0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.ads_compinfolanguage_idadc_language0001">LANGUAGE_ID     </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.ads_compinfolanguage_idadc_language0001">LANGUAGE_ID     </FK_TABLE_COL>
 		</RECORD>
 		<RECORD id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0001">
 			<DD_TABLE_ALIAS id="ddm_table_refcol.ads_compinfostate_codeadc_statecode0001">ADS_COMPINFO    </DD_TABLE_ALIAS>
@@ -880,7 +895,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ads_compinfo014">20150116</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ads_compinfo014"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ads_compinfo014"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ads_compinfo014">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ads_compinfo014">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ads_compinfo014">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ads_compinfo014"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ads_compinfo014"></DD_ATTR_CTLY>
