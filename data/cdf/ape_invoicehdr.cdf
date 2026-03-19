@@ -699,6 +699,10 @@ rem --- Get Batch information
 call stbl("+DIR_PGM")+"adc_getbatch.aon",callpoint!.getAlias(),"",table_chans$[all]
 callpoint!.setTableColumnAttribute("APE_INVOICEHDR.BATCH_NO","PVAL",$22$+stbl("+BATCH_NO")+$22$)
 
+rem --- Check for Recurring that are Eligible
+call stbl("+DIR_PGM")+"apc_recurringdate.aon",continue$,status
+if continue$="N" then  callpoint!.setStatus("EXIT")
+
 [[APE_INVOICEHDR.BWRI]]
 rem --- fully distributed?
 gl$=user_tpl.glint$
