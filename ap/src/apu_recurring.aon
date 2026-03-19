@@ -213,21 +213,27 @@ rem --- Read next Recurring Invoice Header (ape-03) record
           
             ape01a$=field(ape01a$)
             write record (ape01_dev) ape01a$
+      
+            rem --- rotate dates  -- Update Recurring Header
+            ape03a.last_issued_date$=ape03a.next_issued_date$
+            ape03a.last_accting_dat$=ape03a.next_accting_dat$
+            ape03a.repeat_count=ape03a.repeat_count-1
+            ape03a$=field(ape03a$)
+            write record (ape03_dev) ape03a$
+      
             rem --- Loop Back for Next Invoices if within Period
         wend
         rem --- Loop back for next Recurring Invoice Header
 
     wend
 
-rem wgh ... 8987
 rem --- All done
 
     rem --- Clear trans for this firm/process/batch from glw-11 work file since they should never be updated to glt-04 (gle_dailydetail)
-rem "Batch coming from Called Program"
-rem    if gl$="Y"
-rem        rec_pfx$=firm_id$+process_id$+batch_no$
-rem        call stbl("+DIR_PGM")+"adc_clearpartial.aon","N",glw11_dev,rec_pfx$,status
-rem    endif    
+    if gl$="Y"
+        rec_pfx$=firm_id$+process_id$+batch_no$
+        call stbl("+DIR_PGM")+"adc_clearpartial.aon","N",glw11_dev,rec_pfx$,status
+    endif    
 
     goto std_exit
 
@@ -235,6 +241,47 @@ disp_message:rem --- Display Message Dialog
 
     call stbl("+DIR_SYP")+"bac_message.bbj",msg_id$,msg_tokens$[all],msg_opt$,table_chans$[all]
 return
+
+increment_date: rem --- Date Incrementer
+    rem "Calculate Next Invoice Date"
+    result_date$=""
+    year=num(test_date$(1,4))
+    month=num(test_date$(5,2))
+    d=num(test_date$(7,2))
+    x=jul(year,month,d,err=*return)
+    if pos("D"=test_interval$)=1 then
+       x=x+num(test_interval$(2))
+       result_date$=date(x:"%Yl%Mz%Dz")
+    endif
+    if pos("W"=test_interval$)=1 then
+       x=x+7*num(test_interval$(2))
+       result_date$=date(x:"%Yl%Mz%Dz")
+    endif
+    if pos("M"=test_interval$)=1 then
+       rem "Use Invoice Date for Base Day of Month"
+       d=num(orig_date$(7,2))
+       month=month+num(test_interval$(2))
+       if month>12 then 
+           month=month-12
+           year=year+1
+       endif
+       if (month=4 or month=6 or month=9 or month=11) and d>30 then
+          d=30
+       endif
+       if month=2 and d>28 then
+          rem "See if a leap year"
+          temp=0
+          temp=jul(year,month,29,err=*next)
+          if temp>0 then
+             d=29
+          else
+             d=28
+          endif
+       endif
+       result_date$=date(jul(year,month,d,err=*return):"%Yl%Mz%Dz")
+    endif
+    return
+
 
 rem #include std_error.src
 
