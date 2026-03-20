@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.gmw_linkcustomer">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.gmw_linkcustomer">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.gmw_linkcustomer">GM </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.gmw_linkcustomer">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.gmw_linkcustomer">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.gmw_linkcustomer"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.gmw_linkcustomer">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.gmw_linkcustomer">20150811</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.gmw_linkcustomer">20240203</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.gmw_linkcustomer">20240201</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.gmw_linkcustomer">122148</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.gmw_linkcustomer">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.gmw_linkcustomer">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.gmw_linkcustomer">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.gmw_linkcustomer"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.gmw_linkcustomer"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.gmw_linkcustomer"></DD_ATTR_DKNM>
@@ -107,6 +107,12 @@
 			<REF_TABLE_ALIAS id="ddm_table_ref.gmw_linkcustomercustomer_idarm_custmast">ARM_CUSTMAST    </REF_TABLE_ALIAS>
 			<TABLE_REF_NAME id="ddm_table_ref.gmw_linkcustomercustomer_idarm_custmast">FK_GMW_LINKCUSTOMER_CUSTOMER_ID_ARM_CUSTMAST                                                                                                                                                                                                                   </TABLE_REF_NAME>
 		</RECORD>
+		<RECORD id="ddm_table_ref.gmw_linkcustomerstate_codeadc_statecode">
+			<DD_TABLE_ALIAS id="ddm_table_ref.gmw_linkcustomerstate_codeadc_statecode">GMW_LINKCUSTOMER</DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.gmw_linkcustomerstate_codeadc_statecode">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.gmw_linkcustomerstate_codeadc_statecode">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.gmw_linkcustomerstate_codeadc_statecode">FK_GMW_LINKCUSTOMER_STATE_CODE_ADC_STATECODE                                                                                                                                                                                                                   </TABLE_REF_NAME>
+		</RECORD>
 		<RECORD id="ddm_table_ref.gmw_linkcustomeruser_idadm_user">
 			<DD_TABLE_ALIAS id="ddm_table_ref.gmw_linkcustomeruser_idadm_user">GMW_LINKCUSTOMER</DD_TABLE_ALIAS>
 			<DD_TABLE_COL id="ddm_table_ref.gmw_linkcustomeruser_idadm_user">USER_ID         </DD_TABLE_COL>
@@ -142,6 +148,24 @@
 			<REF_KEY_SEGMENT id="ddm_table_refcol.gmw_linkcustomercustomer_idarm_custmast0002">02</REF_KEY_SEGMENT>
 			<REF_KEY_COLUMN id="ddm_table_refcol.gmw_linkcustomercustomer_idarm_custmast0002">CUSTOMER_ID     </REF_KEY_COLUMN>
 			<FK_TABLE_COL id="ddm_table_refcol.gmw_linkcustomercustomer_idarm_custmast0002">CUSTOMER_ID     </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0001">GMW_LINKCUSTOMER</DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0001">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0001">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0002">GMW_LINKCUSTOMER</DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0002">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0002">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0002">STATE_CODE      </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.gmw_linkcustomerstate_codeadc_statecode0002">STATE_CODE      </FK_TABLE_COL>
 		</RECORD>
 		<RECORD id="ddm_table_refcol.gmw_linkcustomeruser_idadm_user0001">
 			<DD_TABLE_ALIAS id="ddm_table_refcol.gmw_linkcustomeruser_idadm_user0001">GMW_LINKCUSTOMER</DD_TABLE_ALIAS>
@@ -864,11 +888,11 @@
 			<DD_ATTR_FTSR id="ddm_table_cols.gmw_linkcustomer013">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.gmw_linkcustomer013"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.gmw_linkcustomer013">3013</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.gmw_linkcustomer013">ine_state_code</DD_ATTR_CTLN>
+			<DD_ATTR_CTLN id="ddm_table_cols.gmw_linkcustomer013">dis_state_code</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.gmw_linkcustomer013">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.gmw_linkcustomer013"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.gmw_linkcustomer013">N</DD_ATTR_RKEY>
-			<DD_ATTR_BTNS id="ddm_table_cols.gmw_linkcustomer013"></DD_ATTR_BTNS>
+			<DD_ATTR_BTNS id="ddm_table_cols.gmw_linkcustomer013">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.gmw_linkcustomer014">
 			<DD_TABLE_ALIAS id="ddm_table_cols.gmw_linkcustomer014">GMW_LINKCUSTOMER</DD_TABLE_ALIAS>

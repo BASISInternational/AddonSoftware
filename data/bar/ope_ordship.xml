@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ope_ordship"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ope_ordship">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ope_ordship">OP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ope_ordship">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ope_ordship">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ope_ordship">D53DAB3F2FB4AE757FDE817BA9F3B7AC</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_ordship">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_ordship">2453755</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ope_ordship">20240203</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ope_ordship">20240201</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_ordship">122154</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ope_ordship">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ope_ordship">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_ordship">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_ordship">OPT_INVSHIP     </DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ope_ordship"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_ordship"></DD_ATTR_DKNM>
@@ -125,6 +125,12 @@
 			<REF_TABLE_ALIAS id="ddm_table_ref.ope_ordshipmod_useradm_user">ADM_USER        </REF_TABLE_ALIAS>
 			<TABLE_REF_NAME id="ddm_table_ref.ope_ordshipmod_useradm_user">FK_OPE_ORDSHIP_MOD_USER_ADM_USER                                                                                                                                                                                                                               </TABLE_REF_NAME>
 		</RECORD>
+		<RECORD id="ddm_table_ref.ope_ordshipstate_codeadc_statecode">
+			<DD_TABLE_ALIAS id="ddm_table_ref.ope_ordshipstate_codeadc_statecode">OPE_ORDSHIP     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.ope_ordshipstate_codeadc_statecode">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.ope_ordshipstate_codeadc_statecode">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.ope_ordshipstate_codeadc_statecode">FK_OPE_ORDSHIP_STATE_CODE_ADC_STATECODE                                                                                                                                                                                                                        </TABLE_REF_NAME>
+		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_refcol">
 		<ID id="ddm_table_refcol">DDM_TABLE_REFCOL</ID>
@@ -181,6 +187,24 @@
 			<REF_KEY_SEGMENT id="ddm_table_refcol.ope_ordshipmod_useradm_user0001">01</REF_KEY_SEGMENT>
 			<REF_KEY_COLUMN id="ddm_table_refcol.ope_ordshipmod_useradm_user0001">USER_ID         </REF_KEY_COLUMN>
 			<FK_TABLE_COL id="ddm_table_refcol.ope_ordshipmod_useradm_user0001">MOD_USER        </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0001">OPE_ORDSHIP     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0001">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0001">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0002">OPE_ORDSHIP     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0002">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0002">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0002">STATE_CODE      </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.ope_ordshipstate_codeadc_statecode0002">STATE_CODE      </FK_TABLE_COL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_keys">
@@ -1660,11 +1684,11 @@
 			<DD_ATTR_FTSR id="ddm_table_cols.ope_ordship012"></DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship012"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship012">3009</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship012">ine_state_code</DD_ATTR_CTLN>
+			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship012">dis_state_code</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship012">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship012"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship012">N</DD_ATTR_RKEY>
-			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship012"></DD_ATTR_BTNS>
+			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship012">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_ordship013">
 			<DD_TABLE_ALIAS id="ddm_table_cols.ope_ordship013">OPE_ORDSHIP     </DD_TABLE_ALIAS>

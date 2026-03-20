@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.opm_pointofsale">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.opm_pointofsale">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.opm_pointofsale">OP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.opm_pointofsale">25.0</ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.opm_pointofsale">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.opm_pointofsale"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opm_pointofsale">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opm_pointofsale">20090413</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.opm_pointofsale">20251007</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.opm_pointofsale">20251007</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opm_pointofsale">122258</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.opm_pointofsale">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.opm_pointofsale">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.opm_pointofsale">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opm_pointofsale"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.opm_pointofsale">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.opm_pointofsale">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opm_pointofsale"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.opm_pointofsale"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.opm_pointofsale">T</DD_ATTR_FTYP>
@@ -348,7 +348,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale004">20090413</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale004">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale004">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale004">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale004"></DD_ATTR_CTLY>
@@ -399,7 +399,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale005">20090413</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale005">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale005">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale005">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale005"></DD_ATTR_CTLY>
@@ -450,7 +450,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale006">20090413</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale006">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale006">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale006">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale006"></DD_ATTR_CTLY>
@@ -552,7 +552,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale008">20090413</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale008"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale008"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale008">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale008">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale008">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale008"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale008"></DD_ATTR_CTLY>
@@ -654,7 +654,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale010">20090413</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale010">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale010">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale010"></DD_ATTR_CTLY>
@@ -756,7 +756,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale012">20090413</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale012"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale012"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale012">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale012">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale012">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale012"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale012"></DD_ATTR_CTLY>
@@ -858,7 +858,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale014">20090413</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale014"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale014"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale014">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale014">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale014">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale014"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale014"></DD_ATTR_CTLY>
@@ -909,7 +909,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale015">20090413</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale015"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale015"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale015">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale015">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale015">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale015"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale015"></DD_ATTR_CTLY>
@@ -960,7 +960,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale016">20090413</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale016"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale016"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale016">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale016">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale016">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale016"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale016"></DD_ATTR_CTLY>
@@ -1011,7 +1011,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale017">20090413</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale017"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale017"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale017">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale017">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale017">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale017"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale017"></DD_ATTR_CTLY>
@@ -1062,7 +1062,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale018">20090413</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale018"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale018"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale018">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale018">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale018">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale018"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale018"></DD_ATTR_CTLY>
@@ -1113,7 +1113,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale019">20090413</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale019"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale019"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale019">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale019">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale019">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale019"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale019"></DD_ATTR_CTLY>
@@ -1164,7 +1164,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.opm_pointofsale020">20251006</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.opm_pointofsale020"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.opm_pointofsale020"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale020">C:/dev_projects/aon2600dev/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.opm_pointofsale020">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.opm_pointofsale020">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.opm_pointofsale020"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.opm_pointofsale020"></DD_ATTR_CTLY>

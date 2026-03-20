@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.pow_receiptdet">N</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.pow_receiptdet">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.pow_receiptdet">PO </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.pow_receiptdet">25.0</ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.pow_receiptdet">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.pow_receiptdet"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.pow_receiptdet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.pow_receiptdet">20250609</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.pow_receiptdet">20250609</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.pow_receiptdet">20250609</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.pow_receiptdet">135508</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.pow_receiptdet">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.pow_receiptdet">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.pow_receiptdet">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.pow_receiptdet"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.pow_receiptdet"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.pow_receiptdet"></DD_ATTR_DKNM>
@@ -64,6 +64,60 @@
 			<DD_TABLE_ALIAS id="ddm_table_tpls.pow_receiptdet">POW_RECEIPTDET  </DD_TABLE_ALIAS>
 			<DD_FILE_NAME id="ddm_table_tpls.pow_receiptdet"></DD_FILE_NAME>
 			<DD_TABLE_TPL id="ddm_table_tpls.pow_receiptdet">firm_id:c(2),po_no:c(7),receiver_no:c(7),po_int_seq_ref:c(12),po_line_no:c(3),po_line_code:c(2),warehouse_id:c(2),item_id:c(20),recpt_date:c(8),qty_ordered:n(7),qty_received:n(7),status:c(10)</DD_TABLE_TPL>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_ref">
+		<ID id="ddm_table_ref">DDM_TABLE_REF</ID>
+		<RECORD id="ddm_table_ref.pow_receiptdetitem_idivm_itemmast">
+			<DD_TABLE_ALIAS id="ddm_table_ref.pow_receiptdetitem_idivm_itemmast">POW_RECEIPTDET  </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.pow_receiptdetitem_idivm_itemmast">ITEM_ID         </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.pow_receiptdetitem_idivm_itemmast">IVM_ITEMMAST    </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.pow_receiptdetitem_idivm_itemmast">FK_POW_RECEIPTDET_ITEM_ID_IVM_ITEMMAST                                                                                                                                                                                                                         </TABLE_REF_NAME>
+		</RECORD>
+		<RECORD id="ddm_table_ref.pow_receiptdetpo_line_codepoc_linecode">
+			<DD_TABLE_ALIAS id="ddm_table_ref.pow_receiptdetpo_line_codepoc_linecode">POW_RECEIPTDET  </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.pow_receiptdetpo_line_codepoc_linecode">PO_LINE_CODE    </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.pow_receiptdetpo_line_codepoc_linecode">POC_LINECODE    </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.pow_receiptdetpo_line_codepoc_linecode">FK_POW_RECEIPTDET_PO_LINE_CODE_POC_LINECODE                                                                                                                                                                                                                    </TABLE_REF_NAME>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_refcol">
+		<ID id="ddm_table_refcol">DDM_TABLE_REFCOL</ID>
+		<RECORD id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0001">POW_RECEIPTDET  </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0001">ITEM_ID         </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0001">IVM_ITEMMAST    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0002">POW_RECEIPTDET  </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0002">ITEM_ID         </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0002">IVM_ITEMMAST    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0002">ITEM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.pow_receiptdetitem_idivm_itemmast0002">ITEM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0001">POW_RECEIPTDET  </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0001">PO_LINE_CODE    </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0001">POC_LINECODE    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0002">POW_RECEIPTDET  </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0002">PO_LINE_CODE    </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0002">POC_LINECODE    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0002">PO_LINE_CODE    </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.pow_receiptdetpo_line_codepoc_linecode0002">PO_LINE_CODE    </FK_TABLE_COL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_keys">

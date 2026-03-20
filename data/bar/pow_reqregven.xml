@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.pow_reqregven">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.pow_reqregven">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.pow_reqregven">PO </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.pow_reqregven">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.pow_reqregven">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.pow_reqregven">3BB8177A4F2AE7E53F78BA26FF43EF18</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.pow_reqregven">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.pow_reqregven">20090501</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.pow_reqregven">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.pow_reqregven">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.pow_reqregven">142910</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.pow_reqregven">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.pow_reqregven">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.pow_reqregven">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.pow_reqregven"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.pow_reqregven"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.pow_reqregven"></DD_ATTR_DKNM>
