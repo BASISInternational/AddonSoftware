@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.arm_custdet"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.arm_custdet">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.arm_custdet">AR </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.arm_custdet">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.arm_custdet">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.arm_custdet">CC099AD8255F98DD02DA0CC4006990DE</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.arm_custdet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.arm_custdet">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.arm_custdet">20250901</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.arm_custdet">20250901</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.arm_custdet">130420</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.arm_custdet">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.arm_custdet">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.arm_custdet">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.arm_custdet"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.arm_custdet"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.arm_custdet"></DD_ATTR_DKNM>
@@ -107,6 +107,12 @@
 			<REF_TABLE_ALIAS id="ddm_table_ref.arm_custdetdisc_codeopc_disccode">OPC_DISCCODE    </REF_TABLE_ALIAS>
 			<TABLE_REF_NAME id="ddm_table_ref.arm_custdetdisc_codeopc_disccode">FK_ARM_CUSTDET_DISC_CODE_OPC_DISCCODE                                                                                                                                                                                                                          </TABLE_REF_NAME>
 		</RECORD>
+		<RECORD id="ddm_table_ref.arm_custdetlabel_codearc_labelcode">
+			<DD_TABLE_ALIAS id="ddm_table_ref.arm_custdetlabel_codearc_labelcode">ARM_CUSTDET     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.arm_custdetlabel_codearc_labelcode">LABEL_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.arm_custdetlabel_codearc_labelcode">ARC_LABELCODE   </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.arm_custdetlabel_codearc_labelcode">FK_ARM_CUSTDET_LABEL_CODE_ARC_LABELCODE                                                                                                                                                                                                                        </TABLE_REF_NAME>
+		</RECORD>
 		<RECORD id="ddm_table_ref.arm_custdetmessage_codeopc_message">
 			<DD_TABLE_ALIAS id="ddm_table_ref.arm_custdetmessage_codeopc_message">ARM_CUSTDET     </DD_TABLE_ALIAS>
 			<DD_TABLE_COL id="ddm_table_ref.arm_custdetmessage_codeopc_message">MESSAGE_CODE    </DD_TABLE_COL>
@@ -163,6 +169,24 @@
 			<REF_KEY_SEGMENT id="ddm_table_refcol.arm_custdetdisc_codeopc_disccode0002">02</REF_KEY_SEGMENT>
 			<REF_KEY_COLUMN id="ddm_table_refcol.arm_custdetdisc_codeopc_disccode0002">DISC_CODE       </REF_KEY_COLUMN>
 			<FK_TABLE_COL id="ddm_table_refcol.arm_custdetdisc_codeopc_disccode0002">DISC_CODE       </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0001">ARM_CUSTDET     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0001">LABEL_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0001">ARC_LABELCODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0002">ARM_CUSTDET     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0002">LABEL_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0002">ARC_LABELCODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0002">LABEL_CODE      </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.arm_custdetlabel_codearc_labelcode0002">LABEL_CODE      </FK_TABLE_COL>
 		</RECORD>
 		<RECORD id="ddm_table_refcol.arm_custdetmessage_codeopc_message0001">
 			<DD_TABLE_ALIAS id="ddm_table_refcol.arm_custdetmessage_codeopc_message0001">ARM_CUSTDET     </DD_TABLE_ALIAS>
@@ -810,7 +834,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.arm_custdet004">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.arm_custdet004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.arm_custdet004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet004">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.arm_custdet004"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.arm_custdet004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.arm_custdet004"></DD_ATTR_CTLY>
@@ -861,7 +885,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.arm_custdet005">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.arm_custdet005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.arm_custdet005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet005">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet005">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.arm_custdet005"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.arm_custdet005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.arm_custdet005"></DD_ATTR_CTLY>
@@ -912,7 +936,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.arm_custdet006">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.arm_custdet006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.arm_custdet006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet006">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.arm_custdet006"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.arm_custdet006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.arm_custdet006"></DD_ATTR_CTLY>
@@ -963,7 +987,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.arm_custdet007">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.arm_custdet007"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.arm_custdet007"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet007">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet007">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.arm_custdet007"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.arm_custdet007"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.arm_custdet007"></DD_ATTR_CTLY>
@@ -1116,7 +1140,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.arm_custdet010">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.arm_custdet010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.arm_custdet010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet010">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.arm_custdet010"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.arm_custdet010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.arm_custdet010"></DD_ATTR_CTLY>
@@ -1218,7 +1242,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.arm_custdet012">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.arm_custdet012"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.arm_custdet012"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet012">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet012">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.arm_custdet012"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.arm_custdet012"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.arm_custdet012"></DD_ATTR_CTLY>
@@ -1269,7 +1293,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.arm_custdet013">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.arm_custdet013"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.arm_custdet013"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet013">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet013">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.arm_custdet013"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.arm_custdet013"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.arm_custdet013"></DD_ATTR_CTLY>
@@ -1371,7 +1395,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.arm_custdet015">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.arm_custdet015"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.arm_custdet015"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet015">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet015">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.arm_custdet015"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.arm_custdet015"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.arm_custdet015"></DD_ATTR_CTLY>
@@ -1422,7 +1446,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.arm_custdet016">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.arm_custdet016"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.arm_custdet016"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet016">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet016">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.arm_custdet016"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.arm_custdet016">+31</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.arm_custdet016">-10</DD_ATTR_CTLY>
@@ -1473,7 +1497,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.arm_custdet017">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.arm_custdet017"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.arm_custdet017"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet017">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet017">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.arm_custdet017"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.arm_custdet017"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.arm_custdet017"></DD_ATTR_CTLY>
@@ -1626,7 +1650,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.arm_custdet020">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.arm_custdet020"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.arm_custdet020"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet020">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.arm_custdet020">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.arm_custdet020"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.arm_custdet020"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.arm_custdet020"></DD_ATTR_CTLY>

@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.sfe_woclose"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.sfe_woclose">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.sfe_woclose">SF </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.sfe_woclose">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.sfe_woclose">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.sfe_woclose">FF7A0932600DAAA0B007689A4A08435B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfe_woclose">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfe_woclose">20120924</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.sfe_woclose">20260223</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.sfe_woclose">20260223</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.sfe_woclose">131244</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.sfe_woclose">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.sfe_woclose">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.sfe_woclose">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.sfe_woclose">SFE_WOMASTR     </DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.sfe_woclose">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.sfe_woclose">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.sfe_woclose"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.sfe_woclose"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.sfe_woclose">T</DD_ATTR_FTYP>
@@ -148,6 +148,12 @@
 	</ALIAS>
 	<ALIAS id="ddm_table_ref">
 		<ID id="ddm_table_ref">DDM_TABLE_REF</ID>
+		<RECORD id="ddm_table_ref.sfe_woclosecreated_useradm_user">
+			<DD_TABLE_ALIAS id="ddm_table_ref.sfe_woclosecreated_useradm_user">SFE_WOCLOSE     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.sfe_woclosecreated_useradm_user">CREATED_USER    </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.sfe_woclosecreated_useradm_user">ADM_USER        </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.sfe_woclosecreated_useradm_user">FK_SFE_WOCLOSE_CREATED_USER_ADM_USER                                                                                                                                                                                                                           </TABLE_REF_NAME>
+		</RECORD>
 		<RECORD id="ddm_table_ref.sfe_woclosecustomer_idarm_custmast">
 			<DD_TABLE_ALIAS id="ddm_table_ref.sfe_woclosecustomer_idarm_custmast">SFE_WOCLOSE     </DD_TABLE_ALIAS>
 			<DD_TABLE_COL id="ddm_table_ref.sfe_woclosecustomer_idarm_custmast">CUSTOMER_ID     </DD_TABLE_COL>
@@ -175,6 +181,15 @@
 	</ALIAS>
 	<ALIAS id="ddm_table_refcol">
 		<ID id="ddm_table_refcol">DDM_TABLE_REFCOL</ID>
+		<RECORD id="ddm_table_refcol.sfe_woclosecreated_useradm_user0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.sfe_woclosecreated_useradm_user0001">SFE_WOCLOSE     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.sfe_woclosecreated_useradm_user0001">CREATED_USER    </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.sfe_woclosecreated_useradm_user0001">ADM_USER        </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.sfe_woclosecreated_useradm_user0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.sfe_woclosecreated_useradm_user0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.sfe_woclosecreated_useradm_user0001">USER_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.sfe_woclosecreated_useradm_user0001">CREATED_USER    </FK_TABLE_COL>
+		</RECORD>
 		<RECORD id="ddm_table_refcol.sfe_woclosecustomer_idarm_custmast0001">
 			<DD_TABLE_ALIAS id="ddm_table_refcol.sfe_woclosecustomer_idarm_custmast0001">SFE_WOCLOSE     </DD_TABLE_ALIAS>
 			<DD_TABLE_COL id="ddm_table_refcol.sfe_woclosecustomer_idarm_custmast0001">CUSTOMER_ID     </DD_TABLE_COL>
@@ -2192,7 +2207,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woclose024">20120924</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woclose024"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woclose024"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose024">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose024">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woclose024">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woclose024"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woclose024">+1</DD_ATTR_CTLY>
@@ -2447,7 +2462,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woclose029">20120924</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woclose029"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woclose029"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose029">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose029">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woclose029">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woclose029">-54</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woclose029">+1</DD_ATTR_CTLY>
@@ -2702,7 +2717,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woclose034">20120924</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woclose034"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woclose034"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose034">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose034">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woclose034">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woclose034"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woclose034"></DD_ATTR_CTLY>
@@ -2753,7 +2768,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woclose035">20120924</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woclose035"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woclose035"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose035">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose035">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woclose035">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woclose035"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woclose035"></DD_ATTR_CTLY>

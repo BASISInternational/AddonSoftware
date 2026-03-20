@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.apm_payaddr"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.apm_payaddr">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.apm_payaddr">AP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.apm_payaddr">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.apm_payaddr">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.apm_payaddr">8E7328CC4CBB83686A2A514044FAEC7A</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.apm_payaddr">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.apm_payaddr">20071019</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.apm_payaddr">20240409</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.apm_payaddr">20240409</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.apm_payaddr">112536</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.apm_payaddr">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.apm_payaddr">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.apm_payaddr">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.apm_payaddr"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.apm_payaddr">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.apm_payaddr">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.apm_payaddr"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.apm_payaddr"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.apm_payaddr">T</DD_ATTR_FTYP>
@@ -116,6 +116,12 @@
 			<REF_TABLE_ALIAS id="ddm_table_ref.apm_payaddrcntry_idadc_country">ADC_COUNTRY     </REF_TABLE_ALIAS>
 			<TABLE_REF_NAME id="ddm_table_ref.apm_payaddrcntry_idadc_country">FK_APM_PAYADDR_CNTRY_ID_ADC_COUNTRY                                                                                                                                                                                                                            </TABLE_REF_NAME>
 		</RECORD>
+		<RECORD id="ddm_table_ref.apm_payaddrstate_codeadc_statecode">
+			<DD_TABLE_ALIAS id="ddm_table_ref.apm_payaddrstate_codeadc_statecode">APM_PAYADDR     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.apm_payaddrstate_codeadc_statecode">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.apm_payaddrstate_codeadc_statecode">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.apm_payaddrstate_codeadc_statecode">FK_APM_PAYADDR_STATE_CODE_ADC_STATECODE                                                                                                                                                                                                                        </TABLE_REF_NAME>
+		</RECORD>
 		<RECORD id="ddm_table_ref.apm_payaddrvendor_idapm_vendmast">
 			<DD_TABLE_ALIAS id="ddm_table_ref.apm_payaddrvendor_idapm_vendmast">APM_PAYADDR     </DD_TABLE_ALIAS>
 			<DD_TABLE_COL id="ddm_table_ref.apm_payaddrvendor_idapm_vendmast">VENDOR_ID       </DD_TABLE_COL>
@@ -133,6 +139,24 @@
 			<REF_KEY_SEGMENT id="ddm_table_refcol.apm_payaddrcntry_idadc_country0001">01</REF_KEY_SEGMENT>
 			<REF_KEY_COLUMN id="ddm_table_refcol.apm_payaddrcntry_idadc_country0001">CNTRY_ID        </REF_KEY_COLUMN>
 			<FK_TABLE_COL id="ddm_table_refcol.apm_payaddrcntry_idadc_country0001">CNTRY_ID        </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0001">APM_PAYADDR     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0001">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0001">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0002">APM_PAYADDR     </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0002">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0002">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0002">STATE_CODE      </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.apm_payaddrstate_codeadc_statecode0002">STATE_CODE      </FK_TABLE_COL>
 		</RECORD>
 		<RECORD id="ddm_table_refcol.apm_payaddrvendor_idapm_vendmast0001">
 			<DD_TABLE_ALIAS id="ddm_table_refcol.apm_payaddrvendor_idapm_vendmast0001">APM_PAYADDR     </DD_TABLE_ALIAS>
@@ -312,7 +336,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.apm_payaddr003">20071019</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.apm_payaddr003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.apm_payaddr003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.apm_payaddr003">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.apm_payaddr003">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.apm_payaddr003"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.apm_payaddr003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.apm_payaddr003"></DD_ATTR_CTLY>

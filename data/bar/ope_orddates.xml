@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ope_orddates">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ope_orddates">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ope_orddates">OP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ope_orddates">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ope_orddates">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ope_orddates">1F90B9BE9348E14A70C41FC5C5A105FB</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_orddates">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_orddates">20080129</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ope_orddates">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ope_orddates">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_orddates">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ope_orddates">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ope_orddates">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_orddates">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_orddates"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ope_orddates">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ope_orddates">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_orddates"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ope_orddates"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ope_orddates">S</DD_ATTR_FTYP>
@@ -138,7 +138,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_orddates001">20080129</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_orddates001"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_orddates001"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_orddates001">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_orddates001">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_orddates001"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_orddates001">+7</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_orddates001"></DD_ATTR_CTLY>
@@ -189,7 +189,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_orddates002">20080129</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_orddates002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_orddates002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_orddates002">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_orddates002">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_orddates002"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_orddates002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_orddates002"></DD_ATTR_CTLY>
@@ -291,7 +291,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_orddates004">20220412</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_orddates004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_orddates004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_orddates004">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_orddates004">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_orddates004">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_orddates004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_orddates004"></DD_ATTR_CTLY>

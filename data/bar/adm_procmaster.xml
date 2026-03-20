@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.adm_procmaster">3049CDE190EDA31F2875AC1BD90D36EC</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.adm_procmaster">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.adm_procmaster">20070305</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.adm_procmaster">20260318</DD_LSTREV_DATE>
+			<DD_LSTREV_DATE id="ddm_tables.adm_procmaster">20260320</DD_LSTREV_DATE>
 			<DD_LSTSYNC_DATE id="ddm_tables.adm_procmaster">20260318</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.adm_procmaster">152852</DD_LSTSYNC_TIME>
+			<DD_LSTSYNC_TIME id="ddm_tables.adm_procmaster">161744</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.adm_procmaster"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.adm_procmaster">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.adm_procmaster"></DD_ATTR_DKNM>

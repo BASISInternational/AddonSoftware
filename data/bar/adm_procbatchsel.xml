@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.adm_procbatchsel">B64A0AE0F81D18410C282CF159A434C1</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.adm_procbatchsel">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.adm_procbatchsel">20230509</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.adm_procbatchsel">20260318</DD_LSTREV_DATE>
+			<DD_LSTREV_DATE id="ddm_tables.adm_procbatchsel">20260320</DD_LSTREV_DATE>
 			<DD_LSTSYNC_DATE id="ddm_tables.adm_procbatchsel">20260318</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.adm_procbatchsel">152852</DD_LSTSYNC_TIME>
+			<DD_LSTSYNC_TIME id="ddm_tables.adm_procbatchsel">161742</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.adm_procbatchsel">ADM_PROCBATCHES </DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.adm_procbatchsel">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.adm_procbatchsel"></DD_ATTR_DKNM>

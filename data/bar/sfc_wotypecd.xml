@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.sfc_wotypecd">1686552A101DB41E0552CCDE73CF1B9F</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfc_wotypecd">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfc_wotypecd">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.sfc_wotypecd">20260318</DD_LSTREV_DATE>
+			<DD_LSTREV_DATE id="ddm_tables.sfc_wotypecd">20260320</DD_LSTREV_DATE>
 			<DD_LSTSYNC_DATE id="ddm_tables.sfc_wotypecd">20260318</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.sfc_wotypecd">152858</DD_LSTSYNC_TIME>
+			<DD_LSTSYNC_TIME id="ddm_tables.sfc_wotypecd">161750</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.sfc_wotypecd"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.sfc_wotypecd">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.sfc_wotypecd"></DD_ATTR_DKNM>

@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.adc_statecode"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.adc_statecode">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.adc_statecode">20240311</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.adc_statecode">20260318</DD_LSTREV_DATE>
+			<DD_LSTREV_DATE id="ddm_tables.adc_statecode">20260320</DD_LSTREV_DATE>
 			<DD_LSTSYNC_DATE id="ddm_tables.adc_statecode">20260318</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.adc_statecode">152852</DD_LSTSYNC_TIME>
+			<DD_LSTSYNC_TIME id="ddm_tables.adc_statecode">161742</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.adc_statecode"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.adc_statecode"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.adc_statecode"></DD_ATTR_DKNM>

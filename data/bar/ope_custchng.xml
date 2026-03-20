@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ope_custchng">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ope_custchng">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ope_custchng">OP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ope_custchng">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ope_custchng">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ope_custchng"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_custchng">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_custchng">2459415</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ope_custchng">20240203</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ope_custchng">20240201</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_custchng">122154</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ope_custchng">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ope_custchng">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_custchng">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_custchng"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ope_custchng">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ope_custchng">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_custchng"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ope_custchng"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ope_custchng">S</DD_ATTR_FTYP>
@@ -524,7 +524,7 @@
 			<DD_ATTR_FTSR id="ddm_table_cols.ope_custchng008">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ope_custchng008">0</DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_custchng008">3008</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.ope_custchng008">ine_curr_state_code</DD_ATTR_CTLN>
+			<DD_ATTR_CTLN id="ddm_table_cols.ope_custchng008">dis_curr_state_code</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_custchng008">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_custchng008"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_custchng008">N</DD_ATTR_RKEY>
@@ -597,7 +597,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_custchng010">20210719</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_custchng010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_custchng010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_custchng010">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_custchng010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_custchng010">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_custchng010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_custchng010"></DD_ATTR_CTLY>
@@ -932,7 +932,7 @@
 			<DD_ATTR_FTSR id="ddm_table_cols.ope_custchng016">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.ope_custchng016">0</DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_custchng016">3016</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.ope_custchng016">ine_new_state_code</DD_ATTR_CTLN>
+			<DD_ATTR_CTLN id="ddm_table_cols.ope_custchng016">dis_new_state_code</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_custchng016">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_custchng016"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_custchng016">N</DD_ATTR_RKEY>
