@@ -480,6 +480,9 @@ else
 endif
 
 [[POE_POHDR.AREC]]
+rem --- Capture who created this record
+callpoint!.setColumnData("POE_POHDR.ENTERED_BY",sysinfo.user_id$)
+
 gosub  form_inits
 
 [[POE_POHDR.ARNF]]

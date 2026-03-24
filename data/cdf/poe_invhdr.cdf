@@ -349,6 +349,9 @@ if cvs(callpoint!.getColumnData("POE_INVHDR.AP_INV_NO"),2)<>""then
 endif
 
 [[POE_INVHDR.AREC]]
+rem --- Capture who created this record
+callpoint!.setColumnData("POE_INVHDR.ENTERED_BY",sysinfo.user_id$)
+
 callpoint!.setColumnData("<<DISPLAY>>.comments","")
 callpoint!.setDevObject("inv_amt","")
 callpoint!.setDevObject("tot_dist","")

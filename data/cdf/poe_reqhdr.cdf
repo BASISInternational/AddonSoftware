@@ -350,6 +350,9 @@ if callpoint!.getColumnData("POE_REQHDR.DROPSHIP")="Y"
 endif
 
 [[POE_REQHDR.AREC]]
+rem --- Capture who created this record
+callpoint!.setColumnData("POE_REQHDR.ENTERED_BY",sysinfo.user_id$)
+
 gosub  form_inits
 
 [[POE_REQHDR.ARNF]]
