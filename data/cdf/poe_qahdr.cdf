@@ -1,3 +1,7 @@
+[[POE_QAHDR.AREC]]
+rem --- Capture who created this record
+callpoint!.setColumnData("POE_QAHDR.ENTERED_BY",sysinfo.user_id$)
+
 [[POE_QAHDR.BSHO]]
 rem --- Open Files
 	num_files=4
