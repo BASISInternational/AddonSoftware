@@ -2,5 +2,5 @@
 <!DOCTYPE jasperTemplate PUBLIC "-//JasperReports//DTD Template//EN" "http://jasperreports.sourceforge.net/dtds/jaspertemplate.dtd">
 
 <jasperTemplate>
-	<style name="aonStyle1" isDefault="true" fontSize="8"/>
+	<style name="aonStyle1" default="true" fontSize="8"/>
 </jasperTemplate>
