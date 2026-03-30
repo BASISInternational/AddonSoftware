@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ope_invhdr">EB0DBEC2E6C8C30E6F7008EBB52E70A1</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_invhdr">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_invhdr">20090501</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ope_invhdr">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ope_invhdr">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_invhdr">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ope_invhdr">20260330</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ope_invhdr">20260320</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_invhdr">124928</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_invhdr">OPT_INVHDR      </DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ope_invhdr">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ope_invhdr">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_invhdr">AO_STATUS</DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ope_invhdr"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ope_invhdr">T</DD_ATTR_FTYP>
@@ -791,6 +791,13 @@
 			<DD_KEY_DESC id="ddm_keys.ope_invhdr16">By Status-Customer-Order</DD_KEY_DESC>
 			<DD_KEY_ID id="ddm_keys.ope_invhdr16">AO_STAT_CUST_ORD</DD_KEY_ID>
 			<DD_KEY_AUTO_GEN id="ddm_keys.ope_invhdr16"></DD_KEY_AUTO_GEN>
+		</RECORD>
+		<RECORD id="ddm_keys.ope_invhdr17">
+			<DD_TABLE_ALIAS id="ddm_keys.ope_invhdr17">OPE_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_keys.ope_invhdr17">17</DD_KEY_NUMBER>
+			<DD_KEY_DESC id="ddm_keys.ope_invhdr17">By Salesperson-Customer-Order</DD_KEY_DESC>
+			<DD_KEY_ID id="ddm_keys.ope_invhdr17">AO_SLSPSN_CUST  </DD_KEY_ID>
+			<DD_KEY_AUTO_GEN id="ddm_keys.ope_invhdr17"></DD_KEY_AUTO_GEN>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_key_segs">
@@ -2004,6 +2011,84 @@
 			<DD_SEGMENT_MATH id="ddm_key_segs.ope_invhdr1605">N</DD_SEGMENT_MATH>
 			<DD_SEGMENT_NUM id="ddm_key_segs.ope_invhdr1605"></DD_SEGMENT_NUM>
 		</RECORD>
+		<RECORD id="ddm_key_segs.ope_invhdr1701">
+			<DD_TABLE_ALIAS id="ddm_key_segs.ope_invhdr1701">OPE_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_key_segs.ope_invhdr1701">17</DD_KEY_NUMBER>
+			<DD_SEGMENT_SEQ id="ddm_key_segs.ope_invhdr1701">01</DD_SEGMENT_SEQ>
+			<DD_SEGMENT_COL id="ddm_key_segs.ope_invhdr1701">FIRM_ID</DD_SEGMENT_COL>
+			<DD_SEGMENT_POS id="ddm_key_segs.ope_invhdr1701"></DD_SEGMENT_POS>
+			<DD_SEGMENT_OFF id="ddm_key_segs.ope_invhdr1701"></DD_SEGMENT_OFF>
+			<DD_SEGMENT_LEN id="ddm_key_segs.ope_invhdr1701"></DD_SEGMENT_LEN>
+			<DD_SEGMENT_SORT id="ddm_key_segs.ope_invhdr1701">N</DD_SEGMENT_SORT>
+			<DD_SEGMENT_UNIQ id="ddm_key_segs.ope_invhdr1701">N</DD_SEGMENT_UNIQ>
+			<DD_SEGMENT_MATH id="ddm_key_segs.ope_invhdr1701">N</DD_SEGMENT_MATH>
+			<DD_SEGMENT_NUM id="ddm_key_segs.ope_invhdr1701">N</DD_SEGMENT_NUM>
+		</RECORD>
+		<RECORD id="ddm_key_segs.ope_invhdr1702">
+			<DD_TABLE_ALIAS id="ddm_key_segs.ope_invhdr1702">OPE_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_key_segs.ope_invhdr1702">17</DD_KEY_NUMBER>
+			<DD_SEGMENT_SEQ id="ddm_key_segs.ope_invhdr1702">02</DD_SEGMENT_SEQ>
+			<DD_SEGMENT_COL id="ddm_key_segs.ope_invhdr1702">SLSPSN_CODE</DD_SEGMENT_COL>
+			<DD_SEGMENT_POS id="ddm_key_segs.ope_invhdr1702"></DD_SEGMENT_POS>
+			<DD_SEGMENT_OFF id="ddm_key_segs.ope_invhdr1702"></DD_SEGMENT_OFF>
+			<DD_SEGMENT_LEN id="ddm_key_segs.ope_invhdr1702"></DD_SEGMENT_LEN>
+			<DD_SEGMENT_SORT id="ddm_key_segs.ope_invhdr1702">N</DD_SEGMENT_SORT>
+			<DD_SEGMENT_UNIQ id="ddm_key_segs.ope_invhdr1702">N</DD_SEGMENT_UNIQ>
+			<DD_SEGMENT_MATH id="ddm_key_segs.ope_invhdr1702">N</DD_SEGMENT_MATH>
+			<DD_SEGMENT_NUM id="ddm_key_segs.ope_invhdr1702">N</DD_SEGMENT_NUM>
+		</RECORD>
+		<RECORD id="ddm_key_segs.ope_invhdr1703">
+			<DD_TABLE_ALIAS id="ddm_key_segs.ope_invhdr1703">OPE_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_key_segs.ope_invhdr1703">17</DD_KEY_NUMBER>
+			<DD_SEGMENT_SEQ id="ddm_key_segs.ope_invhdr1703">03</DD_SEGMENT_SEQ>
+			<DD_SEGMENT_COL id="ddm_key_segs.ope_invhdr1703">AR_TYPE</DD_SEGMENT_COL>
+			<DD_SEGMENT_POS id="ddm_key_segs.ope_invhdr1703"></DD_SEGMENT_POS>
+			<DD_SEGMENT_OFF id="ddm_key_segs.ope_invhdr1703"></DD_SEGMENT_OFF>
+			<DD_SEGMENT_LEN id="ddm_key_segs.ope_invhdr1703"></DD_SEGMENT_LEN>
+			<DD_SEGMENT_SORT id="ddm_key_segs.ope_invhdr1703">N</DD_SEGMENT_SORT>
+			<DD_SEGMENT_UNIQ id="ddm_key_segs.ope_invhdr1703">N</DD_SEGMENT_UNIQ>
+			<DD_SEGMENT_MATH id="ddm_key_segs.ope_invhdr1703">N</DD_SEGMENT_MATH>
+			<DD_SEGMENT_NUM id="ddm_key_segs.ope_invhdr1703">N</DD_SEGMENT_NUM>
+		</RECORD>
+		<RECORD id="ddm_key_segs.ope_invhdr1704">
+			<DD_TABLE_ALIAS id="ddm_key_segs.ope_invhdr1704">OPE_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_key_segs.ope_invhdr1704">17</DD_KEY_NUMBER>
+			<DD_SEGMENT_SEQ id="ddm_key_segs.ope_invhdr1704">04</DD_SEGMENT_SEQ>
+			<DD_SEGMENT_COL id="ddm_key_segs.ope_invhdr1704">CUSTOMER_ID</DD_SEGMENT_COL>
+			<DD_SEGMENT_POS id="ddm_key_segs.ope_invhdr1704"></DD_SEGMENT_POS>
+			<DD_SEGMENT_OFF id="ddm_key_segs.ope_invhdr1704"></DD_SEGMENT_OFF>
+			<DD_SEGMENT_LEN id="ddm_key_segs.ope_invhdr1704"></DD_SEGMENT_LEN>
+			<DD_SEGMENT_SORT id="ddm_key_segs.ope_invhdr1704">N</DD_SEGMENT_SORT>
+			<DD_SEGMENT_UNIQ id="ddm_key_segs.ope_invhdr1704">N</DD_SEGMENT_UNIQ>
+			<DD_SEGMENT_MATH id="ddm_key_segs.ope_invhdr1704">N</DD_SEGMENT_MATH>
+			<DD_SEGMENT_NUM id="ddm_key_segs.ope_invhdr1704">N</DD_SEGMENT_NUM>
+		</RECORD>
+		<RECORD id="ddm_key_segs.ope_invhdr1705">
+			<DD_TABLE_ALIAS id="ddm_key_segs.ope_invhdr1705">OPE_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_key_segs.ope_invhdr1705">17</DD_KEY_NUMBER>
+			<DD_SEGMENT_SEQ id="ddm_key_segs.ope_invhdr1705">05</DD_SEGMENT_SEQ>
+			<DD_SEGMENT_COL id="ddm_key_segs.ope_invhdr1705">ORDER_NO</DD_SEGMENT_COL>
+			<DD_SEGMENT_POS id="ddm_key_segs.ope_invhdr1705"></DD_SEGMENT_POS>
+			<DD_SEGMENT_OFF id="ddm_key_segs.ope_invhdr1705"></DD_SEGMENT_OFF>
+			<DD_SEGMENT_LEN id="ddm_key_segs.ope_invhdr1705"></DD_SEGMENT_LEN>
+			<DD_SEGMENT_SORT id="ddm_key_segs.ope_invhdr1705">N</DD_SEGMENT_SORT>
+			<DD_SEGMENT_UNIQ id="ddm_key_segs.ope_invhdr1705">N</DD_SEGMENT_UNIQ>
+			<DD_SEGMENT_MATH id="ddm_key_segs.ope_invhdr1705">N</DD_SEGMENT_MATH>
+			<DD_SEGMENT_NUM id="ddm_key_segs.ope_invhdr1705">N</DD_SEGMENT_NUM>
+		</RECORD>
+		<RECORD id="ddm_key_segs.ope_invhdr1706">
+			<DD_TABLE_ALIAS id="ddm_key_segs.ope_invhdr1706">OPE_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_key_segs.ope_invhdr1706">17</DD_KEY_NUMBER>
+			<DD_SEGMENT_SEQ id="ddm_key_segs.ope_invhdr1706">06</DD_SEGMENT_SEQ>
+			<DD_SEGMENT_COL id="ddm_key_segs.ope_invhdr1706">AR_INV_NO</DD_SEGMENT_COL>
+			<DD_SEGMENT_POS id="ddm_key_segs.ope_invhdr1706"></DD_SEGMENT_POS>
+			<DD_SEGMENT_OFF id="ddm_key_segs.ope_invhdr1706"></DD_SEGMENT_OFF>
+			<DD_SEGMENT_LEN id="ddm_key_segs.ope_invhdr1706"></DD_SEGMENT_LEN>
+			<DD_SEGMENT_SORT id="ddm_key_segs.ope_invhdr1706">N</DD_SEGMENT_SORT>
+			<DD_SEGMENT_UNIQ id="ddm_key_segs.ope_invhdr1706">N</DD_SEGMENT_UNIQ>
+			<DD_SEGMENT_MATH id="ddm_key_segs.ope_invhdr1706">N</DD_SEGMENT_MATH>
+			<DD_SEGMENT_NUM id="ddm_key_segs.ope_invhdr1706">N</DD_SEGMENT_NUM>
+		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_cols">
 		<ID id="ddm_table_cols">DDM_TABLE_COLS</ID>
@@ -2125,7 +2210,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr003">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr003">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr003">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr003"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr003">-2</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr003"></DD_ATTR_CTLY>
@@ -2176,7 +2261,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr004">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr004">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr004"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr004"></DD_ATTR_CTLY>
@@ -2278,7 +2363,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr006">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr006">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr006"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr006">-2</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr006"></DD_ATTR_CTLY>
@@ -2431,7 +2516,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr009">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr009"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr009"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr009">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr009">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr009"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr009"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr009"></DD_ATTR_CTLY>
@@ -2482,7 +2567,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr010">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr010">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr010"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr010"></DD_ATTR_CTLY>
@@ -2533,7 +2618,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr011">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr011"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr011"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr011">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr011">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr011"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr011"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr011"></DD_ATTR_CTLY>
@@ -2584,7 +2669,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr012">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr012"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr012"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr012">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr012">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr012"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr012"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr012"></DD_ATTR_CTLY>
@@ -2635,7 +2720,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr013">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr013"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr013"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr013">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr013">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr013"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr013"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr013"></DD_ATTR_CTLY>
@@ -2686,7 +2771,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr014">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr014"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr014"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr014">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr014">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr014"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr014"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr014"></DD_ATTR_CTLY>
@@ -2839,7 +2924,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr017">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr017"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr017"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr017">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr017">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr017"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr017"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr017"></DD_ATTR_CTLY>
@@ -2890,7 +2975,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr018">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr018"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr018"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr018">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr018">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr018"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr018"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr018"></DD_ATTR_CTLY>
@@ -2941,7 +3026,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr019">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr019"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr019"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr019">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr019">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr019"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr019"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr019"></DD_ATTR_CTLY>
@@ -2992,7 +3077,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr020">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr020"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr020"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr020">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr020">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr020"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr020"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr020"></DD_ATTR_CTLY>
@@ -3043,7 +3128,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr021">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr021"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr021"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr021">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr021">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr021"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr021">+30</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr021">-9</DD_ATTR_CTLY>
@@ -3094,7 +3179,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr022">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr022"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr022"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr022">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr022">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr022"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr022"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr022"></DD_ATTR_CTLY>
@@ -3349,7 +3434,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr027">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr027">OPE_INVHDR.SHIPTO_TYPE</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr027">S</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr027">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr027">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr027"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr027"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr027"></DD_ATTR_CTLY>
@@ -3400,7 +3485,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr028">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr028"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr028"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr028">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr028">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr028"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr028"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr028"></DD_ATTR_CTLY>
@@ -3451,7 +3536,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr029">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr029"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr029"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr029">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr029">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr029"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr029"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr029"></DD_ATTR_CTLY>
@@ -3502,7 +3587,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr030">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr030"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr030"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr030">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr030">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr030"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr030"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr030"></DD_ATTR_CTLY>
@@ -3553,7 +3638,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr031">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr031"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr031"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr031">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr031">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr031"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr031"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr031"></DD_ATTR_CTLY>
@@ -3604,7 +3689,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr032">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr032"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr032"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr032">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr032">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr032"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr032"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr032"></DD_ATTR_CTLY>
@@ -3655,7 +3740,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr033">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr033"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr033"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr033">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr033">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr033"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr033"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr033"></DD_ATTR_CTLY>
@@ -3706,7 +3791,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr034">20080131</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr034"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr034"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr034">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr034">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr034"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr034">-7</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr034"></DD_ATTR_CTLY>
@@ -4420,7 +4505,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr048">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr048"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr048"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr048">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr048">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr048"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr048"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr048"></DD_ATTR_CTLY>
@@ -4471,7 +4556,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr049">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr049"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr049"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr049">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr049">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr049"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr049"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr049"></DD_ATTR_CTLY>
@@ -4522,7 +4607,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr050">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr050"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr050"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr050">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr050">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr050"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr050"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr050"></DD_ATTR_CTLY>
@@ -4726,7 +4811,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr054">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr054"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr054"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr054">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr054">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr054"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr054">+1</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr054">+2</DD_ATTR_CTLY>
@@ -5083,7 +5168,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr061">20180403</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr061"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr061"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr061">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr061">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr061">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr061"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr061"></DD_ATTR_CTLY>
@@ -5134,7 +5219,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invhdr062">20180403</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invhdr062"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invhdr062"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr062">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invhdr062">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invhdr062">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invhdr062"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invhdr062"></DD_ATTR_CTLY>
@@ -5553,7 +5638,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.ope_invhdr010">ine_sname</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.ope_invhdr010">1</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.ope_invhdr010"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr010">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.ope_invhdr011">
 			<DD_TABLE_ALIAS id="ddm_table_disp.ope_invhdr011">OPE_INVHDR      </DD_TABLE_ALIAS>
@@ -5576,7 +5661,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.ope_invhdr011">ine_sadd1</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.ope_invhdr011">1</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.ope_invhdr011"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr011">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr011">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.ope_invhdr012">
 			<DD_TABLE_ALIAS id="ddm_table_disp.ope_invhdr012">OPE_INVHDR      </DD_TABLE_ALIAS>
@@ -5599,7 +5684,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.ope_invhdr012">ine_sadd2</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.ope_invhdr012">1</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.ope_invhdr012"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr012">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr012">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.ope_invhdr013">
 			<DD_TABLE_ALIAS id="ddm_table_disp.ope_invhdr013">OPE_INVHDR      </DD_TABLE_ALIAS>
@@ -5622,7 +5707,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.ope_invhdr013">ine_sadd3</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.ope_invhdr013">1</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.ope_invhdr013"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr013">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr013">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.ope_invhdr014">
 			<DD_TABLE_ALIAS id="ddm_table_disp.ope_invhdr014">OPE_INVHDR      </DD_TABLE_ALIAS>
@@ -5645,7 +5730,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.ope_invhdr014">ine_sadd4</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.ope_invhdr014">1</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.ope_invhdr014"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr014">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr014">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.ope_invhdr015">
 			<DD_TABLE_ALIAS id="ddm_table_disp.ope_invhdr015">OPE_INVHDR      </DD_TABLE_ALIAS>
@@ -5668,7 +5753,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.ope_invhdr015">ine_scity</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.ope_invhdr015">1</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.ope_invhdr015"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr015">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr015">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.ope_invhdr016">
 			<DD_TABLE_ALIAS id="ddm_table_disp.ope_invhdr016">OPE_INVHDR      </DD_TABLE_ALIAS>
@@ -5691,7 +5776,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.ope_invhdr016">ine_sstate</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.ope_invhdr016">1</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.ope_invhdr016"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr016">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr016">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.ope_invhdr017">
 			<DD_TABLE_ALIAS id="ddm_table_disp.ope_invhdr017">OPE_INVHDR      </DD_TABLE_ALIAS>
@@ -5714,7 +5799,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.ope_invhdr017">ine_szip</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.ope_invhdr017">1</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.ope_invhdr017"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr017">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr017">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.ope_invhdr018">
 			<DD_TABLE_ALIAS id="ddm_table_disp.ope_invhdr018">OPE_INVHDR      </DD_TABLE_ALIAS>
@@ -6013,7 +6098,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.ope_invhdr030">dis_scntry_id</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.ope_invhdr030">1</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.ope_invhdr030"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr030">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.ope_invhdr030">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.ope_invhdr031">
 			<DD_TABLE_ALIAS id="ddm_table_disp.ope_invhdr031">OPE_INVHDR      </DD_TABLE_ALIAS>
