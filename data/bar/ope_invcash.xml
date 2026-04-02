@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ope_invcash"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ope_invcash">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ope_invcash">OP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ope_invcash">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ope_invcash">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ope_invcash">CE22CCD23DB1988B0DAECCE849DEC108</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_invcash">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_invcash">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ope_invcash">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ope_invcash">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_invcash">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ope_invcash">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ope_invcash">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_invcash">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_invcash">OPT_INVCASH     </DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ope_invcash">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ope_invcash">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_invcash">AO_STATUS</DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ope_invcash"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ope_invcash">T</DD_ATTR_FTYP>
@@ -1354,7 +1354,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invcash006">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invcash006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invcash006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invcash006">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invcash006">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invcash006"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invcash006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invcash006"></DD_ATTR_CTLY>
@@ -1558,7 +1558,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invcash010">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invcash010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invcash010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invcash010">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invcash010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invcash010"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invcash010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invcash010"></DD_ATTR_CTLY>
@@ -2578,7 +2578,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invcash030">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invcash030"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invcash030"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invcash030">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invcash030">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invcash030"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invcash030"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invcash030"></DD_ATTR_CTLY>

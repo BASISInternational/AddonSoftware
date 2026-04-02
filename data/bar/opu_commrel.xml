@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.opu_commrel">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.opu_commrel">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.opu_commrel">OP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.opu_commrel">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.opu_commrel">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.opu_commrel"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opu_commrel">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opu_commrel">20080919</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.opu_commrel">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.opu_commrel">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opu_commrel">142910</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.opu_commrel">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.opu_commrel">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.opu_commrel">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opu_commrel"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.opu_commrel">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.opu_commrel">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opu_commrel"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.opu_commrel"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.opu_commrel">S</DD_ATTR_FTYP>
@@ -232,7 +232,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.opu_commrel001">ine_place_holder</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.opu_commrel001">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.opu_commrel001"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.opu_commrel001">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.opu_commrel001">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_column_cpro">

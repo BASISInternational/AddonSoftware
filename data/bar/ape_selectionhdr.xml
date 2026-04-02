@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ape_selectionhdr"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ape_selectionhdr">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ape_selectionhdr">AP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ape_selectionhdr">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ape_selectionhdr">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ape_selectionhdr">90327E0E89E2C5D044DD68C2CD41ADB2</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ape_selectionhdr">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ape_selectionhdr">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ape_selectionhdr">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ape_selectionhdr">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ape_selectionhdr">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ape_selectionhdr">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ape_selectionhdr">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ape_selectionhdr">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ape_selectionhdr"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ape_selectionhdr"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ape_selectionhdr"></DD_ATTR_DKNM>

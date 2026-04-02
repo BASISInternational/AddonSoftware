@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.are_deposit">N</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.are_deposit">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.are_deposit">AR </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.are_deposit">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.are_deposit">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.are_deposit"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.are_deposit">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.are_deposit">20160107</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.are_deposit">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.are_deposit">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.are_deposit">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.are_deposit">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.are_deposit">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.are_deposit">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.are_deposit">ART_DEPOSIT     </DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.are_deposit">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.are_deposit">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.are_deposit">AO_BATCH_STAT</DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.are_deposit"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.are_deposit">T</DD_ATTR_FTYP>
@@ -780,7 +780,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_deposit002">20160118</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_deposit002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_deposit002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_deposit002">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_deposit002">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_deposit002">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_deposit002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_deposit002"></DD_ATTR_CTLY>
@@ -831,7 +831,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_deposit003">20160107</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_deposit003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_deposit003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_deposit003">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_deposit003">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_deposit003">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_deposit003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_deposit003"></DD_ATTR_CTLY>
@@ -933,7 +933,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_deposit005">20160107</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_deposit005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_deposit005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_deposit005">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_deposit005">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_deposit005">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_deposit005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_deposit005"></DD_ATTR_CTLY>

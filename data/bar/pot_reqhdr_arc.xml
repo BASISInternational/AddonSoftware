@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.pot_reqhdr_arc"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.pot_reqhdr_arc">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.pot_reqhdr_arc">PO </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.pot_reqhdr_arc">25.0</ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.pot_reqhdr_arc">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.pot_reqhdr_arc">F9FC21F71215048005A59538BE93E299</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.pot_reqhdr_arc">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.pot_reqhdr_arc">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.pot_reqhdr_arc">20250311</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.pot_reqhdr_arc">20250311</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.pot_reqhdr_arc">110328</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.pot_reqhdr_arc">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.pot_reqhdr_arc">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.pot_reqhdr_arc">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.pot_reqhdr_arc"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.pot_reqhdr_arc">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.pot_reqhdr_arc">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.pot_reqhdr_arc"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.pot_reqhdr_arc"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.pot_reqhdr_arc">T</DD_ATTR_FTYP>
@@ -180,6 +180,12 @@
 			<REF_TABLE_ALIAS id="ddm_table_ref.pot_reqhdr_arcpo_msg_codepoc_message">POC_MESSAGE     </REF_TABLE_ALIAS>
 			<TABLE_REF_NAME id="ddm_table_ref.pot_reqhdr_arcpo_msg_codepoc_message">FK_POT_REQHDR_ARC_PO_MSG_CODE_POC_MESSAGE                                                                                                                                                                                                                      </TABLE_REF_NAME>
 		</RECORD>
+		<RECORD id="ddm_table_ref.pot_reqhdr_arcpo_nopoe_pohdr">
+			<DD_TABLE_ALIAS id="ddm_table_ref.pot_reqhdr_arcpo_nopoe_pohdr">POT_REQHDR_ARC  </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.pot_reqhdr_arcpo_nopoe_pohdr">PO_NO           </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.pot_reqhdr_arcpo_nopoe_pohdr">POE_POHDR       </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.pot_reqhdr_arcpo_nopoe_pohdr">FK_POT_REQHDR_ARC_PO_NO_POE_POHDR                                                                                                                                                                                                                              </TABLE_REF_NAME>
+		</RECORD>
 		<RECORD id="ddm_table_ref.pot_reqhdr_arcpurch_addrapm_vendaddr">
 			<DD_TABLE_ALIAS id="ddm_table_ref.pot_reqhdr_arcpurch_addrapm_vendaddr">POT_REQHDR_ARC  </DD_TABLE_ALIAS>
 			<DD_TABLE_COL id="ddm_table_ref.pot_reqhdr_arcpurch_addrapm_vendaddr">PURCH_ADDR      </DD_TABLE_COL>
@@ -260,6 +266,24 @@
 			<REF_KEY_SEGMENT id="ddm_table_refcol.pot_reqhdr_arcpo_msg_codepoc_message0002">02</REF_KEY_SEGMENT>
 			<REF_KEY_COLUMN id="ddm_table_refcol.pot_reqhdr_arcpo_msg_codepoc_message0002">PO_MSG_CODE     </REF_KEY_COLUMN>
 			<FK_TABLE_COL id="ddm_table_refcol.pot_reqhdr_arcpo_msg_codepoc_message0002">PO_MSG_CODE     </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0001">POT_REQHDR_ARC  </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0001">PO_NO           </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0001">POE_POHDR       </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0002">POT_REQHDR_ARC  </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0002">PO_NO           </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0002">POE_POHDR       </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0002">PO_NO           </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.pot_reqhdr_arcpo_nopoe_pohdr0002">PO_NO           </FK_TABLE_COL>
 		</RECORD>
 		<RECORD id="ddm_table_refcol.pot_reqhdr_arcpurch_addrapm_vendaddr0001">
 			<DD_TABLE_ALIAS id="ddm_table_refcol.pot_reqhdr_arcpurch_addrapm_vendaddr0001">POT_REQHDR_ARC  </DD_TABLE_ALIAS>

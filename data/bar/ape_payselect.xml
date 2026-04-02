@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.ape_payselect">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.ape_payselect">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.ape_payselect">AP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.ape_payselect">25.0</ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.ape_payselect">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.ape_payselect">0A768FB460EAEA4E9E25B3C94EFA7E4C</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ape_payselect">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ape_payselect">20071023</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ape_payselect">20251013</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ape_payselect">20251013</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ape_payselect">111354</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ape_payselect">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ape_payselect">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ape_payselect">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ape_payselect"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ape_payselect">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ape_payselect">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ape_payselect"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ape_payselect"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ape_payselect">S</DD_ATTR_FTYP>
@@ -296,7 +296,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ape_payselect003">20080508</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ape_payselect003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ape_payselect003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect003">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect003">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ape_payselect003"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ape_payselect003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ape_payselect003"></DD_ATTR_CTLY>
@@ -347,7 +347,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ape_payselect004">20190506</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ape_payselect004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ape_payselect004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect004">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ape_payselect004">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ape_payselect004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ape_payselect004"></DD_ATTR_CTLY>
@@ -398,7 +398,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ape_payselect005">20080506</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ape_payselect005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ape_payselect005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect005">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect005">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ape_payselect005"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ape_payselect005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ape_payselect005"></DD_ATTR_CTLY>
@@ -449,7 +449,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ape_payselect006">20080506</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ape_payselect006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ape_payselect006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect006">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ape_payselect006"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ape_payselect006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ape_payselect006"></DD_ATTR_CTLY>
@@ -500,7 +500,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ape_payselect007">20080506</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ape_payselect007">APE_PAYSELECT.DUE_DATE_OP</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ape_payselect007">1;2;3;4;5;6</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect007">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect007">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ape_payselect007"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ape_payselect007">+27</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ape_payselect007">-1</DD_ATTR_CTLY>
@@ -551,7 +551,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ape_payselect008">20080506</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ape_payselect008"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ape_payselect008"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect008">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect008">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ape_payselect008"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ape_payselect008"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ape_payselect008"></DD_ATTR_CTLY>
@@ -602,7 +602,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ape_payselect009">20080508</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ape_payselect009"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ape_payselect009"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect009">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect009">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ape_payselect009"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ape_payselect009">-27</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ape_payselect009"></DD_ATTR_CTLY>
@@ -653,7 +653,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ape_payselect010">20080508</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ape_payselect010">APE_PAYSELECT.DISC_DATE_OP</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ape_payselect010">1;2;3;4;5;6</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect010">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ape_payselect010"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ape_payselect010">+27</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ape_payselect010">-1</DD_ATTR_CTLY>
@@ -755,7 +755,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ape_payselect012">20180607</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ape_payselect012"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ape_payselect012"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect012">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect012">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ape_payselect012">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ape_payselect012"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ape_payselect012"></DD_ATTR_CTLY>
@@ -806,7 +806,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ape_payselect013">20251013</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ape_payselect013"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ape_payselect013"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect013">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ape_payselect013">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ape_payselect013">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ape_payselect013"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ape_payselect013">+2</DD_ATTR_CTLY>
@@ -1724,8 +1724,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.ap_payment_amt"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.ap_payment_amt">N</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.ap_payment_amt"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.ap_payment_amt"></DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.ap_payment_amt"></DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.ap_payment_amt">            </DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.ap_payment_amt">            </DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.ap_payment_amt"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.ap_payment_amt"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.ap_payment_amt"></DD_ATTR_DKEY>

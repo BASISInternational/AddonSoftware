@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.glr_dailydetail"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.glr_dailydetail">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.glr_dailydetail">GL </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.glr_dailydetail">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.glr_dailydetail">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.glr_dailydetail">C6115C7111FFD30BC20148E1ABA8B7EF</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glr_dailydetail"></DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glr_dailydetail">20060522</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.glr_dailydetail">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.glr_dailydetail">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.glr_dailydetail">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.glr_dailydetail">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.glr_dailydetail">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.glr_dailydetail">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.glr_dailydetail"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.glr_dailydetail"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.glr_dailydetail"></DD_ATTR_DKNM>
@@ -115,7 +115,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glr_dailydetail001">20060428</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glr_dailydetail001"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glr_dailydetail001"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glr_dailydetail001">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glr_dailydetail001">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glr_dailydetail001"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glr_dailydetail001">+2</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glr_dailydetail001"></DD_ATTR_CTLY>
@@ -166,7 +166,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glr_dailydetail002">20060428</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glr_dailydetail002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glr_dailydetail002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glr_dailydetail002">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glr_dailydetail002">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glr_dailydetail002"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glr_dailydetail002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glr_dailydetail002"></DD_ATTR_CTLY>

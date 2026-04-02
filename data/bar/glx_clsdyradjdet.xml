@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.glx_clsdyradjdet">N</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.glx_clsdyradjdet">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.glx_clsdyradjdet">GL </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.glx_clsdyradjdet">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.glx_clsdyradjdet">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.glx_clsdyradjdet"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glx_clsdyradjdet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glx_clsdyradjdet">20230912</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.glx_clsdyradjdet">20240327</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.glx_clsdyradjdet">20240327</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.glx_clsdyradjdet">180606</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.glx_clsdyradjdet">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.glx_clsdyradjdet">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.glx_clsdyradjdet">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.glx_clsdyradjdet"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.glx_clsdyradjdet">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.glx_clsdyradjdet">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.glx_clsdyradjdet"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.glx_clsdyradjdet"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.glx_clsdyradjdet">G</DD_ATTR_FTYP>
@@ -483,7 +483,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glx_clsdyradjdet005">20230912</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glx_clsdyradjdet005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glx_clsdyradjdet005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glx_clsdyradjdet005">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glx_clsdyradjdet005">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glx_clsdyradjdet005">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glx_clsdyradjdet005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glx_clsdyradjdet005"></DD_ATTR_CTLY>
@@ -534,7 +534,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glx_clsdyradjdet006">20230912</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glx_clsdyradjdet006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glx_clsdyradjdet006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glx_clsdyradjdet006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glx_clsdyradjdet006">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glx_clsdyradjdet006">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glx_clsdyradjdet006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glx_clsdyradjdet006"></DD_ATTR_CTLY>
@@ -585,7 +585,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glx_clsdyradjdet007">20230912</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glx_clsdyradjdet007"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glx_clsdyradjdet007"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glx_clsdyradjdet007">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glx_clsdyradjdet007">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glx_clsdyradjdet007">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glx_clsdyradjdet007"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glx_clsdyradjdet007"></DD_ATTR_CTLY>
@@ -636,7 +636,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glx_clsdyradjdet008">20230912</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glx_clsdyradjdet008"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glx_clsdyradjdet008"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glx_clsdyradjdet008">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glx_clsdyradjdet008">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glx_clsdyradjdet008">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glx_clsdyradjdet008"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glx_clsdyradjdet008"></DD_ATTR_CTLY>
@@ -687,7 +687,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glx_clsdyradjdet009">20230912</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glx_clsdyradjdet009"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glx_clsdyradjdet009"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glx_clsdyradjdet009">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glx_clsdyradjdet009">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glx_clsdyradjdet009">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glx_clsdyradjdet009"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glx_clsdyradjdet009"></DD_ATTR_CTLY>
@@ -738,7 +738,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glx_clsdyradjdet010">20230912</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glx_clsdyradjdet010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glx_clsdyradjdet010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glx_clsdyradjdet010">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glx_clsdyradjdet010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glx_clsdyradjdet010">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glx_clsdyradjdet010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glx_clsdyradjdet010"></DD_ATTR_CTLY>

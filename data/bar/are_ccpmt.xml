@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.are_ccpmt">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.are_ccpmt">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.are_ccpmt">AR </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.are_ccpmt">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.are_ccpmt">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.are_ccpmt"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.are_ccpmt">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.are_ccpmt">20181019</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.are_ccpmt">20240203</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.are_ccpmt">20240201</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.are_ccpmt">122140</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.are_ccpmt">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.are_ccpmt">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.are_ccpmt">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.are_ccpmt"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.are_ccpmt">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.are_ccpmt">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.are_ccpmt"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.are_ccpmt"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.are_ccpmt">S</DD_ATTR_FTYP>
@@ -244,7 +244,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt003">20181031</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt003">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt003">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt003">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt003"></DD_ATTR_CTLY>
@@ -295,7 +295,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt004">20181018</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt004">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt004">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt004">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt004"></DD_ATTR_CTLY>
@@ -346,7 +346,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt005">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt005">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt005">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt005">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt005"></DD_ATTR_CTLY>
@@ -397,7 +397,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt006">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt006">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt006">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt006">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt006">-48</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt006"></DD_ATTR_CTLY>
@@ -448,7 +448,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt007">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt007"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt007"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt007">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt007">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt007">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt007">+30</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt007">-8</DD_ATTR_CTLY>
@@ -499,7 +499,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt008">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt008"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt008"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt008">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt008">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt008">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt008"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt008"></DD_ATTR_CTLY>
@@ -601,7 +601,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt010">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt010">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt010">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt010"></DD_ATTR_CTLY>
@@ -630,11 +630,11 @@
 			<DD_ATTR_FTSR id="ddm_table_cols.are_ccpmt010">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.are_ccpmt010"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.are_ccpmt010">3016</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.are_ccpmt010">ine_state_code</DD_ATTR_CTLN>
+			<DD_ATTR_CTLN id="ddm_table_cols.are_ccpmt010">dis_state_code</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.are_ccpmt010">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_ccpmt010"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.are_ccpmt010">N</DD_ATTR_RKEY>
-			<DD_ATTR_BTNS id="ddm_table_cols.are_ccpmt010"></DD_ATTR_BTNS>
+			<DD_ATTR_BTNS id="ddm_table_cols.are_ccpmt010">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_ccpmt011">
 			<DD_TABLE_ALIAS id="ddm_table_cols.are_ccpmt011">ARE_CCPMT       </DD_TABLE_ALIAS>
@@ -652,7 +652,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt011">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt011"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt011"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt011">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt011">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt011">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt011"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt011"></DD_ATTR_CTLY>
@@ -703,7 +703,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt012">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt012"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt012"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt012">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt012">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt012">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt012"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt012"></DD_ATTR_CTLY>
@@ -754,7 +754,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt013">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt013"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt013"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt013">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt013">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt013">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt013"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt013"></DD_ATTR_CTLY>
@@ -805,7 +805,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt014">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt014"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt014"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt014">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt014">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt014">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt014"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt014"></DD_ATTR_CTLY>
@@ -856,7 +856,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt015">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt015"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt015"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt015">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt015">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt015">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt015"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt015"></DD_ATTR_CTLY>
@@ -907,7 +907,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt016">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt016"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt016"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt016">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt016">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt016">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt016"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt016"></DD_ATTR_CTLY>
@@ -958,7 +958,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt017">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt017"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt017"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt017">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt017">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt017">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt017"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt017"></DD_ATTR_CTLY>
@@ -1009,7 +1009,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_ccpmt018">20180911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_ccpmt018"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_ccpmt018"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt018">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_ccpmt018">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_ccpmt018">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_ccpmt018"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_ccpmt018"></DD_ATTR_CTLY>

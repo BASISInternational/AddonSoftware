@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.glm_findetail"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.glm_findetail">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.glm_findetail">GL </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.glm_findetail">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.glm_findetail">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.glm_findetail">93C7992A3497A0136EE1216C7649E96B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glm_findetail">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glm_findetail">20060616</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.glm_findetail">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.glm_findetail">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.glm_findetail">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.glm_findetail">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.glm_findetail">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.glm_findetail">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.glm_findetail"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.glm_findetail"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.glm_findetail"></DD_ATTR_DKNM>
@@ -499,7 +499,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_findetail007">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_findetail007"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_findetail007"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail007">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail007">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_findetail007"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_findetail007"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_findetail007"></DD_ATTR_CTLY>
@@ -601,7 +601,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_findetail009">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_findetail009"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_findetail009"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail009">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail009">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_findetail009"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_findetail009"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_findetail009"></DD_ATTR_CTLY>
@@ -652,7 +652,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_findetail010">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_findetail010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_findetail010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail010">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_findetail010"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_findetail010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_findetail010"></DD_ATTR_CTLY>
@@ -1060,7 +1060,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_findetail018">20070724</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_findetail018">GLM_FINDETAIL.OUTPUT_TOTAL_01</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_findetail018">!000</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail018">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail018">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_findetail018"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_findetail018">+13</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_findetail018">-1</DD_ATTR_CTLY>
@@ -1111,7 +1111,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_findetail019">20070724</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_findetail019">GLM_FINDETAIL.OUTPUT_TOTAL_02</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_findetail019">!000</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail019">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail019">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_findetail019"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_findetail019">+13</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_findetail019">-1</DD_ATTR_CTLY>
@@ -1162,7 +1162,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_findetail020">20070724</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_findetail020">GLM_FINDETAIL.OUTPUT_TOTAL_03</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_findetail020">!000</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail020">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail020">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_findetail020"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_findetail020">+13</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_findetail020">-1</DD_ATTR_CTLY>
@@ -1213,7 +1213,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_findetail021">20070724</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_findetail021">GLM_FINDETAIL.OUTPUT_TOTAL_04</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_findetail021">!000</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail021">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail021">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_findetail021"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_findetail021">+13</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_findetail021">-1</DD_ATTR_CTLY>
@@ -1264,7 +1264,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_findetail022">20070714</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_findetail022">GLM_FINDETAIL.OUTPUT_TOTAL_05</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_findetail022">!000</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail022">C:/dev_addon/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_findetail022">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_findetail022"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_findetail022">+13</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_findetail022">-1</DD_ATTR_CTLY>

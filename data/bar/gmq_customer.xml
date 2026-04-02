@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.gmq_customer">Y</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.gmq_customer">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.gmq_customer">GM </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.gmq_customer">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.gmq_customer">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.gmq_customer"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.gmq_customer">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.gmq_customer">20150611</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.gmq_customer">20240203</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.gmq_customer">20240201</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.gmq_customer">122148</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.gmq_customer">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.gmq_customer">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.gmq_customer">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.gmq_customer"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.gmq_customer"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.gmq_customer"></DD_ATTR_DKNM>
@@ -107,6 +107,12 @@
 			<REF_TABLE_ALIAS id="ddm_table_ref.gmq_customercustomer_idarm_custmast">ARM_CUSTMAST    </REF_TABLE_ALIAS>
 			<TABLE_REF_NAME id="ddm_table_ref.gmq_customercustomer_idarm_custmast">FK_GMQ_CUSTOMER_CUSTOMER_ID_ARM_CUSTMAST                                                                                                                                                                                                                       </TABLE_REF_NAME>
 		</RECORD>
+		<RECORD id="ddm_table_ref.gmq_customerstate_codeadc_statecode">
+			<DD_TABLE_ALIAS id="ddm_table_ref.gmq_customerstate_codeadc_statecode">GMQ_CUSTOMER    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.gmq_customerstate_codeadc_statecode">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.gmq_customerstate_codeadc_statecode">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.gmq_customerstate_codeadc_statecode">FK_GMQ_CUSTOMER_STATE_CODE_ADC_STATECODE                                                                                                                                                                                                                       </TABLE_REF_NAME>
+		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_refcol">
 		<ID id="ddm_table_refcol">DDM_TABLE_REFCOL</ID>
@@ -136,6 +142,24 @@
 			<REF_KEY_SEGMENT id="ddm_table_refcol.gmq_customercustomer_idarm_custmast0002">02</REF_KEY_SEGMENT>
 			<REF_KEY_COLUMN id="ddm_table_refcol.gmq_customercustomer_idarm_custmast0002">CUSTOMER_ID     </REF_KEY_COLUMN>
 			<FK_TABLE_COL id="ddm_table_refcol.gmq_customercustomer_idarm_custmast0002">CUSTOMER_ID     </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0001">GMQ_CUSTOMER    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0001">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0001">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0002">GMQ_CUSTOMER    </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0002">STATE_CODE      </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0002">ADC_STATECODE   </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0002">STATE_CODE      </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.gmq_customerstate_codeadc_statecode0002">STATE_CODE      </FK_TABLE_COL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_keys">
@@ -913,11 +937,11 @@
 			<DD_ATTR_FTSR id="ddm_table_cols.gmq_customer014">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.gmq_customer014"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.gmq_customer014">3013</DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.gmq_customer014">ine_state_code</DD_ATTR_CTLN>
+			<DD_ATTR_CTLN id="ddm_table_cols.gmq_customer014">dis_state_code</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.gmq_customer014">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.gmq_customer014"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.gmq_customer014">N</DD_ATTR_RKEY>
-			<DD_ATTR_BTNS id="ddm_table_cols.gmq_customer014"></DD_ATTR_BTNS>
+			<DD_ATTR_BTNS id="ddm_table_cols.gmq_customer014">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.gmq_customer015">
 			<DD_TABLE_ALIAS id="ddm_table_cols.gmq_customer015">GMQ_CUSTOMER    </DD_TABLE_ALIAS>

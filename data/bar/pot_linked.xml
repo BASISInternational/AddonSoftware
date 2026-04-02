@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.pot_linked">N</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.pot_linked">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.pot_linked">PO </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.pot_linked">25.0</ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.pot_linked">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.pot_linked"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.pot_linked">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.pot_linked">2460729</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.pot_linked">20250224</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.pot_linked">20250222</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.pot_linked">144716</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.pot_linked">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.pot_linked">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.pot_linked">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.pot_linked"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.pot_linked"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.pot_linked"></DD_ATTR_DKNM>
@@ -58,12 +58,69 @@
 			<DD_ATTR_PADG id="ddm_tables.pot_linked">0</DD_ATTR_PADG>
 		</RECORD>
 	</ALIAS>
+	<ALIAS id="ddm_table_opts">
+		<ID id="ddm_table_opts">DDM_TABLE_OPTS</ID>
+		<RECORD id="ddm_table_opts.pot_linkeda">
+			<DD_TABLE_ALIAS id="ddm_table_opts.pot_linkeda">POT_LINKED      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.pot_linkeda">A</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.pot_linkedn">
+			<DD_TABLE_ALIAS id="ddm_table_opts.pot_linkedn">POT_LINKED      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.pot_linkedn">N</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.pot_linkedp">
+			<DD_TABLE_ALIAS id="ddm_table_opts.pot_linkedp">POT_LINKED      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.pot_linkedp">P</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.pot_linkedu">
+			<DD_TABLE_ALIAS id="ddm_table_opts.pot_linkedu">POT_LINKED      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.pot_linkedu">U</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.pot_linkedv">
+			<DD_TABLE_ALIAS id="ddm_table_opts.pot_linkedv">POT_LINKED      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.pot_linkedv">V</DD_ATTR_OPTS>
+		</RECORD>
+		<RECORD id="ddm_table_opts.pot_linkedr">
+			<DD_TABLE_ALIAS id="ddm_table_opts.pot_linkedr">POT_LINKED      </DD_TABLE_ALIAS>
+			<DD_ATTR_OPTS id="ddm_table_opts.pot_linkedr">r</DD_ATTR_OPTS>
+		</RECORD>
+	</ALIAS>
 	<ALIAS id="ddm_table_tpls">
 		<ID id="ddm_table_tpls">DDM_TABLE_TPLS</ID>
 		<RECORD id="ddm_table_tpls.pot_linked">
 			<DD_TABLE_ALIAS id="ddm_table_tpls.pot_linked">POT_LINKED      </DD_TABLE_ALIAS>
 			<DD_FILE_NAME id="ddm_table_tpls.pot_linked"></DD_FILE_NAME>
 			<DD_TABLE_TPL id="ddm_table_tpls.pot_linked">firm_id:c(2),po_no:c(7),poedet_seq_ref:c(12),customer_id:c(6),order_no:c(7),opedet_seq_ref:c(12)</DD_TABLE_TPL>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_ref">
+		<ID id="ddm_table_ref">DDM_TABLE_REF</ID>
+		<RECORD id="ddm_table_ref.pot_linkedcustomer_idarm_custmast">
+			<DD_TABLE_ALIAS id="ddm_table_ref.pot_linkedcustomer_idarm_custmast">POT_LINKED      </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.pot_linkedcustomer_idarm_custmast">CUSTOMER_ID     </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.pot_linkedcustomer_idarm_custmast">ARM_CUSTMAST    </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.pot_linkedcustomer_idarm_custmast">FK_POT_LINKED_CUSTOMER_ID_ARM_CUSTMAST                                                                                                                                                                                                                         </TABLE_REF_NAME>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_refcol">
+		<ID id="ddm_table_refcol">DDM_TABLE_REFCOL</ID>
+		<RECORD id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0001">POT_LINKED      </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0001">CUSTOMER_ID     </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0001">ARM_CUSTMAST    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0002">POT_LINKED      </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0002">CUSTOMER_ID     </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0002">ARM_CUSTMAST    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0002">CUSTOMER_ID     </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.pot_linkedcustomer_idarm_custmast0002">CUSTOMER_ID     </FK_TABLE_COL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_keys">
@@ -216,7 +273,7 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.pot_linked001"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.pot_linked001"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.pot_linked001"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.pot_linked001"></DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.pot_linked001">1</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.pot_linked001"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.pot_linked001">FIRM_ID</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.pot_linked001"></DD_ATTR_FONT>
@@ -227,7 +284,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.pot_linked001"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.pot_linked001"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_linked001"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.pot_linked001"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.pot_linked001">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_linked001"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.pot_linked002">
@@ -267,18 +324,18 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.pot_linked002"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.pot_linked002"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.pot_linked002"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.pot_linked002"></DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.pot_linked002">2</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.pot_linked002"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.pot_linked002">PO_NO</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.pot_linked002"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.pot_linked002"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.pot_linked002">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.pot_linked002">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.pot_linked002"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.pot_linked002"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_linked002"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.pot_linked002">3001</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.pot_linked002">ine_po_no</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_linked002">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_linked002"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.pot_linked002"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.pot_linked002">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_linked002"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.pot_linked003">
@@ -318,18 +375,18 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.pot_linked003"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.pot_linked003"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.pot_linked003"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.pot_linked003"></DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.pot_linked003">3</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.pot_linked003"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.pot_linked003">POEDET_SEQ_REF</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.pot_linked003"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.pot_linked003"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.pot_linked003">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.pot_linked003">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.pot_linked003"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.pot_linked003"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_linked003"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.pot_linked003">3002</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.pot_linked003">ine_poedet_seq_ref</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_linked003">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_linked003"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.pot_linked003"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.pot_linked003">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_linked003"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.pot_linked004">
@@ -369,19 +426,19 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.pot_linked004"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.pot_linked004"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.pot_linked004"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.pot_linked004"></DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.pot_linked004">4</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.pot_linked004"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.pot_linked004">CUSTOMER_ID</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.pot_linked004"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.pot_linked004"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.pot_linked004">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.pot_linked004">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.pot_linked004"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.pot_linked004"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_linked004"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.pot_linked004">3003</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.pot_linked004">dis_customer_id</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_linked004">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_linked004"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.pot_linked004"></DD_ATTR_RKEY>
-			<DD_ATTR_BTNS id="ddm_table_cols.pot_linked004"></DD_ATTR_BTNS>
+			<DD_ATTR_RKEY id="ddm_table_cols.pot_linked004">N</DD_ATTR_RKEY>
+			<DD_ATTR_BTNS id="ddm_table_cols.pot_linked004">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.pot_linked005">
 			<DD_TABLE_ALIAS id="ddm_table_cols.pot_linked005">POT_LINKED      </DD_TABLE_ALIAS>
@@ -420,18 +477,18 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.pot_linked005"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.pot_linked005"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.pot_linked005"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.pot_linked005"></DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.pot_linked005">5</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.pot_linked005"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.pot_linked005">ORDER_NO</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.pot_linked005"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.pot_linked005"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.pot_linked005">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.pot_linked005">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.pot_linked005"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.pot_linked005"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_linked005"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.pot_linked005">3004</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.pot_linked005">ine_order_no</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_linked005">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_linked005"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.pot_linked005"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.pot_linked005">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_linked005"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.pot_linked006">
@@ -471,18 +528,18 @@
 			<DD_ATTR_PVAL id="ddm_table_cols.pot_linked006"></DD_ATTR_PVAL>
 			<DD_ATTR_SLEV id="ddm_table_cols.pot_linked006"></DD_ATTR_SLEV>
 			<DD_ATTR_TABG id="ddm_table_cols.pot_linked006"></DD_ATTR_TABG>
-			<DD_ATTR_TIND id="ddm_table_cols.pot_linked006"></DD_ATTR_TIND>
+			<DD_ATTR_TIND id="ddm_table_cols.pot_linked006">6</DD_ATTR_TIND>
 			<DD_ATTR_HELP id="ddm_table_cols.pot_linked006"></DD_ATTR_HELP>
 			<SQL_COLUMN_NAME id="ddm_table_cols.pot_linked006">OPEDET_SEQ_REF</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.pot_linked006"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.pot_linked006"></DD_ATTR_STYL>
 			<DD_ATTR_FTSR id="ddm_table_cols.pot_linked006">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.pot_linked006">0</DD_ATTR_CWID>
-			<DD_ATTR_CTLI id="ddm_table_cols.pot_linked006"></DD_ATTR_CTLI>
-			<DD_ATTR_CTLN id="ddm_table_cols.pot_linked006"></DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.pot_linked006"></DD_ATTR_CTLC>
+			<DD_ATTR_CTLI id="ddm_table_cols.pot_linked006">3005</DD_ATTR_CTLI>
+			<DD_ATTR_CTLN id="ddm_table_cols.pot_linked006">ine_opedet_seq_ref</DD_ATTR_CTLN>
+			<DD_ATTR_CTLC id="ddm_table_cols.pot_linked006">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.pot_linked006"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.pot_linked006"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.pot_linked006">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.pot_linked006"></DD_ATTR_BTNS>
 		</RECORD>
 	</ALIAS>

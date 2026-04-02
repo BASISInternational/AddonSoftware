@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.opr_itemstatus"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.opr_itemstatus">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.opr_itemstatus">OP </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.opr_itemstatus">25.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.opr_itemstatus">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.opr_itemstatus">CD9E1C5B12E94E4DD3C205A76A033780</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opr_itemstatus"></DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opr_itemstatus">20060427</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.opr_itemstatus">20240201</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.opr_itemstatus">20240129</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opr_itemstatus">142908</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.opr_itemstatus">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.opr_itemstatus">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.opr_itemstatus">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opr_itemstatus"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.opr_itemstatus"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opr_itemstatus"></DD_ATTR_DKNM>

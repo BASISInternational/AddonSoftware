@@ -17,13 +17,13 @@
 			<RESTRICT_AUTOADD id="ddm_tables.pow_vendorpos">N</RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.pow_vendorpos">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.pow_vendorpos">PO </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.pow_vendorpos">25.0</ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.pow_vendorpos">26.0      </ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.pow_vendorpos"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.pow_vendorpos">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.pow_vendorpos">20250607</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.pow_vendorpos">20250607</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.pow_vendorpos">20250607</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.pow_vendorpos">162318</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.pow_vendorpos">20260320</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.pow_vendorpos">20260317</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.pow_vendorpos">152520</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.pow_vendorpos"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.pow_vendorpos"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.pow_vendorpos"></DD_ATTR_DKNM>
@@ -56,6 +56,36 @@
 			<DD_ATTR_PADW id="ddm_tables.pow_vendorpos">0</DD_ATTR_PADW>
 			<DD_ATTR_PADH id="ddm_tables.pow_vendorpos">0</DD_ATTR_PADH>
 			<DD_ATTR_PADG id="ddm_tables.pow_vendorpos">0</DD_ATTR_PADG>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_ref">
+		<ID id="ddm_table_ref">DDM_TABLE_REF</ID>
+		<RECORD id="ddm_table_ref.pow_vendorposvendor_idapm_vendmast">
+			<DD_TABLE_ALIAS id="ddm_table_ref.pow_vendorposvendor_idapm_vendmast">POW_VENDORPOS   </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_ref.pow_vendorposvendor_idapm_vendmast">VENDOR_ID       </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_ref.pow_vendorposvendor_idapm_vendmast">APM_VENDMAST    </REF_TABLE_ALIAS>
+			<TABLE_REF_NAME id="ddm_table_ref.pow_vendorposvendor_idapm_vendmast">FK_POW_VENDORPOS_VENDOR_ID_APM_VENDMAST                                                                                                                                                                                                                        </TABLE_REF_NAME>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_refcol">
+		<ID id="ddm_table_refcol">DDM_TABLE_REFCOL</ID>
+		<RECORD id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0001">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0001">POW_VENDORPOS   </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0001">VENDOR_ID       </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0001">APM_VENDMAST    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0001">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0001">01</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0001">FIRM_ID         </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0001">FIRM_ID         </FK_TABLE_COL>
+		</RECORD>
+		<RECORD id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0002">
+			<DD_TABLE_ALIAS id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0002">POW_VENDORPOS   </DD_TABLE_ALIAS>
+			<DD_TABLE_COL id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0002">VENDOR_ID       </DD_TABLE_COL>
+			<REF_TABLE_ALIAS id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0002">APM_VENDMAST    </REF_TABLE_ALIAS>
+			<REF_KEY_NUMBER id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0002">00</REF_KEY_NUMBER>
+			<REF_KEY_SEGMENT id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0002">02</REF_KEY_SEGMENT>
+			<REF_KEY_COLUMN id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0002">VENDOR_ID       </REF_KEY_COLUMN>
+			<FK_TABLE_COL id="ddm_table_refcol.pow_vendorposvendor_idapm_vendmast0002">VENDOR_ID       </FK_TABLE_COL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_keys">
