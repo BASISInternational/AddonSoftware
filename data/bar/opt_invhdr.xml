@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.opt_invhdr">EB0DBEC2E6C8C30E6F7008EBB52E70A1</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opt_invhdr">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opt_invhdr">20090727</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.opt_invhdr">20260323</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.opt_invhdr">20260330</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opt_invhdr">093832</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.opt_invhdr">20260407</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.opt_invhdr">20260407</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.opt_invhdr">125102</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opt_invhdr"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.opt_invhdr">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opt_invhdr">AO_STAT_CUST_INV</DD_ATTR_DKNM>
@@ -88,6 +88,13 @@
 			<DD_ATTR_AOPT_CD id="ddm_table_aopt.opt_invhdr04">CART</DD_ATTR_AOPT_CD>
 			<DD_ATTR_AOPT_FM id="ddm_table_aopt.opt_invhdr04">M</DD_ATTR_AOPT_FM>
 		</RECORD>
+		<RECORD id="ddm_table_aopt.opt_invhdr05">
+			<DD_TABLE_ALIAS id="ddm_table_aopt.opt_invhdr05">OPT_INVHDR      </DD_TABLE_ALIAS>
+			<DD_ATTR_SEQ id="ddm_table_aopt.opt_invhdr05">05</DD_ATTR_SEQ>
+			<DD_ATTR_AOPT id="ddm_table_aopt.opt_invhdr05">Change Customer</DD_ATTR_AOPT>
+			<DD_ATTR_AOPT_CD id="ddm_table_aopt.opt_invhdr05">CUST</DD_ATTR_AOPT_CD>
+			<DD_ATTR_AOPT_FM id="ddm_table_aopt.opt_invhdr05">M</DD_ATTR_AOPT_FM>
+		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_cpro">
 		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
@@ -106,6 +113,10 @@
 		<RECORD id="ddm_table_cpro.opt_invhdraopt-cart">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.opt_invhdraopt-cart">OPT_INVHDR      </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.opt_invhdraopt-cart">AOPT-CART</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_table_cpro.opt_invhdraopt-cust">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.opt_invhdraopt-cust">OPT_INVHDR      </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.opt_invhdraopt-cust">AOPT-CUST</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_table_cpro.opt_invhdraopt-prnt">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.opt_invhdraopt-prnt">OPT_INVHDR      </DD_TABLE_ALIAS>
