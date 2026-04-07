@@ -236,7 +236,7 @@ rem --- Open printer, start progress meter and position header file
 rem --- Read next Recurring Invoice Header (ape-03) record
 
     while moreheaders
-      read record (ape03_dev,end=*break) ape03a$
+      read record (ape03_dev,end=ape03_hdr_eof) ape03a$
           if ape03a.firm_id$<>firm_id$ break
           if ape03a.repeat_count<1 then continue
           recs=recs+1
@@ -368,7 +368,7 @@ rem --- Read next Recurring Invoice Header (ape-03) record
                       if retention
                          if ape03a.retention
                             account$=apm10b.gl_ret_acct$
-                            amount=-ape03.retention
+                            amount=-ape03a.retention
                             gosub glrecap
                          endif
                       endif
@@ -385,14 +385,14 @@ rem --- Read next Recurring Invoice Header (ape-03) record
           discdate$=""
           retention$=""
           last_issued_date$=""
-          next_issued_date$=""
+          orig_issued_date$=""
           if retention retention$=str(ape03a.retention:m1$)
           if cvs(ape03a.next_issued_date$,2)<>"" invdate$=fndate$(ape03a.next_issued_date$)
           if cvs(inv_due_date$,2)<>"" duedate$=fndate$(inv_due_date$)
-          if cvs(ape03a.next_accting_dat$,2)<>"" acctdate$=fndate$(next_accting_dat$)
+          if cvs(ape03a.next_accting_dat$,2)<>"" acctdate$=fndate$(ape03a.next_accting_dat$)
           if cvs(disc_date$,2)<>"" discdate$=fndate$(disc_date$)
       if cvs(ape03a.invoice_date$,2)<>"" then
-         next_issued_date$=fndate$(ape03a.invoice_date$)
+         orig_issued_date$=fndate$(ape03a.invoice_date$)
       endif
       if cvs(ape03a.last_issued_date$,2)<>"" then
          last_issued_date$=fndate$(ape03a.last_issued_date$)
@@ -533,6 +533,8 @@ rem --- Read next Recurring Invoice Header (ape-03) record
           rem --- Loop back for next Recurring Invoice Header
 
     wend
+
+ape03_hdr_eof: rem --- Normal EOF on ape-03; exit loop without SysConsole break
 
 rem --- All done
 
