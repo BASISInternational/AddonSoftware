@@ -530,7 +530,11 @@ rem --- Read next Recurring Invoice Header (ape-03) record
             xwk=fnblank(15)
 
 
-          rem --- Loop back for next Recurring Invoice Header
+          rem --- Loop back for next Recurring Invoice
+
+    wend
+
+        rem --- Loop back for next Recurring Invoice Header
 
     wend
 
