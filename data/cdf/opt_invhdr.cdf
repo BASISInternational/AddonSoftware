@@ -74,6 +74,68 @@ rem --- of event it is... in this case, we're toggling checkboxes on/off in form
 	endif
 
 [[OPT_INVHDR.ADIS]]
+rem --- Finish changing customer for this invoice
+	removeThisRecord$=""
+	if callpoint!.getDevObject("RemoveThisRecord")<>null() then removeThisRecord$=callpoint!.getDevObject("RemoveThisRecord")
+	callpoint!.setDevObject("RemoveThisRecord","")
+	if removeThisRecord$<>"" then
+		rem --- Remove cash customer records for the invoice
+		optInvHdr_dev2=fnget_dev("2_OPT_INVHDR")
+		dim previous_optInvHdr$:fnget_tpl$("OPT_INVHDR")
+		findrecord(optInvHdr_dev2,key=removeThisRecord$,knum="AO_STATUS",dom=*next)previous_optInvHdr$
+		previous_arType$=previous_optInvHdr.ar_type$
+		previous_customerId$=previous_optInvHdr.customer_id$
+		previous_orderNo$=previous_optInvHdr.order_no$
+		previous_invoiceNo$=previous_optInvHdr.ar_inv_no$
+		previous_orderDate$=previous_optInvHdr.order_date$
+		previous_optInvHdr_key$=firm_id$+previous_arType$+previous_customerId$+previous_orderNo$+previous_invoiceNo$
+
+		if cvs(previous_customerId$,2)<>"" then
+			rem --- Remove cash customer for the invoice in OPT_INVHDR
+			find(optInvHdr_dev2,key=previous_optInvHdr_key$,knum="PRIMARY")
+			remove(optInvHdr_dev2,key=previous_optInvHdr_key$)
+
+			rem --- Remove cash customer for this invoice in OPT_INVDET
+			optInvDet_dev2=fnget_dev("2_OPT_INVDET")
+			read(optInvDet_dev2,key=previous_optInvHdr_key$,knum="PRIMARY",dom=*next)
+			while 1
+				optInvDet_key2$=key(optInvDet_dev2,end=*break)
+				if pos(previous_optInvHdr_key$=optInvDet_key2$)<>1 then break
+				remove(optInvDet_dev2,key=optInvDet_key2$)
+			wend
+
+			rem --- Remove cash customer for this invoice in OPT_INVLSDET
+			optInvLSDet_dev2=fnget_dev("2_OPT_INVLSDET")
+			read(optInvLSDet_dev2,key=previous_optInvHdr_key$,knum="PRIMARY",dom=*next)
+			while 1
+				optInvLSDet_key2$=key(optInvLSDet_dev2,end=*break)
+				if pos(previous_optInvHdr_key$=optInvLSDet_key2$)<>1 then break
+				remove(optInvLSDet_dev2,key=optInvLSDet_key2$)
+			wend
+
+			rem --- Remove cash customer for this invoice in OPT_INVKITDET
+			optInvKitDet_dev2=fnget_dev("2_OPT_INVKITDET")
+			read(optInvKitDet_dev2,key=previous_optInvHdr_key$,knum="PRIMARY",dom=*next)
+			while 1
+				optInvKitDet_key2$=key(optInvKitDet_dev2,end=*break)
+				if pos(previous_optInvHdr_key$=optInvKitDet_key2$)<>1 then break
+				remove(optInvKitDet_dev2,key=optInvKitDet_key2$)
+			wend
+
+			rem --- Remove cash customer for this invoice in OPT_INVCASH
+			optInvCash_dev2=fnget_dev("2_OPT_INVCASH")
+			find(optInvCash_dev2,key=previous_optInvHdr_key$,knum="PRIMARY",dom=*next)
+			remove(optInvCash_dev2,key=previous_optInvHdr_key$,dom=*next)
+
+			rem --- Remove cash customer for this invoice in OPT_INVSHIP
+			optInvShip_dev2=fnget_dev("2_OPT_INVSHIP")
+			previous_optInvShip_key$=firm_id$+previous_customerId$+previous_orderNo$+previous_invoiceNo$
+			find(optInvShip_dev2,key=previous_optInvShip_key$,knum="PRIMARY",dom=*next)
+			remove(optInvShip_dev2,key=previous_optInvShip_key$+"B",dom=*next)
+			remove(optInvShip_dev2,key=previous_optInvShip_key$+"S",dom=*next)
+		endif
+	endif
+
 rem --- Display invoice total
 
 	net_sales=num(callpoint!.getColumnData("OPT_INVHDR.TOTAL_SALES"))-
@@ -98,6 +160,13 @@ rem --- Enable SHPT additional options if shipment tracking info exists
 
 rem --- Enable Print button for this record
 	callpoint!.setOptionEnabled("PRNT",1)
+
+rem --- Enable Change Customer button if Cash customer
+	if user_tpl.cash_sale$="Y" and callpoint!.getColumnData("OPT_INVHDR.CUSTOMER_ID")=user_tpl.cash_cust$ then
+		callpoint!.setOptionEnabled("CUST",1)
+	else
+		callpoint!.setOptionEnabled("CUST",0)
+	endif
 
 rem --- Display bill-to and ship-to information
 	cust_id$ = callpoint!.getColumnData("OPT_INVHDR.CUSTOMER_ID")
@@ -137,6 +206,119 @@ rem --- Launch Order Fulfillment's Historical Carton Packing grid
 :       "QRY",
 :       key_pfx$,
 :       table_chans$[all]
+
+[[OPT_INVHDR.AOPT-CUST]]
+rem --- Launch Change Cash Customer form
+	ar_inv_no$=callpoint!.getColumnData("OPT_INVHDR.AR_INV_NO")
+	order_no$=callpoint!.getColumnData("OPT_INVHDR.ORDER_NO")
+
+	dim dflt_data$[2,1]
+	dflt_data$[1,0] = "AR_INV_NO"
+	dflt_data$[1,1] = ar_inv_no$
+	dflt_data$[2,0] = "ORDER_NO"
+	dflt_data$[2,1] = order_no$
+
+	call stbl("+DIR_SYP") + "bam_run_prog.bbj", 
+:		"OPE_CASHCHNG", 
+:		stbl("+USER_ID"), 
+:		"", 
+:		"",
+:		table_chans$[all],
+:		"",
+:		dflt_data$[all]
+
+	newCustomerId$=callpoint!.getDevObject("newCustomerId")
+
+	rem --- Make sure focus returns to this form
+	callpoint!.setStatus("ACTIVATE")
+
+rem --- Handle abort from Change Cash Customer form
+	if cvs(newCustomerId$,2)="" then
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+rem wgh ... 10392 ... test this
+rem --- Update customer for this invoice in OPT_INVHDR
+	optInvHdr_dev2=fnget_dev("2_OPT_INVHDR")
+	dim optInvHdr$:fnget_tpl$("OPT_INVHDR")
+	ar_type$=callpoint!.getColumnData("OPT_INVHDR.AR_TYPE")
+	cashCustomer$=callpoint!.getColumnData("OPT_INVHDR.CUSTOMER_ID")
+	cash_optInvHdrDev2_key$=firm_id$+ar_type$+cashCustomer$+order_no$+ar_inv_no$
+	readrecord(optInvHdr_dev2,key=cash_optInvHdrDev2_key$,knum="PRIMARY")optInvHdr$
+	optInvHdr.customer_id$=newCustomerId$
+	writerecord(optInvHdr_dev2)optInvHdr$
+
+rem --- Update customer for this invoice in OPT_INVDET
+	optInvDet_dev2=fnget_dev("2_OPT_INVDET")
+	dim optInvDet$:fnget_tpl$("OPT_INVDET")
+	read(optInvDet_dev2,key=cash_optInvHdrDev2_key$,knum="PRIMARY",dom=*next)
+	while 1
+		optInvDet_key2$=key(optInvDet_dev2,end=*break)
+		if pos(cash_optInvHdrDev2_key$=optInvDet_key2$)<>1 then break
+		readrecord(optInvDet_dev2)optInvDet$
+		optInvDet.customer_id$=newCustomerId$
+		writerecord(optInvDet_dev2)optInvDet$
+		read(optInvDet_dev2,key=optInvDet_key2$)
+	wend
+
+rem --- Update customer for this invoice in OPT_INVLSDET
+	optInvLSDet_dev2=fnget_dev("2_OPT_INVLSDET")
+	dim optInvLSDet$:fnget_tpl$("2_OPT_INVLSDET")
+	read(optInvLSDet_dev2,key=cash_optInvHdrDev2_key$,knum="PRIMARY",dom=*next)
+	while 1
+		optInvLSDet_key2$=key(optInvLSDet_dev2,end=*break)
+		if pos(cash_optInvHdrDev2_key$=optInvLSDet_key2$)<>1 then break
+		readrecord(optInvLSDet_dev2)optInvLSDet$
+		optInvLSDet.customer_id$=newCustomerId$
+		writerecord(optInvLSDet_dev2)optInvLSDet$
+		read(optInvLSDet_dev2,key=optInvLSDet_key2$)
+	wend
+
+rem --- Update customer for this invoice in OPT_INVKITDET
+	optInvKitDet_dev2=fnget_dev("2_OPT_INVKITDET")
+	dim optInvKitDet$:fnget_tpl$("2_OPT_INVKITDET")
+	read(optInvKitDet_dev2,key=cash_optInvHdrDev2_key$,knum="PRIMARY",dom=*next)
+	while 1
+		optInvKitDet_key2$=key(optInvKitDet_dev2,end=*break)
+		if pos(cash_optInvHdrDev2_key$=optInvKitDet_key2$)<>1 then break
+		readrecord(optInvKitDet_dev2)optInvKitDet$
+		optInvKitDet.customer_id$=newCustomerId$
+		writerecord(optInvKitDet_dev2)optInvKitDet$
+		read(optInvKitDet_dev2,key=optInvKitDet_key2$)
+	wend
+
+rem --- Update customer for this invoice in OPT_INVCASH
+	optInvCash_dev2=fnget_dev("2_OPT_INVCASH")
+	dim optInvCash$:fnget_tpl$("2_OPT_INVCASH")
+	read(optInvCash_dev2,key=cash_optInvHdrDev2_key$,knum="PRIMARY",dom=*next)
+	while 1
+		optInvCash_key2$=key(optInvCash_dev2,end=*break)
+		if pos(cash_optInvHdrDev2_key$=optInvCash_key2$)<>1 then break
+		readrecord(optInvCash_dev2)optInvCash$
+		optInvCash.customer_id$=newCustomerId$
+		writerecord(optInvCash_dev2)optInvCash$
+		read(optInvCash_dev2,key=optInvCash_key2$)
+	wend
+
+rem --- Update customer for this invoice in OPT_INVSHIP
+	optInvShip_dev2=fnget_dev("2_OPT_INVSHIP")
+	dim optInvShip$:fnget_tpl$("OPT_INVSHIP")
+	previous_optInvShip_key$=firm_id$+cashCustomer$+order_no$+ar_inv_no$
+	read(optInvShip_dev2,key=previous_optInvShip_key$,knum="PRIMARY",dom=*next)
+	while 1
+		optInvShip_key2$=key(optInvShip_dev2,end=*break)
+		if pos(previous_optInvShip_key$=optInvShip_key2$)<>1 then break
+		readrecord(optInvShip_dev2)optInvShip$
+		optInvShip.customer_id$=newCustomerId$
+		writerecord(optInvShip_dev2)optInvShip$
+		read(optInvShip_dev2,key=optInvShip_key2$)
+	wend
+
+rem --- Re-launch Invoice History Inquiry form for the invoice with the new customer
+rem --- In ADIS, remove order records for the previous customer if callpoint!.getDevObject("RemoveThisRecord") is NOT blank
+	current_key$=firm_id$+"U"+ar_type$+cashCustomer$+order_no$+ar_inv_no$
+	callpoint!.setDevObject("RemoveThisRecord",current_key$)
+	callpoint!.setStatus("RECORD:["+firm_id$+"U"+"  "+newCustomerId$+ar_inv_no$+"]")
 
 [[OPT_INVHDR.AOPT-PRNT]]
 rem --- historical invoice
@@ -255,7 +437,7 @@ rem --- Disable additional options for now
 [[OPT_INVHDR.BSHO]]
 rem --- Open needed files
 
-	num_files=40
+	num_files=46
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 
 	open_tables$[1]="ARM_CUSTMAST",  open_opts$[1]="OTA"
@@ -289,6 +471,12 @@ rem --- Open needed files
 	open_tables$[38]="OPC_TAXCODE",  open_opts$[38]="OTA"
 	open_tables$[39]="OPT_SHIPTRACK",  open_opts$[39]="OTA"
 	open_tables$[40]="IVC_PRODCODE",  open_opts$[40]="OTA"
+	open_tables$[41]="OPT_INVHDR",open_opts$[41]="OTAN[2_]"
+	open_tables$[42]="OPT_INVDET",   open_opts$[42]="OTAN[2_]"
+	open_tables$[43]="OPT_INVSHIP",  open_opts$[43]="OTAN[2_]"
+	open_tables$[44]="OPT_INVLSDET",  open_opts$[44]="OTA[2_]"
+	open_tables$[45]="OPT_INVCASH",  open_opts$[45]="OTA[2_]"
+	open_tables$[46]="OPT_INVKITDET",  open_opts$[46]="OTA[2_]"
 	
 gosub open_tables
 
@@ -443,7 +631,7 @@ rem --- Setup user_tpl$
 	user_tpl.skip_ln_code$     = ars01a.skip_ln_code$
 	user_tpl.cash_sale$        = ars01a.cash_sale$
 	user_tpl.cash_cust$        = ars01a.customer_id$
-   user_tpl.allow_bo$         = ars01a.backorders$
+   	user_tpl.allow_bo$         = ars01a.backorders$
 	user_tpl.dropship_cost$    = ars01a.dropshp_cost$
 	user_tpl.min_ord_amt       = num(ars01a.min_ord_amt$)
 	user_tpl.min_line_amt      = num(ars01a.min_line_amt$)
