@@ -12,17 +12,47 @@ dim notify_base$:noticetpl(0,0)
 gui_event$=SysGUI!.getLastEventString()
 ctl_ID=dec(gui_event.ID$)
 
-if ctl_ID=num(user_tpl.gridCreditCtlID$)
-
-	if gui_event.code$="N"
-		notify_base$=notice(gui_dev,gui_event.x%)
-		dim notice$:noticetpl(notify_base.objtype%,gui_event.flags%)
-		notice$=notify_base$
+if user_tpl.cur_sel$="O" or user_tpl.cur_sel$="C"then
+	gridCredit!=UserObj!.getItem(num(user_tpl.gridCreditOffset$))
+	row=gridCredit!.getSelectedRow()
+	if row<0 then
+		callpoint!.setOptionEnabled("COLL",0)
+	else
+		callpoint!.setOptionEnabled("COLL",1)
 	endif
-
-	gosub launch_cred_maint
-
 endif
+
+[[OPE_CREDREV.AOPT-COLL]]
+rem --- Launch Collection Information form
+	gridCredit!=UserObj!.getItem(num(user_tpl.gridCreditOffset$))
+	row=gridCredit!.getSelectedRow()
+	rowData!=gridCredit!.getRowData(row)
+	cellVect!=rowData!.getList()
+	date$=pad(cellVect!.getItem(0).getText(),8)
+	rev_date$=date$(5,4)+date$(1,2)+date$(3,2)
+	customer_id$=cellVect!.getItem(1).getText()
+	order_no$=cellVect!.getItem(3).getText()
+	key_pfx$=firm_id$+rev_date$+customer_id$+order_no$
+
+	dim dflt_data$[3,1]
+	dflt_data$[1,0] = "REV_DATE"
+	dflt_data$[1,1] = rev_date$
+	dflt_data$[2,0] = "CUSTOMER_ID"
+	dflt_data$[2,1] = customer_id$
+	dflt_data$[3,0] = "ORDER_NO"
+	dflt_data$[3,1] = order_no$
+
+	call stbl("+DIR_SYP")+"bam_run_prog.bbj",
+:		"OPE_COLLECTION",
+:		stbl("+USER_ID"),
+:       	"MNT",
+:       	key_pfx$,
+:       	table_chans$[all],
+:		"",
+:		dflt_data$[all]
+
+	rem --- Make sure focus returns to this form
+	callpoint!.setStatus("ACTIVATE")
 
 [[OPE_CREDREV.AOPT-CRED]]
 rem --- get curr row from grid and launch credit maint
@@ -150,8 +180,7 @@ rem --- misc other init
 	gosub fill_grid
 
 rem --- set callbacks - processed in ACUS callpoint
-	gridCredit!.setCallback(gridCredit!.ON_GRID_DOUBLE_CLICK,"custom_event")
-	gridCredit!.setCallback(gridCredit!.ON_GRID_ENTER_KEY,"custom_event")
+	gridCredit!.setCallback(gridCredit!.ON_GRID_SELECT_ROW,"custom_event")
 
 rem --- verify New Tickler is disabled and Cred Maint ensabled properly
 	callpoint!.setOptionEnabled("NEWC",0)
@@ -161,6 +190,7 @@ rem --- verify New Tickler is disabled and Cred Maint ensabled properly
 	else
 		callpoint!.setOptionEnabled("CRED",1)
 	endif
+	callpoint!.setOptionEnabled("COLL",0)
 
 [[OPE_CREDREV.CUST_ORD.AVAL]]
 rem --- Change selection
@@ -174,6 +204,14 @@ rem --- Change selection
 			callpoint!.setOptionEnabled("CRED",1)
 		endif
 		callpoint!.setOptionEnabled("NEWC",1)
+
+		gridCredit!=UserObj!.getItem(num(user_tpl.gridCreditOffset$))
+		rows!=gridCredit!.getSelectedRows()
+		if rows!.size()<1 then
+			callpoint!.setOptionEnabled("COLL",0)
+		else
+			callpoint!.setOptionEnabled("COLL",1)
+		endif
 	endif
 
 	if user_tpl.cur_sel$="C" and callpoint!.getUserInput()="O"
@@ -186,6 +224,14 @@ rem --- Change selection
 			callpoint!.setOptionEnabled("CRED",1)
 		endif
 		callpoint!.setOptionEnabled("NEWC",0)
+
+		gridCredit!=UserObj!.getItem(num(user_tpl.gridCreditOffset$))
+		rows!=gridCredit!.getSelectedRows()
+		if rows!.size()<1 then
+			callpoint!.setOptionEnabled("COLL",0)
+		else
+			callpoint!.setOptionEnabled("COLL",1)
+		endif
 	endif
 
 [[OPE_CREDREV.<CUSTOM>]]
