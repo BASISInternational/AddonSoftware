@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ope_credrev"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_credrev">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_credrev">20081222</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ope_credrev">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ope_credrev">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_credrev">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ope_credrev">20260413</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ope_credrev">20260413</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_credrev">160958</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_credrev"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ope_credrev">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ope_credrev">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_credrev"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ope_credrev"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ope_credrev">S</DD_ATTR_FTYP>
@@ -70,9 +70,16 @@
 		<RECORD id="ddm_table_aopt.ope_credrev02">
 			<DD_TABLE_ALIAS id="ddm_table_aopt.ope_credrev02">OPE_CREDREV     </DD_TABLE_ALIAS>
 			<DD_ATTR_SEQ id="ddm_table_aopt.ope_credrev02">02</DD_ATTR_SEQ>
-			<DD_ATTR_AOPT id="ddm_table_aopt.ope_credrev02">Credit Maint</DD_ATTR_AOPT>
-			<DD_ATTR_AOPT_CD id="ddm_table_aopt.ope_credrev02">CRED</DD_ATTR_AOPT_CD>
+			<DD_ATTR_AOPT id="ddm_table_aopt.ope_credrev02">Collection</DD_ATTR_AOPT>
+			<DD_ATTR_AOPT_CD id="ddm_table_aopt.ope_credrev02">COLL</DD_ATTR_AOPT_CD>
 			<DD_ATTR_AOPT_FM id="ddm_table_aopt.ope_credrev02">F</DD_ATTR_AOPT_FM>
+		</RECORD>
+		<RECORD id="ddm_table_aopt.ope_credrev03">
+			<DD_TABLE_ALIAS id="ddm_table_aopt.ope_credrev03">OPE_CREDREV     </DD_TABLE_ALIAS>
+			<DD_ATTR_SEQ id="ddm_table_aopt.ope_credrev03">03</DD_ATTR_SEQ>
+			<DD_ATTR_AOPT id="ddm_table_aopt.ope_credrev03">Credit Maint</DD_ATTR_AOPT>
+			<DD_ATTR_AOPT_CD id="ddm_table_aopt.ope_credrev03">CRED</DD_ATTR_AOPT_CD>
+			<DD_ATTR_AOPT_FM id="ddm_table_aopt.ope_credrev03">F</DD_ATTR_AOPT_FM>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_cpro">
@@ -80,6 +87,10 @@
 		<RECORD id="ddm_table_cpro.ope_credrevacus">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.ope_credrevacus">OPE_CREDREV     </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.ope_credrevacus">ACUS</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_table_cpro.ope_credrevaopt-coll">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.ope_credrevaopt-coll">OPE_CREDREV     </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.ope_credrevaopt-coll">AOPT-COLL</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_table_cpro.ope_credrevaopt-cred">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.ope_credrevaopt-cred">OPE_CREDREV     </DD_TABLE_ALIAS>
@@ -163,7 +174,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_credrev001">20081222</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_credrev001"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_credrev001"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_credrev001">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_credrev001">C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_credrev001">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_credrev001"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_credrev001"></DD_ATTR_CTLY>

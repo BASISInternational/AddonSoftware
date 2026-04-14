@@ -82,6 +82,12 @@ rem --- Delete the Order or the Followup date for the Customer
 	gosub disp_message
 	if msg_opt$="N" goto no_delete
 
+rem --- Remove collection info
+	rev_date$=callpoint!.getColumnData("OPE_CREDMAINT.REV_DATE")
+	opeCollection_dev=fnget_dev("OPE_COLLECTION")
+	dim ope01a$:fnget_tpl$("OPE_ORDHDR")
+	remove(opeCollection_dev,key=firm_id$+rev_date$+cust$+pad(ord$,len(ope01a.order_no$)),dom=*next)
+
 	if cvs(ord$,2)="" goto del_followup
 
 rem --- Delete the order
@@ -403,7 +409,7 @@ rem --- Init
 	use ::opo_SalesOrderCreateWO.aon::SalesOrderCreateWO
 
 rem --- Open tables
-	num_files=14
+	num_files=15
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="ARM_CUSTMAST",open_opts$[1]="OTA"
 	open_tables$[2]="OPE_ORDHDR",open_opts$[2]="OTA"
@@ -419,6 +425,7 @@ rem --- Open tables
 	open_tables$[12]="IVM_ITEMMAST",open_opts$[12]="OTA"
 	open_tables$[13]="OPS_PARAMS",open_opts$[13]="OTA"
 	open_tables$[14]="ARC_SALECODE",open_opts$[14]="OTA"
+	open_tables$[15]="OPE_COLLECTION",open_opts$[15]="OTA"
 
 	gosub open_tables
 
