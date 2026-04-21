@@ -237,7 +237,6 @@ rem --- Handle abort from Change Cash Customer form
 		callpoint!.setStatus("ABORT")
 		break
 	endif
-rem wgh ... 10392 ... test this
 rem --- Update customer for this invoice in OPT_INVHDR
 	optInvHdr_dev2=fnget_dev("2_OPT_INVHDR")
 	dim optInvHdr$:fnget_tpl$("OPT_INVHDR")
