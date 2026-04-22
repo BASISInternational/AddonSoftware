@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-03-04
+ Report Date:   2026-04-22
  Report Branch: AddonSoftware 26.00
  Last Release:  AddonSoftware 25.12
 =======================================================================================================================================
@@ -79,4 +79,21 @@ Bug 11171: unprocessed receipts in qty expected
 PO Receiver qty expected now includes unprocessed receipts from POE_RECDET.
 ----
 Modified: a/sprocs/PORECEIVER_DET.prc
+=======================================================================================================================================
+
+Revision: 768c6f8a98205a289b8f9a8f3df4ba4d1c141603
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 4/22/2026 2:38:21 PM
+Message:
+Bug 11207: Added DOC_NO record for firms 01, 02, and ZZ in Addon's sync
+file for Barista's ADS_SEQUENCES table. Also, cleaned up other records
+for firm ZZ in those Addon sync files.
+----
+Modified: data/sync/ads_sequences~[01007514AD].xml
+Modified: data/sync/ads_sequences~[01007514AP].xml
+Modified: data/sync/ads_sequences~[01007514AR].xml
+Modified: data/sync/ads_sequences~[01007514IV].xml
+Modified: data/sync/ads_sequences~[01007514OP].xml
+Modified: data/sync/ads_sequences~[01007514PO].xml
+Modified: data/sync/ads_sequences~[01007514SF].xml
 =======================================================================================================================================
