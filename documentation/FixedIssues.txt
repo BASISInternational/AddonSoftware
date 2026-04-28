@@ -16,3 +16,13 @@ Bug 11215: Added missing LANGUAGE_ID in formData! vector.
 ----
 Modified: ad/src/adx_firmsetup.aon
 =======================================================================================================================================
+
+Revision: 1b62e6b943c7e962259ec6d2002bba4e2ef5f9cc
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 4/28/2026 3:42:25 PM
+Message:
+Bug 11207: Added DOC_NO record for firm 99 (consolidated GL financials)
+in Addon's sync file for Barista's ADS_SEQUENCES table.
+----
+Modified: data/sync/ads_sequences~[01007514AD].xml
+=======================================================================================================================================
