@@ -33,6 +33,7 @@ rem --- Get user inputs
     formData!.setProperty("FEDERAL_ID",Option!.getOptionData("FEDERAL_ID"))
     formData!.setProperty("INSTALL_TYPE",Option!.getOptionData("INSTALL_TYPE"))
     formData!.setProperty("NEW_INSTALL",Option!.getOptionData("NEW_INSTALL"))
+    formData!.setProperty("LANGUAGE_ID",Option!.getOptionData("LANGUAGE_ID"))
 
     if num(Option!.getOptionData("NEW_INSTALL"))then
         rem --- For a new installation, return formData! to the adx_installwiz form and exit
