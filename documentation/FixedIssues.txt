@@ -7,3 +7,12 @@
 26.00 released 04/27/2026
 BBjBaristaAddonDemos2600_04-22-2026_1200.jar
 =======================================================================================================================================
+
+Revision: 3c34599cab64cfcbfc4ce4f6e0ced643293c00c5
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 4/28/2026 1:53:01 PM
+Message:
+Bug 11215: Added missing LANGUAGE_ID in formData! vector.
+----
+Modified: ad/src/adx_firmsetup.aon
+=======================================================================================================================================
