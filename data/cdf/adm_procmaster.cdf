@@ -26,7 +26,7 @@ if callpoint!.getColumnData("ADM_PROCMASTER.ALLOW_BATCH")="Y" then
 			read(file_dev,key=firm_id$,dom=*next)
 			this_key$=key(file_dev,end=*endif)
 			if pos(firm_id$=this_key$)=1 then
-				if pos("trans_status:(c1)"=open_tpls$[1]) then
+				if pos("trans_status:c(1)"=open_tpls$[1]) then
 					rem --- Check if real-time processing type file with trans_status<>U
 					sql_prep$=""
 					sql_prep$=sql_prep$+"SELECT count(*) "
