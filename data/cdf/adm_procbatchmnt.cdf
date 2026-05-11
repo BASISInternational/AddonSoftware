@@ -45,7 +45,7 @@ while 1
 		read (file_dev,key=tripKey$,knum=num(dd_key_number$),dom=*next,err=*endif)
 		k$=key(file_dev,end=*endif)
 		if pos(tripKey$=k$)=1 then 	
-			if pos("trans_status:(c1)"=open_tpls$[1]) then
+			if pos("trans_status:c(1)"=open_tpls$[1]) then
 				rem --- Check if real-time processing type file with trans_status<>U
 				if pos(tripKey$+"E"=k$)=1 or pos(tripKey$+"R"=k$)=1  then
 					callpoint!.setDevObject("can_delete","NO")
