@@ -110,9 +110,11 @@ rem --- Inits
             read record (ope41_dev,end=*break) ope41a$
             if firm_id$<>ope41a.firm_id$ then break
             if pos(ope41a.trans_status$="ER")=0 then continue
+            if ope41a.batch_no$<>batch_no$ then continue
             find record (ope01_dev, key=ope41a.firm_id$+ope41a.ar_type$+ope41a.customer_id$+ope41a.order_no$+ope41a.ar_inv_no$, dom=*continue) ope01a$
             if ope01a.print_status$<>"Y" or ope01a.lock_status$<>"S" then continue
             if pos(ope01a.trans_status$="ER")=0 then continue            
+            if ope01a.batch_no$<>batch_no$ then continue
 
         rem --- Write Record
 
@@ -125,7 +127,12 @@ rem --- Inits
             opw41a.ar_inv_no$    = ope41a.ar_inv_no$
             opw41a.customer_id$  = ope41a.customer_id$
             opw41a.order_no$     = ope41a.order_no$
-            write record (opw41_dev) opw41a$
+            if seq$="C" then
+                opw41_key$=opw41a.firm_id$+opw41a.ar_type$+opw41a.invoice_date$+opw41a.customer_id$+opw41a.ar_inv_no$+opw41a.order_no$
+            else
+                opw41_key$=opw41a.firm_id$+opw41a.ar_type$+opw41a.invoice_date$+opw41a.ar_inv_no$+opw41a.customer_id$+opw41a.order_no$
+            endif
+            opw41Map!.put(opw41_key$,opw41a$)
 
             rem --- If didn't update previous register, the opt_invcash record will already have a deposit assigned.
             rem --- If opt_invcash deposit already exists, remove it and the art_deposit record.
@@ -143,15 +150,13 @@ rem --- Inits
         rem call pgmdir$+"adc_progress.aon","N","","","","",0,ope41_dev,1,meter_num,status
         rem if status=999 then exitto std_exit
 
-        if seq$="C" then opw41knum$="BY_CUST" else opw41knum$="PRIMARY"
-        read (opw41_dev,key=firm_id$,knum=opw41knum$,dom=*next)
+        opw41_iter!=opw41Map!.keySet().iterator()
 
 		rem --- Main Read
-
-        while more
-            opw41a_key$=key(opw41_dev,end=*break)
+        
+        while opw41_iter!.hasNext()
+            opw41a_key$=opw41_iter!.next()
             if pos(firm_id$=opw41a_key$)<>1 then break
-            read (opw41_dev)
 
         rem --- Breaks
 
@@ -200,6 +205,7 @@ rem --- Inits
                     dim deposit_tpl$:fattr(deposit_tpl$)
                     deposit_tpl.firm_id$=firm_id$
                     deposit_tpl.deposit_id$=deposit_id$
+                    deposit_tpl.batch_no$=batch_no$
                     deposit_tpl.deposit_date$=ope41a.invoice_date$
                     deposit_tpl.description$="Sales Register: "+ope41a.invoice_date$+"-"+ope41a.cash_rec_cd$
                     deposit_tpl.cash_rec_cd$=ope41a.cash_rec_cd$
@@ -217,6 +223,7 @@ rem --- Inits
 
         rem --- Update opt_invcash
             ope41a.deposit_id$=deposit_id$
+            ope41a.batch_no$=batch_no$
             ope41a.trans_status$="R"     
             ope41a.mod_user$=sysinfo.user_id$
             ope41a.mod_date$=date(0:"%Yd%Mz%Dz")
@@ -448,6 +455,13 @@ rem --- #endinclude std_error.src
 rem --- #include std_end.src
 
 std_exit: rem --- Standard program end (01Mar2006)
+
+    if num(batch_no$)<>0
+        unlock_key$=firm_id$+stbl("+PROCESS_ID")+stbl("+BATCH_NO")
+        lock_status$=""
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHES",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHSEL",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+    endif
 
     call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
     run stbl("+DIR_SYP")+"bas_process_end.bbj",err=*next

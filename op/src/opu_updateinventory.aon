@@ -186,6 +186,7 @@ rem --- Read next invoice header --- Main Loop Starts
             extract record (ope01_dev) ope01a$; rem Advisory Locking
             if ope01a.print_status$<>"Y" or ope01a.lock_status$<>"1" then read(ope01_dev); continue
             if ope01a.trans_status$<>"R" then read(ope01_dev); continue
+            if num(batch_no$)>0 and ope01a.batch_no$<>batch_no$ then read(ope01_dev); continue
         
             if cvs(ope01a.invoice_date$,2)="" then ope01a.invoice_date$=sysinfo.system_date$
             ope01a.lock_status$="2"
@@ -287,6 +288,7 @@ rem --- Read next invoice header --- Main Loop Starts
                 if pos(ope11_trip$=ope11_key$)<>1 then break
                 extract record (ope11_dev) ope11a$; rem Advisory Locking
                 if ope11a.trans_status$<>"R" then read(ope11_dev); continue
+                if num(batch_no$)>0 and ope11a.batch_no$<>batch_no$ then continue
                 z0$(1)=z9$
                 ref3$=ope11a.line_no$
                 acct$=""
@@ -550,6 +552,7 @@ rem --- Read next invoice header --- Main Loop Starts
                         if ope11a.qty_backord<>0 then
                             optInvKitDet.trans_status$="E"
                             optInvKitDet.ar_inv_no$=""
+                            optInvKitDet.batch_no$=""
                             optInvKitDet.qty_ordered=optInvKitDet.qty_ordered-optInvKitDet.qty_shipped
                             optInvKitDet.qty_shipped=optInvKitDet.qty_backord
                             optInvKitDet.qty_backord=0
@@ -988,6 +991,7 @@ ar_open_invoice_detail: rem --- AR Open Invoice Detail
                 rem --- Retain Address info for backorders
                 extract record (ope31_dev,key=ope01a.firm_id$+ope01a.customer_id$+ope01a.order_no$+ope01a.ar_inv_no$+address_type$,dom=*endif) ope31a$; rem Advisory Locking
                 ope31a.ar_inv_no$=""
+                ope31a.batch_no$=""
                 ope31a.trans_status$="E"     
                 write record (ope31_dev) ope31a$
             endif
@@ -1013,6 +1017,7 @@ ar_open_invoice_detail: rem --- AR Open Invoice Detail
             ope01a.ordinv_flag$="O"
             ope01a.invoice_date$=""
             ope01a.ar_inv_no$=""
+            ope01a.batch_no$=""
             ope01a.print_status$="N"
             ope01a.lock_status$="N"
             ope01a.tax_amount=0
@@ -1121,6 +1126,7 @@ rem --- Set LOCK_STATUS and TRANS_STATUS for update completed, and remove comple
             if pos(ope01_trip$=ope01_key$)<>1 then break
             extract record (ope01_dev) ope01a$; rem Advisory Locking
             if ope01a.lock_status$<>"2" or ope01a.trans_status$<>"R" then read(ope01_dev); continue
+            if num(batch_no$)>0 and ope01a.batch_no$<>batch_no$ then read(ope01_dev); continue
 
             if ope01a.invoice_type$<>"V" then
                 rem --- Was sales tax service used to calculate the tax amount?
@@ -1213,6 +1219,8 @@ rem --- All Done
         msg_tokens$[1] = invNotCommitted$
         gosub disp_message
     endif
+
+    call pgmdir$+"adc_batchdelete.aon",status
 
     goto std_exit
 
@@ -1471,6 +1479,7 @@ update_order_detail:
 
     rem --- Write new ope-11 record with blank ar_inv_no$
     ope11a.ar_inv_no$=""
+    ope11a.batch_no$=""
     ope11a.pick_flag$ = "N"
     total_sales = total_sales + ope11a.ext_price
     total_cost_ord = total_cost_ord + round(ope11a.qty_ordered * ope11a.unit_cost, 2)
@@ -1498,6 +1507,7 @@ kit_component_BO: rem --- Handle kit NOT backordered but a component is
     new_ope11a.qty_shipped=new_ope11a_ordered
     new_ope11a.ext_price=round(new_ope11a.qty_ordered*new_ope11a.unit_price,2)
     new_ope11a.ar_inv_no$=""
+    new_ope11a.batch_no$=""
     new_ope11a.pick_flag$ = "N"
     total_sales = total_sales + new_ope11a.ext_price
     total_cost_ord = total_cost_ord + round(new_ope11a.qty_ordered * new_ope11a.unit_cost, 2)
@@ -1587,6 +1597,13 @@ std_exit: rem --- Standard program end (01Mar2006)
     dim msg_tokens$[1]
     msg_opt$=""
     gosub disp_message
+
+    if num(batch_no$)<>0
+        unlock_key$=firm_id$+stbl("+PROCESS_ID")+stbl("+BATCH_NO")
+        lock_status$=""
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHES",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHSEL",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+    endif
 
     call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
     run stbl("+DIR_SYP")+"bas_process_end.bbj",err=*next

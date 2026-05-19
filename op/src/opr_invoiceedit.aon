@@ -30,6 +30,12 @@ rem --- Retrieve sysinfo data
     milestone=50
     milestone=num(stbl("+MILESTONE",err=*next))
 
+rem --- See if batching
+
+    call stbl("+DIR_PGM")+"adc_getbatch.aon","",pgm(-2),rd_table_chans$[all]
+    batch_no$=stbl("+BATCH_NO")
+    process_id$=stbl("+PROCESS_ID")
+
 rem --- Open/Lock files
 
     files=14,begfile=1,endfile=files
@@ -109,7 +115,8 @@ rem --- Parameters
 rem --- Additional/optional opens
 
     if lf$="Y" then
-        files$[14]="ivw-04", ids$[14]="IVW_LFDET",  options$[14]="CL"
+        files$[14]="ivw-04", ids$[14]="IVW_LFDET"
+        if num(batch_no$)=0 then options$[14]="CL"
         call pgmdir$+"adc_fileopen.aon",action,14,14,files$[all],options$[all],
 :           ids$[all],templates$[all],channels[all],batch,status
         if status goto std_exit

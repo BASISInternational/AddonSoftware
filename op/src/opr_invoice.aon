@@ -41,6 +41,12 @@ rem --- Retrieve sysinfo data
     sysinfo$=stbl("+SYSINFO")
     firm_id$=sysinfo.firm_id$
 
+rem --- see if batching
+
+    call stbl("+DIR_PGM")+"adc_getbatch.aon","",pgm(-2),rd_table_chans$[all]
+    batch_no$=stbl("+BATCH_NO")
+    process_id$=stbl("+PROCESS_ID")
+
 rem --- Open File(s)
 
 	num_files=2
@@ -100,12 +106,13 @@ rem --- Check to see if record is in use in Invoice Entry
             extract record (ope01_dev, key=ope01_key$) ope01a$
             rem --- trans_status$="R" if sales register/update crashed 
             if pos(ope01a.trans_status$="ER")=0 then read(ope01_dev); continue
+            if num(batch_no$)>0 and ope01a.batch_no$<>batch_no$ then read(ope01_dev); continue
             bad_record = 0
             break
         wend
 
         if bad_record then
-            remove (ope04_dev, key=firm_id$+"I"+"  "+ope04a.customer_id$+ope04a.order_no$, dom=*next)
+            if num(batch_no$)=0 then remove (ope04_dev, key=firm_id$+"I"+"  "+ope04a.customer_id$+ope04a.order_no$, dom=*next)
             continue
         endif
         
@@ -257,6 +264,13 @@ rem #endinclude std_missing_params.src
 rem #include std_end.src
 
 std_exit: rem --- Standard program end (01Mar2006)
+
+    if num(batch_no$)<>0
+        unlock_key$=firm_id$+stbl("+PROCESS_ID")+stbl("+BATCH_NO")
+        lock_status$=""
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHES",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHSEL",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+    endif
 
     run stbl("+DIR_SYP")+"bas_process_end.bbj",err=*next
     release
