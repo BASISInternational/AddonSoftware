@@ -45,6 +45,12 @@ rem --- Retrieve sysinfo data
     sysinfo$=stbl("+SYSINFO")
     firm_id$=sysinfo.firm_id$
 
+rem --- See if batching
+
+    call stbl("+DIR_PGM")+"adc_getbatch.aon","",pgm(-2),rd_table_chans$[all]
+    batch_no$=stbl("+BATCH_NO")
+    process_id$=stbl("+PROCESS_ID")
+    
 rem --- Open/Lock files
 
     files=34,begfile=1,endfile=files
@@ -68,14 +74,21 @@ rem --- Open/Lock files
     files$[19]="opm-06",      ids$[19]="OPC_TAXCODE"
     files$[20]="ops_mtdsales",ids$[20]="OPS_MTDSALES"
     files$[21]="opt-31",      ids$[21]="OPE_ORDSHIP"
-    files$[22]="opw-11",      ids$[22]="OPW_TERRSUMM", options$[22]="CL"
-    files$[23]="opw-21",      ids$[23]="OPW_LINESUMM", options$[23]="CL"
-    files$[24]="opw-31",      ids$[24]="OPW_SALESUMM", options$[24]="CL"
-    files$[25]="opw-41",      ids$[25]="OPW_INVCASH",  options$[25]="CL"
+    files$[22]="opw-11",      ids$[22]="OPW_TERRSUMM"; rem options$[22]="CL"
+    files$[23]="opw-21",      ids$[23]="OPW_LINESUMM"; rem options$[23]="CL"
+    files$[24]="opw-31",      ids$[24]="OPW_SALESUMM"; rem options$[24]="CL"
+    files$[25]="opw-41",      ids$[25]="OPW_INVCASH"; rem options$[25]="CL"
     files$[26]="sas_params",  ids$[26]="SAS_PARAMS"
     files$[27]="glm-03",      ids$[27]="GLC_JOURNALCODE"
     files$[28]="arc_salecode",ids$[28]="ARC_SALECODE"
     files$[29]="arc_terrcode",ids$[29]="ARC_TERRCODE"
+
+    rem --- Use TreeMap (in case sort order is important) instead of locking and clearing work files
+    opw11Map!=new java.util.TreeMap()
+    opw21Map!=new java.util.TreeMap()
+    opw31Map!=new java.util.TreeMap()
+    opw41Map!=new java.util.TreeMap()
+    
 
     call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
 :       ids$[all],templates$[all],channels[all],batch,status
@@ -170,10 +183,8 @@ rem --- Parameters
     if start_block then
         call pgmdir$+"glc_ctlcreate.aon",err=*endif,pgm(-2),n2$,glw11$,gl$,status
         if status then goto std_exit
-        process_id$=stbl("+PROCESS_ID")
-        batch_no$=stbl("+BATCH_NO")
 
-        files$[30]="glw-11",ids$[30]="GLW_DAILYDETAIL";rem --- no longer using; ,options$[30]="CL"
+        files$[30]="glw-11",ids$[30]="GLW_DAILYDETAIL"
         call pgmdir$+"adc_fileopen.aon",action,30,30,files$[all],options$[all],
 :           ids$[all],templates$[all],channels[all],batch,status
         if status goto std_exit
@@ -237,7 +248,9 @@ rem --- Additional/optional opens
     endif
 
     if lf$="Y" then
-        files$[33]="ivw-04", ids$[33]="IVW_LFDET",  options$[33]="CL"
+        rem --- Use HashMap instead of locking and clearing work files
+rem --- Cannot eliminate locking and clearing IVW_LFDET until after ER 11220 is implemented
+        files$[33]="ivw-04", ids$[33]="IVW_LFDET",options$[33]="CL"; rem --- ivc_lifofifo.aon now uses HashMap instead of locking and clearing work files
         call pgmdir$+"adc_fileopen.aon",action,33,34,files$[all],options$[all],
 :           ids$[all],templates$[all],channels[all],batch,status
         if status goto std_exit
@@ -266,6 +279,7 @@ rem --- Initialize Data
     dim headings$[headings]
     headings$[0]=n1$
     headings$[1]=n3$
+    if num(batch_no$)<>0 then headings$[1]=headings$[1]+ Translate!.getTranslation("AON__(BATCH:_")+batch_no$+")"
     clock$=""
     when$=sysinfo.system_date$
     nothing_posted = 1
@@ -398,6 +412,7 @@ rem --- Check to see if record is in use in Invoice Entry
             skippedInvoices!.addItem(custOrdInv!)
         endif
         if ope01a.print_status$<>"Y" then read(ope01_dev,end=*continue); continue
+        if num(batch_no$)>0 and ope01a.batch_no$<>batch_no$ then read(ope01_dev,end=*continue); continue
         if pos(ope01a.trans_status$="ER")=0 then read(ope01_dev,end=*continue); continue
 
         if ope01a.cash_sale$="Y" then
@@ -412,7 +427,6 @@ rem --- Check to see if record is in use in Invoice Entry
         ope01a.mod_user$=sysinfo.user_id$
         ope01a.mod_date$=date(0:"%Yd%Mz%Dz")
         ope01a.mod_time$=date(0:"%Hz%mz")
-        ope01a.batch_no$=batch_no$
         if gl_adt_no then ope01a.audit_number=gl_adt_no
         ope01a$ = field(ope01a$)
         write record (ope01_dev) ope01a$
@@ -428,10 +442,10 @@ rem --- Check to see if record is in use in Invoice Entry
             extract record (ope31_dev, key=firm_id$+read_tpl.customer_id$+read_tpl.order_no$+read_tpl.ar_inv_no$+address_type$, dom=*next) ope31a$; rem Advisory Locking
             if pos(ope31a.trans_status$="ER") then
                 ope31a.trans_status$="R"     
+                ope31a.batch_no$=batch_no$     
                 ope31a.mod_user$=sysinfo.user_id$
                 ope31a.mod_date$=date(0:"%Yd%Mz%Dz")
                 ope31a.mod_time$=date(0:"%Hz%mz")
-                ope31a.batch_no$=batch_no$
                 if gl_adt_no then ope31a.audit_number=gl_adt_no
                 ope31a$ = field(ope31a$)
                 write record (ope31_dev) ope31a$
@@ -519,6 +533,8 @@ rem --- Check to see if record is in use in Invoice Entry
             if ope11a_key.ar_inv_no$    <> ope01a.ar_inv_no$   then break
             extract record (ope11_dev) ope11a$; rem Advisory Locking
             if pos(ope11a.trans_status$="ER")=0 then read (ope11_dev); continue
+            if pos(ope11a.trans_status$="ER")=0 then read (ope11_dev); continue
+            if num(batch_no$)>0 and ope11a.batch_no$<>batch_no$ then read (ope11_dev); continue
             find record (opm02_dev,key=firm_id$+ope11a.line_code$,dom=*next) opm02a$; rem y0$, y1$
 
             if opm02a.dropship$<>"Y" or ars01a.dropshp_cost$<>"Y" then
@@ -530,7 +546,6 @@ rem --- Check to see if record is in use in Invoice Entry
             ope11a.mod_user$=sysinfo.user_id$
             ope11a.mod_date$=date(0:"%Yd%Mz%Dz")
             ope11a.mod_time$=date(0:"%Hz%mz")
-            ope11a.batch_no$=batch_no$
             if gl_adt_no then ope11a.audit_number=gl_adt_no
             ope11a$ = field(ope11a$)
             write record (ope11_dev) ope11a$
@@ -545,10 +560,10 @@ rem --- Check to see if record is in use in Invoice Entry
                     if pos(optInvKitDet_key$=thisKey$)<>1 then break
                     readrecord(optInvKitDet_dev)optInvKitDet$
                     optInvKitDet.trans_status$="R"     
+                    optInvKitDet.batch_no$=batch_no$     
                     optInvKitDet.mod_user$=sysinfo.user_id$
                     optInvKitDet.mod_date$=date(0:"%Yd%Mz%Dz")
                     optInvKitDet.mod_time$=date(0:"%Hz%mz")
-                    optInvKitDet.batch_no$=batch_no$
                     if gl_adt_no then optInvKitDet.audit_number=gl_adt_no
                     optInvKitDet$ = field(optInvKitDet$)
                     writerecord(optInvKitDet_dev)optInvKitDet$
@@ -566,10 +581,12 @@ rem --- Check to see if record is in use in Invoice Entry
             opw21a.ar_type$    = ope01a.ar_type$
             opw21a.line_code$  = ope11a.line_code$
             opw21a.invoice_amt = 0
-            find record (opw21_dev, key=opw21a.firm_id$+opw21a.ar_type$+opw21a.line_code$, dom=*next) opw21a$
+            opw21_key$=opw21a.firm_id$+opw21a.ar_type$+opw21a.line_code$
+            opw21a!=opw21Map!.get(opw21_key$)
+            if opw21a!<>null() then opw21a$=opw21a!
             opw21a.invoice_amt = opw21a.invoice_amt + ope11a.ext_price
             opw21a$ = field(opw21a$)
-            write record (opw21_dev) opw21a$
+            opw21Map!.put(opw21_key$,opw21a$)
             t[6]=t[6]+ope11a.ext_price
 
         rem --- Determine GL Postings Here
@@ -706,10 +723,12 @@ rem --- Check to see if record is in use in Invoice Entry
         opw11a.ar_type$    = ope01a.ar_type$
         opw11a.territory$  = ope01a.territory$
         opw11a.invoice_amt = 0
-        find record (opw11_dev, key=opw11a.firm_id$+opw11a.ar_type$+opw11a.territory$, dom=*next) opw11a$
+        opw11_key$=opw11a.firm_id$+opw11a.ar_type$+opw11a.territory$
+        opw11a!=opw11Map!.get(opw11_key$)
+        if opw11a!<>null() then opw11a$=opw11a!
         opw11a.invoice_amt = opw11a.invoice_amt+t0
         opw11a$ = field(opw11a$)
-        write record (opw11_dev) opw11a$
+        opw11Map!.put(opw11_key$,opw11a$)
 
     rem --- Salesperson Codes
 
@@ -717,10 +736,12 @@ rem --- Check to see if record is in use in Invoice Entry
         opw31a.ar_type$     = ope01a.ar_type$
         opw31a.slspsn_code$ = ope01a.slspsn_code$
         opw31a.invoice_amt  = 0
-        find record (opw31_dev, key=opw31a.firm_id$+opw31a.ar_type$+opw31a.slspsn_code$, dom=*next) opw31a$
+        opw31_key$=opw31a.firm_id$+opw31a.ar_type$+opw31a.slspsn_code$
+        opw11a!=opw31Map!.get(opw31_key$)
+        if opw31a!<>null() then opw31a$=opw31a!
         opw31a.invoice_amt = opw31a.invoice_amt+t0
         opw31a$ = field(opw31a$)
-        write record (opw31_dev) opw31a$
+        opw31Map!.put(opw31_key$,opw31a$)
 
     rem --- GL Detail For Freight, Discount
 
@@ -1001,11 +1022,11 @@ rem dim d2$(62),d[20],h[2]
     
                 if ivm01a.inventoried$<>"Y" then 
                     ope21a.unit_cost=icost
-                    ope21a.trans_status$="R"     
+                    ope21a.trans_status$="R"
+                    ope21a.batch_no$=batch_no$
                     ope21a.mod_user$=sysinfo.user_id$
                     ope21a.mod_date$=date(0:"%Yd%Mz%Dz")
                     ope21a.mod_time$=date(0:"%Hz%mz")
-                    ope21a.batch_no$=batch_no$
                     if gl_adt_no then ope21a.audit_number=gl_adt_no
                     ope21a$ = field(ope21a$)
                     write record (ope21_dev) ope21a$; rem "Reset cost if not inventoried
@@ -1126,6 +1147,13 @@ rem #endinclude std_missing_params.src
 rem #include std_end.src
 
 std_exit: rem --- Standard program end (01Mar2006)
+
+    if num(batch_no$)<>0
+        unlock_key$=firm_id$+stbl("+PROCESS_ID")+stbl("+BATCH_NO")
+        lock_status$=""
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHES",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHSEL",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+    endif
 
     call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
     run stbl("+DIR_SYP")+"bas_process_end.bbj",err=*next

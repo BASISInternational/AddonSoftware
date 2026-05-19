@@ -102,13 +102,15 @@ rem call stbl("+DIR_PGM")+"adc_getmask.aon","","AR","A","",m1$,0,m1
 rem --- Headings
 
     headings=6
-    dim headings$[6]
+    if num(batch_no$)>0 then headings=7
+    dim headings$[headings]
     headings$[0]=n1$
     headings$[1]=n4$
     headings$[2]=x1$
     headings$[3]=h9$
     headings$[4]="Beginning Customer : "+h4$+"      "+"Beginning Order #: "+h6$
-    headings$[5]="Ending Customer     : "+h5$+"      "+"Ending Order     #: "+h7$
+    headings$[5]="Ending Customer      : "+h5$+"       "+"Ending Order      #: "+h7$
+    if num(batch_no$)>0 then headings$[6]="Batch No.: "+batch_no$
 
     rt$="Report Totals"+$00$+"R"
     
@@ -119,7 +121,7 @@ rem --- Print positions
 
 rem --- Retrieve templates
 
-    call sypdir$+"bac_key_template.bbj","OPE_ORDHDR","AO_STATUS",ope01a_key_tpl$,table_chans$[all],status$
+    call sypdir$+"bac_key_template.bbj","OPE_ORDHDR","AO_BATCH_STAT",ope01a_key_tpl$,table_chans$[all],status$
     dim ope01a_key$:ope01a_key_tpl$
 
 rem --- Background
@@ -129,7 +131,7 @@ rem --- Background
 
 rem --- Initial Read
 
-    read (ope01_dev,key=firm_id$+"E"+"  "+from_cust$,knum="AO_STATUS",dom=*next)
+    read (ope01_dev,key=firm_id$+batch_no$+"E"+"  "+from_cust$,knum="AO_BATCH_STAT",dom=*next)
 
 rem --- Main Loop Starts
 
@@ -139,8 +141,12 @@ rem --- Main Loop Starts
         total_recs=total_recs+1
         if mod(total_recs,milestone)=0 then call stbl("+DIR_PGM")+"adc_progress.aon","S","","","","",0,0,milestone,meter_num,status
         if status = 999 then goto std_exit
-        
-        if pos(firm_id$+"E"+"  "=ope01a_key$)<>1 then break
+
+        if num(batch_no$)>0 then
+            if pos(firm_id$+batch_no$+"E"+"  "=ope01a_key$)<>1 then break
+        else
+            if ope01a_key.firm_id$<>firm_id$ or ope01a_key.trans_status$<>"E" or ope01a_key.ar_type$<>"  " then break
+        endif
         if thru_cust$<>"" and ope01a_key.firm_id$+ope01a_key.ar_type$+ope01a_key.customer_id$>firm_id$+"  "+thru_cust$ then break
 		if from_ord$<>"" and ope01a_key.order_no$<from_ord$ then read(ope01_dev); continue
         if thru_ord$<>"" and ope01a_key.order_no$>thru_ord$ then break
@@ -858,12 +864,27 @@ rem --- #endinclude std_missing_params.src
 rem --- #include std_end.src
 
 std_exit: rem --- Standard program end (01Mar2006)
+
+    if num(batch_no$)<>0
+        unlock_key$=firm_id$+stbl("+PROCESS_ID")+stbl("+BATCH_NO")
+        lock_status$=""
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHES",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHSEL",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+    endif
+
     call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
     run stbl("+DIR_SYP")+"bas_process_end.bbj",err=*next
     release
 rem #endinclude std_end.src
 
 std_exit_no_report:
+
+    if num(batch_no$)<>0
+        unlock_key$=firm_id$+stbl("+PROCESS_ID")+stbl("+BATCH_NO")
+        lock_status$=""
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHES",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHSEL",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+    endif
 
     call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,0,status    
     OutVect!=null()

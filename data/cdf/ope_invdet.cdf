@@ -28,7 +28,8 @@ rem ---display extended price
 	callpoint!.setStatus("MODIFIED-REFRESH")
 
 [[OPE_INVDET.AGCL]]
-print "Det:AGCL"; rem debug
+rem --- Set preset val for batch_no
+	callpoint!.setTableColumnAttribute("OPE_INVDET.BATCH_NO","PVAL",$22$+stbl("+BATCH_NO")+$22$)
 
 rem --- Set detail defaults and disabled columns
 
@@ -857,9 +858,10 @@ rem --- Launch OPT_INVKITDET Kit Components grid for this detail line's kit
 	order$ = callpoint!.getColumnData("OPE_INVDET.ORDER_NO")
 	invoice_no$ = callpoint!.getColumnData("OPE_INVDET.AR_INV_NO")
 	seq$ = callpoint!.getColumnData("OPE_INVDET.INTERNAL_SEQ_NO")
+	batch_no$=callpoint!.getColumnData("OPE_INVDET.BATCH_NO")
 	key_pfx$ = firm_id$+"E"+ar_type$+cust$+order$+invoice_no$+seq$
 
-	dim dflt_data$[6,1]
+	dim dflt_data$[7,1]
 	dflt_data$[1,0] = "TRANS_STATUS"
 	dflt_data$[1,1] = "E"
 	dflt_data$[2,0] = "AR_TYPE"
@@ -872,6 +874,8 @@ rem --- Launch OPT_INVKITDET Kit Components grid for this detail line's kit
 	dflt_data$[5,1] = invoice_no$
 	dflt_data$[6,0] = "ORDDET_SEQ_REF"
 	dflt_data$[6,1] = seq$
+	dflt_data$[7,0] = "BATCH_NO"
+	dflt_data$[7,1] = batch_no$
 
 	call stbl("+DIR_SYP") + "bam_run_prog.bbj", 
 :		"OPT_INVKITDET", 
@@ -917,6 +921,7 @@ rem --- Is this item lot/serial?
 		order$   = callpoint!.getColumnData("OPE_INVDET.ORDER_NO")
 		invoice$=callpoint!.getColumnData("OPE_INVDET.AR_INV_NO")
 		int_seq$ = callpoint!.getColumnData("OPE_INVDET.INTERNAL_SEQ_NO")
+		batch_no$=callpoint!.getColumnData("OPE_ORDDET.BATCH_NO")
 
 		if cvs(cust$,2) <> ""
 
@@ -935,7 +940,7 @@ rem --- Is this item lot/serial?
 
 			grid!.focus()
 
-			dim dflt_data$[6,1]
+			dim dflt_data$[7,1]
 			dflt_data$[1,0] = "AR_TYPE"
 			dflt_data$[1,1] = ar_type$
 			dflt_data$[2,0] = "TRANS_STATUS"
@@ -949,6 +954,8 @@ rem --- Is this item lot/serial?
 			dflt_data$[6,0] = "ORDDET_SEQ_REF"
 			dflt_data$[6,1] = int_seq$
 			lot_pfx$ = firm_id$+"E"+ar_type$+cust$+order$+invoice$+int_seq$
+			dflt_data$[7,0] = "BATCH_NO"
+			dflt_data$[7,1] = batch_no$
 
 			if callpoint!.isEditMode() then
 				proc_mode$="MNT"

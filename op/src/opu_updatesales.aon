@@ -242,6 +242,7 @@ rem --- Main read
             if ope01a.print_status$<>"Y" or ope01a.lock_status$<>"S" then read(ope01_dev); continue
             if ope01a.ordinv_flag$<>"I" then read(ope01_dev); continue
             if ope01a.trans_status$<>"R" then read(ope01_dev); continue
+            if num(batch_no$)>0 and ope01a.batch_no$<>batch_no$ then read(ope01_dev); continue
             
             ope01a.lock_status$="1"
             ope01a.mod_user$=sysinfo.user_id$
@@ -282,6 +283,7 @@ rem --- Main read
             if pos(ope11_trip$=ope11_key$)<>1 then break
             read record (ope11_dev) ope11a$
             if ope11a.trans_status$<>"R" then continue
+            if num(batch_no$)>0 and ope11a.batch_no$<>batch_no$ then continue
 
         rem ---Get Line Type
 
@@ -387,6 +389,7 @@ no_to_update: rem --- NO to Update: Clear On-Sales-Register Flags
             extract record (ope01_dev) ope01a$; rem Advisory Locking
             if ope01a.lock_status$<>"S" then read(ope01_dev); continue
             if ope01a.trans_status$<>"R" then read(ope01_dev); continue
+            if num(batch_no$)>0 and ope01a.batch_no$<>batch_no$ then read(ope01_dev); continue
             ope01a.lock_status$="N"
             ope01a.trans_status$="E"     
             ope01a.mod_user$=sysinfo.user_id$
@@ -402,6 +405,7 @@ no_to_update: rem --- NO to Update: Clear On-Sales-Register Flags
                 if pos(ope11_trip$=ope11_key$)<>1 then break
                 extract record (ope11_dev) ope11a$; rem Advisory Locking
                 if ope11a.trans_status$<>"R" then read(ope11_dev); continue
+                if num(batch_no$)>0 and ope11a.batch_no$<>batch_no$ then read(ope11_dev); continue
                 ope11a.trans_status$="E"     
                 ope11a.mod_user$=sysinfo.user_id$
                 ope11a.mod_date$=date(0:"%Yd%Mz%Dz")
@@ -1056,6 +1060,13 @@ rem --- #endinclude std_missing_params.src
 rem --- #include std_end.src
 
 std_exit: rem --- Standard program end (01Mar2006)
+
+    if num(batch_no$)<>0
+        unlock_key$=firm_id$+stbl("+PROCESS_ID")+stbl("+BATCH_NO")
+        lock_status$=""
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHES",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHSEL",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+    endif
 
     call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
     run stbl("+DIR_SYP")+"bas_process_end.bbj",err=*next

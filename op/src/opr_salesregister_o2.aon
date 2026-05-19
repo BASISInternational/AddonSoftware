@@ -49,7 +49,7 @@ rem --- Initializations
     l9=55
     l=l9+1
 	headings$[1]=n3$+" "+Translate!.getTranslation("AON_SUMMARY")
-    headings$[2]=""
+    if num(batch_no$)<>0 then headings$[1]=headings$[1]+Translate!.getTranslation("AON__(BATCH:_")+batch_no$+")"
 	headings$[3]=""
 
     dim columns$[1,10]
@@ -68,7 +68,33 @@ rem --- Territory Summary
     work_dev=opw11_dev
     rem dim key_templ$:opw11a_key_tpl$
     dim rec$:fattr(opw11a$)
-    gosub process_summary_section
+
+    call pgmdir$+"adc_progress.aon","N","","","","",0,work_dev,1,meter_num,status
+    if status = 999 then exitto std_exit
+    gosub sub_heading
+
+    opw11_iter!=opw11Map!.keySet().iterator()
+    rem --- Read next record
+    while opw11_iter!.hasNext()
+        rec$=opw11Map!.get(opw11_iter!.next())
+        if firm_id$<>rec$.firm_id$ then break
+        call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
+        if status=999 then exitto std_exit
+
+        rem --- Print record
+        desc$ = "Unknown "+h$
+        code$ = rec.territory$
+        find record (arm10h_dev, key=firm_id$+r2$+code$, dom=*endif) arm10h$
+        desc$ = arm10h.code_desc$
+
+        OutVect!.addItem(code$+" "+desc$)
+        OutVect!.addItem(str(rec.invoice_amt:ar_m1$))
+
+        l=l+1
+    wend
+
+    call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
+    if status = 999 then exitto std_exit
 
 rem --- Transaction Summary
 
@@ -78,8 +104,35 @@ rem --- Transaction Summary
     work_dev=opw21_dev
     rem dim key_templ$:opw21a_key_tpl$
     dim rec$:fattr(opw21a$)
+
+    call pgmdir$+"adc_progress.aon","N","","","","",0,work_dev,1,meter_num,status
+    if status = 999 then exitto std_exit
+    gosub sub_heading
+
+    opw21_iter!=opw21Map!.keySet().iterator()
+    rem --- Read next record
     xwk = fnblank(2)
-    gosub process_summary_section
+    while  opw21_iter!.hasNext()
+        rec$=opw21Map!.get(opw21_iter!.next())
+        if firm_id$<>rec$.firm_id$ then break
+        call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
+        if status=999 then exitto std_exit
+
+        rem --- Print record
+        desc$ = "Unknown "+h$
+        code$ = rec.line_code$
+        find record (opm02_dev, key=firm_id$+code$, dom=*next) opm02a$
+        if r1$="B" and opm02a.line_type$="M" then continue
+        desc$ = opm02a.code_desc$
+
+        OutVect!.addItem(code$+" "+desc$)
+        OutVect!.addItem(str(rec.invoice_amt:ar_m1$))
+
+        l=l+1
+    wend
+
+    call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
+    if status = 999 then exitto std_exit
 
     OutVect!.addItem("          Tax")
     OutVect!.addItem(str(u[2]:ar_m1$))
@@ -98,8 +151,34 @@ rem --- Salesperson Summary
     work_dev=opw31_dev
     rem dim key_templ$:opw31a_key_tpl$
     dim rec$:fattr(opw31a$)
+
+    call pgmdir$+"adc_progress.aon","N","","","","",0,work_dev,1,meter_num,status
+    if status = 999 then exitto std_exit
+    gosub sub_heading
+
+    opw31_iter!=opw31Map!.keySet().iterator()
+    rem --- Read next record
     xwk = fnblank(2)
-    gosub process_summary_section
+    while opw31_iter!.hasNext()
+        rec$=opw31Map!.get(opw31_iter!.next())
+        if firm_id$<>rec$.firm_id$ then break
+        call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
+        if status=999 then exitto std_exit
+
+        rem --- Print record
+        desc$ = "Unknown "+h$
+        code$ = rec.slspsn_code$
+        find record (arm10f_dev, key=firm_id$+r2$+code$, dom=*endif) arm10f$
+        desc$ = arm10f.code_desc$
+
+        OutVect!.addItem(code$+" "+desc$)
+        OutVect!.addItem(str(rec.invoice_amt:ar_m1$))
+
+        l=l+1
+    wend
+
+    call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
+    if status = 999 then exitto std_exit
 
 rem --- List invoices skipped due to failed tax calculation
     if skippedInvoices!.size()>0 then
@@ -196,60 +275,6 @@ sub_heading: rem --- Subheading
     
     return
 
-process_summary_section: rem --- Process Summary Section
-
-    call pgmdir$+"adc_progress.aon","N","","","","",0,work_dev,1,meter_num,status
-    if status = 999 then exitto std_exit
-    gosub sub_heading
-    
-    read (work_dev,key=firm_id$,dom=*next)
-
-rem --- Read next record
-
-    while more
-    
-        read record (work_dev, end=*break) rec$; rem X0$,X0
-        if firm_id$<>rec$.firm_id$ then break
-        
-        call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
-        if status=999 then exitto std_exit
-
-    rem --- Print record
-
-        code$ = ""
-        desc$ = "Unknown "+h$
-        
-        if r2$="E" then 
-            code$ = rec.line_code$
-            find record (opm02_dev, key=firm_id$+code$, dom=*endif) opm02a$
-            if r1$="B" and opm02a.line_type$="M" then continue
-            desc$ = opm02a.code_desc$
-        else
-            if r2$="F" then 
-                code$ = rec.slspsn_code$
-                find record (arm10f_dev, key=firm_id$+r2$+code$, dom=*endif) arm10f$
-                desc$ = arm10f.code_desc$
-            else
-                if r2$="H" then 
-                    code$ = rec.territory$
-                    find record (arm10h_dev, key=firm_id$+r2$+code$, dom=*endif) arm10h$
-                    desc$ = arm10h.code_desc$
-                endif
-            endif
-        endif
-
-        OutVect!.addItem(code$+" "+desc$)
-        OutVect!.addItem(str(rec.invoice_amt:ar_m1$))
-
-        l=l+1
-        
-    wend
-    
-    call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
-    if status = 999 then exitto std_exit
-    
-    return
-    
 rem #include disp_message.src
 
 disp_message: rem --- Display Message Dialog
