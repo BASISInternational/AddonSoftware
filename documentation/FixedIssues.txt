@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-04-28
+ Report Date:   2026-05-20
  Report Branch: AddonSoftware 26.01
  Last Release:  AddonSoftware 26.00
 =======================================================================================================================================
@@ -25,4 +25,14 @@ Bug 11207: Added DOC_NO record for firm 99 (consolidated GL financials)
 in Addon's sync file for Barista's ADS_SEQUENCES table.
 ----
 Modified: data/sync/ads_sequences~[01007514AD].xml
+=======================================================================================================================================
+
+Revision: e002349c0c66ae7acac9adb8a1c1ee7bac35e97d
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 5/20/2026 3:45:16 PM
+Message:
+Bug 11223: Removed the code that was treating record$ as a templated
+string.
+----
+Modified: ad/src/adx_init_data.aon
 =======================================================================================================================================
