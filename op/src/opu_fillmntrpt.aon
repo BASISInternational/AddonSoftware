@@ -34,6 +34,11 @@ rem --- Ready To Invoice?
     if msg_opt$="N" then goto std_exit_no_update
     endif
 
+rem --- See if batching
+    call stbl("+DIR_PGM")+"adc_getbatch.aon","",pgm(-2),rd_table_chans$[all]
+    batch_no$=stbl("+BATCH_NO")
+    process_id$=stbl("+PROCESS_ID")
+
 rem --- Open/Lock files
     files=6,begfile=1,endfile=files
     dim files$[files],options$[files],ids$[files],templates$[files],channels[files]
@@ -96,6 +101,7 @@ rem --- Invoice packed and shipped orders
             extractrecord(opeOrdShip_dev,key=opeOrdShip_key$,knum="PRIMARY",dom=*next)opeOrdShip$; ordship_found=1; rem Advisory locking
             if ordship_found and opeOrdShip.trans_status$="E" then
                 opeOrdShip.ar_inv_no$=inv_no$
+                opeOrdShip.batch_no$=batch_no$
                 opeOrdShip.mod_user$=sysinfo.user_id$
                 opeOrdShip.mod_date$=date(0:"%Yd%Mz%Dz")
                 opeOrdShip.mod_time$=date(0:"%Hz%mz")
@@ -144,6 +150,7 @@ rem --- Invoice packed and shipped orders
                 endif
         
                 optInvDet.ar_inv_no$=inv_no$
+                optInvDet.batch_no$=batch_no$
                 optInvDet.mod_user$=sysinfo.user_id$
                 optInvDet.mod_date$=date(0:"%Yd%Mz%Dz")
                 optInvDet.mod_time$=date(0:"%Hz%mz")
@@ -195,6 +202,7 @@ rem --- Invoice packed and shipped orders
                 endif
             
                 optInvKitDet.ar_inv_no$=inv_no$
+                optInvKitDet.batch_no$=batch_no$
                 optInvKitDet.mod_user$=sysinfo.user_id$
                 optInvKitDet.mod_date$=date(0:"%Yd%Mz%Dz")
                 optInvKitDet.mod_time$=date(0:"%Hz%mz")
@@ -233,6 +241,7 @@ rem --- Invoice packed and shipped orders
             optInvLsDet.customer_id$=optFillmntLsDet.customer_id$
             optInvLsDet.order_no$=optFillmntLsDet.order_no$
             optInvLsDet.ar_inv_no$=inv_no$
+            optInvLsDet.batch_no$=batch_no$
             optInvLsDet.orddet_seq_ref$=optFillmntLsDet.orddet_seq_ref$
             optInvLsDet.sequence_no$=optFillmntLsDet.sequence_no$
             optInvLsDet.lotser_no$=optFillmntLsDet.lotser_no$
@@ -272,6 +281,7 @@ rem --- Invoice packed and shipped orders
             optInvHdr.total_sales=total_sales
         
             optInvHdr.ar_inv_no$=inv_no$
+            optInvHdr.batch_no$=batch_no$
             optInvHdr.ordinv_flag$="I"
             optInvHdr.invoice_date$=sysinfo.system_date$
             optInvHdr.print_status$="N"
@@ -362,6 +372,7 @@ rem ==========================================================================
         if pos(optCartLsDet_trip$=optCartLsDet_key$)<>1 then break
         readrecord(optCartLsDet_dev)optCartLsDet$
         optCartLsDet.ar_inv_no$=ar_inv_no$
+        optCartLsDet.batch_no$=batch_no$
         optCartLsDet.trans_status$=trans_status$
         optCartLsDet.mod_user$=sysinfo.user_id$
         optCartLsDet.mod_date$=date(0:"%Yd%Mz%Dz")
@@ -379,6 +390,7 @@ rem ==========================================================================
         if pos(optFillmntLsDet_trip$=optFillmntLsDet_key$)<>1 then break
         readrecord(optFillmntLsDet_dev)optFillmntLsDet$
         optFillmntLsDet.ar_inv_no$=ar_inv_no$
+        optFillmntLsDet.batch_no$=batch_no$
         optFillmntLsDet.trans_status$=trans_status$
         optFillmntLsDet.mod_user$=sysinfo.user_id$
         optFillmntLsDet.mod_date$=date(0:"%Yd%Mz%Dz")
@@ -396,6 +408,7 @@ rem ==========================================================================
         if pos(optCartDet_trip$=optCartDet_key$)<>1 then break
         readrecord(optCartDet_dev)optCartDet$
         optCartDet.ar_inv_no$=ar_inv_no$
+        optCartDet.batch_no$=batch_no$
         optCartDet.trans_status$=trans_status$
         optCartDet.mod_user$=sysinfo.user_id$
         optCartDet.mod_date$=date(0:"%Yd%Mz%Dz")
@@ -413,6 +426,7 @@ rem ==========================================================================
         if pos(optFillmntDet_trip$=optFillmntDet_key$)<>1 then break
         readrecord(optFillmntDet_dev)optFillmntDet$
         optFillmntDet.ar_inv_no$=ar_inv_no$
+        optFillmntDet.batch_no$=batch_no$
         optFillmntDet.trans_status$=trans_status$
         optFillmntDet.mod_user$=sysinfo.user_id$
         optFillmntDet.mod_date$=date(0:"%Yd%Mz%Dz")
@@ -430,6 +444,7 @@ rem ==========================================================================
         if pos(optCartHdr_trip$=optCartHdr_key$)<>1 then break
         readrecord(optCartHdr_dev)optCartHdr$
         optCartHdr.ar_inv_no$=ar_inv_no$
+        optCartHdr.batch_no$=batch_no$
         optCartHdr.trans_status$=trans_status$
         optCartHdr.mod_user$=sysinfo.user_id$
         optCartHdr.mod_date$=date(0:"%Yd%Mz%Dz")
@@ -442,6 +457,7 @@ rem ==========================================================================
     rem --- OPT_FILLMNTHDR
     readrecord(optFillmntHdr_dev,key=optFillmntHdr_Primary_key$,knum="PRIMARY")optFillmntHdr$
     optFillmntHdr.ar_inv_no$=ar_inv_no$
+    optFillmntHdr.batch_no$=batch_no$
     optFillmntHdr.trans_status$=trans_status$
     optFillmntHdr.mod_user$=sysinfo.user_id$
     optFillmntHdr.mod_date$=date(0:"%Yd%Mz%Dz")
@@ -607,6 +623,14 @@ std_exit: rem --- Standard program end (01Mar2006)
     gosub disp_message
 
 std_exit_no_update: 
+
+    if num(batch_no$)<>0
+        unlock_key$=firm_id$+stbl("+PROCESS_ID")+stbl("+BATCH_NO")
+        lock_status$=""
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHES",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+        call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHSEL",unlock_key$,"X","",rd_table_chan,rd_table_chans$[all],lock_status$
+    endif
+
     call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
     run stbl("+DIR_SYP")+"bas_process_end.bbj",err=*next
     release
