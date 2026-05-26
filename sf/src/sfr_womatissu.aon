@@ -155,7 +155,7 @@ rem --- Additional File Opens
 
     if lf$="Y" then
         open_tables$[7] ="IVM_ITEMTIER",    open_opts$[7] = "OTA"
-        open_tables$[9] ="IVW_LFDET",       open_opts$[9] = "OTAL"
+        open_tables$[9] ="IVW_LFDET",       open_opts$[9] = "OTA"; rem --- ER 11220 eliminated need to lock and clear IVW_LFDET
     endif
     
     if gl$="Y" then

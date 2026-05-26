@@ -116,7 +116,7 @@ rem --- Additional/optional opens
 
     if lf$="Y" then
         files$[14]="ivw-04", ids$[14]="IVW_LFDET"
-        if num(batch_no$)=0 then options$[14]="CL"
+        rem if num(batch_no$)=0 then options$[14]="CL"; rem --- ER 11220 eliminated need to lock and clear IVW_LFDET
         call pgmdir$+"adc_fileopen.aon",action,14,14,files$[all],options$[all],
 :           ids$[all],templates$[all],channels[all],batch,status
         if status goto std_exit

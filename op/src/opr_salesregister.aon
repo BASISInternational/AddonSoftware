@@ -249,8 +249,7 @@ rem --- Additional/optional opens
 
     if lf$="Y" then
         rem --- Use HashMap instead of locking and clearing work files
-rem --- Cannot eliminate locking and clearing IVW_LFDET until after ER 11220 is implemented
-        files$[33]="ivw-04", ids$[33]="IVW_LFDET",options$[33]="CL"; rem --- ivc_lifofifo.aon now uses HashMap instead of locking and clearing work files
+        files$[33]="ivw-04", ids$[33]="IVW_LFDET"; rem options$[33]="CL"; rem --- ER 11220 eliminated need to lock and clear IVW_LFDET
         call pgmdir$+"adc_fileopen.aon",action,33,34,files$[all],options$[all],
 :           ids$[all],templates$[all],channels[all],batch,status
         if status goto std_exit
