@@ -36,3 +36,69 @@ string.
 ----
 Modified: ad/src/adx_init_data.aon
 =======================================================================================================================================
+Revision: 5857b2ee539dc126a23d30c270a25b94f0b7f64e
+Author: Ricky <rgonzales@basis.cloud>
+Date: 05/26/2026 02:12:37 PM
+Message:
+ER 11221: Fixed Jasper report error 304 from different modules that detail listing report
+
+----
+Modified: reports/BOMComments.jasper
+Modified: reports/BOMComments.jrxml
+Modified: reports/BOMCosting.jasper
+Modified: reports/BOMCosting.jrxml
+Modified: reports/BOMDetail.jasper
+Modified: reports/BOMDetail.jrxml
+Modified: reports/BOMMatlDet.jasper
+Modified: reports/BOMMatlDet.jrxml
+Modified: reports/BOMOpDet.jasper
+Modified: reports/BOMOpDet.jrxml
+Modified: reports/BOMSubDet.jasper
+Modified: reports/BOMSubDet.jrxml
+Modified: reports/BOMTotal.jasper
+Modified: reports/BOMTotal.jrxml
+Modified: reports/CustDetail.jasper
+Modified: reports/CustDetail.jrxml
+Modified: reports/CustDetail_comments.jasper
+Modified: reports/CustDetail_comments.jrxml
+Modified: reports/CustDetail_invdet.jasper
+Modified: reports/CustDetail_invdet.jrxml
+Modified: reports/CustDetail_invhdr.jasper
+Modified: reports/CustDetail_invhdr.jrxml
+Modified: reports/CustDetail_jobs.jasper
+Modified: reports/CustDetail_jobs.jrxml
+Modified: reports/CustDetail_shipto.jasper
+Modified: reports/CustDetail_shipto.jrxml
+Modified: reports/CustProfile.jasper
+Modified: reports/CustProfile.jrxml
+Modified: reports/ItemDetail.jasper
+Modified: reports/ItemDetail.jrxml
+Modified: reports/ItemDetail_comments.jasper
+Modified: reports/ItemDetail_comments.jrxml
+Modified: reports/ItemDetail_gl.jasper
+Modified: reports/ItemDetail_gl.jrxml
+Modified: reports/ItemDetail_syn.jasper
+Modified: reports/ItemDetail_syn.jrxml
+Modified: reports/ItemDetail_vend.jasper
+Modified: reports/ItemDetail_vend.jrxml
+Modified: reports/ItemDetail_whse.jasper
+Modified: reports/ItemDetail_whse.jrxml
+Modified: reports/SFHardCopy.jasper
+Modified: reports/SFHardCopy.jrxml
+Modified: reports/SFHardCopyClsdDet.jasper
+Modified: reports/SFHardCopyClsdDet.jrxml
+Modified: reports/SFHardCopyCmnts.jasper
+Modified: reports/SFHardCopyCmnts.jrxml
+Modified: reports/SFHardCopyCostSum.jasper
+Modified: reports/SFHardCopyCostSum.jrxml
+Modified: reports/SFHardCopyFGLS.jasper
+Modified: reports/SFHardCopyFGLS.jrxml
+Modified: reports/SFHardCopyMatStd.jasper
+Modified: reports/SFHardCopyMatStd.jrxml
+Modified: reports/SFHardCopyOpStd.jasper
+Modified: reports/SFHardCopyOpStd.jrxml
+Modified: reports/SFHardCopySubStd.jasper
+Modified: reports/SFHardCopySubStd.jrxml
+Modified: reports/SFHardCopyTrans.jasper
+Modified: reports/SFHardCopyTrans.jrxml
+=======================================================================================================================================
