@@ -6,7 +6,6 @@
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="BASIS JDBC"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="360"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="629"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="DOC_NO" class="java.lang.String"/>
 	<parameter name="DATE_REP" class="java.lang.String"/>

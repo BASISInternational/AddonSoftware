@@ -14,7 +14,7 @@
 	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
 	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
+	<style name="aonStyle1" default="true" fontSize="8"/>
 	<parameter name="FIRM_ID" class="java.lang.String">
 		<defaultValueExpression><![CDATA["01"]]></defaultValueExpression>
 	</parameter>
@@ -73,13 +73,13 @@
 	</field>
 	<variable name="TOT_MAT_COST" calculation="Sum" class="java.math.BigDecimal">
 		<expression><![CDATA[new Boolean ($F{LINE_TYPE} == "S") &&
-((((new Boolean ($P{PROD_DATE}.trim().isEmpty())) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+((((new Boolean (($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} >= $F{EFFECT_DATE} &&
-    $F{OBSOLT_DATE}.trim().isEmpty()) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+    ($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} >= $F{EFFECT_DATE} &&
-    !$F{OBSOLT_DATE}.trim().isEmpty() &&
+    ($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) &&
     $P{PROD_DATE} < $F{OBSOLT_DATE}))) ||
 $P{ALL_DATES} == "Y") ? $F{TOT_MAT_COST} : 0]]></expression>
 	</variable>
@@ -161,13 +161,13 @@ $P{ALL_DATES} == "Y") ? $F{TOT_MAT_COST} : 0]]></expression>
 	<detail>
 		<band height="13" splitType="Stretch">
 			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} == "S") &&
-((((new Boolean ($P{PROD_DATE}.trim().isEmpty())) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+((((new Boolean (($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} >= $F{EFFECT_DATE} &&
-    $F{OBSOLT_DATE}.trim().isEmpty()) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+    ($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} >= $F{EFFECT_DATE} &&
-    !$F{OBSOLT_DATE}.trim().isEmpty() &&
+    ($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) &&
     $P{PROD_DATE} < $F{OBSOLT_DATE}))) ||
 $P{ALL_DATES} == "Y")]]></printWhenExpression>
 			<element kind="rectangle" uuid="66a54702-513f-44fc-8f38-96162e239868" x="0" y="0" width="745" height="13" backcolor="#F0F0F0" removeLineWhenBlank="true">
@@ -238,7 +238,7 @@ $P{ALL_DATES} == "Y")]]></printWhenExpression>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</band>
 		<band height="13">
-			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} == "S") && $P{ALL_DATES} == "Y" && (!$F{EFFECT_DATE}.trim().isEmpty() || !$F{OBSOLT_DATE}.trim().isEmpty())]]></printWhenExpression>
+			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} == "S") && $P{ALL_DATES} == "Y" && (($F{EFFECT_DATE} != null && !($F{EFFECT_DATE} == null || $F{EFFECT_DATE}.trim().isEmpty())) || ($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())))]]></printWhenExpression>
 			<element kind="rectangle" uuid="e113f3fd-eb32-41ba-acf8-b74551c115e3" x="0" y="0" width="745" height="13" backcolor="#F0F0F0" removeLineWhenBlank="true">
 				<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -251,26 +251,26 @@ $P{ALL_DATES} == "Y")]]></printWhenExpression>
 				<expression><![CDATA[$R{AON_EFFECTIVE_DATE:}]]></expression>
 			</element>
 			<element kind="textField" uuid="c77d5493-ce86-4cfe-963a-bd989ae9750f" x="150" y="0" width="71" height="13">
-				<printWhenExpression><![CDATA[!$F{EFFECT_DATE}.trim().isEmpty()]]></printWhenExpression>
+				<printWhenExpression><![CDATA[($F{EFFECT_DATE} != null && !($F{EFFECT_DATE} == null || $F{EFFECT_DATE}.trim().isEmpty()))]]></printWhenExpression>
 				<expression><![CDATA[$F{EFFECT_DATE}.substring(4,6)+"/"+$F{EFFECT_DATE}.substring(6)+"/"+$F{EFFECT_DATE}.substring(0,4)]]></expression>
 			</element>
 			<element kind="textField" uuid="0449ca72-6d8e-4df3-82e1-8ee19587fcaf" x="231" y="0" width="76" height="13" hTextAlign="Right">
 				<expression><![CDATA[$R{AON_OBSOLETE_DATE:}]]></expression>
 			</element>
 			<element kind="textField" uuid="4f416554-a59f-4beb-bfdc-21dfa58290bc" x="312" y="0" width="71" height="13">
-				<printWhenExpression><![CDATA[!$F{OBSOLT_DATE}.trim().isEmpty()]]></printWhenExpression>
+				<printWhenExpression><![CDATA[($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty()))]]></printWhenExpression>
 				<expression><![CDATA[$F{OBSOLT_DATE}.substring(4,6)+"/"+$F{OBSOLT_DATE}.substring(6)+"/"+$F{OBSOLT_DATE}.substring(0,4)]]></expression>
 			</element>
 		</band>
 		<band height="13">
 			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} =="M") &&
-((((new Boolean ($P{PROD_DATE}.trim().isEmpty())) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+((((new Boolean (($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} >= $F{EFFECT_DATE} &&
-    $F{OBSOLT_DATE}.trim().isEmpty()) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+    ($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} >= $F{EFFECT_DATE} &&
-    !$F{OBSOLT_DATE}.trim().isEmpty() &&
+    ($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) &&
     $P{PROD_DATE} < $F{OBSOLT_DATE}))) ||
 $P{ALL_DATES} == "Y")]]></printWhenExpression>
 			<element kind="rectangle" uuid="884d4420-c30b-4558-8a71-4b384b9e3e0b" x="0" y="0" width="745" height="13" backcolor="#F0F0F0" removeLineWhenBlank="true">
@@ -288,7 +288,7 @@ $P{ALL_DATES} == "Y")]]></printWhenExpression>
 			</element>
 		</band>
 		<band height="13">
-			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} =="M") && $P{ALL_DATES} == "Y"  && (!$F{EFFECT_DATE}.trim().isEmpty() || !$F{OBSOLT_DATE}.trim().isEmpty())]]></printWhenExpression>
+			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} =="M") && $P{ALL_DATES} == "Y"  && (($F{EFFECT_DATE} != null && !($F{EFFECT_DATE} == null || $F{EFFECT_DATE}.trim().isEmpty())) || ($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())))]]></printWhenExpression>
 			<element kind="rectangle" uuid="ddd31347-64a9-4778-b874-a58bc7e9f764" x="0" y="0" width="745" height="13" backcolor="#F0F0F0" removeLineWhenBlank="true">
 				<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -301,14 +301,14 @@ $P{ALL_DATES} == "Y")]]></printWhenExpression>
 				<expression><![CDATA[$R{AON_EFFECTIVE_DATE:}]]></expression>
 			</element>
 			<element kind="textField" uuid="081a1c19-2044-4220-aba3-121de9181d27" x="150" y="0" width="71" height="13">
-				<printWhenExpression><![CDATA[!$F{EFFECT_DATE}.trim().isEmpty()]]></printWhenExpression>
+				<printWhenExpression><![CDATA[($F{EFFECT_DATE} != null && !($F{EFFECT_DATE} == null || $F{EFFECT_DATE}.trim().isEmpty()))]]></printWhenExpression>
 				<expression><![CDATA[$F{EFFECT_DATE}.substring(4,6)+"/"+$F{EFFECT_DATE}.substring(6)+"/"+$F{EFFECT_DATE}.substring(0,4)]]></expression>
 			</element>
 			<element kind="textField" uuid="2a96fe66-4b5c-44e6-804b-b5eb6a32354e" x="231" y="0" width="75" height="13" hTextAlign="Right">
 				<expression><![CDATA[$R{AON_OBSOLETE_DATE:}]]></expression>
 			</element>
 			<element kind="textField" uuid="2b2dee08-11ed-4f16-8e51-c919235b7ffc" x="312" y="0" width="71" height="13">
-				<printWhenExpression><![CDATA[!$F{OBSOLT_DATE}.trim().isEmpty()]]></printWhenExpression>
+				<printWhenExpression><![CDATA[($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty()))]]></printWhenExpression>
 				<expression><![CDATA[$F{OBSOLT_DATE}.substring(4,6)+"/"+$F{OBSOLT_DATE}.substring(6)+"/"+$F{OBSOLT_DATE}.substring(0,4)]]></expression>
 			</element>
 		</band>

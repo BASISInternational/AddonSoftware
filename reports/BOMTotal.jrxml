@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
+	<style name="aonStyle1" default="true" fontSize="8"/>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="BILL_NO" class="java.lang.String"/>
 	<parameter name="TOT_MAT_COST" class="java.math.BigDecimal">
@@ -31,7 +31,7 @@
 	<background splitType="Stretch"/>
 	<title splitType="Stretch"/>
 	<pageHeader height="22" splitType="Prevent">
-		<element kind="textField" uuid="388af92d-2f0a-4376-a4a0-b824b0887a9c" positionType="Float" mode="Opaque" x="0" y="9" width="572" height="13" backcolor="#ECECEC">
+		<element kind="textField" uuid="388af92d-2f0a-4376-a4a0-b824b0887a9c" positionType="Float" mode="Opaque" x="0" y="9" width="745" height="13" backcolor="#C3C3C3">
 			<expression><![CDATA[$R{AON_TOTAL_INFORMATION}]]></expression>
 		</element>
 	</pageHeader>

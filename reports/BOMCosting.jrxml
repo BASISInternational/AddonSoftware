@@ -5,7 +5,7 @@
 	<property name="ireport.y" value="0"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Base_1620"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
+	<style name="aonStyle1" default="true" fontSize="8"/>
 	<parameter name="FIRM_ID" class="java.lang.String">
 		<defaultValueExpression><![CDATA["01"]]></defaultValueExpression>
 	</parameter>

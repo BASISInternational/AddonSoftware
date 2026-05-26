@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
+	<style name="aonStyle1" default="true" fontSize="8"/>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="BILL_NO" class="java.lang.String"/>
 	<parameter name="PROD_DATE" class="java.lang.String"/>
@@ -36,13 +36,13 @@
 	<field name="TOT_SUB_COST" class="java.math.BigDecimal"/>
 	<variable name="TOT_SUB_COST" calculation="Sum" class="java.math.BigDecimal">
 		<expression><![CDATA[new Boolean ($F{LINE_TYPE} == "S") &&
-((new Boolean ($P{PROD_DATE}.trim().isEmpty())) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+((new Boolean (($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} >= $F{EFFECT_DATE} &&
-    $F{OBSOLT_DATE}.trim().isEmpty()) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+    ($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} >= $F{EFFECT_DATE} &&
-    !$F{OBSOLT_DATE}.trim().isEmpty() &&
+    ($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) &&
     $P{PROD_DATE} < $F{OBSOLT_DATE})) ? $F{TOT_SUB_COST} : 0]]></expression>
 	</variable>
 	<background splitType="Stretch"/>
@@ -126,13 +126,13 @@
 	<detail>
 		<band height="26" splitType="Stretch">
 			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} == "S") &&
-((new Boolean ($P{PROD_DATE}.trim().isEmpty())) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+((new Boolean (($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} >= $F{EFFECT_DATE} &&
-    $F{OBSOLT_DATE}.trim().isEmpty()) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+    ($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} >= $F{EFFECT_DATE} &&
-    !$F{OBSOLT_DATE}.trim().isEmpty() &&
+    ($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) &&
     $P{PROD_DATE} < $F{OBSOLT_DATE}))]]></printWhenExpression>
 			<element kind="rectangle" uuid="c3c2b199-5fad-4d35-b712-168c7f572037" x="0" y="0" width="745" height="13" backcolor="#F0F0F0" removeLineWhenBlank="true">
 				<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
@@ -223,7 +223,7 @@
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 		</band>
 		<band height="13">
-			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} == "S") && $P{ALL_DATES} == "Y" && (!$F{EFFECT_DATE}.trim().isEmpty() || !$F{OBSOLT_DATE}.trim().isEmpty())]]></printWhenExpression>
+			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} == "S") && $P{ALL_DATES} == "Y" && (($F{EFFECT_DATE} != null && !($F{EFFECT_DATE} == null || $F{EFFECT_DATE}.trim().isEmpty())) || ($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())))]]></printWhenExpression>
 			<element kind="rectangle" uuid="18fb6ef2-751e-4150-b548-1a5c0e8fafac" x="0" y="0" width="745" height="13" backcolor="#F0F0F0" removeLineWhenBlank="true">
 				<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -247,13 +247,13 @@
 		</band>
 		<band height="13">
 			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} == "M") &&
-((new Boolean ($P{PROD_DATE}.trim().isEmpty())) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+((new Boolean (($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} > $F{EFFECT_DATE} &&
-    $F{OBSOLT_DATE}.trim().isEmpty()) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+    ($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} > $F{EFFECT_DATE} &&
-    !$F{OBSOLT_DATE}.trim().isEmpty() &&
+    ($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) &&
     $P{PROD_DATE} < $F{OBSOLT_DATE}))]]></printWhenExpression>
 			<element kind="rectangle" uuid="34537400-ce04-442a-a540-876ad7d70d8a" x="0" y="0" width="745" height="13" backcolor="#F0F0F0" removeLineWhenBlank="true">
 				<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
@@ -270,7 +270,7 @@
 			</element>
 		</band>
 		<band height="13">
-			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} == "M") && $P{ALL_DATES} == "Y" && (!$F{EFFECT_DATE}.trim().isEmpty() || !$F{OBSOLT_DATE}.trim().isEmpty())]]></printWhenExpression>
+			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} == "M") && $P{ALL_DATES} == "Y" && (($F{EFFECT_DATE} != null && !($F{EFFECT_DATE} == null || $F{EFFECT_DATE}.trim().isEmpty())) || ($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())))]]></printWhenExpression>
 			<element kind="rectangle" uuid="37457285-31ab-417b-91c4-5e1348f84f98" x="0" y="0" width="745" height="13" backcolor="#F0F0F0" removeLineWhenBlank="true">
 				<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -294,13 +294,13 @@
 		</band>
 		<band height="13">
 			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} == "I") &&
-((new Boolean ($P{PROD_DATE}.trim().isEmpty())) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+((new Boolean (($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} > $F{EFFECT_DATE} &&
-    $F{OBSOLT_DATE}.trim().isEmpty()) ||
-(new Boolean (!$P{PROD_DATE}.trim().isEmpty()) &&
+    ($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) ||
+(new Boolean (($P{PROD_DATE} != null && !($P{PROD_DATE} == null || $P{PROD_DATE}.trim().isEmpty()))) &&
     $P{PROD_DATE} > $F{EFFECT_DATE} &&
-    !$F{OBSOLT_DATE}.trim().isEmpty() &&
+    ($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())) &&
     $P{PROD_DATE} < $F{OBSOLT_DATE}))]]></printWhenExpression>
 			<element kind="rectangle" uuid="de37cd51-907b-4b03-a97c-6b23cc31b831" x="0" y="0" width="745" height="13" backcolor="#F0F0F0" removeLineWhenBlank="true">
 				<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
@@ -317,7 +317,7 @@
 			</element>
 		</band>
 		<band height="13">
-			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} == "I") && $P{ALL_DATES} == "Y"&& (!$F{EFFECT_DATE}.trim().isEmpty() || !$F{OBSOLT_DATE}.trim().isEmpty())]]></printWhenExpression>
+			<printWhenExpression><![CDATA[new Boolean ($F{LINE_TYPE} == "I") && $P{ALL_DATES} == "Y"&& (($F{EFFECT_DATE} != null && !($F{EFFECT_DATE} == null || $F{EFFECT_DATE}.trim().isEmpty())) || ($F{OBSOLT_DATE} != null && !($F{OBSOLT_DATE} == null || $F{OBSOLT_DATE}.trim().isEmpty())))]]></printWhenExpression>
 			<element kind="rectangle" uuid="17d85fb3-300c-4a54-8a73-b31a557f836b" x="0" y="0" width="745" height="13" backcolor="#F0F0F0" removeLineWhenBlank="true">
 				<printWhenExpression><![CDATA[new Boolean( ($V{PAGE_COUNT}.intValue() + 1 ) % 2 == 0)]]></printWhenExpression>
 				<property name="com.jaspersoft.studio.unit.height" value="px"/>
