@@ -257,7 +257,7 @@ rem --- Open Additional Files
 		num_files=3
 		dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
         open_tables$[1]="IVM_ITEMTIER",open_opts$[1]="OTA"
-        open_tables$[2]="IVW_LFDET",open_opts$[2]="OTALI";rem --- lock and initfile ivw-04
+        open_tables$[2]="IVW_LFDET",open_opts$[2]="OTA"; rem --- ER 11220 eliminated need to lock and clear IVW_LFDET
 
 		gosub open_tables
         

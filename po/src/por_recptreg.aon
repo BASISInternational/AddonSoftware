@@ -300,7 +300,7 @@ rem --- Additional File Opens
 
     if lf$<>"N"
         files$[24]="ivm-04",ids$[24]="IVM_ITEMTIER"
-        files$[25]="ivw-04",ids$[25]="IVW_LFDET",options$[25]="CL"
+        files$[25]="ivw-04",ids$[25]="IVW_LFDET"; rem options$[25]="CL"; rem --- ER 11220 eliminated need to lock and clear IVW_LFDET
 
         call pgmdir$+"adc_fileopen.aon",action,24,25,files$[all],options$[all],
 :                                   ids$[all],templates$[all],channels[all],batch,status

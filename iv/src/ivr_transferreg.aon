@@ -194,7 +194,7 @@ rem --- Additional File Opens
 
     if lf$="Y" then 
         files$[20]="ivm-04", ids$[20]="IVM_ITEMTIER"
-        files$[21]="ivw-04", ids$[21]="IVW_LFDET", options$[21]="CL"
+        files$[21]="ivw-04", ids$[21]="IVW_LFDET"; options$[21]="CL"; rem --- ER 11220 eliminated need to lock and clear IVW_LFDET
     endif
 
     if gl$="Y" then

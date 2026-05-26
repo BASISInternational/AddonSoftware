@@ -62,7 +62,7 @@ rem --- Open/Lock files -- assume if channel[1] is set, they're all set
 		dim files$[files],options$[files],ids$[files],templates$[files],channels[files]
 		files$[1]="ivm-02",ids$[1]="IVM_ITEMWHSE"
 		files$[2]="ivm-04",ids$[2]="IVM_ITEMTIER"
-		files$[3]="ivw-04",ids$[3]="IVW_LFDET",options$[3]="CL"
+		files$[3]="ivw-04",ids$[3]="IVW_LFDET"; rem options$[3]="CL"
 
 		call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
 :                                   ids$[all],templates$[all],channels[all],batch,status
@@ -114,29 +114,19 @@ rem
 rem KJS 24-Dec-2008
 rem --------------------------------------------------------------------------
 
-	rem lfchan_dev=ivm04_dev
+	rem lfchan_dev=ivm04_dev; rem --- lfchan_dev no longer used. Using ivw04Map! TreeMap instead of ivw04_dev to eliminate file locking and clearing
+    ivw04Map!=new java.util.TreeMap()
 	
-rem --- Build work file
+rem --- Build ivw04Map! Tree Map for this item
+    read (ivm04_dev,key=lf_item$,dom=*next)
+    while 1
+        ivm04a_key$=key(ivm04_dev,end=*break)
+        if pos(lf_item$=ivm04a_key$)=0 then break
+        read record (ivm04_dev) ivm04a$
+        ivw04Map!.put(ivm04a_key$,ivm04a$)
+    wend
 
-	read (ivw04_dev,key=lf_item$,dom=*next)
-	ivw04a_key$ = ""
-	ivw04a_key$=key(ivw04_dev,end=*next)
-	
-	rem --- Is work file built for this item?
-	if ivw04a_key$ = "" or pos(lf_item$=ivw04a_key$)<>1 then
-		read (ivm04_dev,key=lf_item$,dom=*next)
-		
-		while more
-			ivm04a_key$=key(ivm04_dev,end=*break)
-			if pos(lf_item$=ivm04a_key$)=0 then break
-			read record (ivm04_dev) ivm04a$ 
-			dim ivw04a$:fattr(ivw04a$)
-			call pgmdir$+"adc_copyfile.aon",ivm04a$,ivw04a$,ignore_status
-			write record (ivw04_dev) ivw04a$
-		wend
-	endif
-
-	lfchan_dev=ivw04_dev
+	lfchan_dev=ivw04_dev; rem --- lfchan_dev no longer used. Using ivw04Map! TreeMap instead of ivw04_dev to eliminate file locking and clearing
 	
 rem --------------------------------------------------------------------------
 rem --- Process Receipts
@@ -146,67 +136,47 @@ rem --------------------------------------------------------------------------
 	
 	rem --- Look for tier with matching date
 	tier_date_found = false
-	
-	while begin_block
-	
-		read (lfchan_dev,key=lf_item$+lf_date$,dom=*next)
-		ivw04a_key$=key(lfchan_dev,end=*break)
-		
-		if pos(lf_item$+lf_date$ = ivw04a_key$) = 1 then 
 
+
+    ivw04_iter!=ivw04Map!.keySet().iterator()
+    while ivw04_iter!.hasNext()
+        ivw04_key$=ivw04_iter!.next()
+		if pos(lf_item$+lf_date$=ivw04a_key$)=1 then 
 			rem --- Tier Found With Matching Date
-			extract record (lfchan_dev) ivw04a$; rem Advisory Locking
+            ivw04a$=ivw04Map!.get(ivw04_key$)
 			
 			if ivw04a.unit_cost = cost then 
 				if report then
 					ivw04a.qty_on_hand = ivw04a.qty_on_hand + quantity
 					ivw04a$ = field(ivw04a$)
-					write record (lfchan_dev) ivw04a$
-                else
-                    read (lfchan_dev)
+                    ivw04Map!.put(ivw04_key$,ivw04a$)
 				endif
 				
 				tier_date_found = true
-            else
-                read (lfchan_dev)
 			endif
-		
 		endif
 		
-		break
-	
+		if tier_date_found then break
 	wend
 	
 	if tier_date_found = false then 
 
 		rem --- No Matching Cost Tier Found
 		cost_tier_found = false
-
-		while begin_block
 		
-			rem --- Find a place to insert a tier
-			if lifo then
-				read (lfchan_dev,key=lf_item$+$ff$,dom=*next)
-				ivw04a_key$=keyp(lfchan_dev,end=*break)
-			else
-				if fifo then 
-					read (lfchan_dev,key=lf_item$,dom=*next)
-					ivw04a_key$=key(lfchan_dev,end=*break)
-				endif
-			endif
+        rem --- Find a place to insert a tier
+        if lifo then mapKey!=ivw04Map!.lowerKey(lf_item$+$ff$)
+        if fifo then mapKey!=ivw04Map!.higherKey(lf_item$+$ff$)
 
-			rem --- Found a tier
-			if pos(lf_item$ = ivw04a_key$) = 1 then 
-				
-				read record (lfchan_dev,key=ivw04a_key$) ivw04a$
-				if report then gosub update_tier
-				cost_tier_found = true
-			
-			endif
-			
-			break
-		
-		wend
+        rem --- Found a tier
+        if mapKey!<>null() then
+            ivw04a_key$=mapKey!
+            if pos(lf_item$=ivw04a_key$)=1 then
+                ivw04a$=ivw04Map!.get(ivw04a_key$)
+                if report then gosub update_tier
+                cost_tier_found = true
+            endif
+        endif
 
 		rem --- No tier cost found, create one
 		if cost_tier_found = false then 
@@ -227,34 +197,21 @@ process_issue: rem --- Process Tiers For Quantity Issued
 rem --------------------------------------------------------------------------
 
 	rem --- Position file
-	if lifo then 
-		read (lfchan_dev,key=lf_item$+$ff$,dom=*next)
-	else
-		if fifo then 
-			read (lfchan_dev,key=lf_item$,dom=*next)
-		endif
-	endif
+	if lifo then ivw04_iter!=ivw04Map!.descendingKeySet().iterator()
+    if fifo then ivw04_iter!=ivw04Map!.keySet().iterator()
 
 	work_qty = quantity
 	done = false
 	
 	rem --- Loop through tiers
-	repeat
-		if lifo then 
-			key$=keyp(lfchan_dev,end=*break)
-		else
-			if fifo then 
-				key$=key(lfchan_dev,end=*break)
-			endif
-		endif
-	
-		if pos(lf_item$ = key$) <> 1 then break
+    while ivw04_iter!.hasNext()
+        key$=ivw04_iter!.next()
+		if pos(lf_item$=key$)<>1 then break
 	
 		rem --- Found a tier for this item and whse
-		extract record (lfchan_dev,key=key$) ivw04a$; rem Advisory Locking
+        ivw04a$=ivw04Map!.get(key$)
 		
 		if ivw04a.qty_on_hand > 0 then 
-		
 			rem --- Calculate Quantity & Cost
 			qty = ivw04a.qty_on_hand - work_qty
 			
@@ -270,18 +227,14 @@ rem --------------------------------------------------------------------------
 
 			if report then 
 				ivw04a$ = field(ivw04a$) 
-				write record (ivw04_dev) ivw04a$
+                ivw04Map!.put(key$,ivw04a$)
 			endif
 			
 			if work_qty = 0 then done = true
-				
 		endif
-		read record (lfchan_dev,key=key$)
-		
-		rem Is this to make keyp() work correctly?  Should we use dir=0?
-		if lifo then extract (lfchan_dev,key=key$)
-		
-	until done
+
+        if done then break	
+    wend
 	
 	rem --- No more lifo/fifo tier records, use whse cost
 
@@ -308,21 +261,16 @@ rem --------------------------------------------------------------------------
 	ivw04a.unit_cost=cost
 	
 	rem --- Look for open tier
-	while more
-		
-		ivw04a.firm_id$      = firm_id$
-		ivw04a.warehouse_id$ = whse$
-		ivw04a.item_id$      = item$
-		ivw04a.receipt_date$ = lf_date$
-		ivw04a.sequence_no$  = seq$
-		read (lfchan_dev,key=ivw04a.firm_id$+ivw04a.warehouse_id$+ivw04a.item_id$+ivw04a.receipt_date$+ivw04a.sequence_no$,dom=*break)
-		seq$=str(num(seq$)+1:"000")
-		
-	wend
+    ivw04a.firm_id$      = firm_id$
+    ivw04a.warehouse_id$ = whse$
+    ivw04a.item_id$      = item$
+    ivw04a.receipt_date$ = lf_date$
+    ivw04a.sequence_no$  = seq$
+    rec!=ivw04Map!.get(ivw04a.firm_id$+ivw04a.warehouse_id$+ivw04a.item_id$+ivw04a.receipt_date$+ivw04a.sequence_no$)
+    if rec!<>null() then seq$=str(num(seq$)+1:"000")
 
-    extract record (lfchan_dev,key=ivw04a_key$,dom=*next)x$; rem Advisory Locking
 	ivw04a$ = field(ivw04a$)
-	write record (lfchan_dev) ivw04a$
+    ivw04Map!.put(ivw04a_key$,ivw04a$)
 
 return	
 

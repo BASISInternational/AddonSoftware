@@ -36,7 +36,7 @@ rem --- Open/Lock files
 	open_tables$[5]="IVM_LSACT",open_opts$[5]="OTA"
 	open_tables$[6]="IVT_LSTRANS",open_opts$[6]="OTA"
 	open_tables$[7]="IVT_ITEMTRAN",open_opts$[7]="OTA"
-	open_tables$[8]="IVW_LFDET",open_opts$[8]="OTAL"
+	open_tables$[8]="IVW_LFDET",open_opts$[8]="OTA"; rem --- ER 11220 eliminated need to lock and clear IVW_LFDET
 
 	gosub open_tables
 
