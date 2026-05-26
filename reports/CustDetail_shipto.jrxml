@@ -3,7 +3,6 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="CUSTOMER_ID" class="java.lang.String"/>
 	<query language="sql"><![CDATA[select firm_id, customer_id, shipto_no, name, addr_line_1, addr_line_2, addr_line_3, addr_line_4, city, state_code, zip_code, phone_no, phone_exten, contact_name, slspsn_code, territory, tax_code, db_no, sic_code, country, arc_salecode.code_desc AS sales_desc, arc_terrcode.code_desc AS terr_desc, opc_taxcode.code_desc AS tax_desc,ar_ship_via,shipping_id,shipping_email

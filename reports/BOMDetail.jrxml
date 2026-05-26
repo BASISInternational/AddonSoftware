@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
+	<style name="aonStyle1" default="true" fontSize="8"/>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="BILL_NO_1" class="java.lang.String"/>
 	<parameter name="BILL_NO_2" class="java.lang.String"/>
@@ -72,16 +72,16 @@ where bmm_billmast.firm_id = $P{FIRM_ID} and bmm_billmast.bill_no >= $P{BILL_NO_
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</element>
 				<element kind="textField" uuid="6e1fc965-99f9-4a66-82d0-4253d4911d8d" x="617" y="0" width="71" height="11" hTextAlign="Right">
-					<printWhenExpression><![CDATA[new Boolean (!$P{PROD_DATE}.trim().isEmpty())]]></printWhenExpression>
-					<expression><![CDATA[$R{AON_AS_OF_DATE:}]]></expression>
+				<printWhenExpression><![CDATA[new Boolean ($P{PROD_DATE} != null && !$P{PROD_DATE}.trim().isEmpty())]]></printWhenExpression>
+				<expression><![CDATA[$R{AON_AS_OF_DATE:}]]></expression>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				</element>
 				<element kind="textField" uuid="6b6196a0-beaf-49d0-bee5-3ca0d87a6f9f" x="693" y="0" width="47" height="11">
-					<printWhenExpression><![CDATA[new Boolean (!$P{PROD_DATE}.trim().isEmpty())]]></printWhenExpression>
-					<expression><![CDATA[$P{PROD_DATE}.substring(4,6)+"/"+$P{PROD_DATE}.substring(6)+"/"+$P{PROD_DATE}.substring(0,4)]]></expression>
+				<printWhenExpression><![CDATA[new Boolean ($P{PROD_DATE} != null && !$P{PROD_DATE}.trim().isEmpty())]]></printWhenExpression>
+				<expression><![CDATA[$P{PROD_DATE}.substring(4,6)+"/"+$P{PROD_DATE}.substring(6)+"/"+$P{PROD_DATE}.substring(0,4)]]></expression>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -156,7 +156,7 @@ where bmm_billmast.firm_id = $P{FIRM_ID} and bmm_billmast.bill_no >= $P{BILL_NO_
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</element>
 				<element kind="textField" uuid="51d7dead-0bb6-4821-ae92-1f302003a02f" x="415" y="33" width="75" height="11">
-					<expression><![CDATA[$F{UNIT_MEASURE}+" "]]></expression>
+					<expression><![CDATA[($F{UNIT_MEASURE} != null ? $F{UNIT_MEASURE} : "")+" "]]></expression>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -197,7 +197,7 @@ where bmm_billmast.firm_id = $P{FIRM_ID} and bmm_billmast.bill_no >= $P{BILL_NO_
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</element>
 				<element kind="textField" uuid="fdc35b87-b4e5-4a1d-92ef-295d8742e077" mode="Transparent" x="693" y="22" width="47" height="11">
-					<printWhenExpression><![CDATA[new Boolean (!$F{LSTRVS_DATE}.trim().isEmpty())]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean ($F{LSTRVS_DATE} != null && !$F{LSTRVS_DATE}.trim().isEmpty())]]></printWhenExpression>
 					<expression><![CDATA[$F{LSTRVS_DATE}.substring(4,6)+"/"+$F{LSTRVS_DATE}.substring(6)+"/"+$F{LSTRVS_DATE}.substring(0,4)]]></expression>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
@@ -205,7 +205,7 @@ where bmm_billmast.firm_id = $P{FIRM_ID} and bmm_billmast.bill_no >= $P{BILL_NO_
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</element>
 				<element kind="textField" uuid="2699eca2-e9de-4de9-aed9-8c768514ecfb" x="693" y="33" width="47" height="11">
-					<printWhenExpression><![CDATA[new Boolean (!$F{LSTACT_DATE}.trim().isEmpty())]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean ($F{LSTACT_DATE} != null && !$F{LSTACT_DATE}.trim().isEmpty())]]></printWhenExpression>
 					<expression><![CDATA[$F{LSTACT_DATE}.substring(4,6)+"/"+$F{LSTACT_DATE}.substring(6)+"/"+$F{LSTACT_DATE}.substring(0,4)]]></expression>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
@@ -213,7 +213,7 @@ where bmm_billmast.firm_id = $P{FIRM_ID} and bmm_billmast.bill_no >= $P{BILL_NO_
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</element>
 				<element kind="textField" uuid="35e8587b-f8f5-4674-a0d7-3e743683dd22" x="693" y="11" width="47" height="11">
-					<printWhenExpression><![CDATA[new Boolean (!$F{CREATE_DATE}.trim().isEmpty())]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean ($F{CREATE_DATE} != null && !$F{CREATE_DATE}.trim().isEmpty())]]></printWhenExpression>
 					<expression><![CDATA[$F{CREATE_DATE}.substring(4,6)+"/"+$F{CREATE_DATE}.substring(6)+"/"+$F{CREATE_DATE}.substring(0,4)]]></expression>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
@@ -228,7 +228,7 @@ where bmm_billmast.firm_id = $P{FIRM_ID} and bmm_billmast.bill_no >= $P{BILL_NO_
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</element>
 				<element kind="textField" uuid="b795f2b0-1f65-4c9e-9063-7743b2723fd6" x="693" y="55" width="47" height="11">
-					<printWhenExpression><![CDATA[new Boolean (!$F{CREATE_DATE}.trim().isEmpty())]]></printWhenExpression>
+					<printWhenExpression><![CDATA[new Boolean ($F{CREATE_DATE} != null && !$F{CREATE_DATE}.trim().isEmpty())]]></printWhenExpression>
 					<expression><![CDATA[$F{ITEM_INACTIVE}]]></expression>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>

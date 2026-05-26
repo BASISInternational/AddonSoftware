@@ -3,7 +3,6 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="ITEM_ID" class="java.lang.String"/>
 	<query language="sql"><![CDATA[select item_synonym from ivm_itemsyn where firm_id = $P{FIRM_ID} and item_id = $P{ITEM_ID}]]></query>

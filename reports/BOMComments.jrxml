@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
+	<style name="aonStyle1" default="true" fontSize="8"/>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="BILL_NO" class="java.lang.String"/>
 	<query language="sql"><![CDATA[select firm_id, bill_no, memo_1024 from bmm_billmast

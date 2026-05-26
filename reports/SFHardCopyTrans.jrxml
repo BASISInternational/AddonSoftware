@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="1524"/>
 	<property name="ireport.y" value="0"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
+	<style name="aonStyle1" default="true" fontSize="8"/>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="WO_LOCATION" class="java.lang.String"/>
 	<parameter name="WO_NO" class="java.lang.String"/>
@@ -83,7 +83,7 @@
 				<expression><![CDATA[" "]]></expression>
 			</element>
 			<element kind="frame" uuid="9d3fae58-ea41-40fb-9afc-7aff553ef0f8" x="0" y="0" width="740" height="11">
-				<printWhenExpression><![CDATA[$F{THIS_IS_WO_TOTAL_LINE}!="Y" && $F{THIS_IS_DT_TOTAL_LINE}!="Y" && $F{LOTSER_LBL}.isEmpty()]]></printWhenExpression>
+				<printWhenExpression><![CDATA[$F{THIS_IS_WO_TOTAL_LINE}!="Y" && $F{THIS_IS_DT_TOTAL_LINE}!="Y" && ($F{LOTSER_LBL} == null || $F{LOTSER_LBL}.isEmpty())]]></printWhenExpression>
 				<element kind="textField" uuid="d6b0addd-7956-43e5-a397-7d108a758dda" x="4" y="0" width="39" height="11">
 					<expression><![CDATA[$F{TRANS_DATE}]]></expression>
 				</element>
@@ -99,7 +99,7 @@
 					<expression><![CDATA[$F{DESC}]]></expression>
 				</element>
 				<element kind="textField" uuid="e2ecd506-42df-47e6-9a54-2c482b44b7f0" x="422" y="0" width="48" height="11">
-					<printWhenExpression><![CDATA[!$F{PO_NUM}.contains( "Setup" )]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$F{PO_NUM} == null || !$F{PO_NUM}.contains("Setup")]]></printWhenExpression>
 					<expression><![CDATA[$F{PO_NUM}]]></expression>
 				</element>
 				<element kind="textField" uuid="c981370f-7761-4670-bcdf-70ca1ab54db6" x="472" y="0" width="58" height="11" hTextAlign="Right">
@@ -120,7 +120,7 @@
 				</element>
 			</element>
 			<element kind="frame" uuid="a3341b5d-fa46-4d21-bf6e-5d186a1d4b50" x="0" y="0" width="740" height="11">
-				<printWhenExpression><![CDATA[!$F{LOTSER_LBL}.isEmpty()]]></printWhenExpression>
+				<printWhenExpression><![CDATA[$F{LOTSER_LBL} != null && !$F{LOTSER_LBL}.isEmpty()]]></printWhenExpression>
 				<element kind="textField" uuid="1122e7c5-6bf1-4677-8830-c3f60f6df417" x="60" y="0" width="40" height="11" hTextAlign="Right">
 					<expression><![CDATA[$F{LOTSER_LBL}]]></expression>
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>

@@ -3,7 +3,6 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="CUSTOMER_ID" class="java.lang.String"/>
 	<query language="sql"><![CDATA[select firm_id, customer_id, job_no, lien_no, retain_job, lien_date, fst_shp_date, lstinv_date, customer_name, addr_line_1, addr_line_2, city, state_code, zip_code, phone_no, phone_exten, contact_name, lien_amount, total_sales from opm_custjobs where firm_id = $P{FIRM_ID} and customer_id = $P{CUSTOMER_ID}]]></query>

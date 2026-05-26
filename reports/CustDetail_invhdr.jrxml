@@ -3,7 +3,6 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
 	<dataset name="New Dataset 1" uuid="b6b2a201-d742-49b4-b308-e0722fc5ea9d">
 		<query language="SQL"><![CDATA[select * from art_invhdr]]></query>
 		<field name="FIRM_ID" class="java.lang.String"/>

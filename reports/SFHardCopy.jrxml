@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="60"/>
 	<property name="ireport.y" value="34"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
+	<style name="aonStyle1" default="true" fontSize="8"/>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="WO_NO_1" class="java.lang.String"/>
 	<parameter name="WO_NO_2" class="java.lang.String"/>
@@ -93,7 +93,7 @@
 	<field name="WARN_SUBCONTRACT_TRANS" class="java.lang.String"/>
 	<variable name="MAST_CLS_INP_QTY" class="java.lang.Float">
 		<expression><![CDATA[]]></expression>
-		<initialValueExpression><![CDATA[Float.valueOf($F{MAST_CLS_INP_QTY_STR}.replaceAll( ",","" )).floatValue()]]></initialValueExpression>
+		<initialValueExpression><![CDATA[($F{MAST_CLS_INP_QTY_STR} != null && !$F{MAST_CLS_INP_QTY_STR}.trim().isEmpty()) ? Float.valueOf($F{MAST_CLS_INP_QTY_STR}.replaceAll(",","")).floatValue() : 0.0f]]></initialValueExpression>
 	</variable>
 	<variable name="MAST_CLOSED_COST" class="java.math.BigDecimal"/>
 	<variable name="COST_EA_STDTOT_BIGDEC" class="java.math.BigDecimal"/>
@@ -247,7 +247,7 @@
 				</element>
 			</band>
 			<band height="13">
-				<printWhenExpression><![CDATA[(Float.valueOf($F{MAST_CLS_INP_QTY_STR}.replaceAll( ",","" )).floatValue() != 0.0) && ($P{REPORT_TYPE}=="C")]]></printWhenExpression>
+				<printWhenExpression><![CDATA[($F{MAST_CLS_INP_QTY_STR} != null && !$F{MAST_CLS_INP_QTY_STR}.trim().isEmpty() && Float.valueOf($F{MAST_CLS_INP_QTY_STR}.replaceAll(",","")).floatValue() != 0.0) && ($P{REPORT_TYPE}=="C")]]></printWhenExpression>
 				<element kind="staticText" uuid="4494e676-56e8-4392-95f4-969a1b513715" x="7" y="2" width="26" height="11" removeLineWhenBlank="true" hTextAlign="Left" vTextAlign="Middle">
 					<printWhenExpression><![CDATA[$P{REPORT_TYPE}=="C"]]></printWhenExpression>
 					<text><![CDATA[******]]></text>
