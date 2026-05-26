@@ -35,9 +35,14 @@ rem --- Open/Lock files
     files$[6]="arw-06",ids$[6]="ARW_RANKING"
     files$[7]="arc_terrcode",ids$[7]="ARC_TERRCODE"
     files$[8]="arc_custtype",ids$[8]="ARC_CUSTTYPE"
-    options$[6]="CL"
+    rem options$[6]="CL"; rem --- ER 11224 eliminated need to lock and clear ARW_RANKING
+
+    rem --- Use TreeMap (in case sort order is important) instead of locking and clearing work files
+    arw06Map!=new java.util.TreeMap()
+
     call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],ids$[all],templates$[all],channels[all],batch,status
     if status goto std_exit
+
     ars01_dev=channels[1]
     arm01_dev=channels[2]
     arm02_dev=channels[3]
@@ -201,19 +206,14 @@ rem --- Sort Customer Payment (arm-06) records by specified criteria
         arw06a.rank_code$=str(amount:m9$)
         arw06a.customer_id$=arm06a.customer_id$
         arw06a$=field(arw06a$)
-        write (arw06_dev) arw06a$
+        arw06Map!.put(arw06a$,arw06a$)
     wend
 
-rem --- Start progress meter and position file
-
-    read (arw06_dev,key=firm_id$,dom=*next)
-
-rem --- Read next sort file record
-
-    while more
-        k$=key(arw06_dev,end=*break)
-        if pos(firm_id$=k$)<>1 break
-        read record (arw06_dev) arw06a$
+rem --- Read next record
+    arw06_iter!=arw06Map!.keySet().iterator()
+    while arw06_iter!.hasNext()
+        arw06a$=arw06Map!.get(arw06_iter!.next())
+        if firm_id$<>arw06a$.firm_id$ then break
 
         rem --- Retrieve Customer Master (arm-01) and Payment (arm-06) records
 
