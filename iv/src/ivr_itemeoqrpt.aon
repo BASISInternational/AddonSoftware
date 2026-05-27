@@ -37,7 +37,12 @@ rem --- Open/Lock files
     files$[9]="ivs_params",ids$[9]="IVS_PARAMS"
     files$[10]="ivs_setcarry",ids$[10]="IVS_SETCARRY"
     files$[11]="ivs_abcparam",ids$[11]="IVS_ABCPARAM"    
-    options$[6]="CL", options$[7]="CL"
+rem    options$[6]="CL", options$[7]="CL"; rem --- ER 11226 eliminated need to lock and clear IVW_EOQPROD and IVW_EOQWHSE
+
+    rem --- Use TreeMap (in case sort order is important) instead of locking and clearing work files
+    ivw11Map!=new java.util.TreeMap()
+    ivw21Map!=new java.util.TreeMap()
+
     call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
 :                                   ids$[all],templates$[all],channels[all],batch,status
     if status goto std_exit

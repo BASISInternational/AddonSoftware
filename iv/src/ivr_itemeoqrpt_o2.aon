@@ -85,14 +85,12 @@ rem --- Stocking level warehouse
     t1$=""
     first$=firm_id$+begwhse$
     no_records = 1
-    read (ivw21_dev,key=first$,dom=*next)
-
-    while more
-
-        ivw21a_key$=key(ivw21_dev,end=*break)
+    ivw21_iter!=ivw21Map!.keySet().iterator()
+    while ivw21_iter!.hasNext()
+        ivw21a_key$=ivw21_iter!.next()
         if pos(firm_id$=ivw21a_key$)<>1 break
         if begwhse$<>"" and ivw21a_key.warehouse_id$>endwhse$ break; rem why?  isn't this already done?
-        read record (ivw21_dev) ivw21a$
+        ivw21a$=ivw21Map!.get(ivw21a_key$)
 
     rem --- Level break?
 
@@ -161,9 +159,6 @@ rem --- All done
     endif
 
 rem --- Chain to next overlay
-
-    unlock(ivw11_dev,err=*next)
-    unlock(ivw21_dev,err=*next)
 
     x$=stbl("!CLEAR","+EOQ_CARRY",err=*next); rem --- Clear stbl("+EOQ_CARRY") so ready to run IVU_ITEMEOQUPDAT form
     update$       = "ivu_itemeoqupdate.aon"
