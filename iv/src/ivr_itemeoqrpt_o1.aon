@@ -158,7 +158,8 @@ rem --- Update totals for warehouse/item
 		ivw21a.order_point_02  = order
 		ivw21a.eoq_02          = eoq
 		ivw21a$ = field(ivw21a$)
-		write record (ivw21_dev) ivw21a$
+        ivw21a_key$=ivw21a.firm_id$+ivw21a.warehouse_id$+ivw21a.product_type$+ivw21a.item_id$
+        ivw21Map!.put(ivw21a_key$,ivw21a$)
 
 rem --- Accumulate item totals
 
@@ -228,7 +229,8 @@ rem --- Generate item record
     ivw11a.eoq_02          = eoq
     ivw11a.unit_cost       = unitcost
     ivw11a$ = field(ivw11a$)
-    write record (ivw11_dev) ivw11a$
+    ivw11a_key$=ivw11a.firm_id$+ivw11a.reserved_str$+ivw11a.product_type$+ivw11a.item_id$
+    ivw11Map!.put(ivw11a_key$,ivw11a$)
 
     return	
 
