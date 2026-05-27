@@ -35,7 +35,12 @@ rem --- Open files
     files$[7]="ivw-02",ids$[7]="IVW_WHSETOTS"
     files$[8]="ivs_params",ids$[8]="IVS_PARAMS"
     files$[9]="ivc_whsecode",ids$[9]="IVC_WHSECODE"
-    options$[6]="CL",options$[7]="CL"
+rem    options$[6]="CL",options$[7]="CL"; rem --- ER 11227 eliminated need to lock and clear IVW_ITEMTOTS and IVW_WHSETOTS
+
+    rem --- Use TreeMap (in case sort order is important) instead of locking and clearing work files
+    ivw01Map!=new java.util.TreeMap()
+    ivw02Map!=new java.util.TreeMap()
+
     call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
 :                                   ids$[all],templates$[all],channels[all],batch,status
     if status goto std_exit
