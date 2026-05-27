@@ -151,7 +151,7 @@ rem --- Main Loop starting
 
             if level$<>"I" then
                 ivw17a$=field(ivw17a$)
-                write record (ivw17_dev,key=ivw17a_key$) ivw17a$
+                ivw17Map!.put(ivw17a_key$,ivw17a$)
 
                 ivs10w_key.firm_id$=firm_id$
                 ivs10w_key.record_id_w$="W"
@@ -215,7 +215,7 @@ rem --- Main Loop starting
     rem --- Update item totals
 
         ivw07a$=field(ivw07a$)
-        write record (ivw07_dev,key=ivw07a_key$) ivw07a$
+        ivw07Map!.put(ivw07a_key$,ivw07a$)
 
         ivs10i_key.firm_id$=firm_id$
         ivs10i_key.record_id_i$="I"
@@ -336,7 +336,7 @@ rem --- Loop Starting
         ivw07a.abc_total_value_02=ive07a.abc_total_value_02
         ivw07a.abc_total_value_03=ive07a.abc_total_value_03
         ivw07a$=field(ivw07a$)
-        write record (ivw07_dev,key=ivw07a_key$) ivw07a$
+        ivw07Map!.put(ivw07a_key$,ivw07a$)
     wend; rem --- Loop Ending
 
     return
@@ -379,7 +379,7 @@ rem --- Loop Starting
         ivw17a.abc_total_value_02=ive17a.abc_total_value_02
         ivw17a.abc_total_value_03=ive17a.abc_total_value_03
         ivw17a$ = field(ivw17a$)
-        write record (ivw17_dev,key=ivw17a_key$) ivw17a$
+        ivw17Map!.put(ivw17a_key$,ivw17a$)
 
     wend; rem --- Loop Ending
 

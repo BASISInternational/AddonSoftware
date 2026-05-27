@@ -40,7 +40,12 @@ rem --- Open/Lock files
     files$[11]="gls_calendar",ids$[11]="GLS_CALENDAR"
     files$[12]="ivs_params",ids$[12]="IVS_PARAMS"
     files$[13]="ivs_abcparam",ids$[13]="IVS_ABCPARAM"    
-    options$[9]="CL",options$[10]="CL"
+rem    options$[9]="CL",options$[10]="CL"; rem --- ER 11225 eliminated need to lock and clear IVW_ABCITEM and IVW_ABCWHSE
+
+    rem --- Use TreeMap (in case sort order is important) instead of locking and clearing work files
+    ivw07Map!=new java.util.TreeMap()
+    ivw17Map!=new java.util.TreeMap()
+
     call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
 :                                   ids$[all],templates$[all],channels[all],batch,status
     if status goto std_exit

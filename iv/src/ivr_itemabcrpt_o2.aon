@@ -102,16 +102,16 @@ rem --- Position file
         channel=ive07_dev
         total=0
         warehouse=0
-        read (ivw07_dev,key=firm_id$,dom=*next)
 
     rem --- Read next ivw-07 record
 
-        while more
-            ivw07a_key$=key(ivw07_dev,end=*break)
+        ivw07_iter!=ivw07Map!.keySet().iterator()
+        while ivw07_iter!.hasNext()
+            ivw07a_key$=ivw07_iter!.next()
             if pos(firm_id$=ivw07a_key$)<>1 break
             total_recs=total_recs+1
             if mod(total_recs,milestone)=0 then call stbl("+DIR_PGM")+"adc_progress.aon","S","","","","",0,0,milestone,meter_num,status
-            read record (ivw07_dev) ivw07a$
+            ivw07a$=ivw07Map!.get(ivw07a_key$)
 
         rem --- Process work file record
 
