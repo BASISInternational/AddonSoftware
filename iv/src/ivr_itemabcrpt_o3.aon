@@ -83,19 +83,16 @@ rem --- Background
 
     call pgmdir$+"adc_progress.aon","S","IVW_ABCITEM","","","",0,ivw07_dev,1,meter_num,status
 
-rem --- Position file
-
-    read (ivw17_dev,key=firm_id$+begwhse$,dom=*next)
-
 rem --- Read next ivw-17 record
 
-    while more
-        ivw17a_key$=key(ivw17_dev,end=*break)
+        ivw17_iter!=ivw17Map!.keySet().iterator()
+        while ivw17_iter!.hasNext()
+            ivw17a_key$=ivw17_iter!.next()
         if pos(firm_id$=ivw17a_key$)<>1 break
         if endwhse$<>"" and ivw17a_key.warehouse_id$>endwhse$ break
         total_recs=total_recs+1
         if mod(total_recs,milestone)=0 then call stbl("+DIR_PGM")+"adc_progress.aon","S","","","","",0,0,milestone,meter_num,status
-        read record (ivw17_dev) ivw17a$
+            ivw17a$=ivw17Map!.get(ivw17a_key$)
 
 rem --- Level break?
 
