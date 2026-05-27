@@ -152,7 +152,7 @@ rem --- Main Read
         ivw01a.usage_qty=usage
         ivw01a.qty_on_hand=onhand
         ivw01a$ = field(ivw01a$)
-        write record (ivw01_dev,key=ivw01a_key$) ivw01a$
+        ivw01Map!.put(ivw01a_key$,ivw01a$)
 
     rem --- Write ivw-02 totals record
 
@@ -162,14 +162,12 @@ rem --- Main Read
         ivw02a.warehouse_id$=whse$
         ivw02a.total_usage=0
         ivw02a.total_value=0
-        find record (ivw02_dev,key=ivw02a_key$,dom=*next) ivw02a$
+        ivw02a_rec!=ivw02Map!.get(ivw02a_key$)
+        if ivw02a_rec!<>null() then ivw02a$=ivw02a_rec!
         ivw02a.total_usage=ivw02a.total_usage+cost*usage
         ivw02a.total_value=ivw02a.total_value+cost*onhand
         ivw02a$ = field(ivw02a$)
-        write record (ivw02_dev,key=ivw02a_key$,err=ivw02_reg_write) ivw02a$
-        continue
-    ivw02_reg_write: 
-        write (ivw02_dev,key=ivw02a_key$) ivw02a_key$,ivw02a.total_usage,ivw02a.total_value     
+        ivw02Map!.put(ivw02a_key$,ivw02a$)
     wend 
 
 rem --- Position file
@@ -182,12 +180,12 @@ rem --- Position file
     ivw02a.total_value=0
     total_percent=0
     bar=0
-    read (ivw01_dev,key="",dom=*next)
 
 rem --- Read next work record
 
-    while more ; Rem ----Loop Starting
-        read record (ivw01_dev,end=done) ivw01a$
+    ivw01_iter!=ivw01Map!.keySet().iterator()
+    while ivw01_iter!.hasNext()
+        ivw01a$=ivw01Map!.get(ivw01_iter!.next())
         total_recs=total_recs+1
         if mod(total_recs,milestone)=0 then call stbl("+DIR_PGM")+"adc_progress.aon","S","","","","",0,0,milestone,meter_num,status
         cost$=""
@@ -312,7 +310,8 @@ whsebreak: rem --- Warehouse Break
     bar=0
     BrkVect!.addItem(str(OutVect!.size()/(columns)))
     HdrVect!.addItem(h9$)
-    find record (ivw02_dev,key=ivw02a_key$,dom=*next) ivw02a$
+    ivw02a_rec!=ivw02Map!.get(ivw02a_key$)
+    if ivw02a_rec!<>null() then ivw02a$=ivw02a_rec!
     let total_usage=ivw02a.total_usage,total_value=ivw02a.total_value,total_percent=0
     let cum_usage=0,cum_value=0
     return
