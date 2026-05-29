@@ -78,6 +78,12 @@ rem --- Initialize form for on-demand print check
 		callpoint!.setColumnEnabled("APR_CHECKS.CHECK_ACCTS",0)
 	endif
 
+rem --- Initialize the ACH Effective Date to the Check Date plus Days Lead (cannot be Saturday or Sunday)
+	if callpoint!.getDevObject("ach_allowed") then
+		check_date$=callpoint!.getColumnData("APR_CHECKS.CHECK_DATE")
+		gosub initEffectDate
+	endif
+
 [[APR_CHECKS.ASHO]]
 rem --- Disable ACH Effective Date when ACH isn't being used
 	if !callpoint!.getDevObject("ach_allowed") then callpoint!.setColumnEnabled("APR_CHECKS.EFFECT_DATE",-1)
@@ -293,21 +299,7 @@ rem --- Hold on to selected Bank Account Code, i.e. Checking Account
 [[APR_CHECKS.CHECK_DATE.AVAL]]
 rem --- Initialize the ACH Effective Date to the Check Date plus Days Lead (cannot be Saturday or Sunday)
 	check_date$=callpoint!.getUserInput()
-	checkDate=jul(num(check_date$(1,4)),num(check_date$(5,2)),num(check_date$(7,2)))
-
-	days_lead=callpoint!.getDevObject("days_lead")
-	effectDate=checkDate+days_lead
-	effect_date$=date(effectDate:"%Y%Mz%Dz")
-
-	call "adc_dayweek.aon",effect_date$,dow$,dow
-	if pos(dow$="SatSun",3) then
-		if dow$="Sat" then days_lead=days_lead+2
-		if dow$="Sun" then days_lead=days_lead+1
-		effectDate=checkDate+days_lead
-		effect_date$=date(effectDate:"%Y%Mz%Dz")
-	endif
-
-	callpoint!.setColumnData("APR_CHECKS.EFFECT_DATE",effect_date$,1)
+	gosub initEffectDate
 
 [[APR_CHECKS.CHECK_NO.AVAL]]
 rem --- Warn if this check number has been previously used
@@ -591,6 +583,27 @@ rem --- send in control to toggle (format "ALIAS.CONTROL_NAME"), and D or space 
 	wmap$(wpos+6,1)=ctl_stat$
 	callpoint!.setAbleMap(wmap$)
 	callpoint!.setStatus("ABLEMAP-REFRESH")
+return
+
+rem ==========================================================================
+initEffectDate: rem --- Initialize the ACH Effective Date to the Check Date plus Days Lead (cannot be Saturday or Sunday)
+               rem      IN: check_date$
+rem ==========================================================================
+	checkDate=jul(num(check_date$(1,4)),num(check_date$(5,2)),num(check_date$(7,2)))
+
+	days_lead=callpoint!.getDevObject("days_lead")
+	effectDate=checkDate+days_lead
+	effect_date$=date(effectDate:"%Y%Mz%Dz")
+
+	call "adc_dayweek.aon",effect_date$,dow$,dow
+	if pos(dow$="SatSun",3) then
+		if dow$="Sat" then days_lead=days_lead+2
+		if dow$="Sun" then days_lead=days_lead+1
+		effectDate=checkDate+days_lead
+		effect_date$=date(effectDate:"%Y%Mz%Dz")
+	endif
+
+	callpoint!.setColumnData("APR_CHECKS.EFFECT_DATE",effect_date$,1)
 return
 
 #include [+ADDON_LIB]std_missing_params.aon
