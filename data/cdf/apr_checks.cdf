@@ -120,15 +120,16 @@ if num(callpoint!.getColumnData("APR_CHECKS.CHECK_NO")) = 0 then
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		rem --- Set focus on the Check Number field
-		callpoint!.setFocus("APR_CHECKS.CHECK_NO")
+		callpoint!.setFocus("APR_CHECKS.CHECK_NO",1)
 		break
 	endif
 endif
 
 rem --- Don't allow re-using an unwanted check number
 if callpoint!.getDevObject("reuse_check_num")="N" then
+	callpoint!.setStatus("ABORT")
 	rem --- Set focus on the Check Number field
-	callpoint!.setFocus("APR_CHECKS.CHECK_NO")
+	callpoint!.setFocus("APR_CHECKS.CHECK_NO",1)
 	break
 endif
 
@@ -148,7 +149,7 @@ if len(cvs(check_date$,2))<>8 or check_date=0
 	gosub disp_message
 	callpoint!.setStatus("ABORT")
 	rem --- Set focus on the Check Date field
-	callpoint!.setFocus("APR_CHECKS.CHECK_DATE")
+	callpoint!.setFocus("APR_CHECKS.CHECK_DATE",1)
 	break
 endif
 rem --- validate Check Date
@@ -162,7 +163,7 @@ call stbl("+DIR_PGM")+"glc_datecheck.aon",check_date$,"Y",per$,yr$,status
 if status>100
 	callpoint!.setStatus("ABORT")
 	rem --- Set focus on the Check Date field
-	callpoint!.setFocus("APR_CHECKS.CHECK_DATE")
+	callpoint!.setFocus("APR_CHECKS.CHECK_DATE",1)
 	break
 endif
 
