@@ -184,19 +184,19 @@ rem --- Main Read
         ivw03a.total_value=average
         ivw03a.item_turns=turns
         ivw03a$ = field(ivw03a$)
-        write record (ivw03_dev,key=ivw03a_key$) ivw03a$
+        ivw03Map!.put(ivw03a_key$,ivw03a$)
 
     wend; rem --- Main Loop Ending
 
 
 rem --- Report initializations
 
-    read (ivw03_dev,key=firm_id$,dom=*next)
+    ivw03_iter!=ivw03Map!.keySet().iterator()
 
 rem --- Read next work record
 
-    while more
-        read record (ivw03_dev,end=done) ivw03a$
+    while ivw03_iter!.hasNext()
+        ivw03a$=ivw03Map!.get(ivw03_iter!.next())
         whse$=ivw03a.warehouse_id$
         product$=ivw03a.product_type$
         item$=ivw03a.item_id$
