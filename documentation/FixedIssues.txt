@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-05-20
+ Report Date:   2026-06-01
  Report Branch: AddonSoftware 26.01
  Last Release:  AddonSoftware 26.00
 =======================================================================================================================================
@@ -101,4 +101,15 @@ Modified: reports/SFHardCopySubStd.jasper
 Modified: reports/SFHardCopySubStd.jrxml
 Modified: reports/SFHardCopyTrans.jasper
 Modified: reports/SFHardCopyTrans.jrxml
+=======================================================================================================================================
+
+Revision: e9c50c4b4f75922d6e395b500ed1fad83a380053
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 6/1/2026 9:44:06 AM
+Message:
+Bug 11231: When the callpoint!.setFocus(...) method is used to put focus
+on the Check Number field, also put the focused field in Edit Mode.
+----
+Modified: data/bar/apr_checks.xml
+Modified: data/cdf/apr_checks.cdf
 =======================================================================================================================================
