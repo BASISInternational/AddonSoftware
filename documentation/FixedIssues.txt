@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-06-01
+ Report Date:   2026-06-02
  Report Branch: AddonSoftware 26.01
  Last Release:  AddonSoftware 26.00
 =======================================================================================================================================
@@ -112,4 +112,15 @@ on the Check Number field, also put the focused field in Edit Mode.
 ----
 Modified: data/bar/apr_checks.xml
 Modified: data/cdf/apr_checks.cdf
+=======================================================================================================================================
+
+Revision: 68a54efc3ce881480b332328f235edf5a89289c2
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 6/2/2026 9:50:29 AM
+Message:
+Bug 11233: Defaulted the Dropship checkbox on the Purchase Order Entry
+form to 'N'.
+----
+Modified: data/bar/poe_pohdr.xml
+Modified: data/cdf/poe_pohdr.cdf
 =======================================================================================================================================
