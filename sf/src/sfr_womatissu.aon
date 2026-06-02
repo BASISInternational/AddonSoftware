@@ -60,14 +60,14 @@ rem --- Open/Lock Files
 
 	open_tables$[1] ="SFS_PARAMS",    open_opts$[1] = "OTA"
 	open_tables$[2] ="SFE_WOMASTR",   open_opts$[2] = "OTA"
-	open_tables$[3] ="SFE_WOTRANS",   open_opts$[3] = "OTAL"
+	open_tables$[3] ="SFE_WOTRANS",   open_opts$[3] = "OTA"; rem --- ER 11234 removed unnecessary lock on SFE_WOTRANS
 	open_tables$[4] ="SFE_WOMATHDR",  open_opts$[4] = "OTA"
 	open_tables$[5] ="SFE_WOMATDTL",  open_opts$[5] = "OTA"
 	open_tables$[6] ="SFE_WOMATISH",  open_opts$[6] = "OTA"
 	open_tables$[7] ="SFE_WOMATISD",  open_opts$[7] = "OTA"
 	open_tables$[9] ="SFC_WOTYPECD",  open_opts$[9] = "OTA"
 	open_tables$[10]="SFT_OPNMATTR",  open_opts$[10] = "OTA"
-	open_tables$[11]="SFW_ISSUXTYP",  open_opts$[11] = "OTAL"
+	open_tables$[11]="SFW_ISSUXTYP",  open_opts$[11] = "OTA"; rem --- ER 11234 eliminated need to lock and clear SFW_ISSUXTYP
 	open_tables$[12]="IVS_PARAMS",    open_opts$[12] = "OTA"
 	open_tables$[13]="IVM_ITEMMAST",  open_opts$[13] = "OTA"
 	open_tables$[14]="IVM_ITEMWHSE",  open_opts$[14] = "OTA"
@@ -210,8 +210,8 @@ rem --- Additional File Opens
 
 rem --- Initializations
 
-    rem --- Clear SFW_ISSUXTYP (sfw-01)
-    call pgmdir$+"adc_clearfile.aon",sfw01_dev
+    rem --- Use TreeMap (in case sort order is important) instead of locking and clearing work files
+    sfw01Map!=new java.util.TreeMap()
 
     precision ivs01_precision
     
@@ -481,9 +481,11 @@ rem --- Read next Issue Inventory Transaction (SFE_WOTRANS) record
         dim sfw01a$:fattr(sfw01a$)
         sfw01a.firm_id$=sfe15a.firm_id$
         sfw01a.wo_type$=sfe15a.wo_type$
-        find record (sfw01_dev,key=sfw01a.firm_id$+sfw01a.wo_type$,dom=*next) sfw01a$
+        sfw01_key$=sfw01a.firm_id$+sfw01a.wo_type$
+        sfw01a_rec!=sfw01Map!.get(sfw01_key$)
+        if sfw01a_rec!<>null() then sfw01a$=sfw01a_rec!
         sfw01a.act_mat_tot=sfw01a.act_mat_tot+t0
-        write record (sfw01_dev) sfw01a$
+        sfw01Map!.put(sfw01_key$,sfw01a$)
 		t0=0
     wend
     
@@ -509,11 +511,11 @@ rem --- Total by WO Type
 
     report_total=0
     dim sfw01a$:fattr(sfw01a$)
-    read (sfw01_dev,key=firm_id$,dom=*next)
-    while 1
-        sfw01_key$=key(sfw01_dev,end=*break)
+    sfw01_iter!=sfw01Map!.keySet().iterator()
+    while sfw01_iter!.hasNext()
+        sfw01_key$=sfw01_iter!.next()
         if pos(firm_id$=sfw01_key$)<>1 then break
-        read record (sfw01_dev) sfw01a$
+        sfw01a$=sfw01Map!.get(sfw01_key$)
         report_total=report_total+sfw01a.act_mat_tot
         
         dim sfm10a$:fattr(sfm10a$)
