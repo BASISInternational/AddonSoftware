@@ -46,6 +46,46 @@ rem --- Warn if WO is being closed complete
 		gosub disp_message
 	endif
 
+rem --- Disable buttons/options
+	callpoint!.setOptionEnabled("PULL",0)
+
+[[SFE_WOMATISH.AOPT-PULL]]
+rem --- Have ALL remaining items been pulled complete for this WO?
+	msg_id$="WO_PULLED_REMAINING"
+	gosub disp_message
+	if msg_opt$="Y" then
+		rem --- Pulled complete
+		ivm_itemwhse_dev=fnget_dev("IVM_ITEMWHSE")
+		ivm_itemwhse_tpl$=fnget_tpl$("IVM_ITEMWHSE")
+		sfe_womatisd_dev=fnget_dev("SFE_WOMATISD")
+		dim sfe_womatisd$:fnget_tpl$("SFE_WOMATISD")
+
+		sfe_womatish_key$=callpoint!.getDevObject("sfe_womatish_key")
+		read(sfe_womatisd_dev,key=sfe_womatish_key$,knum="AO_DISP_SEQ",dom=*next)
+		while 1
+			sfe_womatisd_key$=key(sfe_womatisd_dev,end=*break)
+			if pos(sfe_womatish_key$=sfe_womatisd_key$)<>1 then break
+			extractrecord(sfe_womatisd_dev)sfe_womatisd$
+			sfe_womatisd.qty_issued=sfe_womatisd.qty_ordered-sfe_womatisd.tot_qty_iss
+
+			dim ivm_itemwhse$:ivm_itemwhse_tpl$
+			findrecord(ivm_itemwhse_dev,key=firm_id$+sfe_womatisd.warehouse_id$+sfe_womatisd.item_id$,dom=*next)ivm_itemwhse$
+			sfe_womatisd.issue_cost=ivm_itemwhse.unit_cost
+
+			writerecord(sfe_womatisd_dev)sfe_womatisd$
+		wend
+
+		callpoint!.setStatus("REFGRID")
+	endif
+
+[[SFE_WOMATISH.APFE]]
+rem --- Enable/disable buttons/options
+	if callpoint!.isEditMode() then
+		callpoint!.setOptionEnabled("PULL",1)
+	else
+		callpoint!.setOptionEnabled("PULL",0)
+	endif
+
 [[SFE_WOMATISH.AREA]]
 rem --- Hold on to sfe_womatish key
 
@@ -69,6 +109,10 @@ rem --- Init no existing materials issues
 	wotrans=0
 	callpoint!.setDevObject("wotrans",wotrans)
 	
+
+[[SFE_WOMATISH.ARER]]
+rem --- Disable buttons/options
+	callpoint!.setOptionEnabled("PULL",0)
 
 [[SFE_WOMATISH.ARNF]]
 if num(stbl("+BATCH_NO"),err=*next)<>0
@@ -234,6 +278,10 @@ rem --- Remove software lock on batch when batching
 		lock_disp$=""
 		call stbl("+DIR_SYP")+"bac_lock_record.bbj",lock_table$,lock_record$,lock_type$,lock_disp$,rd_table_chan,table_chans$[all],lock_status$
 	endif
+
+[[SFE_WOMATISH.BPFX]]
+rem --- Enable buttons/options
+	callpoint!.setOptionEnabled("PULL",0)
 
 [[SFE_WOMATISH.BREX]]
 rem --- When in Edit mode, warn if number of entered lot/serial numbers doesn't match the quantity issued.
@@ -551,6 +599,11 @@ rem --- New materials issues entry or no existing materials issues
 rem -- Verify WO status
 	gosub verify_wo_status
 	if bad_wo then break
+
+rem --- Enable buttons/options
+	if callpoint!.isEditMode() then
+		callpoint!.setOptionEnabled("PULL",1)
+	endif
 
 [[SFE_WOMATISH.WO_NO.AVAL]]
 rem --- Hold on to sfe_womatish key
