@@ -764,9 +764,9 @@ rem --- call adc_application to see if AR is installed; if so, open a couple tab
 		gosub open_tables
 	else
 		rem --- dropship not allowed without AR
-		callpoint!.setTableColumnAttribute("POE_POHDR.DROPSHIP","DFLT", "N")
 		callpoint!.setColumnEnabled("POE_POHDR.DROPSHIP",-1)
 	endif
+	callpoint!.setTableColumnAttribute("POE_POHDR.DROPSHIP","DFLT", "N")
 
 rem --- call adc_application to see if OP is installed; if so, open a couple tables for potential use if linking PO to SO for dropship
 
@@ -1638,7 +1638,6 @@ callpoint!.setDevObject("dtl_posted","")
 
 rem --- dropship not allowed without AR
 if callpoint!.getDevObject("AR_installed")<>"Y"
-	callpoint!.setTableColumnAttribute("POE_POHDR.DROPSHIP","DFLT", "N")
 	callpoint!.setColumnEnabled("POE_POHDR.DROPSHIP",-1)
 endif
 
