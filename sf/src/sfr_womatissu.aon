@@ -60,7 +60,7 @@ rem --- Open/Lock Files
 
 	open_tables$[1] ="SFS_PARAMS",    open_opts$[1] = "OTA"
 	open_tables$[2] ="SFE_WOMASTR",   open_opts$[2] = "OTA"
-	open_tables$[3] ="SFE_WOTRANS",   open_opts$[3] = "OTA"; rem --- ER 11234 removed unnecessary lock on SFE_WOTRANS
+	open_tables$[3] ="SFE_WOTRANS",   open_opts$[3] = "OTA"; rem --- ER 11234 removed lock on SFE_WOTRANS when batched
 	open_tables$[4] ="SFE_WOMATHDR",  open_opts$[4] = "OTA"
 	open_tables$[5] ="SFE_WOMATDTL",  open_opts$[5] = "OTA"
 	open_tables$[6] ="SFE_WOMATISH",  open_opts$[6] = "OTA"
@@ -79,6 +79,7 @@ rem --- Open/Lock Files
 
     rem --- Lock if not batching
     if num(batch_no$)=0 then 
+        open_opts$[3]=open_opts$[3]+"L"
         open_opts$[6]=open_opts$[6]+"L"
         open_opts$[7]=open_opts$[7]+"L"
     endif
