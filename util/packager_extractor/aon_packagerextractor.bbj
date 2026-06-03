@@ -1085,7 +1085,7 @@ class public PackagerExtractor
         print(log_dev)
         pathIter!=sourcePaths!.keySet().iterator()
         while pathIter!.hasNext()
-            keyPath$=pathIter!.next()
+            keyPath$=cvs(pathIter!.next(),3)
             keyPath!=new java.io.File(keyPath$)
             canonicalKeyPath$=keyPath!.getCanonicalPath()
 
@@ -1302,7 +1302,7 @@ verify_path: rem --- Verify path is located under installation base directory
         skip_path=0
 
         rem --- Resolve embedded STBLs, except not [+FIRM_ID]
-        pathName$=path$
+        pathName$=cvs(path$,3)
         gosub resolvePathStbls
 
         resolvedPath!=new java.io.File(resolvedPath$)
