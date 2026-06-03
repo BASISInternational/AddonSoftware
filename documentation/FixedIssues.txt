@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-06-02
+ Report Date:   2026-06-03
  Report Branch: AddonSoftware 26.01
  Last Release:  AddonSoftware 26.00
 =======================================================================================================================================
@@ -123,4 +123,13 @@ form to 'N'.
 ----
 Modified: data/bar/poe_pohdr.xml
 Modified: data/cdf/poe_pohdr.cdf
+=======================================================================================================================================
+
+Revision: aee8b05be390dcb46f885a2480bbcf9d07ad3661
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 6/3/2026 10:45:31 AM
+Message:
+Bug 11237: Removed leading and trailing spaces from path names.
+----
+Modified: util/packager_extractor/aon_packagerextractor.bbj
 =======================================================================================================================================
