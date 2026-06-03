@@ -56,14 +56,20 @@ rem --- Open/Lock files
     open_tables$[4]="IVM_ITEMMAST",open_opts$[4]="OTA"
     open_tables$[5]="IVS_PARAMS",open_opts$[5]="OTA"
     open_tables$[6]="SFE_WOMASTR",open_opts$[6]="OTA"
-    open_tables$[7]="SFE_WOOPRADJ",open_opts$[7]="OTAL"
-    open_tables$[8]="SFE_WOSUBADJ",open_opts$[8]="OTAL"
+    open_tables$[7]="SFE_WOOPRADJ",open_opts$[7]="OTA"; rem --- ER 11238 removed lock on SFE_WOOPRADJ when batched
+    open_tables$[8]="SFE_WOSUBADJ",open_opts$[8]="OTA"; rem --- ER 11238 removed lock on SFE_WOSUBADJ when batched
     open_tables$[9]="SFC_WOTYPECD",open_opts$[9]="OTA"
     open_tables$[10]="SFS_PARAMS",open_opts$[10]="OTA"
     open_tables$[11]="SFT_OPNOPRTR",open_opts$[11]="OTA"
     open_tables$[12]="SFT_OPNSUBTR",open_opts$[12]="OTA"
     open_tables$[13]="SFW_COSTADJT",open_opts$[13]="OTAI"
     open_tables$[14]="SFW_ADJXTYPE",open_opts$[14]="OTAI"
+
+    rem --- Lock if not batching
+    if num(batch_no$)=0 then 
+        open_opts$[7]=open_opts$[7]+"L"
+        open_opts$[8]=open_opts$[8]+"L"
+    endif
 
 	gosub open_tables
 
