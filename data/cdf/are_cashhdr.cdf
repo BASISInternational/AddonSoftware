@@ -338,11 +338,8 @@ gosub fill_bottom_grid
 callpoint!.setStatus("REFRESH-ABLEMAP")
 
 [[ARE_CASHHDR.AR_CHECK_NO.AVAL]]
-rem --- temporary workaround to Barista bug not padding ar_check_no when nothing is entered for it
-	dim are01a$:fnget_tpl$("ARE_CASHHDR")
-	wk$=fattr(are01a$,"ar_check_no")
-	ar_check_no$=pad(callpoint!.getUserInput(),dec(wk$(10,2)))
-	callpoint!.setUserInput(ar_check_no$)
+rem --- Disable cash_check so it cannot be changed after record displayed or created
+	callpoint!.setColumnEnabled("ARE_CASHHDR.CASH_CHECK",0)
 
 [[ARE_CASHHDR.ASHO]]
 rem --- Launch Bank Deposit Entry form if using Bank Rec.
@@ -739,11 +736,23 @@ if callpoint!.getUserInput()="$"
 	ctl_name$="ABA_NO"
 	ctl_stat$="D"
 	gosub disable_fields
+	callpoint!.setColumnData("ARE_CASHHDR.ABA_NO","",1)
+
+	callpoint!.setColumnEnabled("ARE_CASHHDR.AR_CHECK_NO",0)
+	callpoint!.setColumnData("ARE_CASHHDR.AR_CHECK_NO","",1)
+
+	rem --- Force focus on payment_amt
+	callpoint!.setFocus("ARE_CASHHDR.PAYMENT_AMT",1)
 	
 else
 	ctl_name$="ABA_NO"
 	ctl_stat$=" "
 	gosub disable_fields
+
+	rem --- Force focus on ar_check_no
+	callpoint!.setColumnEnabled("ARE_CASHHDR.AR_CHECK_NO",1)
+	callpoint!.setFocus("ARE_CASHHDR.AR_CHECK_NO",1)
+
 endif
 callpoint!.setStatus("REFRESH-ABLEMAP-ACTIVATE")
 
@@ -784,6 +793,10 @@ endif
 gosub get_customer_balance
 callpoint!.setStatus("REFRESH")
 
+
+rem --- Force focus on cash_check
+callpoint!.setFocus("ARE_CASHHDR.CASH_CHECK",1)
+
 [[ARE_CASHHDR.PAYMENT_AMT.AVAL]]
 rem --- after check amt entered, alter remaining balance and re-do autopay, if turned on
 pymt_dist$=UserObj!.getItem(num(user_tpl.pymt_dist$))
@@ -818,6 +831,9 @@ if gl$="Y"
 		user_tpl.glper$=per$
 	endif
 endif
+
+rem --- Force focus on customer_id
+callpoint!.setFocus("ARE_CASHHDR.CUSTOMER_ID",1)
 
 [[ARE_CASHHDR.<CUSTOM>]]
 #include [+ADDON_LIB]std_functions.aon
