@@ -3,7 +3,6 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<template><![CDATA["StyleTemplate.jrtx"]]></template>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="VENDOR_ID" class="java.lang.String"/>
 	<query language="sql"><![CDATA[SELECT * FROM APM_VENDMAST WHERE APM_VENDMAST.FIRM_ID = $P{FIRM_ID} AND APM_VENDMAST.VENDOR_ID = $P{VENDOR_ID}]]></query>
