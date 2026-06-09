@@ -17,7 +17,7 @@ if lock_status$=""
 	lock_disp$="M"
 	call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHES",lock_record$,lock_type$,lock_disp$,rd_table_chan,table_chans$[all],lock_status$
 
-	if lock_status$="" then callpoint!.setStatus("EXIT")
+	if lock_status$="" then callpoint!.setStatus("SAVE")
 endif
 
 [[ADM_PROCBATCHES.ARNF]]
@@ -25,8 +25,7 @@ rem --- disallow user entering non-existent batch number
 	if stbl("+ALLOW_NEW_BATCH",err=*next)<>"Y"
 		callpoint!.setStatus("CLEAR-NEWREC")
 	else
-rem --- set defaults
-
+		rem --- set defaults
 		callpoint!.setColumnData("ADM_PROCBATCHES.DATE_OPENED",stbl("+SYSTEM_DATE"),1)
 		callpoint!.setColumnData("ADM_PROCBATCHES.LSTUSE_DATE",stbl("+SYSTEM_DATE"),1)
 		callpoint!.setColumnData("ADM_PROCBATCHES.LSTUSE_TIME",date(0:"%hz%mz"),1)
@@ -34,9 +33,15 @@ rem --- set defaults
 		callpoint!.setColumnData("ADM_PROCBATCHES.TIME_OPENED",date(0:"%hz%mz"),1)
 		callpoint!.setColumnData("ADM_PROCBATCHES.USER_ID",sysinfo.user_id$,1)
 		callpoint!.setColumnData("ADM_PROCBATCHES.DESCRIPTION",stbl("+BATCH_DESC"),1)
-		callpoint!.setStatus("MODIFIED")
 		callpoint!.setColumnEnabled("ADM_PROCBATCHES.BATCH_NO",0)
+		callpoint!.setStatus("MODIFIED")
+
+		callpoint!.setOptionEnabled("SELB",1)
 	endif
+
+[[ADM_PROCBATCHES.AWRI]]
+rem --- Exit form
+	callpoint!.setStatus("EXIT")
 
 [[ADM_PROCBATCHES.BATCH_NO.AVAL]]
 rem --- don't allow user to assign new batch# -- use Barista seq# (BATCH_NO)
