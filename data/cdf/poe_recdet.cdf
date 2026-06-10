@@ -431,6 +431,13 @@ rem --- Is this item lot/serial?
 :			table_chans$[all], 
 :			dflt_data$[all]
 
+		if callpoint!.getDevObject("adjustQtyReceived")="Y" then
+			rem --- Update quantity received
+			total_lotser=callpoint!.getDevObject("total_lotser")
+			callpoint!.setColumnData("POE_RECDET.QTY_RECEIVED",str(total_lotser/conv_factor),1)
+			callpoint!.setStatus("MODIFIED")		
+		endif
+
 		if ivm_itemmast.lotser_flag$="S"
 			ivm_lsmaster_dev=fnget_dev("IVM_LSMASTER")
 			dim ivm_lsmaster$:fnget_tpl$("IVM_LSMASTER")
@@ -700,6 +707,14 @@ if pos(ivm_itemmast.lotser_flag$="LS") and ivm_itemmast.inventoried$="Y"
 :		lot_pfx$, 
 :		table_chans$[all], 
 :		dflt_data$[all]
+
+	if callpoint!.getDevObject("adjustQtyReceived")="Y" then
+		rem --- Update quantity received
+		total_lotser=callpoint!.getDevObject("total_lotser")
+		callpoint!.setColumnData("POE_RECDET.QTY_RECEIVED",str(total_lotser/conv_factor),1)
+		callpoint!.setStatus("MODIFIED")		
+	endif
+
 	if ivm_itemmast.lotser_flag$="S"
 		ivm_lsmaster_dev=fnget_dev("IVM_LSMASTER")
 		dim ivm_lsmaster$:fnget_tpl$("IVM_LSMASTER")
