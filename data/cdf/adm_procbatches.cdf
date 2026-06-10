@@ -17,7 +17,10 @@ if lock_status$=""
 	lock_disp$="M"
 	call stbl("+DIR_SYP")+"bac_lock_record.bbj","ADM_PROCBATCHES",lock_record$,lock_type$,lock_disp$,rd_table_chan,table_chans$[all],lock_status$
 
-	if lock_status$="" then callpoint!.setStatus("SAVE")
+	if lock_status$="" then
+		callpoint!.setDevObject("SelectBatch",1)
+		callpoint!.setStatus("SAVE")
+	endif
 endif
 
 [[ADM_PROCBATCHES.ARNF]]
@@ -40,8 +43,8 @@ rem --- disallow user entering non-existent batch number
 	endif
 
 [[ADM_PROCBATCHES.AWRI]]
-rem --- Exit form
-	callpoint!.setStatus("EXIT")
+rem --- Exit form if Select Batch button clicked
+	if callpoint!.getDevObject("SelectBatch") then callpoint!.setStatus("EXIT")
 
 [[ADM_PROCBATCHES.BATCH_NO.AVAL]]
 rem --- don't allow user to assign new batch# -- use Barista seq# (BATCH_NO)
@@ -68,6 +71,10 @@ rem --- Notify user of the process aborting and release
 	msg_id$="PROCESS_ABORT"
 	gosub disp_message
 	release
+
+[[ADM_PROCBATCHES.BSHO]]
+rem --- Initialize SelectBatch devObject not selected
+	callpoint!.setDevObject("SelectBatch",0)
 
 [[ADM_PROCBATCHES.BTBL]]
 callpoint!.setTableColumnAttribute("ADM_PROCBATCHES.PROCESS_ID","PVAL",$22$+stbl("+PROCESS_ID")+$22$)
