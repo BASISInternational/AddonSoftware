@@ -66,6 +66,9 @@ rem --- Initialize PO_NO and UNIT_COST
 	callpoint!.setTableColumnAttribute("POE_RECLSDET.PO_NO","DFLT",str(callpoint!.getDevObject("ls_po_no")))
 	callpoint!.setTableColumnAttribute("POE_RECLSDET.UNIT_COST","DFLT",str(callpoint!.getDevObject("ls_unit_cost")))
 
+rem --- Initialize that por_recdet.qty_received does not need adjustment
+	callpoint!.setDevObject("adjustQtyReceived","N")
+
 [[POE_RECLSDET.LOTSER_NO.AVAL]]
 rem --- Initialize qty_received for new rows
 	if callpoint!.getGridRowNewStatus(callpoint!.getValidationRow())="Y" and
@@ -121,6 +124,19 @@ rem ==========================================================================
 		msg_tokens$[1]=str(callpoint!.getDevObject("ls_qty_received"))
 		msg_tokens$[2]=str(total_lotser)
 		gosub disp_message
+		if msg_opt$="C" then
+			rem --- Cancel
+			callpoint!.setStatus("ABORT")
+		endif
+		if msg_opt$="Y" then
+			rem --- Update quantity received
+			callpoint!.setDevObject("adjustQtyReceived","Y")
+			callpoint!.setDevObject("total_lotser",total_lotser)
+		endif
+		if msg_opt$="N" then
+			rem --- Do NOT update quantity received
+			callpoint!.setDevObject("adjustQtyReceived","N")
+		endif
 	endif
 	return
 
