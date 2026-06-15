@@ -17,15 +17,15 @@
 			<RESTRICT_AUTOADD id="ddm_tables.glm_acct"></RESTRICT_AUTOADD>
 			<ASC_COMP_ID id="ddm_tables.glm_acct">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_tables.glm_acct">GL </ASC_PROD_ID>
-			<ASC_VERSION_ID id="ddm_tables.glm_acct">26.0      </ASC_VERSION_ID>
+			<ASC_VERSION_ID id="ddm_tables.glm_acct">26.0</ASC_VERSION_ID>
 			<ASC_LICENSE_ID id="ddm_tables.glm_acct">7BF72C176100CB915982E0D83A98F97E</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.glm_acct">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.glm_acct">20060703</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.glm_acct">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.glm_acct">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.glm_acct">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.glm_acct">20260615</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.glm_acct">20260615</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.glm_acct">115410</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.glm_acct"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.glm_acct">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.glm_acct">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.glm_acct"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.glm_acct"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.glm_acct">T</DD_ATTR_FTYP>
@@ -49,13 +49,13 @@
 			<DD_ATTR_RSET id="ddm_tables.glm_acct"></DD_ATTR_RSET>
 			<DD_ATTR_IGNR id="ddm_tables.glm_acct"></DD_ATTR_IGNR>
 			<DD_ATTR_RPOS id="ddm_tables.glm_acct"></DD_ATTR_RPOS>
-			<DD_ATTR_XPOS id="ddm_tables.glm_acct"></DD_ATTR_XPOS>
-			<DD_ATTR_YPOS id="ddm_tables.glm_acct"></DD_ATTR_YPOS>
-			<DD_ATTR_FWID id="ddm_tables.glm_acct"></DD_ATTR_FWID>
-			<DD_ATTR_FHGT id="ddm_tables.glm_acct"></DD_ATTR_FHGT>
-			<DD_ATTR_PADW id="ddm_tables.glm_acct"></DD_ATTR_PADW>
-			<DD_ATTR_PADH id="ddm_tables.glm_acct"></DD_ATTR_PADH>
-			<DD_ATTR_PADG id="ddm_tables.glm_acct"></DD_ATTR_PADG>
+			<DD_ATTR_XPOS id="ddm_tables.glm_acct">0</DD_ATTR_XPOS>
+			<DD_ATTR_YPOS id="ddm_tables.glm_acct">0</DD_ATTR_YPOS>
+			<DD_ATTR_FWID id="ddm_tables.glm_acct">0</DD_ATTR_FWID>
+			<DD_ATTR_FHGT id="ddm_tables.glm_acct">0</DD_ATTR_FHGT>
+			<DD_ATTR_PADW id="ddm_tables.glm_acct">0</DD_ATTR_PADW>
+			<DD_ATTR_PADH id="ddm_tables.glm_acct">0</DD_ATTR_PADH>
+			<DD_ATTR_PADG id="ddm_tables.glm_acct">0</DD_ATTR_PADG>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_aopt">
@@ -329,8 +329,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.glm_acct001">001</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.glm_acct001">FIRM_ID         </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.glm_acct001">FIRM_ID         </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.glm_acct001">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.glm_acct001">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.glm_acct001"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.glm_acct001"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.glm_acct001">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.glm_acct001"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.glm_acct001"></DD_SYSTEM_REC>
@@ -380,8 +380,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.glm_acct002">002</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.glm_acct002">GL_ACCOUNT      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.glm_acct002">GL_ACCOUNT      </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.glm_acct002">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.glm_acct002">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.glm_acct002"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.glm_acct002"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.glm_acct002">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.glm_acct002"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.glm_acct002"></DD_SYSTEM_REC>
@@ -431,8 +431,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.glm_acct003">003</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.glm_acct003">GL_ACCT_DESC    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.glm_acct003">GL_ACCT_DESC    </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.glm_acct003">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.glm_acct003">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.glm_acct003"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.glm_acct003"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.glm_acct003">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.glm_acct003"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.glm_acct003"></DD_SYSTEM_REC>
@@ -468,7 +468,7 @@
 			<SQL_COLUMN_NAME id="ddm_table_cols.glm_acct003">GL_ACCT_DESC</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.glm_acct003"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.glm_acct003"></DD_ATTR_STYL>
-			<DD_ATTR_FTSR id="ddm_table_cols.glm_acct003"></DD_ATTR_FTSR>
+			<DD_ATTR_FTSR id="ddm_table_cols.glm_acct003">Y</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.glm_acct003"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.glm_acct003">3002</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.glm_acct003">ine_gl_acct_desc</DD_ATTR_CTLN>
@@ -482,8 +482,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.glm_acct004">004</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.glm_acct004">GL_ACCT_TYPE    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.glm_acct004">GL_ACCT_TYPE    </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.glm_acct004">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.glm_acct004">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.glm_acct004"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.glm_acct004"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.glm_acct004">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.glm_acct004"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.glm_acct004"></DD_SYSTEM_REC>
@@ -493,7 +493,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.glm_acct004">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.glm_acct004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.glm_acct004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.glm_acct004">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.glm_acct004">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.glm_acct004"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.glm_acct004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.glm_acct004"></DD_ATTR_CTLY>
@@ -519,7 +519,7 @@
 			<SQL_COLUMN_NAME id="ddm_table_cols.glm_acct004">GL_ACCT_TYPE</SQL_COLUMN_NAME>
 			<DD_ATTR_FONT id="ddm_table_cols.glm_acct004"></DD_ATTR_FONT>
 			<DD_ATTR_STYL id="ddm_table_cols.glm_acct004"></DD_ATTR_STYL>
-			<DD_ATTR_FTSR id="ddm_table_cols.glm_acct004"></DD_ATTR_FTSR>
+			<DD_ATTR_FTSR id="ddm_table_cols.glm_acct004">N</DD_ATTR_FTSR>
 			<DD_ATTR_CWID id="ddm_table_cols.glm_acct004"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.glm_acct004">3003</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.glm_acct004">lbn_gl_acct_type</DD_ATTR_CTLN>
@@ -533,8 +533,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.glm_acct005">005</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.glm_acct005">DETAIL_FLAG     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.glm_acct005">DETAIL_FLAG     </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.glm_acct005">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.glm_acct005">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.glm_acct005"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.glm_acct005"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.glm_acct005">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.glm_acct005"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.glm_acct005"></DD_SYSTEM_REC>
@@ -635,8 +635,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.glm_acct007">007</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.glm_acct007">GL_ACCT_INACTIVE</DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.glm_acct007">ACCT_INACTIVE   </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.glm_acct007">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.glm_acct007">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.glm_acct007"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.glm_acct007"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.glm_acct007">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.glm_acct007"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.glm_acct007"></DD_SYSTEM_REC>
@@ -686,8 +686,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.glm_acct008">008</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.glm_acct008">MEMO_1024       </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.glm_acct008">MEMO_1024       </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.glm_acct008">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.glm_acct008">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.glm_acct008"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.glm_acct008"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.glm_acct008">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.glm_acct008">01</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.glm_acct008"></DD_SYSTEM_REC>
@@ -825,7 +825,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.glm_acct004">ine_current_year</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.glm_acct004">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.glm_acct004"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.glm_acct004">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.glm_acct004">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.glm_acct005">
 			<DD_TABLE_ALIAS id="ddm_table_disp.glm_acct005">GLM_ACCT        </DD_TABLE_ALIAS>
@@ -848,7 +848,7 @@
 			<DD_ATTR_CTLN id="ddm_table_disp.glm_acct005">ine_current_per</DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_disp.glm_acct005">0</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.glm_acct005"></DD_ATTR_RADG>
-			<DD_ATTR_CPGM id="ddm_table_disp.glm_acct005">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_disp.glm_acct005">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 		</RECORD>
 		<RECORD id="ddm_table_disp.glm_acct006">
 			<DD_TABLE_ALIAS id="ddm_table_disp.glm_acct006">GLM_ACCT        </DD_TABLE_ALIAS>
@@ -1168,7 +1168,7 @@
 			<DD_DESCRIPTION id="ddm_elements.gl_acct_type">GL Account Type [A/L/I/C/E]</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.gl_acct_type">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.gl_acct_type">1</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.gl_acct_type"> </DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.gl_acct_type"></DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.gl_acct_type"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.gl_acct_type">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.gl_acct_type">GL </ASC_PROD_ID>
@@ -1182,8 +1182,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.gl_acct_type"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.gl_acct_type">L</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.gl_acct_type"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.gl_acct_type">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.gl_acct_type">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.gl_acct_type"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.gl_acct_type"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.gl_acct_type"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.gl_acct_type"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.gl_acct_type"></DD_ATTR_DKEY>
@@ -1220,7 +1220,7 @@
 			<DD_DESCRIPTION id="ddm_elements.detail_flag">Post Detail [Y/N]?</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.detail_flag">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.detail_flag">1</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.detail_flag"> </DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.detail_flag"></DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.detail_flag"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.detail_flag">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.detail_flag">AD </ASC_PROD_ID>
@@ -1234,8 +1234,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.detail_flag"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.detail_flag">C</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.detail_flag"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.detail_flag">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.detail_flag">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.detail_flag"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.detail_flag"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.detail_flag"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.detail_flag"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.detail_flag"></DD_ATTR_DKEY>
@@ -1442,8 +1442,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.actual_amt"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.actual_amt">N</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.actual_amt"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.actual_amt">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.actual_amt">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.actual_amt"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.actual_amt"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.actual_amt"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.actual_amt"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.actual_amt"></DD_ATTR_DKEY>
@@ -1494,7 +1494,7 @@
 			<DD_ATTR_CTLH id="ddm_elements.current_year"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.current_year">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.current_year"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.current_year">            </DD_ATTR_DCOM>
+			<DD_ATTR_DCOM id="ddm_elements.current_year"></DD_ATTR_DCOM>
 			<DD_ATTR_DEXP id="ddm_elements.current_year"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.current_year"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.current_year"></DD_ATTR_DKNM>
@@ -1532,7 +1532,7 @@
 			<DD_DESCRIPTION id="ddm_elements.current_per">Current Period</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.current_per">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.current_per">2</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.current_per"> </DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.current_per"></DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.current_per"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.current_per">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.current_per">AD </ASC_PROD_ID>
@@ -1546,8 +1546,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.current_per"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.current_per">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.current_per"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.current_per">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.current_per">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.current_per"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.current_per"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.current_per"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.current_per"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.current_per"></DD_ATTR_DKEY>
