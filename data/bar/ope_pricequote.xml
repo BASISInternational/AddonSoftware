@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ope_pricequote"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_pricequote">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_pricequote">20080909</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ope_pricequote">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ope_pricequote">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_pricequote">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ope_pricequote">20260616</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ope_pricequote">20260616</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_pricequote">124250</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_pricequote"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ope_pricequote">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ope_pricequote">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_pricequote"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ope_pricequote"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ope_pricequote">S</DD_ATTR_FTYP>
@@ -73,6 +73,10 @@
 		<RECORD id="ddm_table_cpro.ope_pricequoteaopt-avle">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.ope_pricequoteaopt-avle">OPE_PRICEQUOTE  </DD_TABLE_ALIAS>
 			<DD_ATTR_CPRO id="ddm_table_cpro.ope_pricequoteaopt-avle">AOPT-AVLE</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_table_cpro.ope_pricequotearec">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.ope_pricequotearec">OPE_PRICEQUOTE  </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.ope_pricequotearec">AREC</DD_ATTR_CPRO>
 		</RECORD>
 		<RECORD id="ddm_table_cpro.ope_pricequotebsho">
 			<DD_TABLE_ALIAS id="ddm_table_cpro.ope_pricequotebsho">OPE_PRICEQUOTE  </DD_TABLE_ALIAS>
@@ -144,8 +148,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote001">001</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote001">FIRM_ID         </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote001">FIRM_ID         </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote001">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote001">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote001"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote001"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote001">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote001">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ope_pricequote001"></DD_SYSTEM_REC>
@@ -195,8 +199,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote002">002</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote002">CUSTOMER_ID     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote002">CUSTOMER_ID     </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote002">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote002">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote002"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote002"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote002">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote002">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ope_pricequote002"></DD_SYSTEM_REC>
@@ -206,7 +210,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_pricequote002">20080909</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_pricequote002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_pricequote002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote002">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote002">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_pricequote002">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_pricequote002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_pricequote002"></DD_ATTR_CTLY>
@@ -246,8 +250,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote003">003</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote003">PRICING_CODE    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote003">PRICING_CODE    </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote003">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote003">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote003"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote003"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote003">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote003">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ope_pricequote003"></DD_SYSTEM_REC>
@@ -257,7 +261,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_pricequote003">20080911</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_pricequote003">OPE_PRICEQUOTE.FIRM_ID</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_pricequote003">z</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote003">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote003">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_pricequote003">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_pricequote003">-30</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_pricequote003"></DD_ATTR_CTLY>
@@ -297,8 +301,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote004">004</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote004">WAREHOUSE_ID    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote004">WAREHOUSE_ID    </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote004">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote004">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote004"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote004"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote004">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote004">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ope_pricequote004"></DD_SYSTEM_REC>
@@ -308,7 +312,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_pricequote004">20080909</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_pricequote004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_pricequote004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote004">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote004">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_pricequote004">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_pricequote004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_pricequote004"></DD_ATTR_CTLY>
@@ -348,8 +352,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote005">005</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote005">ITEM_ID         </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote005">ITEM_ID         </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote005">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote005">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote005"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote005"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote005">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote005">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ope_pricequote005"></DD_SYSTEM_REC>
@@ -359,7 +363,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_pricequote005">20080909</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_pricequote005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_pricequote005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote005">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote005">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_pricequote005">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_pricequote005">-35</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_pricequote005">+4</DD_ATTR_CTLY>
@@ -399,8 +403,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote006">006</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote006">ITEM_CLASS      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote006">ITEM_CLASS      </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote006">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote006">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote006"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote006"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote006">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote006">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ope_pricequote006"></DD_SYSTEM_REC>
@@ -410,7 +414,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_pricequote006">20080913</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_pricequote006">OPE_PRICEQUOTE.FIRM_ID</DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_pricequote006">z</DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote006">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_pricequote006">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_pricequote006">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_pricequote006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_pricequote006"></DD_ATTR_CTLY>
@@ -450,8 +454,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote007">007</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote007">CUR_PRICE       </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote007">CUR_PRICE       </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote007">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote007">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote007"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote007"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote007">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote007">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ope_pricequote007"></DD_SYSTEM_REC>
@@ -501,8 +505,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote008">008</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote008">QTY_ON_HAND     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote008">QTY_ON_HAND     </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote008">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote008">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote008"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote008"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote008">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote008">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ope_pricequote008"></DD_SYSTEM_REC>
@@ -552,8 +556,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote009">009</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote009">QTY_COMMIT      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote009">QTY_COMMIT      </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote009">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote009">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote009"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote009"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote009">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote009">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ope_pricequote009"></DD_SYSTEM_REC>
@@ -603,7 +607,7 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote010">010</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote010">QTY_ORDERED     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote010">QTY_ORDERED     </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote010">0</DD_COL_REPEATS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote010"></DD_COL_REPEATS>
 			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote010">10</DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote010">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote010">0A</DD_DELIM_CHAR>
@@ -654,7 +658,7 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote011">011</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote011">PCT_VALUE       </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote011">PCT_VALUE       </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote011">0</DD_COL_REPEATS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote011"></DD_COL_REPEATS>
 			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote011">10</DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote011">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote011">0A</DD_DELIM_CHAR>
@@ -705,7 +709,7 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote012">012</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote012">UNIT_PRICE      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote012">UNIT_PRICE      </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote012">0</DD_COL_REPEATS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote012"></DD_COL_REPEATS>
 			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote012">10</DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote012">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote012">0A</DD_DELIM_CHAR>
@@ -756,7 +760,7 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote013">013</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote013">QTY_ORDERED     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote013">CONTRACT_QTY    </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote013">0</DD_COL_REPEATS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote013"></DD_COL_REPEATS>
 			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote013">10</DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote013">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote013">0A</DD_DELIM_CHAR>
@@ -807,7 +811,7 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote014">014</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote014">UNIT_PRICE      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote014">CONTRACT_PRICE  </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote014">0</DD_COL_REPEATS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote014"></DD_COL_REPEATS>
 			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote014">10</DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote014">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote014">0A</DD_DELIM_CHAR>
@@ -858,7 +862,7 @@
 			<DD_SEQUENCE id="ddm_table_cols.ope_pricequote015">015</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ope_pricequote015">BREAK_AMT       </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ope_pricequote015">BREAK_AMT       </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote015">0</DD_COL_REPEATS>
+			<DD_COL_REPEATS id="ddm_table_cols.ope_pricequote015"></DD_COL_REPEATS>
 			<DD_COL_OCCURS id="ddm_table_cols.ope_pricequote015">10</DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ope_pricequote015">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ope_pricequote015">0A</DD_DELIM_CHAR>
@@ -1556,8 +1560,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.pricing_code"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.pricing_code">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.pricing_code">CODE_DESC</DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.pricing_code">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.pricing_code">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.pricing_code"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.pricing_code"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.pricing_code"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.pricing_code"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.pricing_code">[+FIRM_ID]+@</DD_ATTR_DKEY>
@@ -1764,8 +1768,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.cur_price"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.cur_price">N</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.cur_price"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.cur_price">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.cur_price">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.cur_price"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.cur_price"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.cur_price"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.cur_price"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.cur_price"></DD_ATTR_DKEY>
@@ -1816,8 +1820,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.qty_on_hand"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.qty_on_hand">N</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.qty_on_hand"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.qty_on_hand">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.qty_on_hand">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.qty_on_hand"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.qty_on_hand"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.qty_on_hand"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.qty_on_hand"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.qty_on_hand"></DD_ATTR_DKEY>
@@ -1868,8 +1872,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.qty_commit"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.qty_commit">N</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.qty_commit"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.qty_commit">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.qty_commit">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.qty_commit"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.qty_commit"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.qty_commit"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.qty_commit"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.qty_commit"></DD_ATTR_DKEY>
@@ -2478,7 +2482,7 @@
 			<DD_DESCRIPTION id="ddm_elements.phone_no">Telephone Number</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.phone_no">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.phone_no">10</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.phone_no"> </DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.phone_no"></DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.phone_no">Y</DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.phone_no">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.phone_no">ADB</ASC_PROD_ID>
@@ -2492,8 +2496,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.phone_no"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.phone_no">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.phone_no"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.phone_no">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.phone_no">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.phone_no"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.phone_no"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.phone_no"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.phone_no"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.phone_no"></DD_ATTR_DKEY>

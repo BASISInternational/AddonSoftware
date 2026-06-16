@@ -30,8 +30,14 @@ if cvs(item_id$,3) <>""
 
 endif
 
+[[OPE_PRICEQUOTE.AREC]]
+rem --- Set default Warehouse
+	whse$=callpoint!.getDevObject("dflt_whse")
+	callpoint!.setColumnData("OPE_PRICEQUOTE.WAREHOUSE_ID",whse$,1)
+	if callpoint!.getDevObject("multi_whse")<>"Y" then callpoint!.setColumnEnabled("OPE_PRICEQUOTE.WAREHOUSE_ID",0)
+
 [[OPE_PRICEQUOTE.BSHO]]
-num_files=9
+num_files=10
 dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 open_tables$[1]="ARM_CUSTMAST",open_opts$[1]="OTA"
 open_tables$[2]="ARM_CUSTDET",open_opts$[2]="OTA"
@@ -42,6 +48,7 @@ open_tables$[6]="IVM_ITEMMAST",open_opts$[6]="OTA"
 open_tables$[7]="IVM_ITEMPRIC",open_opts$[7]="OTA"
 open_tables$[8]="IVC_WHSECODE",open_opts$[8]="OTA"
 open_tables$[9]="IVC_CLASCODE",open_opts$[9]="OTA"
+open_tables$[10]="IVS_PARAMS",open_opts$[10]="OTA"
 gosub open_tables
 arm01_dev=num(open_chans$[1]),arm01_tpl$=open_tpls$[1]
 arm02_dev=num(open_chans$[2]),arm02_tpl$=open_tpls$[2]
@@ -52,6 +59,12 @@ ivm01_dev=num(open_chans$[6]),ivm01_tpl$=open_tpls$[6]
 ivm06_dev=num(open_chans$[7]),ivm06_tpl$=open_tpls$[7]
 ivcwhse_dev=num(open_chans$[8]),ivcwhse_tpl$=open_tpls$[8]
 
+rem --- Get multiple warehouse flag and default warehouse
+	ivs01_dev=num(open_chans$[10])
+	dim ivs01a$:open_tpls$[10]
+	read record (ivs01_dev,key=firm_id$+"IV00")ivs01a$
+	callpoint!.setDevObject("multi_whse",ivs01a.multi_whse$)
+	callpoint!.setDevObject("dflt_whse",ivs01a.warehouse_id$)
 
 rem --- If BM is installed, open BMM_BILLMAT
 	bm_sf$="N"

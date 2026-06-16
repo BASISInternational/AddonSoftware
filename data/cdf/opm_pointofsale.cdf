@@ -7,6 +7,12 @@ else
 	callpoint!.setTableColumnAttribute("OPM_POINTOFSALE.WAREHOUSE_ID","MINL","0")
 endif
 
+[[OPM_POINTOFSALE.AREC]]
+rem --- Set default Warehouse
+	whse$=callpoint!.getDevObject("dflt_whse")
+	callpoint!.setColumnData("OPM_POINTOFSALE.WAREHOUSE_ID",whse$,1)
+	if callpoint!.getDevObject("multi_whse")<>"Y" then callpoint!.setColumnEnabled("OPM_POINTOFSALE.WAREHOUSE_ID",0)
+
 [[OPM_POINTOFSALE.BSHO]]
 rem --- Inits
 
@@ -24,12 +30,20 @@ rem --- Inits
 
 rem --- Open/Lock files
 
-	num_files=2
+	num_files=3
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="IVC_WHSECODE",open_opts$[1]="OTA"
 	open_tables$[2]="OPS_PARAMS",open_opts$[2]="OTA"
+	open_tables$[3]="IVS_PARAMS",open_opts$[3]="OTA"
 
 	gosub open_tables
+
+rem --- Get multiple warehouse flag and default warehouse
+	ivs01_dev=num(open_chans$[3])
+	dim ivs01a$:open_tpls$[3]
+	read record (ivs01_dev,key=firm_id$+"IV00")ivs01a$
+	callpoint!.setDevObject("multi_whse",ivs01a.multi_whse$)
+	callpoint!.setDevObject("dflt_whse",ivs01a.warehouse_id$)
 
 [[OPM_POINTOFSALE.BWRI]]
 rem --- Re-check all tests and abort if fail
