@@ -81,9 +81,13 @@ rem --- Disable/enable based on status of closed/open
 			callpoint!.setColumnEnabled("SFE_WOMASTR.DRAWING_NO",0)
 			callpoint!.setColumnEnabled("SFE_WOMASTR.DRAWING_REV",0)
 		else
-			callpoint!.setColumnEnabled("SFE_WOMASTR.WAREHOUSE_ID",1)
 			callpoint!.setColumnEnabled("SFE_WOMASTR.DRAWING_NO",1)
 			callpoint!.setColumnEnabled("SFE_WOMASTR.DRAWING_REV",1)
+			if callpoint!.getDevObject("multi_whse$")="Y" then
+				callpoint!.setColumnEnabled("SFE_WOMASTR.WAREHOUSE_ID",1)
+			else
+				callpoint!.setColumnEnabled("SFE_WOMASTR.WAREHOUSE_ID",1)
+			end
 		endif
 		callpoint!.setColumnEnabled("SFE_WOMASTR.EST_YIELD",1)
 		if callpoint!.getDevObject("mp")="Y"
@@ -402,6 +406,7 @@ rem --- Open tables
 	ivs_params=num(open_chans$[1])
 	dim ivs_params$:open_tpls$[1]
 	read record (ivs_params,key=firm_id$+"IV00",dom=std_missing_params) ivs_params$
+	callpoint!.setDevObject("multi_whse",ivs_params.multi_whse$)
 	callpoint!.setDevObject("default_wh",ivs_params.warehouse_id$)
 	callpoint!.setDevObject("iv_precision",ivs_params.precision$)
 
