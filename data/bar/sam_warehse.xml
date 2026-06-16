@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.sam_warehse">7BD584FFBB21151529597802FF8EED7B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sam_warehse">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sam_warehse">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.sam_warehse">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.sam_warehse">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.sam_warehse">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.sam_warehse">20260616</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.sam_warehse">20260616</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.sam_warehse">151612</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.sam_warehse"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.sam_warehse">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.sam_warehse">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.sam_warehse"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.sam_warehse"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.sam_warehse">T</DD_ATTR_FTYP>
@@ -344,8 +344,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.sam_warehse001">001</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.sam_warehse001">FIRM_ID         </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.sam_warehse001">FIRM_ID         </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse001">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse001">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse001"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse001"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.sam_warehse001">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.sam_warehse001"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.sam_warehse001"></DD_SYSTEM_REC>
@@ -395,8 +395,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.sam_warehse002">002</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.sam_warehse002">YEAR            </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.sam_warehse002">YEAR            </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse002">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse002">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse002"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse002"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.sam_warehse002">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.sam_warehse002"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.sam_warehse002"></DD_SYSTEM_REC>
@@ -406,7 +406,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sam_warehse002">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sam_warehse002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sam_warehse002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sam_warehse002">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sam_warehse002">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sam_warehse002"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sam_warehse002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sam_warehse002"></DD_ATTR_CTLY>
@@ -446,8 +446,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.sam_warehse003">003</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.sam_warehse003">WAREHOUSE_ID    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.sam_warehse003">WAREHOUSE_ID    </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse003">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse003">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse003"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse003"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.sam_warehse003">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.sam_warehse003"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.sam_warehse003"></DD_SYSTEM_REC>
@@ -457,7 +457,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sam_warehse003">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sam_warehse003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sam_warehse003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sam_warehse003">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sam_warehse003">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sam_warehse003"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sam_warehse003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sam_warehse003"></DD_ATTR_CTLY>
@@ -497,8 +497,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.sam_warehse004">004</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.sam_warehse004">PRODUCT_TYPE    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.sam_warehse004">PRODUCT_TYPE    </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse004">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse004">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse004"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse004"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.sam_warehse004">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.sam_warehse004"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.sam_warehse004"></DD_SYSTEM_REC>
@@ -508,7 +508,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sam_warehse004">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sam_warehse004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sam_warehse004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sam_warehse004">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sam_warehse004">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sam_warehse004"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sam_warehse004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sam_warehse004"></DD_ATTR_CTLY>
@@ -548,8 +548,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.sam_warehse005">005</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.sam_warehse005">ITEM_ID         </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.sam_warehse005">ITEM_ID         </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse005">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse005">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse005"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse005"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.sam_warehse005">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.sam_warehse005">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.sam_warehse005"></DD_SYSTEM_REC>
@@ -559,7 +559,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sam_warehse005">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sam_warehse005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sam_warehse005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sam_warehse005">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sam_warehse005">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sam_warehse005"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sam_warehse005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sam_warehse005"></DD_ATTR_CTLY>
@@ -599,7 +599,7 @@
 			<DD_SEQUENCE id="ddm_table_cols.sam_warehse006">006</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.sam_warehse006">QTY_SHIPPED     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.sam_warehse006">QTY_SHIPPED     </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse006">0</DD_COL_REPEATS>
+			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse006"></DD_COL_REPEATS>
 			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse006">13</DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.sam_warehse006">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.sam_warehse006">0A</DD_DELIM_CHAR>
@@ -650,7 +650,7 @@
 			<DD_SEQUENCE id="ddm_table_cols.sam_warehse007">007</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.sam_warehse007">TOTAL_COST      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.sam_warehse007">TOTAL_COST      </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse007">0</DD_COL_REPEATS>
+			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse007"></DD_COL_REPEATS>
 			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse007">13</DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.sam_warehse007">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.sam_warehse007">0A</DD_DELIM_CHAR>
@@ -701,7 +701,7 @@
 			<DD_SEQUENCE id="ddm_table_cols.sam_warehse008">008</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.sam_warehse008">TOTAL_SALES     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.sam_warehse008">TOTAL_SALES     </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse008">0</DD_COL_REPEATS>
+			<DD_COL_REPEATS id="ddm_table_cols.sam_warehse008"></DD_COL_REPEATS>
 			<DD_COL_OCCURS id="ddm_table_cols.sam_warehse008">13</DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.sam_warehse008">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.sam_warehse008">0A</DD_DELIM_CHAR>
@@ -2366,7 +2366,7 @@
 			<DD_DESCRIPTION id="ddm_elements.year">Year</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.year">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.year">4</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.year"> </DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.year"></DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.year"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.year">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.year">AD </ASC_PROD_ID>
@@ -2640,8 +2640,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.total_cost"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.total_cost">N</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.total_cost"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.total_cost">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.total_cost">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.total_cost"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.total_cost"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.total_cost"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.total_cost"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.total_cost"></DD_ATTR_DKEY>
@@ -2692,8 +2692,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.total_sales"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.total_sales">N</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.total_sales"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.total_sales">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.total_sales">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.total_sales"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.total_sales"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.total_sales"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.total_sales"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.total_sales"></DD_ATTR_DKEY>
