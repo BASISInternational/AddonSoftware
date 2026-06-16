@@ -173,6 +173,12 @@ rem --- Now display all of these things and disable key fields
 	endif
 
 [[SAM_WAREHSE.AREC]]
+rem --- Set default Warehouse
+
+	whse$=callpoint!.getDevObject("dflt_whse")
+	callpoint!.setColumnData("SAM_WAREHSE.WAREHOUSE_ID",whse$,1)
+	if callpoint!.getDevObject("multi_whse")<>"Y" then callpoint!.setColumnEnabled("SAM_WAREHSE.WAREHOUSE_ID",0)
+
 rem --- Enable key fields
 	callpoint!.setColumnEnabled("SAM_WAREHSE.YEAR",1)
 	callpoint!.setColumnEnabled("SAM_WAREHSE.CUSTOMER_ID",1)
@@ -237,11 +243,12 @@ rem --- Use current selections for initiating previous record
 
 [[SAM_WAREHSE.BSHO]]
 rem --- Check for parameter record
-	num_files=3
+	num_files=4
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="SAS_PARAMS",open_opts$[1]="OTA"
 	open_tables$[2]="SAM_WAREHSE",open_opts$[2]="OTA@"
 	open_tables$[3]="GLS_CALENDAR",open_opts$[3]="OTA"
+	open_tables$[4]="IVS_PARAMS",open_opts$[4]="OTA"
 	gosub open_tables
 	sas01_dev=num(open_chans$[1]),sas01a$=open_tpls$[1]
 
@@ -257,6 +264,13 @@ rem --- Check for parameter record
 		rdFuncSpace!.setValue("+build_task","OFF")
 		release
 	endif
+
+rem --- Get multiple warehouse flag and default warehouse
+	ivs01_dev=num(open_chans$[4])
+	dim ivs01a$:open_tpls$[4]
+	read record (ivs01_dev,key=firm_id$+"IV00")ivs01a$
+	callpoint!.setDevObject("multi_whse",ivs01a.multi_whse$)
+	callpoint!.setDevObject("dflt_whse",ivs01a.warehouse_id$)
 
 rem --- disable total elements
 	callpoint!.setColumnEnabled("<<DISPLAY>>.TQTY",-1)
