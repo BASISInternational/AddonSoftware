@@ -1,3 +1,12 @@
+[[BMR_INDENTEDBILL.AREC]]
+rem --- Set default Warehouse
+
+	whse$=callpoint!.getDevObject("dflt_whse")
+	callpoint!.setColumnData("BMR_INDENTEDBILL.WAREHOUSE_ID",whse$,1)
+	if callpoint!.getDevObject("multi_whse")<>"Y" then callpoint!.setColumnEnabled("BMR_INDENTEDBILL.WAREHOUSE_ID",0)
+
+[[BMR_INDENTEDBILL.BFMC]]
+
 [[BMR_INDENTEDBILL.BILL_NO.AVAL]]
 rem --- Validate against BOM_BILLMAST
 
@@ -15,13 +24,6 @@ rem --- Validate against BOM_BILLMAST
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 	endif
-[[BMR_INDENTEDBILL.BFMC]]
-
-[[BMR_INDENTEDBILL.AREC]]
-rem --- Set default Warehouse
-
-	whse$=callpoint!.getDevObject("dflt_whse")
-	callpoint!.setColumnData("BMR_INDENTEDBILL.WAREHOUSE_ID",whse$,1)
 
 [[BMR_INDENTEDBILL.BSHO]]
 rem --- Open needed tables
@@ -31,8 +33,12 @@ rem --- Open needed tables
 	open_tables$[2]="BMM_BILLMAST",open_opts$[2]="OTA"
 	gosub open_tables
 
+rem --- Get multiple warehouse flag and default warehouse
 	ivs01_dev=num(open_chans$[1])
 	dim ivs01a$:open_tpls$[1]
-
 	read record (ivs01_dev,key=firm_id$+"IV00")ivs01a$
+	callpoint!.setDevObject("multi_whse",ivs01a.multi_whse$)
 	callpoint!.setDevObject("dflt_whse",ivs01a.warehouse_id$)
+
+
+
