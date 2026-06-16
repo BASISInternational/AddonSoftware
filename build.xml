@@ -211,6 +211,12 @@
               <fileset file="${src.dir.aon}/${doc.dir}/relnotes.htm"/>
         </copy>
 
+        <!-- Rename the apps/aon/lib to apps/aon/.lib -->
+        <move preserveLastModified="true"
+              file="${addon.bbj.dir}/lib"
+              tofile="${addon.bbj.dir}/.lib">
+        </move>
+
         <!-- Update config files to include Adddon install -->
         <echo message="WriteConfigurationFiles -cdstore -barista -addon"/>
         <echo message="  basedir: ${basedir}"/>
