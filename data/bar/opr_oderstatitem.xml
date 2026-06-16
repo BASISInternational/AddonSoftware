@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.opr_oderstatitem"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opr_oderstatitem">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opr_oderstatitem">20080227</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.opr_oderstatitem">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.opr_oderstatitem">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opr_oderstatitem">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.opr_oderstatitem">20260616</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.opr_oderstatitem">20260616</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.opr_oderstatitem">132554</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opr_oderstatitem"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.opr_oderstatitem"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.opr_oderstatitem">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opr_oderstatitem"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.opr_oderstatitem"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.opr_oderstatitem">S</DD_ATTR_FTYP>
@@ -56,6 +56,17 @@
 			<DD_ATTR_PADW id="ddm_tables.opr_oderstatitem"></DD_ATTR_PADW>
 			<DD_ATTR_PADH id="ddm_tables.opr_oderstatitem"></DD_ATTR_PADH>
 			<DD_ATTR_PADG id="ddm_tables.opr_oderstatitem"></DD_ATTR_PADG>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_cpro">
+		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.opr_oderstatitemarec">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.opr_oderstatitemarec">OPR_ODERSTATITEM</DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.opr_oderstatitemarec">AREC</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_table_cpro.opr_oderstatitembsho">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.opr_oderstatitembsho">OPR_ODERSTATITEM</DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.opr_oderstatitembsho">BSHO</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_opts">
@@ -100,8 +111,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_oderstatitem001">001</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_oderstatitem001">PRODUCT_TYPE    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_oderstatitem001">PRODUCT_TYPE    </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_oderstatitem001">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_oderstatitem001">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_oderstatitem001"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_oderstatitem001"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_oderstatitem001">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_oderstatitem001">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_oderstatitem001"></DD_SYSTEM_REC>
@@ -151,8 +162,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_oderstatitem002">002</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_oderstatitem002">REPORT_SEQ      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_oderstatitem002">OPTIONS         </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_oderstatitem002">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_oderstatitem002">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_oderstatitem002"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_oderstatitem002"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_oderstatitem002">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_oderstatitem002">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_oderstatitem002"></DD_SYSTEM_REC>
@@ -202,8 +213,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_oderstatitem003">003</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_oderstatitem003">REPORT_SEQ      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_oderstatitem003">SUMMARY_DETAIL  </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_oderstatitem003">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_oderstatitem003">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_oderstatitem003"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_oderstatitem003"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_oderstatitem003">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_oderstatitem003">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_oderstatitem003"></DD_SYSTEM_REC>
@@ -253,8 +264,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_oderstatitem004">004</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_oderstatitem004">WAREHOUSE_ID    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_oderstatitem004">WAREHOUSE_ID    </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_oderstatitem004">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_oderstatitem004">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_oderstatitem004"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_oderstatitem004"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_oderstatitem004">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_oderstatitem004">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_oderstatitem004"></DD_SYSTEM_REC>

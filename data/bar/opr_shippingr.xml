@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.opr_shippingr"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.opr_shippingr">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.opr_shippingr">20080320</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.opr_shippingr">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.opr_shippingr">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.opr_shippingr">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.opr_shippingr">20260616</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.opr_shippingr">20260616</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.opr_shippingr">135424</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.opr_shippingr"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.opr_shippingr"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.opr_shippingr">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.opr_shippingr"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.opr_shippingr"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.opr_shippingr">S</DD_ATTR_FTYP>
@@ -56,6 +56,17 @@
 			<DD_ATTR_PADW id="ddm_tables.opr_shippingr"></DD_ATTR_PADW>
 			<DD_ATTR_PADH id="ddm_tables.opr_shippingr"></DD_ATTR_PADH>
 			<DD_ATTR_PADG id="ddm_tables.opr_shippingr"></DD_ATTR_PADG>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_cpro">
+		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.opr_shippingrarec">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.opr_shippingrarec">OPR_SHIPPINGR   </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.opr_shippingrarec">AREC</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_table_cpro.opr_shippingrbsho">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.opr_shippingrbsho">OPR_SHIPPINGR   </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.opr_shippingrbsho">BSHO</DD_ATTR_CPRO>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_opts">
@@ -104,8 +115,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_shippingr001">001</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_shippingr001">WAREHOUSE_ID    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_shippingr001">WAREHOUSE_ID    </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr001">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr001">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr001"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr001"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_shippingr001">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_shippingr001">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_shippingr001"></DD_SYSTEM_REC>
@@ -121,7 +132,7 @@
 			<DD_ATTR_CTLY id="ddm_table_cols.opr_shippingr001"></DD_ATTR_CTLY>
 			<DD_ATTR_CTLW id="ddm_table_cols.opr_shippingr001"></DD_ATTR_CTLW>
 			<DD_ATTR_CTLH id="ddm_table_cols.opr_shippingr001"></DD_ATTR_CTLH>
-			<DD_ATTR_DFLT id="ddm_table_cols.opr_shippingr001">01</DD_ATTR_DFLT>
+			<DD_ATTR_DFLT id="ddm_table_cols.opr_shippingr001"></DD_ATTR_DFLT>
 			<DD_ATTR_DRLE id="ddm_table_cols.opr_shippingr001"></DD_ATTR_DRLE>
 			<DD_ATTR_GHDR id="ddm_table_cols.opr_shippingr001"></DD_ATTR_GHDR>
 			<DD_ATTR_IDEF id="ddm_table_cols.opr_shippingr001"></DD_ATTR_IDEF>
@@ -155,8 +166,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_shippingr002">002</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_shippingr002">PRODUCT_TYPE    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_shippingr002">PRODUCT_TYPE    </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr002">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr002">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr002"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr002"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_shippingr002">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_shippingr002">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_shippingr002"></DD_SYSTEM_REC>
@@ -206,8 +217,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_shippingr003">003</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_shippingr003">OPEN            </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_shippingr003">OPEN            </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr003">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr003">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr003"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr003"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_shippingr003">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_shippingr003">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_shippingr003"></DD_SYSTEM_REC>
@@ -257,8 +268,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_shippingr004">004</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_shippingr004">QUOTED          </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_shippingr004">QUOTED          </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr004">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr004">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr004"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr004"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_shippingr004">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_shippingr004">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_shippingr004"></DD_SYSTEM_REC>
@@ -308,8 +319,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_shippingr005">005</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_shippingr005">BACKORDERS      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_shippingr005">BACKORDERS      </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr005">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr005">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr005"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr005"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_shippingr005">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_shippingr005">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_shippingr005"></DD_SYSTEM_REC>
@@ -359,8 +370,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_shippingr006">006</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_shippingr006">REPRINT         </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_shippingr006">CREDIT          </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr006">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr006">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr006"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr006"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_shippingr006">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_shippingr006">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_shippingr006"></DD_SYSTEM_REC>
@@ -410,8 +421,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_shippingr007">007</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_shippingr007">SUMM_DTL        </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_shippingr007">SUMM_DTL        </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr007">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr007">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr007"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr007"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_shippingr007">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_shippingr007">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_shippingr007"></DD_SYSTEM_REC>
@@ -461,8 +472,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_shippingr008">008</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_shippingr008">AGING_DATE      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_shippingr008">AGING_DATE      </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr008">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr008">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr008"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr008"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_shippingr008">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_shippingr008">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_shippingr008"></DD_SYSTEM_REC>
@@ -512,8 +523,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_shippingr009">009</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_shippingr009">DAYS_IN_MTH     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_shippingr009">DAYS_IN_MTH     </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr009">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr009">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr009"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr009"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_shippingr009">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_shippingr009">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_shippingr009"></DD_SYSTEM_REC>
@@ -563,8 +574,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.opr_shippingr010">010</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.opr_shippingr010">COL_FORMAT      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.opr_shippingr010">COL_FORMAT      </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr010">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr010">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.opr_shippingr010"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.opr_shippingr010"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.opr_shippingr010">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.opr_shippingr010">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.opr_shippingr010"></DD_SYSTEM_REC>
@@ -748,8 +759,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.open"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.open">C</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.open"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.open">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.open">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.open"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.open"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.open"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.open"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.open"></DD_ATTR_DKEY>
@@ -800,8 +811,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.quoted"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.quoted">C</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.quoted"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.quoted">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.quoted">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.quoted"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.quoted"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.quoted"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.quoted"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.quoted"></DD_ATTR_DKEY>
@@ -838,7 +849,7 @@
 			<DD_DESCRIPTION id="ddm_elements.backorders">Allow Backorders [Y/N]?       </DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.backorders">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.backorders">1</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.backorders"> </DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.backorders"></DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.backorders"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.backorders">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.backorders">AD </ASC_PROD_ID>
@@ -852,8 +863,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.backorders"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.backorders">C</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.backorders"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.backorders">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.backorders">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.backorders"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.backorders"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.backorders"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.backorders"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.backorders"></DD_ATTR_DKEY>
@@ -1060,8 +1071,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.days_in_mth"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.days_in_mth">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.days_in_mth"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.days_in_mth">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.days_in_mth">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.days_in_mth"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.days_in_mth"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.days_in_mth"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.days_in_mth"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.days_in_mth"></DD_ATTR_DKEY>
