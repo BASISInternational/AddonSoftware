@@ -212,10 +212,9 @@
         </copy>
 
         <!-- Rename the apps/aon/lib/jars to apps/aon/.lib/jars -->
-        <mkdir dir="${addon.bbj.dir}/.lib"/>
         <move preserveLastModified="true"
               file="${addon.bbj.dir}/lib/jars"
-              tofile="${addon.bbj.dir}/.lib/jars">
+              tofile="${addon.bbj.dir}/.lib">
         </move>
 
         <!-- Update config files to include Adddon install -->
