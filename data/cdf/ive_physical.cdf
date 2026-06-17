@@ -8,6 +8,12 @@ rem --- see if this item is lot/ser
 	callpoint!.setDevObject("this_item_lot_ser",iff(pos(ivm_itemmast.lotser_flag$="LS") and ivm_itemmast.inventoried$="Y",1,0))
 	callpoint!.setDevObject("lotser_flag",ivm_itemmast.lotser_flag$)
 
+[[IVE_PHYSICAL.AREC]]
+rem --- Set default Warehouse
+	whse$=callpoint!.getDevObject("dflt_whse")
+	callpoint!.setColumnData("IVE_PHYSICAL.WAREHOUSE_ID",whse$,1)
+	if callpoint!.getDevObject("multi_whse")<>"Y" then callpoint!.setColumnEnabled("IVE_PHYSICAL.WAREHOUSE_ID",0)
+
 [[IVE_PHYSICAL.ARNF]]
 rem --- if record not found confirm user wants to add
 
@@ -43,6 +49,13 @@ rem --- Store defined/templated length for location and lotser fields
 	callpoint!.setDevObject("location_length",dec(tmp$(10,2)))
 	tmp$=fattr(phy$,"LOTSER_NO")
 	callpoint!.setDevObject("lotser_no_length",dec(tmp$(10,2)))
+
+rem --- Get multiple warehouse flag and default warehouse
+	ivs01_dev=num(open_chans$[1])
+	dim ivs01a$:open_tpls$[1]
+	read record (ivs01_dev,key=firm_id$+"IV00")ivs01a$
+	callpoint!.setDevObject("multi_whse",ivs01a.multi_whse$)
+	callpoint!.setDevObject("dflt_whse",ivs01a.warehouse_id$)
 
 [[IVE_PHYSICAL.BWRI]]
 rem --- before writing, if a count has been entered for an L/S item, but there's no lotser_no, disallow the write

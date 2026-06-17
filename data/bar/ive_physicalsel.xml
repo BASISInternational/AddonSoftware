@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ive_physicalsel"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ive_physicalsel">N</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ive_physicalsel">20090204</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ive_physicalsel">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ive_physicalsel">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ive_physicalsel">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ive_physicalsel">20260617</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ive_physicalsel">20260617</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ive_physicalsel">104030</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ive_physicalsel"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ive_physicalsel">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ive_physicalsel">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ive_physicalsel"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ive_physicalsel"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ive_physicalsel">S</DD_ATTR_FTYP>
@@ -131,8 +131,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ive_physicalsel001">001</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ive_physicalsel001">WAREHOUSE_ID    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_physicalsel001">WAREHOUSE_ID    </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ive_physicalsel001">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_physicalsel001">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ive_physicalsel001"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_physicalsel001"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_physicalsel001">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_physicalsel001">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_physicalsel001"></DD_SYSTEM_REC>
@@ -142,9 +142,9 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_physicalsel001">20090204</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_physicalsel001"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_physicalsel001"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_physicalsel001">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_physicalsel001">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_physicalsel001">0</DD_ATTR_COLW>
-			<DD_ATTR_CTLX id="ddm_table_cols.ive_physicalsel001"></DD_ATTR_CTLX>
+			<DD_ATTR_CTLX id="ddm_table_cols.ive_physicalsel001">-1</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_physicalsel001"></DD_ATTR_CTLY>
 			<DD_ATTR_CTLW id="ddm_table_cols.ive_physicalsel001"></DD_ATTR_CTLW>
 			<DD_ATTR_CTLH id="ddm_table_cols.ive_physicalsel001"></DD_ATTR_CTLH>
@@ -182,8 +182,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ive_physicalsel002">002</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ive_physicalsel002">CUTOFF_DATE     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_physicalsel002">CUTOFF_DATE     </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ive_physicalsel002">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_physicalsel002">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ive_physicalsel002"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_physicalsel002"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_physicalsel002">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_physicalsel002">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_physicalsel002"></DD_SYSTEM_REC>
@@ -233,8 +233,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ive_physicalsel003">003</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ive_physicalsel003">IV_ITEM_INACTIVE</DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_physicalsel003">ITEM_INACTIVE   </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ive_physicalsel003">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_physicalsel003">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ive_physicalsel003"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_physicalsel003"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_physicalsel003">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_physicalsel003">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_physicalsel003"></DD_SYSTEM_REC>
@@ -290,6 +290,11 @@
 	</ALIAS>
 	<ALIAS id="ddm_column_opts">
 		<ID id="ddm_column_opts">DDM_COLUMN_OPTS</ID>
+		<RECORD id="ddm_column_opts.ive_physicalselwarehouse_id3">
+			<DD_TABLE_ALIAS id="ddm_column_opts.ive_physicalselwarehouse_id3">IVE_PHYSICALSEL </DD_TABLE_ALIAS>
+			<DD_DVAR_NAME id="ddm_column_opts.ive_physicalselwarehouse_id3">WAREHOUSE_ID    </DD_DVAR_NAME>
+			<DD_ATTR_OPTS id="ddm_column_opts.ive_physicalselwarehouse_id3">3</DD_ATTR_OPTS>
+		</RECORD>
 		<RECORD id="ddm_column_opts.ive_physicalselwarehouse_idu">
 			<DD_TABLE_ALIAS id="ddm_column_opts.ive_physicalselwarehouse_idu">IVE_PHYSICALSEL </DD_TABLE_ALIAS>
 			<DD_DVAR_NAME id="ddm_column_opts.ive_physicalselwarehouse_idu">WAREHOUSE_ID    </DD_DVAR_NAME>
@@ -355,7 +360,7 @@
 			<DD_DESCRIPTION id="ddm_elements.cutoff_date">Cutoff Date                   </DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.cutoff_date">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.cutoff_date">8</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.cutoff_date"> </DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.cutoff_date"></DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.cutoff_date"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.cutoff_date">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.cutoff_date">AD </ASC_PROD_ID>
@@ -369,8 +374,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.cutoff_date"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.cutoff_date">D</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.cutoff_date"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.cutoff_date">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.cutoff_date">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.cutoff_date"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.cutoff_date"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.cutoff_date"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.cutoff_date"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.cutoff_date"></DD_ATTR_DKEY>

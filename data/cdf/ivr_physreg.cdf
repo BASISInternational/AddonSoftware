@@ -44,7 +44,7 @@ rem --- of event it is.  In this case, we're toggling checkboxes on/off in form 
 [[IVR_PHYSREG.AREC]]
 rem --- Display default warehouse ID, if any
 
-	if user_tpl.whse_id$ <> "" then
+	if cvs(user_tpl.whse_id$,2) <> "" then
 		callpoint!.setColumnData("IVR_PHYSREG.WAREHOUSE_ID", user_tpl.whse_id$)
 	endif
 

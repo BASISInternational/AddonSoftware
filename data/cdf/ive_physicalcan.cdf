@@ -55,10 +55,9 @@ rem --- of event it is.  In this case, we're toggling checkboxes on/off in form 
 [[IVE_PHYSICALCAN.AREC]]
 rem --- Display default warehouse ID, if any
 
-	if user_tpl.whse_id$ <> "" then
+	if cvs(user_tpl.whse_id$,2) <> "" then
 		callpoint!.setColumnData("IVE_PHYSICALCAN.WAREHOUSE_ID", user_tpl.whse_id$)
 	endif
-	
 
 [[IVE_PHYSICALCAN.ASVA]]
 rem --- Check for values in warehouse and cutoff date

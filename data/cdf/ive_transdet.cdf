@@ -9,8 +9,9 @@ rem --- Display defaults for this row
 	sysinfo$=stbl("+SYSINFO")
 	callpoint!.setTableColumnAttribute("IVE_TRANSDET.USER_ID","DFLT",sysinfo.user_id$)
 
+	callpoint!.setTableColumnAttribute("IVE_TRANSDET.WAREHOUSE_ID","DFLT",user_tpl.warehouse_id$)
 	if user_tpl.multi_whse$ <> "Y" then
-		callpoint!.setTableColumnAttribute("IVE_TRANSDET.WAREHOUSE_ID","DFLT",user_tpl.warehouse_id$)
+		callpoint!.setColumnEnabled(callpoint!.getValidationRow(),"IVE_TRANSDET.WAREHOUSE_ID",0)
 	endif
 
 	if user_tpl.gl$ = "Y" and user_tpl.trans_post_gl$ = "Y" then
