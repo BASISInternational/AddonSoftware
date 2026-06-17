@@ -8,31 +8,11 @@ rem --- Display std cost
 
 	if !failed then gosub set_display_cost
 
-[[IVE_COSTCHG.ARAR]]
-rem --- Set default warehouse if necessary
-
-	if user_tpl.default_whse$ <> "" then 
-		callpoint!.setColumnData("IVE_COSTCHG.WAREHOUSE_ID", user_tpl.default_whse$)
-		callpoint!.setStatus("REFRESH")
-		util.disableField(callpoint!, "WAREHOUSE_ID")
-	endif
-
 [[IVE_COSTCHG.AREC]]
 rem --- Set defaults
-
-	needs_refresh = 0
-
-	if user_tpl.last_date$ <> "" then
-		callpoint!.setColumnData("IVE_COSTCHG.EFFECT_DATE",user_tpl.last_date$)
-		needs_refresh = 1
-	endif
-
-	if user_tpl$.default_whse$ <> "" then
-		callpoint!.setColumnData("IVE_COSTCHG.WAREHOUSE_ID", user_tpl$.default_whse$)
-		needs_refresh = 1
-	endif
-
-	if needs_refresh then callpoint!.setStatus("REFRESH")
+	if cvs(user_tpl.last_date$,2) <> "" then callpoint!.setColumnData("IVE_COSTCHG.EFFECT_DATE",user_tpl.last_date$,1)
+	callpoint!.setColumnData("IVE_COSTCHG.WAREHOUSE_ID", user_tpl$.default_whse$,1)
+	if callpoint!.getDevObject("multi_whse")<>"Y" then callpoint!.setColumnEnabled("IVE_COSTCHG.WAREHOUSE_ID",0)
 
 [[IVE_COSTCHG.ARNF]]
 if num(stbl("+BATCH_NO"),err=*next)<>0
@@ -90,15 +70,13 @@ rem --- Globals
 rem --- Get parameter records
 
 	find record(ivs_params_dev, key=firm_id$+"IV00", dom=std_missing_params) ivs_params_rec$
+	callpoint!.setDevObject("multi_whse",ivs_params_rec.multi_whse$)
+	user_tpl.default_whse$ = ivs_params_rec.warehouse_id$
 
 	if ivs_params_rec.cost_method$ <> "S" then
 		callpoint!.setMessage("IV_NO_STD_COST")
 		callpoint!.setStatus("EXIT")
 		goto bsho_end
-	endif
-
-	if ivs_params_rec.multi_whse$ <> "Y" then 
-		user_tpl.default_whse$ = ivs_params_rec.warehouse_id$
 	endif
 
 bsho_end:

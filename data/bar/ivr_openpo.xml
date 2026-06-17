@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ivr_openpo">395BE3327FFF529DA2FF7E7317C7C3D1</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ivr_openpo"></DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ivr_openpo">20061102</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ivr_openpo">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ivr_openpo">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ivr_openpo">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ivr_openpo">20260617</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ivr_openpo">20260617</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ivr_openpo">133428</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ivr_openpo"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ivr_openpo"></DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ivr_openpo">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ivr_openpo"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ivr_openpo"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ivr_openpo">S</DD_ATTR_FTYP>
@@ -58,6 +58,17 @@
 			<DD_ATTR_PADG id="ddm_tables.ivr_openpo"></DD_ATTR_PADG>
 		</RECORD>
 	</ALIAS>
+	<ALIAS id="ddm_table_cpro">
+		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.ivr_openpoarec">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.ivr_openpoarec">IVR_OPENPO      </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.ivr_openpoarec">AREC</DD_ATTR_CPRO>
+		</RECORD>
+		<RECORD id="ddm_table_cpro.ivr_openpobsho">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.ivr_openpobsho">IVR_OPENPO      </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.ivr_openpobsho">BSHO</DD_ATTR_CPRO>
+		</RECORD>
+	</ALIAS>
 	<ALIAS id="ddm_table_opts">
 		<ID id="ddm_table_opts">DDM_TABLE_OPTS</ID>
 		<RECORD id="ddm_table_opts.ivr_openpoa">
@@ -87,6 +98,14 @@
 		<RECORD id="ddm_table_opts.ivr_openpor">
 			<DD_TABLE_ALIAS id="ddm_table_opts.ivr_openpor">IVR_OPENPO      </DD_TABLE_ALIAS>
 			<DD_ATTR_OPTS id="ddm_table_opts.ivr_openpor">r</DD_ATTR_OPTS>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_tpls">
+		<ID id="ddm_table_tpls">DDM_TABLE_TPLS</ID>
+		<RECORD id="ddm_table_tpls.ivr_openpo">
+			<DD_TABLE_ALIAS id="ddm_table_tpls.ivr_openpo">IVR_OPENPO      </DD_TABLE_ALIAS>
+			<DD_FILE_NAME id="ddm_table_tpls.ivr_openpo"></DD_FILE_NAME>
+			<DD_TABLE_TPL id="ddm_table_tpls.ivr_openpo">pick_date_01:c(8*),pick_date_02:c(8*),warehouse_id:c(2*),item_id:c(20*)</DD_TABLE_TPL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_cols">
@@ -209,7 +228,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ivr_openpo003"></DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ivr_openpo003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ivr_openpo003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ivr_openpo003">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ivr_openpo003">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ivr_openpo003"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ivr_openpo003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ivr_openpo003"></DD_ATTR_CTLY>

@@ -360,6 +360,7 @@ dim ivs01a$:fnget_tpl$("IVS_PARAMS")
 ivs01a_key$=firm_id$+"IV00"
 find record (ivs01_dev,key=ivs01a_key$,err=std_missing_params) ivs01a$
 callpoint!.setDevObject("dropship_whse",ivs01a.dropship_whse$)
+callpoint!.setDevObject("default_whse",ivs01a.warehouse_id$)
 
 rem --- Disable Option menu options
 
@@ -589,6 +590,11 @@ rem --- Do not allow dropshipping kitted items
 		callpoint!.setStatus("ACTIVATE-ABORT")
 		break
 	endif
+
+[[IVM_ITEMWHSE.WAREHOUSE_ID.BINP]]
+rem --- Initialize with the default warehouse
+	default_whse$=callpoint!.getDevObject("default_whse")
+	callpoint!.setColumnData("IVM_ITEMWHSE.WAREHOUSE_ID",default_whse$,1)
 
 [[IVM_ITEMWHSE.<CUSTOM>]]
 rem ==========================================================================

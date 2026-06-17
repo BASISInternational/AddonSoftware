@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ive_transdet">ACD4524F93FE7760A301FCE290509FA0</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ive_transdet">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ive_transdet">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ive_transdet">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ive_transdet">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ive_transdet">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ive_transdet">20260617</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ive_transdet">20260617</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ive_transdet">111758</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ive_transdet"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ive_transdet">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ive_transdet">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ive_transdet">BATCH_KEY</DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ive_transdet"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ive_transdet">G</DD_ATTR_FTYP>
@@ -338,7 +338,7 @@
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet001">FIRM_ID         </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet001">FIRM_ID         </DD_DVAR_NAME>
 			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet001">1</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet001">0</DD_COL_OCCURS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet001"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet001">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet001"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet001"></DD_SYSTEM_REC>
@@ -388,8 +388,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ive_transdet002">002</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet002">IV_TRANS_NO     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet002">IV_TRANS_NO     </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet002">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet002">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet002"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet002"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet002">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet002"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet002"></DD_SYSTEM_REC>
@@ -439,8 +439,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ive_transdet003">003</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet003">SEQUENCE_NO     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet003">SEQUENCE_NO     </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet003">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet003">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet003"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet003"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet003">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet003"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet003"></DD_SYSTEM_REC>
@@ -542,7 +542,7 @@
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet005">GL_ACCOUNT      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet005">GL_ACCOUNT      </DD_DVAR_NAME>
 			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet005">1</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet005">0</DD_COL_OCCURS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet005"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet005">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet005"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet005"></DD_SYSTEM_REC>
@@ -552,7 +552,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_transdet005">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_transdet005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_transdet005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet005">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet005">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_transdet005"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_transdet005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_transdet005"></DD_ATTR_CTLY>
@@ -593,7 +593,7 @@
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet006">USER_ID         </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet006">USER_ID         </DD_DVAR_NAME>
 			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet006">1</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet006">0</DD_COL_OCCURS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet006"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet006">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet006"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet006"></DD_SYSTEM_REC>
@@ -644,7 +644,7 @@
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet007">RESERVED_STR    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet007">RESERVED_STR_02 </DD_DVAR_NAME>
 			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet007">13</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet007">0</DD_COL_OCCURS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet007"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet007">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet007"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet007"></DD_SYSTEM_REC>
@@ -695,7 +695,7 @@
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet008">WAREHOUSE_ID    </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet008">WAREHOUSE_ID    </DD_DVAR_NAME>
 			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet008">1</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet008">0</DD_COL_OCCURS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet008"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet008">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet008"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet008"></DD_SYSTEM_REC>
@@ -705,7 +705,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_transdet008">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_transdet008"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_transdet008"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet008">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet008">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_transdet008"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_transdet008"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_transdet008"></DD_ATTR_CTLY>
@@ -746,7 +746,7 @@
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet009">ITEM_ID         </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet009">ITEM_ID         </DD_DVAR_NAME>
 			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet009">1</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet009">0</DD_COL_OCCURS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet009"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet009">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet009"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet009"></DD_SYSTEM_REC>
@@ -756,7 +756,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_transdet009">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_transdet009"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_transdet009"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet009">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet009">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_transdet009"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_transdet009"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_transdet009"></DD_ATTR_CTLY>
@@ -796,8 +796,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ive_transdet010">010</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet010">LOTSER_NO       </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet010">LOTSER_NO       </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet010">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet010">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet010"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet010"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet010">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet010"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet010"></DD_SYSTEM_REC>
@@ -807,7 +807,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_transdet010">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_transdet010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_transdet010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet010">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_transdet010"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_transdet010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_transdet010"></DD_ATTR_CTLY>
@@ -847,8 +847,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ive_transdet011">011</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet011">LS_LOCATION     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet011">LS_LOCATION     </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet011">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet011">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet011"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet011"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet011">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet011"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet011"></DD_SYSTEM_REC>
@@ -898,8 +898,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ive_transdet012">012</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet012">LS_COMMENTS     </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet012">LS_COMMENTS     </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet012">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet012">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet012"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet012"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet012">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet012"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet012"></DD_SYSTEM_REC>
@@ -909,7 +909,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_transdet012">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_transdet012"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_transdet012"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet012">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet012">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_transdet012"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_transdet012"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_transdet012"></DD_ATTR_CTLY>
@@ -949,8 +949,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ive_transdet013">013</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet013">TRANS_QTY       </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet013">TRANS_QTY       </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet013">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet013">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet013"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet013"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet013">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet013">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet013"></DD_SYSTEM_REC>
@@ -960,7 +960,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_transdet013">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_transdet013"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_transdet013"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet013">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet013">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_transdet013"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_transdet013"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_transdet013"></DD_ATTR_CTLY>
@@ -1001,7 +1001,7 @@
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet014">UNIT_COST       </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet014">UNIT_COST       </DD_DVAR_NAME>
 			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet014">1</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet014">0</DD_COL_OCCURS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet014"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet014">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet014">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet014"></DD_SYSTEM_REC>
@@ -1011,7 +1011,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_transdet014">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_transdet014"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_transdet014"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet014">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet014">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_transdet014"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_transdet014"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_transdet014"></DD_ATTR_CTLY>
@@ -1052,7 +1052,7 @@
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet015">TOTAL_COST      </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet015">TOTAL_COST      </DD_DVAR_NAME>
 			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet015">1</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet015">0</DD_COL_OCCURS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet015"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet015">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet015">0A</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet015"></DD_SYSTEM_REC>
@@ -1102,8 +1102,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ive_transdet016">016</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet016">BATCH_NO        </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet016">BATCH_NO        </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet016">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet016">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet016"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet016"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet016">N</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet016"></DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet016"></DD_SYSTEM_REC>
@@ -1153,8 +1153,8 @@
 			<DD_SEQUENCE id="ddm_table_cols.ive_transdet017">017</DD_SEQUENCE>
 			<DD_DATA_NAME id="ddm_table_cols.ive_transdet017">MEMO_1024       </DD_DATA_NAME>
 			<DD_DVAR_NAME id="ddm_table_cols.ive_transdet017">MEMO_1024       </DD_DVAR_NAME>
-			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet017">0</DD_COL_REPEATS>
-			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet017">0</DD_COL_OCCURS>
+			<DD_COL_REPEATS id="ddm_table_cols.ive_transdet017"></DD_COL_REPEATS>
+			<DD_COL_OCCURS id="ddm_table_cols.ive_transdet017"></DD_COL_OCCURS>
 			<DD_FIELD_DELIM id="ddm_table_cols.ive_transdet017">Y</DD_FIELD_DELIM>
 			<DD_DELIM_CHAR id="ddm_table_cols.ive_transdet017">01</DD_DELIM_CHAR>
 			<DD_SYSTEM_REC id="ddm_table_cols.ive_transdet017"></DD_SYSTEM_REC>
@@ -1164,7 +1164,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ive_transdet017">20170328</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ive_transdet017"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ive_transdet017"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet017">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ive_transdet017">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ive_transdet017">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ive_transdet017"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ive_transdet017"></DD_ATTR_CTLY>
@@ -1430,7 +1430,7 @@
 			<DD_DESCRIPTION id="ddm_elements.iv_trans_no">Transaction Entry Number</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.iv_trans_no">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.iv_trans_no">7</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.iv_trans_no"> </DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.iv_trans_no"></DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.iv_trans_no"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.iv_trans_no">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.iv_trans_no">IV </ASC_PROD_ID>
@@ -1444,8 +1444,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.iv_trans_no"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.iv_trans_no">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.iv_trans_no"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.iv_trans_no">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.iv_trans_no">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.iv_trans_no"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.iv_trans_no"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.iv_trans_no"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.iv_trans_no"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.iv_trans_no"></DD_ATTR_DKEY>
@@ -1496,8 +1496,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.sequence_no"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.sequence_no">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.sequence_no"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.sequence_no">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.sequence_no">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.sequence_no"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.sequence_no"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.sequence_no"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.sequence_no"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.sequence_no"></DD_ATTR_DKEY>
@@ -1794,7 +1794,7 @@
 			<DD_DESCRIPTION id="ddm_elements.lotser_no">Lot/Serial Number</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.lotser_no">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.lotser_no">20</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.lotser_no"> </DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.lotser_no"></DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.lotser_no"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.lotser_no">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.lotser_no">IV </ASC_PROD_ID>
@@ -1808,8 +1808,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.lotser_no"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.lotser_no">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.lotser_no"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.lotser_no">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.lotser_no">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.lotser_no"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.lotser_no"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.lotser_no"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.lotser_no"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.lotser_no"></DD_ATTR_DKEY>
@@ -1860,8 +1860,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.ls_location"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.ls_location">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.ls_location"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.ls_location">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.ls_location">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.ls_location"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.ls_location"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.ls_location"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.ls_location"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.ls_location"></DD_ATTR_DKEY>
@@ -1898,7 +1898,7 @@
 			<DD_DESCRIPTION id="ddm_elements.ls_comments">Lot/Serial Number Comment     </DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.ls_comments">C</DD_DATA_TYPE>
 			<DD_DATA_LENGTH id="ddm_elements.ls_comments">40</DD_DATA_LENGTH>
-			<DD_MASK_TYPE id="ddm_elements.ls_comments"> </DD_MASK_TYPE>
+			<DD_MASK_TYPE id="ddm_elements.ls_comments"></DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.ls_comments"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.ls_comments">01007514</ASC_COMP_ID>
 			<ASC_PROD_ID id="ddm_elements.ls_comments">IV </ASC_PROD_ID>
@@ -1912,8 +1912,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.ls_comments"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.ls_comments">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.ls_comments"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.ls_comments">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.ls_comments">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.ls_comments"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.ls_comments"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.ls_comments"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.ls_comments"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.ls_comments"></DD_ATTR_DKEY>
@@ -1964,8 +1964,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.trans_qty"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.trans_qty">N</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.trans_qty"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.trans_qty">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.trans_qty">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.trans_qty"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.trans_qty"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.trans_qty"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.trans_qty"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.trans_qty"></DD_ATTR_DKEY>
@@ -2068,8 +2068,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.total_cost"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.total_cost">N</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.total_cost"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.total_cost">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.total_cost">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.total_cost"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.total_cost"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.total_cost"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.total_cost"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.total_cost"></DD_ATTR_DKEY>

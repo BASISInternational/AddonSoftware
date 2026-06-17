@@ -12,20 +12,17 @@ rem --- Display current price
 	if !failed then gosub set_display_price
 
 [[IVE_PRICECHG.ARAR]]
-rem --- Set default warehouse if necessary
-
-	if user_tpl.default_whse$ <> "" then 
-		callpoint!.setColumnData("IVE_PRICECHG.WAREHOUSE_ID", user_tpl.default_whse$)
-		callpoint!.setStatus("REFRESH")
-		callpoint!.setColumnEnabled("IVE_PRICECHG.WAREHOUSE_ID",-1); rem permanent disable
-	endif
-
 rem --- Set price code to the last one used
 
 	if cvs(user_tpl.last_price_cd$, 2) <> "" then
 		callpoint!.setColumnData("IVE_PRICECHG.PRICE_CODE", user_tpl.last_price_cd$)
 		callpoint!.setStatus("REFRESH")
 	endif
+
+[[IVE_PRICECHG.AREC]]
+rem --- Set defaults
+	callpoint!.setColumnData("IVE_PRICECHG.WAREHOUSE_ID", user_tpl$.default_whse$,1)
+	if callpoint!.getDevObject("multi_whse")<>"Y" then callpoint!.setColumnEnabled("IVE_PRICECHG.WAREHOUSE_ID",0)
 
 [[IVE_PRICECHG.ARNF]]
 if num(stbl("+BATCH_NO"),err=*next)<>0
@@ -69,19 +66,15 @@ rem --- Open files
 	ivs_params_dev = num(open_chans$[3])
 	dim ivs_params_rec$:open_tpls$[3]
 
-rem --- Get params
-
-	find record (ivs_params_dev, key=firm_id$+"IV00", dom=std_missing_params) ivs_params_rec$
-
 rem --- Globals
 
 	dim user_tpl$:"default_whse:c(1*), last_price_cd:c(1*)"
 
-rem --- If this company is not multi-warehouse, set default warehouse
+rem --- Get params
 
-	if ivs_params_rec.multi_whse$ <> "Y" then 
-		user_tpl.default_whse$ = ivs_params_rec.warehouse_id$
-	endif
+	find record (ivs_params_dev, key=firm_id$+"IV00", dom=std_missing_params) ivs_params_rec$
+	callpoint!.setDevObject("multi_whse",ivs_params_rec.multi_whse$)
+	user_tpl.default_whse$ = ivs_params_rec.warehouse_id$
 
 [[IVE_PRICECHG.BTBL]]
 rem --- Get Batch information

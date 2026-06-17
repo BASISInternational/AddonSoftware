@@ -44,11 +44,11 @@ rem --- of event it is.  In this case, we're toggling checkboxes on/off in form 
 [[IVE_PHYSICALSEL.AREC]]
 rem --- Display cutoff date default, warehouse ID, if any
 
-	if user_tpl.cutoff_default$ <> "" then
+	if cvs(user_tpl.cutoff_default$,2) <> "" then
 		callpoint!.setColumnData("IVE_PHYSICALSEL.CUTOFF_DATE", user_tpl.cutoff_default$)
 	endif
 
-	if user_tpl.whse_id$ <> "" then
+	if cvs(user_tpl.whse_id$,2) <> "" then
 		callpoint!.setColumnData("IVE_PHYSICALSEL.WAREHOUSE_ID", user_tpl.whse_id$)
 	endif
 
