@@ -712,11 +712,12 @@ method_error:rem --- Method error trap/handler (11Oct2017)
             state_code$ = cvs(p_rec!.getFieldAsString("STATE_CODE"), 2)
             zip_code$   = cvs(p_rec!.getFieldAsString("ZIP_CODE"), 2)
             all_zeros   = pos(zip_code$ <> "0" )
+
+            call stbl("+DIR_SYP")+"bac_getmask.bbj","P",zip_code$,"",postal_mask$
+            zip_code$=str(zip_code$:postal_mask$,err=*next)
             
             if city$ <> "" or state_code$ <> "" or (zip_code$ <> "" and !all_zeros) then
                 addr_line$ = city$
-                
-                if len(zip_code$) > 5 then zip_code$ = zip_code$(1,5) + "-" +zip_code$(6)
                 
                 if len(addr_line$) + len(state_code$) + len(zip_code$) + 3 > p_width then
                     if offset+p_width-1 <= size then

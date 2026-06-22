@@ -232,12 +232,12 @@ rem --- Get Parameters
 	find record (ars_report_dev, key=firm_id$+"AR02", err=std_missing_params) ars01b$
 
     remit$=ars01b.remit_addr_1$+ars01b.remit_addr_2$+ars01b.remit_city$+ars01b.remit_state$+ars01b.remit_zip$
-    call pgmdir$+"adc_address.aon",remit$,24,3,9,30
+    call pgmdir$+"adc_address.aon",remit$,24,3,len(cvs(ars01b.remit_zip$,3)),30
     remit$=ars01b.remit_name$+remit$
 
 	comp_addrLine_len = 40
     comp$=ars01b.addr_line_1$+ars01b.addr_line_2$+ars01b.city$+ars01b.state_code$+ars01b.zip_code$
-    call pgmdir$+"adc_address.aon",comp$,24,3,9,comp_addrLine_len
+    call pgmdir$+"adc_address.aon",comp$,24,3,len(cvs(ars01b.zip_code$,3)),comp_addrLine_len
 	comp$=pad(ars01b.name$,comp_addrLine_len)+comp$
 	
 rem --- Initialize Data
