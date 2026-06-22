@@ -133,3 +133,27 @@ Bug 11237: Removed leading and trailing spaces from path names.
 ----
 Modified: util/packager_extractor/aon_packagerextractor.bbj
 =======================================================================================================================================
+Revision: 45055a0b2c1e4c9473ab44bf4e22d3ac0aea0e6a
+Author: Ricky <rgonzales@basis.cloud>
+Date: 06/22/2026 10:29:02 AM
+Message:
+ER 11250: In GL Custom Financials added a new option to let users enter an account range and automatically create the related records in bulk reducing setup time and manual effort.
+
+----
+Modified: data/bar/glm_cofinassign.xml
+Modified: data/bar/glm_finassign.xml
+Modified: data/bar/glx_assignacct.xml
+Modified: data/cdf/glm_cofinassign.cdf
+Modified: data/cdf/glm_finassign.cdf
+Modified: data/cdf/glx_assignacct.cdf
+Modified: gl/src/glx_assignacct.aon
+Modified: prop/addon.properties
+Modified: prop/addon_de.properties
+Modified: prop/addon_en.properties
+Modified: prop/addon_en_CA.properties
+Modified: prop/addon_es.properties
+Modified: prop/addon_es_ES.properties
+Modified: prop/addon_fr.properties
+Modified: prop/addon_fr_CA.properties
+Modified: prop/addon_it.properties
+=======================================================================================================================================
