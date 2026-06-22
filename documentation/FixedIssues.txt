@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-06-03
+ Report Date:   2026-06-22
  Report Branch: AddonSoftware 26.01
  Last Release:  AddonSoftware 26.00
 =======================================================================================================================================
@@ -133,6 +133,7 @@ Bug 11237: Removed leading and trailing spaces from path names.
 ----
 Modified: util/packager_extractor/aon_packagerextractor.bbj
 =======================================================================================================================================
+
 Revision: 45055a0b2c1e4c9473ab44bf4e22d3ac0aea0e6a
 Author: Ricky <rgonzales@basis.cloud>
 Date: 06/22/2026 10:29:02 AM
@@ -157,3 +158,15 @@ Modified: prop/addon_fr.properties
 Modified: prop/addon_fr_CA.properties
 Modified: prop/addon_it.properties
 =======================================================================================================================================
+
+Revision: d89feb562dfc75db0e7b0bbb3b0e6b72db81822d
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 6/22/2026 1:07:03 PM
+Message:
+Bug 11251: Used bac_getmask(...) to correct the formatting of zip codes
+in the func::formatAddress(...) method.
+----
+Modified: ad/src/ado_func.src
+Modified: op/src/opc_picklist.aon
+=======================================================================================================================================
+
