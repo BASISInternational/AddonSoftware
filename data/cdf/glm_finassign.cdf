@@ -15,6 +15,28 @@ rem "GL INACTIVE FEATURE"
       gosub disp_message
       callpoint!.setStatus("ACTIVATE")
    endif
+[[GLM_FINASSIGN.AOPT-ASGN]]
+rem --- Launch the Assign Account Range utility in Standard mode
+
+user_id$=stbl("+USER_ID")
+dim dflt_data$[4,1]
+dflt_data$[1,0]="ASSIGN_MODE"
+dflt_data$[1,1]="S"
+dflt_data$[2,0]="GL_RPT_NO"
+dflt_data$[2,1]=callpoint!.getColumnData("GLM_FINASSIGN.GL_RPT_NO")
+dflt_data$[3,0]="GL_RPT_LINE"
+dflt_data$[3,1]=callpoint!.getColumnData("GLM_FINASSIGN.GL_RPT_LINE")
+dflt_data$[4,0]="ASSIGN_NO"
+dflt_data$[4,1]=callpoint!.getColumnData("GLM_FINASSIGN.ASSIGN_NO")
+call stbl("+DIR_SYP")+"bam_run_prog.bbj",
+:                       "GLX_ASSIGNACCT",
+:                       user_id$,
+:                       "",
+:                       "",
+:                       table_chans$[all],
+:                       "",
+:                       dflt_data$[all]
+
 [[GLM_FINASSIGN.<CUSTOM>]]
 #include [+ADDON_LIB]std_functions.aon
 
