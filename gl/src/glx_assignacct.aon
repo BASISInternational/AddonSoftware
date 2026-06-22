@@ -1,0 +1,295 @@
+rem --- Assign Account Range to Custom Financial Report Lines
+rem --- Program glx_assignacct.aon v26.0.0 04Jun2026
+
+rem --- AddonSoftware Version 26.0.0 04Jun2026
+rem --- Copyright BASIS International Ltd.  All Rights Reserved.
+rem --- All Rights Reserved
+
+rem --- Bulk-creates Financial Report Assignment records (GLM_FINASSIGN/glm-11)
+rem --- or Consolidated Assignment records (GLM_COFINASSIGN/glm-21) for every
+rem --- GL account within a requested account range, optionally filtered by a
+rem --- wildcard mask and/or an account-type range.  Based on a rough utility
+rem --- contributed by Rak Ungchusri (IntellectSys, Inc.), modernized to the
+rem --- standard AddonSoftware called-process pattern.
+
+    setesc std_error
+    seterr std_error
+
+rem --- Retrieve the program path
+
+    pgmdir$=stbl("+DIR_PGM",err=*next)
+
+rem --- Retrieve sysinfo data
+
+    sysinfo_template$=stbl("+SYSINFO_TPL",err=*next)
+    dim sysinfo$:sysinfo_template$
+    sysinfo$=stbl("+SYSINFO",err=*next)
+    firm_id$=sysinfo.firm_id$
+
+rem --- Open/Lock files
+rem ---   1 GLM_ACCT        (glm-01) read account master range
+rem ---   2 GLM_FINASSIGN   (glm-11) standard report assignments    (write)
+rem ---   3 GLM_COFINASSIGN (glm-21) consolidated report assignments(write)
+rem ---   4 GLM_FINDETAIL   (glm-22) report line definitions        (validate)
+
+    files=4,begfile=1,endfile=files
+    dim files$[files],options$[files],ids$[files],templates$[files],channels[files]
+    files$[1]="glm-01",ids$[1]="GLM_ACCT"
+    files$[2]="glm-11",ids$[2]="GLM_FINASSIGN"
+    files$[3]="glm-21",ids$[3]="GLM_COFINASSIGN"
+    files$[4]="glm-22",ids$[4]="GLM_FINDETAIL"
+
+    call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
+:                                   ids$[all],templates$[all],channels[all],batch,status
+    if status goto std_exit_no_update
+    glm01_dev=channels[1]
+    glm11_dev=channels[2]
+    glm21_dev=channels[3]
+    glm22_dev=channels[4]
+
+rem --- Dimension string templates
+
+    dim glm01a$:templates$[1]
+    dim glm11a$:templates$[2]
+    dim glm21a$:templates$[3]
+    dim glm22a$:templates$[4]
+
+rem --- Preserve clean (default-initialized) record images so each
+rem --- generated assignment starts from a valid template structure.
+
+    glm11_init$=glm11a$
+    glm21_init$=glm21a$
+
+rem --- Retrieve GL Account mask
+
+    call pgmdir$+"adc_getmask.aon","GL_ACCOUNT","","","",m0$,0,m0
+
+rem --- Assign input values to local variables
+
+    assign_mode$=cvs(Option!.getOptionData("ASSIGN_MODE"),2)
+    if assign_mode$="" assign_mode$="S"
+    rpt_no$=Option!.getOptionData("GL_RPT_NO")
+    rpt_line$=Option!.getOptionData("GL_RPT_LINE")
+    assign_no$=Option!.getOptionData("ASSIGN_NO")
+    begacct$=Option!.getOptionData("GL_ACCOUNT_01")
+    endacct$=Option!.getOptionData("GL_ACCOUNT_02")
+    wildcard$=Option!.getOptionData("GL_WILDCARD")
+    type_from$=cvs(Option!.getOptionData("ACCT_TYPE_FROM"),2)
+    type_to$=cvs(Option!.getOptionData("ACCT_TYPE_TO"),2)
+    inactive$=Option!.getOptionData("ACCT_INACTIVE")
+    overwrite$=Option!.getOptionData("YN_PROMPT")
+
+rem --- Validate that the target report line exists before generating records.
+rem --- Consolidated reports are defined within company 99.
+
+    if assign_mode$="C" then rpt_firm$="99" else rpt_firm$=firm_id$
+    glm22_key$=rpt_firm$+rpt_no$+rpt_line$
+    find record (glm22_dev,key=glm22_key$,err=missing_line) glm22a$
+
+rem --- Initializations
+
+    more=1
+    created=0
+    skipped=0
+
+rem --- Start progress meter and position the account master
+
+    call pgmdir$+"adc_progress.aon","N","","","","",m0,glm01_dev,1,meter_num,status
+    read (glm01_dev,key=firm_id$,dom=*next)
+
+rem --- Walk the requested account range
+
+    while more
+        k$=key(glm01_dev,end=*break)
+        if pos(firm_id$=k$)<>1 break
+        read record (glm01_dev,key=k$) glm01a$
+        call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
+
+        rem --- Account range tests
+        if begacct$<>"" if glm01a.gl_account$<begacct$ continue
+        if endacct$<>"" if glm01a.gl_account$>endacct$ break
+
+        rem --- Skip inactive accounts when requested
+        if inactive$="Y" and glm01a.acct_inactive$="Y" continue
+
+        rem --- Optional account-type range filter
+        if type_from$<>"" if glm01a.gl_acct_type$<type_from$ continue
+        if type_to$<>"" if glm01a.gl_acct_type$>type_to$ continue
+
+        rem --- Optional wildcard mask filter
+        gosub wildcard
+        if status continue
+
+        rem --- Generate the assignment record for this account
+        if assign_mode$="C" then gosub write_consolidated else gosub write_standard
+    wend
+
+rem --- All done
+
+    goto std_exit
+
+write_standard: rem --- Write a GLM_FINASSIGN (glm-11) record
+
+    glm11a$=glm11_init$
+    glm11a.firm_id$=firm_id$
+    glm11a.gl_account$=glm01a.gl_account$
+    glm11a.assign_no$=assign_no$
+    glm11a.gl_rpt_no$=rpt_no$
+    glm11a.gl_rpt_line$=rpt_line$
+    glm11_key$=glm11a.firm_id$+glm11a.gl_account$+glm11a.assign_no$
+    if overwrite$="Y" then
+        write record (glm11_dev,key=glm11_key$) glm11a$
+        created=created+1
+        return
+    endif
+    write record (glm11_dev,key=glm11_key$,dom=ws_dup) glm11a$
+    created=created+1
+    return
+ws_dup:
+    skipped=skipped+1
+    return
+
+write_consolidated: rem --- Write a GLM_COFINASSIGN (glm-21) record
+
+    glm21a$=glm21_init$
+    glm21a.firm_id$=firm_id$
+    glm21a.gl_account$=glm01a.gl_account$
+    glm21a.assign_no$=assign_no$
+    glm21a.gl_co_rpt_no$=rpt_no$
+    glm21a.gl_co_rpt_line$=rpt_line$
+    glm21_key$=glm21a.firm_id$+glm21a.gl_account$+glm21a.assign_no$
+    if overwrite$="Y" then
+        write record (glm21_dev,key=glm21_key$) glm21a$
+        created=created+1
+        return
+    endif
+    write record (glm21_dev,key=glm21_key$,dom=wc_dup) glm21a$
+    created=created+1
+    return
+wc_dup:
+    skipped=skipped+1
+    return
+
+wildcard: rem --- Test account number against the specified wildcard mask
+
+    status=0
+    if wildcard$="" return
+    if wildcard<>len(wildcard$) wildcard=len(wildcard$)
+    x$=fnmask$(glm01a.gl_account$(1,m0),m0$)
+    for x=1 to wildcard
+        if wildcard$(x,1)="?" continue
+        if x$(x,1)<>wildcard$(x,1) status=1
+    next x
+    return
+
+missing_line: rem --- Requested report/line does not exist
+
+    msg_id$="GL_RPT_LINE_MISSING"
+    dim msg_tokens$[2]
+    msg_tokens$[1]=cvs(rpt_no$,2)
+    msg_tokens$[2]=cvs(rpt_line$,2)
+    gosub disp_message
+    status=912
+    goto std_exit_no_update
+
+rem --- Functions
+
+rem --- fnmask$: Alphanumeric Masking Function (formerly fnf$)
+
+    def fnmask$(q1$,q2$)
+        if cvs(q1$,2)="" return ""
+        if q2$="" q2$=fill(len(q1$),"0")
+        if pos("E"=cvs(q1$,4)) goto alpha_mask
+:      else return str(-num(q1$,err=alpha_mask):q2$,err=alpha_mask)
+alpha_mask:
+        q=1
+        q0=0
+        while len(q2$(q))
+            if pos(q2$(q,1)="-()") q0=q0+1 else q2$(q,1)="X"
+            q=q+1
+        wend
+        if len(q1$)>len(q2$)-q0 q1$=q1$(1,len(q2$)-q0)
+        return str(q1$:q2$)
+    fnend
+
+disp_message: rem --- Display Message Dialog
+
+    call stbl("+DIR_SYP")+"bac_message.bbj",msg_id$,msg_tokens$[all],msg_opt$,table_chans$[all]
+    return
+
+rem #include std_error.src
+
+std_error: rem --- Standard error handler (11Oct2017)
+
+    if tcb(19)>0
+        rem --- Escape handler
+        if and(chr(tcb(19)),$08$)=$08$
+            release
+        else
+            setesc std_error
+            return
+        endif
+    endif
+
+    if err=0
+        rem --- Get tcb(12) and tcb(10) to send into bac_error
+        lock_byte=tcb(10)
+        lock_chan=tcb(12)
+    endif
+
+    rd_err_text$="",err_num=err
+    if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+    if err_num=252 then
+        E!=BBjAPI().getLastBBjException()
+        rd_err_text$=rd_err_text$+$0A$+E!.getClass().getName()
+        if E!.getMessage()<>null() then rd_err_text$=rd_err_text$+": "+E!.getMessage()
+    endif
+    call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err_num),rd_err_text$,rd_err_act$,lock_byte,lock_chan
+    if pos("ESCAPE"=rd_err_act$) seterr 0; setesc 0
+    if pos("RETRY"=rd_err_act$) retry
+    if pgm(-1)<>pgm(-2) status=999; exit
+    release
+
+rem #endinclude std_error.src
+
+rem #include std_missing_params.src
+
+std_missing_params: rem --- Standard missing parameter handler (15Apr2006)
+
+    rd_err_text$=""
+    if tcb(5)<>0 and pgm(-1)=pgm(-2) rd_err_text$=pgm(tcb(5))
+    pgmdir$=stbl("+DIR_PGM",err=std_missing_params_exit)
+    call pgmdir$+"adc_noparams.aon",err=std_missing_params_exit,pgm(-2),str(tcb(5):"00000"),
+:                                   str(err:"000"),rd_err_text$,rd_err_act$
+std_missing_params_exit:
+    master_user$=cvs(stbl("+MASTER_USER",err=std_missing_params_release),2)
+    sysinfo_template$=stbl("+SYSINFO_TPL",err=std_missing_params_release)
+    dim sysinfo$:sysinfo_template$
+    sysinfo$=stbl("+SYSINFO",err=std_missing_params_release)
+    if cvs(sysinfo.user_id$,2)=master_user$ escape
+std_missing_params_release:
+    status=999
+    if pgm(-1)<>pgm(-2) exit
+    release
+
+rem #endinclude std_missing_params.src
+
+rem #include std_end.src
+
+std_exit: rem --- Standard program end (01Mar2006)
+
+    msg_id$="GL_ASSIGN_COMPLETE"
+    dim msg_tokens$[2]
+    msg_tokens$[1]=str(created)
+    msg_tokens$[2]=str(skipped)
+    msg_opt$=""
+    gosub disp_message
+
+std_exit_no_update:
+
+    call stbl("+DIR_PGM")+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
+    run stbl("+DIR_SYP")+"bas_process_end.bbj",err=*next
+    release
+rem #endinclude std_end.src
+
+    end

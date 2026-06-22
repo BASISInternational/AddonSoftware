@@ -85,6 +85,23 @@
 			<DD_ATTR_OPTS id="ddm_table_opts.glm_cofinassignr">r</DD_ATTR_OPTS>
 		</RECORD>
 	</ALIAS>
+	<ALIAS id="ddm_table_aopt">
+		<ID id="ddm_table_aopt">DDM_TABLE_AOPT</ID>
+		<RECORD id="ddm_table_aopt.glm_cofinassign01">
+			<DD_TABLE_ALIAS id="ddm_table_aopt.glm_cofinassign01">GLM_COFINASSIGN </DD_TABLE_ALIAS>
+			<DD_ATTR_SEQ id="ddm_table_aopt.glm_cofinassign01">01</DD_ATTR_SEQ>
+			<DD_ATTR_AOPT id="ddm_table_aopt.glm_cofinassign01">Assign Account Range</DD_ATTR_AOPT>
+			<DD_ATTR_AOPT_CD id="ddm_table_aopt.glm_cofinassign01">ASGN</DD_ATTR_AOPT_CD>
+			<DD_ATTR_AOPT_FM id="ddm_table_aopt.glm_cofinassign01">B</DD_ATTR_AOPT_FM>
+		</RECORD>
+	</ALIAS>
+	<ALIAS id="ddm_table_cpro">
+		<ID id="ddm_table_cpro">DDM_TABLE_CPRO</ID>
+		<RECORD id="ddm_table_cpro.glm_cofinassignaopt-asgn">
+			<DD_TABLE_ALIAS id="ddm_table_cpro.glm_cofinassignaopt-asgn">GLM_COFINASSIGN </DD_TABLE_ALIAS>
+			<DD_ATTR_CPRO id="ddm_table_cpro.glm_cofinassignaopt-asgn">AOPT-ASGN</DD_ATTR_CPRO>
+		</RECORD>
+	</ALIAS>
 	<ALIAS id="ddm_table_tpls">
 		<ID id="ddm_table_tpls">DDM_TABLE_TPLS</ID>
 		<RECORD id="ddm_table_tpls.glm_cofinassign">

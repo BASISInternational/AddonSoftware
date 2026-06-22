@@ -1,3 +1,25 @@
+[[GLM_COFINASSIGN.AOPT-ASGN]]
+rem --- Launch the Assign Account Range utility in Consolidated mode
+
+user_id$=stbl("+USER_ID")
+dim dflt_data$[4,1]
+dflt_data$[1,0]="ASSIGN_MODE"
+dflt_data$[1,1]="C"
+dflt_data$[2,0]="GL_RPT_NO"
+dflt_data$[2,1]=callpoint!.getColumnData("GLM_COFINASSIGN.GL_CO_RPT_NO")
+dflt_data$[3,0]="GL_RPT_LINE"
+dflt_data$[3,1]=callpoint!.getColumnData("GLM_COFINASSIGN.GL_CO_RPT_LINE")
+dflt_data$[4,0]="ASSIGN_NO"
+dflt_data$[4,1]=callpoint!.getColumnData("GLM_COFINASSIGN.ASSIGN_NO")
+call stbl("+DIR_SYP")+"bam_run_prog.bbj",
+:                       "GLX_ASSIGNACCT",
+:                       user_id$,
+:                       "",
+:                       "",
+:                       table_chans$[all],
+:                       "",
+:                       dflt_data$[all]
+
 [[GLM_COFINASSIGN.<CUSTOM>]]
 #include [+ADDON_LIB]std_functions.aon
 [[GLM_COFINASSIGN.GL_ACCOUNT.AVAL]]
