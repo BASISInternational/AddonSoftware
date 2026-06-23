@@ -48,7 +48,7 @@ rem --- Open File(s)
 rem --- Assign form input values to local variables
 
     cust_id$ = option!.getOptionData("customer_id")
-    which_ones$=option!.getOptionData("PRINT_LIST");rem picklists, quotes, or both
+    which_ones$="P"; rem --- As of v25.10 quotes "Q" use Order Acknowledgement instead of Picking List
 	
 rem --- Initialize Data
 
