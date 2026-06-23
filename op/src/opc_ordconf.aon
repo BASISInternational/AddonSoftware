@@ -791,22 +791,9 @@ close_win:rem --- Master or On-demand viewer closed - do post-processing for bat
     endif
 
     rem --- Ask to update acknowledgement printed flag
-    if type=batch_ack or (type=on_demand and auto_ord_conf$<>"Y") then
-        rem --- Ask for batch acknowledgements or an on-demand NOT auto acknowledgement
-        msg_id$ = "OP_ACK_PRINTED"
-        gosub disp_message
-        if msg_opt$<>"Y" then
-            ope01a.ord_conf_printed$ = "N"
-            ope01a.mod_user$=sysinfo.user_id$
-            ope01a.mod_date$=date(0:"%Yd%Mz%Dz")
-            ope01a.mod_time$=date(0:"%Hz%mz")
-            ope01a$ = field(ope01a$)
-            write record (ope01_dev) ope01a$
-            goto all_done
-        endif
-    else
-        rem --- Ask for auto acknowledgements if customer is not setup in Report Control to receive the Acknowledgement
-        if auto_ord_conf$="Y" and !do_emailFax then
+    if sale_or_quote$="S" then
+        if type=batch_ack or (type=on_demand and auto_ord_conf$<>"Y") then
+            rem --- Ask for batch acknowledgements or an on-demand NOT auto acknowledgement
             msg_id$ = "OP_ACK_PRINTED"
             gosub disp_message
             if msg_opt$<>"Y" then
@@ -817,6 +804,21 @@ close_win:rem --- Master or On-demand viewer closed - do post-processing for bat
                 ope01a$ = field(ope01a$)
                 write record (ope01_dev) ope01a$
                 goto all_done
+            endif
+        else
+            rem --- Ask for auto acknowledgements if customer is not setup in Report Control to receive the Acknowledgement
+            if auto_ord_conf$="Y" and !do_emailFax then
+                msg_id$ = "OP_ACK_PRINTED"
+                gosub disp_message
+                if msg_opt$<>"Y" then
+                    ope01a.ord_conf_printed$ = "N"
+                    ope01a.mod_user$=sysinfo.user_id$
+                    ope01a.mod_date$=date(0:"%Yd%Mz%Dz")
+                    ope01a.mod_time$=date(0:"%Hz%mz")
+                    ope01a$ = field(ope01a$)
+                    write record (ope01_dev) ope01a$
+                    goto all_done
+                endif
             endif
         endif
     endif

@@ -1,5 +1,5 @@
 rem ----------------------------------------------------------------------------
-rem --- OP Pick List (or Quotation) Printing
+rem --- OP Pick List Printing
 rem --- Program: OPPICKLIST_DET.prc 
 
 rem --- Copyright BASIS International Ltd.
@@ -34,7 +34,7 @@ rem --- Get 'IN' SPROC parameters
 	price_mask$ =    sp!.getParameter("PRICE_MASK")
     ivIMask$ =       sp!.getParameter("ITEM_MASK")
 	selected_whse$ = sp!.getParameter("SELECTED_WHSE")
-    pick_or_quote$ = sp!.getParameter("PICK_OR_QUOTE")
+    pick_or_quote$ = sp!.getParameter("PICK_OR_QUOTE"); rem --- As of v25.10 quotes "P" use Order Acknowledgement instead of Picking List
     print_prices$ =  sp!.getParameter("PRINT_PRICES")
     mult_wh$ =       sp!.getParameter("MULT_WH")
 	barista_wd$ =    sp!.getParameter("BARISTA_WD")
@@ -160,28 +160,23 @@ rem --- Main
         if pos(trip_key$=this_key$)<>1 then break
         read record (ope11_dev, end=*break) ope11a$
 
-        rem --- If NOT a quote, use opt_invketdet for kits
-        if pick_or_quote$="P" then
+        redim ivm01a$
+        findrecord(ivm01_dev,key=firm_id$+ope11a.item_id$,dom=*next)ivm01a$
+        if pos(ivm01a.kit$="YP")=0 then
             gosub doDetailLine
         else
-            redim ivm01a$
-            findrecord(ivm01_dev,key=firm_id$+ope11a.item_id$,dom=*next)ivm01a$
-            if pos(ivm01a.kit$="YP")=0 then
+            rem --- Explode kit into its components
+            optInvKitDet_key$=firm_id$+ope11a.ar_type$+ope11a.customer_id$+ope11a.order_no$+ope11a.ar_inv_no$+ope11a.internal_seq_no$
+            dim ope11a$:optInvKitDet_tpl$; rem --- Temporarily set the ope11a$ string to the opt_invkitdet template
+            read(optInvKitDet_dev,key=optInvKitDet_key$,dom=*next)
+            while 1
+                thisKey$=key(optInvKitDet_dev,end=*break)
+                if pos(optInvKitDet_key$=thisKey$)<>1 then break
+                readrecord(optInvKitDet_dev,key=thisKey$)ope11a$
+    
                 gosub doDetailLine
-            else
-                rem --- Explode kit into its components
-                optInvKitDet_key$=firm_id$+ope11a.ar_type$+ope11a.customer_id$+ope11a.order_no$+ope11a.ar_inv_no$+ope11a.internal_seq_no$
-                dim ope11a$:optInvKitDet_tpl$; rem --- Temporarily set the ope11a$ string to the opt_invkitdet template
-                read(optInvKitDet_dev,key=optInvKitDet_key$,dom=*next)
-                while 1
-                    thisKey$=key(optInvKitDet_dev,end=*break)
-                    if pos(optInvKitDet_key$=thisKey$)<>1 then break
-                    readrecord(optInvKitDet_dev,key=thisKey$)ope11a$
-        
-                    gosub doDetailLine
-                wend
-                dim ope11a$:ope11a_tpl$; rem --- Reset the ope11a$ string back to the opt_invdet template
-            endif
+            wend
+            dim ope11a$:ope11a_tpl$; rem --- Reset the ope11a$ string back to the opt_invdet template
         endif
 
     rem --- End of detail lines
@@ -192,7 +187,7 @@ rem --- Determine the warehouse message to send back to header report
     whse_message$="AON_ALL_FROM_THIS_WHSE"
     whse_msg_sfx$=""
 
-    if mult_wh$="Y" and pick_or_quote$<>"P"
+    if mult_wh$="Y" then
         
         sel_whse=pos(selected_whse$=othwhse$,whse_len)
 
@@ -272,18 +267,18 @@ doDetailLine: rem --- Prepare this detail line for printing
         find record (opm02_dev, key=firm_id$+ope11a.line_code$, dom=*endif) opm02a$
         ivm01a.item_desc$ = fnmask$(ope11a.item_id$,ivIMask$)
         
-        if pos(pick_or_quote$="P")<>0 or ope11a.commit_flag$<>"N" and pos(ope11a.warehouse_id$=othwhse$)=0 
+        if ope11a.commit_flag$<>"N" and pos(ope11a.warehouse_id$=othwhse$)=0 
             othwhse$=othwhse$+ope11a.warehouse_id$
         endif
 
-        if pos(pick_or_quote$="S") and selected_whse$<>"" and ope11a.warehouse_id$<>selected_whse$ then return
+        if selected_whse$<>"" and ope11a.warehouse_id$<>selected_whse$ then return
     endif
 
     if pos(opm02a.line_type$=" SP") then
-        if pos(pick_or_quote$="S") then linetype_allows_ls$ = "Y"
+        linetype_allows_ls$ = "Y"
         find record (ivm01_dev, key=firm_id$+ope11a.item_id$, dom=*next) ivm01a$
         item_description$ = func.displayDesc(ivm01a.item_desc$)
-        if pos(pick_or_quote$="S") then lotser_flag$ = ivm01a.lotser_flag$
+        lotser_flag$ = ivm01a.lotser_flag$
         if barcode$="BAR" then item_barCd$=ivm01a.bar_code$
         if barcode$="UPC" then item_barCd$=ivm01a.upc_code$
         
@@ -341,21 +336,19 @@ doDetailLine: rem --- Prepare this detail line for printing
         endif
     endif
 
-    if pick_or_quote$<>"P"
-        if pos(opm02a.line_type$=" SNP") and mult_wh$ = "Y" then 
-            whse$ = ope11a.warehouse_id$
-        else
-            whse$ = ""
-        endif
-            
-        if opm02a.dropship$="Y"
-            location$ = "AON_DROPSHIP"              
-        else   
-            if pos(opm02a.line_type$=" SP")<>0
-                location$ = ivm02a.location$
-            endif
-        endif  
+    if pos(opm02a.line_type$=" SNP") and mult_wh$ = "Y" then 
+        whse$ = ope11a.warehouse_id$
+    else
+        whse$ = ""
     endif
+        
+    if opm02a.dropship$="Y"
+        location$ = "AON_DROPSHIP"              
+    else   
+        if pos(opm02a.line_type$=" SP")<>0
+            location$ = ivm02a.location$
+        endif
+    endif  
 
     if pos(opm02a.line_type$="SP") then
         item_desc$=item_desc$+" "+cvs(item_description$,3)+iff(cvs(ope11a.memo_1024$,3)="",""," - "+cvs(ope11a.memo_1024$,3))

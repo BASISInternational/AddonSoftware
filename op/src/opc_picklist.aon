@@ -22,17 +22,14 @@ rem ---    - OPPICKLIST_DET.prc / OPPickListDet.jasper
 rem ---    - OPPICKLIST_DET_LOTSER.prc / OPPickListDet-LotSer.jasper
 
 rem --- In addition, there is a Master jasper to contain everything in a batch run,
-rem ---   a PickPrint jasper to contain pick lists for hard copy (or manual email, if desired),
-rem ---   and a QuotePrint jasper to contain quotes for hard copy (i.e., if not going out via rpt ctl)
+rem ---   a PickPrint jasper to contain pick lists for hard copy (or manual email, if desired).
 
 rem ----------------------------------------------------------------------------
 rem --- Design IDEA is this: create Master doc containing everything in the batch run
-rem --- Create both a QuotePrint doc and a PickPrint doc
-rem --- For quotes, check to see if rpt control should be used
-rem --- For quotes, save individual pdf's, and append to master and/or QuotePrint as indicated by rpt control
+rem --- Create a PickPrint doc
 rem --- For pick lists, don't check rpt control and don't bother to save individual pdf's
 rem --- For pick lists, append to master and the PickPrint doc
-rem --- For On-demand, don't bother with Master, QuotePrint or PickPrint 
+rem --- For On-demand, don't bother with Master or PickPrint 
 
 on_demand: rem --- Entry point for on-demand picklist (whether via Order Entry or the Credit Action/Credit Manager)   
 
@@ -154,8 +151,6 @@ rem --- Set Report Name & Subreport directory
     master_filename$ = reportDir$ + masterBaseName$+".jasper"
     pickPrintBaseName$ = "OPPickListPickPrint"
     pick_print_filename$ = reportDir$ + pickPrintBaseName$+".jasper"
-    quotePrintBaseName$ = "OPPickListQuotePrint"
-    quote_print_filename$ = reportDir$ + quotePrintBaseName$+".jasper"    
 
     declare BBJasperReport report!
     
@@ -284,7 +279,6 @@ rem --- Initialize Data
 	
     nothing_printed = 1
     tot_picks = 0
-    tot_quotes = 0
     
     if type = on_demand then
         alias$ = option!.getAlias()
@@ -297,7 +291,6 @@ rem --- Initialize Data
         send_via_rpt_ctl$ = option!.getOptionData("SEND_VIA_RPT_CTL")
 		master_document=0
         pick_print_document=0
-        quote_print_document=0
     else
         alias$ = option!.getAlias()
         rptctl_alias$ = alias$
@@ -305,16 +298,14 @@ rem --- Initialize Data
 		restart_customer$ = option!.getOptionData("CUSTOMER_ID")       
 		print_prices$=option!.getOptionData("PRINT_PRICE")   
         whse$=option!.getOptionData("WAREHOUSE_ID")
-        print_what$=option!.getOptionData("PRINT_LIST");rem quotes, pick lists, or both
+        print_what$="P"; rem --- As of v25.10 quotes "Q" use Order Acknowledgement instead of Picking List
 		master_document=1
         pick_print_document=1
-        quote_print_document=1
     endif
 
     emailFax! = BBjAPI().makeVector()
 
 rem --- See if this document is set up in Addon Report Control
-rem --- Will only be using rpt ctl for quotes, not for pick lists
 
     reportControl!=new ReportControl()
     reportControl!.setDocExtension("pdf")
@@ -384,7 +375,6 @@ rem --- Misc setup and qualification
 
         nothing_printed = 0
         add_to_pick_print_report = 0
-        add_to_quote_print_report = 0
 
     rem --- Init Document Archive info
 
@@ -408,17 +398,10 @@ rem --- Misc setup and qualification
 
 
     rem --- Get Next Document Number and update Document Audit for individual pdf
-    rem --- Only add individual quotes to doc warehouse, not individual pick lists,
-    rem ---   because quotes may be subject to report control (email/faxing) to individual customers
 
-            call stbl("+DIR_SYP")+"bas_sequences.bbj","DOC_NO",new_doc_id$,table_chans$[all] 
-            new_doc_name$=new_doc_id$+"_"+doc_name$+".pdf"
+        call stbl("+DIR_SYP")+"bas_sequences.bbj","DOC_NO",new_doc_id$,table_chans$[all] 
+        new_doc_name$=new_doc_id$+"_"+doc_name$+".pdf"
 
-        if ope01a.invoice_type$="P"            
-            
-            call stbl("+DIR_SYP")+"bac_documents.bbj",new_doc_id$,rep_date_stamp$,rep_time_stamp$,rd_doc_source$,rd_doc_ext$,docdir$,
-:           rd_source_type$,rd_source_alias$,rd_source_id$,rd_source_ref$,table_chans$[all],"",new_doc_name$,doc_name$,doc_keywords$
-        endif
 
     rem --- Get Next Document Number and update Document Audit with JAS entry for master doc, if first time thru
 
@@ -450,41 +433,7 @@ rem --- Misc setup and qualification
             pick_print_doc_name$=pick_print_doc_id$+"_"+pickPrintBaseName$+".pdf"
         endif
 
-    rem --- Get Next Document Number and update Document Audit with JAS entry for quote print doc, if first time thru
-
-        if quote_print_document
-            rd_doc_ext$="JAS"
-            rd_archive_action$="DOC_ID-NOREPRINT"
-            rd_doc_id$=""
-            rd_source_id$="C"
-            rd_source_ref$=""
-            rd_doc_keywords$=""
-            gosub document_whse
-            rd_archive_action$=""
-            quote_print_doc_id$=rd_doc_id$
-            quote_print_doc_name$=quote_print_doc_id$+"_"+quotePrintBaseName$+".pdf"
-        endif
-
-    rem --- For quotes, use ReportControl object to see if customer wants print, email, or fax
-
-        if ope01a.invoice_type$="P"
-            add_to_quote_print_report=1
-            add_to_pick_print_report=0
-            if rpt_ctl$="YES"     
-                found=reportControl!.getRecipientInfo(rpt_id$,cust_id$,"")
-                if found         
-                    if reportControl!.getPrintYN()<>"Y" then add_to_quote_print_report=0
-                    if reportControl!.getEmailYN()="Y" or reportControl!.getFaxYN()="Y"
-                        emailFax!.add(rpt_id$)
-                        emailFax!.add(cust_id$)
-                        emailFax!.add(new_doc_id$)
-                    endif
-                endif
-            endif
-        else
-            add_to_pick_print_report=1
-            add_to_quote_print_report=0
-        endif
+        add_to_pick_print_report=1
 
     rem --- Report parameters  (Master/Print only processed once, followed by actual invoices)
 		if master_document
@@ -502,14 +451,6 @@ rem --- Misc setup and qualification
             pick_print_params!.put("SELECTED_WHSE",whse$)
             pick_print_params!.put("PICKLIST_TYPE",print_what$)            
 		endif
-
-		if quote_print_document
-			quote_print_params!.put("RESTART",restart$)
-			quote_print_params!.put("RESTART_CUSTOMER",restart_customer$)
-			quote_print_params!.put("PRINT_PRICES",print_prices$)
-            quote_print_params!.put("SELECTED_WHSE",whse$)
-            quote_print_params!.put("PICKLIST_TYPE",print_what$)            
-		endif        
 
 		params!.put("FIRM_ID",ope01a.firm_id$)
 		params!.put("AR_TYPE",ope01a.ar_type$)
@@ -572,14 +513,6 @@ rem --- Misc setup and qualification
             pick_print_document=0
         endif
 
-        if quote_print_document
-            quote_print_report! = BarUtils.getBBJasperReport(quote_print_filename$)
-            quote_print_report!.putParams(quote_print_params!)
-            quote_print_report!.setLocale(locale$)
-            quote_print_report!.fill()
-            quote_print_document=0
-        endif        
-
         report! = BarUtils.getBBJasperReport(filename$)
         report!.putParams(params!)
 
@@ -595,11 +528,6 @@ rem --- Misc setup and qualification
             if add_to_pick_print_report
                 pick_print_report!.appendReport(report!)
                 tot_picks=tot_picks+1
-            endif
-            
-            if add_to_quote_print_report
-                quote_print_report!.appendReport(report!)            
-                tot_quotes=tot_quotes+1
             endif
 
 			report!.destroy()
@@ -618,11 +546,9 @@ rem --- bring up jasper viewers (master doc and print doc for Batch Invoices; si
 
     declare BBJasperViewerWindow masterViewerWindow!
     declare BBJasperViewerWindow pickPrintViewerWindow!
-    declare BBJasperViewerWindow quotePrintViewerWindow!    
     declare BBJasperViewerWindow demandViewerWindow!
     declare BBjTopLevelWindow bbjWindowMaster!
     declare BBjTopLevelWindow bbjWindowPickPrint!
-    declare BBjTopLevelWindow bbjWindowQuotePrint!    
     declare BBjTopLevelWindow bbjWindowDemand!
     
     rem --- get a pdf path from +DOC_DIR_PDF
@@ -631,7 +557,7 @@ rem --- bring up jasper viewers (master doc and print doc for Batch Invoices; si
 
 	if type = batch_pick
     
-    rem --- master jasper - contains ALL pick lists and/or quotes
+    rem --- master jasper - contains ALL pick lists
         repTitle$=masterBaseName$
         rd_doc_name$=master_doc_name$
 
@@ -664,8 +590,7 @@ rem --- bring up jasper viewers (master doc and print doc for Batch Invoices; si
         bbjWindowMaster!.setCallback(bbjWindowMaster!.ON_CLOSE,"close_win")
        
     rem --- pick print jasper - contains only pick lists for hard copy and/or manual email (i.e., not via rpt ctl)
-    rem --- if there are only picks (no quotes), or only quotes (no picks), then skip pick print copy
-        if tot_picks and tot_quotes
+        if tot_picks
             repTitle$=pickPrintBaseName$
             rd_doc_name$=pick_print_doc_name$
             rd_doc_id$=pick_print_doc_id$
@@ -695,40 +620,6 @@ rem --- bring up jasper viewers (master doc and print doc for Batch Invoices; si
             bbjWindowPickPrint!.setCallback(bbjWindowPickPrint!.ON_CLOSE,"close_pick_print_win")
         else
             pick_print_win_closed=1;rem no pick print window; set the closed flag so master close routine won't think it's still up
-        endif
-        
-    rem --- quote print jasper - contains only quotes for hard copy
-    rem --- if no quotes, skip the quote print copy
-        if tot_quotes
-            repTitle$=quotePrintBaseName$
-            rd_doc_name$=quote_print_doc_name$
-            rd_doc_id$=quote_print_doc_id$
-
-            gosub exportQuotePrintToPDF; rem --- force save to doc archive
-
-            quotePrintViewerWindow! = new BBJasperViewerWindow(quote_print_report!,80,80,screen_width,screen_height,repTitle$,$00000093$)
-            quotePrintViewerControl! = quotePrintViewerWindow!.getViewerControl()
-            quotePrintViewerControl!.setGoogleDefaultDocument(repTitle$)
-            quotePrintViewerControl!.setDefaultSaveFolder(rd_doc_path$)
-            quotePrintViewerControl!.setDefaultSaveFile(repTitle$)
-            quotePrintViewerControl!.setFitWidth()
-
-            quotePrintSaveMenuButton! = quotePrintViewerControl!.getControl(BBJasperViewerControl.getSAVE_MENU_BUTTON_NAME())
-            quotePrintSaveMenuButton!.setCallback(BBjMenuButton.ON_BUTTON_PUSH ,"OnQuotePrintSaveMenuButton")
-
-            quotePrintSavMenuItem! = quotePrintViewerControl!.getControl(BBJasperViewerControl.getSAVE_MENU_ITEM_NAME())
-            quotePrintSavMenuItem!.setCallback(BBjMenuItem.ON_POPUP_ITEM_SELECT,"OnQuotePrintSaveMenuButton")
-
-            quotePrintEmailToolButton! = quotePrintViewerControl!.getControl(BBJasperViewerControl.getEMAIL_TOOL_BUTTON_NAME())
-            quotePrintEmailToolButton!.setCallback(BBjMenuButton.ON_TOOL_BUTTON_PUSH ,"OnQuotePrintEmailToolButton")
-
-            quotePrintViewerWindow!.setReleaseOnClose(0)
-            quotePrintViewerWindow!.show(0)
-
-            bbjWindowQuotePrint!= quotePrintViewerWindow!.getViewerWindow()
-            bbjWindowQuotePrint!.setCallback(bbjWindowQuotePrint!.ON_CLOSE,"close_quote_print_win")
-        else
-            quote_print_win_closed=1;rem no quote print window; set the closed flag so master close routine won't think it's still up
         endif
     else
 
@@ -873,42 +764,6 @@ rem --- force exportToPDF first, in case it hasn't already been saved
     endif
     return
 
-OnQuotePrintSaveMenuButton:
-rem --- save save and display confirmation dialog
-
-    show_save_dlg$="YES"
- 
-exportQuotePrintToPDF:
-rem --- exportToPDF and record in doc warehouse
-
-    if rd_doc_path$<>"" and repTitle$<>""
-        rd_doc_ext$="PDF"
-        rep_title$=repTitle$
-        rd_source_id$="C"
-        rd_source_ref$=""
-        rd_doc_keywords$=""
-        quote_print_report!.exportToPDF(BBjAPI().FALSE, rd_doc_path$+rd_doc_name$)
-        gosub document_whse
-    endif
-
-    if show_save_dlg$="YES"
-        msg_id$="DOC_OUTPUT_COMP"
-        gosub disp_message
-        show_save_dlg$=""
-    endif
-    return    
-
-OnQuotePrintEmailToolButton:rem --- Add document to fax/email queue
-rem --- force exportToPDF first, in case it hasn't already been saved
-    
-    rem --- force exportToPDF in case not already saved
-    rem gosub exportQuotePrintToPDF; rem --- Already aways done
-
-    if rd_doc_id$<>"" and rd_doc_ext$<>""
-        call stbl("+DIR_SYP")+"bac_faxemail_jasper.bbj",rd_doc_id$,rd_doc_ext$,table_chans$[all]
-    endif
-    return    
-
 OnDemandSaveMenuButton:
 rem --- save save and display confirmation dialog
 
@@ -950,7 +805,7 @@ close_win:rem --- Master or On-demand viewer closed - do post-processing for bat
 
     if type=batch_pick
         ok_to_close=1
-        if !pick_print_win_closed or !quote_print_win_closed
+        if !pick_print_win_closed
             msg_id$ = "CONF_CLOSE_PRINT"
             gosub disp_message
             if msg_opt$<>"Y" then ok_to_close=0 
@@ -991,7 +846,7 @@ rem --- Clear Print Flags
 				if pos(ope04a.customer_id$+ope04a.order_no$=printed_orders$,len(ope04a.customer_id$)+len(ope04a.order_no$))=0 continue
                 dim ope01a$:fattr(ope01a$)
 				extract record (ordhdr_dev, key=ope04a.firm_id$+"E"+ope04a.ar_type$+ope04a.customer_id$+ope04a.order_no$+ope01a.ar_inv_no$,knum="AO_STATUS", dom=*endif) ope01a$
-				if (print_what$="P" and ope01a.invoice_type$<>"S") or (print_what$="Q" and ope01a.invoice_type$<>"P") then continue
+				if (print_what$="P" and ope01a.invoice_type$<>"S") then continue
 
                 if ope01a.reprint_flag$<>"Y" then
                     if pos(ope01a.print_status$="B")=0 then continue
@@ -1068,7 +923,6 @@ all_done:
     reportControl!=null()
     masterViewerWindow!.destroy(err=*next)
     pickPrintViewerWindow!.destroy(err=*next)
-    quotePrintViewerWindow!.destroy(err=*next)
     demandViewerWindow!.destroy(err=*next)
 
     if tcb(13) then exit
@@ -1081,13 +935,6 @@ close_pick_print_win: rem --- close the Pick Print Copy window
     pick_print_win_closed=1
     
     return
-
-close_quote_print_win: rem --- close the Pick Print Copy window
-
-    quotePrintViewerWindow!.destroy(err=*next)
-    quote_print_win_closed=1
-    
-    return    
 
 valid_lines: rem --- Look for valid lines here
 
