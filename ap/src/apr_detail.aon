@@ -73,34 +73,10 @@ rem --- Set additional params
     params!.put("BARISTA_WD",dir(""))       
     if params!.get("VENDOR_ID_2")="" then params!.put("VENDOR_ID_2","~~~~~~")    
     params!.put("RETENTION",aps_params.ret_flag$)
-    
-    rem --- because temp vendor flag can be empty, N or Y in Addon,
-    rem --- have set up the WHERE clause in iReport SQL to look for
-    rem --- apm_vendmast.temp_vend = temp_vend_1 or 2 or 3,
-    rem --- as set below
-    
-    switch pos(params!.get("VENDOR_TYPE")="APT")
-        case 1; rem all vendors, so allow for any state of temp vend flag
-            params!.put("TEMP_VEND_1","")
-            params!.put("TEMP_VEND_2","N")
-            params!.put("TEMP_VEND_3","Y")
-        break
-        case 2; rem permanent vendors, so allow for empty or N in temp vend flag
-            params!.put("TEMP_VEND_1","")
-            params!.put("TEMP_VEND_2","N")
-            params!.put("TEMP_VEND_3","N")
-        break
-        case 3; rem temp vendors, so only allow for Y in temp vend flag
-            params!.put("TEMP_VEND_1","Y")
-            params!.put("TEMP_VEND_2","Y")
-            params!.put("TEMP_VEND_3","Y")
-        break
-        case default; rem make same as all vendors, so allow for any state of temp vend flag
-            params!.put("TEMP_VEND_1","")
-            params!.put("TEMP_VEND_2","N")
-            params!.put("TEMP_VEND_3","Y")
-        break    
-    swend
+
+    call pgmdir$+"adc_getmask.aon","","AP","I","",vend_mask$,0,vend_size
+    params!.put("VEND_MASK",vend_mask$)
+    params!.put("VEND_SIZE",str(vend_size))
 
 rem --- Vendor In-Active Parameters
     if inactive$="Y" then

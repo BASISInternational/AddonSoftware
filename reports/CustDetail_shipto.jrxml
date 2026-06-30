@@ -1,18 +1,14 @@
-<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
 <jasperReport name="CustDetail_shipto" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="e68b4108-9a88-4e44-ac05-32c6cb0d4472">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="322"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="672"/>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="CUSTOMER_ID" class="java.lang.String"/>
-	<query language="sql"><![CDATA[select firm_id, customer_id, shipto_no, name, addr_line_1, addr_line_2, addr_line_3, addr_line_4, city, state_code, zip_code, phone_no, phone_exten, contact_name, slspsn_code, territory, tax_code, db_no, sic_code, country, arc_salecode.code_desc AS sales_desc, arc_terrcode.code_desc AS terr_desc, opc_taxcode.code_desc AS tax_desc,ar_ship_via,shipping_id,shipping_email
-from arm_custship
-left join arc_salecode on firm_id = arc_salecode.firm_id and arc_salecode.record_id_f = 'F' and slspsn_code = arc_salecode.slspsn_code
-left join arc_terrcode on firm_id = arc_terrcode.firm_id and arc_terrcode.record_id_h = 'H' and territory = arc_terrcode.territory
-left join opc_taxcode on firm_id = opc_taxcode.firm_id and tax_code = opc_taxcode.op_tax_code
-where firm_id = $P{FIRM_ID} and customer_id = $P{CUSTOMER_ID}]]></query>
-	<field name="FIRM_ID" class="java.lang.String"/>
-	<field name="CUSTOMER_ID" class="java.lang.String"/>
+	<parameter name="BARISTA_WD" class="java.lang.String"/>
+	<query language="sql"><![CDATA[call ARCUSTDETAIL_SHIPTO($P{FIRM_ID},$P{CUSTOMER_ID},$P{BARISTA_WD})]]></query>
 	<field name="SHIPTO_NO" class="java.lang.String"/>
 	<field name="NAME" class="java.lang.String"/>
 	<field name="ADDR_LINE_1" class="java.lang.String"/>
@@ -30,7 +26,6 @@ where firm_id = $P{FIRM_ID} and customer_id = $P{CUSTOMER_ID}]]></query>
 	<field name="TAX_CODE" class="java.lang.String"/>
 	<field name="DB_NO" class="java.lang.String"/>
 	<field name="SIC_CODE" class="java.lang.String"/>
-	<field name="COUNTRY" class="java.lang.String"/>
 	<field name="SALES_DESC" class="java.lang.String"/>
 	<field name="TERR_DESC" class="java.lang.String"/>
 	<field name="TAX_DESC" class="java.lang.String"/>
@@ -39,9 +34,6 @@ where firm_id = $P{FIRM_ID} and customer_id = $P{CUSTOMER_ID}]]></query>
 	<field name="SHIPPING_EMAIL" class="java.lang.String"/>
 	<variable name="CT_ST_ZP" class="java.lang.String">
 		<expression><![CDATA[$F{CITY}.trim()+"  "+$F{STATE_CODE}+"  "+$F{ZIP_CODE}]]></expression>
-	</variable>
-	<variable name="PHN" class="java.lang.String">
-		<expression><![CDATA[$F{PHONE_NO}.substring(0,3)+"."+$F{PHONE_NO}.substring(3,6)+"."+$F{PHONE_NO}.substring(6)]]></expression>
 	</variable>
 	<background splitType="Stretch"/>
 	<title splitType="Stretch"/>
@@ -93,7 +85,7 @@ where firm_id = $P{FIRM_ID} and customer_id = $P{CUSTOMER_ID}]]></query>
 				<expression><![CDATA[$R{AON_PHONE:}]]></expression>
 			</element>
 			<element kind="textField" uuid="89db3339-5d3c-439c-a881-8b251c94cbea" x="380" y="39" width="71" height="13">
-				<expression><![CDATA[$V{PHN}]]></expression>
+				<expression><![CDATA[$F{PHONE_NO}]]></expression>
 			</element>
 			<element kind="textField" uuid="9ee87389-ca0e-4964-a8e0-4c28d4d1dc51" x="462" y="39" width="30" height="13" hTextAlign="Right">
 				<expression><![CDATA[$R{AON_EXT:}]]></expression>
