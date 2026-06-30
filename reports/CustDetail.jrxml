@@ -1,4 +1,4 @@
-<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
 <jasperReport name="CustDetail" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="addon" uuid="938ee14f-0a2a-4d07-8683-b09fb396e56e">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
@@ -22,9 +22,14 @@
 	<parameter name="60_DAY" class="java.lang.String"/>
 	<parameter name="90_DAY" class="java.lang.String"/>
 	<parameter name="120_DAY" class="java.lang.String"/>
-	<query language="sql"><![CDATA[select * from arm_custmast where arm_custmast.firm_id = $P{FIRM_ID} and arm_custmast.customer_id >= $P{CUSTOMER_ID_1} and arm_custmast.customer_id <= $P{CUSTOMER_ID_2} $P!{OPTION_ACTIVE}]]></query>
+	<parameter name="CUST_SIZE" class="java.lang.String"/>
+	<parameter name="CUST_MASK" class="java.lang.String"/>
+	<parameter name="AMT_MASK" class="java.lang.String"/>
+	<parameter name="BARISTA_WD" class="java.lang.String"/>
+	<query language="sql"><![CDATA[call ARCUSTDETAIL($P{FIRM_ID},$P{CUSTOMER_ID_1},$P{CUSTOMER_ID_2},$P{OPTION_ACTIVE},$P{CUST_MASK},$P{CUST_SIZE},$P{BARISTA_WD})]]></query>
 	<field name="FIRM_ID" class="java.lang.String"/>
 	<field name="CUSTOMER_ID" class="java.lang.String"/>
+	<field name="CUSTOMER" class="java.lang.String"/>
 	<field name="CUSTOMER_NAME" class="java.lang.String"/>
 	<field name="ADDR_LINE_1" class="java.lang.String"/>
 	<field name="ADDR_LINE_2" class="java.lang.String"/>
@@ -34,32 +39,20 @@
 	<field name="PHONE_EXTEN" class="java.lang.String"/>
 	<field name="RESALE_NO" class="java.lang.String"/>
 	<field name="ALT_SEQUENCE" class="java.lang.String"/>
-	<field name="RESERVED_STR" class="java.lang.String"/>
 	<field name="AR_SHIP_VIA" class="java.lang.String"/>
 	<field name="FAX_NO" class="java.lang.String"/>
 	<field name="ADDR_LINE_4" class="java.lang.String"/>
 	<field name="CITY" class="java.lang.String"/>
 	<field name="STATE_CODE" class="java.lang.String"/>
-	<field name="RETAIN_CUST" class="java.lang.String"/>
 	<field name="CONTACT_NAME" class="java.lang.String"/>
 	<field name="DB_NO" class="java.lang.String"/>
 	<field name="SIC_CODE" class="java.lang.String"/>
-	<field name="COUNTRY" class="java.lang.String"/>
-	<field name="FOB" class="java.lang.String"/>
-	<field name="RESERVED_STR_02" class="java.lang.String"/>
 	<field name="OPENED_DATE" class="java.lang.String"/>
-	<field name="CNTRY_ID" class="java.lang.String"/>
 	<field name="CUST_INACTIVE" class="java.lang.String"/>
 	<field name="SHIPPING_ID" class="java.lang.String"/>
 	<field name="SHIPPING_EMAIL" class="java.lang.String"/>
 	<variable name="CT_ST_ZP" class="java.lang.String">
 		<expression><![CDATA[$F{CITY}.trim()+"  "+$F{STATE_CODE}+"  "+$F{ZIP_CODE}]]></expression>
-	</variable>
-	<variable name="PHN" class="java.lang.String">
-		<expression><![CDATA[$F{PHONE_NO}.substring(0,3)+"."+$F{PHONE_NO}.substring(3,6)+"."+$F{PHONE_NO}.substring(6)]]></expression>
-	</variable>
-	<variable name="FAX" class="java.lang.String">
-		<expression><![CDATA[$F{FAX_NO}.substring(0,3)+"."+$F{FAX_NO}.substring(3,6)+"."+$F{FAX_NO}.substring(6)]]></expression>
 	</variable>
 	<group name="Customer" startNewPage="true">
 		<expression><![CDATA[$F{CUSTOMER_ID}]]></expression>
@@ -102,11 +95,14 @@
 	<columnHeader splitType="Stretch"/>
 	<detail>
 		<band height="195">
+			<printWhenExpression><![CDATA[$F{CUSTOMER_ID}!=""]]></printWhenExpression>
 			<element kind="textField" uuid="dbc62ccb-08f9-4385-95df-a57b6581d54b" x="84" y="14" width="46" height="13">
-				<expression><![CDATA[$F{CUSTOMER_ID}.replaceAll($P{CUST_PATTERN},$P{CUST_REPLACE})]]></expression>
+				<expression><![CDATA[$F{CUSTOMER}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			</element>
-			<element kind="textField" uuid="d59a7d93-8e2b-44a0-a605-51d01cdbf4d4" x="130" y="14" width="182" height="13">
+			<element kind="textField" uuid="d59a7d93-8e2b-44a0-a605-51d01cdbf4d4" x="135" y="14" width="182" height="13">
 				<expression><![CDATA[$F{CUSTOMER_NAME}]]></expression>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			</element>
 			<element kind="textField" uuid="f3110c69-12b0-450a-a2fe-b30651138c53" x="84" y="27" width="228" height="13">
 				<expression><![CDATA[$F{ADDR_LINE_1}]]></expression>
@@ -133,7 +129,7 @@
 				<expression><![CDATA[$R{AON_CUSTOMER:}]]></expression>
 			</element>
 			<element kind="textField" uuid="838b0d8a-7784-4901-b0f1-0cd383c2b071" x="84" y="92" width="100" height="13">
-				<expression><![CDATA[$V{PHN}]]></expression>
+				<expression><![CDATA[$F{PHONE_NO}]]></expression>
 			</element>
 			<element kind="textField" uuid="40fe518a-d465-407c-af4e-733ed4d881e7" x="188" y="92" width="22" height="13" hTextAlign="Right">
 				<expression><![CDATA[$R{AON_EXT:}]]></expression>
@@ -186,7 +182,7 @@
 $F{OPENED_DATE}.substring(4,6)+"/"+$F{OPENED_DATE}.substring(6)+"/"+$F{OPENED_DATE}.substring(0,4)]]></expression>
 			</element>
 			<element kind="textField" uuid="b364b850-49be-4c99-a733-6e5140f6b381" x="84" y="105" width="100" height="13">
-				<expression><![CDATA[$V{FAX}]]></expression>
+				<expression><![CDATA[$F{FAX_NO}]]></expression>
 				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 			</element>
@@ -253,6 +249,9 @@ $F{OPENED_DATE}.substring(4,6)+"/"+$F{OPENED_DATE}.substring(6)+"/"+$F{OPENED_DA
 				<parameter name="CUSTOMER_ID">
 					<expression><![CDATA[$F{CUSTOMER_ID}]]></expression>
 				</parameter>
+				<parameter name="BARISTA_WD">
+					<expression><![CDATA[$P{BARISTA_WD}]]></expression>
+				</parameter>
 			</element>
 			<element kind="subreport" uuid="f90ecf63-8872-4f7f-aef0-53d25e9e7db9" positionType="Float" x="0" y="175" width="553" height="10">
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
@@ -263,6 +262,12 @@ $F{OPENED_DATE}.substring(4,6)+"/"+$F{OPENED_DATE}.substring(6)+"/"+$F{OPENED_DA
 				</parameter>
 				<parameter name="CUSTOMER_ID">
 					<expression><![CDATA[$F{CUSTOMER_ID}]]></expression>
+				</parameter>
+				<parameter name="AMT_MASK">
+					<expression><![CDATA[$P{AMT_MASK}]]></expression>
+				</parameter>
+				<parameter name="BARISTA_WD">
+					<expression><![CDATA[$P{BARISTA_WD}]]></expression>
 				</parameter>
 			</element>
 			<element kind="subreport" uuid="664e2f8b-da7d-45ea-a577-bc35146dc634" positionType="Float" x="0" y="185" width="553" height="10">

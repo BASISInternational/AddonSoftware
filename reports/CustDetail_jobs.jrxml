@@ -1,13 +1,13 @@
-<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
 <jasperReport name="CustDetail_jobs" language="groovy" pageWidth="612" pageHeight="792" columnWidth="612" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="cd9f489b-2504-48c0-b387-b59f4cbdf520">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="FIRM_ID" class="java.lang.String"/>
 	<parameter name="CUSTOMER_ID" class="java.lang.String"/>
-	<query language="sql"><![CDATA[select firm_id, customer_id, job_no, lien_no, retain_job, lien_date, fst_shp_date, lstinv_date, customer_name, addr_line_1, addr_line_2, city, state_code, zip_code, phone_no, phone_exten, contact_name, lien_amount, total_sales from opm_custjobs where firm_id = $P{FIRM_ID} and customer_id = $P{CUSTOMER_ID}]]></query>
-	<field name="FIRM_ID" class="java.lang.String"/>
-	<field name="CUSTOMER_ID" class="java.lang.String"/>
+	<parameter name="AMT_MASK" class="java.lang.String"/>
+	<parameter name="BARISTA_WD" class="java.lang.String"/>
+	<query language="sql"><![CDATA[call ARCUSTDETAIL_JOBS($P{FIRM_ID},$P{CUSTOMER_ID},$P{AMT_MASK},$P{BARISTA_WD})]]></query>
 	<field name="JOB_NO" class="java.lang.String"/>
 	<field name="LIEN_NO" class="java.lang.String"/>
 	<field name="RETAIN_JOB" class="java.lang.String"/>
@@ -23,8 +23,8 @@
 	<field name="PHONE_NO" class="java.lang.String"/>
 	<field name="PHONE_EXTEN" class="java.lang.String"/>
 	<field name="CONTACT_NAME" class="java.lang.String"/>
-	<field name="LIEN_AMOUNT" class="java.math.BigDecimal"/>
-	<field name="TOTAL_SALES" class="java.math.BigDecimal"/>
+	<field name="LIEN_AMOUNT" class="java.lang.String"/>
+	<field name="TOTAL_SALES" class="java.lang.String"/>
 	<variable name="CT_ST_ZP" class="java.lang.String">
 		<expression><![CDATA[$F{CITY}.trim()+"  "+$F{STATE_CODE}+"  "+$F{ZIP_CODE}]]></expression>
 	</variable>
@@ -72,7 +72,7 @@
 				<expression><![CDATA[$R{AON_TELEPHONE:}]]></expression>
 			</element>
 			<element kind="textField" uuid="6e855884-1afc-48a7-9010-38c8aa7c39fa" x="113" y="106" width="66" height="13">
-				<expression><![CDATA[$V{PHN}]]></expression>
+				<expression><![CDATA[$F{PHONE_NO}]]></expression>
 			</element>
 			<element kind="textField" uuid="5f262de0-3606-4f28-be47-ebad9dd72eb5" x="113" y="93" width="100" height="13">
 				<expression><![CDATA[$F{CONTACT_NAME}]]></expression>
@@ -111,8 +111,7 @@
 				<expression><![CDATA[$F{RETAIN_JOB}]]></expression>
 			</element>
 			<element kind="textField" uuid="d3468325-dc35-4356-b3a9-eeb26b943200" x="434" y="28" width="100" height="13">
-				<expression><![CDATA[$F{LIEN_DATE} == "        " ? "" :
-$F{LIEN_DATE}.substring(4,6)+"/"+$F{LIEN_DATE}.substring(6)+"/"+$F{LIEN_DATE}.substring(0,4)]]></expression>
+				<expression><![CDATA[$F{LIEN_DATE} ]]></expression>
 			</element>
 			<element kind="textField" uuid="ff5220d0-98fe-4e6e-92aa-4c4b9da1d92f" x="434" y="41" width="100" height="13">
 				<expression><![CDATA[$F{LIEN_NO}]]></expression>
@@ -121,8 +120,7 @@ $F{LIEN_DATE}.substring(4,6)+"/"+$F{LIEN_DATE}.substring(6)+"/"+$F{LIEN_DATE}.su
 				<expression><![CDATA[$F{LIEN_AMOUNT}]]></expression>
 			</element>
 			<element kind="textField" uuid="ce8d650b-9db1-4549-a498-30604a65283f" x="434" y="67" width="100" height="13">
-				<expression><![CDATA[$F{FST_SHP_DATE} == "        " ? "" :
-$F{FST_SHP_DATE}.substring(4,6)+"/"+$F{FST_SHP_DATE}.substring(6)+"/"+$F{FST_SHP_DATE}.substring(0,4)]]></expression>
+				<expression><![CDATA[$F{FST_SHP_DATE}]]></expression>
 			</element>
 			<element kind="textField" uuid="c7dbe8bc-fc85-43c3-8fb4-0e95fcc1fdb0" x="434" y="93" width="58" height="13" pattern="#,##0.00" hTextAlign="Right">
 				<expression><![CDATA[$F{TOTAL_SALES}]]></expression>

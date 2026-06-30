@@ -24,6 +24,12 @@ rem --- SFHARDCOPYSUBSTD
 rem --- SFHARDCOPYCOSTSUM
 rem --- SFHARDCOPYTRANS
 rem --- SFHARDCOPYFGLS
+rem --- APVENDDETAIL
+rem --- APVENDDETAIL_PAYTO
+rem --- APVENDDETAIL_PURCH
+rem --- ARCUSTDETAIL
+rem --- ARCUSTDETAIL_JOBS
+rem --- ARCUSTDETAIL_SHIPTO
 rem --- CUSTSTATEMENTS
 rem --- CUST_INVOICEPAYMENTS
 rem --- CUST_INVOICEPAYMENTSDET
@@ -280,6 +286,30 @@ rem --- first drop all std Addon SPROCs
     gosub create_sproc_def	
 	
 	sproc_vw_name$="SFHARDCOPYFGLS"
+    sqlprep$=sql_action$+" "+sproc_vw_name$+" "
+    gosub create_sproc_def	
+
+	sproc_vw_name$="APVENDDETAIL"
+    sqlprep$=sql_action$+" "+sproc_vw_name$+" "
+    gosub create_sproc_def	
+	
+	sproc_vw_name$="APVENDDETAIL_PAYTO"
+    sqlprep$=sql_action$+" "+sproc_vw_name$+" "
+    gosub create_sproc_def	
+	
+	sproc_vw_name$="APVENDDETAIL_PURCH"
+    sqlprep$=sql_action$+" "+sproc_vw_name$+" "
+    gosub create_sproc_def	
+	
+	sproc_vw_name$="ARCUSTDETAIL"
+    sqlprep$=sql_action$+" "+sproc_vw_name$+" "
+    gosub create_sproc_def	
+	
+	sproc_vw_name$="ARCUSTDETAIL_JOBS"
+    sqlprep$=sql_action$+" "+sproc_vw_name$+" "
+    gosub create_sproc_def	
+	
+	sproc_vw_name$="ARCUSTDETAIL_SHIPTO"
     sqlprep$=sql_action$+" "+sproc_vw_name$+" "
     gosub create_sproc_def	
 
@@ -707,6 +737,75 @@ rem --- now add them back (i.e., drop, then add, in case anything has changed)
     sqlprep$=sqlprep$+"'"+sproc_path$+"SFHARDCOPYFGLS.prc' '"+barista_cfg_path$+"barista.cfg' "
     sqlprep$=sqlprep$+"RESULT_SET "
     sqlprep$=sqlprep$+"{_begin_}{_end_} 'WO Hard Copy Finished Good LS'"
+
+    gosub create_sproc_def
+
+	rem --- APVENDDETAIL
+    sproc_vw_name$="APVENDDETAIL"
+	sqlprep$="CREATE PROCEDURE APVENDDETAIL "
+    sqlprep$=sqlprep$+"(FIRM_ID CHAR(2) IN, VENDOR_ID_1 CHAR(6) IN, VENDOR_ID_2 CHAR(6) IN, VENDOR_TYPE CHAR(1) IN, "
+	sqlprep$=sqlprep$+"OPTION_ACTIVE CHAR(1) IN, VEND_MASK CHAR(20) IN, VEND_SIZE CHAR(1) IN, "
+	sqlprep$=sqlprep$+"BARISTA_WD VARCHAR(50) IN)"	
+    sqlprep$=sqlprep$+"'"+sproc_path$+"APVENDDETAIL.prc' '"+barista_cfg_path$+"barista.cfg' "
+    sqlprep$=sqlprep$+"RESULT_SET "
+    sqlprep$=sqlprep$+"{_begin_}{_end_} 'Vendor Detail Listing'"
+
+    gosub create_sproc_def
+
+	rem --- APVENDDETAIL_PAYTO
+    sproc_vw_name$="APVENDDETAIL_PAYTO"
+	sqlprep$="CREATE PROCEDURE APVENDDETAIL_PAYTO "
+    sqlprep$=sqlprep$+"(FIRM_ID CHAR(2) IN, VENDOR_ID CHAR(6) IN, "
+	sqlprep$=sqlprep$+"BARISTA_WD VARCHAR(50) IN)"	
+    sqlprep$=sqlprep$+"'"+sproc_path$+"APVENDDETAIL_PAYTO.prc' '"+barista_cfg_path$+"barista.cfg' "
+    sqlprep$=sqlprep$+"RESULT_SET "
+    sqlprep$=sqlprep$+"{_begin_}{_end_} 'Vendor Detail Pay-To Listing'"
+
+    gosub create_sproc_def
+
+
+	rem --- APVENDDETAIL_PURCH
+    sproc_vw_name$="APVENDDETAIL_PURCH"
+	sqlprep$="CREATE PROCEDURE APVENDDETAIL_PURCH "
+    sqlprep$=sqlprep$+"(FIRM_ID CHAR(2) IN, VENDOR_ID CHAR(6) IN, "
+	sqlprep$=sqlprep$+"BARISTA_WD VARCHAR(50) IN)"	
+    sqlprep$=sqlprep$+"'"+sproc_path$+"APVENDDETAIL_PURCH.prc' '"+barista_cfg_path$+"barista.cfg' "
+    sqlprep$=sqlprep$+"RESULT_SET "
+    sqlprep$=sqlprep$+"{_begin_}{_end_} 'Vendor Detail Pay-To Listing'"
+
+    gosub create_sproc_def
+
+	rem --- ARCUSTDETAIL
+    sproc_vw_name$="ARCUSTDETAIL"
+	sqlprep$="CREATE PROCEDURE ARCUSTDETAIL "
+    sqlprep$=sqlprep$+"(FIRM_ID CHAR(2) IN, CUSTOMER_ID_1 CHAR(6) IN, CUSTOMER_ID_2 CHAR(6) IN, OPTION_ACTIVE CHAR(1) IN, "
+	sqlprep$=sqlprep$+"CUST_MASK CHAR(20) IN, CUST_SIZE CHAR(1) IN, "
+	sqlprep$=sqlprep$+"BARISTA_WD VARCHAR(50) IN)"	
+    sqlprep$=sqlprep$+"'"+sproc_path$+"ARCUSTDETAIL.prc' '"+barista_cfg_path$+"barista.cfg' "
+    sqlprep$=sqlprep$+"RESULT_SET "
+    sqlprep$=sqlprep$+"{_begin_}{_end_} 'Customer Detail Listing'"
+
+    gosub create_sproc_def
+
+	rem --- ARCUSTDETAIL_JOBS
+    sproc_vw_name$="ARCUSTDETAIL_JOBS"
+	sqlprep$="CREATE PROCEDURE ARCUSTDETAIL_JOBS "
+    sqlprep$=sqlprep$+"(FIRM_ID CHAR(2) IN, CUSTOMER_ID CHAR(6) IN, AMT_MASK VARCHAR(20) IN, "
+	sqlprep$=sqlprep$+"BARISTA_WD VARCHAR(50) IN)"	
+    sqlprep$=sqlprep$+"'"+sproc_path$+"ARCUSTDETAIL_JOBS.prc' '"+barista_cfg_path$+"barista.cfg' "
+    sqlprep$=sqlprep$+"RESULT_SET "
+    sqlprep$=sqlprep$+"{_begin_}{_end_} 'Customer Detail Jobs Listing'"
+
+    gosub create_sproc_def
+
+	rem --- ARCUSTDETAIL_SHIPTO
+    sproc_vw_name$="ARCUSTDETAIL_SHIPTO"
+	sqlprep$="CREATE PROCEDURE ARCUSTDETAIL_SHIPTO "
+    sqlprep$=sqlprep$+"(FIRM_ID CHAR(2) IN, CUSTOMER_ID CHAR(6) IN, "
+	sqlprep$=sqlprep$+"BARISTA_WD VARCHAR(50) IN)"	
+    sqlprep$=sqlprep$+"'"+sproc_path$+"ARCUSTDETAIL_SHIPTO.prc' '"+barista_cfg_path$+"barista.cfg' "
+    sqlprep$=sqlprep$+"RESULT_SET "
+    sqlprep$=sqlprep$+"{_begin_}{_end_} 'Customer Detail Ship To Listing'"
 
     gosub create_sproc_def
 
