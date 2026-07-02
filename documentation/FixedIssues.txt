@@ -8,6 +8,36 @@
 BBjBaristaAddonDemos2601_06-25-2026_0944.jar
 =======================================================================================================================================
 
+Revision: 30c100cc91ce781295b1aa0d3babd0ed9554e53e
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 6/30/2026 10:46:18 AM
+Message:
+ER 11253: Formatted Zip codes on the Customer and Vendor Detail
+Listings.
+----
+Modified: ad/src/adx_build_sproc.aon
+Modified: ap/src/apr_detail.aon
+Modified: ar/src/arr_detail.aon
+Modified: reports/CustDetail.jasper
+Modified: reports/CustDetail.jrxml
+Modified: reports/CustDetail_jobs.jasper
+Modified: reports/CustDetail_jobs.jrxml
+Modified: reports/CustDetail_shipto.jasper
+Modified: reports/CustDetail_shipto.jrxml
+Modified: reports/VendorDetail.jasper
+Modified: reports/VendorDetail.jrxml
+Modified: reports/VendorDetail_payto.jasper
+Modified: reports/VendorDetail_payto.jrxml
+Modified: reports/VendorDetail_purch.jasper
+Modified: reports/VendorDetail_purch.jrxml
+Added: sprocs/APVENDDETAIL.prc
+Added: sprocs/APVENDDETAIL_PAYTO.prc
+Added: sprocs/APVENDDETAIL_PURCH.prc
+Added: sprocs/ARCUSTDETAIL.prc
+Added: sprocs/ARCUSTDETAIL_JOBS.prc
+Added: sprocs/ARCUSTDETAIL_SHIPTO.prc
+=======================================================================================================================================
+
 Revision: 7f1d0c91062b60a9333f9262ae0a07269492d776
 Author: Bill Halsted <bhalsted@basis.cloud>
 Date: 7/2/2026 1:45:03 PM
