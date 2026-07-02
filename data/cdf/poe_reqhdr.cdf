@@ -879,13 +879,15 @@ whse_addr_info: rem --- get and display Warehouse Address Info when not a dropsh
 		else
 			warehouse_id$=callpoint!.getColumnData("POE_REQHDR.WAREHOUSE_ID")
 		endif
+		read record(ivc_whsecode_dev,key=firm_id$+"C"+warehouse_id$,dom=*next)ivc_whsecode$
+		callpoint!.setColumnData("<<DISPLAY>>.W_ADDR1",ivc_whsecode.addr_line_1$,1)
+		callpoint!.setColumnData("<<DISPLAY>>.W_ADDR2",ivc_whsecode.addr_line_2$,1)
+		callpoint!.setColumnData("<<DISPLAY>>.W_CITY",ivc_whsecode.city$,1)
+		callpoint!.setColumnData("<<DISPLAY>>.W_STATE",ivc_whsecode.state_code$,1)
+		callpoint!.setColumnData("<<DISPLAY>>.W_ZIP_CODE",ivc_whsecode.zip_code$,1)
+	else
+		gosub dropship_shipto
 	endif
-	read record(ivc_whsecode_dev,key=firm_id$+"C"+warehouse_id$,dom=*next)ivc_whsecode$
-	callpoint!.setColumnData("<<DISPLAY>>.W_ADDR1",ivc_whsecode.addr_line_1$,1)
-	callpoint!.setColumnData("<<DISPLAY>>.W_ADDR2",ivc_whsecode.addr_line_2$,1)
-	callpoint!.setColumnData("<<DISPLAY>>.W_CITY",ivc_whsecode.city$,1)
-	callpoint!.setColumnData("<<DISPLAY>>.W_STATE",ivc_whsecode.state_code$,1)
-	callpoint!.setColumnData("<<DISPLAY>>.W_ZIP_CODE",ivc_whsecode.zip_code$,1)
 
 return
 
@@ -898,6 +900,9 @@ dropship_shipto: rem --- get and display shipto from Sales Order if dropship ind
 	dim ope_ordhdr$:fnget_tpl$("OPE_ORDHDR")
 	dim arm_custship$:fnget_tpl$("ARM_CUSTSHIP")
 	dim ope_ordship$:fnget_tpl$("OPE_ORDSHIP")
+
+	tmp_customer_id$=callpoint!.getColumnData("POE_REQHDR.CUSTOMER_ID")
+	tmp_order_no$=callpoint!.getColumnData("POE_REQHDR.ORDER_NO")
 
 	read(ope_ordhdr_dev,key=firm_id$+ope_ordhdr.ar_type$+tmp_customer_id$+tmp_order_no$,knum="PRIMARY",dom=*next)
 	while 1
@@ -917,16 +922,18 @@ dropship_shipto: rem --- get and display shipto from Sales Order if dropship ind
 	if num(shipto_no$,err=*endif)=99
 		read record (ope_ordship_dev,key=firm_id$+tmp_customer_id$+tmp_order_no$+ope_ordhdr.ar_inv_no$+"S",dom=*next)ope_ordship$
 		dim rec$:fattr(ope_ordship$)
-		if pos(ope_ordship.trans_status$="ER") then rec$=ope_ordship$
+		rec$=ope_ordship$
 		gosub fill_dropship_address
-		callpoint!.setColumnData("POE_REQHDR.DS_NAME",rec.name$,1)
+		callpoint!.setColumnData("POE_REQHDR.DS_NAME",rec.name$)
+		callpoint!.setColumnData("<<DISPLAY>>.W_ADDR1",rec.name$,1)
 	endif
 	if num(shipto_no$,err=*endif)>0 and num(shipto_no$,err=*endif)<99
 		read record (arm_custship_dev,key=firm_id$+tmp_customer_id$+shipto_no$,dom=*next)arm_custship$
 		dim rec$:fattr(arm_custship$)
 		rec$=arm_custship$
 		gosub fill_dropship_address
-		callpoint!.setColumnData("POE_REQHDR.DS_NAME",rec.name$,1)
+		callpoint!.setColumnData("POE_REQHDR.DS_NAME",rec.name$)
+		callpoint!.setColumnData("<<DISPLAY>>.W_ADDR1",rec.name$,1)
 	endif
 
 return
@@ -941,6 +948,7 @@ shipto_cust:
 	rec$=arm_custmast$
 	gosub fill_dropship_address
 	callpoint!.setColumnData("POE_REQHDR.DS_NAME",rec.customer_name$)
+	callpoint!.setColumnData("<<DISPLAY>>.W_ADDR1",rec.customer_name$,1)
 
 return
 
@@ -952,6 +960,13 @@ fill_dropship_address:
 	callpoint!.setColumnData("POE_REQHDR.DS_CITY",rec.city$)
 	callpoint!.setColumnData("POE_REQHDR.DS_STATE_CD",rec.state_code$)
 	callpoint!.setColumnData("POE_REQHDR.DS_ZIP_CODE",rec.zip_code$)
+
+	callpoint!.setColumnData("<<DISPLAY>>.W_ADDR2",rec.addr_line_1$,1)
+	callpoint!.setColumnData("<<DISPLAY>>.W_ADDR3",rec.addr_line_2$,1)
+	callpoint!.setColumnData("<<DISPLAY>>.W_ADDR4",rec.addr_line_3$,1)
+	callpoint!.setColumnData("<<DISPLAY>>.W_CITY",rec.city$,1)
+	callpoint!.setColumnData("<<DISPLAY>>.W_STATE",rec.state_code$,1)
+	callpoint!.setColumnData("<<DISPLAY>>.W_ZIP_CODE",rec.zip_code$,1)
 return
 
 get_dropship_order_lines:
@@ -1173,6 +1188,14 @@ else
 		callpoint!.setColumnEnabled("POE_REQHDR.ORDER_NO",0)
 		callpoint!.setColumnEnabled("POE_REQHDR.SHIPTO_NO",0)			
 	endif
+endif
+
+if callpoint!.getColumnData("POE_REQHDR.DROPSHIP")="Y"
+	dropship_to$=Translate!.getTranslation("AON_DROPSHIP")+" "+Translate!.getTranslation("AON_TO")
+	util.changeControlLabel(SysGUI!, callpoint!, "POE_REQHDR.WAREHOUSE_ID", dropship_to$+":")
+else
+	ship_to_whse$=Translate!.getTranslation("AON_SHIP-TO")+" "+Translate!.getTranslation("AON_WAREHOUSE")
+	util.changeControlLabel(SysGUI!, callpoint!, "POE_REQHDR.WAREHOUSE_ID", ship_to_whse$+":")
 endif
 
 return
