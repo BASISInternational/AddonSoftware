@@ -1,9 +1,27 @@
 =======================================================================================================================================
- Report Date:   2026-06-30
+ Report Date:   2026-07-02
  Report Branch: AddonSoftware 26.02
  Last Release:  AddonSoftware 26.01
 =======================================================================================================================================
 
 26.01 released 06/29/2026
 BBjBaristaAddonDemos2601_06-25-2026_0944.jar
+=======================================================================================================================================
+
+Revision: 7f1d0c91062b60a9333f9262ae0a07269492d776
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 7/2/2026 1:45:03 PM
+Message:
+ER 7786: Moved the fields on the Dropship tab to the Basics tab on the
+Purchase Requisition Entry, Purchase Order Entry and Purchase Order
+Invoice Entry forms. The Warehouse address and Dropship address share
+the same fields on the Basics tab, and which one is displayed depends on
+the Dropship checkbox.
+----
+Modified: data/bar/poe_pohdr.xml
+Modified: data/bar/poe_rechdr.xml
+Modified: data/bar/poe_reqhdr.xml
+Modified: data/cdf/poe_pohdr.cdf
+Modified: data/cdf/poe_rechdr.cdf
+Modified: data/cdf/poe_reqhdr.cdf
 =======================================================================================================================================
