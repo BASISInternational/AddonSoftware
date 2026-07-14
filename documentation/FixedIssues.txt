@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-07-02
+ Report Date:   2026-07-14
  Report Branch: AddonSoftware 26.02
  Last Release:  AddonSoftware 26.01
 =======================================================================================================================================
@@ -54,4 +54,14 @@ Modified: data/bar/poe_reqhdr.xml
 Modified: data/cdf/poe_pohdr.cdf
 Modified: data/cdf/poe_rechdr.cdf
 Modified: data/cdf/poe_reqhdr.cdf
+=======================================================================================================================================
+
+Revision: f681989823ade36bf1dfe260ce364a02eb00753e
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 7/14/2026 1:34:16 PM
+Message:
+ER 11258: Added a progress meter for batch printing of Picking Lists.
+----
+Modified: ad/src/adc_progress.aon
+Modified: op/src/opc_picklist.aon
 =======================================================================================================================================
