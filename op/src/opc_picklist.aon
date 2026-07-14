@@ -319,12 +319,15 @@ rem --- Is this company multi-warehouse?
     
     mult_wh$=params_rec.multi_whse$
 
-    call pgmdir$+"adc_progress.aon","N",sysinfo.task_desc$,"","Printing","",0,0,1,0,status
+    call pgmdir$+"adc_progress.aon","N","OPE_PRNTLIST","Printing","","",0,prntlist_dev,1,0,status
     if status = 999 then goto std_exit
 
 rem --- Main Read
 
     for next_item = 0 to custIds!.size() - 1
+        rem --- Increment progress meter
+        call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
+        if status = 999 then goto std_exit
     
         cust_id$ = str( custIds!.getItem(next_item) )
         order_no$ = str( orderNos!.getItem(next_item) )
@@ -824,8 +827,11 @@ rem --- Updates and final processing
     if msg_opt$<>"Y" then goto all_done
     
     if type=batch_pick
-        call pgmdir$+"adc_progress.aon","N","","","","",0,prntlist_dev,1,meter_num,status
-        if status = 999 then goto all_done
+        call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,0,status
+        wait 1
+
+        call pgmdir$+"adc_progress.aon","N","OPE_PRNTLIST","Cleanup","","",0,prntlist_dev,1,0,status
+        if status = 999 then goto std_exit
 		
 rem --- Position file for update    
     
@@ -838,12 +844,14 @@ rem --- Clear Print Flags
 			read record (prntlist_dev,end=*break)ope04a$
 			if ope04a.firm_id$+ope04a.ordinv_flag$<>firm_id$+"O" break
 			if pos(ope04a.customer_id$+ope04a.order_no$=printed_orders$,len(ope04a.customer_id$)+len(ope04a.order_no$))=0 continue
+            
 			call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,meter_num,status
 			if status = 999 then exitto std_exit
+            
 			start_block = 1
-
 			if start_block then
 				if pos(ope04a.customer_id$+ope04a.order_no$=printed_orders$,len(ope04a.customer_id$)+len(ope04a.order_no$))=0 continue
+
                 dim ope01a$:fattr(ope01a$)
 				extract record (ordhdr_dev, key=ope04a.firm_id$+"E"+ope04a.ar_type$+ope04a.customer_id$+ope04a.order_no$+ope01a.ar_inv_no$,knum="AO_STATUS", dom=*endif) ope01a$
 				if (print_what$="P" and ope01a.invoice_type$<>"S") then continue
