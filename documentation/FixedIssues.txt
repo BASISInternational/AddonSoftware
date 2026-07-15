@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-07-14
+ Report Date:   2026-07-15
  Report Branch: AddonSoftware 26.02
  Last Release:  AddonSoftware 26.01
 =======================================================================================================================================
@@ -64,4 +64,14 @@ ER 11258: Added a progress meter for batch printing of Picking Lists.
 ----
 Modified: ad/src/adc_progress.aon
 Modified: op/src/opc_picklist.aon
+=======================================================================================================================================
+
+Revision: a134ae16cacecb883b72c9199660e51854ef6b88
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 7/15/2026 11:38:32 AM
+Message:
+ER 11259: Added a progress meter for batch printing of Order
+Acknowledgements.
+----
+Modified: op/src/opc_ordconf.aon
 =======================================================================================================================================
