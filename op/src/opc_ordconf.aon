@@ -320,8 +320,27 @@ rem --- See if this document is set up in Addon Report Control
 
 rem --- Start progress meter 
 
-    call pgmdir$+"adc_progress.aon","N",sysinfo.task_desc$,"","Printing","",0,0,1,0,status
+    call pgmdir$+"adc_progress.aon","N","OPT_INVHDR","Printing","","",0,ope01_dev,1,0,status
     if status = 999 then goto all_done
+
+    stepSize=1
+    dbname$=""
+    dbname$=stbl("+DBNAME",err=*next)
+    if dbname$<>"" then
+        sqlchan=sqlunt
+        sqlopen(sqlchan,err=*endif)dbname$
+        sqlprep$="SELECT COUNT(*) FROM OPT_INVHDR WHERE FIRM_ID='"+firm_id$+"'"
+        sqlprep(sqlchan,err=*endif)sqlprep$
+        sqlexec(sqlchan,err=*endif)
+        firmCount=num(sqlfetch(sqlchan,err=*endif))
+
+        sqlprep$="SELECT COUNT(*) FROM OPT_INVHDR WHERE FIRM_ID='"+firm_id$+"' AND TRANS_STATUS='E' AND ORDINV_FLAG='O'"
+        sqlprep(sqlchan,err=*endif)sqlprep$
+        sqlexec(sqlchan,err=*endif)
+        orderCount=num(sqlfetch(sqlchan,err=*endif))
+        
+        if orderCount>0 then stepSize=int(firmCount/orderCount)
+    endif
 		
 rem --- Main Read
 
@@ -337,8 +356,7 @@ rem --- Main Read
         if pos(ope01_trip$=ope01_key$)<>1 then continue
         extract record (ope01_dev, key=ope01_key$, dom=*continue) ope01a$; rem Advisory Locking
 
-    rem --- 
-        call pgmdir$+"adc_progress.aon","S","","","","",0,0,1,0,status
+        call pgmdir$+"adc_progress.aon","S","","","","",0,0,stepSize,0,status
         if status = 999 then exitto all_done
         
     rem --- Total
@@ -824,12 +842,23 @@ close_win:rem --- Master or On-demand viewer closed - do post-processing for bat
     endif
    
     if type=batch_ack
-        call pgmdir$+"adc_progress.aon","N",sysinfo.task_desc$,"","Updating","",0,0,1,0,status
+        call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,0,status
+        wait 1
+        
+        call pgmdir$+"adc_progress.aon","N","OPT_INVHDR","Cleanup","","",0,ope01_dev,1,0,status
         if status = 999 then goto all_done
+
+        if custIds!.size()+emailFax!.size()>0 then 
+            stepSize=int(firmCount/custIds!.size()+emailFax!.size())
+        else
+            stepSize=1
+        endif
 
         rem --- Update loop Batch Acknowledgements
 
         for next_item = 0 to custIds!.size() - 1
+            call pgmdir$+"adc_progress.aon","S","","","","",0,0,stepSize,0,status
+            if status = 999 then exitto all_done
         
             cust_id$ = str( custIds!.getItem(next_item) )
             order_no$ = str( orderNos!.getItem(next_item) )
@@ -848,6 +877,9 @@ close_win:rem --- Master or On-demand viewer closed - do post-processing for bat
             gosub disp_message
             if msg_opt$="Y"
                 for email_fax=0 to emailFax!.size()-1 step 3
+                    call pgmdir$+"adc_progress.aon","S","","","","",0,0,stepSize,0,status
+                    if status = 999 then exitto all_done
+        
                     reportControl!.addToDocQueue(emailFax!.get(email_fax),emailFax!.get(email_fax+1),"",emailFax!.get(email_fax+2))    
                 next email_fax
             endif
@@ -866,8 +898,6 @@ close_win:rem --- Master or On-demand viewer closed - do post-processing for bat
         else
             gosub order_update
         endif
-		call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,0,status
-					
     endif    
 
 all_done: rem --- Exit
