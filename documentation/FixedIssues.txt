@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-07-15
+ Report Date:   2026-07-20
  Report Branch: AddonSoftware 26.02
  Last Release:  AddonSoftware 26.01
 =======================================================================================================================================
@@ -74,4 +74,15 @@ ER 11259: Added a progress meter for batch printing of Order
 Acknowledgements.
 ----
 Modified: op/src/opc_ordconf.aon
+=======================================================================================================================================
+
+Revision: 465360abb413b0e70dec5ec4f0211c1aa688a105
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 7/20/2026 2:17:05 PM
+Message:
+Bug 11262: Corrected typo that was preventing the Release Work Order
+additional option on the Work Order Entry form from getting enabled.
+----
+Modified: data/bar/sfe_womastr.xml
+Modified: data/cdf/sfe_womastr.cdf
 =======================================================================================================================================
