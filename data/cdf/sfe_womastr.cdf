@@ -87,7 +87,7 @@ rem --- Disable/enable based on status of closed/open
 				callpoint!.setColumnEnabled("SFE_WOMASTR.WAREHOUSE_ID",1)
 			else
 				callpoint!.setColumnEnabled("SFE_WOMASTR.WAREHOUSE_ID",1)
-			end
+			endif
 		endif
 		callpoint!.setColumnEnabled("SFE_WOMASTR.EST_YIELD",1)
 		if callpoint!.getDevObject("mp")="Y"
