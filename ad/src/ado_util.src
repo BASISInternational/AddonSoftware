@@ -2025,6 +2025,121 @@ validEmailAddress_error:rem --- Method error trap/handler (11Oct2017)
             throw "["+pgm(-2)+"] "+str(tcb(5))+": "+rd_err_text$,err_num
         methodend
 
+        rem /**
+        rem  * Determine directory where a Jasper report should be save.
+        rem  *
+        rem  * @param BBjString firm_id$
+        rem  * @param BBjString module$
+        rem  * @param BBjString docType$ (Report, Register, or PeriodEnd)
+        rem  * @param BBjString reportID$
+        rem  * @return BBjString -- directory path
+        rem  */
+        method public static BBjString getReportDocPath(BBjString firm_id$, BBjString module$, BBjString docType$, BBjString reportID$)
+            seterr method_error
+            dirPath$=""
+
+            rem --- Open needed files          
+            num_files=3
+            dim open_tables$[1:num_files], open_opts$[1:num_files], open_chans$[1:num_files], open_tpls$[1:num_files]
+            open_tables$[1] = "ADM_RPTCTL",   open_opts$[1] = "OTAN"
+            open_tables$[2] = "ADM_RPTDIRHDR",open_opts$[2] = "OTAN"
+            open_tables$[3] = "ADM_RPTDIRDET",open_opts$[3] = "OTAN"
+        
+            rem --- Note that rd_table_chans$[all] is NOT being shared/passed.
+            call stbl("+DIR_SYP")+"bac_open_tables.bbj",open_beg,open_end,open_tables$[all],open_opts$[all],open_chans$[all],open_tpls$[all],rd_table_chans$[all],open_batch,open_status$
+
+            if open_status$ = "" then
+                rem --- Get channels and record templates
+                admRptCtl_dev = num(open_chans$[1])
+                admRptDirHdr_dev = num(open_chans$[2])
+                admRptDirDet_dev = num(open_chans$[3])
+                
+                dim admRptCtl$:open_tpls$[1]
+                dim admRptDirHdr$:open_tpls$[2]
+                dim admRptDirDet$:open_tpls$[3]
+            else
+                close(admRptCtl_dev,err=*next)
+                close(admRptDirHdr_dev,err=*next)
+                close(admRptDirDet_dev,err=*next)
+                
+                rem --- Throw error
+                err_num=err
+                err_num=num(open_status$,err=*next)
+                seterr 0
+                x$=stbl("+THROWN_ERR","TRUE")   
+                throw "["+pgm(-2)+"] Constructor failed to open files: "+open_status$,err_num
+            endif
+
+goto skip_admRptCtl; rem --- Cannot make ADM_RPTCTL structural file change until v27.00
+            if cvs(reportID$,2)<>"" then
+                admRptCtl.dd_table_alias$=reportID$
+                readrecord(admRptCtl_dev,key=firm_id$+admRptCtl.dd_table_alias$,dom=*endif)admRptCtl$
+                dirPath$=admRptCtl.doc_dir$
+            endif
+skip_admRptCtl:
+
+            if cvs(dirPath$,2)="" and cvs(module$,2)<>"" then
+                admRptDirDet.module$=module$
+                readrecord(admRptDirDet_dev,key=firm_id$+admRptDirDet.module$,dom=*endif)admRptDirDet$
+                switch (BBjAPI().TRUE)
+                    case docType$="Report"
+                        dirPath$=admRptDirDet.report_dir$
+                        break
+                    case docType$="Register"
+                        dirPath$=admRptDirDet.register_dir$
+                        break
+                    case docType$="PeriodEnd"
+                        dirPath$=admRptDirDet.period_end_dir$
+                        break
+                swend
+
+                if cvs(dirPath$,2)="" then dirPath$=admRptDirDet.module_dir$
+            endif
+
+            if cvs(dirPath$,2)="" then
+                readrecord(admRptDirHdr_dev,key=firm_id$,dom=*endif)admRptDirHdr$
+                dirPath$=admRptDirHdr.firm_dir$
+            endif
+
+            if cvs(dirPath$,2)="" then
+                dirPath$=dsk("")+dir("")
+                dirPath$=BBjAPI().getFileSystem().resolvePath(util.resolvePathStbls(stbl("+DOC_DIR_PDF",err=*next)),err=*next)
+            endif
+
+            rem --- Close opened channels
+            close(admRptCtl_dev,err=*next)
+            close(admRptDirHdr_dev,err=*next)
+            close(admRptDirDet_dev,err=*next)
+                
+            rem --- Flip directory path separators and add trailing slash if needed
+            dirPath$=cvs(dirPath$,3)
+            pos=pos("\"=dirPath$)
+            while pos
+                dirPath$=dirPath$(1, pos-1)+"/"+dirPath$(pos+1)
+                pos=pos("\"=dirPath$)
+            wend
+            if dirPath$(len(dirPath$))<>"/" then dirPath$=dirPath$+"/"
+            
+            rem --- Add disk drive
+            if pos(":"=dirPath$)=0 then dirPath$=dsk("")+dirPath$
+
+            methodret dirPath$
+           
+method_error:rem --- Method error trap/handler (11Oct2017)
+            rd_err_text$="", err_num=err
+            if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+            if err_num=252 then
+                E!=BBjAPI().getLastBBjException()
+                rd_err_text$=rd_err_text$+$0A$+E!.getClass().getName()
+                if E!.getMessage()<>null() then rd_err_text$=rd_err_text$+": "+E!.getMessage()
+            endif
+            call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err_num),rd_err_text$,rd_err_act$
+            if pos("ESCAPE"=rd_err_act$)<>0 seterr 0;setesc 0
+            if pos("RETRY"=rd_err_act$)<>0 retry
+            x$=stbl("+THROWN_ERR","TRUE")   
+            throw "["+pgm(-2)+"] "+str(tcb(5))+": "+rd_err_text$,err_num
+        methodend
+
     classend
 
 rem /**
