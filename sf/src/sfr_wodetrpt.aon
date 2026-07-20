@@ -42,12 +42,6 @@ rem --- Retrieve the program path
     pgmdir$=stbl("+DIR_PGM",err=*next)
     sypdir$=""
     sypdir$=stbl("+DIR_SYP",err=*next)
-
-rem --- Set document Directory
-
-    docdir$=""
-    docdir$=util.resolvePathStbls(stbl("+DOC_DIR_PDF",err=*next))
-    mkdir docdir$,err=*next
 	
 rem --- Retrieve sysinfo data
 
@@ -340,8 +334,8 @@ rem --- Fill Report and Show
     rc=report!.fill(1)
     if rc<>BBJasperReport.getSUCCESS() then goto close_win
     
-    rem --- get a pdf path from +DOC_DIR_PDF
-    rem --- this will eventually be replaced with code to get output formats/types based on doc group and/or print settings
+    rem --- Get Document Path
+    rd_doc_path$=""
     gosub doc_path
         
     gosub exportToPDF; rem --- force save
@@ -403,14 +397,11 @@ document_whse:rem --- Write record to Barista document warehouse (ads_documents)
     return
 
 doc_path:rem --- Get Document Path
-rem --- forcing a pdf save to this location for release 13.03
-rem --- eventually, want to make the save functionality mimic (as closely as possible) Barista
-rem --- so it can save based on user's doc group and doc settings
 
     if rd_doc_path$="" then
-        rd_doc_path$=dsk("")+dir("")
-        rd_doc_path$=BBjAPI().getFileSystem().resolvePath(util.resolvePathStbls(stbl("+DOC_DIR_PDF",err=*next)),err=*next)+"/"
-        mkdir rd_doc_path$,err=*next
+        rd_doc_path$=util.getReportDocPath(firm_id$,"SF","Report","SFR_WODETRPT")
+        doc_path!=new java.io.File(rd_doc_path$)
+        if !doc_path!.isDirectory() then doc_path!.mkdirs()
     endif
 
     return

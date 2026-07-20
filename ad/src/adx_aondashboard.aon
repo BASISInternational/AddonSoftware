@@ -1903,8 +1903,10 @@ rem --- retrieve jasper widget
 	
 rem --- get doc path for saved pdf, and report title
 
+        rd_doc_path$=""
+        gosub doc_path
+
 		gosub get_sysinfo
-		gosub doc_path
 		repTitle!=sysinfo.task_desc$
 		repTitle$=repTitle!.replace(" ","_")
 
@@ -2133,9 +2135,9 @@ doc_path:rem --- Get Document Path
 rem ==============================================
 
     if rd_doc_path$="" then
-        rd_doc_path$=dsk("")+dir("")
-        rd_doc_path$=BBjAPI().getFileSystem().resolvePath(util.resolvePathStbls(stbl("+DOC_DIR_PDF",err=*next)),err=*next)+"/"
-        mkdir rd_doc_path$,err=*next
+        rd_doc_path$=util.getReportDocPath(firm_id$,"AD","Report","")
+        doc_path!=new java.io.File(rd_doc_path$)
+        if !doc_path!.isDirectory() then doc_path!.mkdirs()
     endif
 
     return

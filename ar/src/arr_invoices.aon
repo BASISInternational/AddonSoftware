@@ -30,11 +30,6 @@ rem --- Retrieve the program path
 
     pgmdir$=stbl("+DIR_PGM",err=*next)
 
-rem --- Set document Directory
-
-    docdir$=util.resolvePathStbls(stbl("+DOC_DIR_PDF",err=*next))
-    mkdir docdir$,err=*next
-
 rem --- Retrieve sysinfo data
 
     sysinfo_template$=stbl("+SYSINFO_TPL",err=*next)
@@ -181,7 +176,7 @@ rem --- Read next Invoice Header (are-05) record
         call stbl("+DIR_SYP")+"bas_sequences.bbj","DOC_NO",new_doc_id$,rd_table_chans$[all] 
         new_doc_name$=new_doc_id$+"_"+doc_name$+".pdf"        
         
-        call stbl("+DIR_SYP")+"bac_documents.bbj",new_doc_id$,rep_date_stamp$,rep_time_stamp$,rd_doc_source$,rd_doc_ext$,docdir$,
+        call stbl("+DIR_SYP")+"bac_documents.bbj",new_doc_id$,rep_date_stamp$,rep_time_stamp$,rd_doc_source$,rd_doc_ext$,rd_doc_path$,
 :           rd_source_type$,rd_source_alias$,rd_source_id$,rd_source_ref$,rd_table_chans$[all],"",new_doc_name$,doc_name$,doc_keywords$
 
     rem --- Get Next Document Number and update Document Audit for master copy of pdf, if first time thru
@@ -299,7 +294,7 @@ rem --- Read next Invoice Header (are-05) record
         report!.putParams(params!)
         report!.setLocale(locale$)
         report!.fill()
-        report!.exportToPDF(BBjAPI().FALSE, docdir$+new_doc_name$)
+        report!.exportToPDF(BBjAPI().FALSE, rd_doc_path$+new_doc_name$)
 
         for x=1 to copies
             master_report!.appendReport(report!)
@@ -335,8 +330,8 @@ rem --- bring up jasper viewers (master doc and print doc)
     declare BBjTopLevelWindow bbjWindowMaster!
     declare BBjTopLevelWindow bbjWindowPrint!
 
-    rem --- get a pdf path from +DOC_DIR_PDF
-    rem --- this will eventually be replaced with code to get output formats/types based on doc group and/or print settings
+    rem --- Get Document Path
+    rd_doc_path$=""
     gosub doc_path
 
 rem --- create Jasper viewer for Master doc; auto-save to doc archives
@@ -430,14 +425,12 @@ rem --- Event Control
     return
 
 doc_path:rem --- Get Document Path
-rem --- forcing a pdf save to this location for release 13.03
-rem --- eventually, want to make the save functionality mimic (as closely as possible) Barista
-rem --- so it can save based on user's doc group and doc settings
 
     if rd_doc_path$="" then
-        rd_doc_path$=dsk("")+dir("")
-        rd_doc_path$=BBjAPI().getFileSystem().resolvePath(util.resolvePathStbls(stbl("+DOC_DIR_PDF",err=*next)),err=*next)+"/"
-        mkdir rd_doc_path$,err=*next
+        rd_doc_path$=util.getReportDocPath(firm_id$,"AR","Report","ARR_INVOICES")
+        doc_path!=new java.io.File(rd_doc_path$)
+        if !doc_path!.isDirectory() then doc_path!.mkdirs()
+
     endif
 
     return
