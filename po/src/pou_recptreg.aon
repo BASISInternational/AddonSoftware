@@ -305,7 +305,16 @@ l2000: rem --- Done with lot/serial number entries
 
 l2200: rem --- Update Replenishment
 
-        if pom02a.dropship$="Y" goto l2900
+        if poe04a.dropship$="Y" and cvs(poe14a.so_int_seq_ref$,2)<>"" then
+            redim ope11a$
+            ope11_key$=poe04a.firm_id$+ope11a.ar_type$+poe04a.customer_id$+poe04a.order_no$+ope11a.ar_inv_no$+poe14a.so_int_seq_ref$
+            extractrecord(ope11_dev,key=ope11_key$,knum="PRIMARY",dom=*endif)ope11a$
+            ope11a.qty_shipped=poe14a.qty_received
+            ope11a.qty_backord=ope11a.qty_backord-poe14a.qty_received
+            writerecord(ope11_dev)ope11a$
+
+            goto l2900
+        endif
         if replenishment$<>"Y" goto l2300
         if poe04a.vendor_id$<>stocking$ goto l2300
         dim u0$(11),u1$(32),u[11]
@@ -369,9 +378,6 @@ rem --- Update link to WO subcontract line/Generate transaction detail
         write record (sft31_dev) sft31a$
 
 l2900: rem --- Update Receipt History & X-refs
-rem --- note: poe-14 contains 12-char sales order line ref, pot-14 contains (old) 3-char sales order line#
-rem --- need to decide if we just skip putting line# in pot-14; if we can't, we need to add it, or change
-rem --- current line# to the 12-char one, which in turn has dataport implications
 
         if pom02a.line_type$="M" and pos01a.m_line_hist$<>"Y" goto l3000; rem "Don't retain message lines in history
         if pom02a.line_type$="V" and pos01a.v_line_hist$<>"Y" goto l3000; rem "Don't retain vendor part lines in history

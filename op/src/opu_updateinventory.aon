@@ -69,9 +69,6 @@ rem --- Open/Lock files
     rem files$[28]="opt-01",ids$[28]="OPT_INVHDR"
     files$[29]="opt_invkitdet",ids$[29]="OPT_INVKITDET"
     files$[30]="opt-71",ids$[30]="OPT_SALESCOM"
-    files$[31]="poe-08",ids$[31]="POE_LINKED"
-    files$[32]="poe-12",ids$[32]="POE_PODET"
-    files$[33]="poe-02",ids$[33]="POE_POHDR"
     files$[34]="opm-03",ids$[34]="OPC_DISCCODE"
     files$[35]="opt-11",ids$[20]="OPE_ORDDET"; rem --- Need to write ope_ordet on a different channel since now reading with an alternate key
 
@@ -108,9 +105,6 @@ rem --- Open/Lock files
     rem opt01_dev=channels[28]
     optInvKitDet_dev=channels[29]
     opt71_dev=channels[30]
-    poe08_dev=channels[31]
-    poe12_dev=channels[32]
-    poe02_dev=channels[33]
     opm03_dev=channels[34]
     ope11_dev2=channels[35]
 
@@ -126,8 +120,7 @@ rem --- Dimension string templates
 :       ope11a$:templates$[20],ope21a$:templates$[21],ope31a$:templates$[22],
 :       ope41a$:templates$[23],opm02a$:templates$[24],opm06a$:templates$[25],
 :       ops10s$:templates$[27],optInvKitDet$:templates$[29],
-:       opt71a$:templates$[30],poe08a$:templates$[31],poe12a$:templates$[32],
-:       poe02a$:templates$[33],opm03a$:templates$[34]
+:       opt71a$:templates$[30],opm03a$:templates$[34]
 
     rem dim opt01a$:templates$[28],opt21a$:templates$[29]
 
@@ -586,8 +579,13 @@ rem --- Read next invoice header --- Main Loop Starts
                     continue
                 endif
 
+                if opm02a.dropship$="Y" then
+                    gosub update_order_detail
+                    continue
+                endif
+
                 if ars01a.cash_sale$<>"Y" or ope01a.customer_id$<>ars01a.customer_id$ then
-                    if ope11a.qty_backord<>0 
+                    if ope11a.qty_backord<>0 then
                         ope11a.qty_ordered=ope11a.qty_backord
                         ope11a.qty_backord=0
 
@@ -603,22 +601,7 @@ rem --- Read next invoice header --- Main Loop Starts
                         continue
                     endif
                 endif
-
-                if po$="Y" then gosub unlink_po
             wend
-
-        rem --- Check if the dropship data need to be removed from the PO header
-
-            if unlink_po then
-                extract record (poe02_dev, key=poe08a.firm_id$+poe08a.po_no$, dom=*endif) poe02a$
-                poe02a.customer_id$ = ""
-                poe02a.order_no$ = ""
-                poe02a.dropship$ = "N"
-            rem poe02a.shipto_no$ = ""; rem this was in the old code, but I think it's wrong
-                poe02a$ = field(poe02a$)
-                write record (poe02_dev) poe02a$
-                unlink = 0
-            endif
 
         rem --- Inner Loop Ends
 
@@ -1451,27 +1434,6 @@ rem if gl$="Y" then
 rem call pgmdir$+"glc_glpost.aon",glm01_dev,glt04_dev,glt14_dev,account$,when$,ref1$,ref2$,ref3$,memo$,amount,units,status
 rem if status = 999 then exitto std_exit
 rem endif
-
-    return
-
-unlink_po: rem --- Delete PO to order link
-
-    start_block = 1
-    unlink_po = 0
-
-    if start_block then 
-        find record (poe08_dev,key=firm_id$+ope11a.customer_id$+ope11a.order_no$+ope11a.internal_seq_no$,knum="AO_CUST_ORD",dom=*endif) poe08a$
-
-    rem --- Only sales order sequence number is kept in the PO detail line
-
-        extract record (poe12_dev, key=poe08a.firm_id$+poe08a.po_no$+poe08a.poedet_seq_ref$, dom=*endif) poe12a$
-        poe12a.so_int_seq_ref$ = ""
-        poe12a$ = field(poe12a$)
-        write record (poe12_dev) poe12a$
-        unlink_po = 1
-
-        remove (poe08_dev, key=poe08a.firm_id$+poe08a.po_no$+poe08a.poedet_seq_ref$)
-    endif
 
     return
 
