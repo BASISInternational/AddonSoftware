@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-07-20
+ Report Date:   2026-07-22
  Report Branch: AddonSoftware 26.02
  Last Release:  AddonSoftware 26.01
 =======================================================================================================================================
@@ -85,4 +85,19 @@ additional option on the Work Order Entry form from getting enabled.
 ----
 Modified: data/bar/sfe_womastr.xml
 Modified: data/cdf/sfe_womastr.cdf
+=======================================================================================================================================
+
+Revision: b5a834d3518e7f5bc09a6b00777cea27a0a7f3ca
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 7/22/2026 3:44:27 PM
+Message:
+ER 3187: Modified Purchase Order Receipt Register update to update
+qty_backord and qty_shipped in OPE_ORDDET based on the PO receipt
+qty_received in POE_RECDET.
+----
+Modified: data/bar/poe_podet.xml
+Modified: data/cdf/poe_podet.cdf
+Modified: op/src/opu_updateinventory.aon
+Modified: po/src/por_recptreg_o3.aon
+Modified: po/src/pou_recptreg.aon
 =======================================================================================================================================
