@@ -228,6 +228,7 @@ goto Bug8251; rem --- Bypassing this code per Bug 8251
 					if pos(rec.so_int_seq_ref$+"^"=so_lines_referenced$)<>0 
 						msg_id$="PO_DUP_SO_LINE"
 						gosub disp_message
+						callpoint!.setColumnEnabled(num(callpoint!.getValidationRow()),"POE_PODET.SO_INT_SEQ_REF",1)
 						callpoint!.setFocus(num(callpoint!.getValidationRow()),"POE_PODET.SO_INT_SEQ_REF",1)
 						break
 					else
