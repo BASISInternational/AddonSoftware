@@ -374,7 +374,7 @@ rem --- Open tables
 	open_tables$[19]="SFE_WOSCHDL",open_opts$[19]="OTA"
 	open_tables$[20]="SFE_WOMATHDR",open_opts$[20]="OTA"
 	open_tables$[21]="SFE_WOMATDTL",open_opts$[21]="OTA"
-	open_tables$[22]="SFE_WOMATISH",open_opts$[22]="OTA"
+
 	open_tables$[23]="SFE_WOMATISD",open_opts$[23]="OTA"
 	open_tables$[24]="SFE_WOLSISSU",open_opts$[24]="OTA"
 	open_tables$[25]="SFE_WOLOTSER",open_opts$[25]="OTA"
@@ -1284,13 +1284,24 @@ rem --- prior to deleting a work order, need to check for open transactions; if 
 			wend
 		next files
 
-		sfe15_dev=fnget_dev("SFE_WOMATISH")
-		read (sfe15_dev,key=firm_id$+wo_loc$+wo_no$,dom=*next)
-		while 1
-			sfe15_key$=key(sfe15_dev,end=*break)
-			if pos(firm_id$+wo_loc$+wo_no$=sfe15_key$)=1 then can_delete$="NO"
-			break
-		wend
+		if can_delete$="YES" then
+			num_files=1
+			dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
+			open_tables$[1]="SFE_WOMATISH",open_opts$[1]="OTA"
+			gosub open_tables
+			sfe15_dev=num(open_chans$[1])
+
+			read (sfe15_dev,key=firm_id$+wo_loc$+wo_no$,dom=*next)
+			while 1
+				sfe15_key$=key(sfe15_dev,end=*break)
+				if pos(firm_id$+wo_loc$+wo_no$=sfe15_key$)=1 then can_delete$="NO"
+				break
+			wend
+
+			rem --- Done with SFE_WOMATISH, so close it
+			open_opts$[1]="C"
+			gosub open_tables
+		endif
 
 		if can_delete$="NO"
 			callpoint!.setMessage("SF_OPEN_TRANS")

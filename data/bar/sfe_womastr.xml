@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.sfe_womastr">FF7A0932600DAAA0B007689A4A08435B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfe_womastr">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfe_womastr">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.sfe_womastr">20260720</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.sfe_womastr">20260720</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.sfe_womastr">141420</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.sfe_womastr">20260724</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.sfe_womastr">20260724</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.sfe_womastr">132346</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.sfe_womastr"></DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.sfe_womastr">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.sfe_womastr"></DD_ATTR_DKNM>
@@ -3781,8 +3781,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.wo_no"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.wo_no">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.wo_no">ITEM_ID</DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.wo_no"></DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.wo_no"></DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.wo_no">            </DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.wo_no">            </DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.wo_no"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.wo_no"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.wo_no">[+FIRM_ID]+"  "+@</DD_ATTR_DKEY>
@@ -4145,8 +4145,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.unit_measure"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.unit_measure">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.unit_measure">DESCRIPTION</DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.unit_measure"></DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.unit_measure"></DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.unit_measure">            </DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.unit_measure">            </DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.unit_measure"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.unit_measure"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.unit_measure">[+FIRM_ID]+@</DD_ATTR_DKEY>
