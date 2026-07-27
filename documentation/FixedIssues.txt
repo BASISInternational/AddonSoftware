@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-07-24
+ Report Date:   2026-07-27
  Report Branch: AddonSoftware 26.02
  Last Release:  AddonSoftware 26.01
 =======================================================================================================================================
@@ -111,4 +111,16 @@ AFMC to BDEQ callpoint, and CLOSE it when done with it there.
 ----
 Modified: data/bar/sfe_womastr.xml
 Modified: data/cdf/sfe_womastr.cdf
+=======================================================================================================================================
+
+Revision: 83dc8b80947d19aeed77ad1fcd04759e9cb62e6c
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 7/27/2026 2:10:17 PM
+Message:
+Bug 11266: Fixed issue preventing the list of linked Sales Order drop
+shipped detail lines from always appearing in the "SO Seq No" cells in
+the grid on the Purchase Order Entry form.
+----
+Modified: data/bar/poe_pohdr.xml
+Modified: data/cdf/poe_pohdr.cdf
 =======================================================================================================================================
