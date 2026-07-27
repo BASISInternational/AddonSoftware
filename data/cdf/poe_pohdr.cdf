@@ -1,3 +1,17 @@
+[[POE_POHDR.AABO]]
+rem ---  Remove poe_linked records for dropships
+	if callpoint!.getColumnData("POE_POHDR.DROPSHIP")="Y"
+		poe_linked_dev=fnget_dev("POE_LINKED")
+		dim poe_linked$:fnget_tpl$("POE_LINKED")
+		read (poe_linked_dev,key=firm_id$+callpoint!.getColumnData("POE_POHDR.PO_NO"),dom=*next)
+		while 1
+			k$=key(poe_linked_dev,end=*break)
+			read record (poe_linked_dev)poe_linked$
+			if pos(firm_id$+callpoint!.getColumnData("POE_POHDR.PO_NO")=poe_linked$)<>1 then break
+			remove (poe_linked_dev,key=k$)
+		wend
+	endif
+
 [[POE_POHDR.ADIS]]
 vendor_id$=callpoint!.getColumnData("POE_POHDR.VENDOR_ID")
 purch_addr$=callpoint!.getColumnData("POE_POHDR.PURCH_ADDR")
@@ -947,7 +961,6 @@ if cvs(callpoint!.getColumnData("POE_POHDR.CUSTOMER_ID"),3)<>""
 
 	tmp_customer_id$=callpoint!.getColumnData("POE_POHDR.CUSTOMER_ID")
 	tmp_order_no$=callpoint!.getUserInput()
-
 	gosub dropship_shipto
 	gosub get_dropship_order_lines
 
@@ -1342,6 +1355,8 @@ whse_addr_info: rem --- get and display Warehouse Address Info when not a dropsh
 		callpoint!.setColumnData("<<DISPLAY>>.W_STATE",ivc_whsecode$.state_code$,1)
 		callpoint!.setColumnData("<<DISPLAY>>.W_ZIP",ivc_whsecode$.zip_code$,1)
 	else
+		tmp_customer_id$=callpoint!.getColumnData("POE_POHDR.CUSTOMER_ID")
+		tmp_order_no$=callpoint!.getColumnData("POE_POHDR.ORDER_NO")
 		gosub dropship_shipto
 	endif
 return
@@ -1355,9 +1370,6 @@ dropship_shipto: rem --- get and display shipto from Sales Order if dropship ind
 	dim ope_ordhdr$:fnget_tpl$("OPE_ORDHDR")
 	dim arm_custship$:fnget_tpl$("ARM_CUSTSHIP")
 	dim ope_ordship$:fnget_tpl$("OPE_ORDSHIP")
-
-	tmp_customer_id$=callpoint!.getColumnData("POE_POHDR.CUSTOMER_ID")
-	tmp_order_no$=callpoint!.getColumnData("POE_POHDR.ORDER_NO")
 
 	read(ope_ordhdr_dev,key=firm_id$+ope_ordhdr.ar_type$+tmp_customer_id$+tmp_order_no$,knum="PRIMARY",dom=*next)
 	while 1
@@ -1453,10 +1465,11 @@ rem --- read thru selected sales order and build list of lines for which line co
 	found_ope_ordhdr=0
 	read(ope_ordhdr_dev,key=firm_id$+ope_ordhdr.ar_type$+tmp_customer_id$+tmp_order_no$,knum="PRIMARY",dom=*next)
 	while 1
-		ope_ordhdr_key$=key(ope_ordhdr_dev,end=*break)
-		if pos(firm_id$+ope_ordhdr.ar_type$+tmp_customer_id$+tmp_order_no$=ope_ordhdr_key$)<>1 then break
+		this_key$=key(ope_ordhdr_dev,end=*break)
+		if pos(firm_id$+ope_ordhdr.ar_type$+tmp_customer_id$+tmp_order_no$=this_key$)<>1 then break
 		read record (ope_ordhdr_dev)ope_ordhdr$
 		if pos(ope_ordhdr.trans_status$="ER")=0 then continue
+		ope_ordhdr_key$=this_key$
 		found_ope_ordhdr=1
 		break; rem --- new order can have at most just one new invoice, if any
 	wend
