@@ -8,6 +8,7 @@ rem --- Init <<DISPLAY>> fields
 	callpoint!.setColumnData("<<DISPLAY>>.DESCRIPTION_01",sfe_womastr.description_01$,1)
 	callpoint!.setColumnData("<<DISPLAY>>.DESCRIPTION_02",sfe_womastr.description_02$,1)
 	callpoint!.setColumnData("<<DISPLAY>>.WO_STATUS",sfe_womastr.wo_status$,1)
+	callpoint!.setColumnData("<<DISPLAY>>.SCH_PROD_QTY",str(callpoint!.getDevObject("wo_sch_prod_qty")),1)
 
 rem --- Existing materials issues?
 	wotrans=0
@@ -25,10 +26,73 @@ rem --- Existing materials issues?
 
 rem ... focus needs to move to the last key field re Barista bug 6299
 
+[[SFE_WOMATHDR.AOPT-CMMT]]
+rem --- Launch WO Partial Commit form
+	call stbl("+DIR_SYP")+"bam_run_prog.bbj",
+:		"SFE_WOPRTLCMMT",
+:		stbl("+USER_ID"),
+:		"MNT",
+:		"",
+:		table_chans$[all],
+:		"",
+:		dflt_data$[all]
+
+rem --- Update item order quantities for the WO partial commit
+	prtl_cmmt_qty=callpoint!.getDevObject("prtl_cmmt_qty")
+	if prtl_cmmt_qty<>num(callpoint!.getColumnData("<<DISPLAY>>.SCH_PROD_QTY")) then
+		rem --- Initialize inventory item update
+		call stbl("+DIR_PGM")+"ivc_itemupdt.aon::init",chan[all],ivs01a$,items$[all],refs$[all],refs[all],table_chans$[all],status
+
+		sfe_womatl_dev=fnget_dev("SFE_WOMATL")
+		dim sfe_womatl$:fnget_tpl$("SFE_WOMATL")
+		sfe_womatdtl_dev=fnget_dev("SFE_WOMATDTL")
+		dim sfe_womatdtl$:fnget_tpl$("SFE_WOMATDTL")
+		firm_loc_wo$=firm_id$+callpoint!.getColumnData("SFE_WOMATHDR.WO_LOCATION")+callpoint!.getColumnData("SFE_WOMATHDR.WO_NO")
+		read(sfe_womatdtl_dev,key=firm_loc_wo$,knum="PRIMARY",dom=*next)
+		while 1
+			sfe_womatdtl_key$=key(sfe_womatdtl_dev,end=*break)
+			if pos(firm_loc_wo$=sfe_womatdtl_key$)<>1 then break
+			extractrecord(sfe_womatdtl_dev)sfe_womatdtl$
+			redim sfe_womatl$
+			findrecord(sfe_womatl_dev,key=firm_id$+sfe_womatdtl.wo_location$+sfe_womatdtl.wo_no$+sfe_womatdtl.material_seq$,dom=*next)sfe_womatl$
+			new_qty_ordered=prtl_cmmt_qty*sfe_womatl.units
+			delta_qty_ordered=new_qty_ordered-sfe_womatdtl.qty_ordered
+			sfe_womatdtl.qty_ordered=new_qty_ordered
+			writerecord(sfe_womatdtl_dev)sfe_womatdtl$
+
+			rem --- Update inventory commitments
+			items$[1]=sfe_womatdtl.warehouse_id$
+			items$[2]=sfe_womatdtl.item_id$
+			refs[0]=delta_qty_ordered
+			if refs[0]>0 then
+				call stbl("+DIR_PGM")+"ivc_itemupdt.aon","CO",chan[all],ivs01a$,items$[all],refs$[all],refs[all],table_chans$[all],status
+			else
+				refs[0]=-refs[0]
+				call stbl("+DIR_PGM")+"ivc_itemupdt.aon","UC",chan[all],ivs01a$,items$[all],refs$[all],refs[all],table_chans$[all],status
+			endif
+
+			callpoint!.setStatus("REFGRID")
+		wend
+	endif
+
+[[SFE_WOMATHDR.APFE]]
+rem --- Enable/disable CMMT button depending on Edit Mode
+if callpoint!.isEditMode() then
+	callpoint!.setOptionEnabled("CMMT",1)
+else
+	callpoint!.setOptionEnabled("CMMT",0)
+endif
+
 [[SFE_WOMATHDR.ARAR]]
 rem -- Build starting rowQtyMap!
 	gosub build_rowQtyMap
 	callpoint!.setDevObject("start_rowQtyMap",rowQtyMap!)
+
+rem --- Get the WO scheduled production quantity
+	sfe_womastr_dev=fnget_dev("SFE_WOMASTR")
+	dim sfe_womastr$:fnget_tpl$("SFE_WOMASTR")
+	findrecord(sfe_womastr_dev,key=firm_id$+"  "+callpoint!.getColumnData("SFE_WOMATHDR.WO_NO"),dom=*next)sfe_womastr$
+	callpoint!.setDevObject("wo_sch_prod_qty",sfe_womastr.sch_prod_qty)
 
 [[SFE_WOMATHDR.AREC]]
 rem -- Provide initial empty starting rowQtyMap!
@@ -165,6 +229,10 @@ rem --- Delete inventory issues.
 		wend
 	endif
 
+[[SFE_WOMATHDR.BPFX]]
+rem --- Disable CMMT button when not in header
+	callpoint!.setOptionEnabled("CMMT",0)
+
 [[SFE_WOMATHDR.BSHO]]
 rem --- Open Files
 	num_files=14
@@ -222,6 +290,7 @@ rem --- If new record, initialize SFE_WOMATHDR and SFE_WOMATDET
 		callpoint!.setColumnData("<<DISPLAY>>.DESCRIPTION_01",sfe_womastr.description_01$,1)
 		callpoint!.setColumnData("<<DISPLAY>>.DESCRIPTION_02",sfe_womastr.description_02$,1)
 		callpoint!.setColumnData("<<DISPLAY>>.WO_STATUS",sfe_womastr.wo_status$,1)
+		callpoint!.setColumnData("<<DISPLAY>>.SCH_PROD_QTY",str(callpoint!.getDevObject("wo_sch_prod_qty")),1)
 
 		rem -- Verify WO status
 		gosub verify_wo_status
