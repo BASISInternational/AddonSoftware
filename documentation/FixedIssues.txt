@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-07-27
+ Report Date:   2026-07-29
  Report Branch: AddonSoftware 26.02
  Last Release:  AddonSoftware 26.01
 =======================================================================================================================================
@@ -123,4 +123,19 @@ the grid on the Purchase Order Entry form.
 ----
 Modified: data/bar/poe_pohdr.xml
 Modified: data/cdf/poe_pohdr.cdf
+=======================================================================================================================================
+
+Revision: 2fd6ff64fea0d6fef9a1c087cd88f7bb110dc465
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 7/29/2026 3:22:56 PM
+Message:
+ER 7635: Modified Materials Commitment Entry to allow a partial
+commitment of the WO Scheduled Production Quantity.
+----
+Modified: data/bar/sfe_womatdtl.xml
+Modified: data/bar/sfe_womathdr.xml
+Added: data/bar/sfe_woprtlcmmt.xml
+Modified: data/cdf/sfe_womatdtl.cdf
+Modified: data/cdf/sfe_womathdr.cdf
+Added: data/cdf/sfe_woprtlcmmt.cdf
 =======================================================================================================================================
