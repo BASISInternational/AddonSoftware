@@ -254,6 +254,16 @@ init_display_cols: rem --- Init DISPLAY columns
 	tot_qty_iss=num(callpoint!.getColumnData("SFE_WOMATDTL.TOT_QTY_ISS"))
 	callpoint!.setColumnData("<<DISPLAY>>.QTY_REMAIN",str(qty_ordered-tot_qty_iss),1)
 
+	rem --- Get scheduled production quantity for item
+	sfe_womatl_dev=fnget_dev("SFE_WOMATL")
+	dim sfe_womatl$:fnget_tpl$("SFE_WOMATL")
+	wo_location$=callpoint!.getHeaderColumnData("SFE_WOMATHDR.WO_LOCATION")
+	wo_no$=callpoint!.getHeaderColumnData("SFE_WOMATHDR.WO_NO")
+	material_seq$=callpoint!.getColumnData("SFE_WOMATDTL.MATERIAL_SEQ")
+	findrecord(sfe_womatl_dev,key=firm_id$+wo_location$+wo_no$+material_seq$,dom=*next)sfe_womatl$
+	wo_sch_prod_qty=callpoint!.getDevObject("wo_sch_prod_qty")
+	callpoint!.setColumnData("<<DISPLAY>>.SCH_PROD_QTY",str(wo_sch_prod_qty*sfe_womatl.units),1)
+
 	rem --- Get inventory quantities for item
 	ivm_itemwhse_dev=fnget_dev("IVM_ITEMWHSE")
 	dim ivm_itemwhse$:fnget_tpl$("IVM_ITEMWHSE")
