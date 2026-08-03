@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-07-29
+ Report Date:   2026-08-03
  Report Branch: AddonSoftware 26.02
  Last Release:  AddonSoftware 26.01
 =======================================================================================================================================
@@ -138,4 +138,19 @@ Added: data/bar/sfe_woprtlcmmt.xml
 Modified: data/cdf/sfe_womatdtl.cdf
 Modified: data/cdf/sfe_womathdr.cdf
 Added: data/cdf/sfe_woprtlcmmt.cdf
+=======================================================================================================================================
+
+Revision: c5c5170c7af142b89bc3d54df29f7c3281400c52
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/3/2026 1:15:40 PM
+Message:
+ER 11272: Modified Materials Issues Entry to allow a partial issue of
+the WO Scheduled Production Quantity.
+----
+Modified: data/bar/sfe_womatish.xml
+Added: data/bar/sfe_woprtlissu.xml
+Modified: data/cdf/sfe_womatish.cdf
+Added: data/cdf/sfe_woprtlissu.cdf
+Modified: prop/addon.properties
+Modified: prop/addon_en.properties
 =======================================================================================================================================
