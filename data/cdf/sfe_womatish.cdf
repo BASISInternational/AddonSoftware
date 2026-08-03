@@ -21,6 +21,7 @@ rem --- Init <<DISPLAY>> fields
 	callpoint!.setColumnData("<<DISPLAY>>.DESCRIPTION_01",sfe_womastr.description_01$,1)
 	callpoint!.setColumnData("<<DISPLAY>>.DESCRIPTION_02",sfe_womastr.description_02$,1)
 	callpoint!.setColumnData("<<DISPLAY>>.WO_STATUS",sfe_womastr.wo_status$,1)
+	callpoint!.setColumnData("<<DISPLAY>>.SCH_PROD_QTY",str(callpoint!.getDevObject("wo_sch_prod_qty")),1)
 
 rem --- Hold on to the Warehouse ID and Issued Date
 	callpoint!.setDevObject("warehouse_id",callpoint!.getColumnData("SFE_WOMATISH.WAREHOUSE_ID"))
@@ -48,6 +49,52 @@ rem --- Warn if WO is being closed complete
 
 rem --- Disable buttons/options
 	callpoint!.setOptionEnabled("PULL",0)
+	callpoint!.setOptionEnabled("ISSU",0)
+
+[[SFE_WOMATISH.AOPT-ISSU]]
+rem --- Launch WO Partial Issue form
+	call stbl("+DIR_SYP")+"bam_run_prog.bbj",
+:		"SFE_WOPRTLISSU",
+:		stbl("+USER_ID"),
+:		"MNT",
+:		"",
+:		table_chans$[all],
+:		"",
+:		dflt_data$[all]
+
+rem --- Update item order quantities for the WO partial commit
+	prtl_issu_qty=callpoint!.getDevObject("prtl_issu_qty")
+	if prtl_issu_qty<>num(callpoint!.getColumnData("<<DISPLAY>>.SCH_PROD_QTY")) then
+		rem --- Initialize inventory item update
+		call stbl("+DIR_PGM")+"ivc_itemupdt.aon::init",chan[all],ivs01a$,items$[all],refs$[all],refs[all],table_chans$[all],status
+
+		sfe_womatl_dev=fnget_dev("SFE_WOMATL")
+		dim sfe_womatl$:fnget_tpl$("SFE_WOMATL")
+		sfe_womatisd_dev=fnget_dev("SFE_WOMATISD")
+		dim sfe_womatisd$:fnget_tpl$("SFE_WOMATISD")
+		firm_loc_wo$=firm_id$+callpoint!.getColumnData("SFE_WOMATISH.WO_LOCATION")+callpoint!.getColumnData("SFE_WOMATISH.WO_NO")
+		read(sfe_womatisd_dev,key=firm_loc_wo$,knum="PRIMARY",dom=*next)
+		while 1
+			sfe_womatisd_key$=key(sfe_womatisd_dev,end=*break)
+			if pos(firm_loc_wo$=sfe_womatisd_key$)<>1 then break
+			extractrecord(sfe_womatisd_dev)sfe_womatisd$
+			redim sfe_womatl$
+			findrecord(sfe_womatl_dev,key=firm_id$+sfe_womatisd.wo_location$+sfe_womatisd.wo_no$+sfe_womatisd.material_seq$,dom=*next)sfe_womatl$
+			new_qty_issued=prtl_issu_qty*sfe_womatl.units
+			sfe_womatisd.qty_issued=new_qty_issued-sfe_womatisd.tot_qty_iss
+			writerecord(sfe_womatisd_dev)sfe_womatisd$
+
+			callpoint!.setStatus("REFGRID")
+
+			rem --- Increase the item commitments as needed, but do NOT decrease the item commitments.
+			if sfe_womatisd.qty_issued+sfe_womatisd.tot_qty_iss>sfe_womatisd.qty_ordered
+				items$[1]=sfe_womatisd.warehouse_id$
+				items$[2]=sfe_womatisd.item_id$
+				refs[0]=sfe_womatisd.qty_issued+sfe_womatisd.tot_qty_iss-sfe_womatisd.qty_ordered
+				call stbl("+DIR_PGM")+"ivc_itemupdt.aon","CO",chan[all],ivs01a$,items$[all],refs$[all],refs[all],table_chans$[all],status
+			endif
+		wend
+	endif
 
 [[SFE_WOMATISH.AOPT-PULL]]
 rem --- Have ALL remaining items been pulled complete for this WO?
@@ -82,9 +129,18 @@ rem --- Have ALL remaining items been pulled complete for this WO?
 rem --- Enable/disable buttons/options
 	if callpoint!.isEditMode() then
 		callpoint!.setOptionEnabled("PULL",1)
+		callpoint!.setOptionEnabled("ISSU",1)
 	else
 		callpoint!.setOptionEnabled("PULL",0)
+		callpoint!.setOptionEnabled("ISSU",0)
 	endif
+
+[[SFE_WOMATISH.ARAR]]
+rem --- Get the WO scheduled production quantity
+	sfe_womastr_dev=fnget_dev("SFE_WOMASTR")
+	dim sfe_womastr$:fnget_tpl$("SFE_WOMASTR")
+	findrecord(sfe_womastr_dev,key=firm_id$+"  "+callpoint!.getColumnData("SFE_WOMATISH.WO_NO"),dom=*next)sfe_womastr$
+	callpoint!.setDevObject("wo_sch_prod_qty",sfe_womastr.sch_prod_qty)
 
 [[SFE_WOMATISH.AREA]]
 rem --- Hold on to sfe_womatish key
@@ -113,6 +169,7 @@ rem --- Init no existing materials issues
 [[SFE_WOMATISH.ARER]]
 rem --- Disable buttons/options
 	callpoint!.setOptionEnabled("PULL",0)
+	callpoint!.setOptionEnabled("ISSU",0)
 
 [[SFE_WOMATISH.ARNF]]
 if num(stbl("+BATCH_NO"),err=*next)<>0
@@ -136,6 +193,7 @@ rem --- Init new Materials Issues Entry record
 	callpoint!.setColumnData("<<DISPLAY>>.DESCRIPTION_01",sfe_womastr.description_01$,1)
 	callpoint!.setColumnData("<<DISPLAY>>.DESCRIPTION_02",sfe_womastr.description_02$,1)
 	callpoint!.setColumnData("<<DISPLAY>>.WO_STATUS",sfe_womastr.wo_status$,1)
+	callpoint!.setColumnData("<<DISPLAY>>.SCH_PROD_QTY",str(callpoint!.getDevObject("wo_sch_prod_qty")),1)
 	callpoint!.setColumnData("SFE_WOMATISH.WO_CATEGORY",sfe_womastr.wo_category$,1)
 	callpoint!.setColumnData("SFE_WOMATISH.WAREHOUSE_ID",sfe_womastr.warehouse_id$,1)
 	callpoint!.setColumnData("SFE_WOMATISH.UNIT_MEASURE",sfe_womastr.unit_measure$,1)
@@ -282,6 +340,7 @@ rem --- Remove software lock on batch when batching
 [[SFE_WOMATISH.BPFX]]
 rem --- Enable buttons/options
 	callpoint!.setOptionEnabled("PULL",0)
+	callpoint!.setOptionEnabled("ISSU",0)
 
 [[SFE_WOMATISH.BREX]]
 rem --- When in Edit mode, warn if number of entered lot/serial numbers doesn't match the quantity issued.
@@ -545,12 +604,22 @@ rem --- New materials issues entry or no existing materials issues
 					rem --- Get corresponding  SFE_WOMATDTL Material Commit Detail record
 					redim sfe_womatdtl$
 					sfe_womatdtl_key$=firm_id$+sfe_womatisd.wo_location$+sfe_womatisd.wo_no$+sfe_womatisd.internal_seq_no$
-					findrecord(sfe_womatdtl_dev,key=sfe_womatdtl_key$,dom=*continue)sfe_womatdtl$
+					found_rec=0
+					findrecord(sfe_womatdtl_dev,key=sfe_womatdtl_key$,dom=*next)sfe_womatdtl$;found_rec=1
+					if !found_rec then
+						read(sfe_womatisd_dev)
+						continue
+					endif
 
 					rem --- Get corresponding  SFE_WOMATL WO Materials Requirements record
 					redim sfe_womatl$
 					sfe_womatl_key$=firm_id$+sfe_womatdtl.wo_location$+sfe_womatdtl.wo_no$+sfe_womatdtl.womatl_seq_ref$
-					findrecord(sfe_womatl_dev,key=sfe_womatl_key$,knum="AO_MAT_SEQ",dom=*continue)sfe_womatl$
+					found_rec=0
+					findrecord(sfe_womatl_dev,key=sfe_womatl_key$,knum="AO_MAT_SEQ",dom=*next)sfe_womatl$;found_rec=1
+					if !found_rec then
+						read(sfe_womatisd_dev)
+						continue
+					endif
 					if cvs(sfe_womatl.oper_seq_ref$,2)<>""
 						rem --- Was this operation selected?
 						if !all_selected then
@@ -603,6 +672,7 @@ rem -- Verify WO status
 rem --- Enable buttons/options
 	if callpoint!.isEditMode() then
 		callpoint!.setOptionEnabled("PULL",1)
+		callpoint!.setOptionEnabled("ISSU",1)
 	endif
 
 [[SFE_WOMATISH.WO_NO.AVAL]]
