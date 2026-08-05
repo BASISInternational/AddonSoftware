@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-08-03
+ Report Date:   2026-08-05
  Report Branch: AddonSoftware 26.02
  Last Release:  AddonSoftware 26.01
 =======================================================================================================================================
@@ -153,4 +153,15 @@ Modified: data/cdf/sfe_womatish.cdf
 Added: data/cdf/sfe_woprtlissu.cdf
 Modified: prop/addon.properties
 Modified: prop/addon_en.properties
+=======================================================================================================================================
+
+Revision: 46d86fcf0f8a2c26111b6a18005ab32f15fad9ae
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/5/2026 12:13:45 PM
+Message:
+ER 11275: Added message to the General Ledger Summary report when
+errors/issues were encountered that the update was NOT run.
+----
+Modified: gl/src/glr_dailydetail.aon
+Modified: gl/src/glr_recap.aon
 =======================================================================================================================================
