@@ -375,7 +375,6 @@ register_errors: rem --- Register errors
     gosub disp_message
     if pos("PASSVALID"=msg_opt$)=0 then update$=""
 
-
 next_overlay: rem --- Run update overlay
 
     call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,0,status
@@ -387,7 +386,7 @@ next_overlay: rem --- Run update overlay
             overlay$=update$
             next_overlay$=reportControl!.getNextOverlay()
         endif       
-        out_action$="PRT"
+        out_action$="PRT-FORMAT"
         if update$=""
             goto std_exit_no_update
         else
@@ -696,6 +695,17 @@ remove_locks_and_exit: rem --- Remove soft locks and exit
 rem #include std_end.src
 
 std_exit_no_update:
+    rem --- Add note to register that the update was NOT run
+    OutVect!.insertItem(0,"")
+    OutVect!.insertItem(1,"")
+    OutVect!.insertItem(2,"")
+    OutVect!.insertItem(3,"***** Update was NOT run for this register *****"+$00$+"B")
+    OutVect!.insertItem(4,"")
+    OutVect!.insertItem(5,"")
+    xwk=fnblank(6)
+    xwk=fnblank(3)
+    OutVect!.addItem("***** Update was NOT run for this register *****"+$00$+"B")
+    xwk=fnblank(2)
 
     gosub remove_locks_and_exit
     if num(batch_no$)<>0

@@ -72,7 +72,7 @@ rem --- Open/Lock files
     files$[7]="glm-02",ids$[7]="GLM_ACCTSUMMARY"
     call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
 :                                   ids$[all],templates$[all],channels[all],batch,status
-    if status goto std_exit
+    if status goto std_exit_no_report
     gls01_dev=channels[1]
     glm01_dev=channels[2]
     glm03_dev=channels[3]
@@ -114,7 +114,7 @@ rem --- Retrieve parameter records
         dim msg_tokens$[1]
         msg_tokens$[1]=gls01a.current_year$
         gosub disp_message
-        goto std_exit
+        goto std_exit_no_report
     endif
     total_periods=num(gls_calendar.total_pers$)
     period=num(gls01a.current_per$)
@@ -497,7 +497,7 @@ rem --- balance is not over the balance limit, post the OOB to suspense
 
                 msg_id$="AON_REG_OOB_POSTED"
                 gosub disp_message
-                goto std_exit
+                goto std_exit_no_update
             endif
         endif
         
@@ -520,20 +520,20 @@ rem --- balance is not over the balance limit, post the OOB to suspense
     dim msg_tokens$[1]
     msg_tokens$[1]=cvs(str(balance:m1$),3)
     gosub disp_message
-    if pos("PASSVALID"=msg_opt$)=0 goto std_exit
+    if pos("PASSVALID"=msg_opt$)=0 goto std_exit_no_update
 
 balanced: rem --- No update if any ranges were selected
 
-    if number=0 goto std_exit
+    if number=0 goto std_exit_no_update
 
-    if begacct$<>"" goto std_exit
-    if endacct$<>"" goto std_exit
-    if journal$<>"" goto std_exit
-    if begdate$<>"" goto std_exit
-    if enddate$<>"" goto std_exit
-    if wildcard$<>"" goto std_exit
-    if begaudit$<>"" goto std_exit
-    if endaudit$<>"" goto std_exit
+    if begacct$<>"" goto std_exit_no_update
+    if endacct$<>"" goto std_exit_no_update
+    if journal$<>"" goto std_exit_no_update
+    if begdate$<>"" goto std_exit_no_update
+    if enddate$<>"" goto std_exit_no_update
+    if wildcard$<>"" goto std_exit_no_update
+    if begaudit$<>"" goto std_exit_no_update
+    if endaudit$<>"" goto std_exit_no_update
 
 rem --- Run update overlay
 
@@ -900,6 +900,18 @@ rem #endinclude std_missing_params.src
 rem #include std_end.src
     
 std_exit_no_update:
+    rem --- Add note to register that the update was NOT run
+    OutVect!.insertItem(0,"")
+    OutVect!.insertItem(1,"")
+    OutVect!.insertItem(2,"")
+    OutVect!.insertItem(3,"***** Update was NOT run for this register *****"+$00$+"B")
+    OutVect!.insertItem(4,"")
+    OutVect!.insertItem(5,"")
+    OutVect!.insertItem(6,"")
+    xwk=fnblank(7)
+    xwk=fnblank(3)
+    OutVect!.addItem("***** Update was NOT run for this register *****"+$00$+"B")
+    xwk=fnblank(3)
 
     if num(batch_no$)<>0
         unlock_key$=firm_id$+stbl("+PROCESS_ID")+stbl("+BATCH_NO")
