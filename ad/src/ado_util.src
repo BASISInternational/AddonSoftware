@@ -2035,7 +2035,7 @@ validEmailAddress_error:rem --- Method error trap/handler (11Oct2017)
         rem  * @return BBjString -- directory path
         rem  */
         method public static BBjString getReportDocPath(BBjString firm_id$, BBjString module$, BBjString docType$, BBjString reportID$)
-            seterr method_error
+            seterr getReportDocPath_error
             dirPath$=""
 
             rem --- Open needed files          
@@ -2124,8 +2124,59 @@ skip_admRptCtl:
             if pos(":"=dirPath$)=0 then dirPath$=dsk("")+dirPath$
 
             methodret dirPath$
-           
-method_error:rem --- Method error trap/handler (11Oct2017)
+
+getReportDocPath_error:rem --- Method error trap/handler (11Oct2017)
+            rd_err_text$="", err_num=err
+            if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+            if err_num=252 then
+                E!=BBjAPI().getLastBBjException()
+                rd_err_text$=rd_err_text$+$0A$+E!.getClass().getName()
+                if E!.getMessage()<>null() then rd_err_text$=rd_err_text$+": "+E!.getMessage()
+            endif
+            call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err_num),rd_err_text$,rd_err_act$
+            if pos("ESCAPE"=rd_err_act$)<>0 seterr 0;setesc 0
+            if pos("RETRY"=rd_err_act$)<>0 retry
+            x$=stbl("+THROWN_ERR","TRUE")   
+            throw "["+pgm(-2)+"] "+str(tcb(5))+": "+rd_err_text$,err_num
+        methodend
+
+        rem /**
+        rem  * Determine the full path to a Jasper report's source code.
+        rem  *
+        rem  * @param BBjString reportBaseName$ -- Does NOT include the "jasper" or "jrxml" extension.
+        rem  * @return BBjString -- Full path to requested Jasper report, or blank if NOT found.
+        rem  */
+        method public static BBjString getJasperReportPath(BBjString reportBaseName$)
+            seterr getJasperReportPath_error
+            filename$=""
+
+            reportFound=0
+            for i=1 to 2
+                if i=1 then
+                    reportDir$ = stbl("+DIR_REPORTS",err=*continue)+"/"+stbl("+FIRM_ID",err=*continue)
+                else
+                    reportDir$ = stbl("+DIR_REPORTS",err=*continue)
+                endif
+                
+                filename$ = reportDir$ + "/" + reportBaseName$ + ".jasper"
+                reportFile!=new File(filename$,err=*continue)
+                if reportFile!.exists() then
+                    reportFound=1
+                    break
+                endif
+            next i
+            if !reportFound then
+                filename$=""
+                
+                msg_id$="AD_FILE_MISSING"
+                dim msg_tokens$[1]
+                msg_tokens$[1]=reportBaseName$ + ".jasper"
+                call stbl("+DIR_SYP")+"bac_message.bbj",msg_id$,msg_tokens$[all],msg_opt$,table_chans$[all]
+            endif
+
+            methodret filename$
+
+getJasperReportPath_error:rem --- Method error trap/handler (11Oct2017)
             rd_err_text$="", err_num=err
             if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
             if err_num=252 then
@@ -2141,7 +2192,7 @@ method_error:rem --- Method error trap/handler (11Oct2017)
         methodend
 
     classend
-
+            
 rem /**
 rem  * TriggerFilter Class to filter *.trigger files.
 rem  */

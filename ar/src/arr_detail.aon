@@ -165,16 +165,12 @@ rem --- Build Pattern and Replacement string from Vendor Mask
 	params!.put("CUST_REPLACE",replacement$)
 
 rem --- Set Report Name & Subreport directory
-
-    reportDir$ = stbl("+DIR_REPORTS",err=*next)
     repTitle!=sysinfo.task_desc$+"_"+rd_doc_id$
     repTitle$=repTitle!.replace(" ","_")
-    temp = unt
-    open (temp)reportDir$
-    reportDir$ = fid(temp)(9)+"/"
-    close (temp)
+
     reportBaseName$ = "CustDetail"
-    filename$ = reportDir$ + reportBaseName$ + ".jasper"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then release
 
     declare BBJasperReport report!
     

@@ -95,6 +95,7 @@ rem --- Capture form's callpoint devObjects
 
 rem --- Use statements and Declares
 
+    use java.io.File
     use java.util.HashMap
 
 	use ::bbjasper.bbj::BBJasperReport
@@ -155,16 +156,19 @@ rem --- Make Document Archive Record and Get ID
     rep_time_stamp$=date(0:"%Hz%mz%sz")
 
 rem --- Set Report Name & Subreport directory
-
-    reportDir$ = stbl("+DIR_REPORTS",err=*next)
-    temp = unt
-    open (temp)reportDir$
-    reportDir$ = fid(temp)(9)+"/"
-    close (temp)
     reportBaseName$ = "APCheck-Main"
-    filename$ = reportDir$ + reportBaseName$ + ".jasper"
-    achChecksBaseName$ = "APChecksACH"
-    ach_checks_filename$ = reportDir$ + achChecksBaseName$+".jasper"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then
+        msg_id$="AD_FILE_MISSING"
+        dim msg_tokens$[1]
+        msg_tokens$[1]=reportBaseName$ + ".jasper"
+        gosub disp_message
+        release
+    endif
+
+    reportBaseName$ = "APChecksACH"
+    ach_checks_filename$=util.getJasperReportPath(reportBaseName$)
+    if ach_checks_filename$="" then release
 
     declare BBJasperReport report!
 	

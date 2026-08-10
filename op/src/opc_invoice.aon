@@ -155,17 +155,19 @@ rem --- Get logo to go on form; start w/ company logo, fall back to default logo
 
 rem --- Set Report Name & Subreport directory
 
-    reportDir$ = stbl("+DIR_REPORTS",err=*next)   
-    temp = unt
-    open (temp)reportDir$
-    reportDir$ = fid(temp)(9)+"/"
-    close (temp)
     reportBaseName$ = "OPInvoiceHdr"
-    filename$ = reportDir$ + reportBaseName$ + ".jasper"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then goto std_exit
+
     masterBaseName$ = "OPInvoiceMaster"
-    master_filename$ = reportDir$ + masterBaseName$+".jasper"
+    reportBaseName$ = masterBaseName$
+    master_filename$=util.getJasperReportPath(reportBaseName$)
+    if master_filename$="" then goto std_exit
+
     printBaseName$ = "OPInvoicePrint"
-    print_filename$ = reportDir$ + printBaseName$+".jasper"    
+    reportBaseName$ = printBaseName$
+    print_filename$=util.getJasperReportPath(reportBaseName$)
+    if print_filename$="" then goto std_exit
 
     declare BBJasperReport report!
 
@@ -576,13 +578,9 @@ rem --- Main Read
     next next_item
 
 if type=historical and show_payments$="Y" then
-    reportDir$ = stbl("+DIR_REPORTS",err=*next)   
-    temp = unt
-    open (temp)reportDir$
-    reportDir$ = fid(temp)(9)+"/"
-    close (temp)
     reportBaseName$ = "Cust_InvoicePayments"
-    filename$ = reportDir$ + reportBaseName$ + ".jasper"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then goto std_exit
 
     params!.put("DOC_NO",rd_doc_id$)
     params!.put("DATE_REP",rep_date$+"  "+rep_time$)

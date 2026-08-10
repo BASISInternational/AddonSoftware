@@ -54,17 +54,19 @@ rem --- Get logo to go on form; start w/ company logo, fall back to default logo
 
 rem --- Set Report Name & Subreport directory
 
-    reportDir$ = stbl("+DIR_REPORTS",err=*next)   
-    temp = unt
-    open (temp)reportDir$
-    reportDir$ = fid(temp)(9)+"/"
-    close (temp)
     reportBaseName$ = "CustStatement"
-    filename$ = reportDir$ + reportBaseName$ + ".jasper"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then release
+
     masterBaseName$ = "StatementMaster"
-    master_filename$ = reportDir$ + masterBaseName$+".jasper"
+    reportBaseName$ = masterBaseName$
+    master_filename$=util.getJasperReportPath(reportBaseName$)
+    if master_filename$="" then release
+
     printBaseName$ = "StatementPrint"
-    print_filename$ = reportDir$ + printBaseName$+".jasper"
+    reportBaseName$ = printBaseName$
+    print_filename$=util.getJasperReportPath(reportBaseName$)
+    if print_filename$="" then release
 
     declare BBJasperReport report!
 

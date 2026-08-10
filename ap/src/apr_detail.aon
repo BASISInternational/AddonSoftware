@@ -119,42 +119,38 @@ rem --- Add masks to params!
 
 rem --- Build Pattern and Replacement string from Vendor Mask
 
-		call stbl("+DIR_PGM")+"adc_getmask.aon","","AP","I","",msk$,0,0
-		pattern=pos("-"=msk$,1,0)
-		replacement$=""
-		if pattern=0
-			pattern$="("+pad(".",len(msk$))+")"
-			replacement$="$1"
-		else
-			pattern$="("
-			for x9=1 to len(msk$)
-				if msk$(x9,1)<>"-"
-					pattern$=pattern$+"."
-				else
-					pattern$=pattern$+")("
-				endif
-			next x9
-			pattern$=pattern$+")"
-			for x9=1 to pattern+1
-				replacement$=replacement$+"$"+str(x9)+"-"
-			next x9
-			replacement$=replacement$(1,len(replacement$)-1)
-		endif
+    call stbl("+DIR_PGM")+"adc_getmask.aon","","AP","I","",msk$,0,0
+    pattern=pos("-"=msk$,1,0)
+    replacement$=""
+    if pattern=0
+        pattern$="("+pad(".",len(msk$))+")"
+        replacement$="$1"
+    else
+        pattern$="("
+        for x9=1 to len(msk$)
+            if msk$(x9,1)<>"-"
+                pattern$=pattern$+"."
+            else
+                pattern$=pattern$+")("
+            endif
+        next x9
+        pattern$=pattern$+")"
+        for x9=1 to pattern+1
+            replacement$=replacement$+"$"+str(x9)+"-"
+        next x9
+        replacement$=replacement$(1,len(replacement$)-1)
+    endif
 
-		params!.put("VEND_PATTERN",pattern$)
-		params!.put("VEND_REPLACE",replacement$)
+    params!.put("VEND_PATTERN",pattern$)
+    params!.put("VEND_REPLACE",replacement$)
 
 rem --- Set Report Name & Subreport directory
-
-    reportDir$ = stbl("+DIR_REPORTS",err=*next)
     repTitle!=sysinfo.task_desc$+"_"+rd_doc_id$
     repTitle$=repTitle!.replace(" ","_")
-    temp = unt
-    open (temp)reportDir$
-    reportDir$ = fid(temp)(9)+"/"
-    close (temp)
+
     reportBaseName$ = "VendorDetail"
-    filename$ = reportDir$ + reportBaseName$ + ".jasper"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then release
 
     declare BBJasperReport report!
     

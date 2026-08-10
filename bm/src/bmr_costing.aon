@@ -148,17 +148,13 @@ rem --- Document Output Report Parameters
     params!.put("DATE_REP",rep_date$+"  "+rep_time$)
 
 rem --- Set Report Name & Subreport directory
-
-	reportDir$ = stbl("+DIR_REPORTS",err=*next)
 	reportTitle$="BOM Costing Report"
     repTitle!=sysinfo.task_desc$+"_"+rd_doc_id$
     repTitle$=repTitle!.replace(" ","_")
-	temp = unt
-	open (temp)reportDir$
-	reportDir$ = fid(temp)(9)+"/"
-	close (temp)
-	reportBaseName$ = "BOMCosting"
-	filename$ = reportDir$ + reportBaseName$ + ".jasper"
+
+    reportBaseName$ = "BOMCosting"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then goto std_exit
 
 	declare BBJasperReport report!
 

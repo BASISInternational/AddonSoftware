@@ -20,10 +20,12 @@ rem --- Get HashMap of Values in Options Entry Form
 
 rem --- Set Report Name & Subreport directory
 
-	reportDir$ = BBjAPI().getFileSystem().resolvePath(util.resolvePathStbls(stbl("+DIR_REPORTS",err=*next)))+"/"
-	repTitle!="Standard_Message_Formatting"
 	reportBaseName$ = "OPMessageFormat"
-	filename$ = reportDir$ + reportBaseName$ + ".jasper"
+	filename$=util.getJasperReportPath(reportBaseName$)
+	if filename$="" then
+		callpoint!.setStatus("ABORT")
+		release
+	endif
 
 	declare BBJasperReport report!
 

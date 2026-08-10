@@ -33,6 +33,7 @@ rem --- Addon dashboards
 
 	use java.awt.Color
 	use java.awt.Font
+    use java.io.File
 	use java.util.HashMap
 	use java.util.LinkedHashMap
 
@@ -859,9 +860,12 @@ rem --- Assign input values to local variables
 		title$ = Translate!.getTranslation("AON_SALES_BY_CUSTOMER_TYPE")
 		previewText$=Translate!.getTranslation("AON_DRILLDOWN_SALES_REPORT_FOR_MONTH/YEAR_DISPLAYED_IN_A_JASPER_VIEWER")
 		previewImage$=preview_path$+"slsbycst_jas.png"
-		reportFile$ = report_path$+"SalesByCustType.jasper"
-		report! = BarUtils.getBBJasperReport(reportFile$)
 
+        reportBaseName$ = "SalesByCustType"
+        filename$=util.getJasperReportPath(reportBaseName$)
+        if filename$="" then release
+
+        report! = BarUtils.getBBJasperReport(filename$)
 		report!.putParam("FIRM_ID",firm_id$)
 		report!.putParam("FIRM_NAME",firm_name$)
 		report!.putParam("PERIOD",period$)
@@ -1995,11 +1999,6 @@ rem --- resolve path to preview image pngs
 
 	preview_path$=dsk("")+dir("")
 	preview_path$=BBjAPI().getFileSystem().resolvePath(util.resolvePathStbls(stbl("+CUST_IMAGES",err=*next)),err=*next)+"/"
-
-rem --- resolve path to jasper reports
-
-	report_path$=dsk("")+dir("")
-    report_path$=BBjAPI().getFileSystem().resolvePath(util.resolvePathStbls(stbl("+DIR_REPORTS",err=*next)),err=*next)+"/"
 	
 	return
 
@@ -2157,6 +2156,12 @@ rem ==============================================
     next i
 	
 	return
+    
+disp_message:rem --- Display Message Dialog
+
+    call stbl("+DIR_SYP")+"bac_message.bbj",msg_id$,msg_tokens$[all],msg_opt$,table_chans$[all]
+
+    return
 
 rem ==============================================
 std_error: rem --- Standard error handler (11Oct2017)
