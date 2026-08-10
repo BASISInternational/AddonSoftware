@@ -143,14 +143,10 @@ rem --- Other params
 
 rem --- Set Report Name & Subreport directory
 
-    reportDir$ = stbl("+DIR_REPORTS",err=*next)   
-    temp = unt
-    open (temp)reportDir$
-    reportDir$ = fid(temp)(9)+"/"
-    close (temp)
     reportBaseName$ = "POReplenishment"
     repTitle$=reportBaseName$
-    filename$ = reportDir$ + reportBaseName$ + ".jasper"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then goto std_exit
 
     declare BBJasperReport report!
     

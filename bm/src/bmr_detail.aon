@@ -156,17 +156,13 @@ rem --- Inventory In-Active Parameters
         params!.put("INACTIVE_ITEM",Translate!.getTranslation("AON_EXCLUDE_INACTIVE")+Translate!.getTranslation("AON_ITEMS")+" = "+exclude$)
 
 rem --- Set Report Name & Subreport directory
-
-    reportDir$ = stbl("+DIR_REPORTS",err=*next)
     reportTitle$=sysinfo.task_desc$+"_"+rd_doc_id$
     repTitle!=reportTitle$
     repTitle$=repTitle!.replace(" ","_")
-    temp = unt
-    open (temp)reportDir$
-    reportDir$ = fid(temp)(9)+"/"
-    close (temp)
+
     reportBaseName$ = "BOMDetail"
-    filename$ = reportDir$ + reportBaseName$ + ".jasper"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then release
 
     declare BBJasperReport report!
     

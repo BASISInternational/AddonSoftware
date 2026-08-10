@@ -51,15 +51,14 @@ rem --- Retrieve sysinfo data
 
 rem --- Set Report Name & directory
 
-    reportDir$ = stbl("+DIR_REPORTS",err=*next)   
-    temp = unt
-    open (temp)reportDir$
-    reportDir$ = fid(temp)(9)+"/"
-    close (temp)
     reportBaseName$ = "SFPickList"
-    filename$ = reportDir$ + reportBaseName$ + ".jasper"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then goto std_exit
+
     masterBaseName$ = "SFPickListMaster"
-    master_filename$ = reportDir$ + masterBaseName$+".jasper"    
+    reportBaseName$ = masterBaseName$
+    master_filename$=util.getJasperReportPath(reportBaseName$)
+    if master_filename$="" then goto std_exit
 
     declare BBJasperReport report!
 

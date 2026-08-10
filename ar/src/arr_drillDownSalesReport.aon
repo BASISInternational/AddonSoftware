@@ -114,10 +114,12 @@ rem --- See if this document is set up in Addon Report Control
     logo_filename$=iff(rpt_logo_file$="",logo_filename$,rpt_logo_file$);rem doc-specific logo supersedes default or company logo
  
 rem --- start SalesByCustType report
-
-	reportName$ = stbl("+DIR_REPORTS") + "SalesByCustType.jasper"
 	repTitle!=sysinfo.task_desc$
     repTitle$=repTitle!.replace(" ","_")
+
+    reportBaseName$ = "SalesByCustType"
+    reportName$=util.getJasperReportPath(reportBaseName$)
+    if reportName$="" then release
 
 	BBjReport! = BarUtils.getBBJasperReport(reportName$)
 	

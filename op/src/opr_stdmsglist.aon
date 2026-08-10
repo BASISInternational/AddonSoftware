@@ -63,12 +63,12 @@ rem --- Document Output Report Parameters
     params!.put("DATE_REP",rep_date$+"  "+rep_time$)
 
 rem --- Set Report Name & Subreport directory
-
-    reportDir$ = BBjAPI().getFileSystem().resolvePath(util.resolvePathStbls(stbl("+DIR_REPORTS",err=*next)))+"/"
     repTitle!=sysinfo.task_desc$+"_"+rd_doc_id$
     repTitle$=repTitle!.replace(" ","_")
+
     reportBaseName$ = "OPStdMessages"
-    filename$ = reportDir$ + reportBaseName$ + ".jasper"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then release
 
     declare BBJasperReport report!
     

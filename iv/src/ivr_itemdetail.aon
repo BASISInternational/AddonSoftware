@@ -166,17 +166,13 @@ rem --- Get the GL Account mask and size
 	params!.put("GL_LEN",str(glAccount_size))
 
 rem --- Set Report Name & Subreport directory
-
-    reportDir$ = stbl("+DIR_REPORTS",err=*next)
     reportTitle$=sysinfo.task_desc$+"_"+rd_doc_id$
     repTitle!=sysinfo.task_desc$+"_"+rd_doc_id$
     repTitle$=repTitle!.replace(" ","_")
-    temp = unt
-    open (temp)reportDir$
-    reportDir$ = fid(temp)(9)+"/"
-    close (temp)
+
     reportBaseName$ = "ItemDetail"
-    filename$ = reportDir$ + reportBaseName$ + ".jasper"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then release
 
     declare BBJasperReport report!
     

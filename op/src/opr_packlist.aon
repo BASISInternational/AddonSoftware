@@ -164,17 +164,17 @@ rem --- Document Output Report Parameters
     params!.put("DOC_NO",rd_doc_id$)
     params!.put("DATE_REP",rep_date$+"  "+rep_time$)
 
-rem --- Set Report Name & Subreport directory
-    reportDir$ = stbl("+DIR_REPORTS",err=*next)
     reportTitle$=sysinfo.task_desc$+"_"+rd_doc_id$
     repTitle!=reportTitle$
     repTitle$=repTitle!.replace(" ","_")
-    temp = unt
-    open (temp)reportDir$
-    reportDir$ = fid(temp)(9)+"/"
-    close (temp)
-    reportname$ = reportDir$ + "OPPackList-Report.jasper"
-    filename$ = reportDir$ + "OPPackListHdr.jasper"
+
+    reportBaseName$ = "OPPackList-Report"
+    reportname$=util.getJasperReportPath(reportBaseName$)
+    if reportname$="" then goto std_exit
+
+    reportBaseName$ = "OPPackListHdr"
+    filename$=util.getJasperReportPath(reportBaseName$)
+    if filename$="" then goto std_exit
 
 rem --- See if this document is set up in Addon Report Control
     rptctl_alias$ = "PACKING_LIST"

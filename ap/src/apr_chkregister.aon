@@ -183,14 +183,10 @@ rem --- Initializations
     
     rem --- Initializations for individual ACH non-negotiable check (payment) files
     if ach_allowed then
-        reportDir$ = stbl("+DIR_REPORTS",err=*next)
-        temp = unt
-        open (temp)reportDir$
-        reportDir$ = fid(temp)(9)+"/"
-        close (temp)
-
-        achPaymentsBaseName$ = "APChecksACH-PaymentHdr"
-        ach_payments_filename$ = reportDir$ + achPaymentsBaseName$+".jasper"
+        reportBaseName$ = "APChecksACH-PaymentHdr"
+        ach_payments_filename$=util.getJasperReportPath(reportBaseName$)
+        if ach_payments_filename$="" then goto std_exit_no_report
+        
         achPayment! = BarUtils.getBBJasperReport(ach_payments_filename$)
         rd_doc_id$=""
         rep_date_stamp$=date(0:"%Yd%Mz%Dz")
