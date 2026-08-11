@@ -20,31 +20,6 @@ if data_present$="Y"
 		notice$=notify_base$
 	endif
 	switch ctl_id
-		case num(user_tpl.OA_chkbox_id$)					
-			gosub process_OA_chkbox
-			callpoint!.setStatus("REFRESH")
-		break
-		case num(user_tpl.zbal_chkbox_id$)
-			gosub process_zbal_chkbox
-			callpoint!.setStatus("REFRESH")			
-		break
-		case num(user_tpl.asel_chkbox_id$)
-			if num(callpoint!.getColumnData("ARE_CASHHDR.PAYMENT_AMT"))<0
-				msg_id$="AR_NEG_CHK"
-				gosub disp_message
-				Form!.getControl(num(user_tpl.asel_chkbox_id$)).setSelected(0)
-			else
-				if user_tpl.existing_chk$="Y"
-					msg_id$="AR_CHK_EXISTS"
-					gosub disp_message
-					Form!.getControl(num(user_tpl.asel_chkbox_id$)).setSelected(0)
-				else
-					on_off=dec(gui_event.flags$)
-					gosub process_asel_chkbox
-					callpoint!.setStatus("REFRESH")
-				endif
-			endif
-		break
 		case num(user_tpl.gridInvoice_id$)
 			gridInvoice!=UserObj!.getItem(num(user_tpl.inv_grid$))                             
 			if callpoint!.isEditMode() then
@@ -81,8 +56,6 @@ gosub get_customer_balance
 wk_cash_cd$=callpoint!.getColumnData("ARE_CASHHDR.CASH_REC_CD")
 gosub get_cash_rec_cd
 gosub able_controls
-Form!.getControl(num(user_tpl.asel_chkbox_id$)).setSelected(0);rem --- force auto-select off for existing tran
-rem -- Form!.getControl(num(user_tpl.zbal_chkbox_id$)).setSelected(0);rem --- force zero-bal disp off for existing tran
 are_cashdet_dev=fnget_dev("ARE_CASHDET")
 are_cashgl_dev=fnget_dev("ARE_CASHGL")
 dim are11a$:fnget_tpl$("ARE_CASHDET")
@@ -341,6 +314,24 @@ callpoint!.setStatus("REFRESH-ABLEMAP")
 rem --- Disable cash_check so it cannot be changed after record displayed or created
 	callpoint!.setColumnEnabled("ARE_CASHHDR.CASH_CHECK",0)
 
+[[<<DISPLAY>>.ASEL_CHKBOX.AVAL]]
+rem --- Auto-select by invoice		
+	if num(callpoint!.getColumnData("ARE_CASHHDR.PAYMENT_AMT"))<0
+		msg_id$="AR_NEG_CHK"
+		gosub disp_message
+		callpoint!.setColumnData("<<DISPLAY>>.ASEL_CHKBOX","0",1)
+	else
+		if user_tpl.existing_chk$="Y"
+			msg_id$="AR_CHK_EXISTS"
+			gosub disp_message
+			callpoint!.setColumnData("<<DISPLAY>>.ASEL_CHKBOX","0",1)
+		else
+			on_off=num(callpoint!.getUserInput())
+			gosub process_asel_chkbox
+			callpoint!.setStatus("REFRESH")
+		endif
+	endif
+
 [[ARE_CASHHDR.ASHO]]
 rem --- Launch Bank Deposit Entry form if using Bank Rec.
 	if callpoint!.getDevObject("br_interface")="Y" then
@@ -407,7 +398,6 @@ rem --- Dimension miscellaneous string templates
 dim ars01a$:templates$[10]
 user_tpl_str$="firm_id:c(2),glint:c(1),glyr:c(4),glper:c(2),glworkfile:c(16),"
 user_tpl_str$=user_tpl_str$+"cash_flag:c(1),disc_flag:c(1),arglboth:c(1),amt_msk:c(15),existing_chk:c(1),"
-user_tpl_str$=user_tpl_str$+"OA_chkbox_id:c(5),zbal_chkbox_id:c(5),asel_chkbox_id:c(5),"
 user_tpl_str$=user_tpl_str$+"gridCheck_id:c(5),gridInvoice_id:c(5),gridCheck_cols:c(5),gridInvoice_cols:c(5),"
 user_tpl_str$=user_tpl_str$+"gridCheck_rows:c(5),gridInvoice_rows:c(5),"
 user_tpl_str$=user_tpl_str$+"chk_grid:c(5),inv_grid:c(5),chk_vect:c(5),inv_vect:c(5),chk_sel_vect:c(5),"
@@ -465,7 +455,7 @@ nxt_ctlID=num(stbl("+CUSTOM_CTL",err=std_error))
 base_ctl!=callpoint!.getControl("<<DISPLAY>>.DISP_CUST_BAL")
 base_x=base_ctl!.getX()
 tmp_x=base_x+base_ctl!.getWidth()+95
-tmp_y=base_ctl!.getY()+55
+tmp_y=base_ctl!.getY()+60
 tmp_h=base_ctl!.getHeight()
 tmp_w=200
 
@@ -475,21 +465,13 @@ app_y=applied_ctl!.getY()
 app_w=applied_ctl!.getWidth()
 app_h=applied_ctl!.getHeight()
 
-rem --- position the three checkboxes relative to the Customer Balance control
-OA_chkbox!=Form!.addCheckBox(nxt_ctlID,tmp_x,tmp_y,tmp_w,tmp_h,Translate!.getTranslation("AON_SHOW_ON-ACCOUNT_AND_CREDITS?"),$04$)
-zbal_chkbox!=Form!.addCheckBox(nxt_ctlID+1,tmp_x,tmp_y+tmp_h+1,tmp_w,tmp_h,Translate!.getTranslation("AON_SHOW_ZERO-BALANCE_INVOICES?"),$$)
-asel_chkbox!=Form!.addCheckBox(nxt_ctlID+2,tmp_x,tmp_y+(tmp_h+1)*2,tmp_w,tmp_h,Translate!.getTranslation("AON_AUTO-SELECT_BY_INVOICE?"),$$)
-
-gridInvoice!=Form!.addGrid(nxt_ctlID+3,5,220,700,210)
+gridInvoice!=Form!.addGrid(nxt_ctlID+3,5,225,700,210)
 
 rem --- position the static text (to show when there is a GL dist included) relative to the Applied Amt control
 Form!.addStaticText(nxt_ctlID+4,app_x,195,tmp_w,tmp_h,"")
 Form!.addStaticText(nxt_ctlID+5,app_x+app_w+10,175,20,tmp_h,"")
 
-rem --- store ctl ID's of custom controls #3				
-user_tpl.OA_chkbox_id$=str(nxt_ctlID)
-user_tpl.zbal_chkbox_id$=str(nxt_ctlID+1)
-user_tpl.asel_chkbox_id$=str(nxt_ctlID+2)				
+rem --- store ctl ID's of custom controls				
 user_tpl.gridInvoice_id$=str(nxt_ctlID+3)
 user_tpl.GLind_id$=str(nxt_ctlID+4)
 user_tpl.GLstar_id$=str(nxt_ctlID+5)
@@ -524,12 +506,6 @@ gridInvoice!.setCallback(gridInvoice!.ON_GRID_EDIT_START,"custom_event")
 gridInvoice!.setCallback(gridInvoice!.ON_GRID_EDIT_STOP,"custom_event")
 gridInvoice!.setCallback(gridInvoice!.ON_GRID_KEY_PRESS,"custom_event")
 gridInvoice!.setCallback(gridInvoice!.ON_GRID_MOUSE_UP,"custom_event")
-OA_chkbox!.setCallback(OA_chkbox!.ON_CHECK_OFF,"custom_event")
-OA_chkbox!.setCallback(OA_chkbox!.ON_CHECK_ON,"custom_event")
-zbal_chkbox!.setCallback(zbal_chkbox!.ON_CHECK_OFF,"custom_event")
-zbal_chkbox!.setCallback(zbal_chkbox!.ON_CHECK_ON,"custom_event")	
-asel_chkbox!.setCallback(asel_chkbox!.ON_CHECK_OFF,"custom_event")
-asel_chkbox!.setCallback(asel_chkbox!.ON_CHECK_ON,"custom_event")
 
 rem --- misc other init
 gridInvoice!.setColumnEditable(0,1)
@@ -736,6 +712,9 @@ if callpoint!.getUserInput()="$"
 	ctl_name$="ABA_NO"
 	ctl_stat$="D"
 	gosub disable_fields
+	gosub get_open_invoices
+	gosub fill_bottom_grid
+
 	callpoint!.setColumnData("ARE_CASHHDR.ABA_NO","",1)
 
 	callpoint!.setColumnEnabled("ARE_CASHHDR.AR_CHECK_NO",0)
@@ -797,6 +776,12 @@ callpoint!.setStatus("REFRESH")
 rem --- Force focus on cash_check
 callpoint!.setFocus("ARE_CASHHDR.CASH_CHECK",1)
 
+[[<<DISPLAY>>.OA_CHKBOX.AVAL]]
+rem --- Update grid for On-Account checkbox setting
+	callpoint!.setColumnData("<<DISPLAY>>.OA_CHKBOX",callpoint!.getUserInput())
+	gosub process_OA_chkbox
+	callpoint!.setStatus("REFRESH")
+
 [[ARE_CASHHDR.PAYMENT_AMT.AVAL]]
 rem --- after check amt entered, alter remaining balance and re-do autopay, if turned on
 pymt_dist$=UserObj!.getItem(num(user_tpl.pymt_dist$))
@@ -806,7 +791,7 @@ if old_pay<>new_pay
 	pay_id$=callpoint!.getColumnData("ARE_CASHHDR.AR_CHECK_NO")
 	callpoint!.setColumnData("<<DISPLAY>>.DISP_BAL",
 :		str(num(callpoint!.getColumnData("<<DISPLAY>>.DISP_BAL"))-old_pay+new_pay))
-	if Form!.getControl(num(user_tpl.asel_chkbox_id$)).isSelected()
+	if num(callpoint!.getColumnData("<<DISPLAY>>.ASEL_CHKBOX"))
 		to_pay=new_pay-old_pay
 		gosub auto_select_on
 	endif								
@@ -834,6 +819,12 @@ endif
 
 rem --- Force focus on customer_id
 callpoint!.setFocus("ARE_CASHHDR.CUSTOMER_ID",1)
+
+[[<<DISPLAY>>.ZBAL_CHKBOX.AVAL]]
+rem --- Update grid for zero-balance invoice checkbox setting
+	callpoint!.setColumnData("<<DISPLAY>>.ZBAL_CHKBOX",callpoint!.getUserInput())
+	gosub process_zbal_chkbox
+	callpoint!.setStatus("REFRESH")			
 
 [[ARE_CASHHDR.<CUSTOM>]]
 #include [+ADDON_LIB]std_functions.aon
@@ -892,18 +883,18 @@ rem ==================================================================
 	endif
 
 	gridInvoice!=UserObj!.getItem(num(user_tpl.inv_grid$))
-	OA_chkbox!=Form!.getControl(num(user_tpl.OA_chkbox_id$))
-	zbal_chkbox!=Form!.getControl(num(user_tpl.zbal_chkbox_id$))
-	asel_chkbox!=Form!.getControl(num(user_tpl.asel_chkbox_id$))
 	switch (BBjAPI().TRUE)
 		case user_tpl.arglboth$="A"
 			rem --- Post to AR only
 			callpoint!.setOptionEnabled("GLED",0)
 			callpoint!.setOptionEnabled("OACT",1)
 			gridInvoice!.setEnabled(1)
-			OA_chkbox!.setEditable(1)
-			zbal_chkbox!.setEditable(1)
-			asel_chkbox!.setEditable(1)
+			callpoint!.setColumnEnabled("<<DISPLAY>>.OA_CHKBOX",1)
+			callpoint!.setColumnData("<<DISPLAY>>.OA_CHKBOX","1",1)
+			callpoint!.setColumnEnabled("<<DISPLAY>>.ZBAL_CHKBOX",1)
+			callpoint!.setColumnData("<<DISPLAY>>.ZBAL_CHKBOX","0",1)
+			callpoint!.setColumnEnabled("<<DISPLAY>>.ASEL_CHKBOX",1)
+			callpoint!.setColumnData("<<DISPLAY>>.ASEL_CHKBOX","0",1)
 			break
 		case user_tpl.arglboth$="G"
 			rem --- Post to GL only
@@ -913,21 +904,24 @@ rem ==================================================================
 			gridInvoice!.setColumnStyle(0,SysGUI!.GRID_STYLE_UNCHECKED)				
 			gridInvoice!.setSelectedCell(0,0)
 			gridInvoice!.setEnabled(0)
-			OA_chkbox!.setSelected(0)
-			OA_chkbox!.setEditable(0)
-			zbal_chkbox!.setSelected(0)
-			zbal_chkbox!.setEditable(0)
-			asel_chkbox!.setSelected(0)
-			asel_chkbox!.setEditable(0)
+			callpoint!.setColumnEnabled("<<DISPLAY>>.OA_CHKBOX",0)
+			callpoint!.setColumnData("<<DISPLAY>>.OA_CHKBOX","0",1)
+			callpoint!.setColumnEnabled("<<DISPLAY>>.ZBAL_CHKBOX",0)
+			callpoint!.setColumnData("<<DISPLAY>>.ZBAL_CHKBOX","0",1)
+			callpoint!.setColumnEnabled("<<DISPLAY>>.ASEL_CHKBOX",0)
+			callpoint!.setColumnData("<<DISPLAY>>.ASEL_CHKBOX","0",1)
 			break
 		case default
 			rem --- Post to both AR and GL
 			callpoint!.setOptionEnabled("GLED",1)
 			callpoint!.setOptionEnabled("OACT",1)
 			gridInvoice!.setEnabled(1)
-			OA_chkbox!.setEditable(1)
-			zbal_chkbox!.setEditable(1)
-			asel_chkbox!.setEditable(1)
+			callpoint!.setColumnEnabled("<<DISPLAY>>.OA_CHKBOX",1)
+			callpoint!.setColumnData("<<DISPLAY>>.OA_CHKBOX","1",1)
+			callpoint!.setColumnEnabled("<<DISPLAY>>.ZBAL_CHKBOX",1)
+			callpoint!.setColumnData("<<DISPLAY>>.ZBAL_CHKBOX","0",1)
+			callpoint!.setColumnEnabled("<<DISPLAY>>.ASEL_CHKBOX",1)
+			callpoint!.setColumnData("<<DISPLAY>>.ASEL_CHKBOX","0",1)
 			break
 	swend
 
@@ -1293,9 +1287,7 @@ rem ---   once vectors are built, they're stored in UserObj!
 	dim art11a$:fnget_tpl$("ART_INVDET")
  	vectInvoice!=SysGUI!.makeVector()
  	vectInvSel!=SysGUI!.makeVector()
-	OA_chkbox!=Form!.getControl(num(user_tpl.OA_chkbox_id$))
-	zbal_chkbox!=Form!.getControl(num(user_tpl.zbal_chkbox_id$))
-	zbal_checked=zbal_chkbox!.isSelected()
+	zbal_checked=num(callpoint!.getColumnData("<<DISPLAY>>.ZBAL_CHKBOX"))
 	other_avail=0
 	chk_applied=0
 	read(art_invhdr_dev,key=inv_key$,dom=*next)
@@ -1455,9 +1447,8 @@ process_OA_chkbox:
 rem ==================================================================
 	rem --- OA checkbox has been unchecked, remove any OA/CM lines from grid
 	rem --- if checked on, read art-01/11 to build vectCheck! with OA/CM's, and add after actual check, if there is one
-	on_off=dec(gui_event.flags$)
 	pymt_dist$=UserObj!.getItem(num(user_tpl.pymt_dist$))
-	if on_off=0		
+	if num(callpoint!.getColumnData("<<DISPLAY>>.OA_CHKBOX"))
 		vectInvoice!=UserObj!.getItem(num(user_tpl.inv_vect$))
 		vectInvSel!=UserObj!.getItem(num(user_tpl.inv_sel_vect$))
 		cols=num(user_tpl.gridInvoice_cols$)
@@ -1617,8 +1608,7 @@ return
 rem ==================================================================
 refresh_asel_amounts:
 rem ==================================================================
-	asel_chkbox!=Form!.getControl(num(user_tpl.asel_chkbox_id$))
-	if asel_chkbox!.isSelected()
+	if num(callpoint!.getColumnData("<<DISPLAY>>.ASEL_CHKBOX")) then
 		for on_off=0 to 1
 			gosub process_asel_chkbox
 		next on_off
@@ -1698,7 +1688,7 @@ rem ==================================================================
 						wk$(31)=str(new_disc-old_disc)
 						pymt_dist$=pymt_dist$+wk$
 					endif
-					Form!.getControl(num(user_tpl.asel_chkbox_id$)).setSelected(0)
+					callpoint!.setColumnData("<<DISPLAY>>.ASEL_CHKBOX","0",1)
 					UserObj!.setItem(num(user_tpl.pymt_dist$),pymt_dist$)
 					callpoint!.setStatus("REFRESH-MODIFIED")
 	 				break
@@ -1764,7 +1754,7 @@ rem ==================================================================
 				if inv_onoff=0 inv_onoff=1 else inv_onoff=0;rem --- toggle
 				gosub invoice_chk_onoff
 				gridInvoice!.setSelectedColumn(1)
-				Form!.getControl(num(user_tpl.asel_chkbox_id$)).setSelected(0)			
+				callpoint!.setColumnData("<<DISPLAY>>.ASEL_CHKBOX","0",1)
 				callpoint!.setStatus("REFRESH-MODIFIED")
 			endif
 		break
@@ -1774,7 +1764,7 @@ rem ==================================================================
 				if inv_onoff=0 inv_onoff=1 else inv_onoff=0;rem --- toggle
 				gosub invoice_chk_onoff
 				gridInvoice!.setSelectedColumn(1)
-				Form!.getControl(num(user_tpl.asel_chkbox_id$)).setSelected(0)			
+				callpoint!.setColumnData("<<DISPLAY>>.ASEL_CHKBOX","0",1)
 				callpoint!.setStatus("REFRESH-MODIFIED")
 			endif
 		break
