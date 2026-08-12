@@ -389,6 +389,7 @@ rem --- Open tables
 	read record (sfs_params,key=firm_id$+"SF00",dom=std_missing_params) sfs_params$
 	callpoint!.setDevObject("edit_planned_wo",sfs_params.edit_planned_wo$)
 	callpoint!.setDevObject("edit_prod_qty",sfs_params.edit_prod_qty$)
+	callpoint!.setDevObject("default_wh",sfs_params.warehouse_id$)
 
 	rem --- Get end date of previous SF period
 	gls_calendar=num(open_chans$[12])
@@ -407,8 +408,8 @@ rem --- Open tables
 	dim ivs_params$:open_tpls$[1]
 	read record (ivs_params,key=firm_id$+"IV00",dom=std_missing_params) ivs_params$
 	callpoint!.setDevObject("multi_whse",ivs_params.multi_whse$)
-	callpoint!.setDevObject("default_wh",ivs_params.warehouse_id$)
 	callpoint!.setDevObject("iv_precision",ivs_params.precision$)
+	if cvs(callpoint!.getDevObject("default_wh"),2)="" then callpoint!.setDevObject("default_wh",ivs_params.warehouse_id$)
 
 	bm$=sfs_params.bm_interface$
 	op$=sfs_params.ar_interface$
