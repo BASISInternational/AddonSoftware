@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-08-05
+ Report Date:   2026-08-17
  Report Branch: AddonSoftware 26.02
  Last Release:  AddonSoftware 26.01
 =======================================================================================================================================
@@ -164,4 +164,20 @@ errors/issues were encountered that the update was NOT run.
 ----
 Modified: gl/src/glr_dailydetail.aon
 Modified: gl/src/glr_recap.aon
+=======================================================================================================================================
+
+Revision: 12f1e450fc62ba780a90b48becb211ed2849eebe
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/17/2026 11:03:55 AM
+Message:
+Bug 11286: Modified the Install and Upgrade Utilities to NOT let them be
+run in BUI or with a thin client.
+----
+Modified: data/bar/adx_installwiz.xml
+Modified: data/bar/adx_upgradewiz.xml
+Modified: data/cdf/adx_installwiz.cdf
+Modified: data/cdf/adx_upgradewiz.cdf
+Modified: data/sync/ads_messages~[01007514AD].xml
+Modified: prop/addon.properties
+Modified: prop/addon_en.properties
 =======================================================================================================================================
