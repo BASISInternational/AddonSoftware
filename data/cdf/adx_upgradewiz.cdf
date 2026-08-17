@@ -211,6 +211,16 @@ rem --- Don't allow running the utility if not launched from Addon demo system u
 		callpoint!.setStatus("EXIT")
 	endif
 
+rem --- The Install Wizard must be run directly on the server where the Addon demo is installed.
+	if num(info(3,6))<>0 and num(info(3,6))<>1 then
+		msg_id$="AD_NOT_ON_SERVER"
+		dim msg_tokens$[1]
+		msg_tokens$[1]=demoDir$
+		gosub disp_message
+		callpoint!.setStatus("EXIT")
+		break
+	endif
+
 [[ADX_UPGRADEWIZ.ASIZ]]
 rem --- Resize grids
 
