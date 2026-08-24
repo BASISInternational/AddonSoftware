@@ -174,6 +174,8 @@ event_ctl:rem --- Event Control
 
 	TreeOpts!.setCallback(TreeOpts!.ON_TREE_SELECT,"select_category")
 
+    GridCal!.setCallback(GridCal!.ON_GRID_DOUBLE_CLICK, "show_total_details")
+
 	SysGUI!.flushEvents()
 
 	process_events,err=*same
@@ -648,7 +650,7 @@ resize_win:rem --- Resize Window Contents
 			endif
 		next curr_row
 
-		GridCal!.setRowHeight(12,summary_total-(summary_used-1))
+		GridCal!.setRowHeight(12,summary_total-(summary_used+4))
 
 	ChildBar!.setSize(TabOpts!.getWidth()-6,TabOpts!.getHeight()-25)
 		ChartBar!.setSize(ChildBar!.getWidth()-(ChartBar!.getX()*2),ChildBar!.getHeight()-(ChartBar!.getY()+5))
@@ -685,6 +687,7 @@ def_grids:rem --- Define Grid
 		endif
 		if mod(curr_row,2)=0
 			GridCal!.setRowBackColor(curr_row-1,DayColor!)
+            GridCal!.setRowForeColor(curr_row-1,BBjColor.BLUE)
 			for curr_col=0 to 7
 				GridCal!.setCellAlignment(curr_row-1,curr_col,GridCal!.GRID_ALIGN_RIGHT)
 			next curr_col
@@ -696,10 +699,207 @@ def_grids:rem --- Define Grid
 	next curr_col
 
 	GridCal!.setColumnBackColor(7,TotColor!)
+    GridCal!.setColumnForeColor(7,BBjColor.BLUE)
 	GridCal!.setRowBackColor(12,TotColor!)
+    GridCal!.setRowForeColor(12,BBjColor.BLUE)
 
 	return
 
+show_total_details: rem --- Show details that make up the selected total
+    theCell!=GridCal!.getSelectedCell()
+    row=theCell!.getRow()
+    col=theCell!.getColumn()
+    text$=theCell!.getText()
+
+    rem --- Skip unless row 12 or an odd numbered row, and text is NOT blank
+    if (row=12 or mod(row,2)<>0) and text$<>"" then
+        rem --- Get the selected category
+        select_node=TreeOpts!.getSelectedNode()
+        if select_node>100 and mod(select_node,100)<>0
+            rem --- Get the selected transaction dates
+            in_dates$=""
+            selected_yr_mo$=str(curr_yr)+str(curr_mo:"00")
+            if row=12 then
+                if col=7 then
+                    rem --- Month Total
+                    for r=0 to 11 step 2
+                        for c=0 to 6
+                            the_day$=str(num(GridCal!.getCell(r,c).getText()),"00")
+                            if the_day$="00" then continue
+                            if in_dates$<>"" then in_dates$=in_dates$+","
+                            in_dates$=in_dates$+"'"+selected_yr_mo$+the_day$+"'"
+                        next c
+                    next r
+                else
+                    rem --- Day of the week total
+                    for r=0 to 11 step 2
+                        the_day$=str(num(GridCal!.getCell(r,col).getText()),"00")
+                        if the_day$="00" then continue
+                        if in_dates$<>"" then in_dates$=in_dates$+","
+                        in_dates$=in_dates$+"'"+selected_yr_mo$+the_day$+"'"
+                    next r
+                endif
+            else
+                if col=7 then
+                    rem --- Week total
+                    for c=0 to 6
+                        the_day$=str(num(GridCal!.getCell(row-1,c).getText()),"00")
+                        if the_day$="00" then continue
+                        if in_dates$<>"" then in_dates$=in_dates$+","
+                        in_dates$=in_dates$+"'"+selected_yr_mo$+the_day$+"'"
+                    next c
+                else
+                    rem --- Date total
+                    the_day$=str(num(GridCal!.getCell(row-1,col).getText()),"00")
+                    in_dates$="'"+selected_yr_mo$+the_day$+"'"
+                endif
+            endif
+
+            curr_cat=int(select_node/100)
+            switch curr_cat
+                case 1; rem --- Accounts Receivable
+                    dim filter_defs$[2,2]
+                    filter_defs$[0,0]="ART_INVHDR.FIRM_ID"
+                    filter_defs$[0,1]="='"+firm_id$+"'"
+                    filter_defs$[0,2]="LOCK"
+                    filter_defs$[1,0]="ART_INVHDR.INV_DUE_DATE"
+                    filter_defs$[1,1]="in("+in_dates$+")"
+                    filter_defs$[1,2]="LOCK"
+
+                    call stbl("+DIR_SYP")+"bax_query.bbj",
+:		                gui_dev,
+:		                Form!,
+:		                "AD_EXECAR",
+:		                "",
+:		                table_chans$[all],
+:		                "",
+:		                filter_defs$[all]
+                break
+
+                case 2; rem --- Accounts Payable
+                    dim filter_defs$[2,2]
+                    filter_defs$[0,0]="APT_INVOICEHDR.FIRM_ID"
+                    filter_defs$[0,1]="='"+firm_id$+"'"
+                    filter_defs$[0,2]="LOCK"
+                    filter_defs$[1,0]="APT_INVOICEHDR.INV_DUE_DATE"
+                    filter_defs$[1,1]="in("+in_dates$+")"
+                    filter_defs$[1,2]="LOCK"
+
+                    call stbl("+DIR_SYP")+"bax_query.bbj",
+:		                gui_dev,
+:		                Form!,
+:		                "AD_EXECAP",
+:		                "",
+:		                table_chans$[all],
+:		                "",
+:		                filter_defs$[all]
+                break
+
+                case 3; rem --- Open Orders
+                    dim filter_defs$[4,2]
+                    filter_defs$[0,0]="OPT_INVDET.FIRM_ID"
+                    filter_defs$[0,1]="='"+firm_id$+"'"
+                    filter_defs$[0,2]="LOCK"
+                    filter_defs$[1,0]="OPT_INVDET.TRANS_STATUS"
+                    filter_defs$[1,1]="<>'U'"
+                    filter_defs$[1,2]="LOCK"
+                    filter_defs$[2,0]="OPT_INVDET.EST_SHP_DATE"
+                    filter_defs$[2,1]="in("+in_dates$+")"
+                    filter_defs$[2,2]="LOCK"
+                    filter_defs$[3,0]="OPT_INVHDR.INVOICE_TYPE"
+                    filter_defs$[3,1]="='S'"
+                    filter_defs$[3,2]="LOCK"
+
+                    call stbl("+DIR_SYP")+"bax_query.bbj",
+:		                gui_dev,
+:		                Form!,
+:		                "AD_EXECOP",
+:		                "",
+:		                table_chans$[all],
+:		                "",
+:		                filter_defs$[all]
+                break
+
+                case 4; rem --- Purchase Orders
+                    dim filter_defs$[3,2]
+                    filter_defs$[0,0]="POE_PODET.FIRM_ID"
+                    filter_defs$[0,1]="='"+firm_id$+"'"
+                    filter_defs$[0,2]="LOCK"
+                    filter_defs$[1,0]="POE_PODET.REQD_DATE"
+                    filter_defs$[1,1]="in("+in_dates$+")"
+                    filter_defs$[1,2]="LOCK"
+                    filter_defs$[2,0]="POC_LINECODE.PO_LINE_CODE"
+                    filter_defs$[2,1]="not in('SNO')"
+                    filter_defs$[2,2]="LOCK"
+
+                    call stbl("+DIR_SYP")+"bax_query.bbj",
+:		                gui_dev,
+:		                Form!,
+:		                "AD_EXECPO",
+:		                "",
+:		                table_chans$[all],
+:		                "",
+:		                filter_defs$[all]
+                break
+
+                case 5; rem --- Sales Totals
+                    dim filter_defs$[4,2]
+                    filter_defs$[0,0]="OPT_INVHDR.FIRM_ID"
+                    filter_defs$[0,1]="='"+firm_id$+"'"
+                    filter_defs$[0,2]="LOCK"
+                    filter_defs$[1,0]="OPT_INVHDR.TRANS_STATUS"
+                    filter_defs$[1,1]="='U'"
+                    filter_defs$[1,2]="LOCK"
+                    filter_defs$[2,0]="OPT_INVHDR.INVOICE_TYPE"
+                    filter_defs$[2,1]="<>'V'"
+                    filter_defs$[2,2]="LOCK"
+                    filter_defs$[3,0]="OPT_INVHDR.INVOICE_DATE"
+                    filter_defs$[3,1]="in("+in_dates$+")"
+                    filter_defs$[3,2]="LOCK"
+
+                    call stbl("+DIR_SYP")+"bax_query.bbj",
+:		                gui_dev,
+:		                Form!,
+:		                "AD_EXECSALES",
+:		                "",
+:		                table_chans$[all],
+:		                "",
+:		                filter_defs$[all]
+                break
+
+                case 6; rem --- Gross Profit
+                    dim filter_defs$[4,2]
+                    filter_defs$[0,0]="OPT_INVHDR.FIRM_ID"
+                    filter_defs$[0,1]="='"+firm_id$+"'"
+                    filter_defs$[0,2]="LOCK"
+                    filter_defs$[1,0]="OPT_INVHDR.TRANS_STATUS"
+                    filter_defs$[1,1]="='U'"
+                    filter_defs$[1,2]="LOCK"
+                    filter_defs$[2,0]="OPT_INVHDR.INVOICE_TYPE"
+                    filter_defs$[2,1]="<>'V'"
+                    filter_defs$[2,2]="LOCK"
+                    filter_defs$[3,0]="OPT_INVHDR.INVOICE_DATE"
+                    filter_defs$[3,1]="in("+in_dates$+")"
+                    filter_defs$[3,2]="LOCK"
+
+                    call stbl("+DIR_SYP")+"bax_query.bbj",
+:		                gui_dev,
+:		                Form!,
+:		                "AD_EXECPROFIT",
+:		                "",
+:		                table_chans$[all],
+:		                "",
+:		                filter_defs$[all]
+                break
+
+                case default
+                break
+            swend
+        endif
+    endif
+
+    return
+    
 resolve_path:rem --- Resolve Program Path
 
 	while pos("["=prog_path$)<>0
