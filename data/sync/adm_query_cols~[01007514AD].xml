@@ -10627,11 +10627,11 @@
 		<DD_TABLE_COL>AP_INV_NO       </DD_TABLE_COL>
 		<COLUMN_HDR>Invoice No</COLUMN_HDR>
 		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_DRILL>AP_HISTINV      </COLUMN_DRILL>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
 		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -10654,6 +10654,22 @@
 		<QUERY_ID>AD_EXECAP       </QUERY_ID>
 		<SEQUENCE_NO>007</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>APM_VENDMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>VENDOR_NAME     </DD_TABLE_COL>
+		<COLUMN_HDR>Vendor Name</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>AD_EXECAP       </QUERY_ID>
+		<SEQUENCE_NO>008</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>APT_INVOICEHDR  </DD_TABLE_ALIAS>
 		<DD_TABLE_COL>INVOICE_AMT     </DD_TABLE_COL>
@@ -10668,7 +10684,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECAP       </QUERY_ID>
-		<SEQUENCE_NO>008</SEQUENCE_NO>
+		<SEQUENCE_NO>009</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>APT_INVOICEHDR  </DD_TABLE_ALIAS>
@@ -10684,7 +10700,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECAP       </QUERY_ID>
-		<SEQUENCE_NO>009</SEQUENCE_NO>
+		<SEQUENCE_NO>010</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>APT_INVOICEHDR  </DD_TABLE_ALIAS>
@@ -10814,6 +10830,22 @@
 		<QUERY_ID>AD_EXECAR       </QUERY_ID>
 		<SEQUENCE_NO>008</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>ARM_CUSTMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>CUSTOMER_NAME   </DD_TABLE_COL>
+		<COLUMN_HDR>Customer Name</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>AD_EXECAR       </QUERY_ID>
+		<SEQUENCE_NO>009</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>ART_INVHDR      </DD_TABLE_ALIAS>
 		<DD_TABLE_COL>INVOICE_AMT     </DD_TABLE_COL>
@@ -10828,7 +10860,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECAR       </QUERY_ID>
-		<SEQUENCE_NO>009</SEQUENCE_NO>
+		<SEQUENCE_NO>010</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>H</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>ART_INVHDR      </DD_TABLE_ALIAS>
@@ -10844,7 +10876,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECAR       </QUERY_ID>
-		<SEQUENCE_NO>010</SEQUENCE_NO>
+		<SEQUENCE_NO>011</SEQUENCE_NO>
 		<COLUMN_TYPE>D</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_DATA_NAME>INVOICE_AMT     </DD_DATA_NAME>
@@ -10858,7 +10890,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECAR       </QUERY_ID>
-		<SEQUENCE_NO>011</SEQUENCE_NO>
+		<SEQUENCE_NO>012</SEQUENCE_NO>
 		<COLUMN_TYPE>D</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_DATA_NAME>INVOICE_AMT     </DD_DATA_NAME>
@@ -10872,7 +10904,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECAR       </QUERY_ID>
-		<SEQUENCE_NO>012</SEQUENCE_NO>
+		<SEQUENCE_NO>013</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>ART_INVHDR      </DD_TABLE_ALIAS>
@@ -10986,22 +11018,6 @@
 		<QUERY_ID>AD_EXECOP       </QUERY_ID>
 		<SEQUENCE_NO>007</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
-		<QUERY_COL_VIS>H</QUERY_COL_VIS>
-		<DD_TABLE_ALIAS>OPT_INVDET      </DD_TABLE_ALIAS>
-		<DD_TABLE_COL>CUSTOMER_ID     </DD_TABLE_COL>
-		<COLUMN_HDR>Customer ID</COLUMN_HDR>
-		<COLUMN_CASE>N</COLUMN_CASE>
-		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
-		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
-		<ASC_COMP_ID>01007514</ASC_COMP_ID>
-		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
-		<USER_MODIFIED> </USER_MODIFIED>
-	</barista_record>
-	<barista_record>
-		<QUERY_ID>AD_EXECOP       </QUERY_ID>
-		<SEQUENCE_NO>008</SEQUENCE_NO>
-		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>OPT_INVDET      </DD_TABLE_ALIAS>
 		<DD_TABLE_COL>EST_SHP_DATE    </DD_TABLE_COL>
@@ -11016,7 +11032,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECOP       </QUERY_ID>
-		<SEQUENCE_NO>009</SEQUENCE_NO>
+		<SEQUENCE_NO>008</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>U</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>OPT_INVHDR      </DD_TABLE_ALIAS>
@@ -11032,7 +11048,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECOP       </QUERY_ID>
-		<SEQUENCE_NO>010</SEQUENCE_NO>
+		<SEQUENCE_NO>009</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>OPT_INVDET      </DD_TABLE_ALIAS>
@@ -11048,7 +11064,39 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECOP       </QUERY_ID>
+		<SEQUENCE_NO>010</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>V</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>OPT_INVDET      </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>CUSTOMER_ID     </DD_TABLE_COL>
+		<COLUMN_HDR>Customer ID</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>AD_EXECOP       </QUERY_ID>
 		<SEQUENCE_NO>011</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>ARM_CUSTMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>CUSTOMER_NAME   </DD_TABLE_COL>
+		<COLUMN_HDR>Customer Name</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>AD_EXECOP       </QUERY_ID>
+		<SEQUENCE_NO>012</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>OPT_INVDET      </DD_TABLE_ALIAS>
@@ -11064,7 +11112,23 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECOP       </QUERY_ID>
-		<SEQUENCE_NO>012</SEQUENCE_NO>
+		<SEQUENCE_NO>013</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>ITEM_DESC       </DD_TABLE_COL>
+		<COLUMN_HDR>Item Description</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>AD_EXECOP       </QUERY_ID>
+		<SEQUENCE_NO>014</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>OPT_INVDET      </DD_TABLE_ALIAS>
@@ -11080,7 +11144,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECOP       </QUERY_ID>
-		<SEQUENCE_NO>013</SEQUENCE_NO>
+		<SEQUENCE_NO>015</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>OPT_INVDET      </DD_TABLE_ALIAS>
@@ -11096,7 +11160,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECOP       </QUERY_ID>
-		<SEQUENCE_NO>014</SEQUENCE_NO>
+		<SEQUENCE_NO>016</SEQUENCE_NO>
 		<COLUMN_TYPE>D</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_DATA_NAME>EXT_PRICE       </DD_DATA_NAME>
@@ -11214,6 +11278,7 @@
 		<DD_TABLE_COL>PO_NO           </DD_TABLE_COL>
 		<COLUMN_HDR>PO No</COLUMN_HDR>
 		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_DRILL>PO_HIST_PODET   </COLUMN_DRILL>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
 		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
@@ -11223,6 +11288,38 @@
 	<barista_record>
 		<QUERY_ID>AD_EXECPO       </QUERY_ID>
 		<SEQUENCE_NO>008</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>POE_POHDR       </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>VENDOR_ID       </DD_TABLE_COL>
+		<COLUMN_HDR>Vendor ID</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_DRILL>AP_VEND_LK      </COLUMN_DRILL>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>AD_EXECPO       </QUERY_ID>
+		<SEQUENCE_NO>009</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>APM_VENDMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>VENDOR_NAME     </DD_TABLE_COL>
+		<COLUMN_HDR>Vendor Name</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>AD_EXECPO       </QUERY_ID>
+		<SEQUENCE_NO>010</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>POE_PODET       </DD_TABLE_ALIAS>
@@ -11238,7 +11335,23 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECPO       </QUERY_ID>
-		<SEQUENCE_NO>009</SEQUENCE_NO>
+		<SEQUENCE_NO>011</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>IVM_ITEMMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>ITEM_DESC       </DD_TABLE_COL>
+		<COLUMN_HDR>Item Description</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>AD_EXECPO       </QUERY_ID>
+		<SEQUENCE_NO>012</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>POE_PODET       </DD_TABLE_ALIAS>
@@ -11254,7 +11367,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECPO       </QUERY_ID>
-		<SEQUENCE_NO>010</SEQUENCE_NO>
+		<SEQUENCE_NO>013</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>POE_PODET       </DD_TABLE_ALIAS>
@@ -11270,7 +11383,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECPO       </QUERY_ID>
-		<SEQUENCE_NO>011</SEQUENCE_NO>
+		<SEQUENCE_NO>014</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>POE_PODET       </DD_TABLE_ALIAS>
@@ -11286,7 +11399,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECPO       </QUERY_ID>
-		<SEQUENCE_NO>012</SEQUENCE_NO>
+		<SEQUENCE_NO>015</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>POE_PODET       </DD_TABLE_ALIAS>
@@ -11302,7 +11415,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECPO       </QUERY_ID>
-		<SEQUENCE_NO>013</SEQUENCE_NO>
+		<SEQUENCE_NO>016</SEQUENCE_NO>
 		<COLUMN_TYPE>D</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_DATA_NAME>EXT_PRICE       </DD_DATA_NAME>
@@ -11404,11 +11517,11 @@
 		<DD_TABLE_COL>AR_INV_NO       </DD_TABLE_COL>
 		<COLUMN_HDR>Invoice No</COLUMN_HDR>
 		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_DRILL>OP_HISTINV      </COLUMN_DRILL>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
 		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -11436,11 +11549,11 @@
 		<DD_TABLE_COL>ORDER_NO        </DD_TABLE_COL>
 		<COLUMN_HDR>Order No</COLUMN_HDR>
 		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_DRILL>OP_HISTINV      </COLUMN_DRILL>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
 		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -11452,6 +11565,22 @@
 		<DD_TABLE_COL>CUSTOMER_ID     </DD_TABLE_COL>
 		<COLUMN_HDR>Customer ID</COLUMN_HDR>
 		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_DRILL>AR_CUST_LK      </COLUMN_DRILL>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>AD_EXECPROFIT   </QUERY_ID>
+		<SEQUENCE_NO>010</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>ARM_CUSTMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>CUSTOMER_NAME   </DD_TABLE_COL>
+		<COLUMN_HDR>Customer Name</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
 		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
@@ -11461,7 +11590,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECPROFIT   </QUERY_ID>
-		<SEQUENCE_NO>010</SEQUENCE_NO>
+		<SEQUENCE_NO>011</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>OPT_INVHDR      </DD_TABLE_ALIAS>
@@ -11477,7 +11606,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECPROFIT   </QUERY_ID>
-		<SEQUENCE_NO>011</SEQUENCE_NO>
+		<SEQUENCE_NO>012</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>OPT_INVHDR      </DD_TABLE_ALIAS>
@@ -11493,7 +11622,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECPROFIT   </QUERY_ID>
-		<SEQUENCE_NO>012</SEQUENCE_NO>
+		<SEQUENCE_NO>013</SEQUENCE_NO>
 		<COLUMN_TYPE>D</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_DATA_NAME>TOTAL_SALES     </DD_DATA_NAME>
@@ -11595,11 +11724,11 @@
 		<DD_TABLE_COL>AR_INV_NO       </DD_TABLE_COL>
 		<COLUMN_HDR>Invoice No</COLUMN_HDR>
 		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_DRILL>OP_HISTINV      </COLUMN_DRILL>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
 		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -11627,11 +11756,11 @@
 		<DD_TABLE_COL>ORDER_NO        </DD_TABLE_COL>
 		<COLUMN_HDR>Order No</COLUMN_HDR>
 		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_DRILL>OP_HISTINV      </COLUMN_DRILL>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
 		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
 		<ASC_PROD_ID>AD </ASC_PROD_ID>
-		<COL_FILT_UNLOCK>N</COL_FILT_UNLOCK>
 		<USER_MODIFIED> </USER_MODIFIED>
 	</barista_record>
 	<barista_record>
@@ -11643,6 +11772,22 @@
 		<DD_TABLE_COL>CUSTOMER_ID     </DD_TABLE_COL>
 		<COLUMN_HDR>Customer ID</COLUMN_HDR>
 		<COLUMN_CASE>N</COLUMN_CASE>
+		<COLUMN_DRILL>AR_CUST_LK      </COLUMN_DRILL>
+		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
+		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>AD </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<QUERY_ID>AD_EXECSALES    </QUERY_ID>
+		<SEQUENCE_NO>010</SEQUENCE_NO>
+		<COLUMN_TYPE>C</COLUMN_TYPE>
+		<QUERY_COL_VIS>U</QUERY_COL_VIS>
+		<DD_TABLE_ALIAS>ARM_CUSTMAST    </DD_TABLE_ALIAS>
+		<DD_TABLE_COL>CUSTOMER_NAME   </DD_TABLE_COL>
+		<COLUMN_HDR>Customer Name</COLUMN_HDR>
+		<COLUMN_CASE>N</COLUMN_CASE>
 		<COLUMN_FILTER>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_FILTER>
 		<COLUMN_CALC>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </COLUMN_CALC>
 		<ASC_COMP_ID>01007514</ASC_COMP_ID>
@@ -11652,7 +11797,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECSALES    </QUERY_ID>
-		<SEQUENCE_NO>010</SEQUENCE_NO>
+		<SEQUENCE_NO>011</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>OPT_INVHDR      </DD_TABLE_ALIAS>
@@ -11668,7 +11813,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECSALES    </QUERY_ID>
-		<SEQUENCE_NO>011</SEQUENCE_NO>
+		<SEQUENCE_NO>012</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>OPT_INVHDR      </DD_TABLE_ALIAS>
@@ -11684,7 +11829,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECSALES    </QUERY_ID>
-		<SEQUENCE_NO>012</SEQUENCE_NO>
+		<SEQUENCE_NO>013</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>OPT_INVHDR      </DD_TABLE_ALIAS>
@@ -11700,7 +11845,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECSALES    </QUERY_ID>
-		<SEQUENCE_NO>013</SEQUENCE_NO>
+		<SEQUENCE_NO>014</SEQUENCE_NO>
 		<COLUMN_TYPE>C</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_TABLE_ALIAS>OPT_INVHDR      </DD_TABLE_ALIAS>
@@ -11716,7 +11861,7 @@
 	</barista_record>
 	<barista_record>
 		<QUERY_ID>AD_EXECSALES    </QUERY_ID>
-		<SEQUENCE_NO>014</SEQUENCE_NO>
+		<SEQUENCE_NO>015</SEQUENCE_NO>
 		<COLUMN_TYPE>D</COLUMN_TYPE>
 		<QUERY_COL_VIS>V</QUERY_COL_VIS>
 		<DD_DATA_NAME>TOTAL_SALES     </DD_DATA_NAME>

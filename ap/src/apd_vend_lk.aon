@@ -1,0 +1,15 @@
+rem --- apd_vend_lk.aon
+rem --- launches the Vendor Maintenance form from AP_VEND_LK drilldown
+
+enter rd_gui_dev,rdWindow!,rd_field_tvar$,rd_ddm_drill_defs$,rd_drill_pfx$,rd_table_chans$[all]
+
+dim dflt_data$[2,1]
+
+call stbl("+DIR_SYP")+"bam_run_prog.bbj",
+:                       "APM_VENDMAST",
+:                       stbl("+USER_ID"),
+:                   	"",
+:                       rd_drill_pfx$,
+:                       rd_table_chans$[all],
+:                       "",
+:                       dflt_data$[all]
