@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-08-17
+ Report Date:   2026-08-26
  Report Branch: AddonSoftware 26.02
  Last Release:  AddonSoftware 26.01
 =======================================================================================================================================
@@ -180,4 +180,13 @@ Modified: data/cdf/adx_upgradewiz.cdf
 Modified: data/sync/ads_messages~[01007514AD].xml
 Modified: prop/addon.properties
 Modified: prop/addon_en.properties
+=======================================================================================================================================
+
+Revision: ba0aad05f589db2aeaff08a38046df5f421c13cb
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 8/26/2026 9:21:52 AM
+Message:
+Corrected typo syntax error.
+----
+Modified: ad/src/adc_v2600conversion.aon
 =======================================================================================================================================
