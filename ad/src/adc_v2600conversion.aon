@@ -399,7 +399,7 @@ rem --- For version 26.00, initialize new fields in SF tables/files
             read(sfsParams_dev,key="",dom=*next)
             while 1
                 readrecord(sfsParams_dev,end=*break)sfsParams$
-                if cvs(sfsParams.warehouse_id$)<>"" then continue
+                if cvs(sfsParams.warehouse_id$,2)<>"" then continue
 
                 readrecord(ivsParams_dev,key=sfsParams.firm_id$+"IV"+"00",dom=*continue)ivsParams$
                 sfsParams.warehouse_id$=ivsParams.warehouse_id$
