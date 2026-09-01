@@ -1,4 +1,4 @@
-<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
 <jasperReport name="OPInvoiceHdr" language="groovy" pageWidth="612" pageHeight="792" columnWidth="570" leftMargin="22" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="addon" uuid="b146e7c7-7794-48d0-bad4-a5da78d1668b">
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="1095"/>
@@ -317,55 +317,37 @@
 			<expression><![CDATA[$P{AR_FAX_NO}]]></expression>
 			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 		</element>
-		<element kind="rectangle" uuid="bca3c6f7-05a9-46e6-9bd5-e165309ccbeb" mode="Opaque" x="287" y="73" width="125" height="37" forecolor="#000000" backcolor="#FFFFFF" radius="4">
+		<element kind="rectangle" uuid="bca3c6f7-05a9-46e6-9bd5-e165309ccbeb" mode="Opaque" x="352" y="73" width="125" height="37" forecolor="#000000" backcolor="#FFFFFF" radius="4">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			<pen lineColor="#C0C0C0"/>
 		</element>
-		<element kind="rectangle" uuid="193c0a9d-70a3-4e59-afdd-a9772b0a9098" x="287" y="73" width="50" height="37" backcolor="#EBF0FA" radius="4">
+		<element kind="rectangle" uuid="193c0a9d-70a3-4e59-afdd-a9772b0a9098" x="352" y="73" width="50" height="37" backcolor="#EBF0FA" radius="4">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			<pen lineColor="#C0C0C0"/>
 		</element>
-		<element kind="line" uuid="f6ad66fc-3f3b-41c7-aa8b-cfe7ab9fcb85" x="287" y="91" width="125" height="1" printWhenDetailOverflows="true">
+		<element kind="line" uuid="f6ad66fc-3f3b-41c7-aa8b-cfe7ab9fcb85" x="352" y="91" width="125" height="1" printWhenDetailOverflows="true">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			<pen lineColor="#C0C0C0"/>
 		</element>
-		<element kind="textField" uuid="da8415f1-84c0-4f23-8312-1d3abeead34f" x="288" y="75" width="45" height="13" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+		<element kind="textField" uuid="da8415f1-84c0-4f23-8312-1d3abeead34f" x="353" y="75" width="45" height="13" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
 			<paragraph rightIndent="2"/>
 			<expression><![CDATA[$R{AON_INVOICE}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 		</element>
-		<element kind="textField" uuid="b575b915-6f2a-4ecf-91b0-083c1ef9095a" x="288" y="94" width="45" height="13" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+		<element kind="textField" uuid="b575b915-6f2a-4ecf-91b0-083c1ef9095a" x="353" y="94" width="45" height="13" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
 			<paragraph rightIndent="2"/>
 			<expression><![CDATA[$R{AON_DATE}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 		</element>
-		<element kind="textField" uuid="6ff9eb9b-c9cd-4452-90da-e2c48252ad0e" x="343" y="75" width="60" height="13" fontName="DejaVu Serif" vTextAlign="Middle">
+		<element kind="textField" uuid="6ff9eb9b-c9cd-4452-90da-e2c48252ad0e" x="408" y="75" width="60" height="13" fontName="DejaVu Serif" bold="true" vTextAlign="Middle">
 			<paragraph leftIndent="4"/>
 			<expression><![CDATA[$F{INVOICE_NO}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 		</element>
-		<element kind="textField" uuid="8955ff13-5a75-41ac-9564-68b908455aee" x="343" y="94" width="60" height="13" fontName="DejaVu Serif" pattern="" vTextAlign="Middle">
+		<element kind="textField" uuid="8955ff13-5a75-41ac-9564-68b908455aee" x="408" y="94" width="60" height="13" fontName="DejaVu Serif" pattern="" vTextAlign="Middle">
 			<paragraph leftIndent="4"/>
 			<expression><![CDATA[$F{INVOICE_DATE}]]></expression>
-		</element>
-		<element kind="rectangle" uuid="e781f5e2-ff9b-4b85-a51e-19d87e2e0e13" mode="Opaque" x="418" y="73" width="125" height="37" forecolor="#000000" backcolor="#FFFFFF" radius="4">
-			<pen lineColor="#C0C0C0"/>
-		</element>
-		<element kind="rectangle" uuid="426938f5-214e-481d-b108-f5d875b7796f" x="418" y="73" width="50" height="37" backcolor="#EBF0FA" radius="4">
-			<pen lineColor="#C0C0C0"/>
-		</element>
-		<element kind="line" uuid="184d05fa-e3e3-41da-8b41-698b8bdbcccb" x="418" y="91" width="125" height="1" printWhenDetailOverflows="true">
-			<pen lineColor="#C0C0C0"/>
-		</element>
-		<element kind="textField" uuid="d7293e2e-9afd-430f-aeb7-4d9b576204d2" x="419" y="75" width="45" height="13" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
-			<paragraph rightIndent="2"/>
-			<expression><![CDATA[$R{AON_ORDER}]]></expression>
-		</element>
-		<element kind="textField" uuid="c1600e02-8395-4051-866f-7d5295a04ac1" x="420" y="94" width="45" height="13" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
-			<paragraph rightIndent="2"/>
-			<expression><![CDATA[$R{AON_DATE}]]></expression>
-		</element>
-		<element kind="textField" uuid="892da2d7-6ca0-453a-8433-2a743c6373a0" x="474" y="75" width="60" height="13" fontName="DejaVu Serif" hTextAlign="Left" vTextAlign="Middle">
-			<paragraph leftIndent="4"/>
-			<expression><![CDATA[$P{ORDER_NO}]]></expression>
-		</element>
-		<element kind="textField" uuid="1d358563-9666-4659-b203-5cefac8bd0da" x="474" y="94" width="60" height="13" fontName="DejaVu Serif" hTextAlign="Left" vTextAlign="Middle">
-			<paragraph leftIndent="4"/>
-			<expression><![CDATA[$F{ORDER_DATE}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 		</element>
 		<element kind="rectangle" uuid="19104328-6373-4b13-aa55-33bc588e7ea0" mode="Opaque" x="14" y="115" width="256" height="94" radius="4">
 			<pen lineColor="#C0C0C0"/>
@@ -427,74 +409,131 @@
 		<element kind="textField" uuid="2761dd38-19f2-432b-b5ca-0ba9e210ae89" x="287" y="130" width="30" height="26" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
 			<expression><![CDATA[$R{AON_SHIP__TO}]]></expression>
 		</element>
-		<element kind="rectangle" uuid="983ce8fe-0d2b-487a-b8d8-54e00c261b75" mode="Opaque" x="14" y="214" width="529" height="35" backcolor="#EBF0FA" radius="4">
-			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		<element kind="rectangle" uuid="983ce8fe-0d2b-487a-b8d8-54e00c261b75" mode="Opaque" x="9" y="214" width="539" height="35" backcolor="#EBF0FA" radius="4">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			<pen lineColor="#C0C0C0"/>
 		</element>
-		<element kind="line" uuid="c9916f66-0f19-42b0-bb67-27af4c8ad59b" x="14" y="232" width="529" height="1" printWhenDetailOverflows="true">
-			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+		<element kind="line" uuid="c9916f66-0f19-42b0-bb67-27af4c8ad59b" x="9" y="232" width="539" height="1" printWhenDetailOverflows="true">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 			<pen lineColor="#C0C0C0"/>
 		</element>
-		<element kind="textField" uuid="db244047-ae7d-4ac7-b7aa-af30ea7602f3" x="205" y="215" width="70" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+		<element kind="textField" uuid="db244047-ae7d-4ac7-b7aa-af30ea7602f3" x="258" y="215" width="30" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
 			<paragraph rightIndent="2"/>
-			<expression><![CDATA[$R{AON_PO_NUM:}]]></expression>
-			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+			<expression><![CDATA[$R{AON_PO}+":"]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="textField" uuid="24935ea5-4310-40f2-9137-050fd91863b0" x="384" y="233" width="63" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+		<element kind="textField" uuid="24935ea5-4310-40f2-9137-050fd91863b0" x="421" y="233" width="57" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
 			<paragraph rightIndent="2"/>
 			<expression><![CDATA[$R{AON_SHIP_VIA:}]]></expression>
-			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="textField" uuid="3a6ea07e-03d7-4902-ac8f-98214e8a8cab" x="384" y="215" width="63" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+		<element kind="textField" uuid="3a6ea07e-03d7-4902-ac8f-98214e8a8cab" x="421" y="215" width="57" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
 			<paragraph rightIndent="2"/>
 			<expression><![CDATA[$R{AON_SHIP_DATE:}]]></expression>
-			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="textField" uuid="6c73077c-f287-4a95-9ab2-bf0d9e133841" mode="Transparent" x="277" y="215" width="106" height="15" fontName="DejaVu Serif" vTextAlign="Middle">
+		<element kind="textField" uuid="6c73077c-f287-4a95-9ab2-bf0d9e133841" mode="Transparent" x="287" y="215" width="134" height="15" fontName="DejaVu Serif" vTextAlign="Middle">
 			<paragraph leftIndent="2"/>
 			<expression><![CDATA[$F{CUST_PO_NUM}]]></expression>
-			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="staticText" uuid="cdff9dd3-c8e2-4201-8c29-fc25cf33b4f8" x="205" y="233" width="70" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+		<element kind="staticText" uuid="cdff9dd3-c8e2-4201-8c29-fc25cf33b4f8" x="258" y="233" width="30" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
 			<paragraph rightIndent="2"/>
 			<text><![CDATA[FOB:]]></text>
-			<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="textField" uuid="b7643a6b-fcd8-45d1-aafc-937a01ef7e68" x="450" y="233" width="86" height="15" fontName="DejaVu Serif" hTextAlign="Left" vTextAlign="Middle">
+		<element kind="textField" uuid="b7643a6b-fcd8-45d1-aafc-937a01ef7e68" x="477" y="233" width="70" height="15" fontName="DejaVu Serif" hTextAlign="Left" vTextAlign="Middle">
 			<paragraph leftIndent="2"/>
 			<expression><![CDATA[$F{SHIP_VIA}]]></expression>
-			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="textField" uuid="7edc4f00-a242-497c-adbe-0336101b5140" x="450" y="215" width="86" height="15" fontName="DejaVu Serif" hTextAlign="Left" vTextAlign="Middle">
+		<element kind="textField" uuid="7edc4f00-a242-497c-adbe-0336101b5140" x="477" y="215" width="70" height="15" fontName="DejaVu Serif" hTextAlign="Left" vTextAlign="Middle">
 			<paragraph leftIndent="2"/>
 			<expression><![CDATA[$F{SHIP_DATE}]]></expression>
-			<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="textField" uuid="b90e2e09-7d93-4d2a-8840-d4e58aeb3c0b" x="16" y="233" width="50" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+		<element kind="textField" uuid="b90e2e09-7d93-4d2a-8840-d4e58aeb3c0b" x="97" y="233" width="50" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
 			<paragraph rightIndent="2"/>
 			<expression><![CDATA[$R{AON_SALESREP:}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="textField" uuid="16bbba94-fe5d-4b2b-b8bd-ae51ff8cc77a" x="16" y="215" width="50" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+		<element kind="textField" uuid="488d5fd3-7c6d-4a37-b3f0-357888fbb823" x="10" y="215" width="35" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="2"/>
+			<expression><![CDATA[$R{AON_ORDER}+":"]]></expression>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="07528685-c982-4031-94ec-d77063fca814" x="42" y="215" width="53" height="15" fontName="DejaVu Serif" hTextAlign="Left" vTextAlign="Middle">
+			<paragraph leftIndent="4"/>
+			<expression><![CDATA[$P{ORDER_NO}]]></expression>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</element>
+		<element kind="textField" uuid="eb8d4e5d-fe5e-452d-96f8-fbe74022e80a" x="10" y="233" width="35" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+			<paragraph rightIndent="2"/>
+			<expression><![CDATA[$R{AON_DATE}+":"]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="de9fed1f-b2a6-4531-a95b-2e518b5f8a8d" x="42" y="233" width="53" height="15" fontName="DejaVu Serif" hTextAlign="Left" vTextAlign="Middle">
+			<paragraph leftIndent="4"/>
+			<expression><![CDATA[$F{ORDER_DATE}]]></expression>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="16bbba94-fe5d-4b2b-b8bd-ae51ff8cc77a" x="97" y="215" width="50" height="15" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
 			<paragraph rightIndent="2"/>
 			<expression><![CDATA[$R{AON_TERMS:}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="textField" uuid="db5d18d8-a949-40c8-a9d3-a70d6470f4ab" x="70" y="233" width="134" height="15" fontName="DejaVu Serif" vTextAlign="Middle">
+		<element kind="textField" uuid="db5d18d8-a949-40c8-a9d3-a70d6470f4ab" x="146" y="233" width="112" height="15" fontName="DejaVu Serif" vTextAlign="Middle">
 			<expression><![CDATA[$F{SALESREP_DESC}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="textField" uuid="6f653e91-25d3-4f00-be83-cd9e084a6d5b" mode="Transparent" x="70" y="215" width="134" height="15" forecolor="#000000" backcolor="#FFFFFF" rotation="None" markup="none" fontName="DejaVu Serif" fontSize="10.0" pdfEncoding="Cp1252" pattern="" blankWhenNull="false" pdfEmbedded="false" underline="false" strikeThrough="false" bold="false" italic="false" hTextAlign="Left" vTextAlign="Middle">
+		<element kind="textField" uuid="6f653e91-25d3-4f00-be83-cd9e084a6d5b" mode="Transparent" x="146" y="215" width="112" height="15" forecolor="#000000" backcolor="#FFFFFF" rotation="None" markup="none" fontName="DejaVu Serif" fontSize="10.0" pdfEncoding="Cp1252" pattern="" blankWhenNull="false" bold="false" italic="false" underline="false" strikeThrough="false" pdfEmbedded="false" hTextAlign="Left" vTextAlign="Middle">
 			<paragraph lineSpacing="Single"/>
 			<expression><![CDATA[$F{TERMS_DESC}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
-		<element kind="line" uuid="760d5249-d842-4f17-94ba-12540b3be1a7" x="204" y="214" width="1" height="35" backcolor="#EBF0FA" printWhenDetailOverflows="true">
+		<element kind="line" uuid="83d6d315-5812-4035-b63d-f5324483e09c" x="96" y="214" width="1" height="35" backcolor="#EBF0FA" printWhenDetailOverflows="true">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.y" value="px"/>
 			<pen lineColor="#C0C0C0"/>
 		</element>
-		<element kind="line" uuid="0d4dd7fb-4bd9-4b99-a79c-f5fc0b4e85df" x="381" y="214" width="1" height="35" backcolor="#EBF0FA" printWhenDetailOverflows="true">
+		<element kind="line" uuid="760d5249-d842-4f17-94ba-12540b3be1a7" x="258" y="214" width="1" height="35" backcolor="#EBF0FA" printWhenDetailOverflows="true">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
 			<pen lineColor="#C0C0C0"/>
 		</element>
-		<element kind="textField" uuid="c732039e-bfa9-49f5-8124-304b53b1876e" mode="Transparent" x="277" y="233" width="102" height="15" fontName="DejaVu Serif" vTextAlign="Middle">
+		<element kind="line" uuid="0d4dd7fb-4bd9-4b99-a79c-f5fc0b4e85df" x="421" y="214" width="1" height="35" backcolor="#EBF0FA" printWhenDetailOverflows="true">
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<pen lineColor="#C0C0C0"/>
+		</element>
+		<element kind="textField" uuid="c732039e-bfa9-49f5-8124-304b53b1876e" mode="Transparent" x="287" y="233" width="134" height="15" fontName="DejaVu Serif" vTextAlign="Middle">
 			<paragraph leftIndent="2"/>
 			<expression><![CDATA[$F{FOB}]]></expression>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
 		</element>
 		<element kind="textField" uuid="ee3fefda-9130-4764-b8d3-15e92654f5b7" x="24" y="85" width="25" height="10" fontName="DejaVu Sans" fontSize="7.0" hTextAlign="Right" vTextAlign="Middle">
 			<printWhenExpression><![CDATA[new Boolean (!$P{AR_PHONE_NO}.isEmpty())]]></printWhenExpression>
@@ -618,7 +657,7 @@
 			<property name="com.jaspersoft.studio.unit.y" value="px"/>
 			<pen lineColor="#000000"/>
 		</element>
-		<element kind="textField" uuid="c392a517-eb5e-441a-a8f0-311e8283941a" mode="Transparent" x="341" y="67" width="82" height="12" forecolor="#000000" backcolor="#FFFFFF" rotation="None" markup="none" fontName="DejaVu Sans" fontSize="8.0" pdfEncoding="Cp1252" pattern="" blankWhenNull="false" pdfEmbedded="false" underline="false" strikeThrough="false" bold="false" italic="false" hTextAlign="Left" vTextAlign="Bottom">
+		<element kind="textField" uuid="c392a517-eb5e-441a-a8f0-311e8283941a" mode="Transparent" x="341" y="67" width="82" height="12" forecolor="#000000" backcolor="#FFFFFF" rotation="None" markup="none" fontName="DejaVu Sans" fontSize="8.0" pdfEncoding="Cp1252" pattern="" blankWhenNull="false" bold="false" italic="false" underline="false" strikeThrough="false" pdfEmbedded="false" hTextAlign="Left" vTextAlign="Bottom">
 			<printWhenExpression><![CDATA[!($F{PAID_DESC}.isEmpty())]]></printWhenExpression>
 			<paragraph lineSpacing="Single"/>
 			<expression><![CDATA[$F{PAID_DESC}]]></expression>
@@ -651,7 +690,7 @@
 			<property name="com.jaspersoft.studio.unit.y" value="px"/>
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 		</element>
-		<element kind="textField" uuid="4590a6dc-9c35-4f7f-96ed-5bbd2456ef9a" mode="Transparent" x="302" y="70" width="32" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF" rotation="None" markup="none" fontName="DejaVu Sans" fontSize="11.0" pdfEncoding="Cp1252" pdfEmbedded="false" underline="false" strikeThrough="false" bold="true" italic="false" hTextAlign="Center" vTextAlign="Middle">
+		<element kind="textField" uuid="4590a6dc-9c35-4f7f-96ed-5bbd2456ef9a" mode="Transparent" x="302" y="70" width="32" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF" rotation="None" markup="none" fontName="DejaVu Sans" fontSize="11.0" pdfEncoding="Cp1252" bold="true" italic="false" underline="false" strikeThrough="false" pdfEmbedded="false" hTextAlign="Center" vTextAlign="Middle">
 			<printWhenExpression><![CDATA[!($F{PAID_TEXT1}.isEmpty()) || !($F{PAID_TEXT2}.isEmpty())]]></printWhenExpression>
 			<paragraph lineSpacing="Single"/>
 			<expression><![CDATA[$R{AON_PAID}]]></expression>

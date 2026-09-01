@@ -372,9 +372,9 @@ rem --- Format addresses to be bottom justified
 
 		data!.setFieldValue("SALESREP_CODE", slspsn_code$)
 		data!.setFieldValue("SALESREP_DESC", slspsn_desc$)
-		data!.setFieldValue("CUST_PO_NUM", cust_po_no$)
-		data!.setFieldValue("SHIP_VIA", ship_via$)
-		data!.setFieldValue("FOB", fob$)
+		data!.setFieldValue("CUST_PO_NUM", cvs(cust_po_no$,3))
+		data!.setFieldValue("SHIP_VIA", cvs(ship_via$,3))
+		data!.setFieldValue("FOB", cvs(fob$,3))
 		data!.setFieldValue("SHIP_DATE", ship_date$)
 		data!.setFieldValue("TERMS_CODE", terms_code$)
 		data!.setFieldValue("TERMS_DESC", terms_desc$)
