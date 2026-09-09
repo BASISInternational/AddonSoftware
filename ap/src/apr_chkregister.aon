@@ -149,7 +149,7 @@ rem --- Initializations
 
     headings=3
     dim headings$[headings],underline$(m1*(3+retention),"-")
-    dim pt[3],vt[3],at[3],rt[3]
+    dim pt[3],vt[3],at[3],rt[3],achTotal[3],checkTotal[3]
     units=0
     errors=0
     glstatus=0
@@ -632,11 +632,31 @@ rem --- All done
 
     done=1
     gosub type_break
-    headings$[1]=taskdesc$
+
+    xwk=fnblank(columns+1)
+    xwk=fnblank(columns+1)
+
+    if ach_allowed then
+        total$=Translate!.getTranslation("AON_ACH")+" "+Translate!.getTranslation("AON_TOTALS")
+        for x=0 to 3
+            pt[x]=achTotal[x]
+        next x
+        skipTotVect=1
+        gosub print_total
+
+        total$=Translate!.getTranslation("AON_CHECKS")+" "+Translate!.getTranslation("AON_TOTALS")
+        for x=0 to 3
+            pt[x]=checkTotal[x]
+        next x
+        skipTotVect=1
+        gosub print_total
+    endif
+
     total$=Translate!.getTranslation("AON_TOTALS_FOR_REPORT")
     for x=0 to 3
         pt[x]=rt[x]
     next x
+    skipTotVect=0
     gosub print_total
 
 rem --- Any errors encountered?
@@ -681,7 +701,7 @@ print_total: rem --- Print totals
 
     if lines+2>maxlines gosub set_linecount
 
-    TotVect!.addItem(str(OutVect!.size()/(columns+1)))
+    if !skipTotVect then TotVect!.addItem(str(OutVect!.size()/(columns+1)))
 
     xwk = fnblank(3)
     if ach_allowed then OutVect!.addItem("")
@@ -723,11 +743,12 @@ print_voided: rem --- Print a voided check
 type_break: rem --- AP Type break
 
     if lastPassType$<>"" and multitypes then
-       total$=Translate!.getTranslation("AON_TOTAL_FOR_")+totalFor$
-       for x=0 to 3
-           pt[x]=at[x]
-       next x
-       gosub print_total
+        total$=Translate!.getTranslation("AON_TOTAL_FOR_")+totalFor$
+        for x=0 to 3
+            pt[x]=at[x]
+            if checks$=Translate!.getTranslation("AON_CHECKS") then checkTotal[x]=checkTotal[x]+at[x] else achTotal[x]=achTotal[x]+at[x]
+        next x
+        gosub print_total
     endif
     if multitypes=0 return
     if done return
