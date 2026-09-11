@@ -86,6 +86,17 @@ rem --- Draw attention when pay_auth_email doesn't match ARS_CC_CUSTPMT Report C
 		callpoint!.setDevObject("match_email_to","OK")
 	endif
 
+rem --- Show Invoice Days Due
+	arc_termcode_dev=fnget_dev("ARC_TERMCODE")
+	dim arc_termcode$:fnget_tpl$("ARC_TERMCODE")
+	ar_terms_code$=callpoint!.getColumnData("ARM_CUSTDET.AR_TERMS_CODE")
+	read record(arc_termcode_dev,key=firm_id$+"A"+ar_terms_code$,dom=*next)arc_termcode$
+	if arc_termcode.prox_or_days$="D" then
+		callpoint!.setColumnData("<<DISPLAY>>.DSP_INV_DAYS_DUE",str(arc_termcode.inv_days_due),1)
+	else
+		callpoint!.setColumnData("<<DISPLAY>>.DSP_INV_DAYS_DUE","?",1)
+	endif
+
 
 
 	
@@ -684,6 +695,8 @@ callpoint!.setColumnUndoData("ARM_CUSTDET.FINANCE_CHG",ars10d.finance_chg$)
 callpoint!.setColumnData("ARM_CUSTDET.STATEMENTS",ars10d.statements$,1)
 callpoint!.setColumnUndoData("ARM_CUSTDET.STATEMENTS",ars10d.statements$)
 
+callpoint!.setColumnData("<<DISPLAY>>.DSP_INV_DAYS_DUE"," ",1)
+
 rem --- clear out the contents of the widgets
 
 	dim ars01a$:fnget_tpl$("ARS_PARAMS")
@@ -760,6 +773,11 @@ rem --- Don't allow inactive code
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
 		break
+	endif
+	if arm10a.prox_or_days$="D" then
+		callpoint!.setColumnData("<<DISPLAY>>.DSP_INV_DAYS_DUE",str(arm10a.inv_days_due),1)
+	else
+		callpoint!.setColumnData("<<DISPLAY>>.DSP_INV_DAYS_DUE","?",1)
 	endif
 
 rem --- look up terms code, arm10A...if cred_hold is Y for this terms code,
