@@ -71,6 +71,8 @@ rem --- initialization
     source_folder$ = callpoint!.getDevObject("source_folder")
     destin_folder$ = callpoint!.getDevObject("destin_folder")
     vectPort! = callpoint!.getDevObject("vectPort")
+    test_run$ = Option!.getOptionData("TEST_RUN")
+    records_per_tbl = num(Option!.getOptionData("RECORDS_PER_TBL"),err=*next)
 
     BBjFileSystem!=BBjAPI().getFileSystem()
 	
@@ -94,6 +96,10 @@ rem --- initialization
     wend
     print (log_dev)"DataPort Start Time: "+DATE(0:"%Mz/%Dz/%Y %hz:%mz:%sz")+" "+$0a$
     print (log_dev)" Porting Addon "+str(source_version)+" data files from folder "+source_folder$+" to "+destin_folder$+$0a$
+    if test_run$="Y" then
+        print(log_dev)" This is a Test Run."
+        print(log_dev)" Maximum Records per File = ",str(records_per_tbl)+$0a$+$0a$
+    endif
 
     errfile$=logdir$+"DataPortError_"+DATE(0:"%Mz%Dz%Yz")+"_"+DATE(0:"%Hz%mz")+".txt"
     erase errfile$,err=create_errfile
@@ -102,8 +108,11 @@ rem --- initialization
     err_dev=unt
     open (err_dev)errfile$
     print (err_dev)"DataPort Start Time: "+DATE(0:"%Mz/%Dz/%Y %hz:%mz:%sz")+" "+$0a$
-
     print (err_dev)" Porting Addon "+str(source_version)+" data files from folder "+source_folder$+" to "+destin_folder$+$0a$
+    if test_run$="Y" then
+        print(err_dev)" This is a Test Run."
+        print(err_dev)" Maximum Records per File = ",str(records_per_tbl)+$0a$+$0a$
+    endif
 
 rem --- Disable triggers found in data directories
 
@@ -542,6 +551,7 @@ next_file:
         endif
     endif
 
+    tbl_recs_ported=0
     print "Data file: ",datafile$
     print (log_dev)"Data file: ",datafile$
     
@@ -1058,6 +1068,11 @@ next_rec:
         endif
     else
         thisFirm$=""
+    endif
+
+    if test_run$="Y" then
+        if tbl_recs_ported>=records_per_tbl then goto eof
+        tbl_recs_ported=tbl_recs_ported+1
     endif
 
     rem --- Don't port blank customer numbers in ARE-05 Simple Invoice Entry Header
@@ -1740,6 +1755,8 @@ rem --- Verify master file records exist for used translations
     endif
 
 rem --- On successful complete, initialize conversion control file data/adx_conversionCtrl
+    if test_run$="Y" then goto done
+
     convCtrlIniFileChan=unt
     open(convCtrlIniFileChan,isz=-1)convCtrlIniFileName$
 
