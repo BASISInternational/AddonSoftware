@@ -27,6 +27,15 @@ if ctl_ID=num(callpoint!.getDevObject("grid_ctlID"))
 	swend
 endif
 
+[[ADX_DATAPORT.ADIS]]
+rem --- Enable/disable Max Records Per Table
+	test_run$=callpoint!.getColumnData("ADX_DATAPORT.TEST_RUN")
+	if test_run$="Y" then
+		callpoint!.setColumnEnabled("ADX_DATAPORT.RECORDS_PER_TBL",1)
+	else
+		callpoint!.setColumnEnabled("ADX_DATAPORT.RECORDS_PER_TBL",0)
+	endif
+
 [[ADX_DATAPORT.AOPT-SCAN]]
 scan_source:rem --- Scan Source Directory and build vectors to populate gridFiles!
 
@@ -202,6 +211,11 @@ scan_source:rem --- Scan Source Directory and build vectors to populate gridFile
 
 	close (ddm03_dev)
 	close (source_dir_dev)
+
+[[ADX_DATAPORT.AREC]]
+rem --- Disable and clear Max Records Per Table
+	callpoint!.setColumnEnabled("ADX_DATAPORT.RECORDS_PER_TBL",0)
+	callpoint!.setColumnData("ADX_DATAPORT.RECORDS_PER_TBL","x",1)
 
 [[ADX_DATAPORT.ASIZ]]
 rem --- resize grid if window size changes
@@ -433,6 +447,19 @@ rem --- make sure target directory exists
 		msg_id$="AD_DATAPORT_DIR"
 		gosub disp_message
 		callpoint!.setStatus("ABORT")
+	endif
+
+[[ADX_DATAPORT.TEST_RUN.AVAL]]
+rem --- Enable/disable and initialize/clear Max Records Per Table
+	test_run$=callpoint!.getUserInput()
+	if callpoint!.getColumnData("ADX_DATAPORT.TEST_RUN")<>test_run$ then
+		if test_run$="Y" then
+			callpoint!.setColumnEnabled("ADX_DATAPORT.RECORDS_PER_TBL",1)
+			callpoint!.setColumnData("ADX_DATAPORT.RECORDS_PER_TBL","500",1)
+		else
+			callpoint!.setColumnEnabled("ADX_DATAPORT.RECORDS_PER_TBL",0)
+			callpoint!.setColumnData("ADX_DATAPORT.RECORDS_PER_TBL","x",1)
+		endif
 	endif
 
 [[ADX_DATAPORT.<CUSTOM>]]
