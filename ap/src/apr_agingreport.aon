@@ -424,8 +424,6 @@ rem --- Read next Invoice Header (apt-01) record
         read record (apt01_dev,key=k$,dom=*continue) apt01a$
         total_recs=total_recs+1
         if mod(total_recs,milestone)=0 then call stbl("+DIR_PGM")+"adc_progress.aon","S","","","","",0,0,milestone,meter_num,status
-rem wgh ... 11304 ...
-if cvs(apt01a.creditcard_id$,2)<>"" then continue
         
         rem --- Level breaks
 
@@ -475,8 +473,6 @@ if cvs(apt01a.creditcard_id$,2)<>"" then continue
             endif
             
         endif
-rem wgh ... 11304 ...
-if cvs(apt01a.creditcard_id$,2)<>"" then dateused$=apt01a.cc_trans_date$
 
         rem --- Age this invoice
 
