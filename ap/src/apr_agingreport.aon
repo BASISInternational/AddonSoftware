@@ -473,6 +473,7 @@ rem --- Read next Invoice Header (apt-01) record
             endif
             
         endif
+        if cvs(apt01a.creditcard_id$,2)<>"" then dateused$=apt01a.cc_trans_date$
 
         rem --- Age this invoice
 
