@@ -2070,13 +2070,11 @@ validEmailAddress_error:rem --- Method error trap/handler (11Oct2017)
                 throw "["+pgm(-2)+"] Constructor failed to open files: "+open_status$,err_num
             endif
 
-goto skip_admRptCtl; rem --- Cannot make ADM_RPTCTL structural file change until v27.00
             if cvs(reportID$,2)<>"" then
                 admRptCtl.dd_table_alias$=reportID$
                 readrecord(admRptCtl_dev,key=firm_id$+admRptCtl.dd_table_alias$,dom=*endif)admRptCtl$
                 dirPath$=admRptCtl.doc_dir$
             endif
-skip_admRptCtl:
 
             if cvs(dirPath$,2)="" and cvs(module$,2)<>"" then
                 admRptDirDet.module$=module$
