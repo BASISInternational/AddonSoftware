@@ -36,6 +36,30 @@ rem --- Disable UNIT_COST when entering cost for dropships
 		callpoint!.setColumnEnabled("OPS_PARAMS.HIDE_COST",1)
 	endif
 
+rem --- New records are created in ARS_PARAMS form, so can't use AREC here to initialize OPS_PARAMS fields. 
+	if cvs(callpoint!.getColumnData("OPS_PARAMS.INV_HIST_FLG"),2)="" then
+		callpoint!.setColumnData("OPS_PARAMS.INV_HIST_FLG","Y",1)
+	endif
+	if user_tpl.gl_installed$="Y" and cvs(callpoint!.getColumnData("OPS_PARAMS.POST_TO_GL"),2)="" then 
+		callpoint!.setColumnData("OPS_PARAMS.POST_TO_GL","Y",1)
+	endif
+	if cvs(callpoint!.getColumnData("OPS_PARAMS.WARN_NOT_AVAIL"),2)="" then
+		callpoint!.setColumnData("OPS_PARAMS.WARN_NOT_AVAIL","Y",1)
+	endif
+
+rem --- Initialize WEIGHT_UNITS to "LB" if that code exists in IVC_UMCODES
+	if cvs(callpoint!.getColumnData("OPS_PARAMS.SHOW_WEIGHT"),2)="" then
+		if cvs(callpoint!.getColumnData("OPS_PARAMS.WEIGHT_UNITS"),2)="" then
+			ivcUmCodes_dev=fnget_dev("IVC_UMCODES")
+			dim ivcUmCodes$:fnget_tpl$("IVC_UMCODES")
+			ivcUmCodes.unit_measure$="LB"
+			rec_found=0
+			findrecord(ivcUmCodes_dev,key=firm_id$+ivcUmCodes.unit_measure$,dom=*next)ivcUmCodes$; rec_found=1
+			if rec_found then callpoint!.setColumnData("OPS_PARAMS.WEIGHT_UNITS",ivcUmCodes.unit_measure$,1)
+		endif
+		callpoint!.setColumnData("OPS_PARAMS.SHOW_WEIGHT","N",1)
+	endif
+
 [[OPS_PARAMS.ARAR]]
 rem --- Update post_to_gl if GL is uninstalled
 	if user_tpl.gl_installed$<>"Y" and callpoint!.getColumnData("OPS_PARAMS.POST_TO_GL")="Y" then
@@ -52,15 +76,6 @@ if user_tpl.gl_post$="N" then
 	ctl_stat$="D"
 	gosub disable_fields
 endif
-
-[[OPS_PARAMS.AREC]]
-rem --- Init new record
-	callpoint!.setColumnData("OPS_PARAMS.INV_HIST_FLG","Y")
-	if user_tpl.gl_installed$="Y" then callpoint!.setColumnData("OPS_PARAMS.POST_TO_GL","Y")
-	callpoint!.setColumnData("OPS_PARAMS.SLS_TAX_INTRFACE","")
-	callpoint!.setColumnData("OPS_PARAMS.TAX_SVC_CD_SRC","")
-	callpoint!.setColumnEnabled("OPS_PARAMS.TAX_SVC_CD_SRC",0)
-	callpoint!.setColumnData("OPS_PARAMS.WARN_NOT_AVAIL","Y")
 
 [[OPS_PARAMS.BEG_CMT_LINE.AVAL]]
 beg_cmt$=callpoint!.getUserInput()
@@ -86,16 +101,17 @@ rem --- Are Bill Of Materials and Shop Floor installed?
 
 rem --- Open files
 
-	num_files=4
-	if bm_sf$="Y" then num_files=6
+	num_files=5
+	if bm_sf$="Y" then num_files=7
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 	open_tables$[1]="GLS_PARAMS",open_opts$[1]="OTA"
 	open_tables$[2]="ARS_PARAMS",open_opts$[2]="OTA"
 	open_tables$[3]="OPC_LINECODE",open_opts$[3]="OTA"
 	open_tables$[4]="OPM_POINTOFSALE",open_opts$[4]="OTA"
+	open_tables$[5]="IVC_UMCODES",open_opts$[5]="OTA"
 	if bm_sf$="Y" then
-		open_tables$[5]="SFS_PARAMS",open_opts$[5]="OTA"
-		open_tables$[6]="SFC_WOTYPECD",open_opts$[6]="OTA"
+		open_tables$[6]="SFS_PARAMS",open_opts$[6]="OTA"
+		open_tables$[7]="SFC_WOTYPECD",open_opts$[7]="OTA"
 	endif
 
 	gosub open_tables
@@ -141,8 +157,8 @@ rem --- Check if SF is interfacing with OP
 
 	sf_interface$="N"
 	if bm_sf$="Y" then
-		sfs01_dev=num(open_chans$[5])
-		dim sfs01a$:open_tpls$[5]
+		sfs01_dev=num(open_chans$[6])
+		dim sfs01a$:open_tpls$[6]
 		findrecord(sfs01_dev,key=firm_id$+"SF00",dom=*endif)sfs01a$
 		sf_interface$=sfs01a.ar_interface$
 	endif
@@ -190,6 +206,18 @@ rem --- TAX_SVC_CD_SRC is required when using a sales tax service
 		gosub disp_message
 
 		callpoint!.setFocus("OPS_PARAMS.TAX_SVC_CD_SRC")
+		callpoint!.setStatus("ABORT")
+		break
+	endif
+
+rem --- WEIGHT_UNITS is required when showing weights on picking list
+	weight_units$=cvs(callpoint!.getColumnData("OPS_PARAMS.WEIGHT_UNITS"),2)
+	show_weight$=callpoint!.getColumnData("OPS_PARAMS.SHOW_WEIGHT")
+	if weight_units$="" and show_weight$="Y" then
+		msg_id$="OP_NO_WEIGHT_UNITS"
+		gosub disp_message
+
+		callpoint!.setFocus("OPS_PARAMS.WEIGHT_UNITS")
 		callpoint!.setStatus("ABORT")
 		break
 	endif
