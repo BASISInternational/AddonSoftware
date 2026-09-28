@@ -1,3 +1,10 @@
+[[OPR_ODERPICKDMD.AREC]]
+rem --- Initialize and disable warehouse_id when not using multiple warehouses
+	if callpoint!.getDevObject("multi_whse")="N" then
+		callpoint!.setColumnData("OPR_ODERPICKDMD.WAREHOUSE_ID",str(callpoint!.getDevObject("warehouse_id")))
+		callpoint!.setColumnEnabled("OPR_ODERPICKDMD.WAREHOUSE_ID",0)
+	endif
+
 [[OPR_ODERPICKDMD.BSHO]]
 rem --- Open/Lock files
 	num_files=1
@@ -14,17 +21,9 @@ rem --- Retrieve parameter data
 	find record (ivs01_dev,key=ivs01a_key$,err=std_missing_params) ivs01a$
 	callpoint!.setDevObject("multi_whse",ivs01a.multi_whse$)
 	callpoint!.setDevObject("warehouse_id",ivs01a.warehouse_id$)
+
 [[OPR_ODERPICKDMD.<CUSTOM>]]
 #include [+ADDON_LIB]std_missing_params.aon
-[[OPR_ODERPICKDMD.AREC]]
-rem --- default print prices to true if this is a quote
 
-	if callpoint!.getColumnData("OPR_ODERPICKDMD.INVOICE_TYPE")="P"
-		callpoint!.setColumnData("OPR_ODERPICKDMD.PRINT_PRICES","Y",1)
-	endif
 
-rem --- Initialize and disable warehouse_id when not using multiple warehouses
-	if callpoint!.getDevObject("multi_whse")="N" then
-		callpoint!.setColumnData("OPR_ODERPICKDMD.WAREHOUSE_ID",str(callpoint!.getDevObject("warehouse_id")))
-		callpoint!.setColumnEnabled("OPR_ODERPICKDMD.WAREHOUSE_ID",0)
-	endif
+

@@ -1,4 +1,4 @@
-<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
 <jasperReport name="OPPickListHdr" language="groovy" pageWidth="612" pageHeight="792" columnWidth="570" leftMargin="22" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="addon" uuid="b146e7c7-7794-48d0-bad4-a5da78d1668b">
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="1095"/>
@@ -11,7 +11,6 @@
 	<parameter name="ORDER_NO" class="java.lang.String"/>
 	<parameter name="QTY_MASK" class="java.lang.String"/>
 	<parameter name="QTY_MASK_PATTERN" class="java.lang.String"/>
-	<parameter name="PRICE_MASK" class="java.lang.String"/>
 	<parameter name="AMT_MASK" class="java.lang.String"/>
 	<parameter name="AMT_MASK_PATTERN" class="java.lang.String"/>
 	<parameter name="EXT_MASK" class="java.lang.String"/>
@@ -27,7 +26,7 @@
 	<parameter name="AR_PHONE_NO" class="java.lang.String"/>
 	<parameter name="AR_INV_NO" class="java.lang.String"/>
 	<parameter name="SELECTED_WHSE" class="java.lang.String"/>
-	<parameter name="PRINT_PRICES" class="java.lang.String"/>
+	<parameter name="PRINT_WEIGHTS" class="java.lang.String"/>
 	<parameter name="PICKLIST_TYPE" class="java.lang.String"/>
 	<parameter name="PICK_OR_QUOTE" class="java.lang.String"/>
 	<parameter name="MULT_WH" class="java.lang.String"/>
@@ -72,7 +71,7 @@
 		<description><![CDATA[]]></description>
 	</field>
 	<field name="REPRINT_REVISED" class="java.lang.String"/>
-	<variable name="TOTAL_PRICE_BigDec" class="java.math.BigDecimal">
+	<variable name="TOTAL_WEIGHT_BigDec" class="java.math.BigDecimal">
 		<expression><![CDATA[]]></expression>
 	</variable>
 	<variable name="WHSE_MESSAGE" class="java.lang.String"/>
@@ -129,11 +128,11 @@
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</element>
-				<element kind="textField" uuid="18f4205b-b1e0-4d56-9667-470d3fb87eae" x="452" y="0" width="49" height="16" forecolor="#FFFFFF" markup="none" fontName="DejaVu Sans" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
-					<expression><![CDATA[$R{AON_PRICE}]]></expression>
+				<element kind="textField" uuid="18f4205b-b1e0-4d56-9667-470d3fb87eae" x="455" y="0" width="49" height="16" forecolor="#FFFFFF" markup="none" fontName="DejaVu Sans" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
+					<expression><![CDATA[$R{AON_WEIGHT}+" "+$R{AON_WEIGHT}]]></expression>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</element>
 				<element kind="textField" uuid="1ce32152-7e7d-4406-add2-b808d2390c74" x="505" y="0" width="45" height="16" forecolor="#FFFFFF" markup="none" fontName="DejaVu Sans" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
 					<expression><![CDATA[$R{AON_CARTON}==null ? "Carton":$R{AON_CARTON}]]></expression>
@@ -144,34 +143,44 @@
 		</groupHeader>
 		<groupFooter>
 			<band height="166" splitType="Prevent">
-				<element kind="rectangle" uuid="9dc2851f-3cf8-4049-8b84-18d059e13dce" mode="Opaque" x="380" y="0" width="122" height="12" forecolor="#E0E0E0" backcolor="#E0E0E0" radius="4">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+				<element kind="rectangle" uuid="9dc2851f-3cf8-4049-8b84-18d059e13dce" mode="Opaque" x="455" y="0" width="70" height="12" forecolor="#E0E0E0" backcolor="#E0E0E0" radius="4">
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<pen lineColor="#C0C0C0"/>
 				</element>
-				<element kind="line" uuid="704cbd93-dddc-4540-a40c-95df8e96771f" x="447" y="0" width="1" height="12" backcolor="#EBF0FA">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<pen lineColor="#C0C0C0"/>
-				</element>
-				<element kind="rectangle" uuid="9c0604b4-86d6-45d5-90ba-181388882773" mode="Opaque" x="380" y="0" width="67" height="12" forecolor="#E0E0E0" backcolor="#000000" radius="4">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<pen lineColor="#000000"/>
-				</element>
-				<element kind="textField" uuid="3e8d769c-ebcb-4a99-9b66-e4f35f6baa44" x="448" y="0" width="54" height="12" fontName="DejaVu Sans" fontSize="9.0" pattern="" bold="true" hTextAlign="Right" vTextAlign="Middle">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+				<element kind="textField" uuid="3e8d769c-ebcb-4a99-9b66-e4f35f6baa44" x="455" y="0" width="70" height="12" fontName="DejaVu Sans" fontSize="9.0" pattern="" bold="true" hTextAlign="Right" vTextAlign="Middle">
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
 					<paragraph rightIndent="4"/>
-					<expression><![CDATA[$V{TOTAL_PRICE_BigDec}]]></expression>
+					<expression><![CDATA[$V{TOTAL_WEIGHT_BigDec}]]></expression>
 					<patternExpression><![CDATA[$P{EXT_MASK_PATTERN}]]></patternExpression>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</element>
+				<element kind="line" uuid="704cbd93-dddc-4540-a40c-95df8e96771f" x="455" y="0" width="1" height="12" backcolor="#EBF0FA">
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<pen lineColor="#C0C0C0"/>
+				</element>
+				<element kind="rectangle" uuid="9c0604b4-86d6-45d5-90ba-181388882773" mode="Opaque" x="355" y="0" width="100" height="12" forecolor="#E0E0E0" backcolor="#000000" radius="4">
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<pen lineColor="#000000"/>
+				</element>
+				<element kind="textField" uuid="d5b5a7b3-e446-4159-8c4c-c04c282c2f66" x="355" y="0" width="100" height="12" forecolor="#FFFFFF" markup="none" fontName="DejaVu Sans" fontSize="9.0" italic="false" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
+					<paragraph leftIndent="6"/>
+					<expression><![CDATA[$R{AON_TOTAL}+" "+$R{AON_WEIGHT}]]></expression>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 				</element>
 				<element kind="rectangle" uuid="0f977196-c669-4739-934f-34550bc0c5b0" x="4" y="14" width="555" height="64" backcolor="#FAFAFA" radius="4">
 					<pen lineWidth="1.0" lineColor="#C0C0C0"/>
@@ -182,15 +191,6 @@
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</element>
-				<element kind="textField" uuid="d5b5a7b3-e446-4159-8c4c-c04c282c2f66" x="380" y="0" width="67" height="12" forecolor="#FFFFFF" markup="none" fontName="DejaVu Sans" fontSize="9.0" bold="true" italic="false" hTextAlign="Center" vTextAlign="Middle">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
-					<paragraph leftIndent="6"/>
-					<expression><![CDATA[$R{AON_TOTAL}]]></expression>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</element>
 				<element kind="frame" uuid="8d71bd9b-17bd-44bb-91f8-ac190f95fdbf" x="0" y="80" width="560" height="69" removeLineWhenBlank="true">
 					<printWhenExpression><![CDATA[$P{PICK_OR_QUOTE}=="S"]]></printWhenExpression>
@@ -425,11 +425,11 @@
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</element>
-				<element kind="textField" uuid="b5e031c6-95d3-4e98-bd63-245d58b9c479" x="452" y="0" width="49" height="16" forecolor="#FFFFFF" markup="none" fontName="DejaVu Sans" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
-					<expression><![CDATA[$R{AON_PRICE}]]></expression>
+				<element kind="textField" uuid="b5e031c6-95d3-4e98-bd63-245d58b9c479" x="455" y="0" width="49" height="16" forecolor="#FFFFFF" markup="none" fontName="DejaVu Sans" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
+					<expression><![CDATA[$R{AON_WEIGHT}]]></expression>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 				</element>
 				<element kind="textField" uuid="3a4c2cb8-11d3-47a8-b93d-30de12ae9d83" x="505" y="0" width="45" height="16" forecolor="#FFFFFF" markup="none" fontName="DejaVu Sans" fontSize="11.0" bold="true" hTextAlign="Center" vTextAlign="Bottom">
 					<expression><![CDATA[$R{AON_CARTON}==null ? "Carton":$R{AON_CARTON}]]></expression>
@@ -663,7 +663,7 @@
 			<expression><![CDATA[$F{SALESREP_DESC}]]></expression>
 			<property name="com.jaspersoft.studio.unit.y" value="px"/>
 		</element>
-		<element kind="textField" uuid="6f653e91-25d3-4f00-be83-cd9e084a6d5b" mode="Transparent" x="70" y="217" width="134" height="15" forecolor="#000000" backcolor="#FFFFFF" rotation="None" markup="none" fontName="DejaVu Serif" fontSize="10.0" pdfEncoding="Cp1252" pattern="" blankWhenNull="false" pdfEmbedded="false" underline="false" strikeThrough="false" bold="false" italic="false" hTextAlign="Left" vTextAlign="Middle">
+		<element kind="textField" uuid="6f653e91-25d3-4f00-be83-cd9e084a6d5b" mode="Transparent" x="70" y="217" width="134" height="15" forecolor="#000000" backcolor="#FFFFFF" rotation="None" markup="none" fontName="DejaVu Serif" fontSize="10.0" pdfEncoding="Cp1252" pattern="" blankWhenNull="false" pdfEmbedded="false" underline="false" strikeThrough="false" italic="false" bold="false" hTextAlign="Left" vTextAlign="Middle">
 			<paragraph lineSpacing="Single"/>
 			<expression><![CDATA[$F{TERMS_DESC}]]></expression>
 			<property name="com.jaspersoft.studio.unit.y" value="px"/>
@@ -858,7 +858,7 @@
 				<expression><![CDATA[$P{BARCODE}.isEmpty() ? "OPPickListDet.jasper" : "OPPickListDet_BarCd.jasper"]]></expression>
 				<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-				<returnValue toVariable="TOTAL_PRICE_BigDec" subreportVariable="TOT_PRICE_BigDec_OUT"/>
+				<returnValue toVariable="TOTAL_WEIGHT_BigDec" subreportVariable="TOT_WEIGHT_BigDec_OUT"/>
 				<returnValue toVariable="WHSE_MESSAGE" subreportVariable="WHSE_MESSAGE_OUT"/>
 				<returnValue toVariable="WHSE_MSG_SFX" subreportVariable="WHSE_MSG_SFX_OUT"/>
 				<parameter name="FIRM_ID">
@@ -879,17 +879,14 @@
 				<parameter name="QTY_MASK">
 					<expression><![CDATA[$P{QTY_MASK}]]></expression>
 				</parameter>
-				<parameter name="PRICE_MASK">
-					<expression><![CDATA[$P{PRICE_MASK}]]></expression>
-				</parameter>
 				<parameter name="SELECTED_WHSE">
 					<expression><![CDATA[$P{SELECTED_WHSE}]]></expression>
 				</parameter>
 				<parameter name="PICK_OR_QUOTE">
 					<expression><![CDATA[$P{PICK_OR_QUOTE}]]></expression>
 				</parameter>
-				<parameter name="PRINT_PRICES">
-					<expression><![CDATA[$P{PRINT_PRICES}]]></expression>
+				<parameter name="PRINT_WEIGHTS">
+					<expression><![CDATA[$P{PRINT_WEIGHTS}]]></expression>
 				</parameter>
 				<parameter name="MULT_WH">
 					<expression><![CDATA[$P{MULT_WH}]]></expression>

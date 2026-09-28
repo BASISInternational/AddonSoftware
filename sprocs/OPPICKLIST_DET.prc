@@ -31,11 +31,10 @@ rem --- Get 'IN' SPROC parameters
     ar_inv_no$ =     sp!.getParameter("AR_INV_NO")
     barcode$ =       sp!.getParameter("BARCODE")
 	qty_mask$ =      sp!.getParameter("QTY_MASK")
-	price_mask$ =    sp!.getParameter("PRICE_MASK")
     ivIMask$ =       sp!.getParameter("ITEM_MASK")
 	selected_whse$ = sp!.getParameter("SELECTED_WHSE")
     pick_or_quote$ = sp!.getParameter("PICK_OR_QUOTE"); rem --- As of v25.10 quotes "P" use Order Acknowledgement instead of Picking List
-    print_prices$ =  sp!.getParameter("PRINT_PRICES")
+    print_weights$ =  sp!.getParameter("PRINT_WEIGHTS")
     mult_wh$ =       sp!.getParameter("MULT_WH")
 	barista_wd$ =    sp!.getParameter("BARISTA_WD")
     woInfo_1abels$ = sp!.getParameter("WO_INFO_LABELS")
@@ -46,7 +45,7 @@ rem --- create the in memory recordset for return
 	dataTemplate$ = ""
 	dataTemplate$ = dataTemplate$ + "order_qty_raw:c(1*),order_qty_masked:c(1*), ship_qty:c(1*), bo_qty:c(1*), "
 	dataTemplate$ = dataTemplate$ + "item_id:c(1*), item_desc:c(1*), item_barCd:c(1*), whse:c(2*), "
-	dataTemplate$ = dataTemplate$ + "price_raw:c(1*), price_masked:c(1*), "
+	dataTemplate$ = dataTemplate$ + "weight_raw:c(1*), weight_masked:c(1*), "
 	dataTemplate$ = dataTemplate$ + "location:c(1*), internal_seq_no:c(1*), um_sold:c(6*), "
 	dataTemplate$ = dataTemplate$ + "lotser_flag:c(1), linetype_allows_ls:c(1), carton:c(1*), "
     dataTemplate$ = dataTemplate$ + "whse_message:c(1*), whse_msg_sfx:c(1*), ship_qty_raw:c(1*), "
@@ -139,8 +138,8 @@ rem --- Main
         item_desc$ =          ""
         item_barCd$ =         ""
         whse$ =               ""
-        price_raw$ =          ""
-        price_masked$ =       ""
+        weight_raw$ =          ""
+        weight_masked$ =       ""
         carton$ =             ""
         location$ =           ""
         internal_seq_no$ =    ""
@@ -231,8 +230,8 @@ rem --- return a final row that's empty except for the whse_message$, which will
     data!.setFieldValue("ITEM_BARCD", "")
     data!.setFieldValue("WHSE", whse$)
     data!.setFieldValue("LOCATION","")
-    data!.setFieldValue("PRICE_RAW", "")
-    data!.setFieldValue("PRICE_MASKED", "")
+    data!.setFieldValue("WEIGHT_RAW", "")
+    data!.setFieldValue("WEIGHT_MASKED", "")
     data!.setFieldValue("CARTON","")
     data!.setFieldValue("INTERNAL_SEQ_NO","")
     data!.setFieldValue("LOTSER_FLAG","")
@@ -320,19 +319,15 @@ doDetailLine: rem --- Prepare this detail line for printing
         item_id$=cvs(fnmask$(ope11a.item_id$,ivIMask$),3)
     endif
 
-    if pos(opm02a.line_type$=" SNPO") and print_prices$="Y" 
-        price_raw$=   str(ope11a.unit_price*ope11a.qty_ordered)
-        price_masked$=str(ope11a.unit_price:price_mask$)
-    endif
-    if pos(opm02a.line_type$=" SNPO") and print_prices$="Y" then
+    if pos(opm02a.line_type$=" SNPO") and print_weights$="Y" then
         if qtyOrdered_purchaseUM then
             rem --- Use Unit of Purchase
-            price_raw$=   str(ope11a.unit_price*ivm01a.conv_factor*qtyOrdered_purchaseUM)
-            price_masked$=str(ope11a.unit_price*ivm01a.conv_factor:price_mask$)
+            weight_raw$=   str(ope11a.unit_price*ivm01a.conv_factor*qtyOrdered_purchaseUM)
+            weight_masked$=str(ope11a.unit_price*ivm01a.conv_factor)
         else
             rem --- Use Unit of Sale
-            price_raw$=   str(ope11a.unit_price*qtyOrdered_salesUM)
-            price_masked$=str(ope11a.unit_price:price_mask$)
+            weight_raw$=   str(ope11a.unit_price*qtyOrdered_salesUM)
+            weight_masked$=str(ope11a.unit_price)
         endif
     endif
 
@@ -384,9 +379,9 @@ doDetailLine: rem --- Prepare this detail line for printing
                 ship_qty_raw$= str(qtyOrdered_salesUM)
                 if opm02a.line_type$="N" then um_sold$=ope11a.um_sold$;rem if non-stock, use UM from ope-11 (i.e., item isn't in ivm-01)
             endif
-            if pos(opm02a.line_type$=" SNPO") and print_prices$="Y" then
-                price_raw$=   str(ope11a.unit_price*qtyOrdered_salesUM)
-                price_masked$=str(ope11a.unit_price:price_mask$)
+            if pos(opm02a.line_type$=" SNPO") and print_weights$="Y" then
+                weight_raw$=   str(ope11a.unit_price*qtyOrdered_salesUM)
+                weight_masked$=str(ope11a.unit_price)
             endif
         endif
         
@@ -404,8 +399,8 @@ doDetailLine: rem --- Prepare this detail line for printing
         data!.setFieldValue("ITEM_BARCD", item_barCd$)
         data!.setFieldValue("WHSE", whse$)
         data!.setFieldValue("LOCATION",location$)
-        data!.setFieldValue("PRICE_RAW", price_raw$)
-        data!.setFieldValue("PRICE_MASKED", price_masked$)
+        data!.setFieldValue("WEIGHT_RAW", weight_raw$)
+        data!.setFieldValue("WEIGHT_MASKED", weight_masked$)
         data!.setFieldValue("CARTON",carton$)
         data!.setFieldValue("INTERNAL_SEQ_NO",internal_seq_no$)
         if pos(opm02a.line_type$="MO")=0 then data!.setFieldValue("UM_SOLD",um_sold$)           

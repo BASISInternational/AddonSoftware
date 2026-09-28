@@ -250,7 +250,6 @@ rem --- Initialize Data
     call pgmdir$+"adc_getmask.aon","","AR","I","",cust_mask$,0,cust_size
     call pgmdir$+"adc_getmask.aon","","AR","A","",amt_mask$,0,amt_mask_size
     call pgmdir$+"adc_getmask.aon","","AR","U","",qty_mask$,0,qty_mask
-    call pgmdir$+"adc_getmask.aon","","IV","P","",price_mask$,0,price_mask 
     call pgmdir$+"adc_getmask.aon","","IV","I","",ivIMask$,0,0
     
     ext_mask$ = amt_mask$
@@ -281,7 +280,6 @@ rem --- Initialize Data
         rptctl_alias$="OPR_ODERPICKLST";rem --- use actual alias$ (i.e., OPE_ORDHDR) when putting in doc archive so you know it was an on-demand or batch, but always use OPR_PICKLIST for report control so you don't need two report control records for each customer to handle on-demand vs. batch.        
 		restart$ = ""
 		restart_customer$ = ""
-        print_prices$=option!.getOptionData("PRINT_PRICES")
         whse$=option!.getOptionData("WAREHOUSE_ID")
         print_what$=""
         send_via_rpt_ctl$ = option!.getOptionData("SEND_VIA_RPT_CTL")
@@ -292,11 +290,15 @@ rem --- Initialize Data
         rptctl_alias$ = alias$
 		restart$ = option!.getOptionData("RESTART")
 		restart_customer$ = option!.getOptionData("CUSTOMER_ID")       
-		print_prices$=option!.getOptionData("PRINT_PRICE")   
         whse$=option!.getOptionData("WAREHOUSE_ID")
         print_what$="P"; rem --- As of v25.10 quotes "Q" use Order Acknowledgement instead of Picking List
 		master_document=1
         pick_print_document=1
+    endif
+    if opsParams.show_weight$="Y" then
+        print_weights$="Y"
+    else
+        print_weights$="N"
     endif
 
     emailFax! = BBjAPI().makeVector()
@@ -438,7 +440,7 @@ rem --- Misc setup and qualification
 		if master_document
 			master_params!.put("RESTART",restart$)
 			master_params!.put("RESTART_CUSTOMER",restart_customer$)
-			master_params!.put("PRINT_PRICES",print_prices$)
+			master_params!.put("PRINT_WEIGHTS",print_weights$)
             master_params!.put("SELECTED_WHSE",whse$)
             master_params!.put("PICKLIST_TYPE",print_what$)
 		endif
@@ -446,7 +448,7 @@ rem --- Misc setup and qualification
 		if pick_print_document
 			pick_print_params!.put("RESTART",restart$)
 			pick_print_params!.put("RESTART_CUSTOMER",restart_customer$)
-			pick_print_params!.put("PRINT_PRICES",print_prices$)
+			pick_print_params!.put("PRINT_WEIGHTS",print_weights)
             pick_print_params!.put("SELECTED_WHSE",whse$)
             pick_print_params!.put("PICKLIST_TYPE",print_what$)            
 		endif
@@ -458,7 +460,6 @@ rem --- Misc setup and qualification
         params!.put("AR_INV_NO",ope01a.ar_inv_no$)
 		params!.put("QTY_MASK",qty_mask$)
 		params!.put("QTY_MASK_PATTERN",qty_mask_pattern$)
-		params!.put("PRICE_MASK",price_mask$)
         params!.put("ITEM_MASK",ivImask$)
 		params!.put("AMT_MASK",amt_mask$)
 		params!.put("AMT_MASK_PATTERN",amt_mask_pattern$)        
@@ -469,7 +470,7 @@ rem --- Misc setup and qualification
 		params!.put("BARISTA_WD",dir(""))
         params!.put("LOGO_FILE",logo_filename$)
         params!.put("PICK_OR_QUOTE",pick_or_quote$)
-        params!.put("PRINT_PRICES",print_prices$)
+        params!.put("PRINT_WEIGHTS",print_weights$)
         params!.put("REPRINT",reprint$)
         params!.put("SELECTED_WHSE",whse$)
         params!.put("MULT_WH",mult_wh$)

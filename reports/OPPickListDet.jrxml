@@ -1,4 +1,4 @@
-<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
 <jasperReport name="OPPickListDet" language="groovy" pageWidth="554" pageHeight="320" columnWidth="554" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" resourceBundle="addon" uuid="a46c6452-81bd-4023-bafb-8f0488b8a578">
 	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
@@ -28,10 +28,9 @@
 	<parameter name="ORDER_NO" class="java.lang.String"/>
 	<parameter name="AR_INV_NO" class="java.lang.String"/>
 	<parameter name="QTY_MASK" class="java.lang.String"/>
-	<parameter name="PRICE_MASK" class="java.lang.String"/>
 	<parameter name="SELECTED_WHSE" class="java.lang.String"/>
 	<parameter name="PICK_OR_QUOTE" class="java.lang.String"/>
-	<parameter name="PRINT_PRICES" class="java.lang.String"/>
+	<parameter name="PRINT_WEIGHTS" class="java.lang.String"/>
 	<parameter name="MULT_WH" class="java.lang.String"/>
 	<parameter name="BARISTA_WD" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" forPrompting="false" class="java.lang.String">
@@ -42,13 +41,13 @@
 	<parameter name="ITEM_MASK" class="java.lang.String"/>
 	<parameter name="REPRINT_REVISED" class="java.lang.String"/>
 	<parameter name="BARCODE" class="java.lang.String"/>
-	<query language="SQL"><![CDATA[call OPPICKLIST_DET($P{FIRM_ID},$P{AR_TYPE},$P{CUSTOMER_ID},$P{ORDER_NO},$P{AR_INV_NO},$P{BARCODE},$P{QTY_MASK},$P{PRICE_MASK},$P{SELECTED_WHSE},$P{PICK_OR_QUOTE},$P{PRINT_PRICES},$P{MULT_WH},$P{WO_INFO_LABELS},$P{ITEM_MASK},$P{BARISTA_WD})]]></query>
+	<query language="SQL"><![CDATA[call OPPICKLIST_DET($P{FIRM_ID},$P{AR_TYPE},$P{CUSTOMER_ID},$P{ORDER_NO},$P{AR_INV_NO},$P{BARCODE},$P{QTY_MASK},$P{SELECTED_WHSE},$P{PICK_OR_QUOTE},$P{PRINT_WEIGHTS},$P{MULT_WH},$P{WO_INFO_LABELS},$P{ITEM_MASK},$P{BARISTA_WD})]]></query>
 	<field name="ORDER_QTY_RAW" class="java.lang.String"/>
 	<field name="ORDER_QTY_MASKED" class="java.lang.String"/>
 	<field name="ITEM_ID" class="java.lang.String"/>
 	<field name="ITEM_DESC" class="java.lang.String"/>
-	<field name="PRICE_RAW" class="java.lang.String"/>
-	<field name="PRICE_MASKED" class="java.lang.String"/>
+	<field name="WEIGHT_RAW" class="java.lang.String"/>
+	<field name="WEIGHT_MASKED" class="java.lang.String"/>
 	<field name="INTERNAL_SEQ_NO" class="java.lang.String"/>
 	<field name="LOTSER_FLAG" class="java.lang.String">
 		<description><![CDATA[Item is flagged as Lotted/Serialized]]></description>
@@ -75,11 +74,11 @@
 	<field name="UM_SOLD" class="java.lang.String"/>
 	<field name="PICK_FLAG" class="java.lang.String"/>
 	<field name="LINE_TYPE" class="java.lang.String"/>
-	<variable name="PRICE_BigDec" class="java.math.BigDecimal">
-		<expression><![CDATA[$F{PRICE_RAW} == "" ? 0 : new java.math.BigDecimal($F{PRICE_RAW})]]></expression>
+	<variable name="WEIGHT_BigDec" class="java.math.BigDecimal">
+		<expression><![CDATA[$F{WEIGHT_RAW} == "" ? 0 : new java.math.BigDecimal($F{WEIGHT_RAW})]]></expression>
 	</variable>
-	<variable name="TOT_PRICE_BigDec_OUT" calculation="Sum" class="java.math.BigDecimal">
-		<expression><![CDATA[$V{PRICE_BigDec}]]></expression>
+	<variable name="TOT_WEIGHT_BigDec_OUT" calculation="Sum" class="java.math.BigDecimal">
+		<expression><![CDATA[$V{WEIGHT_BigDec}]]></expression>
 	</variable>
 	<variable name="WHSE_MESSAGE_OUT" class="java.lang.String">
 		<expression><![CDATA[$F{WHSE_MESSAGE}]]></expression>
@@ -205,9 +204,9 @@
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</element>
 				<element kind="textField" uuid="0ab2e67d-3dff-499e-ac1d-005c0de545c5" x="457" y="0" width="49" height="12" fontName="DejaVu Serif" fontSize="9.0" pattern="" hTextAlign="Right" vTextAlign="Middle">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
 					<paragraph rightIndent="3"/>
-					<expression><![CDATA[$F{PRICE_MASKED}]]></expression>
+					<expression><![CDATA[$F{WEIGHT_RAW}]]></expression>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</element>
@@ -245,7 +244,7 @@
 					<pen lineColor="#C0C0C0"/>
 				</element>
 				<element kind="line" uuid="907619e9-59bf-41a5-a650-769ab00aec3d" stretchType="ContainerHeight" x="457" y="0" width="1" height="13" printWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y" && $F{WO_INFO1}==""]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y" && $F{WO_INFO1}==""]]></printWhenExpression>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<pen lineColor="#C0C0C0"/>
 				</element>
@@ -317,9 +316,9 @@
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</element>
 				<element kind="textField" uuid="30b56067-bd6a-477c-9064-534faf9380a5" x="457" y="0" width="49" height="12" fontName="DejaVu Serif" fontSize="9.0" pattern="" hTextAlign="Right" vTextAlign="Middle">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
 					<paragraph rightIndent="3"/>
-					<expression><![CDATA[$F{PRICE_MASKED}]]></expression>
+					<expression><![CDATA[$F{WEIGHT_RAW}]]></expression>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</element>
@@ -382,7 +381,7 @@
 					<pen lineColor="#C0C0C0"/>
 				</element>
 				<element kind="line" uuid="ca696f62-da5e-4f22-b96c-3473ed2f4161" stretchType="ContainerHeight" x="457" y="0" width="1" height="37" printWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
@@ -469,9 +468,9 @@
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</element>
 				<element kind="textField" uuid="459182ac-6d6e-4184-bd04-d62f114a368d" x="457" y="0" width="49" height="12" fontName="DejaVu Serif" fontSize="9.0" pattern="" hTextAlign="Right" vTextAlign="Middle" style="Style1">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
 					<paragraph rightIndent="3"/>
-					<expression><![CDATA[$F{PRICE_MASKED}]]></expression>
+					<expression><![CDATA[$F{WEIGHT_RAW}]]></expression>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</element>
@@ -516,7 +515,7 @@
 					<pen lineColor="#C0C0C0"/>
 				</element>
 				<element kind="line" uuid="2a4dcee8-9e4c-46b4-8255-7be9ae3cbbe7" stretchType="ContainerHeight" x="457" y="0" width="1" height="13" printWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y" && $F{WO_INFO1}==""]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y" && $F{WO_INFO1}==""]]></printWhenExpression>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<pen lineColor="#C0C0C0"/>
 				</element>
@@ -595,9 +594,9 @@
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 				</element>
 				<element kind="textField" uuid="93d33b46-a632-4b9f-9901-d654a309de7f" x="457" y="0" width="49" height="12" fontName="DejaVu Serif" fontSize="9.0" pattern="" hTextAlign="Right" vTextAlign="Middle" style="Style1">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
 					<paragraph rightIndent="3"/>
-					<expression><![CDATA[$F{PRICE_MASKED}]]></expression>
+					<expression><![CDATA[$F{WEIGHT_RAW}]]></expression>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
 				</element>
@@ -667,7 +666,7 @@
 					<pen lineColor="#C0C0C0"/>
 				</element>
 				<element kind="line" uuid="c061b836-449b-4d06-ac0b-c282ddfdc1be" stretchType="ContainerHeight" x="457" y="0" width="1" height="37" printWhenDetailOverflows="true">
-					<printWhenExpression><![CDATA[$P{PRINT_PRICES}=="Y"]]></printWhenExpression>
+					<printWhenExpression><![CDATA[$P{PRINT_WEIGHTS}=="Y"]]></printWhenExpression>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
