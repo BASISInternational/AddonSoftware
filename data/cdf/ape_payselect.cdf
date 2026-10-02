@@ -2381,7 +2381,7 @@ rem ==========================================================================
 			else
 				dim origVendMaster$:fattr(apm01a$)
 				read record(apm01_dev, key=firm_id$+apt01a.orig_vendor$, dom=*next)origVendMaster$
-				tmpVect!.addItem(origVendMaster.vendor_name$); rem 5 + 1 for master
+				tmpVect!.addItem(cvs(apt01a.ap_inv_no$,3)+" - "+origVendMaster.vendor_name$); rem 5 + 1 for master
 				tmpVect!.addItem(apt01a.creditcard_id$); rem 6 + 1 for master
 			endif
 			tmpVect!.addItem(apt01a.hold_flag$);rem 7 + 1 for master
