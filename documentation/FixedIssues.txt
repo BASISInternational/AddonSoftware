@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-09-15
+ Report Date:   2026-10-05
  Report Branch: AddonSoftware 26.03
  Last Release:  AddonSoftware 26.02
 =======================================================================================================================================
@@ -16,4 +16,15 @@ Bug 11304: Modified the Aging Report to use the credit card transaction
 date when aging invoices pre-paid via credit card.
 ----
 Modified: ap/src/apr_agingreport.aon
+=======================================================================================================================================
+
+Revision: 1119e90b8c1e75bbd80bbc89433934e6702598ec
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 10/5/2026 1:25:13 PM
+Message:
+Bug 11318: Reset cell font color to black on Payment Selection Entry
+form when text is NOT for a credit card pre-paid invoice.
+----
+Modified: data/bar/ape_payselect.xml
+Modified: data/cdf/ape_payselect.cdf
 =======================================================================================================================================
