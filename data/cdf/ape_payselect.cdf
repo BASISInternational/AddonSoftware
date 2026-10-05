@@ -824,6 +824,7 @@ rem --- Add grid to store invoices
 	callpoint!.setDevObject("plain_font",plainFont!)
 	callpoint!.setDevObject("ccPaidFont",SysGUI!.makeFont(boldFont!.getName(),boldFont!.getSize(),BBjFont.BOLD+BBjFont.ITALIC)); rem --- Make bold italic font
 	callpoint!.setDevObject("ccColor",SysGUI!.makeColor(0,200,0))
+	callpoint!.setDevObject("black_font",SysGUI!.makeColor(0,0,0))
 
 	gosub format_grid
 	util.resizeWindow(Form!, SysGui!)
@@ -3191,6 +3192,12 @@ rem =========================================================
 		rem --- Enable Disc Amt and Payment cells
 		gridInvoices!.setCellEditable(gridRow,12,1)
 		gridInvoices!.setCellEditable(gridRow,13,1)
+
+		rem --- Reset green font back to black font
+		gridInvoices!.setCellForeColor(gridRow,0,callpoint!.getDevObject("black_font"))
+		gridInvoices!.setCellForeColor(gridRow,5,callpoint!.getDevObject("black_font"))
+		gridInvoices!.setCellForeColor(gridRow,6,callpoint!.getDevObject("black_font"))
+		gridInvoices!.setCellForeColor(gridRow,8,callpoint!.getDevObject("black_font"))
 	endif
 
 	return
