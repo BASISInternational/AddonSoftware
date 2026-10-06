@@ -100,6 +100,13 @@ rem --- Preventing manual check from being modified after it has been printed on
 		gosub disable_grid
 	endif
 
+rem --- Enable eligible_1099 for vendors receiving Form 1099
+	if apm01a.vendor_1099$="Y" then 
+		callpoint!.setColumnEnabled("APE_MANCHECKHDR.ELIGIBLE_1099",1)
+	else
+		callpoint!.setColumnEnabled("APE_MANCHECKHDR.ELIGIBLE_1099",0)
+	endif
+
 [[APE_MANCHECKHDR.AOPT-PCHK]]
 rem --- Make sure modified records are saved before printing
 	if pos("M"=callpoint!.getRecordStatus())
@@ -210,14 +217,10 @@ rem  --- Enable Print Check button if manual check is for more than zero and has
 
 rem --- Refresh form with current data on disk that might have been updated elsewhere
 	if callpoint!.getDevObject("updateDiskData")<>null() and callpoint!.getDevObject("updateDiskData")="Y" then
-		batch_no$=callpoint!.getColumnData("APE_MANCHECKHDR.BATCH_NO")
-		ap_type$=callpoint!.getColumnData("APE_MANCHECKHDR.AP_TYPE")
-		bnk_acct_cd$=callpoint!.getColumnData("APE_MANCHECKHDR.BNK_ACCT_CD")
-		check_no$=callpoint!.getColumnData("APE_MANCHECKHDR.CHECK_NO")
-		vendor_id$=callpoint!.getColumnData("APE_MANCHECKHDR.VENDOR_ID")
-		callpoint!.setStatus("RECORD:["+firm_id$+batch_no$+ap_type$+bnk_acct_cd$+check_no$+vendor_id$+"]")
-
 		callpoint!.setDevObject("updateDiskData","N")
+
+		rem --- Get disk record and update with current form data
+		gosub get_disk_rec
 	endif
 
 [[APE_MANCHECKHDR.AP_TYPE.AVAL]]
@@ -259,6 +262,10 @@ rem --- if not multi-type then set the defalut AP Type
 if user_tpl.multi_types$="N" then
 	callpoint!.setColumnData("APE_MANCHECKHDR.AP_TYPE",user_tpl.dflt_ap_type$)
 endif
+
+rem --- Disable and initialize new eligible_1099
+	callpoint!.setColumnEnabled("APE_MANCHECKHDR.ELIGIBLE_1099",0)
+	callpoint!.setColumnData("APE_MANCHECKHDR.ELIGIBLE_1099","N",1)
 
 [[APE_MANCHECKHDR.ARER]]
 rem --- Initialize BNK_ACCT_CD for the first checking account in the list
@@ -859,6 +866,17 @@ rem --- Preventing manual check from being modified after it has been printed on
 
 	callpoint!.setColumnData("APE_MANCHECKHDR.VENDOR_NAME",apm01a.vendor_name$)
 
+rem --- Initialize eligible_1099 for new records
+	if callpoint!.getUserInput()<>callpoint!.getColumnData("APE_MANCHECKHDR.VENDOR_ID") then
+		if apm01a.vendor_1099$="Y" then
+			callpoint!.setColumnData("APE_MANCHECKHDR.ELIGIBLE_1099","Y",1)
+			callpoint!.setColumnEnabled("APE_MANCHECKHDR.ELIGIBLE_1099",1)
+		else
+			callpoint!.setColumnData("APE_MANCHECKHDR.ELIGIBLE_1099","N",1)
+			callpoint!.setColumnEnabled("APE_MANCHECKHDR.ELIGIBLE_1099",0)
+		endif
+	endif
+
 [[APE_MANCHECKHDR.VENDOR_ID.BINP]]
 rem --- set devObject with AP Type and a temp vend indicator, so if we decide to set up a temporary vendor from here,
 rem --- we'll know which AP type to use, and we can automatically set the temp vendor flag in the vendor master
@@ -1000,9 +1018,9 @@ rem ==========================================================================
 	ape02a$ = field(ape02a$)
 
 	if !found then 
-		writerecord(ape02_dev,  dom=*endif)ape02a$
+		writerecord(ape02_dev)ape02a$
 		ape02_key$=firm_id$+ape02a.ap_type$+ape02a.bnk_acct_cd$+ape02a.check_no$+ape02a.vendor_id$
-		extractrecord(ape02_dev,key=ape02_key$)ape02a$; rem Advisory Locking
+		extractrecord(ape02_dev,key=ape02_key$,dom=*endif)ape02a$; rem Advisory Locking
 		callpoint!.setStatus("SETORIG")
 	endif
 return

@@ -209,6 +209,7 @@ rem --- Read next Check Header (ape-02) record
                     apt05a1.invoice_amt=ape22a.invoice_amt
                     apt05a1.discount_amt=ape22a.discount_amt
                     apt05a1.retention=ape22a.retention
+                    apt05a1.eligible_1099$=ape02a.eligible_1099$
 
                     multi_tp$=apt05a1.ap_type$
                     if multitypes<>1 multi_tp$=fill(len(multi_tp$)," ")
@@ -354,6 +355,7 @@ rem --- Read next Check Header (ape-02) record
                 apt05a1.invoice_amt=0
                 apt05a1.discount_amt=0
                 apt05a1.retention=0
+                apt05a1.eligible_1099$=ape02a.eligible_1099$
                 if multitypes<>1 apt05a1.ap_type$=""
 
                 extract record (apt05_dev,key=apt05a1.firm_id$+apt05a1.ap_type$+apt05a1.bnk_acct_cd$+apt05a1.check_no$+apt05a1.vendor_id$+apt05a1.ap_inv_no$,dom=*next)xwk$;rem Advisory Locking
@@ -379,6 +381,7 @@ rem --- Read next Check Header (ape-02) record
                 apt05a1.invoice_amt=0
                 apt05a1.discount_amt=0
                 apt05a1.retention=0
+                apt05a1.eligible_1099$=ape02a.eligible_1099$
                 
                 if multitypes=0 apt05a1.ap_type$=""
                 extract record (apt05_dev,key=apt05a1.firm_id$+apt05a1.ap_type$+apt05a1.bnk_acct_cd$+apt05a1.check_no$+apt05a1.vendor_id$+apt05a1.ap_inv_no$,dom=*next)xwk$;rem Advisory Locking
@@ -490,6 +493,7 @@ updateAptVendPayments: rem --- Update APT_VENDPAYMENTS with new data from APT_CH
         aptVendPayments.check_date$=apt05a1.check_date$
         aptVendPayments.trans_type$=apt05a1.trans_type$
         aptVendPayments.payment_amt=apt05a1.invoice_amt - apt05a1.discount_amt - apt05a1.retention
+        aptVendPayments.eligible_1099$=apt05a1.eligible_1099$
 
         redim adcBankAcctCode$
         readrecord(adcBankAcctCode_dev,key=apt05a1.firm_id$+apt05a1.bnk_acct_cd$,dom=*next)adcBankAcctCode$
@@ -584,9 +588,21 @@ update_vendhist: rem --- Vendor
     while more
         extract record (apm02_dev,key=firm_id$+ape22a.vendor_id$+ape22a.ap_type$,dom=*break) apm02a$
         let apm02a.lstpay_date$=ape02a.check_date$
-        if ape02a.check_date$<=gl_pri_per_end$ apm02a.pyr_payments=apm02a.pyr_payments+ape22a.invoice_amt-ape22a.retention-ape22a.discount_amt,apm02a.pri_yr_discs=apm02a.pri_yr_discs+ape22a.discount_amt
-        if ape02a.check_date$>gl_pri_per_end$ and ape02a.check_date$<=gl_per_end$ apm02a.ytd_payments=apm02a.ytd_payments+ape22a.invoice_amt-ape22a.retention-ape22a.discount_amt,apm02a.ytd_discs=apm02a.ytd_discs+ape22a.discount_amt
-        if ape02a.check_date$>gl_per_end$ apm02a.nyr_payments=apm02a.nyr_payments+ape22a.invoice_amt-ape22a.retention-ape22a.discount_amt,apm02a.nyr_disc=apm02a.nyr_disc+ape22a.discount_amt
+        if ape02a.check_date$<=gl_pri_per_end$ then
+            apm02a.pyr_payments=apm02a.pyr_payments+ape22a.invoice_amt-ape22a.retention-ape22a.discount_amt
+            apm02a.pri_yr_discs=apm02a.pri_yr_discs+ape22a.discount_amt
+            if ape02a.eligible_1099$<>"Y" then apm02a.pyr_non_1099=apm02a.pyr_non_1099+ape22a.invoice_amt-ape22a.retention-ape22a.discount_amt
+        endif
+        if ape02a.check_date$>gl_pri_per_end$ and ape02a.check_date$<=gl_per_end$ then
+            apm02a.ytd_payments=apm02a.ytd_payments+ape22a.invoice_amt-ape22a.retention-ape22a.discount_amt
+            apm02a.ytd_discs=apm02a.ytd_discs+ape22a.discount_amt
+            if ape02a.eligible_1099$<>"Y" then apm02a.ytd_non_1099=apm02a.ytd_non_1099+ape22a.invoice_amt-ape22a.retention-ape22a.discount_amt
+        endif
+        if ape02a.check_date$>gl_per_end$ then
+            apm02a.nyr_payments=apm02a.nyr_payments+ape22a.invoice_amt-ape22a.retention-ape22a.discount_amt
+            apm02a.nyr_disc=apm02a.nyr_disc+ape22a.discount_amt
+            if ape02a.eligible_1099$<>"Y" then apm02a.nyr_non_1099=apm02a.nyr_non_1099+ape22a.invoice_amt-ape22a.retention-ape22a.discount_amt
+        endif
         if ape02a.check_date$<=gl_pri_calendar_dt$ apm02a.pri_cal_pmt=apm02a.pri_cal_pmt+ape22a.invoice_amt-ape22a.retention-ape22a.discount_amt
         if ape02a.check_date$>gl_pri_calendar_dt$ and ape02a.check_date$<=gl_calendar_dt$ apm02a.cur_cal_pmts=apm02a.cur_cal_pmts+ape22a.invoice_amt-ape22a.retention-ape22a.discount_amt
         if ape02a.check_date$>gl_calendar_dt$ apm02a.nxt_cyr_pmts=apm02a.nxt_cyr_pmts+ape22a.invoice_amt-ape22a.retention-ape22a.discount_amt

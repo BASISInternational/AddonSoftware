@@ -276,7 +276,7 @@ rem --- Accumulate payments
                     readrecord(apm02_dev,end=*break)apm02a$
                     if apm02a.firm_id$+apm02a.vendor_id$<>k$ then continue
                     if apm02a.irs1099_type_box$<>type_box$ then continue
-                    curr_calendar_paymts=curr_calendar_paymts+apm02a.cur_cal_pmts
+                    curr_calendar_paymts=curr_calendar_paymts+apm02a.cur_cal_pmts-apm02a.ytd_non_1099
                 wend    
 
                 if curr_calendar_paymts=0 or curr_calendar_paymts<minimum continue

@@ -79,6 +79,10 @@ rem --- Read next Vendor Detail (apm-02) record
           apm02a.pri_cal_pmt=apm02a.cur_cal_pmts
           apm02a.cur_cal_pmts=apm02a.nxt_cyr_pmts
           apm02a.nxt_cyr_pmts=0
+          apm02a.pyr_non_1099=apm02a.ytd_non_1099   
+          apm02a.ytd_non_1099=apm02a.nyr_non_1099
+          apm02a.nyr_non_1099=0
+
           apm02a$=field(apm02a$)
           write record (apm02_dev) apm02a$
 
