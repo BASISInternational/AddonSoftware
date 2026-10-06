@@ -38,6 +38,10 @@ rem --- Sum up adjustment amounts for this invoice
     while 1
         readrecord(apt_invoicedet_dev,end=*break)apt_invoicedet$
         if apt_invoicedet.firm_id$+apt_invoicedet.ap_type$+apt_invoicedet.vendor_id$+apt_invoicedet.ap_inv_no$<>trip_key$ then break
+
+        rem --- Skip invoices paid via credit card
+        if len(cvs(rec_tpl.creditcard_id$,3))=0 then continue
+
         
         rem --- Add adjustments to the INVOICE_AMT for this line
         if apt_invoicedet.trans_type$="A" then
