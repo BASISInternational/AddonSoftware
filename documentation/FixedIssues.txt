@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-10-05
+ Report Date:   2026-10-06
  Report Branch: AddonSoftware 26.03
  Last Release:  AddonSoftware 26.02
 =======================================================================================================================================
@@ -27,4 +27,17 @@ form when text is NOT for a credit card pre-paid invoice.
 ----
 Modified: data/bar/ape_payselect.xml
 Modified: data/cdf/ape_payselect.cdf
+=======================================================================================================================================
+
+Revision: a2b10d135cd9a95bd8a73da91ce820487648f26c
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 10/6/2026 10:58:19 AM
+Message:
+Bug 11317: Modified the Historical Invoices By Vendor Query filter
+program to NOT add adjustments to the INVOICE_AMT for invoices paid via
+credit card.
+----
+Modified: ap/src/apf_histinv.aon
+Modified: data/sync/adm_query_cols~[01007514AD].xml
+Modified: data/sync/adm_query~[01007514AD].xml
 =======================================================================================================================================
