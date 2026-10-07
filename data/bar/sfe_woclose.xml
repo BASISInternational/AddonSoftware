@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.sfe_woclose">FF7A0932600DAAA0B007689A4A08435B</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.sfe_woclose">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.sfe_woclose">20120924</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.sfe_woclose">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.sfe_woclose">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.sfe_woclose">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.sfe_woclose">20261007</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.sfe_woclose">20261007</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.sfe_woclose">142548</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.sfe_woclose">SFE_WOMASTR     </DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.sfe_woclose">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.sfe_woclose">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.sfe_woclose"></DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.sfe_woclose"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.sfe_woclose">T</DD_ATTR_FTYP>
@@ -2207,7 +2207,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woclose024">20120924</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woclose024"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woclose024"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose024">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose024">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woclose024">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woclose024"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woclose024">+1</DD_ATTR_CTLY>
@@ -2462,7 +2462,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woclose029">20120924</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woclose029"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woclose029"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose029">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose029">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woclose029">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woclose029">-54</DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woclose029">+1</DD_ATTR_CTLY>
@@ -2717,7 +2717,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woclose034">20120924</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woclose034"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woclose034"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose034">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose034">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woclose034">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woclose034"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woclose034"></DD_ATTR_CTLY>
@@ -2768,7 +2768,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.sfe_woclose035">20120924</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.sfe_woclose035"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.sfe_woclose035"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose035">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.sfe_woclose035">c:/dev_projects/aon_dev1/aon/;C:/dev_projects/aon_dev1/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.sfe_woclose035">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.sfe_woclose035"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.sfe_woclose035"></DD_ATTR_CTLY>
@@ -5114,8 +5114,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.sch_prod_qty"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.sch_prod_qty">N</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.sch_prod_qty"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.sch_prod_qty">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.sch_prod_qty">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.sch_prod_qty"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.sch_prod_qty"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.sch_prod_qty"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.sch_prod_qty"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.sch_prod_qty"></DD_ATTR_DKEY>
