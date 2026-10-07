@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-10-06
+ Report Date:   2026-10-07
  Report Branch: AddonSoftware 26.03
  Last Release:  AddonSoftware 26.02
 =======================================================================================================================================
@@ -40,4 +40,15 @@ credit card.
 Modified: ap/src/apf_histinv.aon
 Modified: data/sync/adm_query_cols~[01007514AD].xml
 Modified: data/sync/adm_query~[01007514AD].xml
+=======================================================================================================================================
+
+Revision: 8f1322574191c5e8f763bedfd576b221d622fcca
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 10/7/2026 2:31:13 PM
+Message:
+Bug 11312: Added missing callpoint!.setStatus("ABORT") in the ASVA
+callpoint code for the Work Order Close Data Entry form SFE_WOCLOSE.
+----
+Modified: data/bar/sfe_woclose.xml
+Modified: data/cdf/sfe_woclose.cdf
 =======================================================================================================================================
