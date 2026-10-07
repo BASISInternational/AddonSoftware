@@ -468,7 +468,6 @@ rem --- Lot/serial processing if needed
 		rem --- Launch WO lotser grid if it hasn't been launched yet
 		if callpoint!.getDevObject("ls_close_qty")=null() then
 			gosub do_wolotser
-
 			callpoint!.setDevObject("do_editon",1)
 		endif
 
@@ -478,6 +477,8 @@ rem --- Lot/serial processing if needed
 		if ls_close_qty<>wo_close_qty then
        			msg_id$="SF_MISSING_LOTSER_NO"
         			gosub disp_message
+			callpoint!.setStatus ("ABORT")
+			break
 		endif 
 	endif
 
