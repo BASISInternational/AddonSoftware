@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-10-07
+ Report Date:   2026-10-10
  Report Branch: AddonSoftware 26.03
  Last Release:  AddonSoftware 26.02
 =======================================================================================================================================
@@ -51,4 +51,15 @@ callpoint code for the Work Order Close Data Entry form SFE_WOCLOSE.
 ----
 Modified: data/bar/sfe_woclose.xml
 Modified: data/cdf/sfe_woclose.cdf
+=======================================================================================================================================
+
+Revision: 0323f08e95d905136370f7767dfe28e2aa0d5234
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 10/10/2026 1:40:03 PM
+Message:
+Bug 11315: REDIMed apt01a$ before EXTRACTing the next APT_INVOICEHDR
+record in the AP Invoice Register update to prevent using data from the
+previous record.
+----
+Modified: ap/src/apu_invoiceentry.aon
 =======================================================================================================================================
