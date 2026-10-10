@@ -93,6 +93,7 @@ rem --- Read next Invoice Header (ape-01) record
 
     open_invoice: rem --- Open Invoice
 
+        redim apt01a$
         c1=0,apt01a.firm_id$="XX"
         extract record (apt01_dev,key=ape01a.firm_id$+ape01a.ap_type$+ape01a.vendor_id$+
 :           ape01a.ap_inv_no$,dom=*next) apt01a$
