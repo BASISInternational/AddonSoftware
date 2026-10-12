@@ -405,6 +405,10 @@ rem --- set flag in devObject to say we're on a new record
 
 	callpoint!.setDevObject("new_rec","Y")
 
+rem --- For new records allow Item Lookup and disable Item Availability
+	callpoint!.setOptionEnabled("LOOK",1)
+	callpoint!.setOptionEnabled("ITAV",0)
+
 [[IVM_ITEMMAST.ARNF]]
 rem --- item not found (so assuming new record); default bar code to item id
 
