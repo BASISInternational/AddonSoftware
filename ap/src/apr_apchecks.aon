@@ -174,7 +174,7 @@ rem --- Set Report Name & Subreport directory
 	
 rem --- Open/Lock files
 
-    files=21,begfile=1,endfile=files
+    files=22,begfile=1,endfile=files
     dim files$[files],options$[files],ids$[files],templates$[files],channels[files]
     files$[1]="aps_params",  ids$[1]="APS_PARAMS"
     files$[2]="ape-04",      ids$[2]="APE_CHECKS"
@@ -197,6 +197,7 @@ rem --- Open/Lock files
     files$[19]="ape-22",      ids$[19]="APE_MANCHECKDET"
     files$[20]="ape-12",      ids$[20]="APE_MANCHECKDIST"
     files$[21]="apt-01",      ids$[21]="APT_INVOICEHDR"
+    files$[22]="adc_country.dat",      ids$[22]="ADC_COUNTRY"
 	
     call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],ids$[all],templates$[all],channels[all],batch,status
     if status goto all_done
@@ -222,6 +223,7 @@ rem --- Open/Lock files
     ape22_dev=channels[19]
     ape12_dev=channels[20]
     apt01_dev=channels[21]
+    adcCountry_dev=channels[22]
 
 rem --- Dimension string templates
 
@@ -232,6 +234,7 @@ rem --- Dimension string templates
     dim apm_approvers$:templates$[13],apt_invapproval$:templates$[14],apsACH$:templates$[15]
     dim adcBnkAcct$:templates$[16],apm02a$:templates$[17],ape02a$:templates$[18]
     dim ape22a$:templates$[19],ape12a$:templates$[20],apt01a$:templates$[21]
+    dim adcCountry$:templates$[22]
 
 rem --- Assign form input values to local variables
 
@@ -396,7 +399,13 @@ initializations: rem --- Initializations
 	
     stub_amt_mask$="########.00CR"
     exactly_amt_mask$="*#######"
-    check_amt_mask$="*"+stub_amt_mask$(2,10)
+    countryID$=stbl("+COUNTRY_ID",err=*next)
+    findrecord(adcCountry_dev,key=countryID$,dom=*next)adcCountry$
+    if cvs(adcCountry.cntry_curr_sym$,3)="$" then
+        check_amt_mask$="$"+stub_amt_mask$(2,10)
+    else
+        check_amt_mask$="*"+stub_amt_mask$(2,10)
+    endif
 	
     viewerWin_closed=0
     achViewerWin_closed=0
