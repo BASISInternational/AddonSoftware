@@ -853,7 +853,7 @@ rem --- now add them back (i.e., drop, then add, in case anything has changed)
 
     sproc_vw_name$="SIMPLE_INVOICE"
 	sqlprep$="CREATE PROCEDURE SIMPLE_INVOICE "
-    sqlprep$=sqlprep$+"(FIRM_ID VARCHAR(2) IN, AMT_MASK VARCHAR(20) IN, CUST_MASK VARCHAR(20) IN, "
+    sqlprep$=sqlprep$+"(FIRM_ID VARCHAR(2) IN, AMT_MASK VARCHAR(20) IN, TOT_AMT_MASK VARCHAR(20) IN, CUST_MASK VARCHAR(20) IN, "
     sqlprep$=sqlprep$+"CUST_SIZE VARCHAR(1) IN, CUSTOMER_ID VARCHAR(6) IN, TERMS_CD VARCHAR(2) IN, UNIT_MASK VARCHAR(20) IN, AR_INV_NO VARCHAR(7) IN, "
     sqlprep$=sqlprep$+"BARISTA_WD VARCHAR(50) IN) "
     sqlprep$=sqlprep$+"'"+sproc_path$+"SIMPLE_INVOICE.prc' '"+barista_cfg_path$+"barista.cfg' "
@@ -864,7 +864,7 @@ rem --- now add them back (i.e., drop, then add, in case anything has changed)
 
     sproc_vw_name$="SIMPLE_INVOICE_DTL"
 	sqlprep$="CREATE PROCEDURE SIMPLE_INVOICE_DTL"
-    sqlprep$=sqlprep$+"(FIRM_ID VARCHAR(2) IN, AR_INV_NO VARCHAR(7) IN, AMT_MASK VARCHAR(20) IN, UNIT_MASK VARCHAR(20) IN, ARCHIVED VARCHAR(1) IN, BARISTA_WD VARCHAR(50) IN) "
+    sqlprep$=sqlprep$+"(FIRM_ID VARCHAR(2) IN, AR_INV_NO VARCHAR(7) IN, AMT_MASK VARCHAR(20) IN, TOT_AMT_MASK VARCHAR(20) IN, UNIT_MASK VARCHAR(20) IN, ARCHIVED VARCHAR(1) IN, BARISTA_WD VARCHAR(50) IN) "
     sqlprep$=sqlprep$+"'"+sproc_path$+"SIMPLE_INVOICE_DTL.prc' '"+barista_cfg_path$+"barista.cfg' "
     sqlprep$=sqlprep$+"RESULT_SET "
     sqlprep$=sqlprep$+"{_begin_}{_end_} 'AR Simple Invoice Detail'"

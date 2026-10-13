@@ -77,21 +77,24 @@ rem --- See if batching
 
 rem --- Open/Lock files
 
-    files=2,begfile=1,endfile=files
+    files=3,begfile=1,endfile=files
     dim files$[files],options$[files],ids$[files],templates$[files],channels[files]
     files$[1]="are-05",ids$[1]="ARE_INVHDR"
     files$[2]="ars_cc_custpmt",ids$[2]="ARS_CC_CUSTPMT"
+    files$[3]="adc_country.dat",ids$[3]="ADC_COUNTRY"
 
     call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],ids$[all],templates$[all],channels[all],batch,status
     if status goto std_exit
 
     are05_dev=channels[1]
     ars_cc_custpmt=channels[2]
+    adcCountry_dev=channels[3]
 
 rem --- Dimension string templates
 
     dim are05$:templates$[1]
 	dim ars_cc_custpmt$:templates$[2]
+    dim adcCountry$:templates$[3]
 
 rem --- Assign form input values to local variables
 
@@ -107,6 +110,14 @@ rem --- Assign form input values to local variables
     call pgmdir$+"adc_getmask.aon","CUSTOMER_ID","","","",m0$,0,customer_size
     call pgmdir$+"adc_getmask.aon","","AR","A","",m1$,0,m1
     call pgmdir$+"adc_getmask.aon","","GL","U","",m2$,0,m2
+
+    countryID$=stbl("+COUNTRY_ID",err=*next)
+    findrecord(adcCountry_dev,key=countryID$,dom=*next)adcCountry$
+    if cvs(adcCountry.cntry_curr_sym$,3)="$" then
+        tot_amt_mask$="$"+m1$
+    else
+        tot_amt_mask$=m1$
+    endif
 
     emailFax! = BBjAPI().makeVector()
 
@@ -258,6 +269,7 @@ rem --- Read next Invoice Header (are-05) record
         params!.put("CUSTOMER_ID",are05.customer_id$)
         params!.put("MESSAGE",message$)
         params!.put("AMT_MASK",m1$)
+        params!.put("TOT_AMT_MASK",tot_amt_mask$)
         params!.put("CUST_MASK",m0$)
         params!.put("CUST_SIZE",str(customer_size))
         params!.put("UNIT_MASK",m2$)
