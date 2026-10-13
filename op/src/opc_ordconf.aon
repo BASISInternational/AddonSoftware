@@ -183,7 +183,7 @@ rem --- Set Report Name & Subreport directory
 
 rem --- Open Files    
     
-	num_files=19
+	num_files=20
 	dim open_tables$[1:num_files],open_opts$[1:num_files],open_chans$[1:num_files],open_tpls$[1:num_files]
 
     open_tables$[1]="ARM_CUSTMAST",  open_opts$[1] = "OTA"
@@ -205,6 +205,7 @@ rem --- Open Files
     open_tables$[17]="OPM_CUSTJOBS", open_opts$[17] = "OTA"
     open_tables$[18]="ARS_PARAMS",   open_opts$[18] = "OTA"
     open_tables$[19]="ARS_CC_CUSTPMT",open_opts$[19] = "OTA"
+    open_tables$[20]="ADC_COUNTRY",  open_opts$[20] = "OTA"
     
     gosub open_tables
     
@@ -227,6 +228,7 @@ rem --- Open Files
     opm09_dev      = num(open_chans$[17])
     ars01a_dev     = num(open_chans$[18])
     ars_cc_custpmt = num(open_chans$[19])
+    adcCountry_dev = num(open_chans$[20])
     
     dim arm01a$:open_tpls$[1]
     dim arm01a1$:open_tpls$[1]
@@ -248,6 +250,7 @@ rem --- Open Files
     dim opm09a$:open_tpls$[17]
     dim ars01a$:open_tpls$[18]
 	dim ars_cc_custpmt$:open_tpls$[19]
+    dim adcCountry$:open_tpls$[20]
     
 rem --- Parameters (company addresses)
 
@@ -283,7 +286,14 @@ rem --- Initialize Data
 
 	qty_mask_pattern$=fngetPattern$(qty_mask$)
 	amt_mask_pattern$=fngetPattern$(amt_mask$)
-	ext_mask_pattern$=fngetPattern$(ext_mask$)
+
+    countryID$=stbl("+COUNTRY_ID",err=*next)
+    findrecord(adcCountry_dev,key=countryID$,dom=*next)adcCountry$
+    if cvs(adcCountry.cntry_curr_sym$,3)="$" then
+        ext_mask_pattern$="$"+fngetPattern$(ext_mask$)
+    else
+        ext_mask_pattern$=fngetPattern$(ext_mask$)
+    endif
 
 	
     func.setLen1( int(num(ivs01a.desc_len_01$)) )
