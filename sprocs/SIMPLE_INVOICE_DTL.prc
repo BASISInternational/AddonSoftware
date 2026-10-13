@@ -19,6 +19,7 @@ rem --- get SPROC parameters
 firm_id$ = sp!.getParameter("FIRM_ID")
 ar_inv_no$ = sp!.getParameter("AR_INV_NO")
 amt_mask$ = sp!.getParameter("AMT_MASK")
+tot_amt_mask$ = sp!.getParameter("TOT_AMT_MASK")
 unit_mask$ = sp!.getParameter("UNIT_MASK")
 archived$ = sp!.getParameter("ARCHIVED")
 barista_wd$ = sp!.getParameter("BARISTA_WD")
@@ -84,7 +85,7 @@ while 1
         data!.setFieldValue("UNIT_PRICE","")
         data!.setFieldValue("EXT_PRICE","")        
     endif
-    data!.setFieldValue("TOT_PRICE",str(tot_price:amt_mask$))
+    data!.setFieldValue("TOT_PRICE",str(tot_price:tot_amt_mask$))
     rs!.insert(data!)
 
 wend

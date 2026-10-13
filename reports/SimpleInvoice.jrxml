@@ -1,4 +1,4 @@
-<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
 <jasperReport name="SimpleInvoice" language="java" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="addon" uuid="962c1ebb-526c-4005-ba21-4e08e36e3a1c">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
@@ -12,6 +12,7 @@
 	<parameter name="BARISTA_WD" class="java.lang.String"/>
 	<parameter name="LOGO_FILE" class="java.lang.String"/>
 	<parameter name="AMT_MASK" class="java.lang.String"/>
+	<parameter name="TOT_AMT_MASK" class="java.lang.String"/>
 	<parameter name="CUST_MASK" class="java.lang.String"/>
 	<parameter name="CUST_SIZE" class="java.lang.String"/>
 	<parameter name="AR_INV_NO" class="java.lang.String"/>
@@ -20,7 +21,7 @@
 	<parameter name="TERMS_CD" class="java.lang.String"/>
 	<parameter name="UNIT_MASK" class="java.lang.String"/>
 	<parameter name="ARCHIVED" class="java.lang.String"/>
-	<query language="sql"><![CDATA[CALL SIMPLE_INVOICE($P{FIRM_ID},$P{AMT_MASK},$P{CUST_MASK},$P{CUST_SIZE},$P{CUSTOMER_ID},$P{TERMS_CD},$P{UNIT_MASK},$P{AR_INV_NO},$P{BARISTA_WD})]]></query>
+	<query language="sql"><![CDATA[CALL SIMPLE_INVOICE($P{FIRM_ID},$P{AMT_MASK},$P{TOT_AMT_MASK},$P{CUST_MASK},$P{CUST_SIZE},$P{CUSTOMER_ID},$P{TERMS_CD},$P{UNIT_MASK},$P{AR_INV_NO},$P{BARISTA_WD})]]></query>
 	<field name="FIRM_ID" class="java.lang.String"/>
 	<field name="CUSTOMER_ID" class="java.lang.String"/>
 	<field name="CUST_NAME" class="java.lang.String"/>
@@ -43,7 +44,7 @@
 	<field name="TERMS_DESC" class="java.lang.String"/>
 	<field name="AR_FAX_NO" class="java.lang.String"/>
 	<variable name="TOT_PRICE" class="java.lang.String"/>
-	<group name="CUSTOMER" footerPosition="StackAtBottom" startNewPage="true" resetPageNumber="true" reprintHeaderOnEachPage="true">
+	<group name="CUSTOMER" footerPosition="StackAtBottom" reprintHeaderOnEachPage="true" startNewPage="true" resetPageNumber="true">
 		<expression><![CDATA[$F{CUSTOMER_ID}]]></expression>
 		<groupHeader>
 			<band height="1"/>
@@ -207,6 +208,9 @@
 				</parameter>
 				<parameter name="AMT_MASK">
 					<expression><![CDATA[$P{AMT_MASK}]]></expression>
+				</parameter>
+				<parameter name="TOT_AMT_MASK">
+					<expression><![CDATA[$P{TOT_AMT_MASK}]]></expression>
 				</parameter>
 				<parameter name="FIRM_ID">
 					<expression><![CDATA[$P{FIRM_ID}]]></expression>
