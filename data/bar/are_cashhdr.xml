@@ -222,7 +222,7 @@
 		<RECORD id="ddm_table_tpls.are_cashhdr">
 			<DD_TABLE_ALIAS id="ddm_table_tpls.are_cashhdr">ARE_CASHHDR     </DD_TABLE_ALIAS>
 			<DD_FILE_NAME id="ddm_table_tpls.are_cashhdr">are-01</DD_FILE_NAME>
-			<DD_TABLE_TPL id="ddm_table_tpls.are_cashhdr">firm_id:c(2),ar_type:c(2),reserved_key_01:c(1),receipt_date:c(8),customer_id:c(6),cash_rec_cd:c(3),ar_check_no:c(7),reserved_key_02:c(1),cash_check:c(1),aba_no:c(10),payment_amt:n(7*),batch_no:c(7),deposit_id:c(7),memo_1024:c(1024*=1)</DD_TABLE_TPL>
+			<DD_TABLE_TPL id="ddm_table_tpls.are_cashhdr">firm_id:c(2),ar_type:c(2),reserved_key_01:c(1),receipt_date:c(8),customer_id:c(6),cash_rec_cd:c(5),ar_check_no:c(7),reserved_key_02:c(1),cash_check:c(1),aba_no:c(10),payment_amt:n(7*),batch_no:c(7),deposit_id:c(7),memo_1024:c(1024*=1)</DD_TABLE_TPL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_ref">
@@ -2138,7 +2138,7 @@
 			<DD_DATA_NAME id="ddm_elements.cash_rec_cd">CASH_REC_CD     </DD_DATA_NAME>
 			<DD_DESCRIPTION id="ddm_elements.cash_rec_cd">Cash Receipts Code</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.cash_rec_cd">C</DD_DATA_TYPE>
-			<DD_DATA_LENGTH id="ddm_elements.cash_rec_cd">3</DD_DATA_LENGTH>
+			<DD_DATA_LENGTH id="ddm_elements.cash_rec_cd">5</DD_DATA_LENGTH>
 			<DD_MASK_TYPE id="ddm_elements.cash_rec_cd"></DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.cash_rec_cd"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.cash_rec_cd">01007514</ASC_COMP_ID>
@@ -2170,7 +2170,7 @@
 			<DD_ATTR_MAXV id="ddm_elements.cash_rec_cd"></DD_ATTR_MAXV>
 			<DD_ATTR_MINL id="ddm_elements.cash_rec_cd"></DD_ATTR_MINL>
 			<DD_ATTR_MINV id="ddm_elements.cash_rec_cd"></DD_ATTR_MINV>
-			<DD_ATTR_MSKI id="ddm_elements.cash_rec_cd">UUU</DD_ATTR_MSKI>
+			<DD_ATTR_MSKI id="ddm_elements.cash_rec_cd">UUUUU</DD_ATTR_MSKI>
 			<DD_ATTR_MSKO id="ddm_elements.cash_rec_cd"></DD_ATTR_MSKO>
 			<DD_ATTR_PADC id="ddm_elements.cash_rec_cd">20</DD_ATTR_PADC>
 			<DD_ATTR_PADJ id="ddm_elements.cash_rec_cd">L</DD_ATTR_PADJ>

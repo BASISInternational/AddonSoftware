@@ -123,7 +123,7 @@
 		<RECORD id="ddm_table_tpls.ars_cc_custsvc">
 			<DD_TABLE_ALIAS id="ddm_table_tpls.ars_cc_custsvc">ARS_CC_CUSTSVC  </DD_TABLE_ALIAS>
 			<DD_FILE_NAME id="ddm_table_tpls.ars_cc_custsvc">ars_cc_custsvc</DD_FILE_NAME>
-			<DD_TABLE_TPL id="ddm_table_tpls.ars_cc_custsvc">firm_id:c(2),cash_rec_cd:c(3*),use_custsvc_cc:c(1),interface_tp:c(1),gateway_id:c(10),batch_desc:c(30),deposit_desc:c(30),dflt_cntry_id:c(2),cc_pending:c(10),cc_expense:c(10)</DD_TABLE_TPL>
+			<DD_TABLE_TPL id="ddm_table_tpls.ars_cc_custsvc">firm_id:c(2),cash_rec_cd:c(5*),use_custsvc_cc:c(1),interface_tp:c(1),gateway_id:c(10),batch_desc:c(30),deposit_desc:c(30),dflt_cntry_id:c(2),cc_pending:c(10),cc_expense:c(10)</DD_TABLE_TPL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_ref">
@@ -876,7 +876,7 @@
 			<DD_DATA_NAME id="ddm_elements.cash_rec_cd">CASH_REC_CD     </DD_DATA_NAME>
 			<DD_DESCRIPTION id="ddm_elements.cash_rec_cd">Cash Receipts Code</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.cash_rec_cd">C</DD_DATA_TYPE>
-			<DD_DATA_LENGTH id="ddm_elements.cash_rec_cd">3</DD_DATA_LENGTH>
+			<DD_DATA_LENGTH id="ddm_elements.cash_rec_cd">5</DD_DATA_LENGTH>
 			<DD_MASK_TYPE id="ddm_elements.cash_rec_cd"> </DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.cash_rec_cd"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.cash_rec_cd">01007514</ASC_COMP_ID>
@@ -908,7 +908,7 @@
 			<DD_ATTR_MAXV id="ddm_elements.cash_rec_cd"></DD_ATTR_MAXV>
 			<DD_ATTR_MINL id="ddm_elements.cash_rec_cd"></DD_ATTR_MINL>
 			<DD_ATTR_MINV id="ddm_elements.cash_rec_cd"></DD_ATTR_MINV>
-			<DD_ATTR_MSKI id="ddm_elements.cash_rec_cd">UUU</DD_ATTR_MSKI>
+			<DD_ATTR_MSKI id="ddm_elements.cash_rec_cd">UUUUU</DD_ATTR_MSKI>
 			<DD_ATTR_MSKO id="ddm_elements.cash_rec_cd"></DD_ATTR_MSKO>
 			<DD_ATTR_PADC id="ddm_elements.cash_rec_cd">20</DD_ATTR_PADC>
 			<DD_ATTR_PADJ id="ddm_elements.cash_rec_cd">L</DD_ATTR_PADJ>
