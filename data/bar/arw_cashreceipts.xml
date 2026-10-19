@@ -63,7 +63,7 @@
 		<RECORD id="ddm_table_tpls.arw_cashreceipts">
 			<DD_TABLE_ALIAS id="ddm_table_tpls.arw_cashreceipts">ARW_CASHRECEIPTS</DD_TABLE_ALIAS>
 			<DD_FILE_NAME id="ddm_table_tpls.arw_cashreceipts">arw-05</DD_FILE_NAME>
-			<DD_TABLE_TPL id="ddm_table_tpls.arw_cashreceipts">firm_id:c(2),cash_rec_cd:c(5),ar_type:c(2),reserved_key_01:c(1),receipt_date:c(8),customer_id:c(6),ar_check_no:c(7),reserved_key_02:c(1)</DD_TABLE_TPL>
+			<DD_TABLE_TPL id="ddm_table_tpls.arw_cashreceipts">firm_id:c(2),cash_rec_cd:c(5),ar_type:c(2),reserved_key_01:c(1),receipt_date:c(8),customer_id:c(6),ar_check_no:c(10),reserved_key_02:c(1)</DD_TABLE_TPL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_ref">

@@ -277,7 +277,7 @@ rem --- Headings and print positions
     dim columns$[columns,10]
 
     columns$[0,0]=Translate!.getTranslation("AON_CHK_ACCT_BNK_CD"), columns$[0,1]="C",columns$[0,2]="10"
-    columns$[1,0]=Translate!.getTranslation("AON_CHECK_NO"),        columns$[1,1]="C",columns$[1,2]="8"
+    columns$[1,0]=Translate!.getTranslation("AON_CHECK_NO"),        columns$[1,1]="C",columns$[1,2]="10"
     columns$[2,0]=Translate!.getTranslation("AON_CHECK_DATE"),      columns$[2,1]="C",columns$[2,2]="10"
     if !ach_allowed then
         columns$[3,0]=Translate!.getTranslation("AON_VENDOR"),          columns$[3,1]="C",columns$[3,2]="7"

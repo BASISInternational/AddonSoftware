@@ -90,7 +90,7 @@
 		<RECORD id="ddm_table_tpls.opt_invcash">
 			<DD_TABLE_ALIAS id="ddm_table_tpls.opt_invcash">OPT_INVCASH     </DD_TABLE_ALIAS>
 			<DD_FILE_NAME id="ddm_table_tpls.opt_invcash">opt-41</DD_FILE_NAME>
-			<DD_TABLE_TPL id="ddm_table_tpls.opt_invcash">firm_id:c(2),ar_type:c(2),customer_id:c(6),order_no:c(7),ar_inv_no:c(7),cash_rec_cd:c(5),ar_check_no:c(7),payment_id:c(16),invoice_date:c(8),expire_date:c(8),customer_name:c(30),credit_card_no:c(64),deposit_id:c(7),created_user:c(16),created_date:c(8),created_time:c(4),mod_user:c(16),mod_date:c(8),mod_time:c(4),trans_status:c(1),arc_user:c(16),arc_date:c(8),arc_time:c(4),batch_no:c(7),credit_trans_no:c(10),card_last_4:c(4),manual_swipe:c(1),audit_number:n(7*),invoice_amt:n(7*),tendered_amt:n(7*)</DD_TABLE_TPL>
+			<DD_TABLE_TPL id="ddm_table_tpls.opt_invcash">firm_id:c(2),ar_type:c(2),customer_id:c(6),order_no:c(7),ar_inv_no:c(7),cash_rec_cd:c(5),ar_check_no:c(10),payment_id:c(16),invoice_date:c(8),expire_date:c(8),customer_name:c(30),credit_card_no:c(64),deposit_id:c(7),created_user:c(16),created_date:c(8),created_time:c(4),mod_user:c(16),mod_date:c(8),mod_time:c(4),trans_status:c(1),arc_user:c(16),arc_date:c(8),arc_time:c(4),batch_no:c(7),credit_trans_no:c(10),card_last_4:c(4),manual_swipe:c(1),audit_number:n(7*),invoice_amt:n(7*),tendered_amt:n(7*)</DD_TABLE_TPL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_ref">
@@ -3034,7 +3034,7 @@
 			<DD_DATA_NAME id="ddm_elements.ar_check_no">AR_CHECK_NO     </DD_DATA_NAME>
 			<DD_DESCRIPTION id="ddm_elements.ar_check_no">Check Number</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.ar_check_no">C</DD_DATA_TYPE>
-			<DD_DATA_LENGTH id="ddm_elements.ar_check_no">7</DD_DATA_LENGTH>
+			<DD_DATA_LENGTH id="ddm_elements.ar_check_no">10</DD_DATA_LENGTH>
 			<DD_MASK_TYPE id="ddm_elements.ar_check_no"> </DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.ar_check_no"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.ar_check_no">01007514</ASC_COMP_ID>

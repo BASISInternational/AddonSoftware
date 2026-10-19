@@ -523,7 +523,7 @@ init_heading: rem --- Init Column Headings
                     
             columns$[columns-10,0]=Translate!.getTranslation("AON_RECEIPT_DT"),  columns$[columns-10,1]="C",columns$[columns-10,2]="10"
             columns$[columns-9,0]=Translate!.getTranslation("AON_CD"),      columns$[columns-9,1]="C",columns$[columns-9,2]="3"
-            columns$[columns-8,0]=Translate!.getTranslation("AON_CHECK_NO"),    columns$[columns-8,1]="C",columns$[columns-8,2]="8"
+            columns$[columns-8,0]=Translate!.getTranslation("AON_CHECK_NO"),    columns$[columns-8,1]="C",columns$[columns-8,2]="10"
             columns$[columns-7,0]=Translate!.getTranslation("AON_CHECK_AMT"),       columns$[columns-7,1]="N",columns$[columns-7,2]=str(len(m1$)),columns$[columns-7,3]=m1$,columns$[columns-7,10]="T"
             columns$[columns-6,0]=Translate!.getTranslation("AON_INVOICE"),columns$[columns-6,1]="C",columns$[columns-6,2]="8"
             columns$[columns-5,0]=Translate!.getTranslation("AON_INVOICE_BAL"),   columns$[columns-5,1]="N",columns$[columns-5,2]=str(len(m1$)),columns$[columns-5,3]=m1$,columns$[columns-5,10]="T"

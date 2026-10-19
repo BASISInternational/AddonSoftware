@@ -63,7 +63,7 @@
 		<RECORD id="ddm_table_tpls.arw_cashjournal">
 			<DD_TABLE_ALIAS id="ddm_table_tpls.arw_cashjournal">ARW_CASHJOURNAL </DD_TABLE_ALIAS>
 			<DD_FILE_NAME id="ddm_table_tpls.arw_cashjournal">arw-07</DD_FILE_NAME>
-			<DD_TABLE_TPL id="ddm_table_tpls.arw_cashjournal">firm_id:c(2),ar_type:c(2),receipt_date:c(8),gl_account:c(10),customer_id:c(6),ar_check_no:c(7),ar_inv_no:c(7*),gl_post_amt:n(7*)</DD_TABLE_TPL>
+			<DD_TABLE_TPL id="ddm_table_tpls.arw_cashjournal">firm_id:c(2),ar_type:c(2),receipt_date:c(8),gl_account:c(10),customer_id:c(6),ar_check_no:c(10),ar_inv_no:c(7*),gl_post_amt:n(7*)</DD_TABLE_TPL>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_ref">
