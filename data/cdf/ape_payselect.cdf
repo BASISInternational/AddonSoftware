@@ -2034,7 +2034,7 @@ rem ==========================================================================
 	host$ = System.getProperty("com.basis.jetty.host")
 	if host$="" then host$ = info(3,4)
 	
-	bui_name$="BaristaApplicationFramework"
+	bui_name$="AP - Payment Selection Entry"
 	
 	buiurl$ = protocol$ + "://" + host$ + ":" + port$ + "/apps/" + bui_name$ + "?locale=" + stbl("+USER_LOCALE")
 	
