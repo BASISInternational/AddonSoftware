@@ -782,7 +782,7 @@ update_comtd_on_order: rem --- Update IVM-02/IVM-07 committed and on order
         endif
     endif
 
-    if !(dropship) and cvs(ivs01a.dropship_whse$,2)<>"" then 
+    if !(dropship) then 
         if pos(action$="CO,IC,II,OE,OP,TO,WI",3) or (action$="IA" and qty<0) then 
             ivmwk.qty_commit=ivmwk.qty_commit+qty
         else 
@@ -796,7 +796,7 @@ update_comtd_on_order: rem --- Update IVM-02/IVM-07 committed and on order
         if pos(action$="OOPO",2) then 
             ivmwk.qty_on_order=ivmwk.qty_on_order+qty
         else 
-            if action$="RC" and !(dropship) and cvs(ivs01a.dropship_whse$,2)<>"" then 
+            if action$="RC" and !(dropship) then 
                 ivmwk.qty_on_order=ivmwk.qty_on_order-qty
             endif
         endif
