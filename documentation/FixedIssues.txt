@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-10-10
+ Report Date:   2026-10-26
  Report Branch: AddonSoftware 26.03
  Last Release:  AddonSoftware 26.02
 =======================================================================================================================================
@@ -62,4 +62,14 @@ record in the AP Invoice Register update to prevent using data from the
 previous record.
 ----
 Modified: ap/src/apu_invoiceentry.aon
+=======================================================================================================================================
+
+Revision: eaea6b9f2493dc7bf7df3cacaa2639b4d5bc714d
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 10/26/2026 2:15:32 PM
+Message:
+Bug 11328: Corrected dropship logic for skipping updating an item's
+committed quantity.
+----
+Modified: iv/src/ivc_itemupdt.aon
 =======================================================================================================================================
