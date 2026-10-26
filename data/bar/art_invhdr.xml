@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.art_invhdr">945860145967CDBCD85B5A81A51D1942</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.art_invhdr">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.art_invhdr">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.art_invhdr">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.art_invhdr">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.art_invhdr">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.art_invhdr">20260921</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.art_invhdr">20261022</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.art_invhdr">135504</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.art_invhdr"></DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.art_invhdr">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.art_invhdr">C:/dev_projects/aon_v2700/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.art_invhdr">AO_INVOICE</DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.art_invhdr"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.art_invhdr">T</DD_ATTR_FTYP>
@@ -215,6 +215,13 @@
 			<DD_KEY_ID id="ddm_keys.art_invhdr02">AO_INVOICE      </DD_KEY_ID>
 			<DD_KEY_AUTO_GEN id="ddm_keys.art_invhdr02"></DD_KEY_AUTO_GEN>
 		</RECORD>
+		<RECORD id="ddm_keys.art_invhdr03">
+			<DD_TABLE_ALIAS id="ddm_keys.art_invhdr03">ART_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_keys.art_invhdr03">03</DD_KEY_NUMBER>
+			<DD_KEY_DESC id="ddm_keys.art_invhdr03">By Customer & Invoice Date</DD_KEY_DESC>
+			<DD_KEY_ID id="ddm_keys.art_invhdr03">AO_CUST_INVDATE </DD_KEY_ID>
+			<DD_KEY_AUTO_GEN id="ddm_keys.art_invhdr03"></DD_KEY_AUTO_GEN>
+		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_key_segs">
 		<ID id="ddm_key_segs">DDM_KEY_SEGS</ID>
@@ -347,6 +354,84 @@
 			<DD_SEGMENT_UNIQ id="ddm_key_segs.art_invhdr0204">N</DD_SEGMENT_UNIQ>
 			<DD_SEGMENT_MATH id="ddm_key_segs.art_invhdr0204">N</DD_SEGMENT_MATH>
 			<DD_SEGMENT_NUM id="ddm_key_segs.art_invhdr0204">N</DD_SEGMENT_NUM>
+		</RECORD>
+		<RECORD id="ddm_key_segs.art_invhdr0301">
+			<DD_TABLE_ALIAS id="ddm_key_segs.art_invhdr0301">ART_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_key_segs.art_invhdr0301">03</DD_KEY_NUMBER>
+			<DD_SEGMENT_SEQ id="ddm_key_segs.art_invhdr0301">01</DD_SEGMENT_SEQ>
+			<DD_SEGMENT_COL id="ddm_key_segs.art_invhdr0301">FIRM_ID</DD_SEGMENT_COL>
+			<DD_SEGMENT_POS id="ddm_key_segs.art_invhdr0301"></DD_SEGMENT_POS>
+			<DD_SEGMENT_OFF id="ddm_key_segs.art_invhdr0301"></DD_SEGMENT_OFF>
+			<DD_SEGMENT_LEN id="ddm_key_segs.art_invhdr0301"></DD_SEGMENT_LEN>
+			<DD_SEGMENT_SORT id="ddm_key_segs.art_invhdr0301">N</DD_SEGMENT_SORT>
+			<DD_SEGMENT_UNIQ id="ddm_key_segs.art_invhdr0301">N</DD_SEGMENT_UNIQ>
+			<DD_SEGMENT_MATH id="ddm_key_segs.art_invhdr0301">N</DD_SEGMENT_MATH>
+			<DD_SEGMENT_NUM id="ddm_key_segs.art_invhdr0301">N</DD_SEGMENT_NUM>
+		</RECORD>
+		<RECORD id="ddm_key_segs.art_invhdr0302">
+			<DD_TABLE_ALIAS id="ddm_key_segs.art_invhdr0302">ART_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_key_segs.art_invhdr0302">03</DD_KEY_NUMBER>
+			<DD_SEGMENT_SEQ id="ddm_key_segs.art_invhdr0302">02</DD_SEGMENT_SEQ>
+			<DD_SEGMENT_COL id="ddm_key_segs.art_invhdr0302">AR_TYPE</DD_SEGMENT_COL>
+			<DD_SEGMENT_POS id="ddm_key_segs.art_invhdr0302"></DD_SEGMENT_POS>
+			<DD_SEGMENT_OFF id="ddm_key_segs.art_invhdr0302"></DD_SEGMENT_OFF>
+			<DD_SEGMENT_LEN id="ddm_key_segs.art_invhdr0302"></DD_SEGMENT_LEN>
+			<DD_SEGMENT_SORT id="ddm_key_segs.art_invhdr0302">N</DD_SEGMENT_SORT>
+			<DD_SEGMENT_UNIQ id="ddm_key_segs.art_invhdr0302">N</DD_SEGMENT_UNIQ>
+			<DD_SEGMENT_MATH id="ddm_key_segs.art_invhdr0302">N</DD_SEGMENT_MATH>
+			<DD_SEGMENT_NUM id="ddm_key_segs.art_invhdr0302">N</DD_SEGMENT_NUM>
+		</RECORD>
+		<RECORD id="ddm_key_segs.art_invhdr0303">
+			<DD_TABLE_ALIAS id="ddm_key_segs.art_invhdr0303">ART_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_key_segs.art_invhdr0303">03</DD_KEY_NUMBER>
+			<DD_SEGMENT_SEQ id="ddm_key_segs.art_invhdr0303">03</DD_SEGMENT_SEQ>
+			<DD_SEGMENT_COL id="ddm_key_segs.art_invhdr0303">CUSTOMER_ID</DD_SEGMENT_COL>
+			<DD_SEGMENT_POS id="ddm_key_segs.art_invhdr0303"></DD_SEGMENT_POS>
+			<DD_SEGMENT_OFF id="ddm_key_segs.art_invhdr0303"></DD_SEGMENT_OFF>
+			<DD_SEGMENT_LEN id="ddm_key_segs.art_invhdr0303"></DD_SEGMENT_LEN>
+			<DD_SEGMENT_SORT id="ddm_key_segs.art_invhdr0303">N</DD_SEGMENT_SORT>
+			<DD_SEGMENT_UNIQ id="ddm_key_segs.art_invhdr0303">N</DD_SEGMENT_UNIQ>
+			<DD_SEGMENT_MATH id="ddm_key_segs.art_invhdr0303">N</DD_SEGMENT_MATH>
+			<DD_SEGMENT_NUM id="ddm_key_segs.art_invhdr0303">N</DD_SEGMENT_NUM>
+		</RECORD>
+		<RECORD id="ddm_key_segs.art_invhdr0304">
+			<DD_TABLE_ALIAS id="ddm_key_segs.art_invhdr0304">ART_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_key_segs.art_invhdr0304">03</DD_KEY_NUMBER>
+			<DD_SEGMENT_SEQ id="ddm_key_segs.art_invhdr0304">04</DD_SEGMENT_SEQ>
+			<DD_SEGMENT_COL id="ddm_key_segs.art_invhdr0304">INVOICE_DATE</DD_SEGMENT_COL>
+			<DD_SEGMENT_POS id="ddm_key_segs.art_invhdr0304"></DD_SEGMENT_POS>
+			<DD_SEGMENT_OFF id="ddm_key_segs.art_invhdr0304"></DD_SEGMENT_OFF>
+			<DD_SEGMENT_LEN id="ddm_key_segs.art_invhdr0304"></DD_SEGMENT_LEN>
+			<DD_SEGMENT_SORT id="ddm_key_segs.art_invhdr0304">N</DD_SEGMENT_SORT>
+			<DD_SEGMENT_UNIQ id="ddm_key_segs.art_invhdr0304">N</DD_SEGMENT_UNIQ>
+			<DD_SEGMENT_MATH id="ddm_key_segs.art_invhdr0304">N</DD_SEGMENT_MATH>
+			<DD_SEGMENT_NUM id="ddm_key_segs.art_invhdr0304">N</DD_SEGMENT_NUM>
+		</RECORD>
+		<RECORD id="ddm_key_segs.art_invhdr0305">
+			<DD_TABLE_ALIAS id="ddm_key_segs.art_invhdr0305">ART_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_key_segs.art_invhdr0305">03</DD_KEY_NUMBER>
+			<DD_SEGMENT_SEQ id="ddm_key_segs.art_invhdr0305">05</DD_SEGMENT_SEQ>
+			<DD_SEGMENT_COL id="ddm_key_segs.art_invhdr0305">AR_INV_NO</DD_SEGMENT_COL>
+			<DD_SEGMENT_POS id="ddm_key_segs.art_invhdr0305"></DD_SEGMENT_POS>
+			<DD_SEGMENT_OFF id="ddm_key_segs.art_invhdr0305"></DD_SEGMENT_OFF>
+			<DD_SEGMENT_LEN id="ddm_key_segs.art_invhdr0305"></DD_SEGMENT_LEN>
+			<DD_SEGMENT_SORT id="ddm_key_segs.art_invhdr0305">N</DD_SEGMENT_SORT>
+			<DD_SEGMENT_UNIQ id="ddm_key_segs.art_invhdr0305">N</DD_SEGMENT_UNIQ>
+			<DD_SEGMENT_MATH id="ddm_key_segs.art_invhdr0305">N</DD_SEGMENT_MATH>
+			<DD_SEGMENT_NUM id="ddm_key_segs.art_invhdr0305">N</DD_SEGMENT_NUM>
+		</RECORD>
+		<RECORD id="ddm_key_segs.art_invhdr0306">
+			<DD_TABLE_ALIAS id="ddm_key_segs.art_invhdr0306">ART_INVHDR      </DD_TABLE_ALIAS>
+			<DD_KEY_NUMBER id="ddm_key_segs.art_invhdr0306">03</DD_KEY_NUMBER>
+			<DD_SEGMENT_SEQ id="ddm_key_segs.art_invhdr0306">06</DD_SEGMENT_SEQ>
+			<DD_SEGMENT_COL id="ddm_key_segs.art_invhdr0306">SEQUENCE_00</DD_SEGMENT_COL>
+			<DD_SEGMENT_POS id="ddm_key_segs.art_invhdr0306"></DD_SEGMENT_POS>
+			<DD_SEGMENT_OFF id="ddm_key_segs.art_invhdr0306"></DD_SEGMENT_OFF>
+			<DD_SEGMENT_LEN id="ddm_key_segs.art_invhdr0306"></DD_SEGMENT_LEN>
+			<DD_SEGMENT_SORT id="ddm_key_segs.art_invhdr0306">N</DD_SEGMENT_SORT>
+			<DD_SEGMENT_UNIQ id="ddm_key_segs.art_invhdr0306">N</DD_SEGMENT_UNIQ>
+			<DD_SEGMENT_MATH id="ddm_key_segs.art_invhdr0306">N</DD_SEGMENT_MATH>
+			<DD_SEGMENT_NUM id="ddm_key_segs.art_invhdr0306">N</DD_SEGMENT_NUM>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_table_cols">
@@ -520,7 +605,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.art_invhdr004">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.art_invhdr004"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.art_invhdr004"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.art_invhdr004">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.art_invhdr004">C:/dev_projects/aon_v2700/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.art_invhdr004"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.art_invhdr004"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.art_invhdr004"></DD_ATTR_CTLY>
@@ -1948,8 +2033,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.sequence_00"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.sequence_00">H</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.sequence_00"></DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.sequence_00">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.sequence_00">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.sequence_00"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.sequence_00"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.sequence_00"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.sequence_00"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.sequence_00"></DD_ATTR_DKEY>
@@ -2260,8 +2345,8 @@
 			<DD_ATTR_CTLH id="ddm_elements.job_no"></DD_ATTR_CTLH>
 			<DD_ATTR_CTYP id="ddm_elements.job_no">E</DD_ATTR_CTYP>
 			<DD_ATTR_DCOL id="ddm_elements.job_no">CUSTOMER_NAME</DD_ATTR_DCOL>
-			<DD_ATTR_DCOM id="ddm_elements.job_no">            </DD_ATTR_DCOM>
-			<DD_ATTR_DEXP id="ddm_elements.job_no">            </DD_ATTR_DEXP>
+			<DD_ATTR_DCOM id="ddm_elements.job_no"></DD_ATTR_DCOM>
+			<DD_ATTR_DEXP id="ddm_elements.job_no"></DD_ATTR_DEXP>
 			<DD_ATTR_DFLT id="ddm_elements.job_no"></DD_ATTR_DFLT>
 			<DD_ATTR_DKNM id="ddm_elements.job_no"></DD_ATTR_DKNM>
 			<DD_ATTR_DKEY id="ddm_elements.job_no">[FIRM_ID]+[CUSTOMER_ID]+@</DD_ATTR_DKEY>

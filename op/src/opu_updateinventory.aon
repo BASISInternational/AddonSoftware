@@ -840,6 +840,7 @@ ar_open_invoice_detail: rem --- AR Open Invoice Detail
             credit = arm02a.aging_future+arm02a.aging_cur+arm02a.aging_30+arm02a.aging_60+arm02a.aging_90+arm02a.aging_120; rem "Current Credit
 
             inv_hist_flg$=arm02a.inv_hist_flg$
+            if cvs(arm02a.fstinv_date$,2)="" then arm02a.fstinv_date$ = ope01a.invoice_date$
             arm02a.lstinv_date$ = ope01a.invoice_date$
             arm02a.report_type$=age_by$
             arm02a.report_date$=aging_date$

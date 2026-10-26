@@ -97,9 +97,94 @@ rem --- Show Invoice Days Due
 		callpoint!.setColumnData("<<DISPLAY>>.DSP_INV_DAYS_DUE","?",1)
 	endif
 
+rem --- Show days/years since a date on Aging And Sales Summary tab
+	today$=date(0:"%Yl%Mz%Dz")
 
+	fstinv_date$=callpoint!.getColumnData("ARM_CUSTDET.FSTINV_DATE")
+	delta$=func.daysBetweenDates(fstinv_date$, today$)
+	FstInvDate_label!=callpoint!.getDevObject("FstInvDate_label")
+	FstInvDate_label!.setText(delta$)
 
-	
+	lstinv_date$=callpoint!.getColumnData("ARM_CUSTPMTS.LSTINV_DATE")
+	delta$=func.daysBetweenDates(lstinv_date$, today$)
+	LstInvDate_label!=callpoint!.getDevObject("LstInvDate_label")
+	LstInvDate_label!.setText(delta$)
+
+	lstpay_date$=callpoint!.getColumnData("ARM_CUSTPMTS.LSTPAY_DATE")
+	delta$=func.daysBetweenDates(lstpay_date$, today$)
+	LstPayDate_label!=callpoint!.getDevObject("LstPayDate_label")
+	LstPayDate_label!.setText(delta$)
+
+	report_date$=callpoint!.getColumnData("ARM_CUSTDET.REPORT_DATE")
+	delta$=func.daysBetweenDates(report_date$, today$)
+	ReportDate_label!=callpoint!.getDevObject("ReportDate_label")
+	ReportDate_label!.setText(delta$)
+
+[[ARM_CUSTMAST.AFMC]]
+rem --- Initializations
+	use ::ado_func.src::func
+
+rem --- Add static labels for days/years since a date on Aging And Sales Summary tab
+	AgingSales$=Translate!.getTranslation("DDM_TABLE_TABG-ARM_CUSTMAST-03-DD_ATTR_TABG")
+	tabCtrl!=Form!.getControl(num(stbl("+TAB_CTL")))
+	numTabs=tabCtrl!.getNumTabs()
+	for i=0 to numTabs-1
+		if pos(tabCtrl!.getTitleAt(i)=AgingSales$)=1 then
+			AgingSalesTab!=tabCtrl!.getControlAt(i)
+		endif
+	next i
+
+	control!=fnget_control!("ARM_CUSTDET.FSTINV_DATE")
+	control_x=control!.getX()
+	control_y=control!.getY()
+	control_height=control!.getHeight()
+	control_width=control!.getWidth()
+	label_width=50
+	nxt_ctlID=util.getNextControlID()
+	FstInvDate_label!=AgingSalesTab!.addStaticText(nxt_ctlID,control_x+85,control_y+2,label_width,control_height-6,"")
+	FstInvDate_label!.setText("")
+	FstInvDate_label!.setBackColor(AgingSalesTab!.getBackColor())
+	FstInvDate_label!.setVisible(1)
+	callpoint!.setDevObject("FstInvDate_label",FstInvDate_label!)
+
+	control!=fnget_control!("ARM_CUSTPMTS.LSTINV_DATE")
+	control_x=control!.getX()
+	control_y=control!.getY()
+	control_height=control!.getHeight()
+	control_width=control!.getWidth()
+	label_width=50
+	nxt_ctlID=util.getNextControlID()
+	LstInvDate_label!=AgingSalesTab!.addStaticText(nxt_ctlID,control_x+85,control_y+2,label_width,control_height-6,"")
+	LstInvDate_label!.setText("")
+	LstInvDate_label!.setBackColor(AgingSalesTab!.getBackColor())
+	LstInvDate_label!.setVisible(1)
+	callpoint!.setDevObject("LstInvDate_label",LstInvDate_label!)
+
+	control!=fnget_control!("ARM_CUSTPMTS.LSTPAY_DATE")
+	control_x=control!.getX()
+	control_y=control!.getY()
+	control_height=control!.getHeight()
+	control_width=control!.getWidth()
+	label_width=50
+	nxt_ctlID=util.getNextControlID()
+	LstPayDate_label!=AgingSalesTab!.addStaticText(nxt_ctlID,control_x+105,control_y+2,label_width,control_height-6,"")
+	LstPayDate_label!.setText("")
+	LstPayDate_label!.setBackColor(AgingSalesTab!.getBackColor())
+	LstPayDate_label!.setVisible(1)
+	callpoint!.setDevObject("LstPayDate_label",LstPayDate_label!)
+
+	control!=fnget_control!("ARM_CUSTDET.REPORT_DATE")
+	control_x=control!.getX()
+	control_y=control!.getY()
+	control_height=control!.getHeight()
+	control_width=control!.getWidth()
+	label_width=50
+	nxt_ctlID=util.getNextControlID()
+	ReportDate_label!=AgingSalesTab!.addStaticText(nxt_ctlID,control_x+85,control_y+2,label_width,control_height-6,"")
+	ReportDate_label!.setText("")
+	ReportDate_label!.setBackColor(AgingSalesTab!.getBackColor())
+	ReportDate_label!.setVisible(1)
+	callpoint!.setDevObject("ReportDate_label",ReportDate_label!)
 
 [[ARM_CUSTMAST.AOPT-AGNG]]
 rem --- Age this customer's transactions
@@ -1599,6 +1684,15 @@ rem ===================================
     return
 
 #include [+ADDON_LIB]std_missing_params.aon
+
+rem #include fnget_control.src
+	def fnget_control!(ctl_name$)
+	ctlContext=num(callpoint!.getTableColumnAttribute(ctl_name$,"CTLC"))
+	ctlID=num(callpoint!.getTableColumnAttribute(ctl_name$,"CTLI"))
+	get_control!=SysGUI!.getWindow(ctlContext).getControl(ctlID)
+	return get_control!
+	fnend
+rem #endinclude fnget_control.src
 
 
 
