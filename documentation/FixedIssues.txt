@@ -1,5 +1,5 @@
 =======================================================================================================================================
- Report Date:   2026-10-26
+ Report Date:   2026-10-28
  Report Branch: AddonSoftware 26.03
  Last Release:  AddonSoftware 26.02
 =======================================================================================================================================
@@ -72,4 +72,15 @@ Bug 11328: Corrected dropship logic for skipping updating an item's
 committed quantity.
 ----
 Modified: iv/src/ivc_itemupdt.aon
+=======================================================================================================================================
+
+Revision: dd51434927e70a68f434b5430e86729e07797223
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 10/28/2026 10:58:46 AM
+Message:
+Bug 11327: Corrected PO Invoice adjustments paid via credit card.
+----
+Modified: data/bar/poe_invhdr.xml
+Modified: data/cdf/poe_invhdr.cdf
+Modified: po/src/pou_invreg.aon
 =======================================================================================================================================
