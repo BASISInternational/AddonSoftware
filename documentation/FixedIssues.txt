@@ -1,10 +1,9 @@
 =======================================================================================================================================
-Report Branch: AddonSoftware Development Build
+ Report Date:   2026-11-03
+ Report Branch: AddonSoftware 26.10
+ Last Release:  AddonSoftware 26.03
 =======================================================================================================================================
-Development builds are generated daily.
 
-AddonSoftware Co-op Developers can access code changes and bug fixes for the Development Builds via Git.
-
-Information about code changes and bug fixes for RELEASE builds can be found at:
-
-https://bugs.basis.cloud
+26.03 released 11/02/2026
+BBjBaristaAddonDemos2603_10-30-2026_1639.jar
+=======================================================================================================================================
