@@ -21,9 +21,9 @@
 			<ASC_LICENSE_ID id="ddm_tables.ope_ordship">D53DAB3F2FB4AE757FDE817BA9F3B7AC</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_ordship">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_ordship">2453755</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ope_ordship">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ope_ordship">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_ordship">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ope_ordship">20261109</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ope_ordship">20260917</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_ordship">105206</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_ordship">OPT_INVSHIP     </DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ope_ordship"></DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_ordship"></DD_ATTR_DKNM>
@@ -1175,7 +1175,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship002"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship002">3001</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship002">dis_customer_id</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship002">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship002">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship002"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship002">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship002">F</DD_ATTR_BTNS>
@@ -1226,7 +1226,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship003"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship003">3002</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship003">ine_order_no</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship003">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship003">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship003"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship003">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship003"></DD_ATTR_BTNS>
@@ -1328,7 +1328,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship005">0</DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship005">3012</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship005">lbn_address_type</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship005">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship005">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship005"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship005">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship005"></DD_ATTR_BTNS>
@@ -1379,7 +1379,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship006"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship006">3003</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship006">ine_name</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship006">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship006">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship006"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship006">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship006"></DD_ATTR_BTNS>
@@ -1430,7 +1430,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship007"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship007">3004</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship007">ine_addr_line_1</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship007">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship007">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship007"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship007">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship007"></DD_ATTR_BTNS>
@@ -1481,7 +1481,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship008"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship008">3005</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship008">ine_addr_line_2</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship008">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship008">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship008"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship008">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship008"></DD_ATTR_BTNS>
@@ -1532,7 +1532,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship009"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship009">3006</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship009">ine_addr_line_3</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship009">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship009">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship009"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship009">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship009"></DD_ATTR_BTNS>
@@ -1583,7 +1583,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship010"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship010">3007</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship010">ine_addr_line_4</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship010">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship010">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship010"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship010">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship010"></DD_ATTR_BTNS>
@@ -1634,7 +1634,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship011"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship011">3008</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship011">ine_city</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship011">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship011">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship011"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship011">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship011"></DD_ATTR_BTNS>
@@ -1685,7 +1685,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship012"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship012">3009</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship012">dis_state_code</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship012">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship012">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship012"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship012">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship012">F</DD_ATTR_BTNS>
@@ -1736,7 +1736,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship013"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship013">3010</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship013">ine_zip_code</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship013">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship013">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship013"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship013">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship013"></DD_ATTR_BTNS>
@@ -1787,7 +1787,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_ordship014"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_ordship014">3011</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_ordship014">dis_cntry_id</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship014">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_ordship014">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_ordship014"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.ope_ordship014">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_ordship014">F</DD_ATTR_BTNS>
@@ -3603,20 +3603,26 @@
 		<RECORD id="ddm_element_ldat.trans_status01">
 			<DD_DATA_NAME id="ddm_element_ldat.trans_status01">TRANS_STATUS    </DD_DATA_NAME>
 			<DD_ATTR_SEQ id="ddm_element_ldat.trans_status01">01</DD_ATTR_SEQ>
-			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status01">E</DD_ATTR_LDAT>
-			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status01">Entry</DD_ATTR_LDAT_DS>
+			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status01">C</DD_ATTR_LDAT>
+			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status01">Cancelled</DD_ATTR_LDAT_DS>
 		</RECORD>
 		<RECORD id="ddm_element_ldat.trans_status02">
 			<DD_DATA_NAME id="ddm_element_ldat.trans_status02">TRANS_STATUS    </DD_DATA_NAME>
 			<DD_ATTR_SEQ id="ddm_element_ldat.trans_status02">02</DD_ATTR_SEQ>
-			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status02">R</DD_ATTR_LDAT>
-			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status02">Register</DD_ATTR_LDAT_DS>
+			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status02">E</DD_ATTR_LDAT>
+			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status02">Entry</DD_ATTR_LDAT_DS>
 		</RECORD>
 		<RECORD id="ddm_element_ldat.trans_status03">
 			<DD_DATA_NAME id="ddm_element_ldat.trans_status03">TRANS_STATUS    </DD_DATA_NAME>
 			<DD_ATTR_SEQ id="ddm_element_ldat.trans_status03">03</DD_ATTR_SEQ>
-			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status03">U</DD_ATTR_LDAT>
-			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status03">Update</DD_ATTR_LDAT_DS>
+			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status03">R</DD_ATTR_LDAT>
+			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status03">Register</DD_ATTR_LDAT_DS>
+		</RECORD>
+		<RECORD id="ddm_element_ldat.trans_status04">
+			<DD_DATA_NAME id="ddm_element_ldat.trans_status04">TRANS_STATUS    </DD_DATA_NAME>
+			<DD_ATTR_SEQ id="ddm_element_ldat.trans_status04">04</DD_ATTR_SEQ>
+			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status04">U</DD_ATTR_LDAT>
+			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status04">Update</DD_ATTR_LDAT_DS>
 		</RECORD>
 	</ALIAS>
 </OPE_ORDSHIP>

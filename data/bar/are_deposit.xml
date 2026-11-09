@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.are_deposit"></ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.are_deposit">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.are_deposit">20160107</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.are_deposit">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.are_deposit">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.are_deposit">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.are_deposit">20261109</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.are_deposit">20261014</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.are_deposit">145240</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.are_deposit">ART_DEPOSIT     </DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.are_deposit">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.are_deposit">C:/bbjHome/apps/aon/;C:/dev_projects/aon_v2700/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.are_deposit">AO_BATCH_STAT</DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.are_deposit"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.are_deposit">T</DD_ATTR_FTYP>
@@ -138,7 +138,7 @@
 		<ID id="ddm_table_tpls">DDM_TABLE_TPLS</ID>
 		<RECORD id="ddm_table_tpls.are_deposit">
 			<DD_TABLE_ALIAS id="ddm_table_tpls.are_deposit">ARE_DEPOSIT     </DD_TABLE_ALIAS>
-			<DD_FILE_NAME id="ddm_table_tpls.are_deposit"></DD_FILE_NAME>
+			<DD_FILE_NAME id="ddm_table_tpls.are_deposit">art_deposit</DD_FILE_NAME>
 			<DD_TABLE_TPL id="ddm_table_tpls.are_deposit">firm_id:c(2),deposit_id:c(7),deposit_date:c(8),description:c(30),cash_rec_cd:c(5),created_user:c(16),created_date:c(8),created_time:c(4),mod_user:c(16),mod_date:c(8),mod_time:c(4),trans_status:c(1),arc_user:c(16),arc_date:c(8),arc_time:c(4),batch_no:c(7),audit_number:n(7*),tot_deposit_amt:n(7*)</DD_TABLE_TPL>
 		</RECORD>
 	</ALIAS>
@@ -780,7 +780,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_deposit002">20160118</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_deposit002"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_deposit002"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_deposit002">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_deposit002">C:/bbjHome/apps/aon/;C:/dev_projects/aon_v2700/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_deposit002">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_deposit002"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_deposit002"></DD_ATTR_CTLY>
@@ -810,7 +810,7 @@
 			<DD_ATTR_CWID id="ddm_table_cols.are_deposit002"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.are_deposit002">3001</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit002">ine_deposit_id</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit002">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit002">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit002"></DD_ATTR_RADG>
 			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit002">Y</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit002">D</DD_ATTR_BTNS>
@@ -831,7 +831,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_deposit003">20160107</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_deposit003"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_deposit003"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_deposit003">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_deposit003">C:/bbjHome/apps/aon/;C:/dev_projects/aon_v2700/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_deposit003">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_deposit003"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_deposit003"></DD_ATTR_CTLY>
@@ -861,9 +861,9 @@
 			<DD_ATTR_CWID id="ddm_table_cols.are_deposit003"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.are_deposit003">3002</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit003">ind_deposit_date</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit003">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit003">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit003"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit003"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit003">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit003">C</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit004">
@@ -912,9 +912,9 @@
 			<DD_ATTR_CWID id="ddm_table_cols.are_deposit004"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.are_deposit004">3003</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit004">ine_description</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit004">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit004">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit004"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit004"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit004">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit004"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit005">
@@ -933,7 +933,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.are_deposit005">20160107</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.are_deposit005"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.are_deposit005"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.are_deposit005">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.are_deposit005">C:/bbjHome/apps/aon/;C:/dev_projects/aon_v2700/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.are_deposit005">0</DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.are_deposit005"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.are_deposit005"></DD_ATTR_CTLY>
@@ -963,9 +963,9 @@
 			<DD_ATTR_CWID id="ddm_table_cols.are_deposit005"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.are_deposit005">3004</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit005">dis_cash_rec_cd</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit005">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit005">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit005"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit005"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit005">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit005">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit006">
@@ -1016,7 +1016,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit006"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit006"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit006"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit006"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit006">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit006">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit007">
@@ -1067,7 +1067,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit007"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit007"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit007"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit007"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit007">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit007">C</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit008">
@@ -1118,7 +1118,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit008"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit008"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit008"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit008"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit008">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit008"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit009">
@@ -1169,7 +1169,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit009"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit009"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit009"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit009"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit009">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit009">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit010">
@@ -1220,7 +1220,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit010"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit010"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit010"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit010"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit010">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit010">C</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit011">
@@ -1271,7 +1271,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit011"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit011"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit011"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit011"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit011">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit011"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit012">
@@ -1373,7 +1373,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit013"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit013"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit013"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit013"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit013">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit013">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit014">
@@ -1424,7 +1424,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit014"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit014"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit014"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit014"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit014">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit014">C</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit015">
@@ -1475,7 +1475,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit015"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit015"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit015"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit015"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit015">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit015"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit016">
@@ -1577,7 +1577,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit017"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit017"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit017"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit017"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit017">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit017"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.are_deposit018">
@@ -1626,9 +1626,9 @@
 			<DD_ATTR_CWID id="ddm_table_cols.are_deposit018"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.are_deposit018">3005</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.are_deposit018">inn_tot_deposit_amt</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit018">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.are_deposit018">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.are_deposit018"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit018"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.are_deposit018">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.are_deposit018"></DD_ATTR_BTNS>
 		</RECORD>
 	</ALIAS>
@@ -2410,20 +2410,26 @@
 		<RECORD id="ddm_element_ldat.trans_status01">
 			<DD_DATA_NAME id="ddm_element_ldat.trans_status01">TRANS_STATUS    </DD_DATA_NAME>
 			<DD_ATTR_SEQ id="ddm_element_ldat.trans_status01">01</DD_ATTR_SEQ>
-			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status01">E</DD_ATTR_LDAT>
-			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status01">Entry</DD_ATTR_LDAT_DS>
+			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status01">C</DD_ATTR_LDAT>
+			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status01">Cancelled</DD_ATTR_LDAT_DS>
 		</RECORD>
 		<RECORD id="ddm_element_ldat.trans_status02">
 			<DD_DATA_NAME id="ddm_element_ldat.trans_status02">TRANS_STATUS    </DD_DATA_NAME>
 			<DD_ATTR_SEQ id="ddm_element_ldat.trans_status02">02</DD_ATTR_SEQ>
-			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status02">R</DD_ATTR_LDAT>
-			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status02">Register</DD_ATTR_LDAT_DS>
+			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status02">E</DD_ATTR_LDAT>
+			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status02">Entry</DD_ATTR_LDAT_DS>
 		</RECORD>
 		<RECORD id="ddm_element_ldat.trans_status03">
 			<DD_DATA_NAME id="ddm_element_ldat.trans_status03">TRANS_STATUS    </DD_DATA_NAME>
 			<DD_ATTR_SEQ id="ddm_element_ldat.trans_status03">03</DD_ATTR_SEQ>
-			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status03">U</DD_ATTR_LDAT>
-			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status03">Update</DD_ATTR_LDAT_DS>
+			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status03">R</DD_ATTR_LDAT>
+			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status03">Register</DD_ATTR_LDAT_DS>
+		</RECORD>
+		<RECORD id="ddm_element_ldat.trans_status04">
+			<DD_DATA_NAME id="ddm_element_ldat.trans_status04">TRANS_STATUS    </DD_DATA_NAME>
+			<DD_ATTR_SEQ id="ddm_element_ldat.trans_status04">04</DD_ATTR_SEQ>
+			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status04">U</DD_ATTR_LDAT>
+			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status04">Update</DD_ATTR_LDAT_DS>
 		</RECORD>
 	</ALIAS>
 	<ALIAS id="ddm_drill_defs">

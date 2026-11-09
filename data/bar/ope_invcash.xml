@@ -21,11 +21,11 @@
 			<ASC_LICENSE_ID id="ddm_tables.ope_invcash">CE22CCD23DB1988B0DAECCE849DEC108</ASC_LICENSE_ID>
 			<DD_EXPORT_DATA id="ddm_tables.ope_invcash">Y</DD_EXPORT_DATA>
 			<DD_CREATE_DATE id="ddm_tables.ope_invcash">20060119</DD_CREATE_DATE>
-			<DD_LSTREV_DATE id="ddm_tables.ope_invcash">20260320</DD_LSTREV_DATE>
-			<DD_LSTSYNC_DATE id="ddm_tables.ope_invcash">20260317</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_invcash">152520</DD_LSTSYNC_TIME>
+			<DD_LSTREV_DATE id="ddm_tables.ope_invcash">20261109</DD_LSTREV_DATE>
+			<DD_LSTSYNC_DATE id="ddm_tables.ope_invcash">20261019</DD_LSTSYNC_DATE>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_invcash">101136</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_invcash">OPT_INVCASH     </DD_ATTR_ATAB>
-			<DD_ATTR_CPGM id="ddm_tables.ope_invcash">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_tables.ope_invcash">C:/bbjHome/apps/aon/;C:/dev_projects/aon_v2700/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_invcash">AO_STATUS</DD_ATTR_DKNM>
 			<DD_ATTR_FIMG id="ddm_tables.ope_invcash"></DD_ATTR_FIMG>
 			<DD_ATTR_FTYP id="ddm_tables.ope_invcash">T</DD_ATTR_FTYP>
@@ -120,7 +120,7 @@
 		<ID id="ddm_table_tpls">DDM_TABLE_TPLS</ID>
 		<RECORD id="ddm_table_tpls.ope_invcash">
 			<DD_TABLE_ALIAS id="ddm_table_tpls.ope_invcash">OPE_INVCASH     </DD_TABLE_ALIAS>
-			<DD_FILE_NAME id="ddm_table_tpls.ope_invcash"></DD_FILE_NAME>
+			<DD_FILE_NAME id="ddm_table_tpls.ope_invcash">opt-41</DD_FILE_NAME>
 			<DD_TABLE_TPL id="ddm_table_tpls.ope_invcash">firm_id:c(2),ar_type:c(2),customer_id:c(6),order_no:c(7),ar_inv_no:c(7),cash_rec_cd:c(5),ar_check_no:c(10),payment_id:c(16),invoice_date:c(8),expire_date:c(8),customer_name:c(30),credit_card_no:c(64),deposit_id:c(7),created_user:c(16),created_date:c(8),created_time:c(4),mod_user:c(16),mod_date:c(8),mod_time:c(4),trans_status:c(1),arc_user:c(16),arc_date:c(8),arc_time:c(4),batch_no:c(7),credit_trans_no:c(10),card_last_4:c(4),manual_swipe:c(1),audit_number:n(7*),invoice_amt:n(7*),tendered_amt:n(7*)</DD_TABLE_TPL>
 		</RECORD>
 	</ALIAS>
@@ -1354,7 +1354,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invcash006">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invcash006"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invcash006"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invcash006">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invcash006">C:/bbjHome/apps/aon/;C:/dev_projects/aon_v2700/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invcash006"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invcash006"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invcash006"></DD_ATTR_CTLY>
@@ -1384,9 +1384,9 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_invcash006"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_invcash006">3001</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash006">dis_cash_rec_cd</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash006">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash006">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash006"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash006"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash006">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash006">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash007">
@@ -1435,9 +1435,9 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_invcash007"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_invcash007">3003</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash007">ine_ar_check_no</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash007">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash007">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash007"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash007"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash007">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash007"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash008">
@@ -1486,9 +1486,9 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_invcash008"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_invcash008">3004</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash008">ine_payment_id</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash008">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash008">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash008"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash008"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash008">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash008"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash009">
@@ -1539,7 +1539,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash009"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash009"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash009"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash009"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash009">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash009">C</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash010">
@@ -1558,7 +1558,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invcash010">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invcash010"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invcash010"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invcash010">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invcash010">C:/bbjHome/apps/aon/;C:/dev_projects/aon_v2700/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invcash010"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invcash010"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invcash010"></DD_ATTR_CTLY>
@@ -1588,9 +1588,9 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_invcash010"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_invcash010">3006</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash010">ind_expire_date</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash010">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash010">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash010"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash010"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash010">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash010">C</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash011">
@@ -1639,9 +1639,9 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_invcash011"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_invcash011">3002</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash011">ine_customer_name</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash011">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash011">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash011"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash011"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash011">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash011"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash012">
@@ -1692,7 +1692,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash012"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash012"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash012"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash012"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash012">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash012"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash013">
@@ -1743,7 +1743,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash013"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash013"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash013"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash013"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash013">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash013"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash014">
@@ -1794,7 +1794,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash014"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash014"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash014"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash014"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash014">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash014">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash015">
@@ -1845,7 +1845,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash015"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash015"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash015"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash015"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash015">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash015">C</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash016">
@@ -1896,7 +1896,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash016"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash016"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash016"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash016"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash016">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash016"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash017">
@@ -1947,7 +1947,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash017"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash017"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash017"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash017"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash017">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash017">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash018">
@@ -1998,7 +1998,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash018"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash018"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash018"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash018"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash018">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash018">C</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash019">
@@ -2049,7 +2049,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash019"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash019"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash019"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash019"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash019">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash019"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash020">
@@ -2151,7 +2151,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash021"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash021"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash021"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash021"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash021">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash021">F</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash022">
@@ -2202,7 +2202,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash022"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash022"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash022"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash022"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash022">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash022">C</DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash023">
@@ -2253,7 +2253,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash023"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash023"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash023"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash023"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash023">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash023"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash024">
@@ -2304,7 +2304,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash024"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash024"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash024"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash024"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash024">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash024"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash025">
@@ -2355,7 +2355,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash025"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash025"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash025"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash025"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash025">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash025"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash026">
@@ -2404,9 +2404,9 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_invcash026"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_invcash026">3005</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash026">ine_card_last_4</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash026">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash026">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash026"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash026"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash026">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash026"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash027">
@@ -2457,7 +2457,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash027"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash027"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash027"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash027"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash027">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash027"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash028">
@@ -2508,7 +2508,7 @@
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash028"></DD_ATTR_CTLN>
 			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash028"></DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash028"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash028"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash028">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash028"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash029">
@@ -2557,9 +2557,9 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_invcash029"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_invcash029">3007</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash029">inn_invoice_amt</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash029">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash029">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash029"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash029"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash029">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash029"></DD_ATTR_BTNS>
 		</RECORD>
 		<RECORD id="ddm_table_cols.ope_invcash030">
@@ -2578,7 +2578,7 @@
 			<DD_LSTREV_DATE id="ddm_table_cols.ope_invcash030">20060119</DD_LSTREV_DATE>
 			<DD_ATTR_ABLC id="ddm_table_cols.ope_invcash030"></DD_ATTR_ABLC>
 			<DD_ATTR_ABLV id="ddm_table_cols.ope_invcash030"></DD_ATTR_ABLV>
-			<DD_ATTR_CPGM id="ddm_table_cols.ope_invcash030">/Users/rgonzales/DEV_ADD/aon/;</DD_ATTR_CPGM>
+			<DD_ATTR_CPGM id="ddm_table_cols.ope_invcash030">C:/bbjHome/apps/aon/;C:/dev_projects/aon_v2700/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_COLW id="ddm_table_cols.ope_invcash030"></DD_ATTR_COLW>
 			<DD_ATTR_CTLX id="ddm_table_cols.ope_invcash030"></DD_ATTR_CTLX>
 			<DD_ATTR_CTLY id="ddm_table_cols.ope_invcash030"></DD_ATTR_CTLY>
@@ -2608,9 +2608,9 @@
 			<DD_ATTR_CWID id="ddm_table_cols.ope_invcash030"></DD_ATTR_CWID>
 			<DD_ATTR_CTLI id="ddm_table_cols.ope_invcash030">3008</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_cols.ope_invcash030">inn_tendered_amt</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash030">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_cols.ope_invcash030">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_cols.ope_invcash030"></DD_ATTR_RADG>
-			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash030"></DD_ATTR_RKEY>
+			<DD_ATTR_RKEY id="ddm_table_cols.ope_invcash030">N</DD_ATTR_RKEY>
 			<DD_ATTR_BTNS id="ddm_table_cols.ope_invcash030"></DD_ATTR_BTNS>
 		</RECORD>
 	</ALIAS>
@@ -2635,7 +2635,7 @@
 			<DD_ATTR_TIND id="ddm_table_disp.ope_invcash001">19</DD_ATTR_TIND>
 			<DD_ATTR_CTLI id="ddm_table_disp.ope_invcash001">3009</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_disp.ope_invcash001">inn_change</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_disp.ope_invcash001">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_disp.ope_invcash001">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.ope_invcash001"></DD_ATTR_RADG>
 			<DD_ATTR_CPGM id="ddm_table_disp.ope_invcash001"></DD_ATTR_CPGM>
 		</RECORD>
@@ -2658,7 +2658,7 @@
 			<DD_ATTR_TIND id="ddm_table_disp.ope_invcash002">20</DD_ATTR_TIND>
 			<DD_ATTR_CTLI id="ddm_table_disp.ope_invcash002">3010</DD_ATTR_CTLI>
 			<DD_ATTR_CTLN id="ddm_table_disp.ope_invcash002">cbx_print</DD_ATTR_CTLN>
-			<DD_ATTR_CTLC id="ddm_table_disp.ope_invcash002">0</DD_ATTR_CTLC>
+			<DD_ATTR_CTLC id="ddm_table_disp.ope_invcash002">4</DD_ATTR_CTLC>
 			<DD_ATTR_RADG id="ddm_table_disp.ope_invcash002"></DD_ATTR_RADG>
 			<DD_ATTR_CPGM id="ddm_table_disp.ope_invcash002"></DD_ATTR_CPGM>
 		</RECORD>
@@ -3212,7 +3212,7 @@
 			<DD_DATA_NAME id="ddm_elements.ar_check_no">AR_CHECK_NO     </DD_DATA_NAME>
 			<DD_DESCRIPTION id="ddm_elements.ar_check_no">Check Number</DD_DESCRIPTION>
 			<DD_DATA_TYPE id="ddm_elements.ar_check_no">C</DD_DATA_TYPE>
-			<DD_DATA_LENGTH id="ddm_elements.ar_check_no">10</DD_DATA_LENGTH>
+			<DD_DATA_LENGTH id="ddm_elements.ar_check_no">7</DD_DATA_LENGTH>
 			<DD_MASK_TYPE id="ddm_elements.ar_check_no"> </DD_MASK_TYPE>
 			<DD_SYSTEM_REC id="ddm_elements.ar_check_no"></DD_SYSTEM_REC>
 			<ASC_COMP_ID id="ddm_elements.ar_check_no">01007514</ASC_COMP_ID>
@@ -4202,20 +4202,26 @@
 		<RECORD id="ddm_element_ldat.trans_status01">
 			<DD_DATA_NAME id="ddm_element_ldat.trans_status01">TRANS_STATUS    </DD_DATA_NAME>
 			<DD_ATTR_SEQ id="ddm_element_ldat.trans_status01">01</DD_ATTR_SEQ>
-			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status01">E</DD_ATTR_LDAT>
-			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status01">Entry</DD_ATTR_LDAT_DS>
+			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status01">C</DD_ATTR_LDAT>
+			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status01">Cancelled</DD_ATTR_LDAT_DS>
 		</RECORD>
 		<RECORD id="ddm_element_ldat.trans_status02">
 			<DD_DATA_NAME id="ddm_element_ldat.trans_status02">TRANS_STATUS    </DD_DATA_NAME>
 			<DD_ATTR_SEQ id="ddm_element_ldat.trans_status02">02</DD_ATTR_SEQ>
-			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status02">R</DD_ATTR_LDAT>
-			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status02">Register</DD_ATTR_LDAT_DS>
+			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status02">E</DD_ATTR_LDAT>
+			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status02">Entry</DD_ATTR_LDAT_DS>
 		</RECORD>
 		<RECORD id="ddm_element_ldat.trans_status03">
 			<DD_DATA_NAME id="ddm_element_ldat.trans_status03">TRANS_STATUS    </DD_DATA_NAME>
 			<DD_ATTR_SEQ id="ddm_element_ldat.trans_status03">03</DD_ATTR_SEQ>
-			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status03">U</DD_ATTR_LDAT>
-			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status03">Update</DD_ATTR_LDAT_DS>
+			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status03">R</DD_ATTR_LDAT>
+			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status03">Register</DD_ATTR_LDAT_DS>
+		</RECORD>
+		<RECORD id="ddm_element_ldat.trans_status04">
+			<DD_DATA_NAME id="ddm_element_ldat.trans_status04">TRANS_STATUS    </DD_DATA_NAME>
+			<DD_ATTR_SEQ id="ddm_element_ldat.trans_status04">04</DD_ATTR_SEQ>
+			<DD_ATTR_LDAT id="ddm_element_ldat.trans_status04">U</DD_ATTR_LDAT>
+			<DD_ATTR_LDAT_DS id="ddm_element_ldat.trans_status04">Update</DD_ATTR_LDAT_DS>
 		</RECORD>
 	</ALIAS>
 </OPE_INVCASH>
