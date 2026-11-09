@@ -63,7 +63,7 @@ rem --- Clear Order Date
 		ope01_key$=key(ope01_dev,end=*break)
 		if pos(firm_id$+"  "+cust$+order$=ope01_key$)<>1 then break
 		read record(ope01_dev)ope01a$
-		if pos(ope01a.trans_status$="ER") then break; rem --- new order can have at most just one new invoice, if any
+		if ope01a.trans_status$<>"U" then break; rem --- new order can have at most just one new invoice, if any
 	wend
 
 	callpoint!.setColumnData("<<DISPLAY>>.ORDER_DATE",fndate$(ope01a.order_date$),1)
@@ -81,7 +81,7 @@ rem --- Check to make sure the order selected is an Order
 		ope01_key$=key(ope01_dev,end=*break)
 		if pos(firm_id$+"  "+cust$+order$=ope01_key$)<>1 then break
 		read record(ope01_dev)ope01a$
-		if pos(ope01a.trans_status$="ER") then break; rem --- new order can have at most just one new invoice, if any
+		if ope01a.trans_status$<>"U" then break; rem --- new order can have at most just one new invoice, if any
 	wend
 
 	if ope01a.ordinv_flag$<>"O"

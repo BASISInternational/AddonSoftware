@@ -784,7 +784,7 @@ dropship_shipto: rem --- get and display shipto from Sales Order if dropship ind
 		ope_ordhdr_key$=key(ope_ordhdr_dev,end=*break)
 		if pos(firm_id$+ope_ordhdr.ar_type$+tmp_customer_id$+tmp_order_no$=ope_ordhdr_key$)<>1 then break
 		readrecord(ope_ordhdr_dev)ope_ordhdr$
-		if pos(ope_ordhdr.trans_status$="ER") then break; rem --- new order can have at most just one new invoice, if any
+		if ope_ordhdr.trans_status$<>"U" then break; rem --- new order can have at most just one new invoice, if any
 	wend
 
 	shipto_no$=ope_ordhdr.shipto_no$
