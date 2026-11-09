@@ -3366,6 +3366,9 @@ rem --- Convert Quote?
 
 				rem --- Update static Order Type label for this Order
 				gosub orderType_display
+
+				rem --- Set ORDER_DATE to the current date when the quote is converted of an order.
+				callpoint!.setColumnData("OPE_ORDHDR.ORDER_DATE",date(0:"%Yd%Mz%Dz"),1)
 			else
 				rem --- Changed their mind about converting a quote
 				inv_type$="P"
@@ -3391,6 +3394,11 @@ rem --- Set type in OrderHelper object
 
 	ordHelp! = cast(OrderHelper, callpoint!.getDevObject("order_helper_object"))
 	ordHelp!.setInv_type(inv_type$)
+
+rem --- Set QUOTE_DATE to the current date when quote is first created.
+	if inv_type$ = "P" and cvs(callpoint!.getColumnData("OPE_ORDHDR.QUOTE_DATE"),2)="" then
+		callpoint!.setColumnData("OPE_ORDHDR.QUOTE_DATE",date(0:"%Yd%Mz%Dz"),1)
+	endif
 
 [[OPE_ORDHDR.MESSAGE_CODE.AVAL]]
 rem --- Don't allow inactive code

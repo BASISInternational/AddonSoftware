@@ -23,7 +23,7 @@
 			<DD_CREATE_DATE id="ddm_tables.ope_ordhdr">20060119</DD_CREATE_DATE>
 			<DD_LSTREV_DATE id="ddm_tables.ope_ordhdr">20261109</DD_LSTREV_DATE>
 			<DD_LSTSYNC_DATE id="ddm_tables.ope_ordhdr">20261109</DD_LSTSYNC_DATE>
-			<DD_LSTSYNC_TIME id="ddm_tables.ope_ordhdr">112542</DD_LSTSYNC_TIME>
+			<DD_LSTSYNC_TIME id="ddm_tables.ope_ordhdr">125532</DD_LSTSYNC_TIME>
 			<DD_ATTR_ATAB id="ddm_tables.ope_ordhdr">OPT_INVHDR      </DD_ATTR_ATAB>
 			<DD_ATTR_CPGM id="ddm_tables.ope_ordhdr">C:/dev_projects/aon_v2700/aon/;</DD_ATTR_CPGM>
 			<DD_ATTR_DKNM id="ddm_tables.ope_ordhdr">AO_STATUS</DD_ATTR_DKNM>
