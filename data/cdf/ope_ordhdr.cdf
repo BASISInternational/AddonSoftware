@@ -1790,6 +1790,79 @@ rem --- Update devObjects with current values written to file
 	callpoint!.setDevObject("total_sales",num(callpoint!.getColumnData("OPE_ORDHDR.TOTAL_SALES")))
 
 [[OPE_ORDHDR.BDEL]]
+rem --- Don't delete quotes, cancel them.
+	if callpoint!.getColumnData("OPE_ORDHDR.INVOICE_TYPE")="P" then
+		ar_type$=callpoint!.getColumnData("OPE_ORDHDR.AR_TYPE")
+		cust_id$=callpoint!.getColumnData("OPE_ORDHDR.CUSTOMER_ID")
+		order_no$=callpoint!.getColumnData("OPE_ORDHDR.ORDER_NO")
+		invoice_no$=callpoint!.getColumnData("OPE_ORDHDR.AR_INV_NO")
+
+		ope11_dev = fnget_dev("OPE_ORDDET")
+		dim ope11a$:fnget_tpl$("OPE_ORDDET")
+		ope11_trip$=firm_id$+ar_type$+cust_id$+order_no$+invoice_no$
+		read(ope11_dev,key=ope11_trip$,knum="PRIMARY",dom=*next)
+		while 1
+			extractrecord(ope11_dev, end=*break) ope11a$
+			ope11_key$=key(ope11_dev,end=*break)
+			if pos(ope11_trip$=ope11_key$)<>1 then break
+			ope11a.trans_status$="C"
+			ope11a.mod_user$=sysinfo.user_id$
+			ope11a.mod_date$=date(0:"%Yd%Mz%Dz")
+			ope11a.mod_time$=date(0:"%Hz%mz")
+			writerecord(ope11_dev)ope11a$
+
+			ope21_dev = fnget_dev("OPE_ORDLSDET")
+			dim ope21a$:fnget_tpl$("OPE_ORDLSDET")
+			ord_seq$=ope11a.internal_seq_no$
+			ope21_trip$=firm_id$+ar_type$+cust_id$+order_no$+invoice_no$+ord_seq$
+			read (ope21_dev, key=ope21_trip$,knum="PRIMARY",dom=*next)
+			while 1
+				extractrecord(ope21_dev, end=*break) ope21a$
+				ope21_key$=key(ope21_dev,end=*break)
+				if pos(ope21_trip$=ope21_key$)<>1 then break
+				ope21a.trans_status$="C"
+				ope21a.mod_user$=sysinfo.user_id$
+				ope21a.mod_date$=date(0:"%Yd%Mz%Dz")
+				ope21a.mod_time$=date(0:"%Hz%mz")
+				writerecord(ope21_dev)ope21a$
+			wend
+		wend
+
+		ope31_dev = fnget_dev("OPE_ORDSHIP")
+		dim ope31a$:fnget_tpl$("OPE_ORDSHIP")
+		found=0
+		extractrecord(ope31_dev, key=firm_id$+cust_id$+order_no$+invoice_no$+"S",knum="PRIMARY", dom=*next) ope31a$; found=1
+		if found then
+			ope31a.trans_status$="C"
+			ope31a.mod_user$=sysinfo.user_id$
+			ope31a.mod_date$=date(0:"%Yd%Mz%Dz")
+			ope31a.mod_time$=date(0:"%Hz%mz")
+			writerecord(ope31_dev)ope31a$
+		endif
+		found=0
+		extractrecord(ope31_dev, key=firm_id$+cust_id$+order_no$+invoice_no$+"B",knum="PRIMARY", dom=*next) ope31a$; found=1
+		if found then
+			ope31a.trans_status$="C"
+			ope31a.mod_user$=sysinfo.user_id$
+			ope31a.mod_date$=date(0:"%Yd%Mz%Dz")
+			ope31a.mod_time$=date(0:"%Hz%mz")
+			writerecord(ope31_dev)ope31a$
+		endif
+
+		callpoint!.setColumnData("OPE_ORDHDR.TRANS_STATUS","C",1)
+		callpoint!.setColumnData("OPE_ORDHDR.MOD_USER",sysinfo.user_id$,1)
+		callpoint!.setColumnData("OPE_ORDHDR.MOD_DATE",date(0:"%Yd%Mz%Dz"),1)
+		callpoint!.setColumnData("OPE_ORDHDR.MOD_TIME",date(0:"%Hz%mz"),1)
+		gosub get_disk_rec
+		write record (ordhdr_dev) ordhdr_rec$
+
+		ope_prntlist_dev=fnget_dev("OPE_PRNTLIST")
+		remove (ope_prntlist_dev,key=firm_id$+"O"+ar_type$+cust_id$+order_no$,dom=*next)
+
+		callpoint!.setStatus("ABORT-NEWREC")
+		break
+	endif
+
 rem --- User approval required if packages have already been shipped
 
 	trackingNos!=new java.util.HashMap()
