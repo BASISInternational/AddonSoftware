@@ -7,7 +7,7 @@
 		<MENU_DESC>Tax Codes</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPC_TAXCODE     </TABLE_ID>
@@ -91,10 +91,11 @@
 		<MENU_DESC>Monthly Sales Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_MONTHSALES  </TABLE_ID>
+		<MENU_PROG>opr_ea.aon</MENU_PROG>
 		<HELP_TAG>Monthly_Sales_Report</HELP_TAG>
 		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
@@ -119,10 +120,11 @@
 		<MENU_DESC>Pricing Table</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>IVC_PRICCODE    </TABLE_ID>
+		<MENU_PROG>opm_ca.aon</MENU_PROG>
 		<HELP_TAG>Pricing_Table_Maintenance</HELP_TAG>
 		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
@@ -147,10 +149,11 @@
 		<MENU_DESC>Price Quote Inquiry</MENU_DESC>
 		<IMAGE>im_menui_view.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPE_PRICEQUOTE  </TABLE_ID>
+		<MENU_PROG>opm_pa.aon</MENU_PROG>
 		<HELP_TAG>Price_Quote_Inquiry</HELP_TAG>
 		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
@@ -256,7 +259,7 @@
 		<MENU_DESC>Invoice Edit Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_INVEDIT     </TABLE_ID>
@@ -339,7 +342,7 @@
 		<MENU_DESC>Salespersons</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ARC_SALECODE    </TABLE_ID>
@@ -394,7 +397,7 @@
 		<MENU_DESC>Order Status Report By Item</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_ITEMSTATUS  </TABLE_ID>
@@ -698,7 +701,7 @@
 		<MENU_DESC>Sales Commission Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_SALESCOMM   </TABLE_ID>
@@ -837,7 +840,7 @@
 		<MENU_DESC>Order Entry</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPE_ORDHDR      </TABLE_ID>
@@ -865,10 +868,11 @@
 		<MENU_DESC>Order Picking List</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_ODERPICKLST </TABLE_ID>
+		<MENU_PROG>opr_na.aon</MENU_PROG>
 		<HELP_TAG>Sales_Order_Picking_List</HELP_TAG>
 		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
@@ -893,7 +897,7 @@
 		<MENU_DESC>Customer Job Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_CUSTJOBS    </TABLE_ID>
@@ -910,7 +914,7 @@
 		<INDENTS>2</INDENTS>
 		<EXPANDABLE>N</EXPANDABLE>
 		<PREV_ITEM_ID>9cdd5e7c-9a12-4b6b-bf03-f735c307b921</PREV_ITEM_ID>
-		<NEXT_ITEM_ID>8eabcf32-792c-4574-be59-200f41267958</NEXT_ITEM_ID>
+		<NEXT_ITEM_ID>fab46d62-ac86-4715-8fbe-ecdfa0c10e73</NEXT_ITEM_ID>
 		<INTERNAL>0</INTERNAL>
 		<EXTERNAL>0</EXTERNAL>
 		<PARTNER>0</PARTNER>
@@ -975,10 +979,11 @@
 		<MENU_DESC>Credit Review and Release</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPE_CREDREV     </TABLE_ID>
+		<MENU_PROG>opm_qa.aon</MENU_PROG>
 		<HELP_TAG>Credit_Review_and_Release</HELP_TAG>
 		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
@@ -1347,7 +1352,7 @@
 		<USER_MODIFIED> </USER_MODIFIED>
 		<INDENTS>1</INDENTS>
 		<EXPANDABLE>Y</EXPANDABLE>
-		<PREV_ITEM_ID>5f4f00d5-a2e3-4f34-8dd4-2b9af47a1009</PREV_ITEM_ID>
+		<PREV_ITEM_ID>fab46d62-ac86-4715-8fbe-ecdfa0c10e73</PREV_ITEM_ID>
 		<NEXT_ITEM_ID>b7e1b20f-99ee-442a-9dbe-5c9acc822917</NEXT_ITEM_ID>
 		<INTERNAL>0</INTERNAL>
 		<EXTERNAL>0</EXTERNAL>
@@ -1390,6 +1395,7 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPC_DISCCODE    </TABLE_ID>
+		<MENU_PROG>opm_ia.aon</MENU_PROG>
 		<HELP_TAG>Sale_Discount_Code_Maintenance1</HELP_TAG>
 		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
@@ -1442,7 +1448,7 @@
 		<MENU_DESC>Monthly Sales Register</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_SALESREGR   </TABLE_ID>
@@ -1470,7 +1476,7 @@
 		<MENU_DESC>Shipping Schedule Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_SHIPPINGR   </TABLE_ID>
@@ -1502,6 +1508,7 @@
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPT_INVHDR      </TABLE_ID>
+		<MENU_PROG>opt_ta.aon</MENU_PROG>
 		<HELP_TAG>Invoice_History_Inquiry1</HELP_TAG>
 		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
@@ -1636,10 +1643,11 @@
 		<MENU_DESC>Invoice Entry</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPE_INVHDR      </TABLE_ID>
+		<MENU_PROG>ope_ca.aon</MENU_PROG>
 		<HELP_TAG>Invoice_Entry1</HELP_TAG>
 		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
@@ -1664,7 +1672,7 @@
 		<MENU_DESC>Invoice Printing</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_INVOICE     </TABLE_ID>
@@ -1692,7 +1700,7 @@
 		<MENU_DESC>Sales Tax Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_SALESTAX    </TABLE_ID>
@@ -1747,10 +1755,11 @@
 		<MENU_DESC>Commit and Release Future Orders</MENU_DESC>
 		<IMAGE>im_menui_update.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPU_COMMREL     </TABLE_ID>
+		<MENU_PROG>opu_ea.aon</MENU_PROG>
 		<HELP_TAG>Commit_and_Release_Future_Orders</HELP_TAG>
 		<MULT_PROC>Y</MULT_PROC>
 		<NO_BUI> </NO_BUI>
@@ -1830,7 +1839,7 @@
 		<MENU_DESC>Order Status Report By Customer</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_CUSTSTATUS  </TABLE_ID>
@@ -1913,7 +1922,7 @@
 		<MENU_DESC>Contract Pricing</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>IVM_ITEMPRIC    </TABLE_ID>
@@ -2022,7 +2031,7 @@
 		<MENU_DESC>Line Codes</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPC_LINECODE    </TABLE_ID>
@@ -2188,7 +2197,7 @@
 		<MENU_DESC>Open Order Detail Report</MENU_DESC>
 		<IMAGE>im_menui_report.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>OPR_OPNORDDETAIL</TABLE_ID>
@@ -2212,11 +2221,38 @@
 	</barista_record>
 	<barista_record>
 		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
+		<MENUITEM_ID>fab46d62-ac86-4715-8fbe-ecdfa0c10e73</MENUITEM_ID>
+		<MENU_DESC>Quote Conversion Report</MENU_DESC>
+		<IMAGE>im_menui_report.png</IMAGE>
+		<NO_SHOW> </NO_SHOW>
+		<EXPAND> </EXPAND>
+		<NO_ACTION> </NO_ACTION>
+		<OPT_TYPE>T</OPT_TYPE>
+		<TABLE_ID>OPR_QUOTECONV   </TABLE_ID>
+		<MULT_PROC>Y</MULT_PROC>
+		<NO_BUI> </NO_BUI>
+		<NO_SDI> </NO_SDI>
+		<NO_MDI> </NO_MDI>
+		<OPT_ID>OPR_QUOTECONV       </OPT_ID>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>OP </ASC_PROD_ID>
+		<ASC_VERSION_ID>27.0</ASC_VERSION_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+		<INDENTS>2</INDENTS>
+		<EXPANDABLE>N</EXPANDABLE>
+		<PREV_ITEM_ID>5f4f00d5-a2e3-4f34-8dd4-2b9af47a1009</PREV_ITEM_ID>
+		<NEXT_ITEM_ID>8eabcf32-792c-4574-be59-200f41267958</NEXT_ITEM_ID>
+		<INTERNAL>0</INTERNAL>
+		<EXTERNAL>0</EXTERNAL>
+		<PARTNER>0</PARTNER>
+	</barista_record>
+	<barista_record>
+		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
 		<MENUITEM_ID>ffbaf07f-b61d-4d6d-8bab-a810ff7af08e</MENUITEM_ID>
 		<MENU_DESC>Territory Codes</MENU_DESC>
 		<IMAGE>im_menui_table.png</IMAGE>
 		<NO_SHOW> </NO_SHOW>
-		<EXPAND> </EXPAND>
+		<EXPAND>N</EXPAND>
 		<NO_ACTION> </NO_ACTION>
 		<OPT_TYPE>T</OPT_TYPE>
 		<TABLE_ID>ARC_TERRCODE    </TABLE_ID>

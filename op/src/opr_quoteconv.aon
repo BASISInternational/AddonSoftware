@@ -1,0 +1,239 @@
+rem --- Quote Conversion Report
+rem --- Program opr_quoteconv.aon
+
+rem --- AddonSoftware Version 27.00 - 01Jan2027
+rem --- Copyright BASIS International Ltd.  All Rights Reserved.
+rem --- All Rights Reserved
+
+	use ::ado_func.src::func
+
+    seterr std_error
+    setesc std_error
+
+rem --- Document initializations
+
+    OutVect!=bbjAPI().makeVector()
+    HdrVect!=bbjAPI().makeVector()
+    BrkVect!=bbjAPI().makeVector()
+    TotVect!=bbjAPI().makeVector()
+    
+    rep_date$=date(0:"%Mz/%Dz/%Yd")
+    rep_date_stamp$=date(0:"%Yd%Mz%Dz")
+    rep_time$=date(0:"%hz:%mz %p")
+    rep_time_stamp$=date(0:"%Hz%mz%sz")
+    rep_prog$=pgm(-2)
+
+rem --- Retrieve the program path
+
+    pgmdir$=stbl("+DIR_PGM",err=*next)
+
+rem --- Retrieve sysinfo data
+
+    sysinfo_template$=stbl("+SYSINFO_TPL",err=*next)
+    dim sysinfo$:sysinfo_template$
+    sysinfo$=stbl("+SYSINFO",err=*next)
+    firm_id$=sysinfo.firm_id$
+
+    milestone=50
+    milestone=num(stbl("+MILESTONE",err=*next))
+
+rem --- Open/Lock files
+
+    files=2,begfile=1,endfile=files
+    dim files$[files],options$[files],ids$[files],templates$[files],channels[files]
+    files$[1]="opt-01",ids$[1]="OPT_ORDHDR"
+    files$[2]="arm-01",ids$[2]="ARM_CUSTMAST"
+    call pgmdir$+"adc_fileopen.aon",action,begfile,endfile,files$[all],options$[all],
+:       ids$[all],templates$[all],channels[all],batch,status
+    if status then goto std_exit
+
+    optOrdHdr_dev=channels[1]
+    armCustMast_dev=channels[2]
+
+rem --- Dimension string templates
+
+    dim optOrdHdr$:templates$[1],armCustMast$:templates$[2]
+    
+rem --- Assign form input values to local variables
+
+    beg_date$=option!.getOptionData("quote_date_1")
+    end_date$=option!.getOptionData("quote_date_2")
+
+rem --- Initializations
+
+    headings=3
+    dim headings$[headings]
+    headings$[0]=sysinfo.firm_name$
+    headings$[1]=sysinfo.task_desc$
+
+    x1$="First Quote Date"
+    x2$="Last Quote Date"
+    if beg_date$<>"" x1$=fndate$(beg_date$)
+    if end_date$<>"" x2$=fndate$(end_date$)
+    headings$[2]=Translate!.getTranslation("AON_FROM_")+x1$+Translate!.getTranslation("AON__THROUGH_")+x2$
+
+    call stbl("+DIR_PGM")+"adc_getmask.aon","","AR","A","",m1$,0,m1
+
+    l9=59
+    l=l9+1
+    h0=132
+    h=0
+    recs=0
+    clock$=""
+    when$=sysinfo.system_date$
+
+    columns = 11
+    dim columns$[columns,10]
+    columns$[0,0]="Order No",        columns$[0,1]="C",columns$[0,2]="10"
+    columns$[1,0]="Cust ID",         columns$[1,1]="C",columns$[1,2]="8" 
+    columns$[2,0]="Customer",        columns$[2,1]="C",columns$[2,2]="20"
+    columns$[3,0]="Quote^Date",      columns$[3,1]="C",columns$[3,2]="8"
+    columns$[4,0]="Expire^Date",     columns$[4,1]="C",columns$[4,2]="8"
+    columns$[5,0]="Order^Date",      columns$[5,1]="C",columns$[5,2]="8"
+    columns$[6,0]="Days To^Convert", columns$[6,1]="C",columns$[6,2]="8"
+    columns$[7,0]="Sales Amt",       columns$[7,1]="N",columns$[7,2]="15",columns$[7,3]=m1$
+    columns$[8,0]="Discount Amt",    columns$[8,1]="N",columns$[8,2]="12",columns$[8,3]=m1$
+    columns$[9,0]="Tax Amt",         columns$[9,1]="N",columns$[9,2]="12",columns$[9,3]=m1$
+    columns$[10,0]="Freight Amt",    columns$[10,1]="N",columns$[10,2]="12",columns$[10,3]=m1$
+    columns$[11,0]="Net Order Amt",  columns$[11,1]="N",columns$[11,2]="15",columns$[11,3]=m1$
+
+    call stbl("+DIR_PGM",err=*next)+"adc_docout_adj.aon",columns$[all]
+
+rem --- Run report overlay
+
+    call pgmdir$+"adc_progress.aon","N","OPT_ORDHDR","","","",0,optOrdHdr_dev,1,meter_num,status
+    if status = 999 then goto std_exit
+
+    if beg_date$="" then
+        trip_date$="19000101"
+    else
+        trip_date$=beg_date$
+    endif
+    read (optOrdHdr_dev,key=firm_id$+"  "+trip_date$,knum="AO_QUOTEDAT_CUST",dom=*next)
+    while 1
+        optOrdHdr_key$=key(optOrdHdr_dev,end=*break)
+        if pos(firm_id$+"  "=optOrdHdr_key$)<>1 then break
+        readrecord(optOrdHdr_dev)optOrdHdr$
+        if end_date$<>"" and optOrdHdr.quote_date$>end_date$ then break
+        
+        total_recs=total_recs+1
+        if mod(total_recs,milestone)=0 then call stbl("+DIR_PGM")+"adc_progress.aon","S","","","","",0,0,milestone,meter_num,status
+        if status = 999 then goto std_exit
+        
+        armCustMast.customer_name$="?????"
+        readrecord(armCustMast_dev,key=firm_id$+optOrdHdr.customer_id$,dom=*next)armCustMast$
+
+        days$=func.daysBetweenDates(optOrdHdr.quote_date$,optOrdHdr.order_date$)
+
+        net_amt=optOrdHdr.total_sales-optOrdHdr.discount_amt+optOrdHdr.tax_amount+optOrdHdr.freight_amt
+
+        OutVect!.addItem(optOrdHdr.order_no$)
+        OutVect!.addItem(optOrdHdr.customer_id$)
+        OutVect!.addItem(armCustMast.customer_name$)
+        OutVect!.addItem(fndate$(optOrdHdr.quote_date$))
+        if cvs(optOrdHdr.expire_date$,2)="" then
+            OutVect!.addItem("")
+        else
+            OutVect!.addItem(fndate$(optOrdHdr.expire_date$))
+        endif
+        OutVect!.addItem(fndate$(optOrdHdr.order_date$))
+        OutVect!.addItem(days$)
+        OutVect!.addItem(str(optOrdHdr.total_sales:m1$))
+        OutVect!.addItem(str(optOrdHdr.discount_amt:m1$))
+        OutVect!.addItem(str(optOrdHdr.tax_amount:m1$))
+        OutVect!.addItem(str(optOrdHdr.freight_amt:m1$))
+        OutVect!.addItem(str(net_amt:m1$))
+        
+        recs=recs+1
+    wend
+
+rem --- End
+
+    if recs=0
+        msg_id$="DOC_OUTPUT_NODATA"
+        gosub disp_message
+        goto std_exit_no_report
+    endif
+
+    goto std_exit
+
+rem --- Date/time handling functions
+rem #include fndate.src
+
+    def fndate$(q$)
+        q1$=""
+        q1$=date(jul(num(q$(1,4)),num(q$(5,2)),num(q$(7,2)),err=*next),err=*next)
+        if q1$="" q1$=q$
+        return q1$
+    fnend
+
+rem #endinclude fndate.src
+
+rem --- fnBlank : Create blank cells in OutVect!. No return value
+
+    def fnblank(q0)
+        for q1=1 to q0
+            OutVect!.addItem("")
+        next q1
+        return q1
+    fnend
+
+
+rem #include disp_message.src
+
+disp_message: rem --- Display Message Dialog
+
+    call stbl("+DIR_SYP")+"bac_message.bbj",msg_id$,msg_tokens$[all],msg_opt$,table_chans$[all]
+    return
+
+rem #include std_error.src
+
+std_error: rem --- Standard error handler (11Oct2017)
+
+    if tcb(19)>0
+        rem --- Escape handler
+        if and(chr(tcb(19)),$08$)=$08$
+            release
+        else
+            setesc std_error
+            return
+        endif
+    endif
+
+    if err=0   
+        rem --- Get tcb(12) and tcb(10) to send into bac_error
+        lock_byte=tcb(10)
+        lock_chan=tcb(12)  
+    endif
+
+    rd_err_text$="",err_num=err
+    if tcb(2)=0 and tcb(5) then rd_err_text$=pgm(tcb(5),tcb(13),err=*next)
+    if err_num=252 then
+        E!=BBjAPI().getLastBBjException()
+        rd_err_text$=rd_err_text$+$0A$+E!.getClass().getName()
+        if E!.getMessage()<>null() then rd_err_text$=rd_err_text$+": "+E!.getMessage()
+    endif
+    call stbl("+DIR_SYP")+"bac_error.bbj",pgm(-2),str(tcb(5)),str(err_num),rd_err_text$,rd_err_act$,lock_byte,lock_chan
+    if pos("ESCAPE"=rd_err_act$) seterr 0; setesc 0
+    if pos("RETRY"=rd_err_act$) retry
+    if pgm(-1)<>pgm(-2) status=999; exit 
+    release
+
+rem --- #endinclude std_error.src
+
+rem --- #include std_end.src
+
+std_exit: rem --- Standard program end (01Mar2006)
+    call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,meter_num,status
+    run stbl("+DIR_SYP")+"bas_process_end.bbj",err=*next
+    release
+
+rem --- #endinclude std_end.src
+
+std_exit_no_report: 
+
+    call pgmdir$+"adc_progress.aon","D","","","","",0,0,0,0,status    
+    OutVect!=null()
+    goto std_exit
+
+    end
