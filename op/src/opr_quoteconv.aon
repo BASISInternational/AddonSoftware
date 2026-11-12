@@ -115,6 +115,7 @@ rem --- Run report overlay
         if pos(firm_id$+"  "=optOrdHdr_key$)<>1 then break
         readrecord(optOrdHdr_dev)optOrdHdr$
         if end_date$<>"" and optOrdHdr.quote_date$>end_date$ then break
+        if optOrdHdr.invoice_type$="P" then continue
         
         total_recs=total_recs+1
         if mod(total_recs,milestone)=0 then call stbl("+DIR_PGM")+"adc_progress.aon","S","","","","",0,0,milestone,meter_num,status
