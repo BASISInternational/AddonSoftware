@@ -10,11 +10,11 @@ read (adm_proctables_dev,key=firm_id$+process_id$,dom=*next)
 keys_used=0
 file_count=0
 
-if callpoint!.getColumnData("ADM_PROCMASTER.ALLOW_BATCH")="Y" then
 	sql_chan=callpoint!.getDevObject("sql_chan")
 	while 1
+		adm_proctables_key$=key(adm_proctables_dev,end=*break)
+		if pos(firm_id$+process_id$=adm_proctables_key$)<>1 then break
 		read record (adm_proctables_dev,end=*break)adm_proctables$
-		if pos(firm_id$+process_id$=adm_proctables$)<>1 then break
 		if pos("GLW_DAILYDETAIL"=adm_proctables.dd_table_alias$) then continue
 		file_count=file_count+1
 		num_files=1
@@ -32,6 +32,9 @@ if callpoint!.getColumnData("ADM_PROCMASTER.ALLOW_BATCH")="Y" then
 					sql_prep$=sql_prep$+"SELECT count(*) "
 					sql_prep$=sql_prep$+"FROM "+adm_proctables.dd_table_alias$+" "
 					sql_prep$=sql_prep$+"WHERE firm_id='"+firm_id$+"' and trans_status in ('E','R')"
+					if cvs(adm_proctables.dd_table_alias$,2)="OPE_INVHDR" then
+						sql_prep$=sql_prep$ + " and ordinv_flag='I' and invoice_type<>'V'"
+					endif
 					sqlprep(sql_chan)sql_prep$
 					sqlexec(sql_chan)
 					read_tpl$=sqlfetch(sql_chan) 
@@ -49,11 +52,14 @@ if callpoint!.getColumnData("ADM_PROCMASTER.ALLOW_BATCH")="Y" then
 
 		if keys_used then break
 	wend
-endif
 
 callpoint!.setDevObject("warned_cannot_batch",0)
 callpoint!.setDevObject("file_count",file_count)
 callpoint!.setDevObject("keys_used",keys_used)
+
+print"file_count=",file_count
+print"keys_used=",keys_used
+
 if file_count>0 and keys_used=0
 	callpoint!.setColumnEnabled("ADM_PROCMASTER.BATCH_ENTRY",1)
 else
