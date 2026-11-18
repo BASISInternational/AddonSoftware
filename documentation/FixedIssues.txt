@@ -1,9 +1,32 @@
 =======================================================================================================================================
- Report Date:   2026-11-03
+ Report Date:   2026-11-18
  Report Branch: AddonSoftware 26.10
  Last Release:  AddonSoftware 26.03
 =======================================================================================================================================
 
 26.03 released 11/02/2026
 BBjBaristaAddonDemos2603_10-30-2026_1639.jar
+=======================================================================================================================================
+
+Revision: d429a14cc71ef806aa9f40ed406d0a449074486c
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 11/17/2026 1:20:41 PM
+Message:
+Bug 11343: Adjusted the logic for enabling/disabling the "Batched
+Process?" checkbox on the Process Maintenance form.
+----
+Modified: data/adm-39
+Modified: data/bar/adm_procmaster.xml
+Modified: data/cdf/adm_procmaster.cdf
+=======================================================================================================================================
+
+Revision: 5cf2d2d5801f7eb9905b7163693133cc2abe1f63
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 11/18/2026 9:24:12 AM
+Message:
+Bug 11343: Made another adjustment to the logic for enabling/disabling
+the "Batched Process?" checkbox on the Process Maintenance form.
+----
+Modified: data/bar/adm_procmaster.xml
+Modified: data/cdf/adm_procmaster.cdf
 =======================================================================================================================================
