@@ -30,3 +30,19 @@ the "Batched Process?" checkbox on the Process Maintenance form.
 Modified: data/bar/adm_procmaster.xml
 Modified: data/cdf/adm_procmaster.cdf
 =======================================================================================================================================
+
+Revision: c13fabde158dd4d1e3a286be3aee6cbe0be333c9
+Author: Bill Halsted <bhalsted@basis.cloud>
+Date: 11/18/2026 10:45:48 AM
+Message:
+Bug 11344: Added missing hidden menu item for POE_NEWVENDOR that is
+needed to allow users to copy POs and PO Requisitions.
+----
+Modified: data/bar/poe_pohdr.xml
+Modified: data/bar/poe_reqhdr.xml
+Modified: data/cdf/poe_pohdr.cdf
+Modified: data/cdf/poe_reqhdr.cdf
+Modified: data/sync/adm_mnu_item~[01007514PO].xml
+Modified: data/sync/adm_mnu_trans~[01007514PO].xml
+Modified: data/sync/adm_rolealias~[all].xml
+=======================================================================================================================================
