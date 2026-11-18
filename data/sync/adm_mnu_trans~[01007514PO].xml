@@ -3,6 +3,16 @@
 <barista_admin_records>
 	<barista_record>
 		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
+		<MENUITEM_ID>0d46378c-3c3e-4ecf-804a-d2660b737603</MENUITEM_ID>
+		<LANG_ID>ENU</LANG_ID>
+		<NO_SHOW>Y</NO_SHOW>
+		<MENU_DESC>New Vendor For This Copy</MENU_DESC>
+		<ASC_COMP_ID>01007514</ASC_COMP_ID>
+		<ASC_PROD_ID>PO </ASC_PROD_ID>
+		<USER_MODIFIED> </USER_MODIFIED>
+	</barista_record>
+	<barista_record>
+		<MOUNT_SYS_ID>ADDON           </MOUNT_SYS_ID>
 		<MENUITEM_ID>19495f38-0227-4dba-bf1b-1d8b17bd9183</MENUITEM_ID>
 		<LANG_ID>DEU</LANG_ID>
 		<NO_SHOW> </NO_SHOW>

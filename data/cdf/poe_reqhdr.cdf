@@ -25,8 +25,8 @@ gosub enable_dropship_fields
 [[POE_REQHDR.AOPT-COPY]]
 rem --- Get vendor to copy this Requisition to
 	call stbl("+DIR_SYP")+"bam_run_prog.bbj", "POE_NEWVENDOR", stbl("+USER_ID"), "MNT", "", table_chans$[all]
-	new_vendor$=cvs(callpoint!.getDevObject("new_vendor"),2)
-	new_purchAddr$=cvs(callpoint!.getDevObject("new_purchAddr"),2)
+	new_vendor$=cvs(callpoint!.getDevObject("new_vendor"),2,err=*next)
+	new_purchAddr$=cvs(callpoint!.getDevObject("new_purchAddr"),2,err=*next)
 
 rem --- Make sure focus returns to this form
 	callpoint!.setStatus("ACTIVATE")
