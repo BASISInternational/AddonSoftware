@@ -14,7 +14,7 @@ rem --- Don't allow running the utility if not launched from Addon demo system u
 
 	demoDir!=new java.io.File(System.getProperty("basis.BBjHome")+"/apps/aon")
 	demoDir$=demoDir!.getCanonicalPath()
- 	
+
 	if aonDir$<>demoDir$ then
 		msg_id$="AD_MUST_BE_DEMO_SYS"
 		dim msg_tokens$[1]
@@ -265,10 +265,12 @@ validate_release_tag:
 		dim msg_tokens$[1]
 		msg_tokens$[1]=str(num(tagVersion$)/100:"00.00")
 		gosub disp_message
-		bbjAPI!=bbjAPI()
-		rdFuncSpace!=bbjAPI!.getGroupNamespace()
-		rdFuncSpace!.setValue("+build_task","OFF")
-		release
+		if msg_opt$="C" then
+			bbjAPI!=bbjAPI()
+			rdFuncSpace!=bbjAPI!.getGroupNamespace()
+			rdFuncSpace!.setValue("+build_task","OFF")
+			release
+		endif
 	endif
 	return 
 
