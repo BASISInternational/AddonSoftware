@@ -748,7 +748,9 @@ validate_release_tag:
 		dim msg_tokens$[1]
 		msg_tokens$[1]=str(num(tagVersion$)/100:"00.00")
 		gosub disp_message
-		callpoint!.setStatus("EXIT")
+		if msg_opt$="C" then
+			callpoint!.setStatus("EXIT")
+		endif
 	endif
 	return 
 
