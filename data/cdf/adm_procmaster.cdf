@@ -10,6 +10,7 @@ read (adm_proctables_dev,key=firm_id$+process_id$,dom=*next)
 keys_used=0
 file_count=0
 
+if callpoint!.getColumnData("ADM_PROCMASTER.BATCH_ENTRY")<>"Y" then
 	sql_chan=callpoint!.getDevObject("sql_chan")
 	while 1
 		adm_proctables_key$=key(adm_proctables_dev,end=*break)
@@ -52,6 +53,7 @@ file_count=0
 
 		if keys_used then break
 	wend
+endif
 
 callpoint!.setDevObject("warned_cannot_batch",0)
 callpoint!.setDevObject("file_count",file_count)
@@ -60,7 +62,7 @@ callpoint!.setDevObject("keys_used",keys_used)
 print"file_count=",file_count
 print"keys_used=",keys_used
 
-if file_count>0 and keys_used=0
+if (file_count>0 and keys_used=0) or callpoint!.getColumnData("ADM_PROCMASTER.BATCH_ENTRY")="Y" then
 	callpoint!.setColumnEnabled("ADM_PROCMASTER.BATCH_ENTRY",1)
 else
 	callpoint!.setColumnEnabled("ADM_PROCMASTER.BATCH_ENTRY",0)
