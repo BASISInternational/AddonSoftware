@@ -401,6 +401,13 @@ rem --- Have ship-to or bill-to address changed?
 rem --- Show static Order Type label for this Order
 	gosub orderType_display
 
+rem --- Enable/disable expire_date
+	if callpoint!.getColumnData("OPE_ORDHDR.INVOICE_TYPE")="P" then
+		callpoint!.setColumnEnabled("OPE_ORDHDR.EXPIRE_DATE", 1)
+	else
+		callpoint!.setColumnEnabled("OPE_ORDHDR.EXPIRE_DATE", 0)
+	endif
+
 [[OPE_ORDHDR.AFMC]]
 rem --- Inits
 

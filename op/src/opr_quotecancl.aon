@@ -124,8 +124,6 @@ rem --- Run report overlay
         armCustMast.customer_name$="?????"
         readrecord(armCustMast_dev,key=firm_id$+optOrdHdr.customer_id$,dom=*next)armCustMast$
 
-        days$=func.daysBetweenDates(optOrdHdr.quote_date$,optOrdHdr.order_date$)
-
         net_amt=optOrdHdr.total_sales-optOrdHdr.discount_amt+optOrdHdr.tax_amount+optOrdHdr.freight_amt
 
         OutVect!.addItem(optOrdHdr.order_no$)
