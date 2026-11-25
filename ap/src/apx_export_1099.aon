@@ -111,7 +111,13 @@ rem --- Get list of 1099 Forms this company is using
         iter!=formTypes!.keySet().iterator()
         while iter!.hasNext()
             typeKey$=iter!.next()
-            if pos(typeKey$=apm02a.irs1099_type_box$) then
+            form_match=pos(typeKey$=apm02a.irs1099_type_box$)
+            rem --- Excess golden parachute payments (MISC11) go on Form 1099-NEC box 3 starting with 2026
+            if cvs(apm02a.irs1099_type_box$,2)="MISC11" then
+                form_match=0
+                if typeKey$="NEC" then form_match=1
+            endif
+            if form_match then
                 typeBoxes$=formTypes!.getProperty(typeKey$)
                 type_box$=apm02a.irs1099_type_box$
                 if pos(type_box$+";"=typeBoxes$)=0 then
@@ -285,9 +291,9 @@ rem --- Accumulate payments
     
 rem --- Assign export variables
             if boxAmts!.size()=0 then continue;rem nothing for any of the box types on this form
-            iter!=boxAmts!.keySet().iterator()
-            while iter!.hasNext()
-                type_box$=iter!.next()
+            boxIter!=boxAmts!.keySet().iterator()
+            while boxIter!.hasNext()
+                type_box$=boxIter!.next()
 
                 if type_box$="DIV1" then ordinary_dividends=boxAmts!.get(type_box$)
                 if type_box$="DIV2" then qualified_dividends=boxAmts!.get(type_box$)
@@ -335,7 +341,7 @@ address: rem --- Address
     
 rem --- Write record. Loop up for next Vendor
     
-            rec$=rec$+$22$+name_line_1$+$22$
+            rec$=$22$+name_line_1$+$22$
             rec$=rec$+","+$22$+name_line_2$+$22$
             rec$=rec$+","+$22$+street_addr1$+$22$
             rec$=rec$+","+$22$+street_addr2$+$22$
@@ -401,12 +407,20 @@ rem --- Write record. Loop up for next Vendor
                 rec$=rec$+","+str(gross_paid_to_attorney)
                 rec$=rec$+","+str(fish_purchased_for_resale)
                 rec$=rec$+","+str(section_409_deferrals)
-                rec$=rec$+","+str(golden_parachute_payments)   
+                rec$=rec$+","+str(cash_tips)
+                rec$=rec$+","+str(tip_occupation1$)
+                rec$=rec$+","+str(tip_occupation2$)
+                rec$=rec$+","+str(overtime)
                 rec$=rec$+","+str(nonqualified_deferred_compensation)
             endif       
             if formkey$="NEC" then
                 rec$=rec$+","+str(nonemployee_compensation)
+                rec$=rec$+","+str(cash_tips)
+                rec$=rec$+","+str(tip_occupation1$)
+                rec$=rec$+","+str(tip_occupation2$)
+                rec$=rec$+","+str(overtime)
                 rec$=rec$+","+$22$+direct_sales_indicator$+$22$
+                rec$=rec$+","+str(golden_parachute_payments)   
                 rec$=rec$+","+str(fed_income_tax_withheld)
             endif
             rec$=rec$+","+$22$+state1$+$22$
@@ -561,6 +575,10 @@ init_1099: rem --- Init variables for 1099 text file
     do_not_print_indicator$=""
     email_address$=""
     idms$=""
+    cash_tips=0
+    tip_occupation1$=""
+    tip_occupation2$=""
+    overtime=0
     rec$=""
 return
 
